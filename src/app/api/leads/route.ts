@@ -10,7 +10,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
   }
 
-  const result = await captureLead(body);
+  let result;
+  try {
+    result = await captureLead(body);
+  } catch (err) {
+    console.error("Lead capture failed:", err);
+    return NextResponse.json(
+      { error: "Database unavailable" },
+      { status: 503 }
+    );
+  }
   if (!result.ok) {
     return NextResponse.json({ error: result.error }, { status: result.status });
   }
