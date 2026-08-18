@@ -48,6 +48,26 @@ export interface IProject extends Document {
   locationAdvantages: string[];
   whyInvest: string[];
   description?: string;
+  phases?: {
+    name: string;
+    status?: string;
+    description?: string;
+    details?: { label: string; value: string }[];
+    highlights?: string[];
+    photos?: string[];
+    videos?: string[];
+    masterPlanUrl?: string;
+    layoutUrl?: string;
+    layoutPdfUrl?: string;
+    brochureUrl?: string;
+    documents?: { name: string; url: string; type?: string; description?: string }[];
+  }[];
+  documents?: { name: string; url: string; type?: string; description?: string }[];
+  updates?: { title: string; description?: string; status: "completed" | "in-progress" | "planned" }[];
+  layoutUrl?: string;
+  locationUrl?: string;
+  gallery?: { src: string; title?: string; category?: string }[];
+  developmentUpdates?: { date?: string; title: string; description?: string; images?: string[] }[];
   sortOrder: number;
   createdAt: Date;
   updatedAt: Date;
@@ -102,6 +122,28 @@ const ProjectSchema = new Schema<IProject>(
     locationAdvantages: [{ type: String }],
     whyInvest: [{ type: String }],
     description: String,
+    phases: [
+      {
+        name: String,
+        status: String,
+        description: String,
+        details: [{ label: String, value: String }],
+        highlights: [{ type: String }],
+        photos: [{ type: String }],
+        videos: [{ type: String }],
+        masterPlanUrl: String,
+        layoutUrl: String,
+        layoutPdfUrl: String,
+        brochureUrl: String,
+        documents: [{ name: String, url: String, type: { type: String }, description: String }],
+      },
+    ],
+    documents: [{ name: String, url: String, type: { type: String }, description: String }],
+    updates: [{ title: String, description: String, status: String }],
+    layoutUrl: String,
+    locationUrl: String,
+    gallery: [{ src: String, title: String, category: String }],
+    developmentUpdates: [{ date: String, title: String, description: String, images: [String] }],
     sortOrder: { type: Number, default: 0 },
   },
   { timestamps: true }

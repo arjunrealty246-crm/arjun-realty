@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Building2, Shield, Ruler, TrendingUp, ArrowRight } from "lucide-react";
+import { Building2, Shield, Ruler, TrendingUp, ArrowRight, Layers } from "lucide-react";
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
@@ -26,53 +26,106 @@ export default function FeaturedBuilders() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-5xl mx-auto">
           {builders.map((builder, i) => {
             const Icon = builderIcons[i % builderIcons.length];
             return (
-              <ScrollReveal key={builder.id} delay={i * 0.08}>
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  className="glass-card rounded-[1.25rem] p-7 sm:p-8 group relative overflow-hidden h-full flex flex-col"
+              <ScrollReveal key={builder.id} delay={i * 0.08} className="h-full">
+                <Link
+                  href={builder.slug === "jb-infra" ? "/jb-infra" : `/builders/${builder.slug}`}
+                  className="block h-full"
                 >
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[1.25rem]" />
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    className="glass-card rounded-[1.25rem] p-7 sm:p-8 group relative overflow-hidden h-full flex flex-col"
+                  >
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[1.25rem]" />
 
-                  <div className="relative z-10 flex flex-col h-full">
-                    <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:glow-primary transition-all duration-500">
-                      <Icon className="h-5 w-5 text-primary" />
-                    </div>
+                    <div className="relative z-10 flex flex-col h-full">
+                      <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:glow-primary transition-all duration-500">
+                        <Icon className="h-5 w-5 text-primary" />
+                      </div>
 
-                    <h3 className="text-[16px] font-bold text-white mb-2 tracking-[-0.01em]">
-                      {builder.name}
-                    </h3>
+                      <h3 className="text-[16px] font-bold text-white mb-2 tracking-[-0.01em]">
+                        {builder.name}
+                      </h3>
 
-                    <p className="text-[12px] text-white/30 leading-relaxed mb-4 flex-1">
-                      {builder.description}
-                    </p>
+                      <p className="text-[12px] text-white/30 leading-relaxed mb-4 flex-1">
+                        {builder.description}
+                      </p>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {builder.highlights?.map((h) => (
-                        <span key={h} className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/[0.06] text-[9px] text-primary/60 font-medium uppercase tracking-wider">
-                          {h}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {builder.highlights?.map((h) => (
+                          <span key={h} className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/[0.06] text-[9px] text-primary/60 font-medium uppercase tracking-wider">
+                            {h}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex items-center gap-3 pt-4 border-t border-white/[0.04] mt-auto">
+                        <span className="flex items-center gap-1.5 text-[11px] text-white/40">
+                          <Building2 className="h-3 w-3 text-primary/50" />
+                          {builder.projectCount} Projects
                         </span>
-                      ))}
+                        {builder.established && (
+                          <span className="text-[11px] text-white/20">Est. {builder.established}</span>
+                        )}
+                      </div>
                     </div>
-
-                    <div className="flex items-center gap-3 pt-4 border-t border-white/[0.04] mt-auto">
-                      <span className="flex items-center gap-1.5 text-[11px] text-white/40">
-                        <Building2 className="h-3 w-3 text-primary/50" />
-                        {builder.projectCount} Projects
-                      </span>
-                      {builder.established && (
-                        <span className="text-[11px] text-white/20">Est. {builder.established}</span>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
               </ScrollReveal>
             );
           })}
+
+          {/* AR — curated real estate opportunities */}
+          <ScrollReveal key="arjun-realty" delay={0.08} className="h-full">
+            <Link href="/arjun-realty" className="block h-full">
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="glass-card rounded-[1.25rem] p-7 sm:p-8 group relative overflow-hidden h-full flex flex-col"
+              >
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[1.25rem]" />
+
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:glow-primary transition-all duration-500">
+                    <Layers className="h-5 w-5 text-primary" />
+                  </div>
+
+                  <h3 className="text-[16px] font-bold text-white tracking-[-0.01em]">
+                    AR
+                  </h3>
+                  <p className="text-[10px] uppercase tracking-[0.18em] text-primary/50 font-medium mt-1 mb-2">
+                    Curated Real Estate Opportunities
+                  </p>
+
+                  <p className="text-[12px] text-white/30 leading-relaxed mb-4 flex-1">
+                    Selected residential opportunities in high-growth locations.
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {["Shankarpally Focus", "Current + Upcoming"].map((h) => (
+                      <span key={h} className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/[0.06] text-[9px] text-primary/60 font-medium uppercase tracking-wider">
+                        {h}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-white/[0.04] mt-auto">
+                    <span className="flex items-center gap-1.5 text-[11px] text-white/40">
+                      <Building2 className="h-3 w-3 text-primary/50" />
+                      2 Featured Opportunities
+                    </span>
+                    <span className="flex items-center gap-1 text-[11px] text-primary/60 font-semibold group-hover:text-primary transition-colors duration-300">
+                      Explore Opportunities <ArrowRight className="h-3 w-3" />
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            </Link>
+          </ScrollReveal>
         </div>
 
         {/* CTA */}

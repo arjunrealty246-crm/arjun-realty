@@ -12,6 +12,8 @@ export default function AdminBrochuresPage() {
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState<Item | null>(null);
   const [form, setForm] = useState({ title: "", file: "", project: "", type: "brochure" });
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
 
   const fetchItems = async () => {
     const res = await fetch("/api/brochures");
@@ -27,10 +29,41 @@ export default function AdminBrochuresPage() {
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    const fd = new FormData(); fd.append("file", file); fd.append("folder", "uploads/brochures");
-    const res = await fetch("/api/upload", { method: "POST", body: fd });
-    const data = await res.json();
-    if (data.url) setForm({ ...form, file: data.url });
+    setUploading(true);
+    setUploadError("");
+    try {
+      const maxSize = 10 * 1024 * 1024;
+      if (file.size > maxSize) {
+        throw new Error(`PDF too large (${(file.size / 1024 / 1024).toFixed(1)} MB). Maximum on Cloudinary Free plan is 10 MB.`);
+      }
+
+      const signRes = await fetch("/api/upload/cloudinary-sign", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ filename: file.name, folder: "uploads/brochures" }),
+      });
+      const signData = await signRes.json();
+      if (!signRes.ok) throw new Error(signData.error || "Failed to get upload signature");
+
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("api_key", signData.api_key);
+      formData.append("timestamp", String(signData.timestamp));
+      formData.append("signature", signData.signature);
+      formData.append("folder", signData.folder);
+      formData.append("public_id", signData.public_id);
+
+      const uploadUrl = `https://api.cloudinary.com/v1_1/${signData.cloud_name}/raw/upload`;
+      const uploadRes = await fetch(uploadUrl, { method: "POST", body: formData });
+      const uploadData = await uploadRes.json();
+      if (!uploadRes.ok) throw new Error(uploadData.error?.message || "Upload failed");
+
+      if (uploadData.secure_url) setForm({ ...form, file: uploadData.secure_url });
+    } catch (err) {
+      setUploadError(err instanceof Error ? err.message : "Upload failed");
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleSave = async () => {
@@ -111,9 +144,16 @@ export default function AdminBrochuresPage() {
                 <input type="text" value={form.file} onChange={(e) => setForm({ ...form, file: e.target.value })}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white font-mono text-xs focus:outline-none focus:border-primary/30" />
                 <label className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-xs font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all">
-                  <Upload className="h-3.5 w-3.5" /> Upload PDF
-                  <input type="file" accept=".pdf" onChange={handleUpload} className="hidden" />
+                  {uploading ? (
+                    <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                  ) : (
+                    <Upload className="h-3.5 w-3.5" />
+                  )} {uploading ? "Uploading..." : "Upload PDF"}
+                  <input type="file" accept=".pdf" onChange={handleUpload} className="hidden" disabled={uploading} />
                 </label>
+                {uploadError && (
+                  <p className="mt-2 text-xs text-red-400">{uploadError}</p>
+                )}
               </div>
             </div>
             <div className="flex gap-3 mt-6">

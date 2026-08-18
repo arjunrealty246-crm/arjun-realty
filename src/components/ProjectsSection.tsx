@@ -165,15 +165,23 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
                   <Download className="h-3 w-3" /> Brochure
                 </a>
               )}
-              <a
-                href={project.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/70 hover:bg-white/[0.07] hover:border-primary/15 hover:text-primary transition-all duration-300"
-              >
-                <ExternalLink className="h-3 w-3" /> Map
-              </a>
+              {project.mapsUrl ? (
+                <a
+                  href={project.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/70 hover:bg-white/[0.07] hover:border-primary/15 hover:text-primary transition-all duration-300"
+                >
+                  <ExternalLink className="h-3 w-3" /> Map
+                </a>
+              ) : (
+                <span
+                  className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/40"
+                >
+                  <MapPin className="h-3 w-3" /> Map Coming Soon
+                </span>
+              )}
             </div>
             <div className="grid grid-cols-2 gap-2">
               <a

@@ -6,7 +6,6 @@ import {
   MapPin,
   ArrowRight,
   Shield,
-  Download,
   CalendarCheck,
   MessageCircle,
   Phone,
@@ -21,7 +20,6 @@ import {
   Send,
   Star,
   Home,
-  Camera,
   Lock,
   Waves,
   Dumbbell,
@@ -32,25 +30,28 @@ import {
   Bike,
   CircleDot,
   Landmark,
-  Image as ImageIcon,
-  X,
-  ChevronLeft,
-  ChevronRight,
   User,
   Mail,
   FileText,
+  Navigation,
 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
 import BrochureDownload from "./BrochureDownload";
 import SiteVisitModal from "./SiteVisitModal";
-import ProjectVideo from "./ProjectVideo";
 import HeroVideoBackground from "./HeroVideoBackground";
-import { getProjectGradient, hasVideo } from "@/lib/assets";
+import ShowcaseMediaGallery from "./showcase/ShowcaseMediaGallery";
+import PhasesShowcase from "./showcase/PhasesShowcase";
+import DocumentCentre from "./showcase/DocumentCentre";
+import DevelopmentTimeline from "./showcase/DevelopmentTimeline";
+import DevelopmentUpdatesSection from "./showcase/DevelopmentUpdatesSection";
+import ProjectLayoutSection from "./showcase/ProjectLayoutSection";
+import ProjectFactsSection from "./showcase/ProjectFactsSection";
+import FinalCTASection from "./showcase/FinalCTASection";
+import StickyCTABar from "./showcase/StickyCTABar";
 import type { Project } from "@/data/projects";
-import { builders, getBuilderById } from "@/data/builders";
+import { getBuilderById } from "@/data/builders";
 import siteConfig from "@/config/site";
 import { submitLead } from "@/lib/lead-client";
 
@@ -92,17 +93,6 @@ function getAmenityIcon(name: string): React.ReactNode {
   return <CheckCircle className="h-5 w-5 text-emerald-400/70" />;
 }
 
-const galleryLabels = [
-  "Project Aerial View",
-  "Clubhouse Exterior",
-  "Landscaped Gardens",
-  "Internal Roads",
-  "Entrance Arch",
-  "Children's Play Area",
-  "Jogging Track",
-  "Security Cabin",
-];
-
 export default function PremiumProjectDetailPage({
   project,
   relatedProjects,
@@ -110,15 +100,9 @@ export default function PremiumProjectDetailPage({
   project: Project;
   relatedProjects: Project[];
 }) {
-  const [activeTab, setActiveTab] = useState<"photos" | "layout">("photos");
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
   const [siteVisitOpen, setSiteVisitOpen] = useState(false);
   const [amenitiesExpanded, setAmenitiesExpanded] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-  const [activeGalleryTab, setActiveGalleryTab] = useState<"photos" | "layout">("photos");
-  const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
-  const [masterPlanFailed, setMasterPlanFailed] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -142,6 +126,12 @@ export default function PremiumProjectDetailPage({
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean);
+
+  const getDirectionsUrl = (mapsUrl: string, location: string): string => {
+    const m = mapsUrl.match(/[?&]q=([^&]+)/);
+    const query = m ? decodeURIComponent(m[1]) : location;
+    return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(query)}`;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -171,29 +161,12 @@ export default function PremiumProjectDetailPage({
     setFormData({ name: "", phone: "", email: "", budget: "", message: "" });
   };
 
-  const openLightbox = (index: number) => {
-    setLightboxIndex(index);
-    setLightboxOpen(true);
-  };
-
-  const closeLightbox = () => setLightboxOpen(false);
-
-  const galleryImages = project.images?.length ? project.images : [project.image];
-  const totalGalleryItems = Math.max(galleryImages.length, 1);
-
-  const nextSlide = () =>
-    setLightboxIndex((prev) => (prev + 1) % totalGalleryItems);
-  const prevSlide = () =>
-    setLightboxIndex(
-      (prev) => (prev - 1 + totalGalleryItems) % totalGalleryItems
-    );
-
   return (
     <>
       {/* ════════════════════════════════════════════
           SECTION 1 — PREMIUM HERO WITH DRONE VIDEO
       ════════════════════════════════════════════ */}
-      <section className="relative min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <HeroVideoBackground
             heroVideo={project.heroVideo}
@@ -209,7 +182,7 @@ export default function PremiumProjectDetailPage({
         </div>
 
         {/* Content */}
-        <div className="relative z-10 w-full pt-36 pb-16 lg:pt-44 lg:pb-24">
+        <div className="relative z-10 w-full pt-24 pb-10 sm:pt-32 sm:pb-14 lg:pt-44 lg:pb-24">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
             <ScrollReveal>
               {/* Breadcrumb */}
@@ -289,12 +262,18 @@ export default function PremiumProjectDetailPage({
               {/* Hero action bar */}
               <div className="flex flex-wrap gap-3">
                 <a
+                  href="#project-overview"
+                  className="btn-premium inline-flex items-center gap-2.5 bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
+                >
+                  <ArrowRight className="h-4 w-4" /> Explore Project
+                </a>
+                <a
                   href={waLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-premium inline-flex items-center gap-2.5 bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white/[0.06] border border-white/[0.12] text-[13px] font-semibold text-white/80 hover:bg-white/[0.1] hover:border-primary/20 hover:text-primary transition-all duration-300"
                 >
-                  <MessageCircle className="h-4 w-4" /> WhatsApp Enquiry
+                  <MessageCircle className="h-4 w-4" /> Enquire Now
                 </a>
                 <a
                   href={siteConfig.links.tel}
@@ -421,7 +400,7 @@ export default function PremiumProjectDetailPage({
       {/* ════════════════════════════════════════════
           SECTION 3 — PROJECT OVERVIEW + HIGHLIGHTS
       ════════════════════════════════════════════ */}
-      <section className="pb-16 lg:pb-20">
+      <section className="pb-16 lg:pb-20" id="project-overview">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Overview — 3 cols */}
@@ -508,155 +487,17 @@ export default function PremiumProjectDetailPage({
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════
-          SECTION 4 — IMAGE GALLERY
-      ════════════════════════════════════════════ */}
-      <section className="pb-16 lg:pb-20">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
-          <ScrollReveal>
-            <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-              <SectionLabel>Project Gallery</SectionLabel>
-              <div className="flex gap-1 glass rounded-full p-1 flex-shrink-0">
-                {(["photos", "layout"] as const).map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveGalleryTab(tab)}
-                    className={`px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-wider transition-all duration-300 ${
-                      activeGalleryTab === tab
-                        ? "bg-primary/90 text-white"
-                        : "text-white/30 hover:text-white/50"
-                    }`}
-                  >
-                    {tab === "photos" ? "Photos" : "Layout"}
-                  </button>
-                ))}
-              </div>
-            </div>
+      <PhasesShowcase project={project} />
 
-            <AnimatePresence mode="wait">
-              {activeGalleryTab === "photos" ? (
-                <motion.div
-                  key="photos"
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.35 }}
-                  className="grid grid-cols-2 lg:grid-cols-4 gap-3"
-                >
-                  {galleryImages.map((img, i) => (
-                    <motion.button
-                      key={i}
-                      onClick={() => openLightbox(i)}
-                      whileHover={{ scale: 1.02 }}
-                      className={`relative rounded-2xl overflow-hidden group cursor-pointer ${
-                        i === 0 ? "col-span-2 row-span-2 h-72 lg:h-full" : "h-44 lg:h-52"
-                      }`}
-                    >
-                      {img && !failedImages[i] ? (
-                        <Image
-                          src={img}
-                          alt={`${project.name} — ${galleryLabels[i] || `Photo ${i + 1}`}`}
-                          fill
-                          sizes="(max-width: 768px) 50vw, 25vw"
-                          className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
-                          placeholder="blur"
-                          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSIjMWExYTJlIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIvPjwvc3ZnPg=="
-                          onError={() =>
-                            setFailedImages((prev) => (prev[i] ? prev : { ...prev, [i]: true }))
-                          }
-                        />
-                      ) : (
-                        <div className={`absolute inset-0 bg-gradient-to-br ${getProjectGradient(project.slug + i)}`} />
-                      )}
-                      <div className="absolute inset-0 bg-charcoal-dark/20 group-hover:bg-charcoal-dark/10 transition-colors duration-500" />
-                      <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <Camera className="h-8 w-8 text-white/10 group-hover:text-primary/25 transition-colors duration-500 mb-2" />
-                        <span className="text-[10px] text-white/15 uppercase tracking-wider group-hover:text-white/30 transition-colors duration-500">
-                          {galleryLabels[i] || `Photo ${i + 1}`}
-                        </span>
-                      </div>
-                      {i === 0 && (
-                        <div className="absolute bottom-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full glass text-[10px] font-semibold text-white/60">
-                          <ImageIcon className="h-3 w-3" /> {galleryImages.length} Photos
-                        </div>
-                      )}
-                    </motion.button>
-                  ))}
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="layout"
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.35 }}
-                >
-                  {project.masterPlanUrl && !masterPlanFailed ? (
-                    <div className="glass-card-elevated rounded-2xl overflow-hidden">
-                      <div className="relative h-80 lg:h-[32rem]">
-                        <Image
-                          src={project.masterPlanUrl}
-                          alt={`${project.name} — Master Plan`}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 80vw"
-                          className="object-contain"
-                          placeholder="blur"
-                          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSIjMWExYTJlIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIvPjwvc3ZnPg=="
-                          onError={() => setMasterPlanFailed(true)}
-                        />
-                      </div>
-                      <div className="px-6 py-4 border-t border-white/[0.04] flex items-center justify-between">
-                        <p className="text-sm text-white/40">Master Plan — {project.name}</p>
-                        {project.layoutPdfUrl && (
-                          <a
-                            href={project.layoutPdfUrl}
-                            download
-                            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors duration-300"
-                          >
-                            <Download className="h-3.5 w-3.5" /> Download Layout
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="glass-card-elevated rounded-2xl h-80 lg:h-96 flex items-center justify-center">
-                      <div className="text-center">
-                        <Building2 className="h-16 w-16 text-white/5 mx-auto mb-4" />
-                        <p className="text-sm text-white/25 font-medium">
-                          Project layout map coming soon
-                        </p>
-                        <p className="text-xs text-white/15 mt-1">
-                          Contact us to receive the detailed layout
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </ScrollReveal>
-        </div>
-      </section>
+      <ShowcaseMediaGallery project={project} />
 
-      {/* ════════════════════════════════════════════
-          SECTION 4B — PROJECT VIDEO
-      ════════════════════════════════════════════ */}
-      {hasVideo(project) && project.videoUrl && (
-        <section className="pb-16 lg:pb-20">
-          <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
-            <ScrollReveal>
-              <SectionLabel>Project Walkthrough</SectionLabel>
-              <div className="mt-6">
-                <ProjectVideo
-                  src={project.videoUrl}
-                  poster={project.image}
-                  title={project.name}
-                />
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
-      )}
+      <DevelopmentUpdatesSection project={project} />
+
+      <ProjectLayoutSection project={project} />
+
+      <DocumentCentre project={project} />
+
+      <DevelopmentTimeline project={project} />
 
       {/* ════════════════════════════════════════════
           SECTION 5 — PRICING TABLE
@@ -852,19 +693,29 @@ export default function PremiumProjectDetailPage({
                     </div>
                   </div>
                 )}
-                <div className="px-6 py-4 flex items-center justify-between border-t border-white/[0.04]">
+                <div className="px-6 py-4 border-t border-white/[0.04] flex flex-wrap items-center justify-between gap-3">
                   <p className="text-sm text-white/40 flex items-center gap-2">
                     <MapPin className="h-4 w-4 text-primary/50" /> {project.location}
                   </p>
                   {project.mapsUrl && (
-                    <a
-                      href={project.mapsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors duration-300"
-                    >
-                      Open in Maps <ExternalLink className="h-3.5 w-3.5" />
-                    </a>
+                    <div className="flex items-center gap-3">
+                      <a
+                        href={getDirectionsUrl(project.mapsUrl, project.location)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary/[0.08] border border-primary/15 text-[11px] font-semibold text-primary hover:bg-primary/[0.15] transition-colors duration-300"
+                      >
+                        <Navigation className="h-3.5 w-3.5" /> Get Directions
+                      </a>
+                      <a
+                        href={project.mapsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors duration-300"
+                      >
+                        Open in Maps <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    </div>
                   )}
                 </div>
               </div>
@@ -1189,6 +1040,8 @@ export default function PremiumProjectDetailPage({
         </section>
       )}
 
+      <ProjectFactsSection project={project} />
+
       {/* ════════════════════════════════════════════
           SECTION 10 — RELATED PROJECTS
       ════════════════════════════════════════════ */}
@@ -1241,80 +1094,11 @@ export default function PremiumProjectDetailPage({
         </section>
       )}
 
-      {/* ════════════════════════════════════════════
-          LIGHTBOX
-      ════════════════════════════════════════════ */}
-      <AnimatePresence>
-        {lightboxOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center"
-            onClick={closeLightbox}
-          >
-            <button
-              onClick={closeLightbox}
-              className="absolute top-6 right-6 h-10 w-10 rounded-full glass flex items-center justify-center text-white/50 hover:text-white transition-colors duration-300"
-            >
-              <X className="h-5 w-5" />
-            </button>
+      <FinalCTASection project={project} />
 
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                prevSlide();
-              }}
-              className="absolute left-4 lg:left-8 h-12 w-12 rounded-full glass flex items-center justify-center text-white/40 hover:text-white transition-colors duration-300"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
+      <StickyCTABar projectName={project.name} onSiteVisit={() => setSiteVisitOpen(true)} />
 
-            <div
-              className="max-w-4xl w-full mx-4 aspect-video rounded-2xl overflow-hidden relative"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {galleryImages[lightboxIndex] && !failedImages[lightboxIndex] ? (
-                <Image
-                  src={galleryImages[lightboxIndex]}
-                  alt={`${project.name} — ${galleryLabels[lightboxIndex] || `Photo ${lightboxIndex + 1}`}`}
-                  fill
-                  sizes="80vw"
-                  className="object-cover"
-                  onError={() =>
-                    setFailedImages((prev) =>
-                      prev[lightboxIndex] ? prev : { ...prev, [lightboxIndex]: true }
-                    )
-                  }
-                />
-              ) : (
-                <>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${getProjectGradient(project.slug + lightboxIndex)}`} />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <Camera className="h-16 w-16 text-white/10 mb-4" />
-                    <p className="text-sm text-white/25 font-medium">
-                      {galleryLabels[lightboxIndex] || `Photo ${lightboxIndex + 1}`}
-                    </p>
-                  </div>
-                </>
-              )}
-              <div className="absolute bottom-4 left-4 px-3 py-1.5 rounded-full glass text-xs text-white/50 font-medium">
-                {lightboxIndex + 1} / {totalGalleryItems}
-              </div>
-            </div>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                nextSlide();
-              }}
-              className="absolute right-4 lg:right-8 h-12 w-12 rounded-full glass flex items-center justify-center text-white/40 hover:text-white transition-colors duration-300"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="h-20 md:hidden" />
 
       <SiteVisitModal
         isOpen={siteVisitOpen}

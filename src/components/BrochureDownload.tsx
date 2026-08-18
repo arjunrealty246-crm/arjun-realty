@@ -6,6 +6,7 @@ import { Download, X, FileText, CheckCircle, Loader2 } from "lucide-react";
 import type { Project } from "@/data/projects";
 import siteConfig from "@/config/site";
 import { getBuilderById } from "@/data/builders";
+import { getDownloadUrl } from "@/lib/download-url";
 
 function generateBrochureHTML(project: Project): string {
   const builder = getBuilderById(project.builder);
@@ -131,14 +132,14 @@ export default function BrochureDownload({ project, variant = "button" }: Brochu
   const [state, setState] = useState<"idle" | "generating" | "done">("idle");
   const [showModal, setShowModal] = useState(false);
 
-  const hasPDF = project.brochureUrl && project.brochureUrl.endsWith(".pdf");
+  const hasPDF = project.brochureUrl && (project.brochureUrl.endsWith(".pdf") || project.brochureUrl.includes("raw/upload"));
 
   const handleDownload = () => {
     setState("generating");
 
     if (hasPDF) {
       const a = document.createElement("a");
-      a.href = project.brochureUrl;
+      a.href = getDownloadUrl(project.brochureUrl);
       a.download = `${project.name.replace(/\s+/g, "-").toLowerCase()}-brochure.pdf`;
       document.body.appendChild(a);
       a.click();

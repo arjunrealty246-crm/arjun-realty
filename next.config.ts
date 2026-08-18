@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       { protocol: "https", hostname: "arjunrealty.com" },
+      { protocol: "https", hostname: "res.cloudinary.com" },
     ],
   },
   async headers() {

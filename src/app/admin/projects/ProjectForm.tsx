@@ -26,6 +26,9 @@ interface ProjectFormData {
   heroVideo: string;
   brochureUrl: string;
   layoutPdfUrl: string;
+  layoutUrl: string;
+  masterPlanUrl: string;
+  locationMapUrl: string;
   image: string;
   bankLoanAvailable: boolean;
   siteVisitBooking: boolean;
@@ -41,17 +44,22 @@ interface ProjectFormData {
   usps: string[];
   faqs: { q: string; a: string }[];
   testimonials: { name: string; text: string }[];
+  gallery: { src: string; title: string; category: string }[];
+  developmentUpdates: { date: string; title: string; description: string; images: string[] }[];
+  documents: { name: string; url: string; type: string; description: string }[];
+  updates: { title: string; description: string; status: string }[];
 }
 
 const emptyForm: ProjectFormData = {
   name: "", slug: "", builder: "", marketingPartner: "", projectType: "",
   approval: "FCDA Approved", location: "", mapsUrl: "", price: "", startingPrice: "",
   status: "Live", badge: "Live", isUpcoming: false, totalAcres: "", totalPlots: "",
-  plotSizes: "", clubhouseDetails: "", heroVideo: "", brochureUrl: "", layoutPdfUrl: "", image: "",
+  plotSizes: "", clubhouseDetails: "", heroVideo: "", brochureUrl: "", layoutPdfUrl: "",
+  layoutUrl: "", masterPlanUrl: "", locationMapUrl: "", image: "",
   bankLoanAvailable: true, siteVisitBooking: true, whatsappCta: "", projectArea: "",
   amenities: [], highlights: [], locationAdvantages: [], whyInvest: [],
   investmentHighlights: [], connectivity: [], nearbyLandmarks: [], usps: [],
-  faqs: [], testimonials: [],
+  faqs: [], testimonials: [], gallery: [], developmentUpdates: [], documents: [], updates: [],
 };
 
 export default function ProjectForm({ projectId }: { projectId?: string | null }) {
@@ -69,6 +77,8 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
   const [newFaqA, setNewFaqA] = useState("");
   const [newTestName, setNewTestName] = useState("");
   const [newTestText, setNewTestText] = useState("");
+  const [uploadingField, setUploadingField] = useState<string | null>(null);
+  const [uploadError, setUploadError] = useState("");
 
   useEffect(() => {
     if (!projectId) { setLoading(false); return; }
@@ -107,19 +117,78 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
     setNewTestName(""); setNewTestText("");
   };
 
-  const handleFileUpload = async (file: File, folder: string) => {
-    const fd = new FormData();
-    fd.append("file", file);
-    fd.append("folder", folder);
-    const res = await fetch("/api/upload", { method: "POST", body: fd });
-    const data = await res.json();
-    return data.url || "";
+  const updateArrayItem = (field: "gallery" | "developmentUpdates" | "documents" | "updates", index: number, patch: Record<string, unknown>) => {
+    setForm((f) => ({ ...f, [field]: f[field].map((item, i) => (i === index ? { ...item, ...patch } : item)) }));
+  };
+
+  const removeArrayItem = (field: "gallery" | "developmentUpdates" | "documents" | "updates", index: number) => {
+    setForm((f) => ({ ...f, [field]: f[field].filter((_, i) => i !== index) }));
+  };
+
+  const CLOUDINARY_MAX_SIZE: Record<string, number> = {
+    image: 10 * 1024 * 1024,
+    video: 100 * 1024 * 1024,
+    raw: 10 * 1024 * 1024,
+  };
+
+  const getCloudinaryResourceType = (file: File): "image" | "video" | "raw" => {
+    const type = file.type || "";
+    if (type.startsWith("video/")) return "video";
+    if (type.startsWith("image/")) return "image";
+    return "raw";
+  };
+
+  const handleCloudinaryUpload = async (file: File, folder: string, resourceType?: "image" | "video" | "raw"): Promise<string> => {
+    const rt = resourceType || getCloudinaryResourceType(file);
+    const maxSize = CLOUDINARY_MAX_SIZE[rt] || CLOUDINARY_MAX_SIZE.raw;
+    if (file.size > maxSize) {
+      const maxMB = Math.round(maxSize / 1024 / 1024);
+      throw new Error(`File too large for Cloudinary Free plan (${(file.size / 1024 / 1024).toFixed(1)} MB). Maximum for ${rt} files is ${maxMB} MB.`);
+    }
+
+    const signRes = await fetch("/api/upload/cloudinary-sign", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ filename: file.name, folder }),
+    });
+    const signData = await signRes.json();
+    if (!signRes.ok) throw new Error(signData.error || "Failed to get upload signature");
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("api_key", signData.api_key);
+    formData.append("timestamp", String(signData.timestamp));
+    formData.append("signature", signData.signature);
+    formData.append("folder", signData.folder);
+    formData.append("public_id", signData.public_id);
+
+    const uploadUrl = `https://api.cloudinary.com/v1_1/${signData.cloud_name}/${rt}/upload`;
+    const uploadRes = await fetch(uploadUrl, { method: "POST", body: formData });
+    const uploadData = await uploadRes.json();
+    if (!uploadRes.ok) throw new Error(uploadData.error?.message || "Upload to Cloudinary failed");
+
+    return uploadData.secure_url || "";
+  };
+
+  const handleFileUpload = async (file: File, folder: string, fieldName?: string) => {
+    if (fieldName) setUploadingField(fieldName);
+    setUploadError("");
+    try {
+      const rt = getCloudinaryResourceType(file);
+      return await handleCloudinaryUpload(file, folder, rt);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Upload failed";
+      setUploadError(msg);
+      return "";
+    } finally {
+      if (fieldName) setUploadingField(null);
+    }
   };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    const url = await handleFileUpload(file, "uploads/projects");
+    const url = await handleFileUpload(file, "uploads/projects", "image");
     if (url) update("image", url);
   };
 
@@ -180,6 +249,56 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
     </div>
   );
 
+  const renderFileField = (label: string, field: "brochureUrl" | "layoutPdfUrl" | "layoutUrl" | "masterPlanUrl" | "locationMapUrl", accept: string, folder: string, placeholder: string) => (
+    <div>
+      <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">{label}</label>
+      <div className="flex gap-2">
+        <input type="text" value={form[field]} onChange={(e) => update(field, e.target.value)}
+          className="flex-1 min-w-0 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs"
+          placeholder={placeholder} />
+        <label className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary/10 border border-primary/20 text-[11px] font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all shrink-0">
+          {uploadingField === field ? (
+            <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+          ) : (
+            <Upload className="h-3.5 w-3.5" />
+          )} Upload
+          <input type="file" accept={accept} className="hidden" disabled={uploadingField === field}
+            onChange={async (e) => {
+              const file = e.target.files?.[0];
+              if (!file) return;
+              const url = await handleFileUpload(file, folder, field);
+              if (url) update(field, url);
+            }} />
+        </label>
+      </div>
+    </div>
+  );
+
+  const renderFileRow = (label: string, value: string, onChange: (v: string) => void, accept: string, folder: string, placeholder: string, fieldName?: string) => (
+    <div>
+      <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">{label}</label>
+      <div className="flex gap-2">
+        <input type="text" value={value} onChange={(e) => onChange(e.target.value)}
+          className="flex-1 min-w-0 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs"
+          placeholder={placeholder} />
+        <label className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary/10 border border-primary/20 text-[11px] font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all shrink-0">
+          {fieldName && uploadingField === fieldName ? (
+            <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+          ) : (
+            <Upload className="h-3.5 w-3.5" />
+          )} Upload
+          <input type="file" accept={accept} className="hidden" disabled={fieldName ? uploadingField === fieldName : false}
+            onChange={async (e) => {
+              const file = e.target.files?.[0];
+              if (!file) return;
+              const url = await handleFileUpload(file, folder, fieldName);
+              if (url) onChange(url);
+            }} />
+        </label>
+      </div>
+    </div>
+  );
+
   return (
     <div>
       <div className="flex items-center gap-4 mb-8">
@@ -194,6 +313,13 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
 
       {error && (
         <div className="mb-6 px-5 py-3.5 rounded-xl bg-red-500/10 border border-red-500/20 text-sm text-red-400">{error}</div>
+      )}
+
+      {uploadError && (
+        <div className="mb-6 px-5 py-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-sm text-amber-400 flex items-center justify-between">
+          <span>Upload error: {uploadError}</span>
+          <button type="button" onClick={() => setUploadError("")} className="text-amber-400/60 hover:text-amber-400 ml-3">Dismiss</button>
+        </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-10">
@@ -347,8 +473,12 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
                 className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs mb-2"
                 placeholder="/images/projects/jb-harmony-woods.svg" />
               <label className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-xs font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all">
-                <Upload className="h-3.5 w-3.5" /> Upload Image
-                <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" />
+                {uploadingField === "image" ? (
+                  <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                ) : (
+                  <Upload className="h-3.5 w-3.5" />
+                )} Upload Image
+                <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" disabled={uploadingField === "image"} />
               </label>
             </div>
           </div>
@@ -373,17 +503,18 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
                 className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs mb-2"
                 placeholder="/videos/projects/jb-harmony-woods-drone.mp4" />
               <label className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-xs font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all">
-                <Upload className="h-3.5 w-3.5" /> Upload Video
-                <input type="file" accept="video/*" onChange={async (e) => {
-                  const file = e.target.files?.[0];
-                  if (!file) return;
-                  const fd = new FormData();
-                  fd.append("file", file);
-                  fd.append("folder", "uploads/projects");
-                  const res = await fetch("/api/upload", { method: "POST", body: fd });
-                  const data = await res.json();
-                  if (data.url) update("heroVideo", data.url);
-                }} className="hidden" />
+                {uploadingField === "heroVideo" ? (
+                  <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                ) : (
+                  <Upload className="h-3.5 w-3.5" />
+                )} Upload Video
+                <input type="file" accept="video/*" className="hidden" disabled={uploadingField === "heroVideo"}
+                  onChange={async (e) => {
+                    const file = e.target.files?.[0];
+                    if (!file) return;
+                    const url = await handleFileUpload(file, "uploads/projects", "heroVideo");
+                    if (url) update("heroVideo", url);
+                  }} />
               </label>
             </div>
           </div>
@@ -392,19 +523,197 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
         {/* Documents */}
         <div className="glass-card-elevated rounded-2xl p-6 lg:p-8">
           <h2 className="text-lg font-bold text-white mb-6">Documents &amp; Media URLs</h2>
+          <p className="text-xs text-white/30 mb-4">Upload files or paste existing URLs. Layout &amp; Master Plan power the site's layout gallery tab; Location Map shows the project on a map.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div>
-              <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Brochure URL</label>
-              <input type="text" value={form.brochureUrl} onChange={(e) => update("brochureUrl", e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs"
-                placeholder="/brochures/jb-harmony-woods.pdf" />
-            </div>
-            <div>
-              <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Layout PDF URL</label>
-              <input type="text" value={form.layoutPdfUrl} onChange={(e) => update("layoutPdfUrl", e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs"
-                placeholder="/brochures/jb-harmony-woods-layout.pdf" />
-            </div>
+            {renderFileField("Brochure URL", "brochureUrl", ".pdf,application/pdf", "uploads/projects", "/brochures/jb-harmony-woods.pdf")}
+            {renderFileField("Layout PDF URL", "layoutPdfUrl", ".pdf,application/pdf", "uploads/projects", "/brochures/jb-harmony-woods-layout.pdf")}
+            {renderFileField("Layout Image URL", "layoutUrl", "image/*,.pdf", "uploads/projects", "/assets/projects/jb-harmony-woods/layout/layout.pdf")}
+            {renderFileField("Master Plan URL", "masterPlanUrl", "image/*,.pdf", "uploads/projects", "/assets/projects/jb-harmony-woods/masterplan.jpg")}
+            {renderFileField("Location Map URL", "locationMapUrl", "image/*,.pdf", "uploads/projects", "/assets/projects/jb-harmony-woods/location-map.jpg")}
+          </div>
+        </div>
+
+        {/* Gallery */}
+        <div className="glass-card-elevated rounded-2xl p-6 lg:p-8">
+          <h2 className="text-lg font-bold text-white mb-6">Gallery</h2>
+          <p className="text-xs text-white/30 mb-4">Photos shown in the project gallery grid. First item is the hero tile. Captions &amp; categories appear on hover and in the lightbox.</p>
+          <div className="space-y-4">
+            {form.gallery.map((item, i) => (
+              <div key={i} className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div className="h-20 w-28 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden shrink-0">
+                  {item.src ? <img src={item.src} alt="" className="h-full w-full object-cover" /> : <Upload className="h-6 w-6 text-white/15" />}
+                </div>
+                <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-3 w-full min-w-0">
+                  {renderFileRow("Image", item.src, (v) => updateArrayItem("gallery", i, { src: v }), "image/*", "uploads/projects", "/uploads/projects/photo.jpg", `gallery-${i}`)}
+                  <div>
+                    <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Caption</label>
+                    <input type="text" value={item.title || ""} onChange={(e) => updateArrayItem("gallery", i, { title: e.target.value })}
+                      className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30"
+                      placeholder="Project Aerial View" />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Category</label>
+                    <input type="text" value={item.category || ""} onChange={(e) => updateArrayItem("gallery", i, { category: e.target.value })}
+                      className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30"
+                      placeholder="Site / Clubhouse / Aerial" />
+                  </div>
+                </div>
+                <button type="button" onClick={() => removeArrayItem("gallery", i)}
+                  className="h-9 w-9 rounded-xl bg-white/[0.04] flex items-center justify-center text-white/20 hover:text-red-400 hover:bg-red-500/10 transition-all shrink-0">
+                  <Trash2 className="h-4 w-4" />
+                </button>
+              </div>
+            ))}
+            <button type="button" onClick={() => setForm((f) => ({ ...f, gallery: [...f.gallery, { src: "", title: "", category: "" }] }))}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-xs font-semibold text-primary hover:bg-primary/15 transition-all">
+              <Plus className="h-3.5 w-3.5" /> Add Photo
+            </button>
+          </div>
+        </div>
+
+        {/* Development Updates */}
+        <div className="glass-card-elevated rounded-2xl p-6 lg:p-8">
+          <h2 className="text-lg font-bold text-white mb-6">Development Updates</h2>
+          <p className="text-xs text-white/30 mb-4">Dated site progress updates shown in the construction updates timeline.</p>
+          <div className="space-y-6">
+            {form.developmentUpdates.map((u, i) => (
+              <div key={i} className="rounded-xl bg-white/[0.02] border border-white/[0.05] p-5">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+                  <div>
+                    <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Date</label>
+                    <input type="text" value={u.date || ""} onChange={(e) => updateArrayItem("developmentUpdates", i, { date: e.target.value })}
+                      className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30"
+                      placeholder="15 Jan 2026" />
+                  </div>
+                  <div className="md:col-span-2">
+                    <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Title</label>
+                    <input type="text" value={u.title || ""} onChange={(e) => updateArrayItem("developmentUpdates", i, { title: e.target.value })}
+                      className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30"
+                      placeholder="Site leveling & compound wall in progress" />
+                  </div>
+                </div>
+                <div className="mb-3">
+                  <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Description</label>
+                  <textarea value={u.description || ""} onChange={(e) => updateArrayItem("developmentUpdates", i, { description: e.target.value })}
+                    className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 min-h-[60px]"
+                    placeholder="What's happening at the site..." />
+                </div>
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex flex-wrap gap-2">
+                    {((u.images as string[]) || []).map((img, j) => (
+                      <div key={j} className="relative h-16 w-20 rounded-lg bg-white/[0.03] border border-white/[0.06] overflow-hidden group">
+                        <img src={img} alt="" className="h-full w-full object-cover" />
+                        <button type="button" onClick={() => updateArrayItem("developmentUpdates", i, { images: (u.images as string[]).filter((_, k) => k !== j) })}
+                          className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <X className="h-4 w-4 text-white" />
+                        </button>
+                      </div>
+                    ))}
+                    <label className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary/10 border border-primary/20 text-[11px] font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all">
+                      {uploadingField === `devUpdate-${i}` ? (
+                        <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                      ) : (
+                        <Upload className="h-3.5 w-3.5" />
+                      )} Add Photo
+                      <input type="file" accept="image/*" className="hidden" disabled={uploadingField === `devUpdate-${i}`}
+                        onChange={async (e) => {
+                          const file = e.target.files?.[0];
+                          if (!file) return;
+                          const url = await handleFileUpload(file, "uploads/projects", `devUpdate-${i}`);
+                          if (url) updateArrayItem("developmentUpdates", i, { images: [...((u.images as string[]) || []), url] });
+                        }} />
+                    </label>
+                  </div>
+                  <button type="button" onClick={() => removeArrayItem("developmentUpdates", i)}
+                    className="h-9 w-9 rounded-xl bg-white/[0.04] flex items-center justify-center text-white/20 hover:text-red-400 hover:bg-red-500/10 transition-all shrink-0">
+                    <Trash2 className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            ))}
+            <button type="button" onClick={() => setForm((f) => ({ ...f, developmentUpdates: [...f.developmentUpdates, { date: "", title: "", description: "", images: [] }] }))}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-xs font-semibold text-primary hover:bg-primary/15 transition-all">
+              <Plus className="h-3.5 w-3.5" /> Add Update
+            </button>
+          </div>
+        </div>
+
+        {/* Documents list */}
+        <div className="glass-card-elevated rounded-2xl p-6 lg:p-8">
+          <h2 className="text-lg font-bold text-white mb-6">Documents</h2>
+          <p className="text-xs text-white/30 mb-4">Additional project documents (approvals, price list, etc.) shown in the document centre.</p>
+          <div className="space-y-4">
+            {form.documents.map((d, i) => (
+              <div key={i} className="flex flex-col md:flex-row gap-3 items-start md:items-end">
+                <div className="flex-1">
+                  {renderFileRow("File", d.url, (v) => updateArrayItem("documents", i, { url: v }), ".pdf,application/pdf,image/*", "uploads/projects", "/uploads/projects/doc.pdf", `document-${i}`)}
+                </div>
+                <div className="flex-1">
+                  <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Name</label>
+                  <input type="text" value={d.name || ""} onChange={(e) => updateArrayItem("documents", i, { name: e.target.value })}
+                    className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30"
+                    placeholder="RERA / DTPC Approval" />
+                </div>
+                <div className="w-full md:w-36">
+                  <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Type</label>
+                  <select value={d.type || "pdf"} onChange={(e) => updateArrayItem("documents", i, { type: e.target.value })}
+                    className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white/80 focus:outline-none focus:border-primary/30">
+                    <option value="pdf" className="bg-charcoal-dark">PDF</option>
+                    <option value="image" className="bg-charcoal-dark">Image</option>
+                    <option value="link" className="bg-charcoal-dark">Link</option>
+                  </select>
+                </div>
+                <button type="button" onClick={() => removeArrayItem("documents", i)}
+                  className="h-9 w-9 rounded-xl bg-white/[0.04] flex items-center justify-center text-white/20 hover:text-red-400 hover:bg-red-500/10 transition-all shrink-0 mb-0.5">
+                  <Trash2 className="h-4 w-4" />
+                </button>
+              </div>
+            ))}
+            <button type="button" onClick={() => setForm((f) => ({ ...f, documents: [...f.documents, { name: "", url: "", type: "pdf", description: "" }] }))}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-xs font-semibold text-primary hover:bg-primary/15 transition-all">
+              <Plus className="h-3.5 w-3.5" /> Add Document
+            </button>
+          </div>
+        </div>
+
+        {/* Project updates */}
+        <div className="glass-card-elevated rounded-2xl p-6 lg:p-8">
+          <h2 className="text-lg font-bold text-white mb-6">Project Status Updates</h2>
+          <p className="text-xs text-white/30 mb-4">Status milestones (planned / in-progress / completed) shown on the project page.</p>
+          <div className="space-y-4">
+            {form.updates.map((u, i) => (
+              <div key={i} className="flex flex-col md:flex-row gap-3 items-start md:items-end">
+                <div className="flex-1">
+                  <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Title</label>
+                  <input type="text" value={u.title || ""} onChange={(e) => updateArrayItem("updates", i, { title: e.target.value })}
+                    className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30"
+                    placeholder="Water Pipeline Installation" />
+                </div>
+                <div className="flex-1">
+                  <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Description</label>
+                  <input type="text" value={u.description || ""} onChange={(e) => updateArrayItem("updates", i, { description: e.target.value })}
+                    className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30"
+                    placeholder="Ongoing across all phases" />
+                </div>
+                <div className="w-full md:w-36">
+                  <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Status</label>
+                  <select value={u.status || "in-progress"} onChange={(e) => updateArrayItem("updates", i, { status: e.target.value })}
+                    className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white/80 focus:outline-none focus:border-primary/30">
+                    <option value="planned" className="bg-charcoal-dark">Planned</option>
+                    <option value="in-progress" className="bg-charcoal-dark">In Progress</option>
+                    <option value="completed" className="bg-charcoal-dark">Completed</option>
+                  </select>
+                </div>
+                <button type="button" onClick={() => removeArrayItem("updates", i)}
+                  className="h-9 w-9 rounded-xl bg-white/[0.04] flex items-center justify-center text-white/20 hover:text-red-400 hover:bg-red-500/10 transition-all shrink-0 mb-0.5">
+                  <Trash2 className="h-4 w-4" />
+                </button>
+              </div>
+            ))}
+            <button type="button" onClick={() => setForm((f) => ({ ...f, updates: [...f.updates, { title: "", description: "", status: "in-progress" }] }))}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-xs font-semibold text-primary hover:bg-primary/15 transition-all">
+              <Plus className="h-3.5 w-3.5" /> Add Update
+            </button>
           </div>
         </div>
 

@@ -11,27 +11,32 @@ export default function HeroVideoBackground({ heroVideo, image }: HeroVideoBackg
   const [videoError, setVideoError] = useState(false);
 
   const videoSrc = heroVideo;
-
-  if (!videoSrc || !videoSrc.endsWith(".mp4") || videoError) {
-    return (
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${image})` }}
-      />
-    );
-  }
+  const showVideo = Boolean(videoSrc && videoSrc.endsWith(".mp4") && !videoError);
 
   return (
-    <video
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="auto"
-      onError={() => setVideoError(true)}
-      className="absolute inset-0 w-full h-full object-cover"
-    >
-      <source src={videoSrc} type="video/mp4" />
-    </video>
+    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+      {/* Static image layer — always present so the hero never flashes blank */}
+      <div
+        className="absolute inset-0 bg-cover bg-center sm:bg-center"
+        style={{ backgroundImage: `url(${image})`, backgroundPosition: "center 35%" }}
+      />
+
+      {/* Drone video layer — plays on top when available, otherwise image shows */}
+      {showVideo && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          disablePictureInPicture
+          preload="auto"
+          poster={image}
+          onError={() => setVideoError(true)}
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%] sm:object-center"
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </video>
+      )}
+    </div>
   );
 }

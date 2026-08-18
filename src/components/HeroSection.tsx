@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Calendar, MessageCircle, Shield, Award, CheckCircle, TrendingUp, ArrowRight, Building2, MapPin } from "lucide-react";
 import CountUp from "./CountUp";
 import siteConfig from "@/config/site";
@@ -18,6 +18,16 @@ const trustBadges = heroTrustBadges.map(b => ({ icon: badgeIconMap[b.label] || S
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -29,37 +39,37 @@ export default function HeroSection() {
 
   return (
     <section ref={sectionRef} className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
-      <motion.div style={{ y: bgY }} className="absolute inset-0 -top-20">
+      <motion.div style={isMobile ? undefined : { y: bgY }} className="absolute inset-0 -top-20">
         <div className="absolute inset-0 bg-[#06060c]" />
         <motion.div
           className="absolute top-[10%] left-[5%] w-[700px] h-[700px] rounded-full opacity-25"
           style={{ background: "radial-gradient(circle, rgba(249,115,22,0.2), transparent 65%)" }}
-          animate={{ x: [0, 60, -30, 0], y: [0, -40, 30, 0], scale: [1, 1.15, 0.9, 1] }}
+          animate={isMobile ? undefined : { x: [0, 60, -30, 0], y: [0, -40, 30, 0], scale: [1, 1.15, 0.9, 1] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
           className="absolute bottom-[5%] right-[0%] w-[600px] h-[600px] rounded-full opacity-15"
           style={{ background: "radial-gradient(circle, rgba(212,165,116,0.25), transparent 65%)" }}
-          animate={{ x: [0, -40, 50, 0], y: [0, 30, -40, 0], scale: [1, 0.85, 1.1, 1] }}
+          animate={isMobile ? undefined : { x: [0, -40, 50, 0], y: [0, 30, -40, 0], scale: [1, 0.85, 1.1, 1] }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
           className="absolute top-[45%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full opacity-[0.07]"
           style={{ background: "radial-gradient(circle, rgba(249,115,22,0.15), transparent 55%)" }}
-          animate={{ scale: [1, 1.25, 1], rotate: [0, 60, 0] }}
+          animate={isMobile ? undefined : { scale: [1, 1.25, 1], rotate: [0, 60, 0] }}
           transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
           className="absolute top-[20%] right-[20%] w-[400px] h-[400px] rounded-full opacity-[0.08]"
           style={{ background: "radial-gradient(circle, rgba(232,201,160,0.3), transparent 65%)" }}
-          animate={{ x: [0, -20, 30, 0], y: [0, 40, -20, 0] }}
+          animate={isMobile ? undefined : { x: [0, -20, 30, 0], y: [0, 40, -20, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
         <div className="absolute inset-0 hero-grid opacity-[0.025]" />
         <div className="absolute inset-0 bg-hero-overlay" />
       </motion.div>
 
-      <motion.div style={{ y: textY, opacity }} className="relative z-10 mx-auto max-w-[1200px] px-5 sm:px-8 text-center pt-28 sm:pt-32 pb-20">
+      <motion.div style={isMobile ? undefined : { y: textY, opacity }} className="relative z-10 mx-auto max-w-[1200px] px-5 sm:px-8 text-center pt-28 sm:pt-32 pb-20">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.95 }}

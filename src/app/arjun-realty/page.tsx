@@ -1,0 +1,502 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  Building2,
+  Layers,
+  MapPin,
+  Clock,
+  Route,
+  Shield,
+  CheckCircle,
+  ArrowRight,
+  MessageCircle,
+  Scale,
+  Navigation,
+  Landmark,
+  BadgeCheck,
+  Banknote,
+  Info,
+} from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
+import SectionLabel from "@/components/SectionLabel";
+import siteConfig from "@/config/site";
+
+export const metadata: Metadata = {
+  title: "AR — Shankarpally Current & Upcoming Opportunities",
+  description:
+    "AR curates selected residential opportunities in high-growth locations. Current focus: the Shankarpally corridor in western Hyderabad — a 45-acre HMDA-approved project and a 108-acre upcoming opportunity.",
+  openGraph: {
+    title: "AR — Shankarpally Current & Upcoming Opportunities",
+    description:
+      "Two curated Shankarpally opportunities: a 45-acre HMDA-approved current project and a 108-acre upcoming opportunity.",
+  },
+};
+
+const corridorHighlights = [
+  "Shankarpally–Kandi corridor",
+  "Mumbai Highway corridor",
+  "Near Julkal Village",
+  "Western Hyderabad growth corridor",
+];
+
+const currentProject = {
+  title: "Shankarpally – 45 Acres",
+  status: "Current Project",
+  chips: ["HMDA Approved", "Bank Loan Facility Available"],
+  points: [
+    "Located on the Shankarpally–Kandi corridor",
+    "Positioned along the Mumbai Highway corridor",
+    "Near Julkal Village",
+    "Present / ongoing opportunity",
+  ],
+  note: "HMDA approved with a bank loan facility available. A present, ongoing residential opportunity in the Shankarpally corridor.",
+  waMessage: "Hi Arjun Realty, I would like to enquire about the 45-acre HMDA approved Shankarpally project.",
+};
+
+const upcomingProject = {
+  title: "Shankarpally – 108 Acres",
+  status: "Upcoming Opportunity",
+  chips: ["Under Approvals", "OTP Offer Available"],
+  points: [
+    "Upcoming project",
+    "Currently under approvals",
+    "Current OTP (One-Time Payment) offer is available",
+    "Positioned for short-to-medium-term evaluation",
+  ],
+  note: "Early-stage opportunity with potential for appreciation, subject to approvals, market conditions and project progress.",
+  waMessage: "Hi Arjun Realty, I would like to enquire about the 108-acre Shankarpally opportunity.",
+};
+
+const locationAdvantages = [
+  {
+    icon: Clock,
+    title: "Gachibowli",
+    value: "Approximately 30 minutes",
+    note: "Travel times are approximate and subject to traffic and route conditions.",
+  },
+  {
+    icon: Clock,
+    title: "Neopolis",
+    value: "Approximately 25 minutes",
+    note: "Travel times are approximate and subject to traffic and route conditions.",
+  },
+  {
+    icon: Clock,
+    title: "Shankarpally",
+    value: "Approximately 10 minutes",
+    note: "Travel times are approximate and subject to traffic and route conditions.",
+  },
+  {
+    icon: Route,
+    title: "Gandipet–Shankarpally",
+    value: "Proposed Connectivity Development",
+    note: "A six-lane highway is proposed — it is a planned development and not yet completed.",
+  },
+];
+
+const evaluationPoints = [
+  {
+    icon: MapPin,
+    title: "Location & Corridor",
+    desc: "Growth corridor positioning and surrounding development.",
+  },
+  {
+    icon: Route,
+    title: "Connectivity & Access",
+    desc: "Present and proposed road connectivity to major hubs.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Approvals & Documentation",
+    desc: "Approval status and the documentation being evaluated.",
+  },
+  {
+    icon: Layers,
+    title: "Project Planning & Development",
+    desc: "Scale of development and planned infrastructure.",
+  },
+  {
+    icon: Scale,
+    title: "Pricing & Value",
+    desc: "Pricing in the context of the location and current market.",
+  },
+  {
+    icon: Navigation,
+    title: "Short-to-Medium-Term Evaluation",
+    desc: "Assessment appropriate to the stage of the opportunity.",
+  },
+];
+
+export default function ArjunRealtyOpportunitiesPage() {
+  return (
+    <>
+      {/* ── Hero ── */}
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+        <div className="ambient-orb w-[700px] h-[700px] bg-primary/[0.05] -right-48 -top-48" />
+        <div className="ambient-orb w-[500px] h-[500px] bg-gold/[0.02] -left-40 bottom-0" />
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <ScrollReveal>
+            <nav className="flex items-center gap-2 mb-10 text-xs">
+              <Link href="/" className="flex items-center gap-1 text-white/25 hover:text-primary/60 transition-colors duration-300">
+                <Building2 className="h-3 w-3" /> Home
+              </Link>
+              <span className="text-white/10">/</span>
+              <span className="text-white/50">AR</span>
+            </nav>
+
+            <div className="flex items-start gap-6 mb-8">
+              <div className="h-20 w-20 rounded-2xl bg-primary/15 flex items-center justify-center shrink-0 transition-all duration-500">
+                <Layers className="h-9 w-9 text-primary" />
+              </div>
+              <div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-[11px] text-white/35 font-medium mb-5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary/50 animate-pulse" />
+                  Curated Real Estate Opportunities
+                </div>
+                <h1 className="text-[clamp(2.2rem,5vw,3.8rem)] font-bold tracking-[-0.03em] leading-[1.05] mb-6">
+                  Shankarpally — <span className="text-gradient">Current &amp; Upcoming</span>
+                  <br className="hidden sm:block" /> Opportunities
+                </h1>
+                <p className="text-white/40 text-base sm:text-lg leading-relaxed max-w-3xl">
+                  AR curates a shortlist of selected residential opportunities in high-growth
+                  locations. The current focus is the Shankarpally corridor in western Hyderabad —
+                  with one present project and one upcoming opportunity being highlighted.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 mt-10">
+              {["45-Acre HMDA Approved", "108-Acre Upcoming", "Shankarpally Focus"].map((chip) => (
+                <span key={chip} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-[11px] text-white/35 font-medium">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary/50" />
+                  {chip}
+                </span>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <div className="section-divider mx-auto max-w-5xl" />
+
+      {/* ── Why Shankarpally ── */}
+      <section className="relative py-28 sm:py-32 lg:py-40 overflow-hidden bg-section-alt">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.06] via-transparent to-transparent" />
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <ScrollReveal className="text-center mb-16 lg:mb-20">
+            <SectionLabel>Focus Corridor</SectionLabel>
+            <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
+              Why the <span className="text-gradient">Shankarpally Corridor</span> Is Highlighted
+            </h2>
+          </ScrollReveal>
+
+          <div className="max-w-4xl mx-auto space-y-6">
+            <ScrollReveal>
+              <div className="glass-card-elevated rounded-[1.5rem] p-8 sm:p-10 relative overflow-hidden">
+                <p className="text-white/40 text-[15px] sm:text-base leading-[1.8]">
+                  Shankarpally, on the western side of Hyderabad, is an emerging corridor with
+                  improving connectivity to major employment and business hubs such as Gachibowli
+                  and Neopolis. Its position along the Mumbai Highway corridor makes it a location
+                  worth evaluating for residential land opportunities.
+                </p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.08}>
+              <div className="glass-card rounded-[1.5rem] p-8 sm:p-10 relative overflow-hidden">
+                <p className="text-white/40 text-[15px] sm:text-base leading-[1.8]">
+                  AR is highlighting two opportunities in this corridor — the 45-acre
+                  HMDA-approved project and the 108-acre upcoming development — for customers
+                  evaluating residential opportunities in high-growth locations.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
+            {corridorHighlights.map((item, i) => (
+              <ScrollReveal key={item} delay={i * 0.05}>
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-[11px] text-white/35 font-medium">
+                  <CheckCircle className="h-3.5 w-3.5 text-primary/50" />
+                  {item}
+                </span>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider mx-auto max-w-5xl" />
+
+      {/* ── Current & Upcoming Opportunities ── */}
+      <section className="relative py-28 sm:py-32 lg:py-40 overflow-hidden">
+        <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.02] -left-48 top-1/3" />
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <ScrollReveal className="text-center mb-16 lg:mb-20">
+            <SectionLabel>Featured Opportunities</SectionLabel>
+            <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
+              Two Shankarpally <span className="text-gradient">Opportunities</span>
+            </h2>
+            <p className="mt-4 text-white/30 max-w-xl mx-auto text-[0.95rem] leading-relaxed">
+              One present project and one upcoming opportunity — curated for evaluation.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-5xl mx-auto">
+            {/* 45 Acres — Current Project */}
+            <ScrollReveal className="h-full">
+              <div className="glass-card-elevated rounded-[1.5rem] p-8 sm:p-10 relative overflow-hidden h-full flex flex-col">
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
+                <div className="flex items-center justify-between mb-8">
+                  <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+                    <Landmark className="h-6 w-6 text-primary" />
+                  </div>
+                  <span className="inline-flex items-center px-3.5 py-1.5 rounded-full glass text-[10px] font-medium text-white/50 uppercase tracking-wider">
+                    {currentProject.status}
+                  </span>
+                </div>
+                <h3 className="text-[clamp(1.3rem,2.5vw,1.7rem)] font-bold text-gradient tracking-tight mb-5">
+                  {currentProject.title}
+                </h3>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {currentProject.chips.map((chip) => (
+                    <span key={chip} className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/[0.06] text-[10px] text-primary/70 font-medium uppercase tracking-wider">
+                      {chip === "HMDA Approved" ? <BadgeCheck className="h-3 w-3" /> : chip === "Bank Loan Facility Available" ? <Banknote className="h-3 w-3" /> : null}
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+                <ul className="space-y-3 mb-6 flex-1">
+                  {currentProject.points.map((point) => (
+                    <li key={point} className="flex items-start gap-3">
+                      <CheckCircle className="h-4 w-4 text-primary/60 mt-0.5 shrink-0" />
+                      <span className="text-[13.5px] text-white/55 leading-relaxed">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[13px] text-white/30 leading-[1.7] mb-8">{currentProject.note}</p>
+                <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+                  <Link
+                    href="/projects"
+                    className="btn-premium inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 rounded-full text-[12px] font-semibold text-white glow-primary-strong"
+                  >
+                    Explore Project <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                  <a
+                    href={`${siteConfig.links.wa}?text=${encodeURIComponent(currentProject.waMessage)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-glass inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-[12px] font-semibold text-white/55 border border-white/[0.06] hover:border-primary/20 transition-all duration-500"
+                  >
+                    <MessageCircle className="h-3.5 w-3.5 text-primary" /> Enquire Now
+                  </a>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* 108 Acres — Upcoming Opportunity */}
+            <ScrollReveal delay={0.08} className="h-full">
+              <div className="glass-card-elevated rounded-[1.5rem] p-8 sm:p-10 relative overflow-hidden h-full flex flex-col">
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
+                <div className="flex items-center justify-between mb-8">
+                  <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+                    <Layers className="h-6 w-6 text-primary" />
+                  </div>
+                  <span className="inline-flex items-center px-3.5 py-1.5 rounded-full glass text-[10px] font-medium text-white/50 uppercase tracking-wider">
+                    {upcomingProject.status}
+                  </span>
+                </div>
+                <h3 className="text-[clamp(1.3rem,2.5vw,1.7rem)] font-bold text-gradient tracking-tight mb-5">
+                  {upcomingProject.title}
+                </h3>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {upcomingProject.chips.map((chip) => (
+                    <span key={chip} className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/[0.06] text-[10px] text-primary/70 font-medium uppercase tracking-wider">
+                      {chip === "Under Approvals" ? <Shield className="h-3 w-3" /> : chip === "OTP Offer Available" ? <Banknote className="h-3 w-3" /> : null}
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+                <ul className="space-y-3 mb-6 flex-1">
+                  {upcomingProject.points.map((point) => (
+                    <li key={point} className="flex items-start gap-3">
+                      <CheckCircle className="h-4 w-4 text-primary/60 mt-0.5 shrink-0" />
+                      <span className="text-[13.5px] text-white/55 leading-relaxed">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[13px] text-gold/60 leading-[1.7] mb-8">{upcomingProject.note}</p>
+                <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+                  <Link
+                    href="/projects"
+                    className="btn-premium inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 rounded-full text-[12px] font-semibold text-white glow-primary-strong"
+                  >
+                    Explore Project <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                  <a
+                    href={`${siteConfig.links.wa}?text=${encodeURIComponent(upcomingProject.waMessage)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-glass inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-[12px] font-semibold text-white/55 border border-white/[0.06] hover:border-primary/20 transition-all duration-500"
+                  >
+                    <MessageCircle className="h-3.5 w-3.5 text-primary" /> Enquire Now
+                  </a>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider mx-auto max-w-5xl" />
+
+      {/* ── Location & Connectivity ── */}
+      <section className="relative py-28 sm:py-32 lg:py-40 overflow-hidden bg-section-alt">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.06] via-transparent to-transparent" />
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <ScrollReveal className="text-center mb-16 lg:mb-20">
+            <SectionLabel>Location &amp; Connectivity</SectionLabel>
+            <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
+              Connectivity Around <span className="text-gradient">Shankarpally</span>
+            </h2>
+            <p className="mt-4 text-white/30 max-w-xl mx-auto text-[0.95rem] leading-relaxed">
+              Approximate travel references — actual times vary with traffic and route conditions.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+            {locationAdvantages.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <ScrollReveal key={item.title} delay={i * 0.06} className="h-full">
+                  <div className="glass-card rounded-[1.25rem] p-7 sm:p-8 text-center h-full group relative overflow-hidden">
+                    <div className="h-12 w-12 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:glow-primary transition-all duration-500">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="text-[14px] font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-[13px] text-primary/70 font-medium leading-relaxed">{item.value}</p>
+                    <p className="mt-3 text-[11px] text-white/25 leading-relaxed">{item.note}</p>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider mx-auto max-w-5xl" />
+
+      {/* ── Investment Evaluation Points ── */}
+      <section className="relative py-28 sm:py-32 lg:py-40 overflow-hidden">
+        <div className="ambient-orb w-[600px] h-[600px] bg-gold/[0.02] -right-64 -top-48" />
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <ScrollReveal className="text-center mb-16 lg:mb-20">
+            <SectionLabel>Evaluation Framework</SectionLabel>
+            <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
+              Points Used to <span className="text-gradient">Evaluate an Opportunity</span>
+            </h2>
+            <p className="mt-4 text-white/30 max-w-xl mx-auto text-[0.95rem] leading-relaxed">
+              Outcomes depend on approvals, market conditions and project progress.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+            {evaluationPoints.map((point, i) => {
+              const Icon = point.icon;
+              return (
+                <ScrollReveal key={point.title} delay={i * 0.05} className="h-full">
+                  <div className="glass-card rounded-[1.25rem] p-7 group relative overflow-hidden h-full">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[1.25rem]" />
+                    <div className="relative z-10">
+                      <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:glow-primary transition-all duration-500">
+                        <Icon className="h-5 w-5 text-primary" />
+                      </div>
+                      <h3 className="text-[15px] font-bold text-white mb-2.5 tracking-[-0.01em]">
+                        {point.title}
+                      </h3>
+                      <p className="text-[12.5px] text-white/30 leading-[1.7]">{point.desc}</p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider mx-auto max-w-5xl" />
+
+      {/* ── Disclaimer ── */}
+      <section className="relative py-28 sm:py-32 lg:py-40 overflow-hidden bg-section-alt">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.06] via-transparent to-transparent" />
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <ScrollReveal className="max-w-4xl mx-auto">
+            <div className="glass-card-elevated rounded-[1.5rem] p-8 sm:p-10 relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
+              <div className="flex items-start gap-4 sm:gap-5">
+                <div className="h-12 w-12 rounded-2xl bg-gold/10 flex items-center justify-center shrink-0">
+                  <Info className="h-5 w-5 text-gold" />
+                </div>
+                <div>
+                  <h3 className="text-[16px] font-bold text-white mb-3 tracking-[-0.01em]">
+                    Important Disclaimer
+                  </h3>
+                  <div className="space-y-3 text-[13.5px] text-white/40 leading-[1.8]">
+                    <p>
+                      Appreciation and returns are market-dependent and not guaranteed. Any expected
+                      or targeted appreciation timeframe is presented only as a target and is not a
+                      guarantee of returns.
+                    </p>
+                    <p>
+                      Early-stage opportunities carry risk — outcomes are subject to approvals,
+                      market conditions and project progress.
+                    </p>
+                    <p>
+                      Please conduct your own independent due diligence before making any property
+                      decision.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <div className="section-divider mx-auto max-w-5xl" />
+
+      {/* ── Final CTA ── */}
+      <section className="relative py-28 sm:py-32 lg:py-40 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.04] via-transparent to-transparent" />
+          <div className="ambient-orb w-[700px] h-[700px] bg-primary/[0.04] left-1/2 -translate-x-1/2 -top-48" />
+        </div>
+        <ScrollReveal className="text-center relative z-10 mx-auto max-w-3xl px-5">
+          <SectionLabel>AR</SectionLabel>
+          <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1] mb-8">
+            Interested in the <span className="text-gradient">Shankarpally Opportunities?</span>
+          </h2>
+          <p className="text-white/30 mb-10 text-[0.95rem] leading-relaxed max-w-lg mx-auto">
+            Get detailed information about the 45-acre HMDA-approved project or the 108-acre
+            upcoming opportunity.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/projects"
+              className="btn-premium inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-10 py-4 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
+            >
+              Explore Project <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a
+              href={`${siteConfig.links.wa}?text=${encodeURIComponent("Hi Arjun Realty, I would like to know more about the Shankarpally opportunities.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-glass inline-flex items-center gap-3 px-10 py-4 rounded-full text-[13px] font-semibold text-white/55 border border-white/[0.06] hover:border-primary/20 transition-all duration-500"
+            >
+              <MessageCircle className="h-4 w-4 text-primary" /> Enquire Now
+            </a>
+          </div>
+        </ScrollReveal>
+      </section>
+    </>
+  );
+}

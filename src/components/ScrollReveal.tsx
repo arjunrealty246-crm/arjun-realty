@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 interface Props {
   children: ReactNode;
@@ -28,11 +28,21 @@ export default function ScrollReveal({
   duration = 0.7,
   distance = 30,
 }: Props) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
   const { x, y } = offsets[direction](distance);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y, x, filter: "blur(2px)" }}
+      initial={{ opacity: 0, y, x, filter: isMobile ? "blur(0px)" : "blur(2px)" }}
       whileInView={{ opacity: 1, y: 0, x: 0, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{

@@ -324,6 +324,7 @@ body {
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 9999px;
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: all 0.5s var(--ease-out-expo);
   position: relative;
   overflow: hidden;
@@ -500,4 +501,34 @@ input[type="range"].range-premium::-moz-range-thumb {
 .select-luxury option {
   background: #1a1a2e;
   color: #fff;
+}
+
+/* ──────────────────── MOBILE PERFORMANCE ──────────────────── */
+/* Small-screen only: reduce animation/repaint workload while preserving the
+   exact layout, colors and design. Desktop appearance is untouched. */
+
+@media (max-width: 767px) {
+  /* Stop continuously-running decorative animations that repaint every frame */
+  .text-gradient { animation: none; }
+  .hero-grid { animation: none; }
+  .star-pulse { animation: none; }
+  .marquee-track { animation: none; will-change: auto; }
+
+  /* On small screens backdrop-filter causes mobile GPUs to rasterize the whole
+     card (including its text) into a blurred layer while scrolling, and it can
+     stay soft after the reveal. Remove it on content so everything stays sharp;
+     the translucent background + border keep the glass look intact. */
+  .glass { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .glass-medium { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .glass-strong { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .glass-dark { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .glass-card { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .glass-card-elevated { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .btn-glass { backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+  /* Cheaper static orbs — no speculative compositor layer */
+  .ambient-orb { filter: blur(60px); will-change: auto; }
+
+  /* Remove full-viewport noise overlay (opacity 0.01 — imperceptible) */
+  .noise::after { display: none; }
 }

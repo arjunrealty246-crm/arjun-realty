@@ -13,6 +13,54 @@ export interface ProjectUnit {
   count: string;
 }
 
+export interface ProjectMediaItem {
+  type: "image" | "video";
+  src: string;
+  label?: string;
+  poster?: string;
+}
+
+export interface ProjectDocument {
+  name: string;
+  url: string;
+  type?: "pdf" | "image" | "link";
+  description?: string;
+}
+
+export interface ProjectPhase {
+  name: string;
+  status?: string;
+  description?: string;
+  details?: { label: string; value: string }[];
+  highlights?: string[];
+  photos?: string[];
+  videos?: string[];
+  masterPlanUrl?: string;
+  layoutUrl?: string;
+  layoutPdfUrl?: string;
+  brochureUrl?: string;
+  documents?: ProjectDocument[];
+}
+
+export interface ProjectUpdate {
+  title: string;
+  description?: string;
+  status: "completed" | "in-progress" | "planned";
+}
+
+export interface ProjectGalleryItem {
+  src: string;
+  title?: string;
+  category?: string;
+}
+
+export interface DevelopmentUpdate {
+  date?: string;
+  title: string;
+  description?: string;
+  images?: string[];
+}
+
 export interface Project {
   slug: string;
   name: string;
@@ -61,6 +109,13 @@ export interface Project {
   locationAdvantages: string[];
   whyInvest: string[];
   description?: string;
+  phases?: ProjectPhase[];
+  documents?: ProjectDocument[];
+  updates?: ProjectUpdate[];
+  layoutUrl?: string;
+  locationUrl?: string;
+  gallery?: ProjectGalleryItem[];
+  developmentUpdates?: DevelopmentUpdate[];
 }
 
 export const projects: Project[] = [
@@ -83,7 +138,7 @@ export const projects: Project[] = [
       "One of the first FCDA Approved premium villa plotting projects in the Future City growth corridor",
       "53 Acres of premium living space",
       "524 premium villa plots with 50 boutique villas",
-      "30,000 Sq. Ft. Grand Clubhouse with 30+ world-class amenities",
+      "36,000 Sq. Ft. Grand Clubhouse with 30+ world-class amenities",
     ],
     units: [
       { type: "Premium Villa Plots", count: "524" },
@@ -92,7 +147,7 @@ export const projects: Project[] = [
     totalAcres: "53",
     totalPlots: "574",
     plotSizes: "Villa Plots: 200 – 600 Sq. Yards | Boutique Villas: 1,800 – 2,400 Sq. Ft.",
-    clubhouseDetails: "30,000 Sq. Ft. Grand Clubhouse",
+    clubhouseDetails: "36,000 Sq. Ft. Grand Clubhouse",
     amenities: [
       "Swimming Pool", "Kids Pool", "Fitness Gym", "Yoga Area", "Meditation Lawn",
       "Pickleball Court", "Half Basketball Court", "Badminton Court", "Indoor Games",
@@ -134,14 +189,16 @@ export const projects: Project[] = [
     ],
     highlights: [
       "FCDA Approved – one of the first projects in the corridor",
-      "53 Acres gated community with 30,000 Sq. Ft. clubhouse",
+      "53 Acres gated community with 36,000 Sq. Ft. clubhouse",
       "524 Premium Villa Plots + 50 Boutique Villas",
       "2 Minutes to Srisailam Highway | 8 Minutes to ORR Exit 14",
       "15 Minutes to Rajiv Gandhi International Airport",
       "30+ World-Class Lifestyle Amenities",
     ],
     bankLoanAvailable: true,
-    brochureUrl: "",
+    brochureUrl: "/uploads/projects/1786897494386-Flyer.pdf",
+    layoutUrl: "/uploads/projects/1786891339080-HarmonyWoods_Layout18x25-2.pdf",
+    heroVideo: "/uploads/projects/1786891090927-InShot_20260730_1836175241.mp4",
     image: "/images/projects/jb-harmony-woods.svg",
     images: ["/images/projects/jb-harmony-woods.svg"],
     faqs: [
@@ -149,7 +206,7 @@ export const projects: Project[] = [
       { q: "Is JB Harmony Woods FCDA approved?", a: "Yes, JB Harmony Woods is one of the first FCDA approved premium villa plotting projects in the Future City growth corridor." },
       { q: "What are the available plot sizes?", a: "Villa plots range from 200 to 600 Sq. Yards. Boutique villas range from 1,800 to 2,400 Sq. Ft." },
       { q: "Is bank loan available?", a: "Yes, bank loan facility is available for both villa plots and boutique villas. We are empaneled with leading banks and financial institutions." },
-      { q: "What amenities does the project offer?", a: "The project features a 30,000 Sq. Ft. Grand Clubhouse with 30+ world-class amenities including swimming pool, fitness gym, pickleball court, indoor games, banquet hall, and more." },
+      { q: "What amenities does the project offer?", a: "The project features a 36,000 Sq. Ft. Grand Clubhouse with 30+ world-class amenities including swimming pool, fitness gym, pickleball court, indoor games, banquet hall, and more." },
       { q: "What is the location advantage of JB Harmony Woods?", a: "The project is just 2 minutes from Srisailam Highway, 8 minutes from ORR Exit 14, 15 minutes from the airport, and minutes away from Future City, AI City, Foxconn, and major landmarks." },
       { q: "Is this project suitable for NRIs?", a: "Absolutely. The FCDA approval, prime location near Future City and AI City, and high appreciation potential make it an ideal investment for NRIs looking for long-term value." },
       { q: "How is the connectivity to IT hubs?", a: "Financial District and Gachibowli are reachable within 35 minutes, Neopolis Knowledge City within 40 minutes, making it convenient for IT professionals." },
@@ -157,7 +214,7 @@ export const projects: Project[] = [
     testimonials: [
       { name: "Ravi K., Investor", text: "Impressed with the scale of the project and the FCDA approval. The location near Future City and AI City sealed the deal for me." },
       { name: "Priya S., NRI Buyer", text: "As an NRI, finding a fully approved large-scale project was a priority. JB Harmony Woods exceeded my expectations with its transparency and world-class amenities." },
-      { name: "Vikram Reddy, End-User", text: "The 30,000 Sq. Ft. clubhouse and 30+ amenities convinced me to build our dream villa here. It's a complete lifestyle community." },
+      { name: "Vikram Reddy, End-User", text: "The 36,000 Sq. Ft. clubhouse and 30+ amenities convinced me to build our dream villa here. It's a complete lifestyle community." },
     ],
     siteVisitBooking: true,
     whatsappCta: "Book JB Harmony Woods",
@@ -179,13 +236,27 @@ export const projects: Project[] = [
     ],
     whyInvest: [
       "FCDA Approved project in the fast-growing Future City corridor",
-      "53 Acres of premium living space with 30,000 Sq. Ft. Grand Clubhouse",
+      "53 Acres of premium living space with 36,000 Sq. Ft. Grand Clubhouse",
       "524 premium villa plots & 50 limited edition boutique villas",
       "Unbeatable location: 2 min to Srisailam Highway, 8 min to ORR, 15 min to Airport",
       "Proximity to Future City, AI City, Foxconn, and Kaynes Technology",
       "30+ world-class amenities for a complete lifestyle experience",
       "Bank loan available with flexible payment options",
       "High appreciation potential driven by massive industrial & infrastructure growth",
+    ],
+    updates: [
+      {
+        title: "FCDA Approval",
+        description:
+          "One of the first FCDA approved premium villa plotting projects in the Future City growth corridor.",
+        status: "completed",
+      },
+      {
+        title: "Bookings Open",
+        description:
+          "Bookings are open for 524 premium villa plots and 50 boutique villas.",
+        status: "in-progress",
+      },
     ],
   },
   {
@@ -250,6 +321,19 @@ export const projects: Project[] = [
       "Premium Villa Community", "High Growth Corridor",
       "Excellent Long-Term Appreciation",
     ],
+    updates: [
+      {
+        title: "HMDA & RERA Approval",
+        description: "HMDA Approved · RERA Registered.",
+        status: "completed",
+      },
+      {
+        title: "Bookings Open",
+        description:
+          "Premium villa plots available in 228, 267, 300, 400, 500, 600 and 800 Sq. Yards.",
+        status: "in-progress",
+      },
+    ],
   },
   {
     slug: "jb-serene-county",
@@ -312,6 +396,19 @@ export const projects: Project[] = [
       "Ideal for Investment and Residential Development",
       "Strong Short-Term and Long-Term Appreciation Potential",
     ],
+    updates: [
+      {
+        title: "HMDA & TSRERA Registration",
+        description: "HMDA Approved · TSRERA Registered.",
+        status: "completed",
+      },
+      {
+        title: "Bookings Open",
+        description:
+          "Plots available in 150, 167, 183, 200, 250 and 300 Sq. Yards.",
+        status: "in-progress",
+      },
+    ],
   },
   {
     slug: "jb-pristine-city",
@@ -368,6 +465,20 @@ export const projects: Project[] = [
       "Near Four-Lane Expressway from ORR Exit No.18 (Appa Junction) to Vikarabad",
     ],
     whyInvest: [],
+    updates: [
+      {
+        title: "DTCP Approval",
+        description:
+          "The project is currently under the DTCP approval process.",
+        status: "in-progress",
+      },
+      {
+        title: "Launch",
+        description:
+          "Pre-launch stage — details available on request.",
+        status: "planned",
+      },
+    ],
   },
   {
     slug: "jb-serene-city",
@@ -435,6 +546,25 @@ export const projects: Project[] = [
       "Surrounded by government organizations, industries and educational institutions",
       "Excellent choice for both investment and future villa construction",
       "Strong long-term appreciation potential",
+    ],
+    updates: [
+      {
+        title: "HMDA & RERA Approval",
+        description: "HMDA Approved · RERA Registered.",
+        status: "completed",
+      },
+      {
+        title: "Community Residency",
+        description:
+          "100+ families are already residing in the township.",
+        status: "completed",
+      },
+      {
+        title: "Bookings Open",
+        description:
+          "Plots available in the 660-acre integrated township.",
+        status: "in-progress",
+      },
     ],
   },
   {
@@ -508,6 +638,19 @@ export const projects: Project[] = [
       "Ideal for long-term investment and future villa construction",
       "Bank loan facility from leading financial institutions",
     ],
+    updates: [
+      {
+        title: "DTCP & RERA Approval",
+        description: "DTCP Approved · RERA Registered.",
+        status: "completed",
+      },
+      {
+        title: "Bookings Open",
+        description:
+          "Plots available across the 720+ acre satellite township.",
+        status: "in-progress",
+      },
+    ],
   },
   {
     slug: "upcoming-ibrahimpatnam",
@@ -565,6 +708,19 @@ export const projects: Project[] = [
       "Close to Rangareddy District Collectorate", "Near Guru Nanak Institutions",
     ],
     whyInvest: [],
+    updates: [
+      {
+        title: "Approval Process",
+        description:
+          "Approval process is underway for the 90-acre gated villa community.",
+        status: "in-progress",
+      },
+      {
+        title: "Launch",
+        description: "Coming soon — register to receive updates.",
+        status: "planned",
+      },
+    ],
   },
   {
     slug: "upcoming-srisailam-highway",
@@ -612,6 +768,19 @@ export const projects: Project[] = [
       "Excellent long-term appreciation potential",
       "Ideal for investment and future residential development",
       "Launching soon with attractive pre-launch benefits",
+    ],
+    updates: [
+      {
+        title: "DTCP & RERA Approval",
+        description:
+          "DTCP and RERA approvals are under process.",
+        status: "in-progress",
+      },
+      {
+        title: "Launch",
+        description: "Coming soon — register to receive updates.",
+        status: "planned",
+      },
     ],
   },
   {
@@ -676,6 +845,19 @@ export const projects: Project[] = [
       "Modern master-planned community",
       "Excellent long-term appreciation potential",
       "Ideal for investment and future home construction",
+    ],
+    updates: [
+      {
+        title: "HMDA Approval",
+        description:
+          "HMDA approval is under process.",
+        status: "in-progress",
+      },
+      {
+        title: "Launch",
+        description: "Coming soon — register to receive updates.",
+        status: "planned",
+      },
     ],
   },
 ];

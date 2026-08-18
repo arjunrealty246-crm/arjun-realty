@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { writeFile, mkdir } from "fs/promises";
-import path from "path";
 import { getSession } from "@/lib/auth";
+import { uploadFile } from "@/lib/storage";
 
 export async function POST(req: NextRequest) {
   const session = await getSession();
@@ -19,15 +18,7 @@ export async function POST(req: NextRequest) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    const uploadDir = path.join(process.cwd(), "public", folder);
-    await mkdir(uploadDir, { recursive: true });
-
-    const ext = path.extname(file.name) || ".jpg";
-    const filename = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, "")}`;
-    const filepath = path.join(uploadDir, filename);
-    await writeFile(filepath, buffer);
-
-    const url = `/${folder}/${filename}`;
+    const { url, filename } = await uploadFile(buffer, file.name, folder);
     return NextResponse.json({ url, filename });
   } catch (err: unknown) {
     return NextResponse.json({ error: err instanceof Error ? err.message : "Upload failed" }, { status: 500 });

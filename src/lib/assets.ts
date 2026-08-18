@@ -1,4 +1,4 @@
-import type { Project } from "@/data/projects";
+import type { Project, ProjectMediaItem } from "@/data/projects";
 
 const FALLBACK_GRADIENTS = [
   "from-primary/20 via-charcoal-dark to-primary/10",
@@ -41,4 +41,36 @@ export function hasBrochure(project: Project): boolean {
 
 export function getProjectThumbnail(project: Project): string {
   return project.images?.[0] || project.image || "";
+}
+
+function isVideoUrlSafe(url: string): boolean {
+  const ext = url.toLowerCase().split("?")[0].slice(url.lastIndexOf("."));
+  return VALID_VIDEO_EXTS.includes(ext);
+}
+
+export function getProjectMedia(project: Project): ProjectMediaItem[] {
+  const media: ProjectMediaItem[] = [];
+  const gallery = project.galleryImages?.length
+    ? project.galleryImages
+    : project.images || [];
+
+  for (const img of gallery) {
+    if (img && img.trim()) {
+      media.push({ type: "image", src: img });
+    }
+  }
+
+  const videoSources = [
+    ...(project.videos || []),
+    project.videoUrl,
+    project.droneVideoUrl,
+  ].filter((v): v is string => Boolean(v && v.trim() && isVideoUrlSafe(v)));
+
+  for (const v of videoSources) {
+    if (!media.some((m) => m.type === "video" && m.src === v)) {
+      media.push({ type: "video", src: v, poster: getProjectThumbnail(project) || undefined });
+    }
+  }
+
+  return media;
 }

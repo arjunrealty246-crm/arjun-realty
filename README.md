@@ -2,19 +2,32 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Copy `.env.example` to `.env.local` and fill in `MONGODB_URI`, admin credentials, `JWT_SECRET`, and (optionally) Cloudinary keys.
+
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Media storage
+
+Uploads are served from **Cloudinary** when `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY` and `CLOUDINARY_API_SECRET` are set; otherwise they fall back to local `public/uploads/` (dev mode).
+
+### One-time migration of existing local media
+
+If the site previously stored media in `public/uploads/` (which is git-ignored), run once to push all files to Cloudinary and rewrite the MongoDB URLs:
+
+```bash
+npm run migrate:uploads          # real run
+npm run migrate:uploads -- --dry-run   # preview only, no uploads / DB writes
+```
+
+The script walks the `projects`, `galleryitems`, `brochures`, `testimonials`, `builders`, and `faqs` collections, uploads any `/uploads/...` file to Cloudinary, and rewrites the stored URLs in place. Files missing on disk are reported and left untouched.
+
+
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

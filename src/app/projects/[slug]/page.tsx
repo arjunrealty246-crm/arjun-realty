@@ -3,9 +3,11 @@ import { notFound } from "next/navigation";
 import fs from "fs";
 import path from "path";
 import { projects, getProjectBySlug, getRelatedProjects } from "@/data/projects";
+import type { Project } from "@/data/projects";
 import PremiumProjectDetailPage from "@/components/PremiumProjectDetailPage";
 import siteConfig from "@/config/site";
 import { connectDB } from "@/lib/mongodb";
+import { toPlainObject } from "@/lib/serialize";
 import ProjectModel from "@/lib/models/Project";
 
 function isUsableMediaUrl(value: string): boolean {
@@ -24,9 +26,35 @@ export function generateStaticParams() {
 
 export const dynamic = "force-dynamic";
 
+const SKIP_DB_KEYS = new Set(["_id", "__v", "createdAt", "updatedAt", "sortOrder"]);
+
+async function getMergedProject(slug: string): Promise<Project | null> {
+  const staticProject = getProjectBySlug(slug);
+  if (!staticProject) return null;
+
+  const project = { ...staticProject };
+
+  try {
+    await connectDB();
+    const dbProject = await ProjectModel.findOne({ slug }).lean() as Record<string, unknown> | null;
+    if (dbProject) {
+      const plainProject = toPlainObject(dbProject);
+      for (const [key, val] of Object.entries(plainProject)) {
+        if (SKIP_DB_KEYS.has(key)) continue;
+        if (val === undefined || val === null) continue;
+        (project as Record<string, unknown>)[key] = val;
+      }
+    }
+  } catch {
+    // DB unavailable — use static data as-is
+  }
+
+  return project;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = await getMergedProject(slug);
   if (!project) return {};
 
   const title = `${project.name} — ${project.projectType} | Arjun Realty`;
@@ -74,25 +102,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
-  const staticProject = getProjectBySlug(slug);
-  if (!staticProject) notFound();
-
-  const project = { ...staticProject };
-
-  try {
-    await connectDB();
-    const dbProject = await ProjectModel.findOne({ slug }).lean() as Record<string, unknown> | null;
-    if (dbProject) {
-      for (const key of ["heroVideo", "image", "images", "videoUrl", "droneVideoUrl", "brochureUrl", "name", "description", "price", "startingPrice", "status", "badge", "mapsUrl"]) {
-        const val = dbProject[key];
-        if (val !== undefined && val !== null) {
-          (project as Record<string, unknown>)[key] = val;
-        }
-      }
-    }
-  } catch {
-    // DB unavailable — use static data as-is
-  }
+  const project = await getMergedProject(slug);
+  if (!project) notFound();
 
   const relatedProjects = getRelatedProjects(slug, 3);
 
@@ -102,6 +113,51 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   project.images = usableImages.length ? usableImages : [];
   if (!isUsableMediaUrl(project.image)) {
     project.image = usableImages[0] || "";
+  }
+
+  if (Array.isArray(project.phases)) {
+    project.phases = project.phases
+      .map((phase) => {
+        const p = { ...phase };
+        p.photos = (p.photos || []).filter((url) => isUsableMediaUrl(url));
+        p.videos = (p.videos || []).filter((url) => isUsableMediaUrl(url));
+        if (p.masterPlanUrl && !isUsableMediaUrl(p.masterPlanUrl)) p.masterPlanUrl = undefined;
+        if (p.layoutUrl && !isUsableMediaUrl(p.layoutUrl)) p.layoutUrl = undefined;
+        if (p.layoutPdfUrl && !isUsableMediaUrl(p.layoutPdfUrl)) p.layoutPdfUrl = undefined;
+        if (p.brochureUrl && !isUsableMediaUrl(p.brochureUrl)) p.brochureUrl = undefined;
+        p.documents = (p.documents || []).filter((d) => d && d.url && isUsableMediaUrl(d.url));
+        return p;
+      })
+      .filter((p) => Boolean(p.name));
+  }
+
+  if (Array.isArray(project.documents)) {
+    project.documents = project.documents.filter((d) => d && d.url && isUsableMediaUrl(d.url));
+  }
+
+  for (const key of ["heroVideo", "videoUrl", "droneVideoUrl", "brochureUrl", "masterPlanUrl", "layoutPdfUrl", "layoutUrl", "locationMapUrl", "locationUrl"] as const) {
+    const val = project[key];
+    if (val && !isUsableMediaUrl(val)) {
+      (project as unknown as Record<string, unknown>)[key] = undefined;
+    }
+  }
+
+  if (Array.isArray(project.videos)) {
+    project.videos = project.videos.filter((v) => isUsableMediaUrl(v));
+  }
+
+  if (Array.isArray(project.galleryImages)) {
+    project.galleryImages = project.galleryImages.filter((url) => isUsableMediaUrl(url));
+  }
+
+  if (Array.isArray(project.gallery)) {
+    project.gallery = project.gallery.filter((g) => g && g.src && isUsableMediaUrl(g.src));
+  }
+
+  if (Array.isArray(project.developmentUpdates)) {
+    project.developmentUpdates = project.developmentUpdates
+      .map((u) => ({ ...u, images: (u.images || []).filter((img) => isUsableMediaUrl(img)) }))
+      .filter((u) => Boolean(u && u.title));
   }
 
   return <PremiumProjectDetailPage project={project} relatedProjects={relatedProjects} />;
