@@ -18,10 +18,16 @@ import {
 import ScrollReveal from "../ScrollReveal";
 import SectionLabel from "../SectionLabel";
 import { getProjectMedia, getProjectGradient } from "@/lib/assets";
+import { getDownloadUrl } from "@/lib/download-url";
 import type { Project, ProjectMediaItem } from "@/data/projects";
 
 const BLUR =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSIjMWExYTJlIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIvPjwvc3ZnPg==";
+
+function isVideoUrl(url: string): boolean {
+  const lower = url.toLowerCase();
+  return lower.includes("/video/upload/") || /\.(mp4|webm|mov)(\?|$)/.test(lower);
+}
 
 const fallbackLabels = [
   "Project Aerial View",
@@ -41,7 +47,7 @@ function mediaLabel(index: number): string {
 export default function ShowcaseMediaGallery({ project }: { project: Project }) {
   const galleryMeta = (project.gallery || []).filter((g) => g && g.src);
   const media: ProjectMediaItem[] = galleryMeta.length
-    ? galleryMeta.map((g) => ({ type: "image" as const, src: g.src, label: g.title }))
+    ? galleryMeta.map((g) => ({ type: (g.type === "video" || isVideoUrl(g.src) ? "video" : "image") as "image" | "video", src: g.src, label: g.title }))
     : getProjectMedia(project);
   const [tab, setTab] = useState<"gallery" | "layout">("gallery");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -119,16 +125,28 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                       }`}
                     >
                       {item.src && !failed[i] ? (
-                        <Image
-                          src={item.src}
-                          alt={`${project.name} — ${captionFor(i)}`}
-                          fill
-                          sizes="(max-width: 768px) 50vw, 25vw"
-                          className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
-                          placeholder="blur"
-                          blurDataURL={BLUR}
-                          onError={() => setFailed((prev) => (prev[i] ? prev : { ...prev, [i]: true }))}
-                        />
+                        isVideo ? (
+                          <video
+                            src={item.src}
+                            muted
+                            loop
+                            preload="metadata"
+                            playsInline
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
+                            onError={() => setFailed((prev) => (prev[i] ? prev : { ...prev, [i]: true }))}
+                          />
+                        ) : (
+                          <Image
+                            src={item.src}
+                            alt={`${project.name} — ${captionFor(i)}`}
+                            fill
+                            sizes="(max-width: 768px) 50vw, 25vw"
+                            className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
+                            placeholder="blur"
+                            blurDataURL={BLUR}
+                            onError={() => setFailed((prev) => (prev[i] ? prev : { ...prev, [i]: true }))}
+                          />
+                        )
                       ) : (
                         <div className={`absolute inset-0 bg-gradient-to-br ${getProjectGradient(project.slug + i)}`} />
                       )}
@@ -193,7 +211,7 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                       <div className="flex items-center gap-4">
                         {project.layoutPdfUrl && (
                           <a
-                            href={project.layoutPdfUrl}
+                            href={getDownloadUrl(project.layoutPdfUrl)}
                             download
                             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors duration-300"
                           >
@@ -202,7 +220,7 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                         )}
                         {project.masterPlanUrl && (
                           <a
-                            href={project.masterPlanUrl}
+                            href={getDownloadUrl(project.masterPlanUrl)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors duration-300"
@@ -267,8 +285,9 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                     poster={active.poster}
                     controls
                     autoPlay
+                    muted
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                     onError={() => setFailed((prev) => ({ ...prev, [lightboxIndex]: true }))}
                     className="w-full h-full object-contain bg-black"
                   />

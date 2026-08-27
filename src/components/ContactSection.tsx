@@ -49,7 +49,7 @@ export default function ContactSection() {
   const update = (field: string, value: string) => setForm((p) => ({ ...p, [field]: value }));
 
   return (
-    <section className="relative py-28 lg:py-36 overflow-hidden" id="contact">
+    <section className="relative pt-28 pb-44 md:py-28 lg:py-36 overflow-hidden" id="contact">
       <div className="ambient-orb w-[500px] h-[500px] bg-primary/[0.03] left-1/4 -top-48" />
 
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
@@ -94,14 +94,14 @@ export default function ContactSection() {
                     <div>
                       <label className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{contactSection.formLabels.phone}</label>
                       <input type="tel" required value={form.phone} onChange={(e) => update("phone", e.target.value)}
-                        placeholder={contactSection.formPlaceholders.phone} className="input-luxury" />
+                        placeholder={contactSection.formPlaceholders.phone} className="input-luxury" pattern="[\+]?[0-9\s\-\(\)]{10,15}" title="Please enter a valid phone number" />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{contactSection.formLabels.whatsapp}</label>
                       <input type="tel" value={form.whatsapp} onChange={(e) => update("whatsapp", e.target.value)}
-                        placeholder={contactSection.formPlaceholders.whatsapp} className="input-luxury" />
+                        placeholder={contactSection.formPlaceholders.whatsapp} className="input-luxury" pattern="[\+]?[0-9\s\-\(\)]{10,15}" title="Please enter a valid phone number" />
                     </div>
                     <div>
                       <label className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{contactSection.formLabels.email}</label>
@@ -207,6 +207,10 @@ export default function ContactSection() {
                   <Phone className="h-4 w-4" /> Call Now
                 </a>
               </div>
+              <a href="/schedule-site-visit"
+                className="mt-3 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-white/[0.06] text-white/40 text-[11px] font-medium hover:text-primary hover:border-primary/20 transition-all duration-300">
+                Schedule a Site Visit
+              </a>
             </div>
           </ScrollReveal>
         </div>

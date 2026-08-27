@@ -133,6 +133,8 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
                         required
                         placeholder={siteVisitForm.phonePlaceholder}
                         className="input-luxury"
+                        pattern="[\+]?[0-9\s\-\(\)]{10,15}"
+                        title="Please enter a valid phone number"
                       />
                   </div>
                   <div>

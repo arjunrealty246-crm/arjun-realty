@@ -151,12 +151,11 @@ export const contactSection = {
 
 // ─── Floating Actions ──────────────────────────────
 export const floatingActions = {
-  tooltipText: "Need help? Chat with us on WhatsApp or Telegram!",
+  tooltipText: "Need help? Chat with us on WhatsApp!",
   callbackLabel: "Request Callback",
   visitLabel: "Book Site Visit",
   callAria: "Call Arjun Realty",
   whatsappAria: "Chat on WhatsApp",
-  telegramAria: "Chat on Telegram",
   menuAria: "More actions",
   backToTopAria: "Back to top",
   brochureAria: "Download Brochure",
@@ -166,7 +165,6 @@ export const floatingActions = {
 export const stickyEnquiryBar = {
   callLabel: "Call",
   whatsappLabel: "WhatsApp",
-  telegramLabel: "Telegram",
   enquiryLabel: "Enquire",
   scheduleLabel: "Schedule Visit",
 };
@@ -221,30 +219,6 @@ export const brochureDownload = {
   submitButton: "Download Now",
   successTitle: "Check Your Email!",
   successMessage: "We have sent the brochure to your email address.",
-};
-
-// ─── Project Comparison Page ────────────────────────
-export const projectComparison = {
-  pageTitle: "Compare Projects",
-  pageDescription: "Compare HMDA, DTCP and RERA approved projects side by side to make an informed real estate investment decision.",
-  tableHeaders: {
-    feature: "Features",
-    project1: "Project A",
-    project2: "Project B",
-  },
-  addProject: "Add Project",
-  compare: "Compare",
-  cta: "Get Expert Advice",
-  noProjects: "Select projects to compare",
-  rowLabels: {
-    type: "Project Type",
-    location: "Location",
-    area: "Plot Size",
-    price: "Price Range",
-    approval: "Approvals",
-    possession: "Possession",
-    builder: "Builder",
-  },
 };
 
 // ─── Calculator ─────────────────────────────────────
@@ -342,18 +316,6 @@ export const projectsPage = {
   cta: "Schedule Consultation",
 };
 
-// ─── Portfolio Page ─────────────────────────────────
-export const portfolioPage = {
-  pageTitle: "Our Project Portfolio",
-  pageDescription: "Explore our curated portfolio of premium real estate projects across Hyderabad's best locations.",
-  features: [
-    { title: "Curated Selection", desc: "Every project handpicked after rigorous due diligence" },
-    { title: "Premium Locations", desc: "Hyderabad's highest-growth corridors" },
-    { title: "Verified Builders", desc: "Only legally compliant, reputed developers" },
-    { title: "Maximum Returns", desc: "Data-backed investment recommendations" },
-  ],
-};
-
 // ─── Contact Page ───────────────────────────────────
 export const contactPage = {
   pageTitle: "Contact Arjun Realty Premium Advisory",
@@ -395,43 +357,6 @@ export const privacyPage = {
 };
 
 // ─── Structured Data ───────────────────────────────
-export const structuredData = {
-  website: {
-    name: siteConfig.name,
-    alternateName: "Arjun Realty Premium Advisory",
-    url: siteConfig.url,
-    description: siteConfig.description,
-  },
-  organization: {
-    name: siteConfig.name,
-    alternateName: "Arjun Realty Premium Advisory",
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.png`,
-    description: siteConfig.description,
-    contactPoint: [
-      { "@type": "ContactPoint", telephone: siteConfig.contact.phoneRaw, contactType: "sales", availableLanguage: "English, Telugu, Hindi" },
-    ],
-    address: {
-      "@type": "PostalAddress", streetAddress: siteConfig.address.full, addressLocality: siteConfig.address.city, addressRegion: siteConfig.address.state, postalCode: siteConfig.address.pincode, addressCountry: "IN",
-    },
-  },
-  localBusiness: {
-    "@type": "RealEstateAgent",
-    name: siteConfig.name,
-    image: `${siteConfig.url}/logo.png`,
-    address: {
-      "@type": "PostalAddress", streetAddress: siteConfig.address.full, addressLocality: siteConfig.address.city, addressRegion: siteConfig.address.state, postalCode: siteConfig.address.pincode, addressCountry: "IN",
-    },
-    url: siteConfig.url,
-    telephone: siteConfig.contact.phoneRaw,
-    priceRange: "₹35L - ₹5Cr+",
-  },
-  faq: {
-    "@type": "FAQPage",
-    mainEntity: [] as { "@type": "Question"; name: string; acceptedAnswer: { "@type": "Answer"; text: string } }[],
-  },
-};
-
 // ─── Legal & Footer ────────────────────────────────
 export const footerContent = {
   brandDescription: "Independent real estate advisory helping investors find verified HMDA, DTCP and RERA approved properties across Hyderabad. Transparent guidance, project comparison, and end-to-end support.",

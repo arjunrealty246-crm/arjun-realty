@@ -1,7 +1,7 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
-const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET || "fallback-secret");
+const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET);
 const COOKIE_NAME = "admin_token";
 
 export async function createToken(email: string) {
@@ -28,7 +28,8 @@ export async function getSession() {
 }
 
 export function validateCredentials(email: string, password: string) {
-  const validEmail = process.env.ADMIN_EMAIL || "admin@arjunrealty.com";
-  const validPassword = process.env.ADMIN_PASSWORD || "Admin@123";
+  const validEmail = process.env.ADMIN_EMAIL;
+  const validPassword = process.env.ADMIN_PASSWORD;
+  if (!validEmail || !validPassword) return false;
   return email === validEmail && password === validPassword;
 }

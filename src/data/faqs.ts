@@ -6,35 +6,35 @@ export interface FAQ {
 export const homeFaqs: FAQ[] = [
   {
     q: "What types of projects does Arjun Realty offer?",
-    a: "We specialize in HMDA, DTCP, FCDA & RERA approved residential plots, premium gated community plots, luxury apartments, and farm/weekend plots across Hyderabad's fastest-growing corridors — including Shamshabad, Kollur, Financial District, and Srisailam Highway.",
+    a: "Arjun Realty curates premium residential plotted developments, gated community plots, and integrated townships across Hyderabad\u2019s fastest-growing corridors. All projects we recommend carry DTCP, HMDA, FCDA, or RERA approvals and are developed by established builders with proven track records.",
   },
   {
-    q: "How do I know the projects are legally safe?",
-    a: "Every single project we recommend goes through a rigorous legal verification process. We check title deeds, government approvals (HMDA/DTCP/FCDA/RERA), encumbrance certificates, and zoning compliance. We only proceed with projects that pass every check — zero compromises.",
+    q: "How does Arjun Realty verify project approvals and legal safety?",
+    a: "Every project undergoes a rigorous multi-step verification process before it is presented to clients. We review title deeds, government approvals (HMDA/DTCP/FCDA/RERA), encumbrance certificates, zoning compliance, and layout sanctions. We only recommend projects that clear every check \u2014 there are no exceptions.",
   },
   {
-    q: "Can NRIs invest remotely?",
-    a: "Absolutely. We have a dedicated NRI desk that handles virtual property tours, remote document verification, power of attorney guidance, and even remote registration assistance. Many of our NRI clients in Dubai, USA, UK, Singapore, and Canada have invested entirely remotely.",
+    q: "Can NRIs invest through Arjun Realty without visiting India?",
+    a: "Yes. Our dedicated NRI desk supports virtual property tours, digital documentation review, power of attorney guidance, and remote registration assistance. We have successfully served NRI clients across the UAE, USA, UK, Singapore, and Canada who invested entirely from abroad.",
   },
   {
-    q: "What are the typical returns on Hyderabad real estate?",
-    a: "Hyderabad's prime corridors have consistently delivered 12–25% annual appreciation over the last 5 years. Plots near ORR exits, the airport corridor, and the Financial District have shown even higher growth. We provide data-backed projections for every project we recommend.",
-  },
-  {
-    q: "How does the consultation process work?",
-    a: "It starts with a free, no-obligation consultation — either in-person at our office in Pedda Amberpet, Hyderabad or via video call. We understand your investment goals, budget, and timeline, then present curated options from our panel of 4+ builders with full data. You decide at your pace — no pressure, ever.",
-  },
-  {
-    q: "What is the minimum investment required?",
-    a: "Our projects start from ₹35 Lakh onwards for farm plots and go up to ₹1.5 Cr+ for premium residential plots and luxury apartments. We recommend investments based on your risk profile and goals — there is no one-size-fits-all approach.",
+    q: "What is the typical consultation and booking process?",
+    a: "It begins with a free, no-obligation consultation \u2014 either in-person at our Hyderabad office or via video call. We understand your goals, budget, and timeline, then present curated options with complete data. Once you choose a project, we assist with site visits, documentation, and registration end to end.",
   },
   {
     q: "Do you help with home loans and financing?",
-    a: "Yes, we have tie-ups with leading banks and NBFCs for attractive financing options. Our team assists with loan documentation, pre-approval, and ensures you get competitive interest rates for your real estate investment.",
+    a: "Yes. We have tie-ups with leading banks and NBFCs for competitive financing options. Our team assists with loan documentation, pre-approval processes, and ensures you receive favourable interest rates tailored to your investment profile.",
   },
   {
     q: "How do I schedule a site visit?",
-    a: "Simply call us, WhatsApp us, or fill out the contact form on this page. We arrange convenient site visits with transportation, typically within 24–48 hours. For NRIs, we offer guided virtual site tours.",
+    a: "You can schedule a site visit by calling us, messaging on WhatsApp, or filling out the contact form on our website. We arrange convenient visits with transportation, typically within 24\u201348 hours. For NRI clients, we also offer guided virtual site tours with live video walkthroughs.",
+  },
+  {
+    q: "What is the minimum investment required to get started?",
+    a: "Our curated portfolio includes options starting from \u20b935 Lakh onwards for premium residential plots. We recommend investments based on your individual risk profile, goals, and timeline \u2014 there is no one-size-fits-all approach.",
+  },
+  {
+    q: "What makes Arjun Realty different from other property consultants?",
+    a: "Our focus is on verified, approval-clear projects only. We earn from the developer, not from you \u2014 so our advisory is independent and unbiased. Every recommendation includes transparent legal documentation, honest location analysis, and ongoing support well beyond the transaction.",
   },
 ];
 

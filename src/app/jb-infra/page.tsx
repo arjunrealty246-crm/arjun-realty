@@ -18,15 +18,38 @@ import {
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
+import siteConfig from "@/config/site";
+import PageBreadcrumbs from "@/components/PageBreadcrumbs";
 
 export const metadata: Metadata = {
-  title: "JB Infra — Company Profile",
+  title: { absolute: "JB Infra Builder Profile | Arjun Realty" },
   description:
-    "JB Infra — established in 2001 with 20+ completed projects, 6 ongoing projects, 3,500+ acres of open plot development and 25,000+ satisfied customers across Hyderabad.",
+    "JB Infra — established in 2001 with 20+ completed projects, 3,500+ acres of open plot development and 25,000+ satisfied customers across Hyderabad.",
+  keywords: [
+    "JB Infra",
+    "JB Infra Hyderabad",
+    "JB Infra projects",
+    "JB Infra builder",
+    "open plot communities Hyderabad",
+    "trusted builders Hyderabad",
+    "Arjun Realty builders",
+  ],
+  alternates: {
+    canonical: siteConfig.url + "/jb-infra",
+  },
   openGraph: {
-    title: "JB Infra — Building Trust. Creating Value. Shaping Tomorrow.",
+    title: "JB Infra — Trusted Builder Profile",
     description:
       "Explore the JB Infra company profile — planned open plot communities, infrastructure-led development and long-term customer value since 2001.",
+    url: siteConfig.url + "/jb-infra",
+    images: [{ url: "https://www.arjunrealty.co.in/og-image.png", width: 1200, height: 630, alt: "JB Infra — Arjun Realty" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JB Infra — Trusted Builder Profile",
+    description:
+      "Explore the JB Infra company profile — planned open plot communities, infrastructure-led development and long-term customer value since 2001.",
+    images: ["https://www.arjunrealty.co.in/og-image.png"],
   },
 };
 
@@ -92,6 +115,7 @@ const trustPoints = [
 export default function JBInfraProfilePage() {
   return (
     <>
+      <PageBreadcrumbs items={[{ name: "JB Infra", url: "/jb-infra" }]} />
       {/* ── Hero ── */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
         <div className="ambient-orb w-[700px] h-[700px] bg-primary/[0.05] -right-48 -top-48" />

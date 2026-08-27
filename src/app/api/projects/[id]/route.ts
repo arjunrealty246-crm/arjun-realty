@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import ProjectModel from "@/lib/models/Project";
 import { getSession } from "@/lib/auth";
+import { sanitizeProjectBody } from "@/lib/validation";
 
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -19,7 +20,8 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
   try {
     await connectDB();
     const body = await req.json();
-    const project = await ProjectModel.findByIdAndUpdate(id, body, { new: true, runValidators: true }).lean();
+    const clean = sanitizeProjectBody(body);
+    const project = await ProjectModel.findByIdAndUpdate(id, clean, { new: true, runValidators: true }).lean();
     if (!project) return NextResponse.json({ error: "Not found" }, { status: 404 });
     return NextResponse.json(project);
   } catch (err: unknown) {

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Building2, Calendar, Shield, ArrowRight, CheckCircle, MapPin, Ruler, Banknote } from "lucide-react";
@@ -7,6 +8,34 @@ import siteConfig from "@/config/site";
 
 export function generateStaticParams() {
   return builders.map((b) => ({ slug: b.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const builder = getBuilderBySlug(slug);
+  if (!builder) return {};
+
+  const title = `${builder.name} — Verified Builder in Hyderabad | Arjun Realty`;
+  const description = `${builder.name} — established in ${builder.established || "Hyderabad"} with ${builder.projectCount} projects. ${builder.description}`.slice(0, 155) + "...";
+  const url = `${siteConfig.url}/builders/${builder.slug}`;
+
+  return {
+    title: { absolute: title },
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${builder.name} — Verified Builder | Arjun Realty`,
+      description,
+      url,
+      images: [{ url: "https://www.arjunrealty.co.in/og-image.png", width: 1200, height: 630, alt: `${builder.name} — Arjun Realty` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${builder.name} — Verified Builder | Arjun Realty`,
+      description,
+      images: ["https://www.arjunrealty.co.in/og-image.png"],
+    },
+  };
 }
 
 export default async function BuilderDetailPage({ params }: { params: Promise<{ slug: string }> }) {

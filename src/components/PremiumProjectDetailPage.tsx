@@ -96,9 +96,11 @@ function getAmenityIcon(name: string): React.ReactNode {
 export default function PremiumProjectDetailPage({
   project,
   relatedProjects,
+  testimonials = [],
 }: {
   project: Project;
   relatedProjects: Project[];
+  testimonials?: { name: string; role?: string; location?: string; text: string; rating?: number; image?: string }[];
 }) {
   const [siteVisitOpen, setSiteVisitOpen] = useState(false);
   const [amenitiesExpanded, setAmenitiesExpanded] = useState(false);
@@ -224,7 +226,7 @@ export default function PremiumProjectDetailPage({
                 {project.name}
               </h1>
               <p className="text-base sm:text-lg text-white/60 mb-1.5 max-w-3xl">
-                {project.projectType}
+                {project.tagline || project.projectType}
               </p>
               <p className="flex items-center gap-2 text-sm text-white/70 mb-8">
                 <MapPin className="h-4 w-4 text-primary/60 shrink-0" />
@@ -361,20 +363,19 @@ export default function PremiumProjectDetailPage({
                   <div className="flex-1">
                     <SectionLabel>FCDA Approved</SectionLabel>
                     <h3 className="text-2xl lg:text-3xl font-bold text-white mt-3 mb-4">
-                      One of the First FCDA Approved Projects in the Future City Corridor
+                      {project.name} — FCDA Approved in the Future City Growth Corridor
                     </h3>
                     <p className="text-white/45 text-[0.95rem] leading-relaxed max-w-3xl">
-                      FCDA (FAPCCI City Development Authority) approval is a hallmark of
-                      regulatory compliance and long-term development certainty. JB Harmony
-                      Woods is one of the first premium villa plotting projects to receive
-                      this prestigious approval in the Future City growth corridor — giving
-                      investors complete confidence in the project's legality and future
-                      appreciation potential.
+                      FCDA (Future City Development Authority) approval is a hallmark of
+                      regulatory compliance and long-term development certainty. {project.name} is
+                      one of the first premium villa plotting projects to receive this prestigious
+                      approval in the Future City growth corridor — giving investors complete
+                      confidence in the project's legality and future appreciation potential.
                     </p>
                     <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                       {[
                         "Full FCDA & RERA Regulatory Compliance",
-                        "Guaranteed Long-Term Development Certainty",
+                        "Early-Stage Growth Potential",
                         "Bank Loan Eligible with Clear Title",
                         "Approved Layout & Master Plan",
                         "Legal Documentation & Sale Deed Ready",
@@ -408,10 +409,7 @@ export default function PremiumProjectDetailPage({
               <SectionLabel>Project Overview</SectionLabel>
               <div className="mt-6">
                 <p className="text-white/45 text-[0.95rem] leading-[1.85] mb-6">
-                  {project.name} is a {project.projectType.toLowerCase()} located at{" "}
-                  {project.location}. With {project.approval} approvals and a focus on
-                  premium infrastructure, this project offers an exceptional opportunity for
-                  both investment and future home construction.
+                  {project.description || `${project.name} is a ${project.projectType.toLowerCase()} located at ${project.location}. With ${project.approval} approvals and a focus on premium infrastructure, this project offers an exceptional opportunity for both investment and future home construction.`}
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {project.highlights.map((h) => (
@@ -775,6 +773,49 @@ export default function PremiumProjectDetailPage({
       )}
 
       {/* ════════════════════════════════════════════
+          SECTION 8B — TESTIMONIALS
+      ════════════════════════════════════════════ */}
+      {testimonials.length > 0 && (
+        <section className="pb-16 lg:pb-20">
+          <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+            <ScrollReveal>
+              <SectionLabel>What People Say</SectionLabel>
+              <h2 className="mt-5 text-2xl font-bold tracking-tight mb-8">
+                Client <span className="text-gradient">Testimonials</span>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {testimonials.map((t, i) => (
+                  <div
+                    key={i}
+                    className="glass-card rounded-2xl p-6 flex flex-col"
+                  >
+                    <div className="flex items-center gap-1 mb-3">
+                      {Array.from({ length: 5 }).map((_, s) => (
+                        <Star
+                          key={s}
+                          className={`h-3.5 w-3.5 ${s < (t.rating ?? 5) ? "text-amber-400 fill-amber-400" : "text-white/10"}`}
+                        />
+                      ))}
+                    </div>
+                    <p className="text-sm text-white/50 leading-relaxed flex-1 mb-4">{t.text}</p>
+                    <div className="flex items-center gap-3 border-t border-white/[0.04] pt-4">
+                      <div className="h-9 w-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                        <User className="h-4 w-4 text-primary/60" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-white/70">{t.name}</p>
+                        <p className="text-[11px] text-white/30">{[t.role, t.location].filter(Boolean).join(" · ")}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
+      {/* ════════════════════════════════════════════
           SECTION 9 — ENQUIRY FORM + QUICK CONTACT
       ════════════════════════════════════════════ */}
       <section className="pb-16 lg:pb-20" id="enquiry">
@@ -839,6 +880,8 @@ export default function PremiumProjectDetailPage({
                               }
                               className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 focus:ring-1 focus:ring-primary/10 transition-all duration-300"
                               placeholder="+91 XXXXX XXXXX"
+                              pattern="[\+]?[0-9\s\-\(\)]{10,15}"
+                              title="Please enter a valid phone number"
                             />
                           </div>
                         </div>

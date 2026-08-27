@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Users,
@@ -26,17 +25,7 @@ import {
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import siteConfig from "@/config/site";
-
-export const metadata: Metadata = {
-  title: "About — Arjun Realty | Arjun, Your Property Advisor",
-  description:
-    "Meet Arjun — a professional property advisor. Arjun Realty focuses on matching the right property to each client's requirement, budget and preferred location, with support from evaluation and shortlisting to registration and beyond.",
-  openGraph: {
-    title: "About — Arjun Realty | Arjun, Your Property Advisor",
-    description:
-      "Arjun Realty is built around one simple principle — the right property should match the right requirement, budget and location.",
-  },
-};
+import PageBreadcrumbs from "@/components/PageBreadcrumbs";
 
 const roles = [
   "Property Advisor",
@@ -185,6 +174,7 @@ const whyChoose = [
 export default function AboutPage() {
   return (
     <>
+      <PageBreadcrumbs items={[{ name: "About", url: "/about" }]} />
       {/* ── Section 1: About Arjun ── */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.04] -right-48 -top-48" />

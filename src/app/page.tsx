@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import FeaturedBuilders from "@/components/FeaturedBuilders";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -28,7 +28,6 @@ import {
   Phone,
   CheckCircle,
 } from "lucide-react";
-import { seo } from "@/data/seo";
 import { reasons as reasonsData } from "@/data/values";
 import { locationMarquee as marqueeItems } from "@/data/navigation";
 import { googleReviews } from "@/data/testimonials";
@@ -38,18 +37,26 @@ import { testimonialsSection as ts, advisoryProcess, whyHyderabad, nriSection, c
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = { Shield, Building2, Users, Handshake, TrendingUp, HeadphonesIcon };
 const reasons = reasonsData.map(r => ({ ...r, icon: iconMap[r.icon] || Shield }));
 
-export const metadata: Metadata = {
-  title: seo.home.title,
-  description: seo.home.description,
-  openGraph: {
-    title: seo.home.title,
-    description: seo.home.description,
-  },
-};
-
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.a,
+              },
+            })),
+          }),
+        }}
+      />
       <HeroSection />
 
       {/* ── Trust Marquee ── */}
@@ -127,6 +134,11 @@ export default function HomePage() {
 
       {/* ── How We Help You (Advisory Process) ── */}
       <AdvisoryProcess />
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 -mt-4 mb-4 text-center">
+        <Link href="/services" className="inline-flex items-center gap-2 text-[13px] text-white/30 hover:text-primary transition-colors duration-300 font-medium">
+          Learn more about our process <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
 
       <div className="section-divider mx-auto max-w-5xl" />
 
@@ -254,12 +266,12 @@ export default function HomePage() {
                     Everything you need to compare and decide.
                   </p>
                   <a
-                    href={`${siteConfig.links.wa}?text=Hi%20Arjun%20Realty%2C%20I%27d%20like%20to%20receive%20the%20project%20portfolio`}
+                    href={`${siteConfig.links.wa}?text=Hi%20Arjun%20Realty%2C%20I%27m%20interested%20in%20your%20projects.%20Kindly%20share%20your%20latest%20project%20portfolio%20and%20detailed%20information.%20Thank%20you.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-glass inline-flex w-full items-center justify-center gap-3 px-8 py-4 rounded-full text-[13px] font-semibold text-white/75 border border-white/[0.06] hover:border-primary/20 hover:text-primary transition-all duration-500"
                   >
-                    <Download className="h-4 w-4" /> Request Portfolio PDF
+                    <Download className="h-4 w-4" /> Request Portfolio via WhatsApp
                   </a>
                 </div>
               </div>
@@ -275,6 +287,11 @@ export default function HomePage() {
       <div className="section-divider mx-auto max-w-5xl" />
 
       <WhyHyderabadSection />
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 -mt-4 mb-4 text-center">
+        <Link href="/why-hyderabad" className="inline-flex items-center gap-2 text-[13px] text-white/30 hover:text-primary transition-colors duration-300 font-medium">
+          Explore Hyderabad&apos;s growth <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
 
       <div className="section-divider mx-auto max-w-5xl" />
 
@@ -287,6 +304,11 @@ export default function HomePage() {
       <div className="section-divider mx-auto max-w-5xl" />
 
       <FounderProfile />
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 -mt-4 mb-4 text-center">
+        <Link href="/about" className="inline-flex items-center gap-2 text-[13px] text-white/30 hover:text-primary transition-colors duration-300 font-medium">
+          Meet our founder <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
 
       <div className="section-divider mx-auto max-w-5xl" />
 

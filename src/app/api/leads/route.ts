@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { captureLead, listLeads } from "@/lib/leads";
 import { getSession } from "@/lib/auth";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
+  const ip = getClientIp(req);
+  const { allowed } = checkRateLimit(`leads:${ip}`, 10, 60_000);
+  if (!allowed) {
+    return NextResponse.json({ error: "Too many requests. Try again later." }, { status: 429 });
+  }
+
   let body: unknown;
   try {
     body = await req.json();
@@ -14,7 +21,7 @@ export async function POST(req: NextRequest) {
   try {
     result = await captureLead(body);
   } catch (err) {
-    console.error("Lead capture failed:", err);
+    console.error("Lead capture failed:", err instanceof Error ? err.message : "unknown error");
     return NextResponse.json(
       { error: "Database unavailable" },
       { status: 503 }

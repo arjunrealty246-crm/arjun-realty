@@ -18,6 +18,7 @@ import {
 import ScrollReveal from "../ScrollReveal";
 import SectionLabel from "../SectionLabel";
 import ProjectVideo from "../ProjectVideo";
+import { getDownloadUrl } from "@/lib/download-url";
 import type { Project, ProjectPhase } from "@/data/projects";
 
 const BLUR =
@@ -143,7 +144,7 @@ function PhaseDocuments({ phase }: { phase: ProjectPhase }) {
       {links.map((l) => (
         <a
           key={l.label}
-          href={l.url}
+          href={getDownloadUrl(l.url)}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/[0.08] border border-primary/15 text-[11px] font-semibold text-primary hover:bg-primary/[0.15] transition-colors duration-300"
@@ -155,7 +156,7 @@ function PhaseDocuments({ phase }: { phase: ProjectPhase }) {
       {docs.map((d) => (
         <a
           key={d.name}
-          href={d.url}
+          href={getDownloadUrl(d.url)}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/60 hover:border-primary/20 hover:text-primary transition-colors duration-300"
@@ -200,7 +201,7 @@ function PhasePlan({ phase, project }: { phase: ProjectPhase; project: Project }
 
   return (
     <a
-      href={planUrl}
+      href={getDownloadUrl(planUrl)}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/60 hover:border-primary/20 hover:text-primary transition-colors duration-300"

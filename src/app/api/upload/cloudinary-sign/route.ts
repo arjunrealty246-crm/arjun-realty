@@ -1,6 +1,7 @@
 import { v2 as cloudinary } from "cloudinary";
 import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
+import { isAllowedUploadFile, isAllowedUploadFolder } from "@/lib/validation";
 
 const CLOUDINARY_FOLDER = process.env.CLOUDINARY_FOLDER || "arjun-realty";
 
@@ -17,6 +18,14 @@ export async function POST(req: NextRequest) {
 
     if (!filename) {
       return NextResponse.json({ error: "Filename required" }, { status: 400 });
+    }
+
+    if (!isAllowedUploadFile(filename)) {
+      return NextResponse.json({ error: "File type not allowed" }, { status: 400 });
+    }
+
+    if (!isAllowedUploadFolder(folder || "uploads")) {
+      return NextResponse.json({ error: "Folder not allowed" }, { status: 400 });
     }
 
     const timestamp = Math.round(Date.now() / 1000);

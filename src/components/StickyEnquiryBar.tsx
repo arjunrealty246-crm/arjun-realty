@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Phone, MessageCircle, ArrowRight } from "lucide-react";
 import siteConfig from "@/config/site";
 import RequestCallback from "./RequestCallback";
@@ -8,6 +9,9 @@ import { stickyEnquiryBar } from "@/data/content";
 
 export default function StickyEnquiryBar() {
   const [callbackOpen, setCallbackOpen] = useState(false);
+  const pathname = usePathname();
+
+  if (/^\/projects\/[^/]+/.test(pathname || "")) return null;
 
   return (
     <>

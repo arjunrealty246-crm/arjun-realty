@@ -5,6 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import ContactSection from "@/components/ContactSection";
 import { Globe, Shield, TrendingUp, CheckCircle2, FileText, Phone, ArrowRight, Building, Banknote } from "lucide-react";
+import siteConfig from "@/config/site";
 
 const steps = [
   { num: "01", title: "Free Consultation", desc: "Connect with our NRI desk via video call. We understand your goals, risk appetite, and investment timeline.", icon: Phone },
@@ -26,6 +27,36 @@ const faqs = [
 export default function NRIInvestmentPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+              { "@type": "ListItem", position: 2, name: "NRI Investment", item: `${siteConfig.url}/nri-investment` },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.a,
+              },
+            })),
+          }),
+        }}
+      />
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
         <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.05] -right-48 -top-48" />
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">

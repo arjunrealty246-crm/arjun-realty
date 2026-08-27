@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import ScrollReveal from "../ScrollReveal";
 import SectionLabel from "../SectionLabel";
+import { getDownloadUrl } from "@/lib/download-url";
 import type { Project } from "@/data/projects";
 
 const BLUR =
@@ -150,7 +151,7 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
             </div>
             <div className="flex flex-wrap gap-3">
               <a
-                href={layoutUrl}
+                href={getDownloadUrl(layoutUrl)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-premium inline-flex items-center gap-2.5 bg-gradient-to-r from-primary to-primary-dark px-6 py-3 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
@@ -158,7 +159,7 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
                 <ExternalLink className="h-4 w-4" /> View Layout
               </a>
               <a
-                href={layoutUrl}
+                href={getDownloadUrl(layoutUrl)}
                 download
                 className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/[0.04] border border-white/[0.08] text-[13px] font-semibold text-white/60 hover:bg-white/[0.07] hover:border-primary/20 hover:text-primary transition-all duration-300"
               >

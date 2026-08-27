@@ -23,7 +23,7 @@ const siteConfig = {
     pincode: "501505",
     hours: "Mon–Sat, 9 AM – 7 PM",
   },
-  url: "https://arjunrealty.com",
+  url: "https://www.arjunrealty.co.in",
   social: {
     facebook: "https://www.facebook.com/arjunrealty",
     instagram: "https://www.instagram.com/arjunrealty",

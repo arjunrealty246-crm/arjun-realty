@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
 import { uploadFile } from "@/lib/storage";
+import { isAllowedUploadFile, isAllowedUploadFolder } from "@/lib/validation";
 
 export async function POST(req: NextRequest) {
   const session = await getSession();
@@ -11,8 +12,16 @@ export async function POST(req: NextRequest) {
     const file = formData.get("file") as File;
     const folder = (formData.get("folder") as string) || "uploads";
 
-    if (!file) {
+    if (!file || typeof file === "string") {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
+    }
+
+    if (!isAllowedUploadFile(file.name)) {
+      return NextResponse.json({ error: "File type not allowed" }, { status: 400 });
+    }
+
+    if (!isAllowedUploadFolder(folder)) {
+      return NextResponse.json({ error: "Folder not allowed" }, { status: 400 });
     }
 
     const bytes = await file.arrayBuffer();

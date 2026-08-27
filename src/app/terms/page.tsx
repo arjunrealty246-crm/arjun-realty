@@ -1,10 +1,12 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import siteConfig from "@/config/site";
+import PageBreadcrumbs from "@/components/PageBreadcrumbs";
 
 export default function TermsPage() {
   return (
     <>
+      <PageBreadcrumbs items={[{ name: "Terms of Service", url: "/terms" }]} />
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
         <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.05] -right-48 -top-48" />
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">

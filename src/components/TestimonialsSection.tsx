@@ -110,6 +110,13 @@ export default function TestimonialsSection() {
               <ChevronRight className="h-4 w-4" />
             </button>
           </div>
+
+          <div className="text-center mt-8">
+            <a href="/testimonials" className="inline-flex items-center gap-2 text-[13px] text-white/40 hover:text-primary transition-colors duration-300 font-medium">
+              View All Testimonials
+              <ChevronRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

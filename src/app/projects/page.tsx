@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -10,14 +10,46 @@ import { MapPin, ArrowRight, Shield, Star, Phone, Building2 } from "lucide-react
 import Link from "next/link";
 import { projects as allProjects, type Project } from "@/data/projects";
 import { getBuilderById } from "@/data/builders";
-import { hasRealImage, getProjectGradient } from "@/lib/assets";
+import { getProjectGradient } from "@/lib/assets";
+import { useDbProjectImages } from "@/hooks/useDbProjectImages";
 import siteConfig from "@/config/site";
 
 export default function ProjectsPage() {
   const [filtered, setFiltered] = useState<Project[]>(allProjects);
+  const dbImages = useDbProjectImages();
+  const getImage = useMemo(() => (p: Project) => dbImages[p.slug] || p.image, [dbImages]);
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+              { "@type": "ListItem", position: 2, name: "Projects", item: `${siteConfig.url}/projects` },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: allProjects.map((project, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: project.name,
+              url: `${siteConfig.url}/projects/${project.slug}`,
+              description: project.description?.slice(0, 160) || `${project.name} premium real estate project in ${project.location}`,
+            })),
+          }),
+        }}
+      />
       <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
         <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.05] -right-48 -top-48" />
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
@@ -50,10 +82,10 @@ export default function ProjectsPage() {
                     <Link href={`/projects/${p.slug}`}>
                       <motion.div whileHover={{ y: -8 }} className="glass-card rounded-[1.25rem] overflow-hidden group cursor-pointer h-full flex flex-col">
                         <div className="relative h-56 overflow-hidden">
-                          {hasRealImage(p) ? (
+                          {getImage(p) ? (
                             <Image
-                              src={p.image}
-                              alt={p.name}
+                              src={getImage(p)}
+                              alt={`${p.name} premium real estate project in ${p.location}`}
                               fill
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                               className="object-cover transition-transform duration-[1.2s] group-hover:scale-110"
@@ -73,6 +105,12 @@ export default function ProjectsPage() {
                             <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full glass text-[10px] font-medium text-white/70">
                               <Shield className="h-2.5 w-2.5 text-emerald-400" /> {p.approval.split("·")[0].trim()}
                             </span>
+                          </div>
+                          <div className="absolute bottom-4 left-4 z-10">
+                            <div className="px-4 py-2 rounded-xl glass-strong backdrop-blur-md">
+                              <span className="block text-lg font-bold text-gradient">{p.startingPrice}</span>
+                              <span className="text-[9px] text-white/35 uppercase tracking-wider">Starting From</span>
+                            </div>
                           </div>
                         </div>
                         <div className="p-6 flex flex-col flex-1">
@@ -133,10 +171,12 @@ export default function ProjectsPage() {
           <ScrollReveal>
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4">Can&apos;t Find What You&apos;re Looking For?</h2>
             <p className="text-white/35 mb-8 text-[14px]">We have access to exclusive off-market projects. Tell us your requirements and we&apos;ll find the perfect match.</p>
-            <a href={`${siteConfig.links.wa}?text=Hi%2C%20I%20have%20specific%20requirements`} target="_blank" rel="noopener noreferrer"
-              className="btn-premium inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-8 py-4 rounded-full text-[13px] font-semibold text-white shadow-[0_8px_32px_rgba(249,115,22,0.2)]">
-              <Phone className="h-4 w-4" /> Talk to an Advisor
-            </a>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href={`${siteConfig.links.wa}?text=Hi%2C%20I%20have%20specific%20requirements`} target="_blank" rel="noopener noreferrer"
+                className="btn-premium inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-8 py-4 rounded-full text-[13px] font-semibold text-white shadow-[0_8px_32px_rgba(249,115,22,0.2)]">
+                <Phone className="h-4 w-4" /> Talk to an Advisor
+              </a>
+            </div>
           </ScrollReveal>
         </div>
       </section>

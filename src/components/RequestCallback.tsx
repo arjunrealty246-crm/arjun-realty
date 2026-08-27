@@ -112,6 +112,8 @@ export default function RequestCallback({ isOpen, onClose }: RequestCallbackProp
                         required
                         placeholder={requestCallback.phonePlaceholder}
                         className="w-full bg-white/[0.04] border border-white/[0.06] rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder:text-white/15 focus:outline-none focus:border-primary/30 focus:bg-white/[0.06] transition-all duration-300"
+                        pattern="[\+]?[0-9\s\-\(\)]{10,15}"
+                        title="Please enter a valid phone number"
                       />
                     </div>
                   </div>

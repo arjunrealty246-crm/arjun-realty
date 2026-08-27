@@ -38,7 +38,7 @@ export default function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-[100dvh] flex justify-center overflow-hidden items-start md:items-center pt-20 pb-24 md:pt-0 md:pb-0">
       <motion.div style={isMobile ? undefined : { y: bgY }} className="absolute inset-0 -top-20">
         <div className="absolute inset-0 bg-[#06060c]" />
         <motion.div
@@ -69,7 +69,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-hero-overlay" />
       </motion.div>
 
-      <motion.div style={isMobile ? undefined : { y: textY, opacity }} className="relative z-10 mx-auto max-w-[1200px] px-5 sm:px-8 text-center pt-28 sm:pt-32 pb-20">
+      <motion.div style={isMobile ? undefined : { y: textY, opacity }} className="relative z-10 mx-auto max-w-[1200px] px-5 sm:px-8 text-center pt-4 sm:pt-32 pb-4 sm:pb-20">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -205,7 +205,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5, duration: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden md:block"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}

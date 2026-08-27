@@ -4,27 +4,50 @@ import https from "https";
 
 export const runtime = "nodejs";
 
-function cloudinaryGet(path: string): Promise<Buffer> {
+function cloudinaryRawDownload(publicId: string): Promise<Buffer> {
   return new Promise((resolve, reject) => {
     const timestamp = Math.floor(Date.now() / 1000);
     const signature = cloudinary.utils.api_sign_request(
-      { timestamp },
+      { public_id: publicId, timestamp, type: "upload" },
       process.env.CLOUDINARY_API_SECRET!
     );
-    const sep = path.includes("?") ? "&" : "?";
-    const fullUrl = "https://api.cloudinary.com/v1_1/" + process.env.CLOUDINARY_CLOUD_NAME + path + sep + "timestamp=" + timestamp + "&api_key=" + process.env.CLOUDINARY_API_KEY + "&signature=" + signature;
 
-    https.get(fullUrl, (res) => {
-      if (res.statusCode !== 200) {
-        let body = "";
-        res.on("data", (c) => (body += c));
-        res.on("end", () => reject(new Error("Cloudinary API " + res.statusCode + ": " + body.slice(0, 200))));
-        return;
+    const params = new URLSearchParams();
+    params.append("public_id", publicId);
+    params.append("timestamp", String(timestamp));
+    params.append("api_key", process.env.CLOUDINARY_API_KEY!);
+    params.append("type", "upload");
+    params.append("signature", signature);
+
+    const body = params.toString();
+
+    const req = https.request(
+      {
+        hostname: "api.cloudinary.com",
+        path: "/v1_1/" + process.env.CLOUDINARY_CLOUD_NAME + "/raw/download",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": Buffer.byteLength(body),
+        },
+      },
+      (res) => {
+        if (res.statusCode !== 200) {
+          let data = "";
+          res.on("data", (c) => (data += c));
+          res.on("end", () =>
+            reject(new Error("Cloudinary API " + res.statusCode + ": " + data.slice(0, 200)))
+          );
+          return;
+        }
+        const chunks: Buffer[] = [];
+        res.on("data", (c) => chunks.push(c));
+        res.on("end", () => resolve(Buffer.concat(chunks)));
       }
-      const chunks: Buffer[] = [];
-      res.on("data", (c) => chunks.push(c));
-      res.on("end", () => resolve(Buffer.concat(chunks)));
-    }).on("error", reject);
+    );
+    req.on("error", reject);
+    req.write(body);
+    req.end();
   });
 }
 
@@ -51,10 +74,10 @@ export async function GET(req: NextRequest) {
   const publicId = match[1];
 
   try {
-    const fileBuffer = await cloudinaryGet("/raw/download/" + publicId);
+    const fileBuffer = await cloudinaryRawDownload(publicId);
     const filename = publicId.split("/").pop() || "download.pdf";
 
-    return new NextResponse(fileBuffer, {
+    return new NextResponse(new Uint8Array(fileBuffer), {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",

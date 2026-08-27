@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -16,6 +16,8 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [callbackOpen, setCallbackOpen] = useState(false);
   const pathname = usePathname();
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const onScroll = useCallback(() => setScrolled(window.scrollY > 60), []);
 
@@ -31,6 +33,42 @@ export default function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const nav = menuRef.current?.querySelector<HTMLElement>("nav a");
+    if (nav) nav.focus();
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    const handleTrap = (e: KeyboardEvent) => {
+      if (e.key !== "Tab" || !menuRef.current) return;
+      const focusable = menuRef.current.querySelectorAll<HTMLElement>("a[href], button, [tabindex]:not([tabindex='-1'])");
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", handleEscape);
+    document.addEventListener("keydown", handleTrap);
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener("keydown", handleTrap);
+    };
+  }, [mobileOpen]);
+
   return (
     <>
       {/* ── Desktop / Tablet Header ── */}
@@ -38,7 +76,7 @@ export default function Header() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        className={`fixed top-0 left-0 right-0 z-[70] transition-all duration-700 ${
           scrolled
             ? "glass-dark py-3 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
             : "bg-transparent py-5"
@@ -64,7 +102,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden xl:flex items-center gap-0.5">
+            <nav className="hidden xl:flex items-center gap-0.5" aria-label="Main navigation">
               {navLinks.map((link) => {
                 const active = pathname === link.href;
                 return (
@@ -94,10 +132,10 @@ export default function Header() {
             <div className="hidden xl:flex items-center gap-5">
               <a
                 href={siteConfig.links.tel}
-                className="flex items-center gap-2 text-[13px] text-white/40 hover:text-primary transition-colors duration-300"
+                className="flex items-center gap-2 text-[13px] text-white/40 hover:text-primary transition-colors duration-300 whitespace-nowrap"
               >
-                <Phone className="h-3.5 w-3.5" />
-                <span className="font-medium">{siteConfig.contact.phone}</span>
+                <Phone className="h-3.5 w-3.5 shrink-0" />
+                <span className="font-medium whitespace-nowrap">{siteConfig.contact.phone}</span>
               </a>
               <button
                 type="button"
@@ -110,9 +148,11 @@ export default function Header() {
 
             {/* Mobile toggle */}
             <button
+              ref={toggleRef}
               onClick={() => setMobileOpen((p) => !p)}
               className="xl:hidden relative z-50 p-2 -mr-2"
-              aria-label="Menu"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
             >
               <AnimatePresence mode="wait">
                 {mobileOpen ? (
@@ -134,17 +174,18 @@ export default function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            ref={menuRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 xl:hidden"
+            className="fixed inset-0 z-[60] xl:hidden"
           >
             {/* Backdrop */}
             <div className="absolute inset-0 bg-[#0a0a14]/95 backdrop-blur-2xl" />
 
-            <div className="relative flex flex-col items-center justify-center h-full px-8">
-              <nav className="flex flex-col items-center gap-1">
+            <div className="relative flex flex-col items-center justify-center h-full px-8 overflow-y-auto">
+              <nav className="flex flex-col items-center gap-1" aria-label="Mobile navigation">
                 {navLinks.map((link, i) => {
                   const active = pathname === link.href;
                   return (

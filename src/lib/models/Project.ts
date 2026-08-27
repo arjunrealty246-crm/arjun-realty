@@ -48,6 +48,8 @@ export interface IProject extends Document {
   locationAdvantages: string[];
   whyInvest: string[];
   description?: string;
+  seoTitle?: string;
+  tagline?: string;
   phases?: {
     name: string;
     status?: string;
@@ -66,7 +68,7 @@ export interface IProject extends Document {
   updates?: { title: string; description?: string; status: "completed" | "in-progress" | "planned" }[];
   layoutUrl?: string;
   locationUrl?: string;
-  gallery?: { src: string; title?: string; category?: string }[];
+  gallery?: { src: string; title?: string; category?: string; type?: string }[];
   developmentUpdates?: { date?: string; title: string; description?: string; images?: string[] }[];
   sortOrder: number;
   createdAt: Date;
@@ -122,6 +124,8 @@ const ProjectSchema = new Schema<IProject>(
     locationAdvantages: [{ type: String }],
     whyInvest: [{ type: String }],
     description: String,
+    seoTitle: String,
+    tagline: String,
     phases: [
       {
         name: String,
@@ -142,7 +146,7 @@ const ProjectSchema = new Schema<IProject>(
     updates: [{ title: String, description: String, status: String }],
     layoutUrl: String,
     locationUrl: String,
-    gallery: [{ src: String, title: String, category: String }],
+    gallery: [{ src: String, title: String, category: String, type: { type: String, default: "image" } }],
     developmentUpdates: [{ date: String, title: String, description: String, images: [String] }],
     sortOrder: { type: Number, default: 0 },
   },

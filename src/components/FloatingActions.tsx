@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { MessageCircle, Phone, Send, X, CalendarCheck, ArrowUp } from "lucide-react";
+import { MessageCircle, Phone, X, CalendarCheck, ArrowUp } from "lucide-react";
 import SiteVisitModal from "./SiteVisitModal";
 import RequestCallback from "./RequestCallback";
 import siteConfig from "@/config/site";
@@ -42,7 +42,7 @@ export default function FloatingActions() {
 
   return (
     <>
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2.5">
+      <div className="hidden md:flex fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex-col items-end gap-2.5">
         {/* Tooltip */}
         <AnimatePresence>
           {showTooltip && (
@@ -102,22 +102,6 @@ export default function FloatingActions() {
           )}
         </AnimatePresence>
 
-        {/* Telegram */}
-        <motion.a
-          href="https://t.me/ArjunRealty"
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 400, damping: 17, delay: 0.2 }}
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-[#0088cc] text-white shadow-lg shadow-[#0088cc]/20 hover:shadow-[#0088cc]/35 transition-shadow duration-300"
-          aria-label={floatingActions.telegramAria}
-        >
-          <Send className="h-4 w-4" />
-        </motion.a>
-
         {/* Call Button */}
         <motion.a
           href={siteConfig.links.tel}
@@ -167,22 +151,24 @@ export default function FloatingActions() {
           <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20" />
         </motion.a>
 
-        {/* Back to Top */}
-        <AnimatePresence>
-          {showBackToTop && (
-            <motion.button
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0 }}
-              onClick={scrollToTop}
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-white/[0.04] border border-white/[0.06] text-white/30 hover:text-primary hover:border-primary/20 transition-all duration-300"
-              aria-label={floatingActions.backToTopAria}
-            >
-              <ArrowUp className="h-3.5 w-3.5" />
-            </motion.button>
-          )}
-        </AnimatePresence>
+        {/* Back to Top — moved outside hidden md:flex so it works on all viewports */}
       </div>
+
+      {/* Back to Top (responsive) */}
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            onClick={scrollToTop}
+            className="fixed bottom-24 right-4 sm:bottom-[11rem] sm:right-6 z-50 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/[0.06] border border-white/[0.08] text-white/35 hover:text-primary hover:border-primary/25 hover:bg-white/[0.1] shadow-lg shadow-black/20 transition-all duration-300"
+            aria-label={floatingActions.backToTopAria}
+          >
+            <ArrowUp className="h-4 w-4" />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       <SiteVisitModal isOpen={siteVisitOpen} onClose={() => setSiteVisitOpen(false)} />
       <RequestCallback isOpen={callbackOpen} onClose={() => setCallbackOpen(false)} />

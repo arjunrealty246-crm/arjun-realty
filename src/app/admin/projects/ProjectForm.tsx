@@ -44,7 +44,7 @@ interface ProjectFormData {
   usps: string[];
   faqs: { q: string; a: string }[];
   testimonials: { name: string; text: string }[];
-  gallery: { src: string; title: string; category: string }[];
+  gallery: { src: string; title: string; category: string; type: string }[];
   developmentUpdates: { date: string; title: string; description: string; images: string[] }[];
   documents: { name: string; url: string; type: string; description: string }[];
   updates: { title: string; description: string; status: string }[];
@@ -52,7 +52,7 @@ interface ProjectFormData {
 
 const emptyForm: ProjectFormData = {
   name: "", slug: "", builder: "", marketingPartner: "", projectType: "",
-  approval: "FCDA Approved", location: "", mapsUrl: "", price: "", startingPrice: "",
+  approval: "", location: "", mapsUrl: "", price: "", startingPrice: "",
   status: "Live", badge: "Live", isUpcoming: false, totalAcres: "", totalPlots: "",
   plotSizes: "", clubhouseDetails: "", heroVideo: "", brochureUrl: "", layoutPdfUrl: "",
   layoutUrl: "", masterPlanUrl: "", locationMapUrl: "", image: "",
@@ -361,10 +361,16 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
               <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Approval</label>
               <select value={form.approval} onChange={(e) => update("approval", e.target.value)}
                 className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white/80 focus:outline-none focus:border-primary/30">
+                <option value="" className="bg-charcoal-dark">Select Approval Status</option>
                 <option value="FCDA Approved" className="bg-charcoal-dark">FCDA Approved</option>
                 <option value="HMDA Approved · RERA Registered" className="bg-charcoal-dark">HMDA Approved · RERA Registered</option>
-                <option value="DTCP Approved" className="bg-charcoal-dark">DTCP Approved</option>
                 <option value="HMDA Approved · TSRERA Registered" className="bg-charcoal-dark">HMDA Approved · TSRERA Registered</option>
+                <option value="DTCP Approved" className="bg-charcoal-dark">DTCP Approved</option>
+                <option value="DTCP Approved · RERA Registered" className="bg-charcoal-dark">DTCP Approved · RERA Registered</option>
+                <option value="HMDA Approval Under Process" className="bg-charcoal-dark">HMDA Approval Under Process</option>
+                <option value="DTCP (Under Approval)" className="bg-charcoal-dark">DTCP (Under Approval)</option>
+                <option value="DTCP & RERA Under Process" className="bg-charcoal-dark">DTCP &amp; RERA Under Process</option>
+                <option value="Approval Process Underway" className="bg-charcoal-dark">Approval Process Underway</option>
               </select>
             </div>
             <div>
@@ -373,6 +379,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
                 className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white/80 focus:outline-none focus:border-primary/30">
                 <option value="Live" className="bg-charcoal-dark">Live</option>
                 <option value="Pre-Launch" className="bg-charcoal-dark">Pre-Launch</option>
+                <option value="Upcoming" className="bg-charcoal-dark">Upcoming</option>
                 <option value="Coming Soon" className="bg-charcoal-dark">Coming Soon</option>
                 <option value="Sold Out" className="bg-charcoal-dark">Sold Out</option>
               </select>
@@ -536,15 +543,45 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
         {/* Gallery */}
         <div className="glass-card-elevated rounded-2xl p-6 lg:p-8">
           <h2 className="text-lg font-bold text-white mb-6">Gallery</h2>
-          <p className="text-xs text-white/30 mb-4">Photos shown in the project gallery grid. First item is the hero tile. Captions &amp; categories appear on hover and in the lightbox.</p>
+          <p className="text-xs text-white/30 mb-4">Photos &amp; videos shown in the project gallery grid. First item is the hero tile. Supports images (JPG, PNG, WebP) and videos (MP4, WebM). Captions &amp; categories appear on hover and in the lightbox.</p>
           <div className="space-y-4">
             {form.gallery.map((item, i) => (
               <div key={i} className="flex flex-col md:flex-row gap-4 items-start md:items-center">
                 <div className="h-20 w-28 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden shrink-0">
-                  {item.src ? <img src={item.src} alt="" className="h-full w-full object-cover" /> : <Upload className="h-6 w-6 text-white/15" />}
+                  {item.src ? (
+                    item.type === "video" ? (
+                      <video src={item.src} className="h-full w-full object-cover" muted preload="metadata" />
+                    ) : (
+                      <img src={item.src} alt="" className="h-full w-full object-cover" />
+                    )
+                  ) : <Upload className="h-6 w-6 text-white/15" />}
                 </div>
                 <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-3 w-full min-w-0">
-                  {renderFileRow("Image", item.src, (v) => updateArrayItem("gallery", i, { src: v }), "image/*", "uploads/projects", "/uploads/projects/photo.jpg", `gallery-${i}`)}
+                  <div>
+                    <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Photo or Video</label>
+                    <div className="flex gap-2">
+                      <input type="text" value={item.src} onChange={(e) => updateArrayItem("gallery", i, { src: e.target.value })}
+                        className="flex-1 min-w-0 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs"
+                        placeholder="/uploads/projects/photo.jpg" />
+                      <label className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary/10 border border-primary/20 text-[11px] font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all shrink-0">
+                        {uploadingField === `gallery-${i}` ? (
+                          <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                        ) : (
+                          <Upload className="h-3.5 w-3.5" />
+                        )} Upload
+                        <input type="file" accept="image/*,video/mp4,video/webm" className="hidden" disabled={uploadingField === `gallery-${i}`}
+                          onChange={async (e) => {
+                            const file = e.target.files?.[0];
+                            if (!file) return;
+                            const url = await handleFileUpload(file, "uploads/projects", `gallery-${i}`);
+                            if (url) {
+                              const isVideo = file.type.startsWith("video/");
+                              updateArrayItem("gallery", i, { src: url, type: isVideo ? "video" : "image" });
+                            }
+                          }} />
+                      </label>
+                    </div>
+                  </div>
                   <div>
                     <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Caption</label>
                     <input type="text" value={item.title || ""} onChange={(e) => updateArrayItem("gallery", i, { title: e.target.value })}
@@ -564,9 +601,9 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
                 </button>
               </div>
             ))}
-            <button type="button" onClick={() => setForm((f) => ({ ...f, gallery: [...f.gallery, { src: "", title: "", category: "" }] }))}
+            <button type="button" onClick={() => setForm((f) => ({ ...f, gallery: [...f.gallery, { src: "", title: "", category: "", type: "image" }] }))}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-xs font-semibold text-primary hover:bg-primary/15 transition-all">
-              <Plus className="h-3.5 w-3.5" /> Add Photo
+              <Plus className="h-3.5 w-3.5" /> Add Media
             </button>
           </div>
         </div>

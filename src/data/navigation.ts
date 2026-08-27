@@ -11,10 +11,9 @@ export const mainNavLinks: NavLink[] = [
     href: "/projects",
     children: [
       { label: "All Projects", href: "/projects" },
-      { label: "Compare Projects", href: "/projects/compare" },
-      { label: "Portfolio", href: "/portfolio" },
     ],
   },
+  { label: "Services", href: "/services" },
   { label: "Builders", href: "/builders" },
   { label: "About Us", href: "/about" },
   { label: "Why Hyderabad", href: "/why-hyderabad" },
@@ -26,11 +25,13 @@ export const mainNavLinks: NavLink[] = [
 export const footerQuickLinks: { label: string; href: string }[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
+  { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects" },
   { label: "Builders", href: "/builders" },
   { label: "Why Hyderabad", href: "/why-hyderabad" },
   { label: "NRI Investment", href: "/nri-investment" },
   { label: "Testimonials", href: "/testimonials" },
+  { label: "Schedule Site Visit", href: "/schedule-site-visit" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -38,9 +39,7 @@ export const footerServices: { label: string; href: string }[] = [
   { label: "Property Advisory", href: "/" },
   { label: "NRI Investment", href: "/nri-investment" },
   { label: "Legal Verification", href: "/" },
-  { label: "Project Portfolio", href: "/portfolio" },
   { label: "Schedule Site Visit", href: "/schedule-site-visit" },
-  { label: "Compare Projects", href: "/projects/compare" },
 ];
 
 export const locationMarquee = [

@@ -68,6 +68,19 @@ export default function ScheduleVisitPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+              { "@type": "ListItem", position: 2, name: "Schedule Site Visit", item: `${siteConfig.url}/schedule-site-visit` },
+            ],
+          }),
+        }}
+      />
       <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
         <div className="ambient-orb w-[500px] h-[500px] bg-primary/[0.04] -right-48 -top-48" />
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
@@ -86,6 +99,7 @@ export default function ScheduleVisitPage() {
 
       <section className="pb-24 lg:pb-32">
         <div className="mx-auto max-w-[800px] px-5 sm:px-8 lg:px-12">
+          <h2 className="sr-only">Visit Benefits</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
             {[
               { icon: Clock, label: "Fast Response", desc: "We confirm your visit within 2 hours" },

@@ -11,9 +11,11 @@ interface CountUpProps {
 }
 
 export default function CountUp({ end, suffix = "", prefix = "", duration = 2.5, className }: CountUpProps) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end);
   const ref = useRef<HTMLSpanElement>(null);
   const animated = useRef(false);
+
+  useEffect(() => { setCount(0); }, []);
 
   const animate = useCallback(() => {
     if (animated.current) return;

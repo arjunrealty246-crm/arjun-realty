@@ -5,6 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import { Cpu, Building2, Pill, Plane, Train, Route, TrendingUp, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import siteConfig from "@/config/site";
 
 const milestones = [
   { year: "2024", title: "Future City", desc: "World's largest planned smart city spanning 20,000 acres with state-of-the-art infrastructure, green energy corridors, and a vision to become Asia's most livable urban center.", icon: Building2, highlight: true, stat: "20,000 Acres" },
@@ -25,6 +26,19 @@ const growthStats = [
 export default function WhyHyderabadPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+              { "@type": "ListItem", position: 2, name: "Why Hyderabad", item: `${siteConfig.url}/why-hyderabad` },
+            ],
+          }),
+        }}
+      />
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
         <div className="ambient-orb w-[600px] h-[600px] bg-gold/[0.04] -right-48 -top-48" />
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">

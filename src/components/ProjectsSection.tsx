@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
@@ -23,29 +23,26 @@ import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
 import { projects } from "@/data/projects";
 import { getBuilderById } from "@/data/builders";
-import { hasRealImage, getProjectGradient } from "@/lib/assets";
+import { getProjectGradient } from "@/lib/assets";
+import { getDownloadUrl } from "@/lib/download-url";
+import { useDbProjectImages } from "@/hooks/useDbProjectImages";
 import siteConfig from "@/config/site";
 
-function ProjectCard({ project, index }: { project: (typeof projects)[number]; index: number }) {
+function ProjectCard({ project, index, dbImages }: { project: (typeof projects)[number]; index: number; dbImages: Record<string, string> }) {
   const [expanded, setExpanded] = useState(false);
-  const hasImage = hasRealImage(project);
+  const imageSrc = dbImages[project.slug] || project.image;
   const gradient = getProjectGradient(project.slug);
-
-  const handleCardClick = (e: React.MouseEvent) => {
-    if ((e.target as HTMLElement).closest("a, button")) return;
-    window.location.href = `/projects/${project.slug}`;
-  };
 
   return (
     <ScrollReveal delay={0.06 * index}>
-      <div onClick={handleCardClick} className="glass-card-elevated rounded-[1.25rem] overflow-hidden group relative h-full flex flex-col cursor-pointer">
+      <div className="glass-card-elevated rounded-[1.25rem] overflow-hidden group relative h-full flex flex-col cursor-pointer">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10" />
 
         <Link href={`/projects/${project.slug}`} className="block relative h-56 sm:h-60 overflow-hidden">
-          {hasImage ? (
+          {imageSrc ? (
             <Image
-              src={project.image}
-              alt={project.name}
+              src={imageSrc}
+              alt={`${project.name} premium real estate project in ${project.location}`}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
@@ -146,7 +143,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
             <div className="grid grid-cols-2 gap-2">
               {project.brochureUrl ? (
                 <a
-                  href={project.brochureUrl}
+                  href={getDownloadUrl(project.brochureUrl)}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
@@ -216,6 +213,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
 }
 
 export default function ProjectsSection() {
+  const dbImages = useDbProjectImages();
   return (
     <section className="relative py-28 lg:py-36 overflow-hidden">
       <div className="ambient-orb w-[500px] h-[500px] bg-primary/[0.04] -top-48 -right-48" />
@@ -234,7 +232,7 @@ export default function ProjectsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {projects.map((project, i) => (
-            <ProjectCard key={`${project.slug}-${i}`} project={project} index={i} />
+            <ProjectCard key={`${project.slug}-${i}`} project={project} index={i} dbImages={dbImages} />
           ))}
         </div>
 
