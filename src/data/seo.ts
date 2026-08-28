@@ -90,6 +90,36 @@ export const seo: Record<string, SEOData> = {
       "Arjun Realty's Hyderabad advisory — property consulting, legal verification, HMDA & DTCP approved plot guidance, investment analysis and NRI support.",
     keywords: [...baseKeywords, "real estate advisory services Hyderabad", "property consulting Hyderabad", "legal verification plots Hyderabad", "NRI real estate services"],
   },
+  "plot-buyer-guide": {
+    title: "Ultimate Plot Buyer Guide: HMDA, DTCP, FCDA & RERA",
+    description:
+      "Verified plot-buying checklist for Hyderabad: legal title clearance, 30-year encumbrance (EC), Dharani checks and HMDA, DTCP, FCDA & RERA approvals explained.",
+    keywords: [
+      ...baseKeywords,
+      "how to verify a plot before buying",
+      "plot buyer checklist Hyderabad",
+      "land title verification Hyderabad",
+      "encumbrance certificate 30 years",
+      "Dharani survey number check",
+      "HMDA vs DTCP vs FCDA approval",
+      "RERA registered layouts Hyderabad",
+    ],
+  },
+  insights: {
+    title: "Hyderabad Real Estate Insights & Market Updates | Arjun Realty",
+    description:
+      "Market intelligence, growth-corridor analysis and land-buying guides from Arjun Realty — Hyderabad plot prices, corporate investments, approvals and due diligence explained.",
+    keywords: [
+      ...baseKeywords,
+      "Hyderabad real estate market update",
+      "Hyderabad plot investment tips",
+      "Hyderabad growth corridors",
+      "Vikarabad investment",
+      "Future City Hyderabad",
+      "land due diligence Hyderabad",
+      "corporate investments Hyderabad real estate",
+    ],
+  },
   privacy: {
     title: "Privacy Policy | Arjun Realty",
     description:
