@@ -126,9 +126,10 @@ function generateBrochureHTML(project: Project): string {
 interface BrochureDownloadProps {
   project: Project;
   variant?: "button" | "card";
+  label?: string;
 }
 
-export default function BrochureDownload({ project, variant = "button" }: BrochureDownloadProps) {
+export default function BrochureDownload({ project, variant = "button", label = "Download Brochure" }: BrochureDownloadProps) {
   const [state, setState] = useState<"idle" | "generating" | "done">("idle");
   const [showModal, setShowModal] = useState(false);
 
@@ -253,7 +254,7 @@ export default function BrochureDownload({ project, variant = "button" }: Brochu
         ) : (
           <Download className="h-4 w-4" />
         )}
-        {state === "generating" ? "Generating..." : state === "done" ? "Downloaded!" : "Download Brochure"}
+        {state === "generating" ? "Generating..." : state === "done" ? "Downloaded!" : label}
       </motion.button>
     </>
   );

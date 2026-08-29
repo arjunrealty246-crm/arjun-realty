@@ -25,13 +25,14 @@ import PageBreadcrumbs from "@/components/PageBreadcrumbs";
 export const metadata: Metadata = {
   title: { absolute: "Shankarpally Real Estate | Arjun Realty" },
   description:
-    "Two Shankarpally projects — 45 acres with advanced approvals, 108 acres pre-launch at ₹25,000/sq. yd. Register for details.",
+    "Two Shankarpally projects — 45 acres, 100% HMDA & RERA approved with a 25,000 SFT clubhouse; 108 acres pre-launch at ₹25,000/sq. yd. Register for details.",
   keywords: [
-    "Shankarpally real estate",
+    "HMDA approved plots Shankarpally",
+    "RERA registered plots Hyderabad",
     "Shankarpally plots",
     "plots in Shankarpally",
     "open plots near Hyderabad",
-    "upcoming projects in Shankarpally",
+    "Shankarpally real estate",
     "western Hyderabad real estate",
     "Arjun Realty Shankarpally",
     "invest in Shankarpally",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Shankarpally Real Estate Opportunities",
     description:
-      "Two Shankarpally projects — 45 acres with advanced approvals, 108 acres pre-launch at ₹25,000/sq. yd. Register for details.",
+      "Two Shankarpally projects — 45 acres, 100% HMDA & RERA approved with a 25,000 SFT clubhouse; 108 acres pre-launch at ₹25,000/sq. yd. Register for details.",
     url: siteConfig.url + "/arjun-realty",
     images: [{ url: "https://www.arjunrealty.co.in/og-image.png", width: 1200, height: 630, alt: "Shankarpally Opportunities — Arjun Realty" }],
   },
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shankarpally Real Estate Opportunities",
     description:
-      "Two Shankarpally projects — 45 acres with advanced approvals, 108 acres pre-launch at ₹25,000/sq. yd. Register for details.",
+      "Two Shankarpally projects — 45 acres, 100% HMDA & RERA approved with a 25,000 SFT clubhouse; 108 acres pre-launch at ₹25,000/sq. yd. Register for details.",
     images: ["https://www.arjunrealty.co.in/og-image.png"],
   },
 };
@@ -65,26 +66,32 @@ const corridorHighlights = [
 
 const currentProject = {
   title: "Shankarpally – 45 Acres",
-  status: "Near Approval",
-  chips: ["Approval Substantially Advanced", "Bank Loan Facility Available"],
+  status: "HMDA & RERA Approved",
+  chips: [
+    "HMDA & RERA Approved",
+    "Bank Loan Facility",
+    "25,000 SFT Clubhouse Included",
+    "Direct connectivity to Gachibowli & Neopolis",
+  ],
   points: [
     "Located on the Shankarpally–Kandi corridor",
     "Positioned along the Mumbai Highway corridor",
     "Near Julkal Village",
-    "Approximately 60% layout work completed",
+    "100% HMDA approved & RERA registered with clear title & spot registration",
+    "Direct connectivity to Gachibowli & Neopolis",
   ],
-  note: "Approval process is substantially advanced. A separate project from the 108-acre upcoming opportunity — register for updates.",
-  waMessage: "Hi Arjun Realty, I would like to enquire about the 45-acre Shankarpally project.",
+  note: "100% HMDA approved & RERA registered. A separate project from the 108-acre upcoming opportunity — register for details.",
+  waMessage: "Hi Arjun Realty, I would like to enquire about the 45-acre HMDA & RERA approved Shankarpally project.",
 };
 
 const upcomingProject = {
   title: "Shankarpally – 108 Acres",
   status: "Pre-Launch",
-  chips: ["HMDA Under Process", "Pre-Launch Price ₹25,000/Sq. Yd."],
+  chips: ["HMDA Approval In Process", "Pre-Launch Price ₹25,000/Sq. Yd."],
   points: [
     "108-acre premium open plotting community",
     "Approximately 10 minutes from Shankarpally",
-    "HMDA approval currently under process",
+    "HMDA approval currently in process",
     "Highway-facing with ORR connectivity",
   ],
   note: "Pre-launch opportunity starting at ₹25,000 per sq. yard. Subject to approvals, market conditions and project progress.",
@@ -191,7 +198,7 @@ export default function ArjunRealtyOpportunitiesPage() {
             </div>
 
             <div className="flex flex-wrap items-center gap-3 mt-10">
-              {["45-Acre — Near Approval", "108-Acre Pre-Launch", "Shankarpally Focus"].map((chip) => (
+              {["45-Acre — HMDA & RERA Approved", "108-Acre Pre-Launch", "Shankarpally Focus"].map((chip) => (
                 <span key={chip} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-[11px] text-white/35 font-medium">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary/50" />
                   {chip}
@@ -230,8 +237,8 @@ export default function ArjunRealtyOpportunitiesPage() {
               <div className="glass-card rounded-[1.5rem] p-8 sm:p-10 relative overflow-hidden">
                 <p className="text-white/40 text-[15px] sm:text-base leading-[1.8]">
                   AR is highlighting two separate opportunities in this corridor — a
-                  45-acre project with substantially advanced approvals and a 108-acre
-                  pre-launch project with HMDA approval under process — for customers
+                  45-acre project that is 100% HMDA approved &amp; RERA registered and a 108-acre
+                  pre-launch project with HMDA approval in process — for customers
                   evaluating residential opportunities in high-growth locations.
                 </p>
               </div>
@@ -286,7 +293,7 @@ export default function ArjunRealtyOpportunitiesPage() {
                 <div className="flex flex-wrap gap-2 mb-6">
                   {currentProject.chips.map((chip) => (
                     <span key={chip} className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/[0.06] text-[10px] text-primary/70 font-medium uppercase tracking-wider">
-                      {chip === "Approval Substantially Advanced" ? <BadgeCheck className="h-3 w-3" /> : chip === "Bank Loan Facility Available" ? <Banknote className="h-3 w-3" /> : null}
+                      {chip === "HMDA & RERA Approved" ? <BadgeCheck className="h-3 w-3" /> : chip === "Bank Loan Facility" ? <Banknote className="h-3 w-3" /> : chip === "25,000 SFT Clubhouse Included" ? <Landmark className="h-3 w-3" /> : chip === "Direct connectivity to Gachibowli & Neopolis" ? <Route className="h-3 w-3" /> : null}
                       {chip}
                     </span>
                   ))}
@@ -302,7 +309,7 @@ export default function ArjunRealtyOpportunitiesPage() {
                 <p className="text-[13px] text-white/30 leading-[1.7] mb-8">{currentProject.note}</p>
                 <div className="flex flex-col sm:flex-row gap-3 mt-auto">
                   <Link
-                    href="/projects"
+                    href="/shankarpally-45-acres"
                     className="btn-premium inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 rounded-full text-[12px] font-semibold text-white glow-primary-strong"
                   >
                     Explore Project <ArrowRight className="h-3.5 w-3.5" />
@@ -337,7 +344,7 @@ export default function ArjunRealtyOpportunitiesPage() {
                 <div className="flex flex-wrap gap-2 mb-6">
                   {upcomingProject.chips.map((chip) => (
                     <span key={chip} className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/[0.06] text-[10px] text-primary/70 font-medium uppercase tracking-wider">
-                      {chip === "HMDA Under Process" ? <Shield className="h-3 w-3" /> : chip.startsWith("Pre-Launch Price") ? <Banknote className="h-3 w-3" /> : null}
+                      {chip === "HMDA Approval In Process" ? <Shield className="h-3 w-3" /> : chip.startsWith("Pre-Launch Price") ? <Banknote className="h-3 w-3" /> : null}
                       {chip}
                     </span>
                   ))}
@@ -502,7 +509,7 @@ export default function ArjunRealtyOpportunitiesPage() {
             Interested in the <span className="text-gradient">Shankarpally Opportunities?</span>
           </h2>
           <p className="text-white/30 mb-10 text-[0.95rem] leading-relaxed max-w-lg mx-auto">
-            Get detailed information about the 45-acre project with advanced approvals
+            Get detailed information about the 45-acre HMDA & RERA approved project
             or the 108-acre pre-launch opportunity starting at ₹25,000/sq. yd.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
