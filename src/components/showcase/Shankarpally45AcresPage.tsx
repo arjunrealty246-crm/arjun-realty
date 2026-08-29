@@ -44,6 +44,7 @@ import type { LucideIcon } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { getProjectBySlug } from "@/data/projects";
 import siteConfig from "@/config/site";
+import { getDownloadUrl } from "@/lib/download-url";
 import { submitLead } from "@/lib/lead-client";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
@@ -107,7 +108,7 @@ const project: Project = {
     "Massive 25,000 Sq. Ft. Luxury Clubhouse (Zero Extra Charges)",
   ],
   bankLoanAvailable: true,
-  brochureUrl: "",
+  brochureUrl: "/uploads/projects/shankarpally-45-acres/shankarpally-45acres-brochure.pdf",
   image: "",
   images: [],
   locationAdvantages: [
@@ -209,8 +210,9 @@ const related = ["jb-harmony-woods", "jb-pristine-city"]
   .map((slug) => getProjectBySlug(slug))
   .filter((p): p is Project => Boolean(p));
 
-const HERO_VIDEO_SRC = ""; // set to "/videos/shankarpally-45acres-hero.mp4" when walkthrough footage is available
+const HERO_VIDEO_SRC = "/uploads/projects/shankarpally-45-acres/hero-video.mp4";
 const HERO_POSTER_SRC = "/images/projects/shankarpally-45acres-hero.svg";
+const MASTER_LAYOUT_PDF_SRC = "/uploads/projects/shankarpally-45-acres/master-layout-plan.pdf";
 
 function HeroBackground() {
   return (
@@ -630,8 +632,8 @@ type GalleryCategory = "Master Layout" | "25,000 SFT Clubhouse" | "Roads & Infra
 
 const galleryItems: { src: string; title: string; cat: GalleryCategory }[] = [
   {
-    src: "/images/projects/shankarpally-45acres-layout.svg",
-    title: "Indicative Master Layout — 45 Acres",
+    src: "/uploads/projects/shankarpally-45-acres/master-layout-plan.jpg",
+    title: "Official HMDA-Approved Master Layout — 45 Acres",
     cat: "Master Layout",
   },
   {
@@ -829,6 +831,39 @@ function MediaGallerySection({
             </div>
           </div>
         </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="mt-6 glass-card-elevated rounded-2xl p-6 lg:p-7 flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-5">
+              <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                <FileText className="h-7 w-7 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-white">Official Master Layout Plan — Approved PDF</h3>
+                <p className="mt-1 text-xs text-white/35 leading-relaxed max-w-xl">
+                  The full high-resolution HMDA-approved master layout with plot boundaries, road widths and zoning.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <a
+                href={getDownloadUrl(MASTER_LAYOUT_PDF_SRC)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-[12px] font-semibold text-white/70 hover:border-primary/25 hover:text-white transition-colors"
+              >
+                <Eye className="h-4 w-4" /> View Layout PDF
+              </a>
+              <a
+                href={getDownloadUrl(MASTER_LAYOUT_PDF_SRC)}
+                download
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary to-primary-dark text-[12px] font-semibold text-white glow-primary-strong hover:opacity-90 transition-opacity"
+              >
+                <Download className="h-4 w-4" /> Download High-Res PDF
+              </a>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       <AnimatePresence>
@@ -904,13 +939,22 @@ function MediaGallerySection({
   );
 }
 
-const trustDocs: { icon: LucideIcon; title: string; tag: string; desc: string; intent: string; instant?: boolean }[] = [
+const trustDocs: {
+  icon: LucideIcon;
+  title: string;
+  tag: string;
+  desc: string;
+  intent: string;
+  url?: string;
+  instant?: boolean;
+}[] = [
   {
     icon: FileCheck2,
     title: "HMDA Final Layout Approval",
     tag: "View / Get PDF",
     intent: "HMDA Final Layout Approval",
     desc: "Primary legal approval for the fully approved 45-acre layout — the venture is 100% HMDA approved.",
+    url: "/uploads/projects/shankarpally-45-acres/hmda-approval.pdf",
   },
   {
     icon: Award,
@@ -918,6 +962,7 @@ const trustDocs: { icon: LucideIcon; title: string; tag: string; desc: string; i
     tag: "View / Get PDF",
     intent: "RERA Registration Certificate",
     desc: "Official RERA registration certificate for the fully registered venture.",
+    url: "/uploads/projects/shankarpally-45-acres/rera-certificate.pdf",
   },
   {
     icon: Banknote,
@@ -925,13 +970,15 @@ const trustDocs: { icon: LucideIcon; title: string; tag: string; desc: string; i
     tag: "Supported",
     intent: "Bank Loan Facilitation (SBI / HDFC / ICICI)",
     desc: "Loan facility available from leading banks for eligible buyers on this fully approved, bankable venture.",
+    url: "/uploads/projects/shankarpally-45-acres/bank-loan-approval.pdf",
   },
   {
     icon: FileText,
     title: "Master Brochure & Pricing Matrix",
     tag: "Instant PDF",
     intent: "Brochure & Pricing Matrix",
-    desc: "The complete featured brochure plus the current verified pricing matrix — generates instantly in your browser.",
+    desc: "The complete featured brochure plus the current verified pricing matrix — available instantly as PDF.",
+    url: "/uploads/projects/shankarpally-45-acres/shankarpally-45acres-brochure.pdf",
     instant: true,
   },
 ];
@@ -956,9 +1003,9 @@ function TrustDocumentsSection({
             Proof First — <span className="text-gradient">Approvals, Bank Support &amp; Docs</span>
           </h2>
           <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
-            Straight to the proof, right at the top. Every document below is genuine and available — request any file
-            and it&apos;s shared instantly on WhatsApp after a quick contact verification, followed by a guided
-            handover during your free site visit.
+            Straight to the proof, right at the top. Every document below is genuine and available — View opens the
+            official PDF instantly, Get PDF downloads it directly, and the brochure downloads at a click. Plus a guided
+            chain-of-title walkthrough during your free site visit.
           </p>
         </ScrollReveal>
 
@@ -981,15 +1028,33 @@ function TrustDocumentsSection({
 
                 {d.instant ? (
                   <div className="mt-auto flex flex-wrap items-center gap-2.5">
-                    <button
-                      onClick={() =>
-                        gate(d.intent, "Request Pricing Matrix", `Please share the current verified pricing matrix for ${project.name}.`)
-                      }
+                    <BrochureDownload project={project} variant="button" label="Download PDF" />
+                    <a
+                      href={getDownloadUrl(d.url)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] text-[12px] font-semibold text-white/60 hover:text-white transition-colors"
+                    >
+                      <Eye className="h-3.5 w-3.5" /> View Brochure
+                    </a>
+                  </div>
+                ) : d.url ? (
+                  <div className="mt-auto flex flex-wrap items-center gap-2.5">
+                    <a
+                      href={getDownloadUrl(d.url)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] text-[12px] font-semibold text-white/60 hover:text-white transition-colors"
+                    >
+                      <Eye className="h-3.5 w-3.5" /> View
+                    </a>
+                    <a
+                      href={getDownloadUrl(d.url)}
+                      download
                       className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-primary/25 bg-primary/[0.08] text-[12px] font-semibold text-white hover:bg-primary/[0.16] transition-colors"
                     >
-                      <Eye className="h-3.5 w-3.5 text-primary" /> View Pricing Matrix
-                    </button>
-                    <BrochureDownload project={project} variant="button" label="Download PDF" />
+                      <Download className="h-3.5 w-3.5 text-primary" /> Get PDF
+                    </a>
                   </div>
                 ) : (
                   <div className="mt-auto flex flex-wrap items-center gap-2.5">
@@ -1050,8 +1115,8 @@ function TrustDocumentsSection({
         </ScrollReveal>
 
         <p className="mt-6 text-[11px] text-white/25 leading-relaxed max-w-3xl">
-          *Official approvals and documents are genuine and shared freely. We verify a direct contact so you can be
-          guided personally — your details are never shared.
+          *Official approvals and documents are genuine public files, served directly from this website. HMDA, RERA
+          and bank-loan PDFs open inline or download instantly — your details are never required to view them.
         </p>
       </div>
     </section>
