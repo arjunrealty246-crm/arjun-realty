@@ -41,6 +41,7 @@ import SectionLabel from "./SectionLabel";
 import BrochureDownload from "./BrochureDownload";
 import SiteVisitModal from "./SiteVisitModal";
 import HeroVideoBackground from "./HeroVideoBackground";
+import ProjectVideo from "./ProjectVideo";
 import ShowcaseMediaGallery from "./showcase/ShowcaseMediaGallery";
 import PhasesShowcase from "./showcase/PhasesShowcase";
 import DocumentCentre from "./showcase/DocumentCentre";
@@ -61,6 +62,17 @@ const budgetLabels: Record<string, string> = {
   "1-2cr": "₹1 Crore – ₹2 Crore",
   "2-5cr": "₹2 Crore – ₹5 Crore",
   "above-5cr": "Above ₹5 Crore",
+};
+
+const toEmbedUrl = (src: string): string | null => {
+  const s = src.trim();
+  if (!s) return null;
+  const yt = s.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/|youtube-nocookie\.com\/embed\/)([A-Za-z0-9_-]{6,16})/);
+  if (yt) return `https://www.youtube.com/embed/${yt[1]}`;
+  const vimeo = s.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}`;
+  if (/^https?:\/\//.test(s) && /player\.vimeo\.com|youtube\.com\/embed/.test(s)) return s;
+  return null;
 };
 
 const amenityIconMap: Record<string, React.ReactNode> = {
@@ -659,6 +671,47 @@ export default function PremiumProjectDetailPage({
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ════════════════════════════════════════════
+          SECTION 6B — PROJECT VIDEOS
+      ════════════════════════════════════════════ */}
+      {([project.videoUrl, project.droneVideoUrl].filter(Boolean) as string[]).length > 0 && (
+        <section className="pb-16 lg:pb-20">
+          <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+            <ScrollReveal>
+              <div className="flex flex-col items-center text-center mb-10">
+                <SectionLabel>Media</SectionLabel>
+                <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Project Videos</h2>
+                <p className="mt-3 max-w-2xl text-white/40 text-sm sm:text-base">
+                  Watch the drone flythrough and latest walkthroughs of {project.name}.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {([project.videoUrl, project.droneVideoUrl].filter(Boolean) as string[]).map((src, i) => {
+                  const embed = toEmbedUrl(src);
+                  return embed ? (
+                    <div key={`v-${i}`} className={`glass-card rounded-2xl overflow-hidden ${[project.videoUrl, project.droneVideoUrl].filter(Boolean).length === 1 ? "md:col-span-2" : ""}`}>
+                      <div className="relative aspect-video bg-charcoal-dark">
+                        <iframe
+                          src={embed}
+                          title={`${project.name} video ${i + 1}`}
+                          className="absolute inset-0 h-full w-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <div key={`v-${i}`} className="md:col-span-2">
+                      <ProjectVideo src={src} poster={project.image} title={`${project.name} walkthrough`} />
+                    </div>
+                  );
+                })}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* ════════════════════════════════════════════
           SECTION 7 — LOCATION MAP + ADVANTAGES

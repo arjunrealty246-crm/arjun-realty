@@ -152,6 +152,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    e.currentTarget.value = "";
     const url = await handleFileUpload(file, "uploads/projects", "image");
     if (url) update("image", url);
   };
@@ -165,9 +166,24 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
     }
 
     try {
+      const payload = {
+        ...form,
+        image: (form.image || "").trim(),
+        heroVideo: (form.heroVideo || "").trim(),
+        videoUrl: (form.videoUrl || "").trim(),
+        droneVideoUrl: (form.droneVideoUrl || "").trim(),
+        brochureUrl: (form.brochureUrl || "").trim(),
+        layoutPdfUrl: (form.layoutPdfUrl || "").trim(),
+        layoutUrl: (form.layoutUrl || "").trim(),
+        masterPlanUrl: (form.masterPlanUrl || "").trim(),
+        locationMapUrl: (form.locationMapUrl || "").trim(),
+        gallery: form.gallery.map((g) => ({ ...g, src: (g.src || "").trim(), type: (g.type || "").trim() })),
+        developmentUpdates: form.developmentUpdates.map((d) => ({ ...d, images: (d.images || []).map((img) => img.trim()).filter(Boolean) })),
+        documents: form.documents.map((d) => ({ ...d, url: (d.url || "").trim() })),
+      };
       const url = isEdit ? `/api/projects/${projectId}` : "/api/projects";
       const method = isEdit ? "PUT" : "POST";
-      const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
+      const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
       if (res.ok) {
         router.push("/admin/projects");
       } else {
@@ -230,6 +246,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
             onChange={async (e) => {
               const file = e.target.files?.[0];
               if (!file) return;
+              e.currentTarget.value = "";
               const url = await handleFileUpload(file, folder, field);
               if (url) update(field, url);
             }} />
@@ -255,6 +272,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
             onChange={async (e) => {
               const file = e.target.files?.[0];
               if (!file) return;
+              e.currentTarget.value = "";
               const url = await handleFileUpload(file, folder, fieldName);
               if (url) onChange(url);
             }} />
@@ -451,12 +469,11 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
         <div className="glass-card-elevated rounded-2xl p-6 lg:p-8">
           <h2 className="text-lg font-bold text-white mb-6">Hero Image</h2>
           <div className="flex items-center gap-6">
-            <div className="h-24 w-36 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden">
+            <div className="h-24 w-36 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden relative">
+              <Upload className="h-6 w-6 text-white/15" />
               {form.image ? (
-                <img src={form.image} alt="" className="h-full w-full object-cover" />
-              ) : (
-                <Upload className="h-6 w-6 text-white/15" />
-              )}
+                <img src={form.image} alt="" className="absolute inset-0 h-full w-full object-cover" onError={(e) => e.currentTarget.remove()} />
+              ) : null}
             </div>
             <div className="flex-1">
               <input type="text" value={form.image} onChange={(e) => update("image", e.target.value)}
@@ -481,12 +498,11 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
             Upload a drone walkthrough video to display as the hero background. If unavailable, the hero image is shown instead.
           </p>
           <div className="flex items-center gap-6">
-            <div className="h-24 w-36 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden">
+            <div className="h-24 w-36 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden relative">
+              <Upload className="h-6 w-6 text-white/15" />
               {form.heroVideo ? (
-                <video src={form.heroVideo} className="h-full w-full object-cover" muted />
-              ) : (
-                <Upload className="h-6 w-6 text-white/15" />
-              )}
+                <video src={form.heroVideo} className="absolute inset-0 h-full w-full object-cover" muted onError={(e) => e.currentTarget.remove()} />
+              ) : null}
             </div>
             <div className="flex-1">
               <input type="text" value={form.heroVideo} onChange={(e) => update("heroVideo", e.target.value)}
@@ -502,6 +518,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
                   onChange={async (e) => {
                     const file = e.target.files?.[0];
                     if (!file) return;
+                    e.currentTarget.value = "";
                     const url = await handleFileUpload(file, "uploads/projects", "heroVideo");
                     if (url) update("heroVideo", url);
                   }} />
@@ -548,14 +565,15 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
           <div className="space-y-4">
             {form.gallery.map((item, i) => (
               <div key={i} className="flex flex-col md:flex-row gap-4 items-start md:items-center">
-                <div className="h-20 w-28 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden shrink-0">
+                <div className="h-20 w-28 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden shrink-0 relative">
+                  <Upload className="h-6 w-6 text-white/15" />
                   {item.src ? (
                     item.type === "video" ? (
-                      <video src={item.src} className="h-full w-full object-cover" muted preload="metadata" />
+                      <video src={item.src} className="absolute inset-0 h-full w-full object-cover" muted preload="metadata" onError={(e) => e.currentTarget.remove()} />
                     ) : (
-                      <img src={item.src} alt="" className="h-full w-full object-cover" />
+                      <img src={item.src} alt="" className="absolute inset-0 h-full w-full object-cover" onError={(e) => e.currentTarget.remove()} />
                     )
-                  ) : <Upload className="h-6 w-6 text-white/15" />}
+                  ) : null}
                 </div>
                 <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-3 w-full min-w-0">
                   <div>
@@ -574,6 +592,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
                           onChange={async (e) => {
                             const file = e.target.files?.[0];
                             if (!file) return;
+                            e.currentTarget.value = "";
                             const url = await handleFileUpload(file, "uploads/projects", `gallery-${i}`);
                             if (url) {
                               const isVideo = file.type.startsWith("video/");
@@ -657,6 +676,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
                         onChange={async (e) => {
                           const file = e.target.files?.[0];
                           if (!file) return;
+                          e.currentTarget.value = "";
                           const url = await handleFileUpload(file, "uploads/projects", `devUpdate-${i}`);
                           if (url) updateArrayItem("developmentUpdates", i, { images: [...((u.images as string[]) || []), url] });
                         }} />

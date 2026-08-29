@@ -14,7 +14,8 @@ export default function HeroVideoBackground({ heroVideo, image }: HeroVideoBackg
   const [videoError, setVideoError] = useState(false);
 
   const videoSrc = heroVideo;
-  const showVideo = Boolean(videoSrc && videoSrc.endsWith(".mp4") && !videoError);
+  const isMp4 = Boolean(videoSrc && videoSrc.split("?")[0].toLowerCase().endsWith(".mp4"));
+  const showVideo = Boolean(videoSrc && isMp4 && !videoError);
   const isRaster = RASTER.test(image.split("?")[0]);
 
   return (

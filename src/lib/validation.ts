@@ -69,7 +69,14 @@ export function isValidUploadFile(filename: string): boolean {
 }
 
 export function isValidUploadFolder(folder: string): boolean {
-  return ALLOWED_UPLOAD_FOLDERS.has(folder);
+  const f = (folder || "").trim().replace(/^\/+|\/+$/g, "");
+  if (!f) return false;
+  if (ALLOWED_UPLOAD_FOLDERS.has(f)) return true;
+  const parts = f.split("/");
+  if (parts.length === 2 && parts[0] === "uploads" && ALLOWED_UPLOAD_FOLDERS.has(parts[1])) {
+    return true;
+  }
+  return false;
 }
 
 export { isValidUploadFile as isAllowedUploadFile, isValidUploadFolder as isAllowedUploadFolder }
