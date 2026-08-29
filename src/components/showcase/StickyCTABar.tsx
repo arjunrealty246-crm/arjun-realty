@@ -6,9 +6,10 @@ import siteConfig from "@/config/site";
 interface StickyCTABarProps {
   projectName: string;
   onSiteVisit: () => void;
+  ctaLabel?: string;
 }
 
-export default function StickyCTABar({ projectName, onSiteVisit }: StickyCTABarProps) {
+export default function StickyCTABar({ projectName, onSiteVisit, ctaLabel = "Site Visit" }: StickyCTABarProps) {
   const waMessage = encodeURIComponent(
     `Hi, I'm interested in ${projectName}.\nPlease share more details.`
   );
@@ -37,7 +38,7 @@ export default function StickyCTABar({ projectName, onSiteVisit }: StickyCTABarP
           className="flex flex-col items-center justify-center gap-1 py-2.5 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-white glow-primary-strong"
         >
           <CalendarCheck className="h-4 w-4" />
-          <span className="text-[10px] font-bold uppercase tracking-wider">Site Visit</span>
+          <span className="text-[10px] font-bold uppercase tracking-wider">{ctaLabel}</span>
         </button>
       </div>
     </div>
