@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Save, Upload, X, Plus, Trash2 } from "lucide-react";
 import Link from "next/link";
@@ -83,6 +83,9 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
   const [uploadingField, setUploadingField] = useState<string | null>(null);
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [uploadError, setUploadError] = useState("");
+  const imageInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
+  const lastUploadErrorRef = useRef<string>("");
 
   useEffect(() => {
     if (!projectId) { setLoading(false); return; }
@@ -141,6 +144,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
       return url;
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Upload failed";
+      lastUploadErrorRef.current = msg;
       setUploadError(msg);
       setUploadProgress(null);
       return "";
@@ -154,7 +158,23 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
     if (!file) return;
     e.currentTarget.value = "";
     const url = await handleFileUpload(file, "uploads/projects", "image");
-    if (url) update("image", url);
+    if (!url) {
+      alert(`Upload failed: ${lastUploadErrorRef.current || "Unknown error"}`);
+      return;
+    }
+    update("image", url);
+  };
+
+  const handleVideoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    e.currentTarget.value = "";
+    const url = await handleFileUpload(file, "uploads/projects", "heroVideo");
+    if (!url) {
+      alert(`Upload failed: ${lastUploadErrorRef.current || "Unknown error"}`);
+      return;
+    }
+    update("heroVideo", url);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -283,6 +303,8 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
 
   return (
     <div>
+      <input type="file" ref={imageInputRef} accept="image/*" onChange={handleImageUpload} className="hidden" tabIndex={-1} />
+      <input type="file" ref={videoInputRef} accept="video/*" onChange={handleVideoUpload} className="hidden" tabIndex={-1} />
       <div className="flex items-center gap-4 mb-8">
         <Link href="/admin/projects" className="h-9 w-9 rounded-xl bg-white/[0.04] flex items-center justify-center text-white/30 hover:text-white hover:bg-white/[0.07] transition-all">
           <ArrowLeft className="h-4 w-4" />
@@ -469,24 +491,45 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
         <div className="glass-card-elevated rounded-2xl p-6 lg:p-8">
           <h2 className="text-lg font-bold text-white mb-6">Hero Image</h2>
           <div className="flex items-center gap-6">
-            <div className="h-24 w-36 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden relative">
-              <Upload className="h-6 w-6 text-white/15" />
+            <button
+              type="button"
+              onClick={() => imageInputRef.current?.click()}
+              disabled={uploadingField === "image"}
+              className="h-24 w-36 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden relative cursor-pointer hover:border-primary/30 transition-all group shrink-0"
+              title="Click to upload a new hero image"
+            >
+              <Upload className="h-6 w-6 text-white/15 group-hover:text-primary/50 transition-colors" />
               {form.image ? (
                 <img src={form.image} alt="" className="absolute inset-0 h-full w-full object-cover" onError={(e) => e.currentTarget.remove()} />
               ) : null}
-            </div>
+              {uploadingField === "image" && (
+                <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center gap-2">
+                  <span className="h-6 w-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                  <span className="text-[10px] font-semibold text-white font-mono">{uploadProgress ?? 0}%</span>
+                </div>
+              )}
+            </button>
             <div className="flex-1">
               <input type="text" value={form.image} onChange={(e) => update("image", e.target.value)}
                 className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs mb-2"
-                placeholder="/images/projects/jb-harmony-woods.svg" />
-              <label className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-xs font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all">
+                placeholder="https://res.cloudinary.com/.../image/upload/... or /images/projects/hero.svg" />
+              <button
+                type="button"
+                onClick={() => imageInputRef.current?.click()}
+                disabled={uploadingField === "image"}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-xs font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all disabled:opacity-60"
+              >
                 {uploadingField === "image" ? (
-                  <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                  <>
+                    <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                    Uploading… {uploadProgress ?? 0}%
+                  </>
                 ) : (
-                  <Upload className="h-3.5 w-3.5" />
-                )} Upload Image
-                <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" disabled={uploadingField === "image"} />
-              </label>
+                  <>
+                    <Upload className="h-3.5 w-3.5" /> Upload Image
+                  </>
+                )}
+              </button>
             </div>
           </div>
         </div>
@@ -498,31 +541,45 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
             Upload a drone walkthrough video to display as the hero background. If unavailable, the hero image is shown instead.
           </p>
           <div className="flex items-center gap-6">
-            <div className="h-24 w-36 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden relative">
-              <Upload className="h-6 w-6 text-white/15" />
+            <button
+              type="button"
+              onClick={() => videoInputRef.current?.click()}
+              disabled={uploadingField === "heroVideo"}
+              className="h-24 w-36 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center overflow-hidden relative cursor-pointer hover:border-primary/30 transition-all group shrink-0"
+              title="Click to upload a new hero drone video"
+            >
+              <Upload className="h-6 w-6 text-white/15 group-hover:text-primary/50 transition-colors" />
               {form.heroVideo ? (
                 <video src={form.heroVideo} className="absolute inset-0 h-full w-full object-cover" muted onError={(e) => e.currentTarget.remove()} />
               ) : null}
-            </div>
+              {uploadingField === "heroVideo" && (
+                <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center gap-2">
+                  <span className="h-6 w-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                  <span className="text-[10px] font-semibold text-white font-mono">{uploadProgress ?? 0}%</span>
+                </div>
+              )}
+            </button>
             <div className="flex-1">
               <input type="text" value={form.heroVideo} onChange={(e) => update("heroVideo", e.target.value)}
                 className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs mb-2"
-                placeholder="/videos/projects/jb-harmony-woods-drone.mp4" />
-              <label className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-xs font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all">
+                placeholder="https://res.cloudinary.com/.../video/upload/... or /videos/projects/.../drone.mp4" />
+              <button
+                type="button"
+                onClick={() => videoInputRef.current?.click()}
+                disabled={uploadingField === "heroVideo"}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-xs font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all disabled:opacity-60"
+              >
                 {uploadingField === "heroVideo" ? (
-                  <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                  <>
+                    <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                    Uploading… {uploadProgress ?? 0}%
+                  </>
                 ) : (
-                  <Upload className="h-3.5 w-3.5" />
-                )} Upload Video
-                <input type="file" accept="video/*" className="hidden" disabled={uploadingField === "heroVideo"}
-                  onChange={async (e) => {
-                    const file = e.target.files?.[0];
-                    if (!file) return;
-                    e.currentTarget.value = "";
-                    const url = await handleFileUpload(file, "uploads/projects", "heroVideo");
-                    if (url) update("heroVideo", url);
-                  }} />
-              </label>
+                  <>
+                    <Upload className="h-3.5 w-3.5" /> Upload Video
+                  </>
+                )}
+              </button>
             </div>
           </div>
 
