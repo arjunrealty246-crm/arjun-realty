@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
 import { uploadFile } from "@/lib/storage";
 import { isAllowedUploadFile, isAllowedUploadFolder } from "@/lib/validation";
+import { getUploadResourceType, capForType, oversizeMessage } from "@/lib/upload-types";
 
 export async function POST(req: NextRequest) {
   const session = await getSession();
@@ -22,6 +23,14 @@ export async function POST(req: NextRequest) {
 
     if (!isAllowedUploadFolder(folder)) {
       return NextResponse.json({ error: "Folder not allowed" }, { status: 400 });
+    }
+
+    const resourceType = getUploadResourceType(file.name);
+    if (file.size > capForType(resourceType)) {
+      return NextResponse.json(
+        { error: oversizeMessage(resourceType, file.size) },
+        { status: 413 }
+      );
     }
 
     const bytes = await file.arrayBuffer();

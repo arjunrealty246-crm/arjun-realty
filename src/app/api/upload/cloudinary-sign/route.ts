@@ -1,7 +1,11 @@
 import { v2 as cloudinary } from "cloudinary";
 import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
-import { isAllowedUploadFile, isAllowedUploadFolder } from "@/lib/validation";
+import {
+  isValidUploadFile,
+  isValidUploadFolder,
+} from "@/lib/validation";
+import { getUploadResourceType, capForType, oversizeMessage } from "@/lib/upload-types";
 
 const CLOUDINARY_FOLDER = process.env.CLOUDINARY_FOLDER || "arjun-realty";
 
@@ -14,18 +18,31 @@ export async function POST(req: NextRequest) {
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   try {
-    const { filename, folder } = await req.json();
+    const { filename, folder, size } = (await req.json()) as {
+      filename?: string;
+      folder?: string;
+      size?: number;
+    };
 
     if (!filename) {
       return NextResponse.json({ error: "Filename required" }, { status: 400 });
     }
 
-    if (!isAllowedUploadFile(filename)) {
+    if (!isValidUploadFile(filename)) {
       return NextResponse.json({ error: "File type not allowed" }, { status: 400 });
     }
 
-    if (!isAllowedUploadFolder(folder || "uploads")) {
+    if (!isValidUploadFolder(folder || "uploads")) {
       return NextResponse.json({ error: "Folder not allowed" }, { status: 400 });
+    }
+
+    const resourceType = getUploadResourceType(filename);
+    const cap = capForType(resourceType);
+    if (typeof size === "number" && size > cap) {
+      return NextResponse.json(
+        { error: oversizeMessage(resourceType, size) },
+        { status: 413 }
+      );
     }
 
     const timestamp = Math.round(Date.now() / 1000);
@@ -35,6 +52,7 @@ export async function POST(req: NextRequest) {
     const paramsToSign: Record<string, string | number> = {
       folder: CLOUDINARY_FOLDER,
       public_id: publicId,
+      resource_type: resourceType,
       timestamp,
     };
 
@@ -50,6 +68,7 @@ export async function POST(req: NextRequest) {
       cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
       folder: CLOUDINARY_FOLDER,
       public_id: publicId,
+      resource_type: resourceType,
     });
   } catch (err: unknown) {
     return NextResponse.json(

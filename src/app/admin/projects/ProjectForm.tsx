@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Save, Upload, X, Plus, Trash2 } from "lucide-react";
 import Link from "next/link";
+import { uploadWithProgress } from "@/lib/client-upload";
 
 interface ProjectFormData {
   name: string;
@@ -24,6 +25,8 @@ interface ProjectFormData {
   plotSizes: string;
   clubhouseDetails: string;
   heroVideo: string;
+  videoUrl: string;
+  droneVideoUrl: string;
   brochureUrl: string;
   layoutPdfUrl: string;
   layoutUrl: string;
@@ -54,7 +57,7 @@ const emptyForm: ProjectFormData = {
   name: "", slug: "", builder: "", marketingPartner: "", projectType: "",
   approval: "", location: "", mapsUrl: "", price: "", startingPrice: "",
   status: "Live", badge: "Live", isUpcoming: false, totalAcres: "", totalPlots: "",
-  plotSizes: "", clubhouseDetails: "", heroVideo: "", brochureUrl: "", layoutPdfUrl: "",
+  plotSizes: "", clubhouseDetails: "", heroVideo: "", videoUrl: "", droneVideoUrl: "", brochureUrl: "", layoutPdfUrl: "",
   layoutUrl: "", masterPlanUrl: "", locationMapUrl: "", image: "",
   bankLoanAvailable: true, siteVisitBooking: true, whatsappCta: "", projectArea: "",
   amenities: [], highlights: [], locationAdvantages: [], whyInvest: [],
@@ -78,6 +81,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
   const [newTestName, setNewTestName] = useState("");
   const [newTestText, setNewTestText] = useState("");
   const [uploadingField, setUploadingField] = useState<string | null>(null);
+  const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [uploadError, setUploadError] = useState("");
 
   useEffect(() => {
@@ -125,60 +129,20 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
     setForm((f) => ({ ...f, [field]: f[field].filter((_, i) => i !== index) }));
   };
 
-  const CLOUDINARY_MAX_SIZE: Record<string, number> = {
-    image: 10 * 1024 * 1024,
-    video: 100 * 1024 * 1024,
-    raw: 10 * 1024 * 1024,
-  };
-
-  const getCloudinaryResourceType = (file: File): "image" | "video" | "raw" => {
-    const type = file.type || "";
-    if (type.startsWith("video/")) return "video";
-    if (type.startsWith("image/")) return "image";
-    return "raw";
-  };
-
-  const handleCloudinaryUpload = async (file: File, folder: string, resourceType?: "image" | "video" | "raw"): Promise<string> => {
-    const rt = resourceType || getCloudinaryResourceType(file);
-    const maxSize = CLOUDINARY_MAX_SIZE[rt] || CLOUDINARY_MAX_SIZE.raw;
-    if (file.size > maxSize) {
-      const maxMB = Math.round(maxSize / 1024 / 1024);
-      throw new Error(`File too large for Cloudinary Free plan (${(file.size / 1024 / 1024).toFixed(1)} MB). Maximum for ${rt} files is ${maxMB} MB.`);
-    }
-
-    const signRes = await fetch("/api/upload/cloudinary-sign", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ filename: file.name, folder }),
-    });
-    const signData = await signRes.json();
-    if (!signRes.ok) throw new Error(signData.error || "Failed to get upload signature");
-
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("api_key", signData.api_key);
-    formData.append("timestamp", String(signData.timestamp));
-    formData.append("signature", signData.signature);
-    formData.append("folder", signData.folder);
-    formData.append("public_id", signData.public_id);
-
-    const uploadUrl = `https://api.cloudinary.com/v1_1/${signData.cloud_name}/${rt}/upload`;
-    const uploadRes = await fetch(uploadUrl, { method: "POST", body: formData });
-    const uploadData = await uploadRes.json();
-    if (!uploadRes.ok) throw new Error(uploadData.error?.message || "Upload to Cloudinary failed");
-
-    return uploadData.secure_url || "";
-  };
-
   const handleFileUpload = async (file: File, folder: string, fieldName?: string) => {
     if (fieldName) setUploadingField(fieldName);
     setUploadError("");
+    setUploadProgress(0);
     try {
-      const rt = getCloudinaryResourceType(file);
-      return await handleCloudinaryUpload(file, folder, rt);
+      const url = await uploadWithProgress(file, folder, (ratio) =>
+        setUploadProgress(Math.round(ratio * 100))
+      );
+      setUploadProgress(null);
+      return url;
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Upload failed";
       setUploadError(msg);
+      setUploadProgress(null);
       return "";
     } finally {
       if (fieldName) setUploadingField(null);
@@ -319,6 +283,25 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
         <div className="mb-6 px-5 py-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-sm text-amber-400 flex items-center justify-between">
           <span>Upload error: {uploadError}</span>
           <button type="button" onClick={() => setUploadError("")} className="text-amber-400/60 hover:text-amber-400 ml-3">Dismiss</button>
+        </div>
+      )}
+
+      {uploadProgress !== null && (
+        <div className="mb-6 px-5 py-3.5 rounded-xl bg-primary/[0.06] border border-primary/20">
+          <div className="flex items-center justify-between gap-3 mb-2">
+            <span className="text-xs font-semibold text-white">
+              {uploadProgress > 0
+                ? `Uploading${uploadingField ? ` — ${uploadingField}` : ""}… ${uploadProgress}%`
+                : "Preparing file (compressing images, verifying size)…"}
+            </span>
+            <span className="text-[11px] text-white/35 font-mono">{uploadProgress}%</span>
+          </div>
+          <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-primary to-primary-dark transition-[width] duration-200"
+              style={{ width: `${Math.max(uploadProgress, 2)}%` }}
+            />
+          </div>
         </div>
       )}
 
@@ -525,6 +508,24 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
               </label>
             </div>
           </div>
+
+          <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Drone Video Embed URL (YouTube / Vimeo) — for large videos</label>
+              <input type="text" value={form.droneVideoUrl} onChange={(e) => update("droneVideoUrl", e.target.value)}
+                className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs"
+                placeholder="https://www.youtube.com/embed/VIDEO_ID  or  https://player.vimeo.com/video/VIDEO_ID" />
+            </div>
+            <div>
+              <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">Project Video URL</label>
+              <input type="text" value={form.videoUrl} onChange={(e) => update("videoUrl", e.target.value)}
+                className="w-full px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs"
+                placeholder="https://www.youtube.com/embed/VIDEO_ID" />
+            </div>
+          </div>
+          <p className="mt-3 text-[11px] text-white/25">
+            Videos over 100 MB can&apos;t be uploaded to Cloudinary on the free plan — paste a YouTube/Vimeo embed link instead. Large images (brochure scans, aerial photos) are auto-compressed to WebP on upload.
+          </p>
         </div>
 
         {/* Documents */}

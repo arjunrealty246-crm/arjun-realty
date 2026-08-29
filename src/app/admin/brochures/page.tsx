@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Plus, Edit3, Trash2, Search, FileText, Upload, ExternalLink } from "lucide-react";
+import { uploadWithProgress } from "@/lib/client-upload";
 
 interface Item { _id: string; title: string; file: string; project?: string; type: string; }
 
@@ -13,6 +14,7 @@ export default function AdminBrochuresPage() {
   const [editing, setEditing] = useState<Item | null>(null);
   const [form, setForm] = useState({ title: "", file: "", project: "", type: "brochure" });
   const [uploading, setUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [uploadError, setUploadError] = useState("");
 
   const fetchItems = async () => {
@@ -31,38 +33,17 @@ export default function AdminBrochuresPage() {
     if (!file) return;
     setUploading(true);
     setUploadError("");
+    setUploadProgress(0);
     try {
-      const maxSize = 10 * 1024 * 1024;
-      if (file.size > maxSize) {
-        throw new Error(`PDF too large (${(file.size / 1024 / 1024).toFixed(1)} MB). Maximum on Cloudinary Free plan is 10 MB.`);
-      }
-
-      const signRes = await fetch("/api/upload/cloudinary-sign", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ filename: file.name, folder: "uploads/brochures" }),
-      });
-      const signData = await signRes.json();
-      if (!signRes.ok) throw new Error(signData.error || "Failed to get upload signature");
-
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("api_key", signData.api_key);
-      formData.append("timestamp", String(signData.timestamp));
-      formData.append("signature", signData.signature);
-      formData.append("folder", signData.folder);
-      formData.append("public_id", signData.public_id);
-
-      const uploadUrl = `https://api.cloudinary.com/v1_1/${signData.cloud_name}/raw/upload`;
-      const uploadRes = await fetch(uploadUrl, { method: "POST", body: formData });
-      const uploadData = await uploadRes.json();
-      if (!uploadRes.ok) throw new Error(uploadData.error?.message || "Upload failed");
-
-      if (uploadData.secure_url) setForm({ ...form, file: uploadData.secure_url });
+      const url = await uploadWithProgress(file, "uploads/brochures", (ratio) =>
+        setUploadProgress(Math.round(ratio * 100))
+      );
+      if (url) setForm({ ...form, file: url });
     } catch (err) {
       setUploadError(err instanceof Error ? err.message : "Upload failed");
     } finally {
       setUploading(false);
+      setUploadProgress(null);
     }
   };
 
@@ -151,8 +132,20 @@ export default function AdminBrochuresPage() {
                   )} {uploading ? "Uploading..." : "Upload PDF"}
                   <input type="file" accept=".pdf" onChange={handleUpload} className="hidden" disabled={uploading} />
                 </label>
-                {uploadError && (
-                  <p className="mt-2 text-xs text-red-400">{uploadError}</p>
+{uploadError && (
+                    <p className="mt-2 text-xs text-red-400">{uploadError}</p>
+                  )}
+                {uploadProgress !== null && (
+                  <div className="mt-3">
+                    <div className="flex items-center justify-between text-[10px] text-white/40 mb-1.5">
+                      <span className="font-semibold text-white/70">
+                        {uploadProgress > 0 ? `Uploading… ${uploadProgress}%` : "Preparing file…"}
+                      </span>
+                    </div>
+                    <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
+                      <div className="h-full rounded-full bg-gradient-to-r from-primary to-primary-dark transition-[width] duration-200" style={{ width: `${Math.max(uploadProgress, 2)}%` }} />
+                    </div>
+                  </div>
                 )}
               </div>
             </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Plus, Edit3, Trash2, Search, Image as ImageIcon, Upload } from "lucide-react";
+import { uploadWithProgress } from "@/lib/client-upload";
 
 interface Item { _id: string; title: string; image: string; category: string; project?: string; }
 
@@ -13,6 +14,7 @@ export default function AdminGalleryPage() {
   const [editing, setEditing] = useState<Item | null>(null);
   const [form, setForm] = useState({ title: "", image: "", category: "general", project: "" });
   const [uploading, setUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<number | null>(null);
 
   const fetchItems = async () => {
     const res = await fetch("/api/gallery");
@@ -29,33 +31,17 @@ export default function AdminGalleryPage() {
     const file = e.target.files?.[0];
     if (!file) return;
     setUploading(true);
+    setUploadProgress(0);
     try {
-      const signRes = await fetch("/api/upload/cloudinary-sign", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ filename: file.name, folder: "uploads/gallery" }),
-      });
-      const signData = await signRes.json();
-      if (!signRes.ok) throw new Error(signData.error || "Failed to get upload signature");
-
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("api_key", signData.api_key);
-      formData.append("timestamp", String(signData.timestamp));
-      formData.append("signature", signData.signature);
-      formData.append("folder", signData.folder);
-      formData.append("public_id", signData.public_id);
-
-      const uploadUrl = `https://api.cloudinary.com/v1_1/${signData.cloud_name}/image/upload`;
-      const uploadRes = await fetch(uploadUrl, { method: "POST", body: formData });
-      const uploadData = await uploadRes.json();
-      if (!uploadRes.ok) throw new Error(uploadData.error?.message || "Upload failed");
-
-      if (uploadData.secure_url) setForm({ ...form, image: uploadData.secure_url });
-    } catch {
-      alert("Upload failed. Please try again.");
+      const url = await uploadWithProgress(file, "uploads/gallery", (ratio) =>
+        setUploadProgress(Math.round(ratio * 100))
+      );
+      if (url) setForm({ ...form, image: url });
+    } catch (err) {
+      alert(err instanceof Error ? err.message : "Upload failed. Please try again.");
     } finally {
       setUploading(false);
+      setUploadProgress(null);
     }
   };
 
@@ -137,6 +123,18 @@ export default function AdminGalleryPage() {
                   )} Upload
                   <input type="file" accept="image/*" onChange={handleUpload} className="hidden" disabled={uploading} />
                 </label>
+                {uploadProgress !== null && (
+                  <div className="mt-3">
+                    <div className="flex items-center justify-between text-[10px] text-white/40 mb-1.5">
+                      <span className="font-semibold text-white/70">
+                        {uploadProgress > 0 ? `Uploading… ${uploadProgress}%` : "Preparing file (compressing image)…"}
+                      </span>
+                    </div>
+                    <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
+                      <div className="h-full rounded-full bg-gradient-to-r from-primary to-primary-dark transition-[width] duration-200" style={{ width: `${Math.max(uploadProgress, 2)}%` }} />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             <div className="flex gap-3 mt-6">

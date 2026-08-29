@@ -1,9 +1,10 @@
 import { v2 as cloudinary } from "cloudinary";
 import { writeFile, mkdir } from "fs/promises";
 import path from "path";
+import { getUploadResourceType, capForType, oversizeMessage } from "@/lib/upload-types";
 
 const CLOUDINARY_FOLDER = process.env.CLOUDINARY_FOLDER || "arjun-realty";
-const MAX_CLOUDINARY_SIZE = 10 * 1024 * 1024; // Cloudinary free tier: 10 MB hard limit
+const LARGE_UPLOAD_THRESHOLD = 10 * 1024 * 1024; // use chunked upload_large above this
 
 function isCloudinaryConfigured(): boolean {
   return Boolean(
@@ -41,14 +42,7 @@ export async function uploadFile(
       secure: true,
     });
 
-    const ext = path.extname(filename).toLowerCase();
-    const resourceType = [".mp4", ".webm", ".ogg", ".mov", ".avi", ".mkv"].includes(ext)
-      ? "video"
-      : ext === ".pdf"
-        ? "raw"
-        : ext === ".txt" || ext === ".doc" || ext === ".docx" || ext === ".zip"
-          ? "raw"
-          : "image";
+    const resourceType = getUploadResourceType(filename);
 
     const publicId = `${folder}/${filename}`.replace(/^\/+/, "");
     const uploadOpts = {
@@ -58,18 +52,36 @@ export async function uploadFile(
       overwrite: true,
     } as const;
 
-    if (buffer.byteLength > MAX_CLOUDINARY_SIZE) {
-      throw new Error(
-        `File too large for Cloudinary free tier (${(buffer.byteLength / 1024 / 1024).toFixed(1)} MB). Maximum is 10 MB.`
-      );
+    const cap = capForType(resourceType);
+    if (buffer.byteLength > cap) {
+      throw new Error(oversizeMessage(resourceType, buffer.byteLength));
     }
 
     const result = await new Promise<{ secure_url: string }>((resolve, reject) => {
-      const stream = cloudinary.uploader.upload_stream(uploadOpts, (error, result) => {
-        if (error) return reject(error);
-        if (!result) return reject(new Error("Cloudinary upload returned no result"));
+      const onDone = (
+        error: Error | (Record<string, unknown> & { message?: string }) | null | undefined,
+        result?: { secure_url?: string }
+      ) => {
+        if (error) return reject(error instanceof Error ? error : new Error(error.message || "Cloudinary upload failed"));
+        if (!result?.secure_url) return reject(new Error("Cloudinary upload returned no result"));
         resolve({ secure_url: result.secure_url });
-      });
+      };
+
+      if (resourceType === "video" && buffer.byteLength > LARGE_UPLOAD_THRESHOLD) {
+        try {
+          const chunked = cloudinary.uploader.upload_chunked_stream(uploadOpts, (error, result) =>
+            onDone(error, result as { secure_url?: string })
+          );
+          chunked.end(buffer);
+          return;
+        } catch {
+          // fall through to the standard upload path below
+        }
+      }
+
+      const stream = cloudinary.uploader.upload_stream(uploadOpts, (error, result) =>
+        onDone(error, result as { secure_url?: string })
+      );
       stream.end(buffer);
     });
 

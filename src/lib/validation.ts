@@ -61,22 +61,15 @@ export function sanitizeProjectBody(body: Record<string, unknown>): Record<strin
   return clean;
 }
 
-const ALLOWED_UPLOAD_EXTENSIONS = new Set([
-  ".jpg", ".jpeg", ".png", ".webp", ".avif",
-  ".mp4",
-  ".pdf",
-]);
+import { ALLOWED_UPLOAD_EXTENSIONS, ALLOWED_UPLOAD_FOLDERS } from "@/lib/upload-types";
 
-export function isAllowedUploadFile(filename: string): boolean {
+export function isValidUploadFile(filename: string): boolean {
   const ext = filename.toLowerCase().match(/\.[^.]+$/)?.[0];
   return ext ? ALLOWED_UPLOAD_EXTENSIONS.has(ext) : false;
 }
 
-const ALLOWED_UPLOAD_FOLDERS = new Set([
-  "projects", "builders", "gallery", "brochures", "testimonials",
-  "avatars", "uploads",
-]);
-
-export function isAllowedUploadFolder(folder: string): boolean {
+export function isValidUploadFolder(folder: string): boolean {
   return ALLOWED_UPLOAD_FOLDERS.has(folder);
 }
+
+export { isValidUploadFile as isAllowedUploadFile, isValidUploadFolder as isAllowedUploadFolder }
