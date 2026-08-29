@@ -20,16 +20,14 @@ import {
   Sparkles,
   TrendingUp,
   Route,
-  School,
-  Briefcase,
   BadgeCheck,
   Timer,
-  Train,
   Play,
   Camera,
   ZoomIn,
-  Expand,
   Lock,
+  Eye,
+  Download,
   FileCheck2,
   Award,
   LayoutGrid,
@@ -207,41 +205,34 @@ const specTiles = [
   { icon: Timer, title: "Golden Triangle Location", desc: "20–30 mins to Gachibowli, Nanakramguda, Neopolis & the Financial District" },
 ];
 
-const distanceMatrix = [
-  {
-    icon: Train,
-    title: "Shankarpally Railway Station & Town Center",
-    time: "~10 mins",
-    desc: "Direct access for daily convenience and rentals-driven demand.",
-  },
-  {
-    icon: Route,
-    title: "Shankarpally–Kandi Corridor & NH-65",
-    time: "Direct Access",
-    desc: "Mumbai Highway (NH-65) and the internal corridor connect the layout instantly.",
-  },
-  {
-    icon: School,
-    title: "IIT Hyderabad, GITAM & Indus International",
-    time: "Quick Drive",
-    desc: "Premium education in the Kandi knowledge belt just minutes away.",
-  },
-  {
-    icon: Briefcase,
-    title: "Financial District, Nanakramguda, Gachibowli & Neopolis",
-    time: "20–30 mins",
-    desc: "Seamless drive via 6-lane expanded radial roads with ORR integration and Kollur SEZ & Tellapur growth belt nearby.",
-  },
-];
-
 const related = ["jb-harmony-woods", "jb-pristine-city"]
   .map((slug) => getProjectBySlug(slug))
   .filter((p): p is Project => Boolean(p));
+
+const HERO_VIDEO_SRC = ""; // set to "/videos/shankarpally-45acres-hero.mp4" when walkthrough footage is available
+const HERO_POSTER_SRC = "/images/projects/shankarpally-45acres-hero.svg";
+
+function HeroBackground() {
+  return (
+    <div className="absolute inset-0" aria-hidden="true">
+      {HERO_VIDEO_SRC ? (
+        <video className="h-full w-full object-cover" autoPlay muted loop playsInline preload="auto" poster={HERO_POSTER_SRC}>
+          <source src={HERO_VIDEO_SRC} type="video/mp4" />
+        </video>
+      ) : (
+        <Image src={HERO_POSTER_SRC} alt="" fill priority sizes="100vw" className="object-cover" />
+      )}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#08090b]/85 via-[#08090b]/65 to-[#08090b]/90" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#08090b]/90 via-[#08090b]/40 to-transparent" />
+    </div>
+  );
+}
 
 export default function Shankarpally45AcresPage() {
   const [siteVisitOpen, setSiteVisitOpen] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
   const [gate, setGate] = useState<GateRequest | null>(null);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   const waUrl = `${siteConfig.links.wa}?text=${encodeURIComponent(project.whatsappCta || "")}`;
 
@@ -251,6 +242,7 @@ export default function Shankarpally45AcresPage() {
     <>
       {/* ══════════ HERO ══════════ */}
       <section className="relative pt-28 pb-14 lg:pt-36 lg:pb-16 overflow-hidden">
+        <HeroBackground />
         <div className="ambient-orb w-[700px] h-[700px] bg-primary/[0.08] -right-64 -top-64" />
         <div className="ambient-orb w-[500px] h-[500px] bg-gold/[0.03] -left-48 bottom-0" />
         <div className="relative mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
@@ -295,10 +287,14 @@ export default function Shankarpally45AcresPage() {
 
             <div className="mt-9 flex flex-wrap items-center gap-3.5">
               <button
-                onClick={() => scrollToId("media")}
-                className="inline-flex items-center gap-2.5 rounded-full border border-primary/25 bg-primary/[0.08] px-6 py-3 text-[13px] font-semibold text-white hover:bg-primary/[0.14] transition-all"
+                onClick={() => setVideoOpen(true)}
+                className="group inline-flex items-center gap-2.5 rounded-full border border-primary/25 bg-primary/[0.08] px-6 py-3 text-[13px] font-semibold text-white hover:bg-primary/[0.14] transition-all"
               >
-                <Play className="h-4 w-4 fill-primary text-primary" /> Watch Walkthrough Video
+                <span className="relative flex h-6 w-6 items-center justify-center">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-primary/30 opacity-75 group-hover:animate-ping" />
+                  <Play className="relative h-4 w-4 fill-primary text-primary" />
+                </span>
+                Watch Walkthrough Video
               </button>
               <button
                 onClick={() => scrollToId("documents")}
@@ -330,8 +326,15 @@ export default function Shankarpally45AcresPage() {
         </div>
       </section>
 
-      {/* ══════════ PROJECT MEDIA & GALLERY ══════════ */}
-      <MediaGallerySection projectName={project.name} onRequestVideo={(r) => setGate(r)} />
+      {/* ══════════ TRUST, APPROVALS & VERIFICATION CENTER ══════════ */}
+      <TrustDocumentsSection project={project} onRequestDoc={(r) => openGate(r)} />
+
+      {/* ══════════ INTERACTIVE MEDIA & LAYOUT GALLERY ══════════ */}
+      <MediaGallerySection
+        projectName={project.name}
+        onRequestVideo={(r) => openGate(r)}
+        onRequestPlot={(r) => openGate(r)}
+      />
 
       {/* ══════════ GOLDEN TRIANGLE ══════════ */}
       <section className="py-16 lg:py-20 bg-section-alt relative overflow-hidden">
@@ -468,63 +471,8 @@ export default function Shankarpally45AcresPage() {
         </div>
       </section>
 
-      {/* ══════════ MASTER LAYOUT & PLOT AVAILABILITY ══════════ */}
-      <MasterLayoutSection projectName={project.name} onRequestPlot={(r) => openGate(r)} />
-
-      {/* ══════════ TRUST & VERIFICATION CENTER ══════════ */}
-      <TrustDocumentsSection project={project} onRequestDoc={(r) => openGate(r)} />
-
-      {/* ══════════ ON-GROUND EXECUTION STATUS ══════════ */}
-      <ExecutionStatusSection />
-
-      {/* ══════════ DISTANCE / TIME MATRIX ══════════ */}
-      <section className="py-16 lg:py-20 relative overflow-hidden">
-        <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.03] -right-48 top-1/3" />
-        <div className="relative mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14 items-center mb-4">
-            <ScrollReveal className="lg:col-span-1">
-              <SectionLabel>Connectivity</SectionLabel>
-              <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em]">
-                How Far Is <span className="text-gradient">Everything Important?</span>
-              </h2>
-              <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
-                Travel times below are approximate under normal conditions. The layout also enjoys direct Mumbai
-                Highway (NH-65) access, seamless ORR integration, and proximity to Kollur SEZ and the Tellapur growth belt.
-              </p>
-              <a
-                href={project.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-7 inline-flex items-center gap-2.5 text-[13px] font-semibold text-primary hover:text-white transition-colors"
-              >
-                Get Directions on Google Maps <ArrowRight className="h-4 w-4" />
-              </a>
-            </ScrollReveal>
-
-            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {distanceMatrix.map((d, i) => (
-                <ScrollReveal key={d.title} delay={i * 0.07}>
-                  <div className="glass-card rounded-2xl p-6 h-full group">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="h-11 w-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-all duration-500">
-                        <d.icon className="h-5 w-5 text-primary" />
-                      </div>
-                      <span className="rounded-full bg-gold/10 border border-gold/20 px-3 py-1 text-xs font-bold text-gold">
-                        {d.time}
-                      </span>
-                    </div>
-                    <h3 className="text-[15px] font-bold text-white tracking-tight leading-snug">{d.title}</h3>
-                    <p className="mt-2 text-[13px] text-white/35 leading-relaxed">{d.desc}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════ WEST HYDERABAD GROWTH AXIS ══════════ */}
-      <GrowthAxisSection />
+      {/* ══════════ FAST-TRACK EXECUTION & WEST HYDERABAD GROWTH MATRIX ══════════ */}
+      <FastTrackAndGrowthSection />
 
       {/* ══════════ LEAD CAPTURE — FREE CAB SITE VISIT ══════════ */}
       <ShankarpallyLeadWidget projectName={project.name} />
@@ -653,6 +601,7 @@ export default function Shankarpally45AcresPage() {
 
       <StickyCTABar projectName={project.name} onSiteVisit={() => setSiteVisitOpen(true)} ctaLabel="Free Cab Visit" />
       <SiteVisitModal isOpen={siteVisitOpen} onClose={() => setSiteVisitOpen(false)} projectName={project.name} />
+      <VideoHeroModal open={videoOpen} onClose={() => setVideoOpen(false)} onRequestVideo={(r) => openGate(r)} />
       <LeadGateModal
         open={gate !== null}
         request={gate}
@@ -677,63 +626,68 @@ interface GateRequest {
   ctaLabel: string;
 }
 
-type GalleryCategory = "Layout Views" | "Clubhouse & Amenities" | "On-Ground Progress" | "Surrounding Infra";
+type GalleryCategory = "Master Layout" | "25,000 SFT Clubhouse" | "Roads & Infrastructure" | "Drone Views";
 
 const galleryItems: { src: string; title: string; cat: GalleryCategory }[] = [
   {
     src: "/images/projects/shankarpally-45acres-layout.svg",
     title: "Indicative Master Layout — 45 Acres",
-    cat: "Layout Views",
+    cat: "Master Layout",
   },
   {
     src: "/images/gallery/clubhouse.svg",
     title: "25,000 Sq. Ft. Grand Luxury Clubhouse",
-    cat: "Clubhouse & Amenities",
+    cat: "25,000 SFT Clubhouse",
   },
   {
     src: "/images/projects/shankarpally-45acres-roads.svg",
     title: "Wide BT Roads, Kerbs & Paver Footpaths",
-    cat: "On-Ground Progress",
+    cat: "Roads & Infrastructure",
   },
   {
     src: "/images/gallery/project-overview.svg",
-    title: "On-Ground Progress Overview",
-    cat: "On-Ground Progress",
+    title: "Aerial Site Overview",
+    cat: "Drone Views",
   },
   {
     src: "/images/gallery/gardens.svg",
-    title: "Avenue Plantation & Landscaped Gardens",
-    cat: "Surrounding Infra",
+    title: "Aerial Avenue Plantation & Gardens",
+    cat: "Drone Views",
   },
 ];
 
 const galleryTabs: ("All" | GalleryCategory)[] = [
   "All",
-  "Layout Views",
-  "Clubhouse & Amenities",
-  "On-Ground Progress",
-  "Surrounding Infra",
+  "Master Layout",
+  "25,000 SFT Clubhouse",
+  "Roads & Infrastructure",
+  "Drone Views",
 ];
 
 function MediaGallerySection({
   projectName,
   onRequestVideo,
+  onRequestPlot,
 }: {
   projectName: string;
   onRequestVideo: (r: GateRequest) => void;
+  onRequestPlot: (r: GateRequest) => void;
 }) {
   const [tab, setTab] = useState<"All" | GalleryCategory>("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [zoomed, setZoomed] = useState(false);
 
   const visible = galleryItems.filter((g) => tab === "All" || g.cat === tab);
   const active = lightboxIndex !== null ? visible[lightboxIndex] : null;
 
   const next = useCallback(() => {
     setLightboxIndex((prev) => (prev === null ? prev : (prev + 1) % visible.length));
+    setZoomed(false);
   }, [visible.length]);
 
   const prev = useCallback(() => {
     setLightboxIndex((prev) => (prev === null ? prev : (prev - 1 + visible.length) % visible.length));
+    setZoomed(false);
   }, [visible.length]);
 
   const requestVideo = () =>
@@ -741,6 +695,13 @@ function MediaGallerySection({
       intent: "Walkthrough & Drone Video Footage",
       message: `${projectName}\n\nPlease share the latest walkthrough and drone aerial footage of ${projectName}.`,
       ctaLabel: "Request Video Footage",
+    });
+
+  const requestPlot = () =>
+    onRequestPlot({
+      intent: "Live Plot Availability & Corner Plots",
+      message: `${projectName}\n\nPlease share the live plot availability (200 / 267 / 350 / 500+ sq. yd.) and corner plot options.`,
+      ctaLabel: "Check Live Availability",
     });
 
   return (
@@ -828,6 +789,46 @@ function MediaGallerySection({
             </button>
           </div>
         </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="mt-6 glass-card-elevated rounded-2xl p-6 lg:p-7 flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-5">
+              <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                <LayoutGrid className="h-7 w-7 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-white">Live Plot Availability — 200 to 500+ Sq. Yd.</h3>
+                <p className="mt-1 text-xs text-white/35 leading-relaxed max-w-xl">
+                  Corner plots and premium facing plots are limited and availability changes daily. Get the live
+                  inventory and current pricing matrix instantly on WhatsApp.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {["200", "267", "350", "500+"].map((p) => (
+                    <span key={p} className="rounded-full border border-primary/20 bg-primary/[0.06] px-3 py-1 text-[11px] font-bold text-primary">
+                      {p} Sq. Yd.
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <a
+                href={waUrlLink("Hi, I'm interested in the available plots at " + projectName + ". Please share the live plot availability.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#25D366]/30 bg-[#25D366]/10 text-[12px] font-semibold text-[#25D366] hover:bg-[#25D366]/15 transition-all"
+              >
+                <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
+              </a>
+              <button
+                onClick={requestPlot}
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary to-primary-dark text-[12px] font-semibold text-white glow-primary-strong hover:opacity-90 transition-opacity"
+              >
+                <LandPlot className="h-4 w-4" /> Request Live Availability / Corner Plots
+              </button>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
 
       <AnimatePresence>
@@ -857,13 +858,30 @@ function MediaGallerySection({
               </button>
             )}
             <div className="relative max-w-4xl w-full mx-4" onClick={(e) => e.stopPropagation()}>
-              <div className="relative aspect-video rounded-2xl overflow-hidden">
-                <Image src={active.src} alt={`${active.title} — ${projectName}`} fill sizes="80vw" className="object-contain" />
+              <div
+                className={`relative aspect-video rounded-2xl ${zoomed ? "overflow-auto cursor-zoom-out" : "overflow-hidden cursor-zoom-in"}`}
+                onClick={() => setZoomed((z) => !z)}
+              >
+                <Image
+                  src={active.src}
+                  alt={`${active.title} — ${projectName}`}
+                  fill
+                  sizes="80vw"
+                  className={`object-contain transition-transform duration-700 ease-out ${zoomed ? "scale-[1.6]" : "scale-100"}`}
+                />
               </div>
-              <p className="mt-4 text-center text-sm text-white/50">
-                <Camera className="h-3.5 w-3.5 inline mr-1.5 text-primary" />
-                {active.title} · Illustrative impression
-              </p>
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
+                <p className="text-center text-sm text-white/50">
+                  <Camera className="h-3.5 w-3.5 inline mr-1.5 text-primary" />
+                  {active.title} · Illustrative impression
+                </p>
+                <button
+                  onClick={() => setZoomed((z) => !z)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full glass text-[11px] font-semibold text-white/70 hover:text-primary transition-colors"
+                >
+                  <ZoomIn className="h-3.5 w-3.5" /> {zoomed ? "Zoom Out" : "Zoom In"}
+                </button>
+              </div>
             </div>
             {visible.length > 1 && (
               <button
@@ -886,156 +904,35 @@ function MediaGallerySection({
   );
 }
 
-function MasterLayoutSection({
-  projectName,
-  onRequestPlot,
-}: {
-  projectName: string;
-  onRequestPlot: (r: GateRequest) => void;
-}) {
-  const [zoomed, setZoomed] = useState(false);
-  const [expanded, setExpanded] = useState(false);
-  const LAYOUT_SRC = "/images/projects/shankarpally-45acres-layout.svg";
-  const plotSizes = ["200 Sq. Yd.", "267 Sq. Yd.", "350 Sq. Yd.", "500+ Sq. Yd."];
-
-  const requestPlot = () =>
-    onRequestPlot({
-      intent: "Live Plot Availability & Corner Plots",
-      message: `${projectName}\n\nPlease share the live plot availability (200 / 267 / 350 / 500+ sq. yd.) and corner plot options.`,
-      ctaLabel: "Check Live Availability",
-    });
-
-  return (
-    <section id="layout" className="py-16 lg:py-20 relative overflow-hidden">
-      <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.03] -right-48 top-1/4" />
-      <div className="relative mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          <ScrollReveal>
-            <SectionLabel>Master Layout &amp; Plot Availability</SectionLabel>
-            <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em]">
-              Choose Your Plot — <span className="text-gradient">200 to 500+ Sq. Yd.</span>
-            </h2>
-            <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
-              Premium residential plots in 200, 267, 350 and 500+ sq. yd. sizes across a fully HMDA approved &amp;
-              RERA registered 45-acre gated community — with wide roads, a 25,000 sq. ft. luxury clubhouse and
-              Vaastu-compliant layouts.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-2.5">
-              {plotSizes.map((p) => (
-                <span key={p} className="rounded-full border border-primary/20 bg-primary/[0.06] px-4 py-2 text-xs font-bold text-primary">
-                  {p}
-                </span>
-              ))}
-            </div>
-            <p className="mt-6 text-xs text-white/30 leading-relaxed">
-              The layout below is illustrative and indicative only (not to scale). Corner plots and premium facing
-              plots are limited — availability changes daily.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <button
-                onClick={requestPlot}
-                className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-primary to-primary-dark px-6 py-3 text-[13px] font-semibold text-white glow-primary-strong hover:opacity-90 transition-opacity"
-              >
-                <LayoutGrid className="h-4 w-4" /> Request Live Plot Availability / Corner Plots
-              </button>
-              <a
-                href={waUrlLink("Hi, I'm interested in the available plots at " + projectName + ". Please share the live plot availability.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[13px] font-semibold text-[#25D366] border border-[#25D366]/30 bg-[#25D366]/10 hover:bg-[#25D366]/15 transition-all"
-              >
-                <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
-              </a>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1}>
-            <div className="glass-card-elevated rounded-2xl overflow-hidden">
-              <div
-                className={`relative h-80 lg:h-[30rem] overflow-hidden cursor-zoom-in ${zoomed ? "cursor-zoom-out" : ""}`}
-                onClick={() => setZoomed((z) => !z)}
-              >
-                <Image
-                  src={LAYOUT_SRC}
-                  alt={`${projectName} — Illustrative Master Layout`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className={`object-contain transition-transform duration-700 ease-out ${zoomed ? "scale-150" : "scale-100"}`}
-                />
-              </div>
-              <div className="px-6 py-4 border-t border-white/[0.04] flex flex-wrap items-center justify-between gap-3">
-                <p className="text-xs text-white/35 flex items-center gap-2">
-                  <MapPin className="h-3.5 w-3.5 text-primary/50" /> Illustrative master layout — not to scale
-                </p>
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => setZoomed((z) => !z)}
-                    className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/60 hover:text-primary transition-colors"
-                  >
-                    <ZoomIn className="h-3.5 w-3.5" /> {zoomed ? "Zoom Out" : "Zoom In"}
-                  </button>
-                  <button
-                    onClick={() => setExpanded(true)}
-                    className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-primary/20 bg-primary/[0.08] text-[11px] font-semibold text-primary hover:bg-primary/[0.14] transition-colors"
-                  >
-                    <Expand className="h-3.5 w-3.5" /> Full Screen
-                  </button>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {expanded && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
-            onClick={() => setExpanded(false)}
-          >
-            <button
-              onClick={() => setExpanded(false)}
-              className="absolute top-6 right-6 h-10 w-10 rounded-full glass flex items-center justify-center text-white/50 hover:text-white transition-colors duration-300"
-            >
-              <X className="h-5 w-5" />
-            </button>
-            <div className="relative w-full max-w-5xl h-[80vh]" onClick={(e) => e.stopPropagation()}>
-              <Image src={LAYOUT_SRC} alt={`${projectName} — Master Layout`} fill sizes="90vw" className="object-contain" />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </section>
-  );
-}
-
-const trustDocs: { icon: LucideIcon; title: string; desc: string; intent: string }[] = [
+const trustDocs: { icon: LucideIcon; title: string; tag: string; desc: string; intent: string; instant?: boolean }[] = [
   {
     icon: FileCheck2,
-    title: "HMDA Final Approval Copy",
-    intent: "HMDA Final Approval Copy",
-    desc: "Primary legal approval for the layout — the venture is 100% HMDA approved.",
+    title: "HMDA Final Layout Approval",
+    tag: "View / Get PDF",
+    intent: "HMDA Final Layout Approval",
+    desc: "Primary legal approval for the fully approved 45-acre layout — the venture is 100% HMDA approved.",
   },
   {
     icon: Award,
-    title: "Official RERA Registration Certificate",
+    title: "RERA Official Registration Certificate",
+    tag: "View / Get PDF",
     intent: "RERA Registration Certificate",
-    desc: "State RERA registration documentation for the fully registered venture.",
+    desc: "Official RERA registration certificate for the fully registered venture.",
   },
   {
-    icon: LayoutGrid,
-    title: "High-Resolution Master Layout Plan",
-    intent: "High-Resolution Master Layout Plan",
-    desc: "Detailed plot layout for 200 / 267 / 350 / 500+ sq. yd. with road widths and amenities.",
+    icon: Banknote,
+    title: "Bank Loan Facilitation — SBI · HDFC · ICICI",
+    tag: "Supported",
+    intent: "Bank Loan Facilitation (SBI / HDFC / ICICI)",
+    desc: "Loan facility available from leading banks for eligible buyers on this fully approved, bankable venture.",
   },
   {
     icon: FileText,
-    title: "Brochure & Pricing Matrix",
+    title: "Master Brochure & Pricing Matrix",
+    tag: "Instant PDF",
     intent: "Brochure & Pricing Matrix",
-    desc: "The complete featured brochure plus the current verified pricing matrix.",
+    desc: "The complete featured brochure plus the current verified pricing matrix — generates instantly in your browser.",
+    instant: true,
   },
 ];
 
@@ -1046,18 +943,22 @@ function TrustDocumentsSection({
   project: Project;
   onRequestDoc: (r: GateRequest) => void;
 }) {
+  const gate = (intent: string, ctaLabel: string, message: string) =>
+    onRequestDoc({ intent, ctaLabel, message: `${project.name}\n\n${message}` });
+
   return (
-    <section id="documents" className="py-16 lg:py-20 bg-section-alt relative overflow-hidden">
+    <section id="documents" className="pt-14 pb-16 lg:pt-16 lg:pb-20 bg-section-alt relative overflow-hidden">
       <div className="ambient-orb w-[600px] h-[600px] bg-gold/[0.02] -left-48 -bottom-48" />
       <div className="relative mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal className="max-w-3xl mb-10">
-          <SectionLabel>Trust &amp; Verification Center</SectionLabel>
+          <SectionLabel>Trust, Approvals &amp; Verification Center</SectionLabel>
           <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em]">
-            Legal Documents, Approvals &amp; <span className="text-gradient">Project Kit</span>
+            Proof First — <span className="text-gradient">Approvals, Bank Support &amp; Docs</span>
           </h2>
           <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
-            Every document below is genuine and available. Share your details once and our founder-led team sends the
-            full file set instantly on WhatsApp — no call centers, no pressure.
+            Straight to the proof, right at the top. Every document below is genuine and available — request any file
+            and it&apos;s shared instantly on WhatsApp after a quick contact verification, followed by a guided
+            handover during your free site visit.
           </p>
         </ScrollReveal>
 
@@ -1072,23 +973,44 @@ function TrustDocumentsSection({
                   <div className="min-w-0">
                     <h3 className="text-base lg:text-lg font-bold text-white tracking-tight leading-snug">{d.title}</h3>
                     <span className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-gold/10 border border-gold/20 px-2.5 py-0.5 text-[10px] font-semibold text-gold">
-                      <Lock className="h-3 w-3" /> Shared after quick verification
+                      <Lock className="h-3 w-3" /> {d.tag}
                     </span>
                   </div>
                 </div>
                 <p className="text-[13px] text-white/35 leading-relaxed mb-6">{d.desc}</p>
-                <button
-                  onClick={() =>
-                    onRequestDoc({
-                      intent: d.intent,
-                      message: `${project.name}\n\nPlease share the ${d.intent} PDF.`,
-                      ctaLabel: "Request Document",
-                    })
-                  }
-                  className="mt-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-primary/25 bg-primary/[0.08] text-[12px] font-semibold text-white hover:bg-primary/[0.16] transition-colors"
-                >
-                  <LandPlot className="h-3.5 w-3.5 text-primary" /> Request via WhatsApp
-                </button>
+
+                {d.instant ? (
+                  <div className="mt-auto flex flex-wrap items-center gap-2.5">
+                    <button
+                      onClick={() =>
+                        gate(d.intent, "Request Pricing Matrix", `Please share the current verified pricing matrix for ${project.name}.`)
+                      }
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-primary/25 bg-primary/[0.08] text-[12px] font-semibold text-white hover:bg-primary/[0.16] transition-colors"
+                    >
+                      <Eye className="h-3.5 w-3.5 text-primary" /> View Pricing Matrix
+                    </button>
+                    <BrochureDownload project={project} variant="button" label="Download PDF" />
+                  </div>
+                ) : (
+                  <div className="mt-auto flex flex-wrap items-center gap-2.5">
+                    <button
+                      onClick={() =>
+                        gate(d.intent, "View Now", `Please share ${d.intent.toLowerCase()} for ${project.name} on WhatsApp.`)
+                      }
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] text-[12px] font-semibold text-white/60 hover:text-white transition-colors"
+                    >
+                      <Eye className="h-3.5 w-3.5" /> View
+                    </button>
+                    <button
+                      onClick={() =>
+                        gate(d.intent, "Get PDF", `Please share the ${d.intent.toLowerCase()} PDF for ${project.name}.`)
+                      }
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-primary/25 bg-primary/[0.08] text-[12px] font-semibold text-white hover:bg-primary/[0.16] transition-colors"
+                    >
+                      <Download className="h-3.5 w-3.5 text-primary" /> Get PDF
+                    </button>
+                  </div>
+                )}
               </div>
             </ScrollReveal>
           ))}
@@ -1101,21 +1023,35 @@ function TrustDocumentsSection({
                 <ShieldCheck className="h-7 w-7 text-primary" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-white">Instant PDF — no verification needed</h3>
+                <h3 className="text-base font-bold text-white">Guided verification — no call centers</h3>
                 <p className="mt-1 text-xs text-white/35 leading-relaxed max-w-xl">
-                  The featured brochure and pricing summary generate instantly as a PDF right in your browser.
-                  Official HMDA, RERA and high-resolution layout files are shared on WhatsApp after a quick lead
-                  verification, and handed over in person during your free site visit.
+                  Speak with a founder directly for a full document walk-through, bank-loan guidance and the complete
+                  official file set — handed over in person during your free site visit.
                 </p>
               </div>
             </div>
-            <BrochureDownload project={project} variant="button" label="Download Brochure (PDF)" />
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <a
+                href={siteConfig.links.tel}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-[12px] font-semibold text-white/70 hover:border-primary/25 hover:text-white transition-colors"
+              >
+                <Phone className="h-3.5 w-3.5" /> {siteConfig.contact.phone}
+              </a>
+              <a
+                href={waUrlLink(`Hi, I'd like a full document walk-through for ${project.name} — HMDA, RERA and bank loan guidance.`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#25D366]/30 bg-[#25D366]/10 text-[12px] font-semibold text-[#25D366] hover:bg-[#25D366]/15 transition-all"
+              >
+                <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
+              </a>
+            </div>
           </div>
         </ScrollReveal>
 
         <p className="mt-6 text-[11px] text-white/25 leading-relaxed max-w-3xl">
-          *Official approvals and layout documents are genuine and shared freely. We verify a direct contact so you can
-          be guided personally — your details are never shared.
+          *Official approvals and documents are genuine and shared freely. We verify a direct contact so you can be
+          guided personally — your details are never shared.
         </p>
       </div>
     </section>
@@ -1160,18 +1096,31 @@ const execStatus = [
   },
 ];
 
-function ExecutionStatusSection() {
+const growthAxis = [
+  { name: "Mumbai Highway (NH-65)", time: "Direct Access", mins: 5, note: "Immediate corridor connectivity" },
+  { name: "Shankarpally Railway Station & Town Center", time: "~10 mins", mins: 10, note: "Daily convenience & rental demand" },
+  { name: "Kollur SEZ & Tellapur Growth Belt", time: "~15–20 mins", mins: 18, note: "IT employment & township belt" },
+  { name: "ORR Interchange", time: "~15–20 mins", mins: 18, note: "Seamless ring-road integration" },
+  { name: "IIT Hyderabad & Kandi Knowledge Belt", time: "~15–20 mins", mins: 20, note: "Premium education corridor" },
+  { name: "Kokapet & Neopolis", time: "~25–30 mins", mins: 30, note: "Financial District micro-market" },
+  { name: "Gachibowli & Financial District", time: "~25–30 mins", mins: 30, note: "Commercial annuity engine" },
+  { name: "Nanakramguda", time: "~25–30 mins", mins: 30, note: "Corporate parklands" },
+];
+
+function FastTrackAndGrowthSection() {
   return (
     <section className="py-16 lg:py-20 bg-section-alt relative overflow-hidden">
-      <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.03] -right-48 -top-48" />
+      <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.03] -right-48 top-1/4" />
+      <div className="ambient-orb w-[500px] h-[500px] bg-gold/[0.02] -left-48 bottom-0" />
       <div className="relative mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-          <ScrollReveal>
-            <SectionLabel>Fast-Track Execution</SectionLabel>
-            <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em]">
+
+          <ScrollReveal className="w-full">
+            <SectionLabel>Fast-Track Execution Progress</SectionLabel>
+            <h2 className="mt-5 text-[clamp(1.6rem,3.4vw,2.6rem)] font-bold tracking-[-0.02em]">
               On-Ground Infrastructure &amp; <span className="text-gradient">Execution Status</span>
             </h2>
-            <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base text-white/40 leading-relaxed">
               One of the fastest-developing gated plotting communities in Shankarpally. Core underground infrastructure
               is already in place, roads are progressing and the 25,000 sq. ft. luxury clubhouse is being built at
               speed — with zero extra charges for amenity membership.
@@ -1189,106 +1138,82 @@ function ExecutionStatusSection() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-7 space-y-4 w-full">
+              {execStatus.map((e, i) => (
+                <ScrollReveal key={e.title} delay={i * 0.05}>
+                  <div className="glass-card rounded-2xl p-5">
+                    <div className="flex items-center justify-between gap-3 mb-3">
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                          <e.icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <div className="min-w-0">
+                          <h3 className="text-[13px] lg:text-sm font-bold text-white tracking-tight truncate">{e.title}</h3>
+                          <p className="text-[11px] text-white/30 truncate">{e.note}</p>
+                        </div>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <p className="text-[15px] font-bold text-gradient">{e.state}</p>
+                        <p className="text-[11px] text-white/30">{e.value}%</p>
+                      </div>
+                    </div>
+                    <div className="h-2 rounded-full bg-white/[0.05] overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${e.value}%` }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{ duration: 1.1, ease: "easeOut", delay: i * 0.08 }}
+                        className="h-full rounded-full bg-gradient-to-r from-primary to-gold"
+                      />
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
           </ScrollReveal>
 
-          <div className="space-y-4 w-full">
-            {execStatus.map((e, i) => (
-              <ScrollReveal key={e.title} delay={i * 0.06}>
-                <div className="glass-card rounded-2xl p-5">
-                  <div className="flex items-center justify-between gap-3 mb-3">
-                    <div className="flex items-center gap-3 min-w-0">
-                      <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                        <e.icon className="h-5 w-5 text-primary" />
-                      </div>
-                      <div className="min-w-0">
-                        <h3 className="text-[13px] lg:text-sm font-bold text-white tracking-tight truncate">{e.title}</h3>
-                        <p className="text-[11px] text-white/30 truncate">{e.note}</p>
-                      </div>
-                    </div>
-                    <div className="text-right shrink-0">
-                      <p className="text-[15px] font-bold text-gradient">{e.state}</p>
-                      <p className="text-[11px] text-white/30">{e.value}%</p>
-                    </div>
-                  </div>
-                  <div className="h-2 rounded-full bg-white/[0.05] overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${e.value}%` }}
-                      viewport={{ once: true, amount: 0.4 }}
-                      transition={{ duration: 1.1, ease: "easeOut", delay: i * 0.08 }}
-                      className="h-full rounded-full bg-gradient-to-r from-primary to-gold"
-                    />
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-            <p className="text-[11px] text-white/25 leading-relaxed pt-1">
-              Indicative execution status as per the latest site report — verify progress live during your free site visit.
+          <ScrollReveal delay={0.1} className="w-full">
+            <SectionLabel>West Hyderabad Growth Matrix</SectionLabel>
+            <h2 className="mt-5 text-[clamp(1.6rem,3.4vw,2.6rem)] font-bold tracking-[-0.02em]">
+              Minutes to the <span className="text-gradient">Growth Axis</span>
+            </h2>
+            <p className="mt-4 text-sm sm:text-base text-white/40 leading-relaxed">
+              Shankarpally anchors the Golden Triangle connecting Kokapet/Neopolis and the IIT Hyderabad/Kandi
+              knowledge belt. Approximate road travel below — shorter bars mean fewer minutes.
             </p>
-          </div>
+            <div className="mt-7 space-y-3.5 w-full max-w-xl">
+              {growthAxis.map((g, i) => {
+                const width = Math.max(10, Math.round((g.mins / 30) * 100));
+                return (
+                  <ScrollReveal key={g.name} delay={i * 0.03}>
+                    <div className="flex items-center gap-4">
+                      <div className="w-48 lg:w-56 shrink-0">
+                        <p className="text-[13px] font-semibold text-white/75 truncate">{g.name}</p>
+                        <p className="text-[11px] text-white/30 truncate">{g.note}</p>
+                      </div>
+                      <div className="flex-1 h-2 rounded-full bg-white/[0.05] overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${width}%` }}
+                          viewport={{ once: true, amount: 0.4 }}
+                          transition={{ duration: 1, ease: "easeOut", delay: i * 0.05 }}
+                          className="h-full rounded-full bg-gradient-to-r from-primary to-primary-dark"
+                        />
+                      </div>
+                      <span className="w-16 shrink-0 text-right text-[12px] font-bold text-gold">{g.time}</span>
+                    </div>
+                  </ScrollReveal>
+                );
+              })}
+            </div>
+            <p className="mt-6 text-[11px] text-white/25 leading-relaxed max-w-xl">
+              Travel times are approximate under normal traffic and may vary. Indicative execution status as per the
+              latest site report — verify everything live during your free site visit.
+            </p>
+          </ScrollReveal>
+
         </div>
-      </div>
-    </section>
-  );
-}
-
-const growthAxis = [
-  { name: "Mumbai Highway (NH-65)", time: "Direct Access", mins: 5, note: "Immediate corridor connectivity" },
-  { name: "Shankarpally Railway Station & Town Center", time: "~10 mins", mins: 10, note: "Daily convenience & rental demand" },
-  { name: "Kollur SEZ & Tellapur Growth Belt", time: "~15–20 mins", mins: 18, note: "IT employment & township belt" },
-  { name: "ORR Interchange", time: "~15–20 mins", mins: 18, note: "Seamless ring-road integration" },
-  { name: "IIT Hyderabad & Kandi Knowledge Belt", time: "~15–20 mins", mins: 20, note: "Premium education corridor" },
-  { name: "Kokapet & Neopolis", time: "~25–30 mins", mins: 30, note: "Financial District micro-market" },
-  { name: "Gachibowli & Financial District", time: "~25–30 mins", mins: 30, note: "Commercial annuity engine" },
-  { name: "Nanakramguda", time: "~25–30 mins", mins: 30, note: "Corporate parklands" },
-];
-
-function GrowthAxisSection() {
-  return (
-    <section className="py-16 lg:py-20 bg-section-alt relative overflow-hidden">
-      <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.03] -left-48 top-1/3" />
-      <div className="relative mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
-        <ScrollReveal className="max-w-3xl mb-10">
-          <SectionLabel>Location Matrix</SectionLabel>
-          <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em]">
-            The West Hyderabad <span className="text-gradient">Growth Axis</span>
-          </h2>
-          <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
-            Shankarpally anchors the Golden Triangle connecting Kokapet/Neopolis and the IIT Hyderabad/Kandi knowledge
-            belt. Approximate road travel times below — shorter bars mean fewer minutes.
-          </p>
-        </ScrollReveal>
-
-        <div className="space-y-3.5 max-w-3xl">
-          {growthAxis.map((g, i) => {
-            const width = Math.max(10, Math.round((g.mins / 30) * 100));
-            return (
-              <ScrollReveal key={g.name} delay={i * 0.04}>
-                <div className="flex items-center gap-4">
-                  <div className="w-64 lg:w-80 shrink-0">
-                    <p className="text-[13px] font-semibold text-white/75 truncate">{g.name}</p>
-                    <p className="text-[11px] text-white/30 truncate">{g.note}</p>
-                  </div>
-                  <div className="flex-1 h-2 rounded-full bg-white/[0.05] overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${width}%` }}
-                      viewport={{ once: true, amount: 0.4 }}
-                      transition={{ duration: 1, ease: "easeOut", delay: i * 0.05 }}
-                      className="h-full rounded-full bg-gradient-to-r from-primary to-primary-dark"
-                    />
-                  </div>
-                  <span className="w-20 shrink-0 text-right text-[12px] font-bold text-gold">{g.time}</span>
-                </div>
-              </ScrollReveal>
-            );
-          })}
-        </div>
-
-        <p className="mt-7 text-[11px] text-white/25 leading-relaxed max-w-3xl">
-          Travel times are approximate under normal traffic and may vary. The corridor enjoys direct Mumbai Highway
-          (NH-65) access, seamless ORR integration and proximity to Kollur SEZ and the Tellapur growth belt.
-        </p>
       </div>
     </section>
   );
@@ -1440,6 +1365,93 @@ function LeadGateModal({
               </motion.form>
             )}
           </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+function VideoHeroModal({
+  open,
+  onClose,
+  onRequestVideo,
+}: {
+  open: boolean;
+  onClose: () => void;
+  onRequestVideo: (r: GateRequest) => void;
+}) {
+  const [playing, setPlaying] = useState(false);
+
+  const requestFootage = () =>
+    onRequestVideo({
+      intent: "Walkthrough & Drone Video Footage",
+      message: "Hi! Please share the latest walkthrough and drone aerial footage of Shankarpally 45 Acres Premium Layout.",
+      ctaLabel: "Request Footage",
+    });
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[105] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
+          onClick={onClose}
+        >
+          <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-black border border-white/[0.05]">
+              {playing && HERO_VIDEO_SRC ? (
+                <video className="h-full w-full object-contain" controls autoPlay playsInline poster={HERO_POSTER_SRC}>
+                  <source src={HERO_VIDEO_SRC} type="video/mp4" />
+                </video>
+              ) : (
+                <div className="absolute inset-0">
+                  <Image src={HERO_POSTER_SRC} alt="" fill priority sizes="80vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/40" />
+                  <button
+                    onClick={() => setPlaying(true)}
+                    className="absolute inset-0 flex flex-col items-center justify-center gap-4 group"
+                  >
+                    <span className="relative flex h-20 w-20 items-center justify-center">
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-primary/40 opacity-75 group-hover:animate-ping" />
+                      <span className="relative flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary-dark glow-primary-strong">
+                        <Play className="h-8 w-8 fill-white text-white" />
+                      </span>
+                    </span>
+                    <span className="text-[13px] font-semibold text-white/80">Play walkthrough preview</span>
+                    {!HERO_VIDEO_SRC && (
+                      <span className="text-[11px] text-white/45 max-w-xs text-center leading-relaxed">
+                        Full HQ footage is shared on request — tap below to get it delivered on WhatsApp.
+                      </span>
+                    )}
+                  </button>
+                  <span className="absolute top-5 right-5 rounded-full bg-black/50 backdrop-blur px-3 py-1 text-[10px] font-semibold text-white/60 border border-white/10">
+                    Illustrative preview
+                  </span>
+                </div>
+              )}
+            </div>
+
+            <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <button
+                onClick={requestFootage}
+                className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/[0.08] px-5 py-2.5 text-[12px] font-semibold text-white hover:bg-primary/[0.14] transition-colors"
+              >
+                <MessageCircle className="h-4 w-4 text-primary" /> Full HQ Walkthrough &amp; Drone Footage on WhatsApp
+              </button>
+              <button onClick={onClose} className="text-[12px] font-medium text-white/35 hover:text-white transition-colors">
+                Close preview
+              </button>
+            </div>
+          </div>
+
+          <button
+            onClick={onClose}
+            className="absolute top-6 right-6 h-10 w-10 rounded-full glass flex items-center justify-center text-white/50 hover:text-white transition-colors duration-300"
+          >
+            <X className="h-5 w-5" />
+          </button>
         </motion.div>
       )}
     </AnimatePresence>
