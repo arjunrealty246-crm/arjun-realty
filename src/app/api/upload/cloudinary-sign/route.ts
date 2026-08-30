@@ -49,10 +49,13 @@ export async function POST(req: NextRequest) {
     const safeName = sanitizeFilename(filename);
     const publicId = `${folder || "uploads"}/${timestamp}-${safeName}`.replace(/^\/+/, "");
 
+    // Cloudinary: file, cloud_name, resource_type, and api_key are NEVER part of
+    // the string to sign (only sent on the upload call). resource_type arrives via
+    // the URL path; including it in paramsToSign makes the client signature differ
+    // from the string Cloudinary recomputes server-side -> "Invalid Signature".
     const paramsToSign: Record<string, string | number> = {
       folder: CLOUDINARY_FOLDER,
       public_id: publicId,
-      resource_type: resourceType,
       timestamp,
     };
 
