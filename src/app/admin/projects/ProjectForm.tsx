@@ -679,9 +679,31 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
                             const file = e.target.files?.[0];
                             if (!file) return;
                             e.currentTarget.value = "";
-                            const url = await handleFileUpload(file, "uploads/projects", `gallery-${i}`);
+
+                            const HUNDRED_MB = 100 * 1024 * 1024;
+                            const isVideo = file.type.startsWith("video/");
+                            const isLarge = isVideo && file.size >= HUNDRED_MB;
+
+                            let fileToUpload = file;
+                            if (isLarge) {
+                              setUploadingField(`gallery-${i}`);
+                              setVideoUploadStatus(`Video is larger than 100 MB (${(file.size / (1024 * 1024)).toFixed(1)} MB). Compressing...`);
+                              try {
+                                fileToUpload = await compressLargeVideo(file);
+                                setVideoUploadStatus("Compression complete. Uploading...");
+                              } catch (err) {
+                                const msg = err instanceof VideoCompressError ? err.message : err instanceof Error ? err.message : "Video compression failed";
+                                lastUploadErrorRef.current = msg;
+                                setUploadingField(null);
+                                setVideoUploadStatus(null);
+                                alert(`Video upload failed: ${msg}`);
+                                return;
+                              }
+                            }
+
+                            const url = await handleFileUpload(fileToUpload, "uploads/projects", `gallery-${i}`);
+                            setVideoUploadStatus(null);
                             if (url) {
-                              const isVideo = file.type.startsWith("video/");
                               updateArrayItem("gallery", i, { src: url, type: isVideo ? "video" : "image" });
                             }
                           }} />
