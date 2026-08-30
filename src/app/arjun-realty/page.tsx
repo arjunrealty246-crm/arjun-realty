@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
+import Shankarpally45Card from "@/components/Shankarpally45Card";
 import siteConfig from "@/config/site";
 import PageBreadcrumbs from "@/components/PageBreadcrumbs";
 
@@ -442,53 +443,15 @@ export default function ArjunRealtyOpportunitiesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-5xl mx-auto">
             {/* 45 Acres — Current Project */}
             <ScrollReveal className="h-full">
-              <div className="glass-card-elevated rounded-[1.5rem] p-8 sm:p-10 relative overflow-hidden h-full flex flex-col">
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
-                <div className="flex items-center justify-between mb-8">
-                  <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <Landmark className="h-6 w-6 text-primary" />
-                  </div>
-                  <span className="inline-flex items-center px-3.5 py-1.5 rounded-full glass text-[10px] font-medium text-white/50 uppercase tracking-wider">
-                    {currentProject.status}
-                  </span>
-                </div>
-                <h3 className="text-[clamp(1.3rem,2.5vw,1.7rem)] font-bold text-gradient tracking-tight mb-5">
-                  {currentProject.title}
-                </h3>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {currentProject.chips.map((chip) => (
-                    <span key={chip} className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/[0.06] text-[10px] text-primary/70 font-medium uppercase tracking-wider">
-                      {chip === "HMDA & RERA Approved" ? <BadgeCheck className="h-3 w-3" /> : chip === "Bank Loan Facility" ? <Banknote className="h-3 w-3" /> : chip === "25,000 SFT Clubhouse Included" ? <Landmark className="h-3 w-3" /> : chip === "Direct connectivity to Gachibowli & Neopolis" ? <Route className="h-3 w-3" /> : null}
-                      {chip}
-                    </span>
-                  ))}
-                </div>
-                <ul className="space-y-3 mb-6 flex-1">
-                  {currentProject.points.map((point) => (
-                    <li key={point} className="flex items-start gap-3">
-                      <CheckCircle className="h-4 w-4 text-primary/60 mt-0.5 shrink-0" />
-                      <span className="text-[13.5px] text-white/55 leading-relaxed">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-[13px] text-white/30 leading-[1.7] mb-8">{currentProject.note}</p>
-                <div className="flex flex-col sm:flex-row gap-3 mt-auto">
-                  <Link
-                    href="/projects/shankarpally-45-acres"
-                    className="btn-premium inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 rounded-full text-[12px] font-semibold text-white glow-primary-strong"
-                  >
-                    Explore Project <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                  <a
-                    href={`${siteConfig.links.wa}?text=${encodeURIComponent(currentProject.waMessage)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-glass inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-[12px] font-semibold text-white/55 border border-white/[0.06] hover:border-primary/20 transition-all duration-500"
-                  >
-                    <MessageCircle className="h-3.5 w-3.5 text-primary" /> Enquire Now
-                  </a>
-                </div>
-              </div>
+              <Shankarpally45Card
+                title={currentProject.title}
+                status={currentProject.status}
+                chips={currentProject.chips}
+                points={currentProject.points}
+                note={currentProject.note}
+                waMessage={currentProject.waMessage}
+                waBase={siteConfig.links.wa}
+              />
             </ScrollReveal>
 
             {/* 108 Acres — Upcoming Opportunity */}

@@ -246,11 +246,14 @@ export default function PremiumProjectDetailPage({
               </p>
 
               {/* Builder info */}
-              {(() => { const b = getBuilderById(project.builder); return b ? (
+              {(() => {
+                const b = getBuilderById(project.builder);
+                const developerName = (b?.name || project.developerName || "").trim();
+                return developerName ? (
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-1.5 text-sm text-white/60 mb-6">
                   <p className="flex items-center gap-2">
                     <Building2 className="h-4 w-4 text-primary/60 shrink-0" />
-                    Developed by <span className="text-white/80 font-medium">{b.name}</span>
+                    Developed by <span className="text-white/80 font-medium">{developerName}</span>
                   </p>
                   {project.marketingPartner && (
                     <p className="flex items-center gap-2">
@@ -259,7 +262,8 @@ export default function PremiumProjectDetailPage({
                     </p>
                   )}
                 </div>
-              ) : null; })()}
+                ) : null;
+              })()}
 
               {/* Project units */}
               {project.units && project.units.length > 0 && (

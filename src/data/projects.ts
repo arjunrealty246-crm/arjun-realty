@@ -67,6 +67,7 @@ export interface Project {
   name: string;
   builder: string;
   marketingPartner?: string;
+  developerName?: string;
   usps?: string[];
   units?: ProjectUnit[];
   projectType: string;
@@ -969,7 +970,9 @@ export const projects: Project[] = [
   {
     slug: "shankarpally-45-acres",
     name: "Shankarpally 45 Acres Premium Layout",
-    builder: "jb-infra",
+    builder: "Arjun Realty",
+    marketingPartner: "Arjun Realty",
+    developerName: "Arjun Realty",
     projectType: "Premium Villa Plotted Development",
     approval: "HMDA Approved & RERA Registered",
     location: "Near Julkal Village, Shankarpally, West Hyderabad",
