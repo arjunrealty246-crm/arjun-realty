@@ -6,7 +6,6 @@ import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
 import { builders } from "@/data/builders";
-import siteConfig from "@/config/site";
 
 const builderIcons = [TrendingUp, Shield, Ruler, Building2];
 
@@ -95,7 +94,7 @@ export default function FeaturedBuilders() {
                   </div>
 
                   <h3 className="text-[16px] font-bold text-white tracking-[-0.01em]">
-                    AR
+                    Arjun Realty
                   </h3>
                   <p className="text-[10px] uppercase tracking-[0.18em] text-primary/50 font-medium mt-1 mb-2">
                     Curated Real Estate Opportunities

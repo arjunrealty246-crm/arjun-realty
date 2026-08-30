@@ -16,6 +16,10 @@ import {
   BadgeCheck,
   Banknote,
   Info,
+  HardHat,
+  Sparkles,
+  PencilLine,
+  TriangleAlert,
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
@@ -37,6 +41,10 @@ export const metadata: Metadata = {
     "Arjun Realty Shankarpally",
     "invest in Shankarpally",
     "Hyderabad growth corridor",
+    "villa plots near Kokapet",
+    "Golden Triangle Hyderabad plots",
+    "Shankarpally connectivity",
+    "Shankarpally villa market",
   ],
   alternates: {
     canonical: siteConfig.url + "/arjun-realty",
@@ -158,10 +166,132 @@ const evaluationPoints = [
   },
 ];
 
+const whyShankarpally = [
+  {
+    icon: Route,
+    title: "High-Growth Western Corridor",
+    points: [
+      "Positioned on the Shankarpally–Kandi corridor in western Hyderabad",
+      "Along the Mumbai Highway (NH-65) corridor",
+      "One of West Hyderabad's fastest-developing residential and investment belts",
+    ],
+  },
+  {
+    icon: Building2,
+    title: "IT Hubs & Employment Zones",
+    points: [
+      "Approx. 20–30 min to the Financial District, Nanakramguda & Gachibowli",
+      "Approx. 25 min to Neopolis & Kokapet",
+      "Close to Kollur SEZ and the Tellapur growth belt",
+    ],
+  },
+  {
+    icon: Landmark,
+    title: "Knowledge & Education Belt",
+    points: [
+      "IIT Hyderabad (Kandi) and GITAM University in the area",
+      "Indus International School nearby",
+      "A growing knowledge corridor supporting residential demand",
+    ],
+  },
+  {
+    icon: Navigation,
+    title: "Present & Future Connectivity",
+    points: [
+      "Mumbai Highway (NH-65) via the Shankarpally–Kandi corridor",
+      "ORR (Outer Ring Road) integration",
+      "6-lane expansion work in the corridor",
+      "Gandipet–Shankarpally six-lane highway — proposed, not yet completed",
+    ],
+  },
+  {
+    icon: HardHat,
+    title: "Infrastructure & Development",
+    points: [
+      "Shankarpally railway station & town center within approx. 10 min",
+      "Bankable approvals — HMDA & RERA, clear title & spot registration",
+      "Plotted communities with underground utilities & fast-track execution",
+    ],
+  },
+  {
+    icon: Sparkles,
+    title: "Two Curated Opportunities",
+    points: [
+      "A 45-acre project — 100% HMDA approved & RERA registered",
+      "An upcoming 108-acre pre-launch with HMDA approval in process",
+      "Present and upcoming entry points into the corridor",
+    ],
+  },
+];
+
+type ComparisonRow = {
+  parameter: string;
+  projectValue: string;
+  marketValue: string;
+  verified: "project" | "editable";
+};
+
+const marketComparison: ComparisonRow[] = [
+  {
+    parameter: "Approval Status",
+    projectValue: "100% HMDA Approved & RERA Registered",
+    marketValue: "Varies by project — verify individually",
+    verified: "project",
+  },
+  {
+    parameter: "Sale Model & Title",
+    projectValue: "Plot sale with 100% clear title & spot registration",
+    marketValue: "Varies by project — verify individually",
+    verified: "project",
+  },
+  {
+    parameter: "Bank Loan Facility",
+    projectValue: "Available from leading banks to eligible buyers",
+    marketValue: "Usually available on approved projects — verify",
+    verified: "project",
+  },
+  {
+    parameter: "Plot Sizes Available",
+    projectValue: "200, 267, 350 & 500+ sq. yd.",
+    marketValue: "Varies by project — verify individually",
+    verified: "project",
+  },
+  {
+    parameter: "Clubhouse & Amenities",
+    projectValue: "25,000 Sq. Ft. luxury clubhouse — zero extra charges",
+    marketValue: "Varies by project — verify individually",
+    verified: "project",
+  },
+  {
+    parameter: "Surrounding Villa Price Points",
+    projectValue: "₹7 Cr – ₹15–20 Cr (indicative, as currently represented)",
+    marketValue: "Verify for accuracy with our research desk",
+    verified: "editable",
+  },
+  {
+    parameter: "Plot Price per Sq. Yd. (Current)",
+    projectValue: "[Editable — fill verified rate]",
+    marketValue: "[Editable — fill verified market rate]",
+    verified: "editable",
+  },
+  {
+    parameter: "Villa Price per Sq. Ft.",
+    projectValue: "[Editable — fill verified rate]",
+    marketValue: "[Editable — fill verified market rate]",
+    verified: "editable",
+  },
+  {
+    parameter: "Recent Appreciation / Market Trends",
+    projectValue: "[Editable — add verified trend data with date]",
+    marketValue: "[Editable — add verified trend data with date]",
+    verified: "editable",
+  },
+];
+
 export default function ArjunRealtyOpportunitiesPage() {
   return (
     <>
-      <PageBreadcrumbs items={[{ name: "AR - Shankarpally", url: "/arjun-realty" }]} />
+      <PageBreadcrumbs items={[{ name: "Arjun Realty – Shankarpally", url: "/arjun-realty" }]} />
       {/* ── Hero ── */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
         <div className="ambient-orb w-[700px] h-[700px] bg-primary/[0.05] -right-48 -top-48" />
@@ -173,7 +303,7 @@ export default function ArjunRealtyOpportunitiesPage() {
                 <Building2 className="h-3 w-3" /> Home
               </Link>
               <span className="text-white/10">/</span>
-              <span className="text-white/50">AR</span>
+              <span className="text-white/50">Arjun Realty</span>
             </nav>
 
             <div className="flex items-start gap-6 mb-8">
@@ -190,9 +320,9 @@ export default function ArjunRealtyOpportunitiesPage() {
                   <br className="hidden sm:block" /> Opportunities
                 </h1>
                 <p className="text-white/40 text-base sm:text-lg leading-relaxed max-w-3xl">
-                  AR curates a shortlist of selected residential opportunities in high-growth
-                  locations. The current focus is the Shankarpally corridor in western Hyderabad —
-                  with one present project and one upcoming opportunity being highlighted.
+                  Arjun Realty curates a shortlist of selected residential opportunities in
+                  high-growth locations. The current focus is the Shankarpally corridor in western
+                  Hyderabad — with one present project and one upcoming opportunity being highlighted.
                 </p>
               </div>
             </div>
@@ -222,7 +352,7 @@ export default function ArjunRealtyOpportunitiesPage() {
             </h2>
           </ScrollReveal>
 
-          <div className="max-w-4xl mx-auto space-y-6">
+          <div className="max-w-5xl mx-auto space-y-6">
             <ScrollReveal>
               <div className="glass-card-elevated rounded-[1.5rem] p-8 sm:p-10 relative overflow-hidden">
                 <p className="text-white/40 text-[15px] sm:text-base leading-[1.8]">
@@ -233,14 +363,49 @@ export default function ArjunRealtyOpportunitiesPage() {
                 </p>
               </div>
             </ScrollReveal>
-            <ScrollReveal delay={0.08}>
-              <div className="glass-card rounded-[1.5rem] p-8 sm:p-10 relative overflow-hidden">
-                <p className="text-white/40 text-[15px] sm:text-base leading-[1.8]">
-                  AR is highlighting two separate opportunities in this corridor — a
-                  45-acre project that is 100% HMDA approved &amp; RERA registered and a 108-acre
-                  pre-launch project with HMDA approval in process — for customers
-                  evaluating residential opportunities in high-growth locations.
-                </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {whyShankarpally.map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <ScrollReveal key={item.title} delay={i * 0.05} className="h-full">
+                    <div className="glass-card rounded-[1.25rem] p-7 group relative overflow-hidden h-full">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[1.25rem]" />
+                      <div className="relative z-10">
+                        <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:glow-primary transition-all duration-500">
+                          <Icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <h3 className="text-[15px] font-bold text-white mb-3 tracking-[-0.01em]">
+                          {item.title}
+                        </h3>
+                        <ul className="space-y-2.5">
+                          {item.points.map((point) => (
+                            <li key={point} className="flex items-start gap-2.5">
+                              <CheckCircle className="h-3.5 w-3.5 text-primary/60 mt-0.5 shrink-0" />
+                              <span className="text-[12.5px] text-white/30 leading-[1.7]">{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                );
+              })}
+            </div>
+
+            <ScrollReveal delay={0.1}>
+              <div className="glass-card rounded-[1.5rem] p-6 sm:p-8 border border-amber-500/[0.08] relative overflow-hidden">
+                <div className="flex items-start gap-4">
+                  <div className="h-10 w-10 rounded-xl bg-amber-500/[0.08] flex items-center justify-center shrink-0 mt-0.5">
+                    <Info className="h-4 w-4 text-gold" />
+                  </div>
+                  <p className="text-[13px] text-white/40 leading-[1.8]">
+                    Corridor insights are shared for research. Approximate timings and distances
+                    are subject to traffic and route conditions. Specific figures — surrounding
+                    market prices, project timelines and proposed infrastructure — must be
+                    independently verified before any investment decision.
+                  </p>
+                </div>
               </div>
             </ScrollReveal>
           </div>
@@ -309,7 +474,7 @@ export default function ArjunRealtyOpportunitiesPage() {
                 <p className="text-[13px] text-white/30 leading-[1.7] mb-8">{currentProject.note}</p>
                 <div className="flex flex-col sm:flex-row gap-3 mt-auto">
                   <Link
-                    href="/shankarpally-45-acres"
+                    href="/projects/shankarpally-45-acres"
                     className="btn-premium inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 rounded-full text-[12px] font-semibold text-white glow-primary-strong"
                   >
                     Explore Project <ArrowRight className="h-3.5 w-3.5" />
@@ -360,7 +525,7 @@ export default function ArjunRealtyOpportunitiesPage() {
                 <p className="text-[13px] text-gold/60 leading-[1.7] mb-8">{upcomingProject.note}</p>
                 <div className="flex flex-col sm:flex-row gap-3 mt-auto">
                   <Link
-                    href="/projects"
+                    href="/projects/upcoming-shankarpally"
                     className="btn-premium inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 rounded-full text-[12px] font-semibold text-white glow-primary-strong"
                   >
                     Explore Project <ArrowRight className="h-3.5 w-3.5" />
@@ -377,6 +542,98 @@ export default function ArjunRealtyOpportunitiesPage() {
               </div>
             </ScrollReveal>
           </div>
+        </div>
+      </section>
+
+      <div className="section-divider mx-auto max-w-5xl" />
+
+      {/* ── Villa & Residential Market Comparison ── */}
+      <section className="relative py-28 sm:py-32 lg:py-40 overflow-hidden">
+        <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.02] -right-48 top-1/4" />
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <ScrollReveal className="text-center mb-16 lg:mb-20">
+            <SectionLabel>Villa &amp; Residential Market Context</SectionLabel>
+            <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
+              Shankarpally vs. the <span className="text-gradient">Surrounding Market</span>
+            </h2>
+            <p className="mt-4 text-white/30 max-w-xl mx-auto text-[0.95rem] leading-relaxed">
+              A comparison framework using information already present in our project data.
+              Rows marked editable are to be verified and populated by our team.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+              <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-emerald-500/[0.06] text-[11px] text-emerald-400/80 font-medium">
+                <BadgeCheck className="h-3.5 w-3.5" /> From existing project data
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-amber-500/[0.06] text-[11px] text-amber-400/80 font-medium">
+                <PencilLine className="h-3.5 w-3.5" /> Editable — to verify &amp; populate
+              </span>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="glass-card-elevated rounded-2xl overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-white/[0.04]">
+                      <th className="px-6 py-4 text-left text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold">
+                        Parameter
+                      </th>
+                      <th className="px-6 py-4 text-left text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold">
+                        Shankarpally — 45-Acre Project
+                      </th>
+                      <th className="px-6 py-4 text-left text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold">
+                        Surrounding Villa &amp; Plot Market
+                      </th>
+                      <th className="px-6 py-4 text-right text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold">
+                        Data Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {marketComparison.map((row) => (
+                      <tr
+                        key={row.parameter}
+                        className="border-b border-white/[0.02] hover:bg-white/[0.01] transition-colors duration-200"
+                      >
+                        <td className="px-6 py-4 align-top">
+                          <span className="text-[12.5px] font-semibold text-white/70 leading-relaxed">
+                            {row.parameter}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 align-top">
+                          <span className="text-[12px] text-white/45 leading-relaxed">{row.projectValue}</span>
+                        </td>
+                        <td className="px-6 py-4 align-top">
+                          <span className="text-[12px] text-white/45 leading-relaxed">{row.marketValue}</span>
+                        </td>
+                        <td className="px-6 py-4 text-right align-top">
+                          {row.verified === "project" ? (
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/[0.06] text-[10px] text-emerald-400/80 font-medium whitespace-nowrap">
+                              <BadgeCheck className="h-3 w-3" /> Verified
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/[0.06] text-[10px] text-amber-400/80 font-medium whitespace-nowrap">
+                              <PencilLine className="h-3 w-3" /> To Verify
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="px-6 py-4 border-t border-white/[0.04] flex items-center gap-3">
+                <TriangleAlert className="h-4 w-4 text-gold/70 shrink-0" />
+                <p className="text-[11px] text-white/30 leading-relaxed">
+                  No fabricated figures used. Editable rows are placeholders to be replaced with
+                  independently verified data before publication to end customers.
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -504,7 +761,7 @@ export default function ArjunRealtyOpportunitiesPage() {
           <div className="ambient-orb w-[700px] h-[700px] bg-primary/[0.04] left-1/2 -translate-x-1/2 -top-48" />
         </div>
         <ScrollReveal className="text-center relative z-10 mx-auto max-w-3xl px-5">
-          <SectionLabel>AR</SectionLabel>
+          <SectionLabel>Arjun Realty</SectionLabel>
           <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1] mb-8">
             Interested in the <span className="text-gradient">Shankarpally Opportunities?</span>
           </h2>
@@ -514,7 +771,7 @@ export default function ArjunRealtyOpportunitiesPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/projects"
+              href="/projects/shankarpally-45-acres"
               className="btn-premium inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-10 py-4 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
             >
               Explore Project <ArrowRight className="h-4 w-4" />
