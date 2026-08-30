@@ -24,7 +24,7 @@ function isImageUrl(url: string): boolean {
 }
 
 export default function ProjectLayoutSection({ project }: { project: Project }) {
-  const layoutUrl = project.layoutUrl;
+  const layoutUrl = project.layoutUrl || project.masterPlanUrl || project.layoutPdfUrl || "";
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [failed, setFailed] = useState(false);
 

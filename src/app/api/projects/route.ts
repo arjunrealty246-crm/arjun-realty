@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { connectDB } from "@/lib/mongodb";
 import ProjectModel from "@/lib/models/Project";
 import { getSession } from "@/lib/auth";
@@ -32,6 +33,10 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const clean = sanitizeProjectBody(body);
     const project = await ProjectModel.create(clean);
+    if (typeof clean.slug === "string" && clean.slug) {
+      revalidatePath(`/projects/${clean.slug}`);
+      revalidatePath("/projects");
+    }
     return NextResponse.json(project, { status: 201 });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : "Failed to create project";
