@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft, Save, Upload, X, Plus, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { uploadWithProgress } from "@/lib/client-upload";
+import { compressLargeVideo, VideoCompressError } from "@/lib/video-compress";
 
 interface ProjectFormData {
   name: string;
@@ -83,6 +84,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
   const [uploadingField, setUploadingField] = useState<string | null>(null);
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [uploadError, setUploadError] = useState("");
+  const [videoUploadStatus, setVideoUploadStatus] = useState<string | null>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
   const videoInputRef = useRef<HTMLInputElement>(null);
   const lastUploadErrorRef = useRef<string>("");
@@ -169,12 +171,36 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
     const file = e.target.files?.[0];
     if (!file) return;
     e.currentTarget.value = "";
-    const url = await handleFileUpload(file, "uploads/projects", "heroVideo");
-    if (!url) {
-      alert(`Upload failed: ${lastUploadErrorRef.current || "Unknown error"}`);
+    const HUNDRED_MB = 100 * 1024 * 1024;
+    const isLarge = file.size >= HUNDRED_MB;
+
+    let fileToUpload = file;
+    setUploadingField("heroVideo");
+    setUploadProgress(null);
+    setUploadError("");
+    try {
+      if (isLarge) {
+        setVideoUploadStatus(`Video is larger than 100 MB (${(file.size / (1024 * 1024)).toFixed(1)} MB). Compressing...`);
+        fileToUpload = await compressLargeVideo(file);
+        setVideoUploadStatus("Compression complete. Uploading...");
+      }
+    } catch (err) {
+      const msg = err instanceof VideoCompressError ? err.message : err instanceof Error ? err.message : "Video compression failed";
+      lastUploadErrorRef.current = msg;
+      setUploadingField(null);
+      setVideoUploadStatus(null);
+      alert(`Video upload failed: ${msg}`);
       return;
     }
-    update("heroVideo", url);
+
+    const url = await handleFileUpload(fileToUpload, "uploads/projects", "heroVideo");
+    setVideoUploadStatus(url ? "Upload complete." : null);
+    if (url) {
+      update("heroVideo", url);
+      setTimeout(() => setVideoUploadStatus(null), 3000);
+    } else {
+      alert(`Upload failed: ${lastUploadErrorRef.current || "Unknown error"}`);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -572,7 +598,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
                 {uploadingField === "heroVideo" ? (
                   <>
                     <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-                    Uploading… {uploadProgress ?? 0}%
+                    {videoUploadStatus && videoUploadStatus.startsWith("Video is larger") ? "Compressing…" : uploadProgress !== null ? `Uploading… ${uploadProgress}%` : "Processing…"}
                   </>
                 ) : (
                   <>
@@ -580,6 +606,9 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
                   </>
                 )}
               </button>
+              <p className="text-[11px] text-primary/70 mt-1.5 min-h-[1em]">
+                {videoUploadStatus || (uploadingField === "heroVideo" && uploadProgress === null ? "Processing video…" : "")}
+              </p>
             </div>
           </div>
 
@@ -598,7 +627,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
             </div>
           </div>
           <p className="mt-3 text-[11px] text-white/25">
-            Videos over 100 MB can&apos;t be uploaded to Cloudinary on the free plan — paste a YouTube/Vimeo embed link instead. Large images (brochure scans, aerial photos) are auto-compressed to WebP on upload.
+            Videos over 100 MB are automatically compressed in your browser and uploaded as MP4. Videos under 100 MB upload as-is. Large images (brochure scans, aerial photos) are auto-compressed to WebP on upload.
           </p>
         </div>
 
