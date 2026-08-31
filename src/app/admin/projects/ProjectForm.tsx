@@ -83,7 +83,9 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
   const [newTestText, setNewTestText] = useState("");
   const [uploadingField, setUploadingField] = useState<string | null>(null);
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
+  const [uploadStatus, setUploadStatus] = useState("");
   const [uploadError, setUploadError] = useState("");
+  const [uploadSuccess, setUploadSuccess] = useState<string | null>(null);
   const [videoUploadStatus, setVideoUploadStatus] = useState<string | null>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
   const videoInputRef = useRef<HTMLInputElement>(null);
@@ -138,17 +140,26 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
     if (fieldName) setUploadingField(fieldName);
     setUploadError("");
     setUploadProgress(0);
+    setUploadStatus("");
     try {
-      const url = await uploadWithProgress(file, folder, (ratio) =>
-        setUploadProgress(Math.round(ratio * 100))
+      const url = await uploadWithProgress(
+        file,
+        folder,
+        (ratio) => setUploadProgress(Math.round(ratio * 100)),
+        (status) => setUploadStatus(status)
       );
       setUploadProgress(null);
+      setUploadStatus("");
+      if (url && fieldName) {
+        setUploadSuccess(`${fieldName} uploaded successfully.`);
+      }
       return url;
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Upload failed";
       lastUploadErrorRef.current = msg;
       setUploadError(msg);
       setUploadProgress(null);
+      setUploadStatus("");
       return "";
     } finally {
       if (fieldName) setUploadingField(null);
@@ -275,7 +286,7 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
     </div>
   );
 
-  const renderFileField = (label: string, field: "brochureUrl" | "layoutPdfUrl" | "layoutUrl" | "masterPlanUrl" | "locationMapUrl", accept: string, folder: string, placeholder: string) => (
+  const renderFileField = (label: string, field: "brochureUrl" | "layoutPdfUrl" | "layoutUrl" | "masterPlanUrl" | "locationMapUrl", accept: string, folder: string, placeholder: string, pdfOnly?: boolean) => (
     <div>
       <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">{label}</label>
       <div className="flex gap-2">
@@ -292,9 +303,16 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
             onChange={async (e) => {
               const file = e.target.files?.[0];
               if (!file) return;
+              if (pdfOnly && !/\.pdf$/i.test(file.name) && file.type !== "application/pdf") {
+                setUploadError("Please select a PDF brochure.");
+                e.currentTarget.value = "";
+                return;
+              }
               e.currentTarget.value = "";
               const url = await handleFileUpload(file, folder, field);
-              if (url) update(field, url);
+              if (url) {
+                update(field, url);
+              }
             }} />
         </label>
       </div>
@@ -352,13 +370,22 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
         </div>
       )}
 
+      {uploadSuccess && (
+        <div className="mb-6 px-5 py-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-sm text-emerald-400 flex items-center justify-between">
+          <span>{uploadSuccess}</span>
+          <button type="button" onClick={() => setUploadSuccess(null)} className="text-emerald-400/60 hover:text-emerald-400 ml-3">Dismiss</button>
+        </div>
+      )}
+
       {uploadProgress !== null && (
         <div className="mb-6 px-5 py-3.5 rounded-xl bg-primary/[0.06] border border-primary/20">
           <div className="flex items-center justify-between gap-3 mb-2">
             <span className="text-xs font-semibold text-white">
-              {uploadProgress > 0
-                ? `Uploading${uploadingField ? ` — ${uploadingField}` : ""}… ${uploadProgress}%`
-                : "Preparing file (compressing images, verifying size)…"}
+              {uploadStatus
+                ? uploadStatus
+                : uploadProgress > 0
+                  ? `Uploading${uploadingField ? ` — ${uploadingField}` : ""}… ${uploadProgress}%`
+                  : "Preparing file (compressing images, verifying size)…"}
             </span>
             <span className="text-[11px] text-white/35 font-mono">{uploadProgress}%</span>
           </div>
@@ -636,11 +663,11 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
           <h2 className="text-lg font-bold text-white mb-6">Documents &amp; Media URLs</h2>
           <p className="text-xs text-white/30 mb-4">Upload files or paste existing URLs. Layout &amp; Master Plan power the site's layout gallery tab; Location Map shows the project on a map.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {renderFileField("Brochure URL", "brochureUrl", ".pdf,application/pdf", "uploads/projects", "/brochures/jb-harmony-woods.pdf")}
-            {renderFileField("Layout PDF URL", "layoutPdfUrl", ".pdf,application/pdf", "uploads/projects", "/brochures/jb-harmony-woods-layout.pdf")}
-            {renderFileField("Layout Image URL", "layoutUrl", "image/*,.pdf", "uploads/projects", "/assets/projects/jb-harmony-woods/layout/layout.pdf")}
-            {renderFileField("Master Plan URL", "masterPlanUrl", "image/*,.pdf", "uploads/projects", "/assets/projects/jb-harmony-woods/masterplan.jpg")}
-            {renderFileField("Location Map URL", "locationMapUrl", "image/*,.pdf", "uploads/projects", "/assets/projects/jb-harmony-woods/location-map.jpg")}
+            {renderFileField("Brochure URL", "brochureUrl", ".pdf,application/pdf", "uploads/projects", "Paste a URL or upload a PDF (max 10 MB)", true)}
+            {renderFileField("Layout PDF URL", "layoutPdfUrl", ".pdf,application/pdf", "uploads/projects", "Paste a URL or upload a PDF (max 10 MB)", true)}
+            {renderFileField("Layout Image URL", "layoutUrl", "image/*,.pdf", "uploads/projects", "Paste a URL or upload an image / PDF")}
+            {renderFileField("Master Plan URL", "masterPlanUrl", "image/*,.pdf", "uploads/projects", "Paste a URL or upload an image / PDF")}
+            {renderFileField("Location Map URL", "locationMapUrl", "image/*,.pdf", "uploads/projects", "Paste a URL or upload an image / PDF")}
           </div>
         </div>
 

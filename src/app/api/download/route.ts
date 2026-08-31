@@ -66,9 +66,11 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "URL must be from Cloudinary" }, { status: 400 });
   }
 
-  const match = url.match(/\/raw\/upload\/(?:v\d+\/)?(.+?)(?:\?|$)/);
+  // Accept raw OR image-upload asset URLs; image-upload PDFs are still private on the
+  // free plan, so both are proxied. Strips the optional version segment.
+  const match = url.match(/\/(?:raw|image)\/upload\/(?:v\d+\/)?(.+?)(?:\?|$)/);
   if (!match) {
-    return NextResponse.json({ error: "Invalid Cloudinary raw URL format" }, { status: 400 });
+    return NextResponse.json({ error: "Invalid Cloudinary upload URL format" }, { status: 400 });
   }
 
   const publicId = match[1];

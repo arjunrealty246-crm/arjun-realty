@@ -4,6 +4,7 @@ import {
   getUploadResourceType,
   getExtension,
 } from "@/lib/upload-types";
+import { optimizePdfFile } from "@/lib/pdf-compress";
 
 export type UploadResourceType = "image" | "video" | "raw";
 
@@ -13,6 +14,16 @@ const IMAGE_QUALITY = 0.8;
 const IMAGE_QUALITY_RETRY = 0.6;
 const SMALL_IMAGE_PASSTHROUGH = 2.5 * 1024 * 1024;
 const MAX_COMPRESSED_IMAGE_SIZE = 9.5 * 1024 * 1024;
+
+// PDFs above this size are auto-optimized (rebuilt + images re-encoded) before upload
+// so large real brochures fit comfortably under the Cloudinary Free raw cap (10 MB).
+// Small PDFs are uploaded as-is; there is NO artificial small-file limit.
+const PDF_AUTO_COMPRESS_THRESHOLD = 4 * 1024 * 1024;
+const PDF_TARGET_HEADROOM = 0.8; // aim for 80% of the cap to leave headroom
+
+function isPdfFile(file: { name: string; type?: string }): boolean {
+  return /\.pdf$/i.test(file.name) || (file.type || "").toLowerCase() === "application/pdf";
+}
 
 export function detectResourceType(file: { name: string; type?: string }): UploadResourceType {
   const ext = getExtension(file.name);
@@ -111,14 +122,57 @@ function uploadViaXHR(
 export async function uploadWithProgress(
   file: File,
   folder: string,
-  onProgress?: (ratio: number) => void
+  onProgress?: (ratio: number) => void,
+  onStatus?: (status: string) => void
 ): Promise<string> {
-  const prepared = await prepareFileForUpload(file);
+  let prepared = await prepareFileForUpload(file);
   const type = detectResourceType(prepared);
   const cap = capForType(type);
 
+  // Auto-optimize large PDF brochures (rebuilt so no orphaned large-image objects survive).
+  if (type === "raw" && isPdfFile(prepared) && prepared.size > PDF_AUTO_COMPRESS_THRESHOLD) {
+    const original = prepared;
+    onStatus?.("Optimizing PDF (re-encoding pages)…");
+    onProgress?.(0);
+    let res;
+    try {
+      res = await optimizePdfFile(original, cap * PDF_TARGET_HEADROOM);
+    } catch {
+      res = null; // PDF was unreadable/encrypted; upload the original if it still fits below
+    }
+    if (res && res.optimized) {
+      prepared = res.file;
+      onStatus?.(
+        `PDF optimized (${formatBytes(res.originalSize)} → ${formatBytes(res.finalSize)}). Uploading…`
+      );
+    } else {
+      prepared = original;
+      onStatus?.("Preparing upload…");
+    }
+  } else {
+    onStatus?.("Preparing upload…");
+  }
+
   if (prepared.size > cap) {
     throw new Error(oversizeMessage(type, prepared.size));
+  }
+
+  // RAW (PDF/other documents) uploads go through the server-side /api/upload route,
+  // which uses the Cloudinary Node.js SDK. The Cloudinary FREE plan does not accept
+  // browser-origin (XHR) multipart uploads to the "raw" endpoint — only "image"/"video"
+  // browser uploads are permitted. The server SDK handles raw/PDF uploads correctly.
+  if (type === "raw") {
+    const rawForm = new FormData();
+    rawForm.append("file", prepared);
+    rawForm.append("folder", folder);
+    if (onProgress) onProgress(0);
+    const rawRes = await fetch("/api/upload", { method: "POST", body: rawForm });
+    if (onProgress) onProgress(1);
+    const rawData = (await rawRes.json().catch(() => ({}))) as { url?: string; error?: string };
+    if (!rawRes.ok || !rawData.url) {
+      throw new Error(rawData.error || `Upload failed (HTTP ${rawRes.status}).`);
+    }
+    return rawData.url;
   }
 
   const signRes = await fetch("/api/upload/cloudinary-sign", {
@@ -142,13 +196,14 @@ export async function uploadWithProgress(
 
   const resourceType = signData.resource_type || type;
   const formData = new FormData();
-  formData.append("file", prepared);
+  // api_key and signature params go before the file part (canonical Cloudinary order).
   formData.append("api_key", signData.api_key);
   formData.append("timestamp", String(signData.timestamp));
   formData.append("signature", signData.signature || "");
   formData.append("folder", signData.folder || "");
   formData.append("public_id", signData.public_id || "");
   formData.append("resource_type", resourceType);
+  formData.append("file", prepared);
 
   const uploadUrl = `https://api.cloudinary.com/v1_1/${signData.cloud_name}/${resourceType}/upload`;
   return uploadViaXHR(uploadUrl, formData, onProgress);
