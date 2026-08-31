@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import siteConfig from "@/config/site";
 import PageBreadcrumbs from "@/components/PageBreadcrumbs";
 import Shankarpally45AcresPage from "@/components/showcase/Shankarpally45AcresPage";
+import { getMergedProject } from "@/lib/merged-project";
+import type { Project } from "@/data/projects";
+
+// This page mirrors the same project shown at /projects/shankarpally-45-acres.
+// It is rendered dynamically and reads the Admin-edited project from MongoDB so
+// that the gallery, hero video, master layout, location map and documents always
+// reflect the latest saved Admin media/document URLs — never stale or missing.
+export const dynamic = "force-dynamic";
 
 const PROJECT_NAME = "Shankarpally 45 Acres Premium Layout";
 const PROJECT_URL = `${siteConfig.url}/shankarpally-45-acres`;
@@ -124,13 +133,16 @@ const faqSchema = {
   ],
 };
 
-export default function Page() {
+export default async function Page() {
+  const project = await getMergedProject("shankarpally-45-acres");
+  if (!project) notFound();
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <PageBreadcrumbs items={[{ name: "Shankarpally 45 Acres", url: "/shankarpally-45-acres" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <Shankarpally45AcresPage />
+      <Shankarpally45AcresPage project={project as Project} />
     </>
   );
 }

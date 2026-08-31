@@ -1,58 +1,21 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import fs from "fs";
-import path from "path";
-import { projects, getProjectBySlug, getRelatedProjects } from "@/data/projects";
+import { getRelatedProjects } from "@/data/projects";
 import type { Project } from "@/data/projects";
 import PremiumProjectDetailPage from "@/components/PremiumProjectDetailPage";
 import siteConfig from "@/config/site";
 import { connectDB } from "@/lib/mongodb";
-import { toPlainObject } from "@/lib/serialize";
-import ProjectModel from "@/lib/models/Project";
+import { getMergedProject, isUsableMediaUrl } from "@/lib/merged-project";
 import TestimonialModel from "@/lib/models/Testimonial";
 
-function isUsableMediaUrl(value: string): boolean {
-  const v = (value || "").trim();
-  if (!v) return false;
-  if (/^https?:\/\//i.test(v)) return true;
-  const publicDir = path.resolve(process.cwd(), "public");
-  const filePath = path.resolve(publicDir, v.replace(/^\//, ""));
-  if (!filePath.startsWith(publicDir)) return false;
-  return fs.existsSync(filePath);
-}
-
-export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
-}
-
-export const revalidate = 3600;
-
-const SKIP_DB_KEYS = new Set(["_id", "__v", "createdAt", "updatedAt", "sortOrder"]);
-
-async function getMergedProject(slug: string): Promise<Project | null> {
-  const staticProject = getProjectBySlug(slug);
-  if (!staticProject) return null;
-
-  const project = { ...staticProject };
-
-  try {
-    await connectDB();
-    const dbProject = await ProjectModel.findOne({ slug }).lean() as Record<string, unknown> | null;
-    if (dbProject) {
-      const plainProject = toPlainObject(dbProject);
-      for (const [key, val] of Object.entries(plainProject)) {
-        if (SKIP_DB_KEYS.has(key)) continue;
-        if (val === undefined || val === null) continue;
-        if (Array.isArray(val) && val.length === 0) continue;
-        (project as Record<string, unknown>)[key] = val;
-      }
-    }
-  } catch {
-    // DB unavailable — use static data as-is
-  }
-
-  return project;
-}
+// The project page is backed by admin-editable data in MongoDB. It is rendered
+// dynamically on every request so that it always reflects the latest saved
+// project media (gallery, layout, master plan, location map, brochure, etc.)
+// after an Admin update. Static pre-rendering + ISR here caused stale HTML
+// (e.g. an empty gallery) to be served from the CDN/browser cache long after an
+// Admin edit, because `revalidatePath` only marks a route for revalidation on
+// the next visit. Dynamic rendering removes that staleness window entirely.
+export const dynamic = "force-dynamic";
 
 function buildProjectKeywords(project: Project): string[] {
   const loc = project.location.split(",").map((s) => s.trim());

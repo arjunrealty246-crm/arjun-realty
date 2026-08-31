@@ -140,6 +140,7 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                             src={item.src}
                             alt={`${project.name} — ${captionFor(i)}`}
                             fill
+                            priority={isHero}
                             sizes="(max-width: 768px) 50vw, 25vw"
                             className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
                             placeholder="blur"

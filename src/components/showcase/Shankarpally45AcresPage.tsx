@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -52,7 +52,7 @@ import BrochureDownload from "@/components/BrochureDownload";
 import SiteVisitModal from "@/components/SiteVisitModal";
 import StickyCTABar from "@/components/showcase/StickyCTABar";
 
-const project: Project = {
+const FALLBACK_PROJECT: Project = {
   slug: "shankarpally-45-acres",
   name: "Shankarpally 45 Acres Premium Layout",
   builder: "jb-infra",
@@ -108,7 +108,7 @@ const project: Project = {
     "Massive 25,000 Sq. Ft. Luxury Clubhouse (Zero Extra Charges)",
   ],
   bankLoanAvailable: true,
-  brochureUrl: "/uploads/projects/shankarpally-45-acres/shankarpally-45acres-brochure.pdf",
+  brochureUrl: "",
   image: "",
   images: [],
   locationAdvantages: [
@@ -210,19 +210,43 @@ const related = ["jb-harmony-woods", "jb-pristine-city"]
   .map((slug) => getProjectBySlug(slug))
   .filter((p): p is Project => Boolean(p));
 
-const HERO_VIDEO_SRC = "/uploads/projects/shankarpally-45-acres/hero-video.mp4";
+// Real (Cloudinary) media comes from the DB-backed `project`. This SVG is only
+// used as a graceful fallback when no real hero media exists on the project.
 const HERO_POSTER_SRC = "/images/projects/shankarpally-45acres-hero.svg";
-const MASTER_LAYOUT_PDF_SRC = "/uploads/projects/shankarpally-45-acres/master-layout-plan.pdf";
 
-function HeroBackground() {
+// A media URL is usable when it is an absolute (Cloudinary) URL or an existing
+// `/images/...` asset. Local `/uploads/projects/...` paths that were never
+// actually uploaded are treated as unusable so broken tiles are never shown.
+function isUsableUrl(value: string): boolean {
+  const v = (value || "").trim();
+  if (!v) return false;
+  return /^https?:\/\//i.test(v) || v.startsWith("/images/");
+}
+
+function HeroBackground({ project }: { project: Project }) {
   return (
     <div className="absolute inset-0" aria-hidden="true">
-      {HERO_VIDEO_SRC ? (
-        <video className="h-full w-full object-cover" autoPlay muted loop playsInline preload="auto" poster={HERO_POSTER_SRC}>
-          <source src={HERO_VIDEO_SRC} type="video/mp4" />
+      {project.heroVideo && isUsableUrl(project.heroVideo) ? (
+        <video
+          className="h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster={project.image && isUsableUrl(project.image) ? project.image : HERO_POSTER_SRC}
+        >
+          <source src={project.heroVideo} type="video/mp4" />
         </video>
       ) : (
-        <Image src={HERO_POSTER_SRC} alt="" fill priority sizes="100vw" className="object-cover" />
+        <Image
+          src={project.image && isUsableUrl(project.image) ? project.image : HERO_POSTER_SRC}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
       )}
       <div className="absolute inset-0 bg-gradient-to-b from-[#08090b]/85 via-[#08090b]/65 to-[#08090b]/90" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#08090b]/90 via-[#08090b]/40 to-transparent" />
@@ -230,7 +254,12 @@ function HeroBackground() {
   );
 }
 
-export default function Shankarpally45AcresPage() {
+export default function Shankarpally45AcresPage({
+  project: propProject,
+}: {
+  project?: Project;
+}) {
+  const project = propProject ?? FALLBACK_PROJECT;
   const [siteVisitOpen, setSiteVisitOpen] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
   const [gate, setGate] = useState<GateRequest | null>(null);
@@ -244,7 +273,7 @@ export default function Shankarpally45AcresPage() {
     <>
       {/* ══════════ HERO ══════════ */}
       <section className="relative pt-28 pb-14 lg:pt-36 lg:pb-16 overflow-hidden">
-        <HeroBackground />
+        <HeroBackground project={project} />
         <div className="ambient-orb w-[700px] h-[700px] bg-primary/[0.08] -right-64 -top-64" />
         <div className="ambient-orb w-[500px] h-[500px] bg-gold/[0.03] -left-48 bottom-0" />
         <div className="relative mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
@@ -333,6 +362,7 @@ export default function Shankarpally45AcresPage() {
 
       {/* ══════════ INTERACTIVE MEDIA & LAYOUT GALLERY ══════════ */}
       <MediaGallerySection
+        project={project}
         projectName={project.name}
         onRequestVideo={(r) => openGate(r)}
         onRequestPlot={(r) => openGate(r)}
@@ -603,7 +633,7 @@ export default function Shankarpally45AcresPage() {
 
       <StickyCTABar projectName={project.name} onSiteVisit={() => setSiteVisitOpen(true)} ctaLabel="Free Cab Visit" />
       <SiteVisitModal isOpen={siteVisitOpen} onClose={() => setSiteVisitOpen(false)} projectName={project.name} />
-      <VideoHeroModal open={videoOpen} onClose={() => setVideoOpen(false)} onRequestVideo={(r) => openGate(r)} />
+      <VideoHeroModal open={videoOpen} onClose={() => setVideoOpen(false)} onRequestVideo={(r) => openGate(r)} project={project} />
       <LeadGateModal
         open={gate !== null}
         request={gate}
@@ -628,58 +658,66 @@ interface GateRequest {
   ctaLabel: string;
 }
 
-type GalleryCategory = "Master Layout" | "25,000 SFT Clubhouse" | "Roads & Infrastructure" | "Drone Views";
+type GalleryItem = { src: string; title: string; cat: string };
 
-const galleryItems: { src: string; title: string; cat: GalleryCategory }[] = [
-  {
-    src: "/uploads/projects/shankarpally-45-acres/master-layout-plan.jpg",
-    title: "Official HMDA-Approved Master Layout — 45 Acres",
-    cat: "Master Layout",
-  },
-  {
-    src: "/images/gallery/clubhouse.svg",
-    title: "25,000 Sq. Ft. Grand Luxury Clubhouse",
-    cat: "25,000 SFT Clubhouse",
-  },
-  {
-    src: "/images/projects/shankarpally-45acres-roads.svg",
-    title: "Wide BT Roads, Kerbs & Paver Footpaths",
-    cat: "Roads & Infrastructure",
-  },
-  {
-    src: "/images/gallery/project-overview.svg",
-    title: "Aerial Site Overview",
-    cat: "Drone Views",
-  },
-  {
-    src: "/images/gallery/gardens.svg",
-    title: "Aerial Avenue Plantation & Gardens",
-    cat: "Drone Views",
-  },
-];
+function buildGalleryItems(project: Project): GalleryItem[] {
+  const items: GalleryItem[] = [];
 
-const galleryTabs: ("All" | GalleryCategory)[] = [
-  "All",
-  "Master Layout",
-  "25,000 SFT Clubhouse",
-  "Roads & Infrastructure",
-  "Drone Views",
-];
+  if (project.layoutUrl && isUsableUrl(project.layoutUrl)) {
+    items.push({
+      src: project.layoutUrl,
+      title: "Official HMDA-Approved Master Layout — 45 Acres",
+      cat: "Master Layout",
+    });
+  }
+
+  for (const g of project.gallery || []) {
+    if (!g.src || !isUsableUrl(g.src)) continue;
+    items.push({
+      src: g.src,
+      title: g.title || "Project Gallery",
+      cat: g.category || "Gallery",
+    });
+  }
+
+  if (items.length === 0) {
+    // DB unavailable — fall back to the existing illustrative visuals.
+    items.push(
+      { src: "/images/gallery/clubhouse.svg", title: "25,000 Sq. Ft. Grand Luxury Clubhouse", cat: "25,000 SFT Clubhouse" },
+      { src: "/images/projects/shankarpally-45acres-roads.svg", title: "Wide BT Roads, Kerbs & Paver Footpaths", cat: "Roads & Infrastructure" },
+      { src: "/images/gallery/project-overview.svg", title: "Aerial Site Overview", cat: "Drone Views" },
+      { src: "/images/gallery/gardens.svg", title: "Aerial Avenue Plantation & Gardens", cat: "Drone Views" },
+    );
+  }
+
+  return items;
+}
 
 function MediaGallerySection({
+  project,
   projectName,
   onRequestVideo,
   onRequestPlot,
 }: {
+  project: Project;
   projectName: string;
   onRequestVideo: (r: GateRequest) => void;
   onRequestPlot: (r: GateRequest) => void;
 }) {
-  const [tab, setTab] = useState<"All" | GalleryCategory>("All");
+  const galleryItems = useMemo(() => buildGalleryItems(project), [project]);
+  const galleryTabs = useMemo(() => ["All", ...Array.from(new Set(galleryItems.map((g) => g.cat)))], [galleryItems]);
+  const masterLayoutSrc =
+    (project.masterPlanUrl && isUsableUrl(project.masterPlanUrl)
+      ? project.masterPlanUrl
+      : project.layoutPdfUrl && isUsableUrl(project.layoutPdfUrl)
+        ? project.layoutPdfUrl
+        : "") || "";
+
+  const [activeTab, setActiveTab] = useState<string>("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [zoomed, setZoomed] = useState(false);
 
-  const visible = galleryItems.filter((g) => tab === "All" || g.cat === tab);
+  const visible = galleryItems.filter((g) => activeTab === "All" || g.cat === activeTab);
   const active = lightboxIndex !== null ? visible[lightboxIndex] : null;
 
   const next = useCallback(() => {
@@ -691,6 +729,13 @@ function MediaGallerySection({
     setLightboxIndex((prev) => (prev === null ? prev : (prev - 1 + visible.length) % visible.length));
     setZoomed(false);
   }, [visible.length]);
+
+  const requestLayout = () =>
+    onRequestPlot({
+      intent: "Official Master Layout Plan (PDF)",
+      message: `${projectName}\n\nPlease share the official HMDA-approved master layout plan (PDF) of ${projectName}.`,
+      ctaLabel: "Request Layout PDF",
+    });
 
   const requestVideo = () =>
     onRequestVideo({
@@ -726,11 +771,11 @@ function MediaGallerySection({
               <button
                 key={t}
                 onClick={() => {
-                  setTab(t);
+                  setActiveTab(t);
                   setLightboxIndex(null);
                 }}
                 className={`px-4 py-2 rounded-full text-[11px] font-semibold uppercase tracking-wider transition-all duration-300 ${
-                  tab === t ? "bg-primary/90 text-white" : "bg-white/[0.03] border border-white/[0.06] text-white/30 hover:text-white/50"
+                  activeTab === t ? "bg-primary/90 text-white" : "bg-white/[0.03] border border-white/[0.06] text-white/30 hover:text-white/50"
                 }`}
               >
                 {t}
@@ -741,11 +786,11 @@ function MediaGallerySection({
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {visible.map((g, i) => (
               <motion.button
-                key={`${g.src}-${tab}`}
+                key={`${g.src}-${activeTab}`}
                 onClick={() => setLightboxIndex(i)}
                 whileHover={{ scale: 1.02 }}
                 className={`relative rounded-2xl overflow-hidden group cursor-pointer ${
-                  i === 0 && tab === "All" ? "col-span-2 row-span-2 h-72 lg:h-auto lg:min-h-[26rem]" : "h-44 lg:h-52"
+                  i === 0 && activeTab === "All" ? "col-span-2 row-span-2 h-72 lg:h-auto lg:min-h-[26rem]" : "h-44 lg:h-52"
                 }`}
               >
                 <Image
@@ -846,21 +891,32 @@ function MediaGallerySection({
               </div>
             </div>
             <div className="flex flex-wrap items-center gap-3 shrink-0">
-              <a
-                href={getDownloadUrl(MASTER_LAYOUT_PDF_SRC)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-[12px] font-semibold text-white/70 hover:border-primary/25 hover:text-white transition-colors"
-              >
-                <Eye className="h-4 w-4" /> View Layout PDF
-              </a>
-              <a
-                href={getDownloadUrl(MASTER_LAYOUT_PDF_SRC)}
-                download
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary to-primary-dark text-[12px] font-semibold text-white glow-primary-strong hover:opacity-90 transition-opacity"
-              >
-                <Download className="h-4 w-4" /> Download High-Res PDF
-              </a>
+              {masterLayoutSrc ? (
+                <>
+                  <a
+                    href={getDownloadUrl(masterLayoutSrc)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-[12px] font-semibold text-white/70 hover:border-primary/25 hover:text-white transition-colors"
+                  >
+                    <Eye className="h-4 w-4" /> View Layout PDF
+                  </a>
+                  <a
+                    href={getDownloadUrl(masterLayoutSrc)}
+                    download
+                    className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary to-primary-dark text-[12px] font-semibold text-white glow-primary-strong hover:opacity-90 transition-opacity"
+                  >
+                    <Download className="h-4 w-4" /> Download High-Res PDF
+                  </a>
+                </>
+              ) : (
+                <button
+                  onClick={requestLayout}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary to-primary-dark text-[12px] font-semibold text-white glow-primary-strong hover:opacity-90 transition-opacity"
+                >
+                  <MessageCircle className="h-4 w-4" /> Request Layout PDF
+                </button>
+              )}
             </div>
           </div>
         </ScrollReveal>
@@ -939,7 +995,7 @@ function MediaGallerySection({
   );
 }
 
-const trustDocs: {
+function buildTrustDocs(project: Project): {
   icon: LucideIcon;
   title: string;
   tag: string;
@@ -947,41 +1003,50 @@ const trustDocs: {
   intent: string;
   url?: string;
   instant?: boolean;
-}[] = [
-  {
-    icon: FileCheck2,
-    title: "HMDA Final Layout Approval",
-    tag: "View / Get PDF",
-    intent: "HMDA Final Layout Approval",
-    desc: "Primary legal approval for the fully approved 45-acre layout — the venture is 100% HMDA approved.",
-    url: "/uploads/projects/shankarpally-45-acres/hmda-approval.pdf",
-  },
-  {
-    icon: Award,
-    title: "RERA Official Registration Certificate",
-    tag: "View / Get PDF",
-    intent: "RERA Registration Certificate",
-    desc: "Official RERA registration certificate for the fully registered venture.",
-    url: "/uploads/projects/shankarpally-45-acres/rera-certificate.pdf",
-  },
-  {
-    icon: Banknote,
-    title: "Bank Loan Facilitation — SBI · HDFC · ICICI",
-    tag: "Supported",
-    intent: "Bank Loan Facilitation (SBI / HDFC / ICICI)",
-    desc: "Loan facility available from leading banks for eligible buyers on this fully approved, bankable venture.",
-    url: "/uploads/projects/shankarpally-45-acres/bank-loan-approval.pdf",
-  },
-  {
-    icon: FileText,
-    title: "Master Brochure & Pricing Matrix",
-    tag: "Instant PDF",
-    intent: "Brochure & Pricing Matrix",
-    desc: "The complete featured brochure plus the current verified pricing matrix — available instantly as PDF.",
-    url: "/uploads/projects/shankarpally-45-acres/shankarpally-45acres-brochure.pdf",
-    instant: true,
-  },
-];
+  key: string;
+}[] {
+  const brochure = project.brochureUrl && isUsableUrl(project.brochureUrl) ? project.brochureUrl : "";
+
+  return [
+    {
+      icon: FileCheck2,
+      title: "HMDA Final Layout Approval",
+      tag: "View / Get PDF",
+      intent: "HMDA Final Layout Approval",
+      desc: "Primary legal approval for the fully approved 45-acre layout — the venture is 100% HMDA approved.",
+      url: "",
+      key: "hmda",
+    },
+    {
+      icon: Award,
+      title: "RERA Official Registration Certificate",
+      tag: "View / Get PDF",
+      intent: "RERA Registration Certificate",
+      desc: "Official RERA registration certificate for the fully registered venture.",
+      url: "",
+      key: "rera",
+    },
+    {
+      icon: Banknote,
+      title: "Bank Loan Facilitation — SBI · HDFC · ICICI",
+      tag: "Supported",
+      intent: "Bank Loan Facilitation (SBI / HDFC / ICICI)",
+      desc: "Loan facility available from leading banks for eligible buyers on this fully approved, bankable venture.",
+      url: "",
+      key: "bank",
+    },
+    {
+      icon: FileText,
+      title: "Master Brochure & Pricing Matrix",
+      tag: "Instant PDF",
+      intent: "Brochure & Pricing Matrix",
+      desc: "The complete featured brochure plus the current verified pricing matrix — available instantly as PDF.",
+      url: brochure,
+      instant: true,
+      key: "brochure",
+    },
+  ];
+}
 
 function TrustDocumentsSection({
   project,
@@ -1010,8 +1075,8 @@ function TrustDocumentsSection({
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
-          {trustDocs.map((d, i) => (
-            <ScrollReveal key={d.intent} delay={i * 0.06}>
+          {buildTrustDocs(project).map((d, i) => (
+            <ScrollReveal key={d.key} delay={i * 0.06}>
               <div className="glass-card rounded-2xl p-7 h-full flex flex-col group">
                 <div className="flex items-center gap-4 mb-5">
                   <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-all duration-500">
@@ -1029,14 +1094,16 @@ function TrustDocumentsSection({
                 {d.instant ? (
                   <div className="mt-auto flex flex-wrap items-center gap-2.5">
                     <BrochureDownload project={project} variant="button" label="Download PDF" />
-                    <a
-                      href={getDownloadUrl(d.url)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] text-[12px] font-semibold text-white/60 hover:text-white transition-colors"
-                    >
-                      <Eye className="h-3.5 w-3.5" /> View Brochure
-                    </a>
+                    {d.url && (
+                      <a
+                        href={getDownloadUrl(d.url)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] text-[12px] font-semibold text-white/60 hover:text-white transition-colors"
+                      >
+                        <Eye className="h-3.5 w-3.5" /> View Brochure
+                      </a>
+                    )}
                   </div>
                 ) : d.url ? (
                   <div className="mt-auto flex flex-wrap items-center gap-2.5">
@@ -1440,12 +1507,17 @@ function VideoHeroModal({
   open,
   onClose,
   onRequestVideo,
+  project,
 }: {
   open: boolean;
   onClose: () => void;
   onRequestVideo: (r: GateRequest) => void;
+  project: Project;
 }) {
   const [playing, setPlaying] = useState(false);
+
+  const videoSrc = project.heroVideo && isUsableUrl(project.heroVideo) ? project.heroVideo : "";
+  const posterSrc = project.image && isUsableUrl(project.image) ? project.image : HERO_POSTER_SRC;
 
   const requestFootage = () =>
     onRequestVideo({
@@ -1466,13 +1538,13 @@ function VideoHeroModal({
         >
           <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-black border border-white/[0.05]">
-              {playing && HERO_VIDEO_SRC ? (
-                <video className="h-full w-full object-contain" controls autoPlay playsInline poster={HERO_POSTER_SRC}>
-                  <source src={HERO_VIDEO_SRC} type="video/mp4" />
+              {playing && videoSrc ? (
+                <video className="h-full w-full object-contain" controls autoPlay playsInline poster={posterSrc}>
+                  <source src={videoSrc} type="video/mp4" />
                 </video>
               ) : (
                 <div className="absolute inset-0">
-                  <Image src={HERO_POSTER_SRC} alt="" fill priority sizes="80vw" className="object-cover" />
+                  <Image src={posterSrc} alt="" fill priority sizes="80vw" className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/40" />
                   <button
                     onClick={() => setPlaying(true)}
@@ -1485,7 +1557,7 @@ function VideoHeroModal({
                       </span>
                     </span>
                     <span className="text-[13px] font-semibold text-white/80">Play walkthrough preview</span>
-                    {!HERO_VIDEO_SRC && (
+                    {!videoSrc && (
                       <span className="text-[11px] text-white/45 max-w-xs text-center leading-relaxed">
                         Full HQ footage is shared on request — tap below to get it delivered on WhatsApp.
                       </span>
