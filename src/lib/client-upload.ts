@@ -157,24 +157,12 @@ export async function uploadWithProgress(
     throw new Error(oversizeMessage(type, prepared.size));
   }
 
-  // RAW (PDF/other documents) uploads go through the server-side /api/upload route,
-  // which uses the Cloudinary Node.js SDK. The Cloudinary FREE plan does not accept
-  // browser-origin (XHR) multipart uploads to the "raw" endpoint — only "image"/"video"
-  // browser uploads are permitted. The server SDK handles raw/PDF uploads correctly.
-  if (type === "raw") {
-    const rawForm = new FormData();
-    rawForm.append("file", prepared);
-    rawForm.append("folder", folder);
-    if (onProgress) onProgress(0);
-    const rawRes = await fetch("/api/upload", { method: "POST", body: rawForm });
-    if (onProgress) onProgress(1);
-    const rawData = (await rawRes.json().catch(() => ({}))) as { url?: string; error?: string };
-    if (!rawRes.ok || !rawData.url) {
-      throw new Error(rawData.error || `Upload failed (HTTP ${rawRes.status}).`);
-    }
-    return rawData.url;
-  }
-
+  // ALL resource types — including raw/PDF documents — now use a DIRECT, signed,
+  // browser-to-Cloudinary upload. The file binary NEVER passes through a Next.js /
+  // Vercel API route body, which is what caused HTTP 413 for large PDFs on the
+  // server-side /api/upload path. The server is only asked for a signature
+  // (cloudinary-sign returns small JSON: signature/timestamp/api_key/cloud_name),
+  // then the browser uploads the file straight to Cloudinary.
   const signRes = await fetch("/api/upload/cloudinary-sign", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
