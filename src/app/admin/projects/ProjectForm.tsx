@@ -85,10 +85,12 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
   const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [uploadStatus, setUploadStatus] = useState("");
   const [uploadError, setUploadError] = useState("");
+  const [uploadErrorField, setUploadErrorField] = useState<string | null>(null);
   const [uploadSuccess, setUploadSuccess] = useState<string | null>(null);
   const [videoUploadStatus, setVideoUploadStatus] = useState<string | null>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
   const videoInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
   const lastUploadErrorRef = useRef<string>("");
 
   useEffect(() => {
@@ -152,12 +154,14 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
       setUploadStatus("");
       if (url && fieldName) {
         setUploadSuccess(`${fieldName} uploaded successfully.`);
+        setUploadErrorField(null);
       }
       return url;
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Upload failed";
       lastUploadErrorRef.current = msg;
       setUploadError(msg);
+      setUploadErrorField(fieldName ?? null);
       setUploadProgress(null);
       setUploadStatus("");
       return "";
@@ -293,29 +297,65 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
         <input type="text" value={form[field]} onChange={(e) => update(field, e.target.value)}
           className="flex-1 min-w-0 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs"
           placeholder={placeholder} />
-        <label className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary/10 border border-primary/20 text-[11px] font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all shrink-0">
+        <button
+          type="button"
+          onClick={() => {
+            const input = fileInputRefs.current[field];
+            if (input && !input.disabled) input.click();
+          }}
+          disabled={uploadingField === field}
+          className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary/10 border border-primary/20 text-[11px] font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
+        >
           {uploadingField === field ? (
             <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
           ) : (
             <Upload className="h-3.5 w-3.5" />
           )} Upload
-          <input type="file" accept={accept} className="hidden" disabled={uploadingField === field}
-            onChange={async (e) => {
-              const file = e.target.files?.[0];
-              if (!file) return;
-              if (pdfOnly && !/\.pdf$/i.test(file.name) && file.type !== "application/pdf") {
-                setUploadError("Please select a PDF brochure.");
-                e.currentTarget.value = "";
-                return;
-              }
+        </button>
+        <input
+          ref={(node) => { fileInputRefs.current[field] = node; }}
+          type="file" accept={accept} className="hidden" tabIndex={-1}
+          disabled={uploadingField === field}
+          onChange={async (e) => {
+            const file = e.target.files?.[0];
+            if (!file) return;
+            if (pdfOnly && !/\.pdf$/i.test(file.name) && file.type !== "application/pdf") {
+              setUploadError("Please select a PDF brochure.");
               e.currentTarget.value = "";
-              const url = await handleFileUpload(file, folder, field);
-              if (url) {
-                update(field, url);
-              }
-            }} />
-        </label>
+              return;
+            }
+            e.currentTarget.value = "";
+            const url = await handleFileUpload(file, folder, field);
+            if (url) {
+              update(field, url);
+              setUploadErrorField(null);
+            }
+          }}
+        />
       </div>
+      {uploadingField === field ? (
+        <div className="mt-2 px-3 py-2 rounded-lg bg-primary/[0.06] border border-primary/20">
+          <div className="flex items-center justify-between gap-3 mb-1">
+            <span className="text-[11px] font-semibold text-white">
+              {uploadStatus
+                ? uploadStatus
+                : uploadProgress !== null && uploadProgress > 0
+                  ? `Uploading… ${uploadProgress}%`
+                  : "Preparing file (compressing, verifying size)…"}
+            </span>
+            {uploadProgress !== null && <span className="text-[10px] text-white/40 font-mono">{uploadProgress}%</span>}
+          </div>
+          <div className="h-1 w-full rounded-full bg-white/[0.06] overflow-hidden">
+            <div className="h-full rounded-full bg-gradient-to-r from-primary to-primary-dark transition-[width] duration-200"
+              style={{ width: `${Math.max(uploadProgress ?? 0, 2)}%` }} />
+          </div>
+        </div>
+      ) : uploadErrorField === field && uploadError ? (
+        <div className="mt-2 px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-400 flex items-start justify-between gap-2">
+          <span>Upload error: {uploadError}</span>
+          <button type="button" onClick={() => { setUploadError(""); setUploadErrorField(null); }} className="text-amber-400/60 hover:text-amber-400 shrink-0">Dismiss</button>
+        </div>
+      ) : null}
     </div>
   );
 
@@ -326,22 +366,59 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
         <input type="text" value={value} onChange={(e) => onChange(e.target.value)}
           className="flex-1 min-w-0 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 font-mono text-xs"
           placeholder={placeholder} />
-        <label className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary/10 border border-primary/20 text-[11px] font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all shrink-0">
+        <button
+          type="button"
+          onClick={() => {
+            const key = fieldName || "row";
+            const input = fileInputRefs.current[key];
+            if (input && !input.disabled) input.click();
+          }}
+          disabled={fieldName ? uploadingField === fieldName : false}
+          className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary/10 border border-primary/20 text-[11px] font-semibold text-primary cursor-pointer hover:bg-primary/15 transition-all shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
+        >
           {fieldName && uploadingField === fieldName ? (
             <span className="h-3.5 w-3.5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
           ) : (
             <Upload className="h-3.5 w-3.5" />
           )} Upload
-          <input type="file" accept={accept} className="hidden" disabled={fieldName ? uploadingField === fieldName : false}
-            onChange={async (e) => {
-              const file = e.target.files?.[0];
-              if (!file) return;
-              e.currentTarget.value = "";
-              const url = await handleFileUpload(file, folder, fieldName);
-              if (url) onChange(url);
-            }} />
-        </label>
+        </button>
+        <input
+          ref={(node) => { fileInputRefs.current[fieldName || "row"] = node; }}
+          type="file" accept={accept} className="hidden" tabIndex={-1}
+          disabled={fieldName ? uploadingField === fieldName : false}
+          onChange={async (e) => {
+            const file = e.target.files?.[0];
+            if (!file) return;
+            e.currentTarget.value = "";
+            const url = await handleFileUpload(file, folder, fieldName);
+            if (url) onChange(url);
+            if (url) setUploadErrorField(null);
+          }}
+        />
       </div>
+      {fieldName && uploadingField === fieldName ? (
+        <div className="mt-2 px-3 py-2 rounded-lg bg-primary/[0.06] border border-primary/20">
+          <div className="flex items-center justify-between gap-3 mb-1">
+            <span className="text-[11px] font-semibold text-white">
+              {uploadStatus
+                ? uploadStatus
+                : uploadProgress !== null && uploadProgress > 0
+                  ? `Uploading… ${uploadProgress}%`
+                  : "Preparing file (compressing, verifying size)…"}
+            </span>
+            {uploadProgress !== null && <span className="text-[10px] text-white/40 font-mono">{uploadProgress}%</span>}
+          </div>
+          <div className="h-1 w-full rounded-full bg-white/[0.06] overflow-hidden">
+            <div className="h-full rounded-full bg-gradient-to-r from-primary to-primary-dark transition-[width] duration-200"
+              style={{ width: `${Math.max(uploadProgress ?? 0, 2)}%` }} />
+          </div>
+        </div>
+      ) : fieldName && uploadErrorField === fieldName && uploadError ? (
+        <div className="mt-2 px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-400 flex items-start justify-between gap-2">
+          <span>Upload error: {uploadError}</span>
+          <button type="button" onClick={() => { setUploadError(""); setUploadErrorField(null); }} className="text-amber-400/60 hover:text-amber-400 shrink-0">Dismiss</button>
+        </div>
+      ) : null}
     </div>
   );
 
