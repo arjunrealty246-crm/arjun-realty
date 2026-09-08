@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ArrowUpRight } from "lucide-react";
 import siteConfig from "@/config/site";
 import { footerQuickLinks, headerCta } from "@/data/navigation";
+import { trackEvent } from "@/lib/analytics";
 import RequestCallback from "./RequestCallback";
 
 const navLinks = footerQuickLinks.filter(l => l.href !== "/builders");
@@ -132,6 +133,9 @@ export default function Header() {
             <div className="hidden xl:flex items-center gap-5">
               <a
                 href={siteConfig.links.tel}
+                onClick={() =>
+                  trackEvent("call_click", { event_category: "lead_generation", content_label: "Call - Header" })
+                }
                 className="flex items-center gap-2 text-[13px] text-white/40 hover:text-primary transition-colors duration-300 whitespace-nowrap"
               >
                 <Phone className="h-3.5 w-3.5 shrink-0" />
@@ -139,7 +143,10 @@ export default function Header() {
               </a>
               <button
                 type="button"
-                onClick={() => setCallbackOpen(true)}
+                onClick={() => {
+                  trackEvent("cta_click", { event_category: "lead_generation", content_label: "Get Started - Header" });
+                  setCallbackOpen(true);
+                }}
                 className="btn-premium bg-gradient-to-r from-primary to-primary-dark px-6 py-2.5 rounded-full text-[13px] font-semibold text-white shadow-[0_4px_20px_rgba(249,115,22,0.25)] hover:shadow-[0_4px_30px_rgba(249,115,22,0.4)] cursor-pointer"
               >
                 {headerCta.label}
@@ -179,6 +186,9 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation menu"
             className="fixed inset-0 z-[60] xl:hidden"
           >
             {/* Backdrop */}
@@ -220,6 +230,9 @@ export default function Header() {
               >
                 <a
                   href={siteConfig.links.tel}
+                  onClick={() =>
+                    trackEvent("call_click", { event_category: "lead_generation", content_label: "Call - Mobile Menu" })
+                  }
                   className="flex items-center gap-2.5 text-white/35 hover:text-primary transition-colors text-sm"
                 >
                   <Phone className="h-4 w-4" />
@@ -227,7 +240,11 @@ export default function Header() {
                 </a>
                 <button
                   type="button"
-                  onClick={() => { setMobileOpen(false); setCallbackOpen(true); }}
+                  onClick={() => {
+                    trackEvent("cta_click", { event_category: "lead_generation", content_label: "Get Started - Mobile Menu" });
+                    setMobileOpen(false);
+                    setCallbackOpen(true);
+                  }}
                   className="btn-premium bg-gradient-to-r from-primary to-primary-dark px-10 py-3.5 rounded-full text-sm font-semibold text-white shadow-lg shadow-primary/20 cursor-pointer"
                 >
                   {headerCta.label}

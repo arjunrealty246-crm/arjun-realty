@@ -12,6 +12,15 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "res.cloudinary.com" },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/jb-infra",
+        destination: "/builders/jb-infra",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

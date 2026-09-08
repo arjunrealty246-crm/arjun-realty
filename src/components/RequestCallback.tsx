@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Phone, User, MessageSquare, Loader2, CheckCircle } from "lucide-react";
 import siteConfig from "@/config/site";
 import { requestCallback } from "@/data/content";
 import { submitLead } from "@/lib/lead-client";
+import { trackEvent } from "@/lib/analytics";
 
 interface RequestCallbackProps {
   isOpen: boolean;
@@ -15,6 +16,13 @@ interface RequestCallbackProps {
 export default function RequestCallback({ isOpen, onClose }: RequestCallbackProps) {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
   const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleEsc = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", handleEsc);
+    return () => document.removeEventListener("keydown", handleEsc);
+  }, [isOpen, onClose]);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -38,6 +46,7 @@ export default function RequestCallback({ isOpen, onClose }: RequestCallbackProp
       `Phone: ${form.phone}\n` +
       `Message: ${form.message || "N/A"}`
     );
+    trackEvent("enquiry_submit", { event_category: "lead_generation", content_label: "Callback Request" });
 
     setTimeout(() => {
       window.open(`${siteConfig.links.wa}?text=${text}`, "_blank");
@@ -63,8 +72,11 @@ export default function RequestCallback({ isOpen, onClose }: RequestCallbackProp
             exit={{ opacity: 0, y: 30, scale: 0.96 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full max-w-[420px] glass-card-elevated rounded-[1.5rem] p-8"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="callback-heading"
           >
-            <button onClick={onClose} className="absolute top-4 right-4 text-white/30 hover:text-white/60 transition-colors">
+            <button onClick={onClose} aria-label="Close callback form" className="absolute top-4 right-4 text-white/30 hover:text-white/60 transition-colors">
               <X className="h-4 w-4" />
             </button>
 
@@ -81,15 +93,16 @@ export default function RequestCallback({ isOpen, onClose }: RequestCallbackProp
                 <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5">
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-1 tracking-tight">{requestCallback.heading}</h3>
+                <h3 id="callback-heading" className="text-lg font-bold text-white mb-1 tracking-tight">{requestCallback.heading}</h3>
                 <p className="text-sm text-white/30 mb-6">{requestCallback.description}</p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-[11px] text-white/30 font-medium mb-1.5 uppercase tracking-wider">{requestCallback.nameLabel}</label>
+                    <label htmlFor="cb-name" className="block text-[11px] text-white/30 font-medium mb-1.5 uppercase tracking-wider">{requestCallback.nameLabel}</label>
                     <div className="relative">
                       <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/20" />
                       <input
+                        id="cb-name"
                         type="text"
                         name="name"
                         value={form.name}
@@ -101,10 +114,11 @@ export default function RequestCallback({ isOpen, onClose }: RequestCallbackProp
                     </div>
                   </div>
                   <div>
-                    <label className="block text-[11px] text-white/30 font-medium mb-1.5 uppercase tracking-wider">{requestCallback.phoneLabel}</label>
+                    <label htmlFor="cb-phone" className="block text-[11px] text-white/30 font-medium mb-1.5 uppercase tracking-wider">{requestCallback.phoneLabel}</label>
                     <div className="relative">
                       <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/20" />
                       <input
+                        id="cb-phone"
                         type="tel"
                         name="phone"
                         value={form.phone}
@@ -118,10 +132,11 @@ export default function RequestCallback({ isOpen, onClose }: RequestCallbackProp
                     </div>
                   </div>
                   <div>
-                    <label className="block text-[11px] text-white/30 font-medium mb-1.5 uppercase tracking-wider">{requestCallback.messageLabel}</label>
+                    <label htmlFor="cb-message" className="block text-[11px] text-white/30 font-medium mb-1.5 uppercase tracking-wider">{requestCallback.messageLabel}</label>
                     <div className="relative">
                       <MessageSquare className="absolute left-3.5 top-3.5 h-4 w-4 text-white/20" />
                       <textarea
+                        id="cb-message"
                         name="message"
                         value={form.message}
                         onChange={handleChange}

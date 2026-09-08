@@ -31,7 +31,7 @@ export default function FeaturedBuilders() {
             return (
               <ScrollReveal key={builder.id} delay={i * 0.08} className="h-full">
                 <Link
-                  href={builder.slug === "jb-infra" ? "/jb-infra" : `/builders/${builder.slug}`}
+                  href={`/builders/${builder.slug}`}
                   className="block h-full"
                 >
                   <motion.div

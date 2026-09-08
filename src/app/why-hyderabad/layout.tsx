@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     title: seo["why-hyderabad"].title,
     description: seo["why-hyderabad"].description,
     url: siteConfig.url + "/why-hyderabad",
-    type: "website",
+    type: seo["why-hyderabad"].ogType ?? "website",
     siteName: siteConfig.name,
-    images: [{ url: "https://www.arjunrealty.co.in/og-image.png", width: 1200, height: 630, alt: `${siteConfig.name} — Why Hyderabad` }],
+    images: [{ url: seo["why-hyderabad"].ogImage ?? "https://www.arjunrealty.co.in/og-image.png", width: 1200, height: 630, alt: `${siteConfig.name} — Why Hyderabad` }],
   },
   twitter: {
     card: "summary_large_image",

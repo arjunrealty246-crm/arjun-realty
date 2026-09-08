@@ -7,6 +7,7 @@ import SiteVisitModal from "./SiteVisitModal";
 import RequestCallback from "./RequestCallback";
 import siteConfig from "@/config/site";
 import { floatingActions } from "@/data/content";
+import { trackEvent } from "@/lib/analytics";
 
 export default function FloatingActions() {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -78,7 +79,7 @@ export default function FloatingActions() {
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.02 }}
-                onClick={() => { setCallbackOpen(true); setShowMenu(false); }}
+                onClick={() => { trackEvent("cta_click", { event_category: "lead_generation", content_label: "Callback - Floating" }); setCallbackOpen(true); setShowMenu(false); }}
                 className="flex items-center gap-2.5 glass-strong rounded-full pl-5 pr-4 py-2.5 text-[12px] font-medium text-white/70 hover:text-white hover:border-primary/20 transition-all duration-300"
               >
                 <span>{floatingActions.callbackLabel}</span>
@@ -90,7 +91,7 @@ export default function FloatingActions() {
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.05 }}
-                onClick={() => { setSiteVisitOpen(true); setShowMenu(false); }}
+                onClick={() => { trackEvent("site_visit", { event_category: "lead_generation", content_label: "Site Visit - Floating" }); setSiteVisitOpen(true); setShowMenu(false); }}
                 className="flex items-center gap-2.5 glass-strong rounded-full pl-5 pr-4 py-2.5 text-[12px] font-medium text-white/70 hover:text-white hover:border-primary/20 transition-all duration-300"
               >
                 <span>{floatingActions.visitLabel}</span>
@@ -105,6 +106,9 @@ export default function FloatingActions() {
         {/* Call Button */}
         <motion.a
           href={siteConfig.links.tel}
+          onClick={() =>
+            trackEvent("call_click", { event_category: "lead_generation", content_label: "Call - Floating" })
+          }
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           whileHover={{ scale: 1.08 }}
@@ -124,6 +128,7 @@ export default function FloatingActions() {
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 400, damping: 17, delay: 0.08 }}
           onClick={() => setShowMenu((p) => !p)}
+          aria-expanded={showMenu}
           className={`flex h-11 w-11 items-center justify-center rounded-full border shadow-lg shadow-black/30 transition-all duration-300 ${
             showMenu
               ? "bg-primary border-primary/30 text-white shadow-primary/20"
@@ -139,6 +144,9 @@ export default function FloatingActions() {
           href={siteConfig.links.wa}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() =>
+            trackEvent("cta_click", { event_category: "lead_generation", content_label: "WhatsApp - Floating" })
+          }
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           whileHover={{ scale: 1.08 }}

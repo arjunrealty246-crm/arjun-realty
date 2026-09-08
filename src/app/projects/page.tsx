@@ -11,6 +11,7 @@ import Link from "next/link";
 import { projects as allProjects, type Project } from "@/data/projects";
 import { getBuilderById } from "@/data/builders";
 import { getProjectGradient } from "@/lib/assets";
+import { getProjectHref } from "@/lib/project-links";
 import { useDbProjectImages } from "@/hooks/useDbProjectImages";
 import siteConfig from "@/config/site";
 
@@ -44,7 +45,7 @@ export default function ProjectsPage() {
               "@type": "ListItem",
               position: index + 1,
               name: project.name,
-              url: `${siteConfig.url}/projects/${project.slug}`,
+              url: `${siteConfig.url}${getProjectHref(project.slug)}`,
               description: project.description?.slice(0, 160) || `${project.name} premium real estate project in ${project.location}`,
             })),
           }),
@@ -56,7 +57,7 @@ export default function ProjectsPage() {
           <ScrollReveal className="max-w-3xl">
             <SectionLabel>Our Projects</SectionLabel>
             <h1 className="mt-6 text-[clamp(2rem,5vw,4rem)] font-bold tracking-[-0.03em] leading-[1.05]">
-              Premium <span className="text-gradient">Investment</span> Opportunities
+              HMDA &amp; DTCP <span className="text-gradient">Approved Plots</span> in Hyderabad
             </h1>
             <p className="mt-6 text-white/40 text-base sm:text-lg leading-relaxed max-w-xl">
               Every project we offer has been meticulously vetted for legal
@@ -79,7 +80,7 @@ export default function ProjectsPage() {
                 const builder = getBuilderById(p.builder);
                 return (
                   <ScrollReveal key={p.slug} delay={i * 0.06}>
-                    <Link href={`/projects/${p.slug}`}>
+                    <Link href={getProjectHref(p.slug)}>
                       <motion.div whileHover={{ y: -8 }} className="glass-card rounded-[1.25rem] overflow-hidden group cursor-pointer h-full flex flex-col">
                         <div className="relative h-56 overflow-hidden">
                           {getImage(p) ? (

@@ -7,11 +7,33 @@ import { Cpu, Building2, Pill, Plane, Train, Route, TrendingUp, ArrowRight } fro
 import Link from "next/link";
 import siteConfig from "@/config/site";
 
+// Minimal inline-link renderer. Only an explicit `[text](/internal-path)` token
+// becomes a link; all other text renders as plain content unchanged.
+const INLINE_LINK = /\[([^\]]+)\]\(\/([^)]*)\)/;
+
+function renderInlineLinks(text: string) {
+  const match = text.match(INLINE_LINK);
+  if (!match) return text;
+  const [full, label, path] = match;
+  return (
+    <>
+      {text.slice(0, text.indexOf(full))}
+      <Link
+        href={`/${path}`}
+        className="text-primary font-medium underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-colors"
+      >
+        {label}
+      </Link>
+      {text.slice(text.indexOf(full) + full.length)}
+    </>
+  );
+}
+
 const milestones = [
-  { year: "2024", title: "Future City", desc: "World's largest planned smart city spanning 20,000 acres with state-of-the-art infrastructure, green energy corridors, and a vision to become Asia's most livable urban center.", icon: Building2, highlight: true, stat: "20,000 Acres" },
-  { year: "2025", title: "AI City", desc: "India's first dedicated AI innovation hub, attracting global tech giants with state incentives. Expected to generate 50,000+ high-value jobs and transform Hyderabad into a global tech powerhouse.", icon: Cpu, highlight: true, stat: "50K+ Jobs" },
+  { year: "2024", title: "Future City", desc: "World's largest planned smart city spanning 20,000 acres with state-of-the-art infrastructure, green energy corridors, and a vision to become Asia's most livable urban center. Explore [Srisailam Highway & Future City plots](/srisailam-highway-future-city) in the same corridor.", icon: Building2, highlight: true, stat: "20,000 Acres" },
+  { year: "2025", title: "AI City", desc: "India's first dedicated AI innovation hub, attracting global tech giants with state incentives. Expected to generate 50,000+ high-value jobs and transform Hyderabad into a global tech powerhouse. See our [AI City & Srisailam Belt analysis](/insights/foxconn-ai-city-and-the-srisailam-belt).", icon: Cpu, highlight: true, stat: "50K+ Jobs" },
   { year: "2025", title: "Pharma City", desc: "The world's largest pharmaceutical manufacturing cluster, spanning 19,000 acres. Already attracting $3B+ in investments and creating 200,000+ direct and indirect jobs.", icon: Pill, highlight: false, stat: "$3B+ Investment" },
-  { year: "2026", title: "Airport Expansion", desc: "New integrated terminal at Rajiv Gandhi International Airport with capacity for 40 million passengers annually, making Hyderabad a major global transit hub.", icon: Plane, highlight: true, stat: "40M Passengers/Year" },
+  { year: "2026", title: "Airport Expansion", desc: "New integrated terminal at Rajiv Gandhi International Airport with capacity for 40 million passengers annually, making Hyderabad a major global transit hub. Understand how [airport-proximate land values](/insights/future-city-growth-corridor-whats-driving-land-values) respond.", icon: Plane, highlight: true, stat: "40M Passengers/Year" },
   { year: "2027", title: "Metro Phase III", desc: "Expanding the metro network to 300+ km, connecting every major IT corridor, residential hub, and commercial district across the metropolitan region.", icon: Train, highlight: false, stat: "300+ Km Network" },
   { year: "2028", title: "Regional Ring Road", desc: "340 km outer ring road connecting satellite towns, unlocking massive real estate appreciation across emerging corridors and growth zones.", icon: Route, highlight: false, stat: "340 Km Ring Road" },
 ];
@@ -45,7 +67,7 @@ export default function WhyHyderabadPage() {
           <ScrollReveal className="max-w-3xl">
             <SectionLabel>Why Hyderabad</SectionLabel>
             <h1 className="mt-6 text-[clamp(2rem,5vw,4rem)] font-bold tracking-[-0.03em] leading-[1.05]">
-              India&apos;s <span className="text-gradient">Fastest-Growing</span> Investment Destination
+              Why Invest in <span className="text-gradient">Hyderabad Real Estate</span>
             </h1>
             <p className="mt-6 text-white/40 text-base sm:text-lg leading-relaxed max-w-xl">
               Hyderabad is in the middle of the most transformative infrastructure
@@ -97,7 +119,7 @@ export default function WhyHyderabadPage() {
                         {m.highlight && <span className="px-2 py-0.5 rounded-full bg-primary/10 text-[9px] font-bold text-primary uppercase tracking-wider">Key Driver</span>}
                       </div>
                       <h3 className="text-lg font-bold text-white tracking-tight mb-2">{m.title}</h3>
-                      <p className="text-[13px] text-white/35 leading-relaxed mb-3">{m.desc}</p>
+                      <p className="text-[13px] text-white/35 leading-relaxed mb-3">{renderInlineLinks(m.desc)}</p>
                       <div className="inline-flex items-center gap-2 text-[11px] font-semibold text-primary/60">
                         <TrendingUp className="h-3 w-3" /> {m.stat}
                       </div>
@@ -119,6 +141,11 @@ export default function WhyHyderabadPage() {
             <Link href="/contact" className="btn-premium inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-8 py-4 rounded-full text-[13px] font-semibold text-white shadow-[0_8px_32px_rgba(249,115,22,0.2)]">
               Schedule a Consultation <ArrowRight className="h-4 w-4" />
             </Link>
+            <div className="mt-6">
+              <Link href="/projects" className="inline-flex items-center gap-2 text-[13px] text-white/30 hover:text-primary transition-colors duration-300 font-medium">
+                Explore our approved plotted projects <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
           </ScrollReveal>
         </div>
       </section>

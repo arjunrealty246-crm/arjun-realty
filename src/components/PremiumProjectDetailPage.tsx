@@ -34,6 +34,8 @@ import {
   Mail,
   FileText,
   Navigation,
+  CalendarDays,
+  Clock3,
 } from "lucide-react";
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
@@ -52,9 +54,12 @@ import ProjectFactsSection from "./showcase/ProjectFactsSection";
 import FinalCTASection from "./showcase/FinalCTASection";
 import StickyCTABar from "./showcase/StickyCTABar";
 import type { Project } from "@/data/projects";
+import type { Insight } from "@/data/insights";
 import { getBuilderById } from "@/data/builders";
 import siteConfig from "@/config/site";
 import { submitLead } from "@/lib/lead-client";
+import { trackEvent } from "@/lib/analytics";
+import { getProjectHref } from "@/lib/project-links";
 
 const budgetLabels: Record<string, string> = {
   "under-50": "Under ₹50 Lakh",
@@ -73,6 +78,11 @@ const toEmbedUrl = (src: string): string | null => {
   if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}`;
   if (/^https?:\/\//.test(s) && /player\.vimeo\.com|youtube\.com\/embed/.test(s)) return s;
   return null;
+};
+
+const getLocationShortName = (location?: string): string => {
+  const first = (location ?? "").split(",")[0].trim();
+  return first.replace(/^(Near |Close to )/, "").trim();
 };
 
 const amenityIconMap: Record<string, React.ReactNode> = {
@@ -108,10 +118,12 @@ function getAmenityIcon(name: string): React.ReactNode {
 export default function PremiumProjectDetailPage({
   project,
   relatedProjects,
+  relatedInsights = [],
   testimonials = [],
 }: {
   project: Project;
   relatedProjects: Project[];
+  relatedInsights?: Insight[];
   testimonials?: { name: string; role?: string; location?: string; text: string; rating?: number; image?: string }[];
 }) {
   const [siteVisitOpen, setSiteVisitOpen] = useState(false);
@@ -141,6 +153,8 @@ export default function PremiumProjectDetailPage({
     .map((s) => s.trim())
     .filter(Boolean);
 
+  const hasNumericPlotSizes = plotSizeArray.some((s) => !isNaN(parseInt(s)));
+
   const getDirectionsUrl = (mapsUrl: string, location: string): string => {
     const m = mapsUrl.match(/[?&]q=([^&]+)/);
     const query = m ? decodeURIComponent(m[1]) : location;
@@ -168,6 +182,7 @@ export default function PremiumProjectDetailPage({
       `Name: ${formData.name}\n` +
       `Phone: ${formData.phone}${formData.email ? `\nEmail: ${formData.email}` : ""}${formData.budget ? `\nBudget: ${formData.budget}` : ""}${formData.message ? `\nMessage: ${formData.message}` : ""}`
     );
+    trackEvent("enquiry_submit", { event_category: "lead_generation", content_label: `Project Enquiry - ${project.name}` });
     window.open(`${siteConfig.links.wa}?text=${msg}`, "_blank");
     setFormSubmitting(false);
     setFormSubmitted(true);
@@ -289,19 +304,28 @@ export default function PremiumProjectDetailPage({
                   href={waLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackEvent("cta_click", { event_category: "lead_generation", content_label: `WhatsApp - ${project.name}` })
+                  }
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white/[0.06] border border-white/[0.12] text-[13px] font-semibold text-white/80 hover:bg-white/[0.1] hover:border-primary/20 hover:text-primary transition-all duration-300"
                 >
                   <MessageCircle className="h-4 w-4" /> Enquire Now
                 </a>
                 <a
                   href={siteConfig.links.tel}
+                  onClick={() =>
+                    trackEvent("call_click", { event_category: "lead_generation", content_label: `Call - ${project.name}` })
+                  }
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white/[0.06] border border-white/[0.12] text-[13px] font-semibold text-white/80 hover:bg-white/[0.1] hover:border-primary/20 hover:text-primary transition-all duration-300"
                 >
                   <Phone className="h-4 w-4" /> Call Now
                 </a>
                 <BrochureDownload project={project} variant="button" />
                 <button
-                  onClick={() => setSiteVisitOpen(true)}
+                  onClick={() => {
+                    trackEvent("site_visit", { event_category: "lead_generation", content_label: `Site Visit - ${project.name}` });
+                    setSiteVisitOpen(true);
+                  }}
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white/[0.06] border border-white/[0.12] text-[13px] font-semibold text-white/80 hover:bg-white/[0.1] hover:border-primary/20 hover:text-primary transition-all duration-300"
                 >
                   <CalendarCheck className="h-4 w-4" /> Book Site Visit
@@ -422,7 +446,7 @@ export default function PremiumProjectDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Overview — 3 cols */}
             <ScrollReveal className="lg:col-span-3">
-              <SectionLabel>Project Overview</SectionLabel>
+              <SectionLabel as="h2">Project Overview</SectionLabel>
               <div className="mt-6">
                 <p className="text-white/45 text-[0.95rem] leading-[1.85] mb-6">
                   {project.description || `${project.name} is a ${project.projectType.toLowerCase()} located at ${project.location}. With ${project.approval} approvals and a focus on premium infrastructure, this project offers an exceptional opportunity for both investment and future home construction.`}
@@ -485,12 +509,18 @@ export default function PremiumProjectDetailPage({
                   href={waLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackEvent("cta_click", { event_category: "lead_generation", content_label: `WhatsApp - Sidebar - ${project.name}` })
+                  }
                   className="btn-premium flex items-center justify-center gap-2.5 w-full bg-gradient-to-r from-primary to-primary-dark py-3.5 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
                 >
                   <MessageCircle className="h-4 w-4" /> Enquire Now
                 </a>
                 <a
                   href={siteConfig.links.tel}
+                  onClick={() =>
+                    trackEvent("call_click", { event_category: "lead_generation", content_label: `Call - Sidebar - ${project.name}` })
+                  }
                   className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[13px] font-semibold text-white/60 hover:bg-white/[0.07] hover:border-primary/15 hover:text-primary transition-all duration-300"
                 >
                   <Phone className="h-4 w-4" /> {siteConfig.contact.phone}
@@ -519,14 +549,18 @@ export default function PremiumProjectDetailPage({
       <section className="pb-16 lg:pb-20">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel>Pricing &amp; Plot Details</SectionLabel>
+            <SectionLabel as="h2">Pricing &amp; Plot Details</SectionLabel>
             <div className="mt-6 glass-card-elevated rounded-2xl overflow-hidden">
               {/* Header */}
               <div className="px-6 py-5 border-b border-white/[0.04] flex flex-wrap items-center justify-between gap-4">
                 <div>
-                  <h3 className="text-lg font-bold text-white">Available Plot Sizes</h3>
+                  <h3 className="text-lg font-bold text-white">
+                    {hasNumericPlotSizes ? "Available Plot Sizes" : "Plot Sizes"}
+                  </h3>
                   <p className="text-xs text-white/30 mt-0.5">
-                    All plots come with clear title and bank loan facility
+                    {hasNumericPlotSizes
+                      ? "All plots come with clear title and bank loan facility"
+                      : "Pricing and exact plot dimensions will be shared upon registration"}
                   </p>
                 </div>
                 <div className="px-4 py-2 rounded-xl glass">
@@ -536,88 +570,108 @@ export default function PremiumProjectDetailPage({
                 </div>
               </div>
 
-              {/* Table */}
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-white/[0.04]">
-                      <th className="px-6 py-3.5 text-left text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold">
-                        Plot Size
-                      </th>
-                      <th className="px-6 py-3.5 text-left text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold hidden sm:table-cell">
-                        Type
-                      </th>
-                      <th className="px-6 py-3.5 text-left text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold hidden md:table-cell">
-                        Approval
-                      </th>
-                      <th className="px-6 py-3.5 text-right text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold">
-                        Status
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {plotSizeArray.map((size, i) => (
-                      <tr
-                        key={size}
-                        className="border-b border-white/[0.02] hover:bg-white/[0.01] transition-colors duration-200"
-                      >
-                        <td className="px-6 py-4">
-                          <div className="flex items-center gap-3">
-                            <div className="h-8 w-8 rounded-lg bg-primary/[0.06] flex items-center justify-center">
-                              <Ruler className="h-3.5 w-3.5 text-primary/50" />
-                            </div>
-                            <span className="text-sm font-semibold text-white/75">
-                              {size}
-                            </span>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 hidden sm:table-cell">
-                          <span className="text-xs text-white/40">
-                            {parseInt(size) <= 200
-                              ? "Standard"
-                              : parseInt(size) <= 400
-                              ? "Premium"
-                              : "Luxury"}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 hidden md:table-cell">
-                          <span className="inline-flex items-center gap-1 text-[10px] text-emerald-400/70 font-medium">
-                            <CheckCircle className="h-3 w-3" /> {project.approval.split("·")[0].trim()}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 text-right">
-                          <span
-                            className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-semibold ${
-                              project.isUpcoming
-                                ? "bg-amber-500/10 text-amber-400"
-                                : "bg-emerald-500/10 text-emerald-400"
-                            }`}
-                          >
-                            <span
-                              className={`h-1.5 w-1.5 rounded-full ${
-                                project.isUpcoming ? "bg-amber-400" : "bg-emerald-400"
-                              }`}
-                            />
-                            {project.isUpcoming ? "Coming Soon" : "Available"}
-                          </span>
-                        </td>
+              {hasNumericPlotSizes ? (
+                /* Table — numeric plot sizes */
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b border-white/[0.04]">
+                        <th className="px-6 py-3.5 text-left text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold">
+                          Plot Size
+                        </th>
+                        <th className="px-6 py-3.5 text-left text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold hidden sm:table-cell">
+                          Type
+                        </th>
+                        <th className="px-6 py-3.5 text-left text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold hidden md:table-cell">
+                          Approval
+                        </th>
+                        <th className="px-6 py-3.5 text-right text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold">
+                          Status
+                        </th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+                    <tbody>
+                      {plotSizeArray.map((size) => (
+                        <tr
+                          key={size}
+                          className="border-b border-white/[0.02] hover:bg-white/[0.01] transition-colors duration-200"
+                        >
+                          <td className="px-6 py-4">
+                            <div className="flex items-center gap-3">
+                              <div className="h-8 w-8 rounded-lg bg-primary/[0.06] flex items-center justify-center">
+                                <Ruler className="h-3.5 w-3.5 text-primary/50" />
+                              </div>
+                              <span className="text-sm font-semibold text-white/75">
+                                {size}
+                              </span>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 hidden sm:table-cell">
+                            <span className="text-xs text-white/40">
+                              {parseInt(size) <= 200
+                                ? "Standard"
+                                : parseInt(size) <= 400
+                                ? "Premium"
+                                : "Luxury"}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 hidden md:table-cell">
+                            <span className="inline-flex items-center gap-1 text-[10px] text-emerald-400/70 font-medium">
+                              <CheckCircle className="h-3 w-3" /> {project.approval.split("·")[0].trim()}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 text-right">
+                            <span
+                              className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-semibold ${
+                                project.isUpcoming
+                                  ? "bg-amber-500/10 text-amber-400"
+                                  : "bg-emerald-500/10 text-emerald-400"
+                              }`}
+                            >
+                              <span
+                                className={`h-1.5 w-1.5 rounded-full ${
+                                  project.isUpcoming ? "bg-amber-400" : "bg-emerald-400"
+                                }`}
+                              />
+                              {project.isUpcoming ? "Coming Soon" : "Available"}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                /* Placeholder — non-numeric plot sizes */
+                <div className="px-6 py-10 flex flex-col items-center text-center">
+                  <div className="h-14 w-14 rounded-2xl bg-primary/[0.06] flex items-center justify-center mb-4">
+                    <Ruler className="h-6 w-6 text-primary/40" />
+                  </div>
+                  <p className="text-sm font-semibold text-white/60 mb-1">
+                    {project.plotSizes}
+                  </p>
+                  <p className="text-xs text-white/30 max-w-sm">
+                    Exact dimensions and pricing will be shared upon registration.
+                    Register now to receive priority updates.
+                  </p>
+                </div>
+              )}
 
               {/* Footer note */}
-              <div className="px-6 py-4 border-t border-white/[0.04] flex flex-wrap items-center gap-4">
-                <div className="flex items-center gap-2 text-xs text-white/25">
-                  <Shield className="h-3.5 w-3.5 text-emerald-400/50" />
-                  Bank loan pre-approval available
+              {hasNumericPlotSizes && (
+                <div className="px-6 py-4 border-t border-white/[0.04] flex flex-wrap items-center gap-4">
+                  {project.bankLoanAvailable !== false && (
+                    <div className="flex items-center gap-2 text-xs text-white/25">
+                      <Shield className="h-3.5 w-3.5 text-emerald-400/50" />
+                      Bank loan pre-approval available
+                    </div>
+                  )}
+                  <div className="flex items-center gap-2 text-xs text-white/25">
+                    <CheckCircle className="h-3.5 w-3.5 text-emerald-400/50" />
+                    Registration assistance included
+                  </div>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-white/25">
-                  <CheckCircle className="h-3.5 w-3.5 text-emerald-400/50" />
-                  Registration assistance included
-                </div>
-              </div>
+              )}
             </div>
           </ScrollReveal>
         </div>
@@ -629,7 +683,7 @@ export default function PremiumProjectDetailPage({
       <section className="pb-16 lg:pb-20">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel>Premium Amenities</SectionLabel>
+            <SectionLabel as="h2">Premium Amenities</SectionLabel>
             <p className="mt-3 text-white/30 text-sm max-w-xl">
               {project.amenities.length} world-class amenities designed for a premium
               lifestyle
@@ -702,6 +756,7 @@ export default function PremiumProjectDetailPage({
                           className="absolute inset-0 h-full w-full"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
+                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -723,7 +778,7 @@ export default function PremiumProjectDetailPage({
       <section className="pb-16 lg:pb-20">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel>Location &amp; Map</SectionLabel>
+            <SectionLabel as="h2">Location &amp; Map</SectionLabel>
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Map — 2 cols */}
               <div className="lg:col-span-2 glass-card-elevated rounded-2xl overflow-hidden">
@@ -776,30 +831,101 @@ export default function PremiumProjectDetailPage({
               </div>
 
               {/* Location advantages — 1 col */}
-              {project.locationAdvantages.length > 0 && (
-                <div className="glass-card-elevated rounded-2xl p-6">
-                  <h3 className="text-base font-bold text-white mb-4">
-                    Location Advantages
-                  </h3>
-                  <div className="space-y-3">
-                    {project.locationAdvantages.map((la) => (
-                      <div
-                        key={la}
-                        className="flex items-start gap-3 group"
-                      >
-                        <div className="h-6 w-6 rounded-full bg-primary/[0.08] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary/[0.15] transition-colors duration-300">
-                          <MapPin className="h-3 w-3 text-primary/60" />
+              <div className="space-y-6">
+                {project.locationAdvantages.length > 0 && (
+                  <div className="glass-card-elevated rounded-2xl p-6">
+                    <h3 className="text-base font-bold text-white mb-4">
+                      Location Advantages
+                    </h3>
+                    <div className="space-y-3">
+                      {project.locationAdvantages.map((la) => (
+                        <div
+                          key={la}
+                          className="flex items-start gap-3 group"
+                        >
+                          <div className="h-6 w-6 rounded-full bg-primary/[0.08] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary/[0.15] transition-colors duration-300">
+                            <MapPin className="h-3 w-3 text-primary/60" />
+                          </div>
+                          <span className="text-sm text-white/45 leading-relaxed">{la}</span>
                         </div>
-                        <span className="text-sm text-white/45 leading-relaxed">{la}</span>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+
+                {project.connectivity && project.connectivity.length > 0 && (
+                  <div className="glass-card-elevated rounded-2xl p-6">
+                    <h3 className="text-base font-bold text-white mb-4">
+                      Connectivity &amp; Access
+                    </h3>
+                    <div className="space-y-3">
+                      {project.connectivity.map((c) => (
+                        <div
+                          key={c}
+                          className="flex items-start gap-3 group"
+                        >
+                          <div className="h-6 w-6 rounded-full bg-emerald-500/[0.08] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-500/[0.15] transition-colors duration-300">
+                            <Navigation className="h-3 w-3 text-emerald-400/60" />
+                          </div>
+                          <span className="text-sm text-white/45 leading-relaxed">{c}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {project.nearbyLandmarks && project.nearbyLandmarks.length > 0 && (
+                  <div className="glass-card-elevated rounded-2xl p-6">
+                    <h3 className="text-base font-bold text-white mb-4">
+                      Nearby Landmarks
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {project.nearbyLandmarks.map((lm) => (
+                        <span
+                          key={lm}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-card text-xs text-white/55 font-medium"
+                        >
+                          <MapPin className="h-3 w-3 text-primary/50 shrink-0" />
+                          {lm}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ════════════════════════════════════════════
+          SECTION 7B — LOCATION NOTES
+      ════════════════════════════════════════════ */}
+      {project.locationOverview && project.locationOverview.length > 0 && (
+        <section className="pb-16 lg:pb-20">
+          <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+            <ScrollReveal>
+              <SectionLabel>{project.locationOverviewLabel ?? "Location in South Hyderabad"}</SectionLabel>
+              <h2 className="mt-5 text-2xl font-bold tracking-tight mb-5">
+                {project.locationOverviewHeading ? (
+                  project.locationOverviewHeading
+                ) : (
+                  <>
+                    Why Consider <span className="text-gradient">{getLocationShortName(project.location)}</span> for Real Estate
+                  </>
+                )}
+              </h2>
+              <div className="space-y-4 max-w-3xl">
+                {project.locationOverview.map((p, i) => (
+                  <p key={i} className="text-white/45 text-[0.95rem] leading-relaxed">
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* ════════════════════════════════════════════
           SECTION 8 — WHY INVEST
@@ -808,7 +934,7 @@ export default function PremiumProjectDetailPage({
         <section className="pb-16 lg:pb-20">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
             <ScrollReveal>
-              <SectionLabel>Why Invest in {project.name}?</SectionLabel>
+              <SectionLabel as="h2">Why Invest in {project.name}?</SectionLabel>
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {project.whyInvest.map((wi, i) => (
                   <div
@@ -905,12 +1031,13 @@ export default function PremiumProjectDetailPage({
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
+                          <label htmlFor="pd-name" className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
                             Full Name *
                           </label>
                           <div className="relative">
                             <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/15" />
                             <input
+                              id="pd-name"
                               type="text"
                               required
                               value={formData.name}
@@ -923,12 +1050,13 @@ export default function PremiumProjectDetailPage({
                           </div>
                         </div>
                         <div>
-                          <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
+                          <label htmlFor="pd-phone" className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
                             Phone Number *
                           </label>
                           <div className="relative">
                             <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/15" />
                             <input
+                              id="pd-phone"
                               type="tel"
                               required
                               value={formData.phone}
@@ -946,12 +1074,13 @@ export default function PremiumProjectDetailPage({
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
+                          <label htmlFor="pd-email" className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
                             Email Address
                           </label>
                           <div className="relative">
                             <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/15" />
                             <input
+                              id="pd-email"
                               type="email"
                               value={formData.email}
                               onChange={(e) =>
@@ -963,10 +1092,11 @@ export default function PremiumProjectDetailPage({
                           </div>
                         </div>
                         <div>
-                          <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
+                          <label htmlFor="pd-budget" className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
                             Preferred Budget
                           </label>
                           <select
+                            id="pd-budget"
                             value={formData.budget}
                             onChange={(e) =>
                               setFormData({ ...formData, budget: e.target.value })
@@ -996,12 +1126,13 @@ export default function PremiumProjectDetailPage({
                       </div>
 
                       <div>
-                        <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
+                        <label htmlFor="pd-message" className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
                           Message
                         </label>
                         <div className="relative">
                           <FileText className="absolute left-3.5 top-3.5 h-4 w-4 text-white/15" />
                           <textarea
+                            id="pd-message"
                             rows={3}
                             value={formData.message}
                             onChange={(e) =>
@@ -1032,6 +1163,9 @@ export default function PremiumProjectDetailPage({
                       href={waLink}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() =>
+                        trackEvent("cta_click", { event_category: "lead_generation", content_label: `WhatsApp - Quick Contact - ${project.name}` })
+                      }
                       className="flex items-center gap-4 glass-card rounded-xl p-5 group hover:border-[#25D366]/20 transition-all duration-300"
                     >
                       <div className="h-12 w-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center shrink-0">
@@ -1048,6 +1182,9 @@ export default function PremiumProjectDetailPage({
 
                     <a
                       href={siteConfig.links.tel}
+                      onClick={() =>
+                        trackEvent("call_click", { event_category: "lead_generation", content_label: `Call - Quick Contact - ${project.name}` })
+                      }
                       className="flex items-center gap-4 glass-card rounded-xl p-5 group hover:border-primary/20 transition-all duration-300"
                     >
                       <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
@@ -1065,7 +1202,10 @@ export default function PremiumProjectDetailPage({
                     <BrochureDownload project={project} variant="card" />
 
                     <button
-                      onClick={() => setSiteVisitOpen(true)}
+                      onClick={() => {
+                        trackEvent("site_visit", { event_category: "lead_generation", content_label: `Site Visit - Quick Contact - ${project.name}` });
+                        setSiteVisitOpen(true);
+                      }}
                       className="flex items-center gap-4 glass-card rounded-xl p-5 group hover:border-primary/20 transition-all duration-300 w-full"
                     >
                       <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
@@ -1106,6 +1246,8 @@ export default function PremiumProjectDetailPage({
                   >
                     <button
                       onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
+                      aria-expanded={expandedFaq === i}
+                      aria-controls={`pd-faq-panel-${i}`}
                       className="flex items-center justify-between w-full px-6 py-5 text-left"
                     >
                       <span className="text-sm font-semibold text-white/70 group-hover:text-white/90 transition-colors duration-300 pr-4">
@@ -1120,6 +1262,8 @@ export default function PremiumProjectDetailPage({
                     <AnimatePresence>
                       {expandedFaq === i && (
                         <motion.div
+                          id={`pd-faq-panel-${i}`}
+                          role="region"
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -1155,7 +1299,7 @@ export default function PremiumProjectDetailPage({
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedProjects.map((rp) => (
-                  <Link key={rp.slug} href={`/projects/${rp.slug}`}>
+                  <Link key={rp.slug} href={getProjectHref(rp.slug)}>
                     <motion.div
                       whileHover={{ y: -8 }}
                       className="glass-card rounded-2xl overflow-hidden group cursor-pointer h-full flex flex-col"
@@ -1185,6 +1329,44 @@ export default function PremiumProjectDetailPage({
                           </span>
                         </div>
                       </div>
+                    </motion.div>
+                  </Link>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
+      {/* ════════════════════════════════════════════
+          SECTION 11 — RELATED INSIGHTS
+      ════════════════════════════════════════════ */}
+      {relatedInsights.length > 0 && (
+        <section className="pb-16 lg:pb-24">
+          <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+            <ScrollReveal>
+              <SectionLabel>Market Intelligence</SectionLabel>
+              <h2 className="mt-5 text-2xl font-bold tracking-tight mb-8">
+                Related <span className="text-gradient">Insights</span>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {relatedInsights.map((insight) => (
+                  <Link key={insight.slug} href={`/insights/${insight.slug}`} className="block h-full">
+                    <motion.div
+                      whileHover={{ y: -8 }}
+                      className="glass-card rounded-2xl p-6 flex flex-col h-full group relative overflow-hidden"
+                    >
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-primary mb-3">
+                        <CalendarDays className="h-3 w-3" /> {insight.category}
+                      </span>
+                      <h3 className="text-[15px] font-bold text-white tracking-tight leading-snug mb-2.5 group-hover:text-primary transition-colors duration-500">
+                        {insight.title}
+                      </h3>
+                      <p className="text-[12px] text-white/35 leading-relaxed mb-4 line-clamp-2">{insight.excerpt}</p>
+                      <span className="mt-auto inline-flex items-center gap-2 text-[12px] font-semibold text-primary">
+                        Read Insight <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                      </span>
                     </motion.div>
                   </Link>
                 ))}

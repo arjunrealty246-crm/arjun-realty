@@ -5,13 +5,36 @@ import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import ContactSection from "@/components/ContactSection";
 import { Globe, Shield, TrendingUp, CheckCircle2, FileText, Phone, ArrowRight, Building, Banknote } from "lucide-react";
+import Link from "next/link";
 import siteConfig from "@/config/site";
+
+const INLINE_LINK = /\[([^\]]+)\]\(\/([^)]*)\)/g;
+
+function renderInlineLinks(text: string) {
+  const tokens = [...text.matchAll(INLINE_LINK)];
+  if (tokens.length === 0) return text;
+  const nodes: React.ReactNode[] = [];
+  let cursor = 0;
+  for (const match of tokens) {
+    if (match.index !== undefined && match.index > cursor) nodes.push(text.slice(cursor, match.index));
+    const label = match[1];
+    const path = match[2] as string;
+    nodes.push(
+      <Link key={match.index} href={`/${path}`} className="text-primary font-medium underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-colors">
+        {label}
+      </Link>
+    );
+    if (match.index !== undefined) cursor = match.index + match[0].length;
+  }
+  nodes.push(text.slice(cursor));
+  return <>{nodes}</>;
+}
 
 const steps = [
   { num: "01", title: "Free Consultation", desc: "Connect with our NRI desk via video call. We understand your goals, risk appetite, and investment timeline.", icon: Phone },
-  { num: "02", title: "Curated Shortlist", desc: "Receive a personalized portfolio of vetted projects matched to your budget and objectives.", icon: Building },
+  { num: "02", title: "Curated Shortlist", desc: "Receive a personalized portfolio of [vetted projects](/projects) across high-growth corridors like the [ORR ring](/orr), matched to your budget and objectives.", icon: Building },
   { num: "03", title: "Virtual Tour", desc: "Immersive site visits via high-res video tours, drone footage, and detailed project documentation.", icon: Globe },
-  { num: "04", title: "Legal Verification", desc: "Independent title search, encumbrance certificate, and government approval verification.", icon: FileText },
+  { num: "04", title: "Legal Verification", desc: "Independent title search, encumbrance certificate, and government approval verification. Compare [DTCP vs HMDA vs FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose).", icon: FileText },
   { num: "05", title: "Secure Transaction", desc: "RBI & FEMA compliant payment routing. NRE/NRO account support. Complete documentation.", icon: Banknote },
   { num: "06", title: "Registration & Beyond", desc: "End-to-end registration handled remotely. Quarterly updates on your investment's performance.", icon: TrendingUp },
 ];
@@ -63,7 +86,7 @@ export default function NRIInvestmentPage() {
           <ScrollReveal className="max-w-3xl">
             <SectionLabel>NRI Investment</SectionLabel>
             <h1 className="mt-6 text-[clamp(2rem,5vw,4rem)] font-bold tracking-[-0.03em] leading-[1.05]">
-              Invest in India&apos;s <span className="text-gradient">Future</span>, From Anywhere
+              NRI <span className="text-gradient">Property Investment</span> in Hyderabad
             </h1>
             <p className="mt-6 text-white/40 text-base sm:text-lg leading-relaxed max-w-xl">
               Purpose-built investment solutions for Non-Resident Indians.
@@ -80,7 +103,7 @@ export default function NRIInvestmentPage() {
             {[
               { icon: Globe, title: "Global Access", desc: "Invest from 10+ countries. Virtual tours, remote documentation, doorstep delivery." },
               { icon: Shield, title: "Legal Protection", desc: "FEMA & RBI compliance. Independent legal vetting. Title insurance available." },
-              { icon: TrendingUp, title: "Superior Returns", desc: "15–25% annual appreciation. Consistently outperforming other Indian metros." },
+              { icon: TrendingUp, title: "Superior Returns", desc: "15–25% annual appreciation. Consistently outperforming other Indian metros. See where prices are moving in the [Q3 2026 market update](/insights/hyderabad-real-estate-market-update-q3-2026)." },
             ].map((b, i) => (
               <ScrollReveal key={b.title} delay={i * 0.08}>
                 <motion.div whileHover={{ y: -4 }} className="glass-card rounded-2xl p-7 text-center group h-full">
@@ -88,7 +111,7 @@ export default function NRIInvestmentPage() {
                     <b.icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2 tracking-tight">{b.title}</h3>
-                  <p className="text-[13px] text-white/35 leading-relaxed">{b.desc}</p>
+                  <p className="text-[13px] text-white/35 leading-relaxed">{renderInlineLinks(b.desc)}</p>
                 </motion.div>
               </ScrollReveal>
             ))}
@@ -114,7 +137,7 @@ export default function NRIInvestmentPage() {
                     <s.icon className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 tracking-tight">{s.title}</h3>
-                  <p className="text-[13px] text-white/35 leading-relaxed">{s.desc}</p>
+                  <p className="text-[13px] text-white/35 leading-relaxed">{renderInlineLinks(s.desc)}</p>
                 </motion.div>
               </ScrollReveal>
             ))}

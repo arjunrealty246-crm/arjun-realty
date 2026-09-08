@@ -34,6 +34,28 @@ export default async function InsightsPage({ searchParams }: { searchParams: Pro
     <>
       <PageBreadcrumbs items={[{ name: "Insights & Market Updates", url: "/insights" }]} />
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Hyderabad Real Estate Insights & Market Updates",
+            url: `${siteConfig.url}/insights`,
+            mainEntity: {
+              "@type": "ItemList",
+              itemListElement: filtered.map((article, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                name: article.title,
+                url: `${siteConfig.url}/insights/${article.slug}`,
+                description: article.excerpt,
+              })),
+            },
+          }),
+        }}
+      />
+
       {/* Hero */}
       <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
         <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.05] -right-48 -top-48" />
@@ -41,7 +63,7 @@ export default async function InsightsPage({ searchParams }: { searchParams: Pro
           <ScrollReveal className="max-w-3xl">
             <SectionLabel>Resource Hub</SectionLabel>
             <h1 className="mt-6 text-[clamp(2rem,5vw,3.6rem)] font-bold tracking-[-0.03em] leading-[1.08]">
-              Insights &amp; <span className="text-gradient">Market Intelligence</span>
+              Hyderabad Real Estate <span className="text-gradient">Insights &amp; Market Updates</span>
             </h1>
             <p className="mt-6 text-white/40 text-base sm:text-lg leading-relaxed max-w-2xl">
               Corridor analysis, corporate investment signals and step-by-step buyer guides — researched by Arjun Realty

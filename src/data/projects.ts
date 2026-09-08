@@ -73,6 +73,9 @@ export interface Project {
   projectType: string;
   approval: string;
   location: string;
+  locationOverview?: string[];
+  locationOverviewLabel?: string;
+  locationOverviewHeading?: string;
   mapsUrl: string;
   price: string;
   launchPrice?: string;
@@ -112,6 +115,7 @@ export interface Project {
   whyInvest: string[];
   description?: string;
   seoTitle?: string;
+  seoDescription?: string;
   tagline?: string;
   phases?: ProjectPhase[];
   documents?: ProjectDocument[];
@@ -120,17 +124,21 @@ export interface Project {
   locationUrl?: string;
   gallery?: ProjectGalleryItem[];
   developmentUpdates?: DevelopmentUpdate[];
+  relatedInsightSlugs?: string[];
 }
 
 export const projects: Project[] = [
   {
     slug: "jb-harmony-woods",
+    relatedInsightSlugs: ["future-city-growth-corridor-whats-driving-land-values", "foxconn-ai-city-and-the-srisailam-belt", "dtcp-hmda-fcda-approvals-which-to-choose"],
     name: "JB Harmony Woods",
     builder: "bhuvan-infra",
     marketingPartner: "JB Infra Group",
     projectType: "Premium Luxurious Semi-Villa Community Project",
     approval: "FCDA Approved",
     location: "Thummaloor, Future City Growth Corridor, Hyderabad",
+    seoTitle: "JB Harmony Woods | FCDA Approved Plots, Thummaloor",
+    seoDescription: "53-acre FCDA approved semi-villa community in Thummaloor, off Srisailam Highway, 15 mins from Hyderabad Airport, near Future City. Enquire now.",
     description: "JB Harmony Woods is a 53-acre FCDA approved premium luxurious semi-villa community project located in the Future City growth corridor off Srisailam Highway, Hyderabad. The gated community offers 524 villa plots ranging from 200 to 600 Sq. Yards and 50 boutique villas from 1,800 to 2,400 Sq. Ft., served by a 36,000 Sq. Ft. grand clubhouse with 30+ lifestyle amenities. The entire layout is engineered with advanced MEP (Mechanical, Electrical & Plumbing) infrastructure — featuring 100% underground cabling, dedicated ducting and streamlined utility lines — ensuring zero-disruption maintenance and rapid issue resolution without digging or layout damage in the future. Positioned just 2 minutes from Srisailam Highway and 15 minutes from Rajiv Gandhi International Airport, the project is surrounded by Future City, AI City, Foxconn, and Kaynes Technology — making it a strong proposition for both end-use and investment.",
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=Thummaloor%2C%20Hyderabad",
     price: "Contact for Price",
@@ -273,11 +281,16 @@ export const projects: Project[] = [
   },
   {
     slug: "jb-hillside-county",
+    relatedInsightSlugs: ["dtcp-hmda-fcda-approvals-which-to-choose", "hyderabad-real-estate-market-update-q3-2026"],
     name: "JB Hillside County",
     builder: "jb-infra",
     projectType: "Premium Gated Villa Plotting Community",
     approval: "HMDA Approved · RERA Registered",
     location: "Sagar Highway, Hyderabad",
+    locationOverview: [
+      "JB Hillside County is a 30-acre HMDA approved and RERA registered premium gated villa plotting community located directly on Sagar Highway, Hyderabad, close to defence establishments including BDL, BEL, OCTOPUS Training Centre and NSG Campus.",
+      "Surrounded by institutions such as Guru Nanak Institutions, Sri Indu College, St. Mary's Institutions and CVR College of Engineering, the project offers 80 villa plots from 228 to 800 Sq. Yards, served by a 15,000+ Sq. Ft. grand clubhouse with 20+ lifestyle amenities, along with bank loan facility.",
+    ],
     description: "JB Hillside County is a 30-acre HMDA and RERA approved premium villa plotting community located directly on Sagar Highway, Hyderabad. The gated development offers 80 villa plots ranging from 228 to 800 Sq. Yards, served by a 15,000+ Sq. Ft. grand clubhouse with 20+ lifestyle amenities. Situated close to defence establishments including BDL, BEL, OCTOPUS Training Centre, and NSG Campus, the project benefits from strong institutional infrastructure and excellent connectivity to Hyderabad city via Sagar Highway.",
     mapsUrl: "https://maps.app.goo.gl/1Uh5BDYMKnrfaF58A?g_st=ac",
     price: "₹20,000/Sq. Yd",
@@ -324,6 +337,7 @@ export const projects: Project[] = [
       { q: "What is the total area of JB Hillside County?", a: "JB Hillside County spans 30 acres and offers 80 premium villa plots ranging from 228 to 800 Sq. Yards." },
       { q: "Is JB Hillside County approved?", a: "Yes, the project is HMDA Approved and RERA Registered with clear legal title." },
       { q: "What are the available plot sizes?", a: "Plots are available in 228, 267, 300, 400, 500, 600, and 800 Sq. Yards." },
+      { q: "What is the starting price of JB Hillside County plots?", a: "Villa plots in JB Hillside County are priced from ₹20,000 per Sq. Yard, with sizes ranging from 228 to 800 Sq. Yards." },
       { q: "Is bank loan available?", a: "Yes, bank loan facility is available through leading financial institutions." },
       { q: "Where is the project located?", a: "JB Hillside County is located on Sagar Highway, close to BDL, BEL, OCTOPUS Training Centre, and NSG Campus in Hyderabad." },
       { q: "What amenities does the project offer?", a: "The project features a 15,000+ Sq. Ft. grand clubhouse with 20+ amenities including indoor games, multipurpose hall, jogging track, children's play area, CCTV surveillance, and 24x7 security." },
@@ -358,11 +372,18 @@ export const projects: Project[] = [
   },
   {
     slug: "jb-serene-county",
+    relatedInsightSlugs: ["dtcp-hmda-fcda-approvals-which-to-choose"],
     name: "JB Serene County",
     builder: "jb-infra",
     projectType: "Premium HMDA Residential Plotting Project",
     approval: "HMDA Approved · TSRERA Registered",
     location: "Near Kongarakalan – Tata Greenfield Growth Corridor, Hyderabad",
+    locationOverviewLabel: "Location in the Tata Greenfield Corridor",
+    locationOverviewHeading: "Why the Tata Greenfield Corridor Matters for Plot Buyers",
+    locationOverview: [
+      "JB Serene County is located near Kongarakalan along the Tata Greenfield Growth Corridor, about 1 KM from Patancheru and close to ORR Exit No. 13. The corridor is home to major industrial anchors including Foxconn and Kaynes Technology, making it a well-connected employment belt within Hyderabad's growth corridor.",
+      "The project sits around 15 minutes from Rajiv Gandhi International Airport and offers HMDA and TSRERA approved residential plots from 150 to 300 Sq. Yards, with clear title and bank loan facility.",
+    ],
     description: "JB Serene County is an HMDA and TSRERA approved premium residential plotting project located near Kongarakalan along the Tata Greenfield Growth Corridor, just 1 KM from Patancheru. The layout offers plots ranging from 150 to 300 Sq. Yards with modern infrastructure including underground electricity, drainage, LED street lighting, and landscaped parks. Positioned close to ORR Exit No. 13 and 15 minutes from Rajiv Gandhi International Airport, the project is surrounded by major industrial anchors including Foxconn and Kaynes Technology.",
     mapsUrl: "https://maps.app.goo.gl/4pq5tv78XEe8BgQ29?g_st=ac",
     price: "Contact for Latest Price",
@@ -404,10 +425,12 @@ export const projects: Project[] = [
     faqs: [
       { q: "Is JB Serene County approved?", a: "Yes, JB Serene County is HMDA Approved and TSRERA Registered with clear and secure title." },
       { q: "What are the available plot sizes?", a: "Plots are available in 150, 167, 183, 200, 250, and 300 Sq. Yards." },
+      { q: "What is the starting price of JB Serene County?", a: "Plots in JB Serene County start from ₹35,000 per Sq. Yard, available in sizes from 150 to 300 Sq. Yards." },
       { q: "Where is the project located?", a: "The project is located near Kongarakalan along the Tata Greenfield Growth Corridor, just 1 KM from Patancheru and close to ORR Exit No. 13." },
       { q: "How far is the airport?", a: "Rajiv Gandhi International Airport is approximately 15 minutes from the project." },
       { q: "Is bank loan available?", a: "Yes, bank loan facility is available through leading financial institutions." },
       { q: "What industries are nearby?", a: "The project is close to Foxconn Manufacturing Plant and Kaynes Technology Manufacturing Unit, both major employment anchors in the corridor." },
+      { q: "What amenities does JB Serene County offer?", a: "The layout offers modern infrastructure including underground electricity, underground drainage, LED street lighting, water supply network, wide black top roads, landscaped parks, avenue plantation, children's play area, walking & jogging track, 24×7 security and CCTV surveillance." },
     ],
     whatsappCta: "Get Serene County Details",
     locationAdvantages: [
@@ -442,12 +465,18 @@ export const projects: Project[] = [
   },
   {
     slug: "jb-pristine-city",
+    relatedInsightSlugs: ["why-vikarabad-is-west-hyderabads-next-hotspot", "kokapet-neopolis-the-corporate-hub-effect", "dtcp-hmda-fcda-approvals-which-to-choose"],
     name: "JB Pristine City",
     builder: "jb-infra",
     projectType: "150-Acre Mega DTCP & RERA Approved Community",
     approval: "DTCP & RERA Approved",
     location: "Vikarabad, Telangana",
+    locationOverview: [
+      "JB Pristine City is a 150-acre DTCP & RERA approved mega master-planned gated layout situated in the fast-appreciating growth corridor of Vikarabad, West Hyderabad, within the high-growth West Hyderabad Investment Corridor.",
+      "The project enjoys seamless road connectivity from major IT & financial hubs including Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila and Shankarpally via the four-lane expressway from ORR Exit No. 18, and stands to benefit from the proposed High-Speed Rail / Bullet Train corridor with a confirmed major station at Vikarabad. Plots are available from 150 to 600 Sq. Yards with clear titles and immediate bank loan facility.",
+    ],
     seoTitle: "JB Pristine City | 150-Acre Mega Venture in West Hyderabad",
+    seoDescription: "JB Pristine City is a 150-acre DTCP & RERA approved plotted layout in Vikarabad, West Hyderabad, connected to IT hubs like Kokapet and Gachibowli. Enquire now.",
     tagline: "The Next High-Growth Destination of West Hyderabad | 150-Acre Mega DTCP & RERA Approved Community",
     description: "JB Pristine City is a 150-acre mega master-planned DTCP & RERA approved gated layout situated in the fast-appreciating growth corridor of Vikarabad, West Hyderabad. Positioned within the high-growth West Hyderabad Investment Corridor, the project enjoys seamless road connectivity from major IT & financial hubs including Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila and Shankarpally via the four-lane expressway from ORR Exit No. 18. It also stands to benefit from the Central and State Government proposed High-Speed Rail / Bullet Train corridor, with a confirmed major station at Vikarabad promising rapid travel times to Hyderabad and exponential land value appreciation. The venture features a 150-acre gated layout with grand entrance arch, wide BT roads, underground utilities, clear titles and an immediate bank loan facility — making it an exceptional high-ROI opportunity for smart tech professionals and long-term investors.",
     mapsUrl: "https://maps.app.goo.gl/QPHZ7D8uQdS2nvyh7",
@@ -548,11 +577,18 @@ export const projects: Project[] = [
   },
   {
     slug: "jb-serene-city",
+    relatedInsightSlugs: ["dtcp-hmda-fcda-approvals-which-to-choose", "hyderabad-real-estate-market-update-q3-2026"],
     name: "JB Serene City",
     builder: "jb-infra",
     projectType: "Premium HMDA Gated Residential Township",
     approval: "HMDA Approved · RERA Registered",
     location: "Ibrahimpatnam, Hyderabad",
+    locationOverview: [
+      "JB Serene City is located in Ibrahimpatnam, South Hyderabad, and ranks among the largest integrated townships in the area at 660 acres. It is surrounded by established government institutions — BDL, BEL, NSG Campus and OCTOPUS Training Centre — along with educational institutions such as Guru Nanak University and CVR College of Engineering.",
+      "The township is highway-facing with connectivity to the ORR, the airport and Hyderabad's IT corridor, and already has 100+ families residing within an HMDA and RERA approved development.",
+    ],
+    seoTitle: "JB Serene City | Plots in Ibrahimpatnam, South Hyderabad",
+    seoDescription: "JB Serene City is an HMDA & RERA approved 660-acre gated township in Ibrahimpatnam, South Hyderabad, with 100+ families already residing. Enquire now.",
     description: "JB Serene City is a 660-acre HMDA and RERA approved premium integrated gated township located in Ibrahimpatnam, Hyderabad. One of the largest townships in South Hyderabad, it features a 5-acre grand clubhouse, 30+ world-class amenities, and over 100 families already residing in the community. Positioned on the highway with excellent connectivity to ORR, the airport, and Hyderabad's IT corridor, the township is surrounded by major government institutions including BDL, BEL, NSG Campus, and OCTOPUS Training Centre.",
     mapsUrl: "https://maps.app.goo.gl/HGnvd4xkmKnmEbkC7",
     price: "Contact for Latest Price",
@@ -596,11 +632,13 @@ export const projects: Project[] = [
     images: ["/images/projects/jb-serene-city.svg"],
     faqs: [
       { q: "What is the total area of JB Serene City?", a: "JB Serene City is a 660-acre premium integrated township, one of the largest in South Hyderabad." },
+      { q: "What is the starting price of JB Serene City plots?", a: "Plots in JB Serene City start from ₹14,000 per Sq. Yard." },
       { q: "Is the project approved?", a: "Yes, JB Serene City is HMDA Approved and RERA Registered." },
       { q: "Are families already living there?", a: "Yes, over 100 families are already residing in the township." },
       { q: "What amenities does the township offer?", a: "The township features a 5-acre grand clubhouse, swimming pool, gymnasium, indoor games, jogging track, cycling track, yoga zone, landscaped gardens, and 30+ world-class amenities." },
       { q: "Is bank loan available?", a: "Yes, bank loan facility is available through leading financial institutions." },
       { q: "Where is the project located?", a: "The project is located in Ibrahimpatnam, Hyderabad, on the highway with excellent connectivity to ORR, airport, and the IT corridor." },
+      { q: "Why should I consider JB Serene City in Ibrahimpatnam for real estate?", a: "JB Serene City is a 660-acre HMDA and RERA approved integrated township in Ibrahimpatnam, South Hyderabad — one of the largest in the area. It is highway-facing with connectivity to the ORR, the airport and Hyderabad's IT corridor, surrounded by institutions such as BDL, BEL, NSG Campus and OCTOPUS Training Centre, with over 100 families already residing within the township." },
     ],
     whatsappCta: "Get Serene City Details",
     projectArea: "660 Acres Integrated Township",
@@ -644,11 +682,18 @@ export const projects: Project[] = [
   },
   {
     slug: "jb-nature-valley",
+    relatedInsightSlugs: ["corporate-land-assemblies-reading-hyderabads-next-growth-corridors", "dtcp-hmda-fcda-approvals-which-to-choose"],
     name: "JB Nature Valley",
     builder: "jb-infra",
     projectType: "Premium DTCP & RERA Approved Integrated Satellite Township",
     approval: "DTCP Approved · RERA Registered",
     location: "NH-65, Hyderabad – Vijayawada Highway, Choutuppal, Telangana",
+    locationOverview: [
+      "JB Nature Valley is a 720+ acre DTCP approved and RERA registered integrated satellite township located on NH-65 Hyderabad–Vijayawada Highway at Choutuppal, Telangana, positioned on the six-lane NH-65 expansion corridor and close to the proposed Regional Ring Road (RRR).",
+      "The township is surrounded by the Dry Port, MSME Industrial Cluster and Logistics Hub, and offers plots from 167 to 800 Sq. Yards with starting prices of ₹8,500 per Sq. Yard, served by two grand clubhouses, a 5-acre international cricket ground and 40+ lifestyle amenities.",
+    ],
+    seoTitle: "JB Nature Valley | DTCP & RERA Plots on NH-65, Choutuppal",
+    seoDescription: "JB Nature Valley is a 720+ acre DTCP & RERA approved township at Choutuppal on NH-65, Hyderabad–Vijayawada, with plots from 167 to 800 Sq. Yd. Enquire now.",
     description: "JB Nature Valley is a 720+ acre DTCP and RERA approved integrated satellite township located on NH-65 Hyderabad–Vijayawada Highway at Choutuppal, Telangana. One of Telangana's largest planned townships, it offers plots from 167 to 800 Sq. Yards at starting prices of ₹8,500 per Sq. Yard, served by two grand clubhouses, a 5-acre international cricket ground, and 40+ lifestyle amenities. Positioned on the six-lane NH-65 expansion corridor and close to the proposed Regional Ring Road (RRR), the project is surrounded by the Dry Port, MSME Industrial Cluster, and Logistics Hub.",
     mapsUrl: "https://maps.app.goo.gl/zeNriVXsD7KwSPSD9",
     price: "Contact for Latest Price",
@@ -700,6 +745,7 @@ export const projects: Project[] = [
       { q: "What is the total area of JB Nature Valley?", a: "JB Nature Valley is a 720+ acre integrated satellite township, one of the largest in Telangana." },
       { q: "Is the project approved?", a: "Yes, JB Nature Valley is DTCP Approved and RERA Registered with clear legal title." },
       { q: "What is the starting price?", a: "Plots start from ₹8,500 per Sq. Yard." },
+      { q: "Is a bank loan facility available for JB Nature Valley plots?", a: "Yes, bank loan facility is available, supported by the project's DTCP approval, RERA registration and clear legal title." },
       { q: "What are the available plot sizes?", a: "Plots are available from 167 to 800 Sq. Yards across multiple size options." },
       { q: "What amenities does the township offer?", a: "The township features two grand clubhouses, a 5-acre international cricket ground, swimming pool, gymnasium, indoor and outdoor sports courts, 40+ lifestyle amenities, and premium infrastructure." },
       { q: "Where is the project located?", a: "The project is located on NH-65 Hyderabad–Vijayawada Highway at Choutuppal, close to the proposed Regional Ring Road (RRR), Dry Port, and MSME Industrial Cluster." },
@@ -738,6 +784,7 @@ export const projects: Project[] = [
   },
   {
     slug: "upcoming-ibrahimpatnam",
+    relatedInsightSlugs: ["hyderabad-real-estate-market-update-q3-2026"],
     name: "Upcoming Project – Ibrahimpatnam",
     builder: "jb-infra",
     projectType: "Premium Gated Villa Community",
@@ -816,6 +863,7 @@ export const projects: Project[] = [
   },
   {
     slug: "upcoming-srisailam-highway",
+    relatedInsightSlugs: ["foxconn-ai-city-and-the-srisailam-belt", "corporate-land-assemblies-reading-hyderabads-next-growth-corridors"],
     name: "Upcoming Project – Srisailam Highway",
     builder: "jb-infra",
     projectType: "Premium Highway Facing Gated Residential Township",
@@ -884,7 +932,8 @@ export const projects: Project[] = [
   },
   {
     slug: "upcoming-shankarpally",
-    name: "Upcoming Project – Shankarpally",
+    relatedInsightSlugs: ["future-city-growth-corridor-whats-driving-land-values"],
+    name: "Shankarpally – 108 Acres",
     builder: "jb-infra",
     projectType: "Premium HMDA Open Plotting Community",
     approval: "HMDA Approval Under Process",
@@ -1068,28 +1117,32 @@ export const projects: Project[] = [
     ],
     faqs: [
       {
-        q: "Is the project HMDA approved and RERA registered?",
-        a: "Yes. The project is 100% HMDA approved and RERA registered, with a clear title and spot registration facility. Our team will walk you through the complete approval and documentation setup during your site visit.",
+        q: "Where is Shankarpally 45 Acres located?",
+        a: "Shankarpally 45 Acres is located near Julkal Village, Shankarpally, West Hyderabad — roughly 10 minutes from Shankarpally Railway Station and the town center, with direct access to the Shankarpally–Kandi corridor and the Mumbai Highway (NH-65).",
       },
       {
-        q: "What amenities and infrastructure are included?",
-        a: "The venture includes a massive 25,000 sq. ft. grand luxury clubhouse with zero extra charges, 100% underground electricity cabling, underground drainage, a dedicated water pipeline, wide BT roads with kerb stones, paver footpaths, a designer entrance arch and avenue plantation.",
+        q: "What is the size of the Shankarpally 45 Acres project?",
+        a: "As the name suggests, this is a 45-acre premium villa plotted development. It is part of West Hyderabad's Premier Growth Corridor, the Golden Triangle connecting Kokapet/Neopolis, Shankarpally and the IIT Hyderabad/Kandi knowledge belt.",
       },
       {
-        q: "What plot sizes are available?",
-        a: "Premium plots are available in 200, 267, 350 and 500+ sq. yd. sizes — suited for villa development, gated-community style builds and long-term capital appreciation.",
+        q: "What type of development is Shankarpally 45 Acres?",
+        a: "Shankarpally 45 Acres is a premium villa plotted development. Plot sizes range across 200, 267, 350 and 500+ sq. yd. — suited for villa development, gated-community style builds and long-term capital appreciation.",
       },
       {
-        q: "Why invest in Shankarpally right now?",
-        a: "Shankarpally sits on West Hyderabad's Premier Growth Corridor — the Golden Triangle connecting Kokapet/Neopolis, Shankarpally and the IIT Hyderabad/Kandi knowledge belt. With a seamless 20–30 minute drive to the Financial District, Nanakramguda, Gachibowli and Neopolis via 6-lane expanded radial roads — and Kollur SEZ, the Tellapur growth belt and ORR minutes away — surrounding ultra-luxury villa ventures command ₹7 Cr to ₹15–20 Cr. Indicative timings and price points should be verified with our team before any investment decision.",
+        q: "What are the plot and layout highlights of the project?",
+        a: "The layout includes a 25,000 sq. ft. grand luxury clubhouse with zero extra charges, 100% underground electricity cabling, underground drainage, a dedicated water pipeline, wide BT roads with kerb stones, paver footpaths, a designer entrance arch and avenue plantation.",
       },
       {
-        q: "Is bank loan facility available?",
-        a: "Yes. Bank loan facility is available from leading banks to eligible buyers, supported by the project being 100% HMDA approved and RERA registered with a clear title.",
+        q: "Is Shankarpally 45 Acres approved and RERA registered?",
+        a: "Yes. The project is 100% HMDA approved and RERA registered, with a clear title and spot registration facility. Our team can walk you through the complete approval and documentation setup during your site visit.",
       },
       {
-        q: "Where exactly is the project located?",
-        a: "The project is located near Julkal Village, Shankarpally, West Hyderabad — roughly 10 minutes from Shankarpally Railway Station and the town center, with direct access to the Shankarpally–Kandi corridor and the Mumbai Highway (NH-65).",
+        q: "Is a bank loan facility available for plots in Shankarpally 45 Acres?",
+        a: "Yes. A bank loan facility is available from leading banks to eligible buyers, supported by the project being 100% HMDA approved and RERA registered with a clear title.",
+      },
+      {
+        q: "How can I schedule a site visit or contact Arjun Realty?",
+        a: "You can schedule a complimentary site visit by submitting the enquiry form on this page or reaching Arjun Realty directly through the contact details listed on the website. Fill in your details and the team will arrange a guided site visit for Shankarpally 45 Acres.",
       },
     ],
     whatsappCta: "Hi, I'm interested in Shankarpally 45 Acres Premium Layout. Please share the latest pricing and site visit slots.",
@@ -1138,6 +1191,24 @@ export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }
 
+const RELATED_PROJECTS: Record<string, string[]> = {
+  "jb-harmony-woods": ["upcoming-srisailam-highway", "jb-hillside-county", "jb-serene-city"],
+  "jb-hillside-county": ["jb-serene-city", "upcoming-ibrahimpatnam", "jb-harmony-woods"],
+  "jb-serene-county": ["jb-pristine-city", "upcoming-shankarpally", "shankarpally-45-acres"],
+  "jb-pristine-city": ["jb-serene-county", "shankarpally-45-acres", "upcoming-shankarpally"],
+  "jb-serene-city": ["jb-hillside-county", "upcoming-ibrahimpatnam", "jb-harmony-woods"],
+  "jb-nature-valley": ["upcoming-srisailam-highway", "upcoming-ibrahimpatnam", "jb-hillside-county"],
+  "upcoming-ibrahimpatnam": ["jb-serene-city", "jb-hillside-county", "jb-serene-county"],
+  "upcoming-srisailam-highway": ["jb-harmony-woods", "jb-serene-city", "jb-hillside-county"],
+  "upcoming-shankarpally": ["shankarpally-45-acres", "jb-serene-county", "jb-pristine-city"],
+  "shankarpally-45-acres": ["upcoming-shankarpally", "jb-serene-county", "jb-pristine-city"],
+};
+
 export function getRelatedProjects(currentSlug: string, count = 3): Project[] {
-  return projects.filter((p) => p.slug !== currentSlug).slice(0, count);
+  const curated = RELATED_PROJECTS[currentSlug] ?? projects.map((p) => p.slug).filter((s) => s !== currentSlug);
+  return curated
+    .filter((s) => s !== currentSlug)
+    .slice(0, count)
+    .map((s) => getProjectBySlug(s))
+    .filter((p): p is Project => Boolean(p));
 }

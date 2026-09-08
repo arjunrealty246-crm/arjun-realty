@@ -23,6 +23,8 @@ export default function FaqAccordion({ items }: FaqAccordionProps) {
           <div className="glass-card rounded-2xl overflow-hidden">
             <button
               onClick={() => setOpenFaq(openFaq === i ? null : i)}
+              aria-expanded={openFaq === i}
+              aria-controls={`faq-panel-${i}`}
               className="w-full flex items-center justify-between p-6 text-left"
             >
               <span className="text-[14px] font-semibold text-white/80 pr-4">{faq.q}</span>
@@ -33,6 +35,9 @@ export default function FaqAccordion({ items }: FaqAccordionProps) {
               />
             </button>
             <div
+              id={`faq-panel-${i}`}
+              role="region"
+              aria-labelledby={`faq-button-${i}`}
               className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 openFaq === i ? "max-h-60" : "max-h-0"
               }`}

@@ -5,6 +5,7 @@ import { Building2, Calendar, Shield, ArrowRight, CheckCircle, MapPin, Ruler, Ba
 import { builders, getBuilderBySlug } from "@/data/builders";
 import { projects } from "@/data/projects";
 import siteConfig from "@/config/site";
+import PageBreadcrumbs from "@/components/PageBreadcrumbs";
 
 export function generateStaticParams() {
   return builders.map((b) => ({ slug: b.slug }));
@@ -47,6 +48,27 @@ export default async function BuilderDetailPage({ params }: { params: Promise<{ 
 
   return (
     <>
+      <PageBreadcrumbs
+        items={[
+          { name: "Builders", url: "/builders" },
+          { name: builder.name, url: `/builders/${builder.slug}` },
+        ]}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: builder.name,
+            description: builder.description,
+            url: `${siteConfig.url}/builders/${builder.slug}`,
+            ...(builder.established ? { foundingDate: builder.established } : {}),
+            ...(builder.website ? { sameAs: [builder.website] } : {}),
+            ...(builder.highlights?.length ? { knowsAbout: builder.highlights } : {}),
+          }),
+        }}
+      />
       <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
         <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.05] -right-48 -top-48" />
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">

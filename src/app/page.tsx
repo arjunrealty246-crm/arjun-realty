@@ -1,40 +1,27 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/HeroSection";
-import FeaturedBuilders from "@/components/FeaturedBuilders";
 import ProjectsSection from "@/components/ProjectsSection";
-import WhyHyderabadSection from "@/components/WhyHyderabadSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import NRISection from "@/components/NRISection";
-import ContactSection from "@/components/ContactSection";
-import FounderProfile from "@/components/FounderProfile";
-import InvestmentCalculator from "@/components/InvestmentCalculator";
-import FaqAccordion from "@/components/FaqAccordion";
-import AdvisoryProcess from "@/components/AdvisoryProcess";
-import siteConfig from "@/config/site";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
-import {
-  Shield,
-  Award,
-  Users,
-  Handshake,
-  TrendingUp,
-  HeadphonesIcon,
-  ArrowRight,
-  Star,
-  Download,
-  CalendarCheck,
-  Building2,
-  Phone,
-  CheckCircle,
-} from "lucide-react";
+import siteConfig from "@/config/site";
+import { ArrowRight, Star, Download, CalendarCheck, Phone, CheckCircle, Shield, Users } from "lucide-react";
 import { reasons as reasonsData } from "@/data/values";
 import { locationMarquee as marqueeItems } from "@/data/navigation";
 import { googleReviews } from "@/data/testimonials";
 import { homeFaqs as faqs } from "@/data/faqs";
-import { testimonialsSection as ts, advisoryProcess, whyHyderabad, nriSection, contactSection, hero } from "@/data/content";
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = { Shield, Building2, Users, Handshake, TrendingUp, HeadphonesIcon };
+const FeaturedBuilders = dynamic(() => import("@/components/FeaturedBuilders"));
+const WhyHyderabadSection = dynamic(() => import("@/components/WhyHyderabadSection"));
+const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"));
+const NRISection = dynamic(() => import("@/components/NRISection"));
+const ContactSection = dynamic(() => import("@/components/ContactSection"));
+const FounderProfile = dynamic(() => import("@/components/FounderProfile"));
+const InvestmentCalculator = dynamic(() => import("@/components/InvestmentCalculator"));
+const FaqAccordion = dynamic(() => import("@/components/FaqAccordion"));
+const AdvisoryProcess = dynamic(() => import("@/components/AdvisoryProcess"));
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = { Shield, Users };
 const reasons = reasonsData.map(r => ({ ...r, icon: iconMap[r.icon] || Shield }));
 
 export default function HomePage() {
@@ -54,6 +41,18 @@ export default function HomePage() {
                 text: faq.a,
               },
             })),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+            ],
           }),
         }}
       />

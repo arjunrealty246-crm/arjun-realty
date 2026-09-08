@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CalendarCheck, User, Phone, Mail, MessageSquare, Loader2, CheckCircle } from "lucide-react";
 import siteConfig from "@/config/site";
 import { siteVisitForm } from "@/data/content";
 import { submitLead } from "@/lib/lead-client";
+import { trackEvent } from "@/lib/analytics";
 
 interface SiteVisitModalProps {
   isOpen: boolean;
@@ -16,6 +17,13 @@ interface SiteVisitModalProps {
 export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVisitModalProps) {
   const [form, setForm] = useState({ name: "", phone: "", email: "", date: "", message: "" });
   const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleEsc = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", handleEsc);
+    return () => document.removeEventListener("keydown", handleEsc);
+  }, [isOpen, onClose]);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -46,6 +54,11 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
       `Message: ${form.message || "N/A"}`
     );
 
+    trackEvent("site_visit", {
+      event_category: "lead_generation",
+      content_label: projectName ? `Site Visit Form - ${projectName}` : "Site Visit Form - General",
+    });
+
     setTimeout(() => {
       setStatus("done");
       setTimeout(() => {
@@ -73,11 +86,15 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 30 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="sitevisit-heading"
             className="glass-strong rounded-3xl p-8 max-w-lg w-full relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={onClose}
+              aria-label="Close site visit form"
               className="absolute top-5 right-5 h-8 w-8 rounded-full glass flex items-center justify-center text-white/30 hover:text-white transition-colors"
             >
               <X className="h-4 w-4" />
@@ -87,7 +104,7 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 mb-4">
                 <CalendarCheck className="h-6 w-6 text-primary" />
               </div>
-              <h2 className="text-xl font-bold text-white tracking-tight">{siteVisitForm.heading}</h2>
+              <h2 id="sitevisit-heading" className="text-xl font-bold text-white tracking-tight">{siteVisitForm.heading}</h2>
               <p className="text-sm text-white/30 mt-1">
                 {projectName ? `Schedule a visit to ${projectName}` : siteVisitForm.description}
               </p>
@@ -108,10 +125,11 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
+                  <label htmlFor="sv-name" className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
                     <User className="h-3 w-3" /> {siteVisitForm.nameLabel}
                   </label>
                   <input
+                    id="sv-name"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
@@ -123,10 +141,11 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                      <label className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
+                      <label htmlFor="sv-phone" className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
                         <Phone className="h-3 w-3" /> {siteVisitForm.phoneLabel}
                       </label>
                       <input
+                        id="sv-phone"
                         name="phone"
                         value={form.phone}
                         onChange={handleChange}
@@ -138,10 +157,11 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
                       />
                   </div>
                   <div>
-                      <label className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
+                      <label htmlFor="sv-email" className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
                         <Mail className="h-3 w-3" /> {siteVisitForm.emailLabel}
                       </label>
                       <input
+                        id="sv-email"
                         name="email"
                         type="email"
                         value={form.email}
@@ -153,10 +173,11 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
                 </div>
 
                 <div>
-                  <label className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
+                  <label htmlFor="sv-date" className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
                     <CalendarCheck className="h-3 w-3" /> {siteVisitForm.dateLabel}
                   </label>
                   <input
+                    id="sv-date"
                     name="date"
                     type="date"
                     value={form.date}
@@ -166,10 +187,11 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
                 </div>
 
                 <div>
-                  <label className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
+                  <label htmlFor="sv-message" className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
                     <MessageSquare className="h-3 w-3" /> {siteVisitForm.messageLabel}
                   </label>
                   <textarea
+                    id="sv-message"
                     name="message"
                     value={form.message}
                     onChange={handleChange}

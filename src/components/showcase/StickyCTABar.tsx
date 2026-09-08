@@ -2,6 +2,7 @@
 
 import { MessageCircle, Phone, CalendarCheck } from "lucide-react";
 import siteConfig from "@/config/site";
+import { trackEvent } from "@/lib/analytics";
 
 interface StickyCTABarProps {
   projectName: string;
@@ -21,6 +22,9 @@ export default function StickyCTABar({ projectName, onSiteVisit, ctaLabel = "Sit
           href={`${siteConfig.links.wa}?text=${waMessage}`}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() =>
+            trackEvent("cta_click", { event_category: "lead_generation", content_label: `WhatsApp - Sticky CTA - ${projectName}` })
+          }
           className="flex flex-col items-center justify-center gap-1 py-2.5 rounded-xl bg-[#25D366]/15 border border-[#25D366]/25 text-[#25D366]"
         >
           <MessageCircle className="h-4 w-4" />
@@ -28,13 +32,19 @@ export default function StickyCTABar({ projectName, onSiteVisit, ctaLabel = "Sit
         </a>
         <a
           href={siteConfig.links.tel}
+          onClick={() =>
+            trackEvent("call_click", { event_category: "lead_generation", content_label: `Call - Sticky CTA - ${projectName}` })
+          }
           className="flex flex-col items-center justify-center gap-1 py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.12] text-white/80"
         >
           <Phone className="h-4 w-4" />
           <span className="text-[10px] font-bold uppercase tracking-wider">Call</span>
         </a>
         <button
-          onClick={onSiteVisit}
+          onClick={() => {
+            trackEvent("site_visit", { event_category: "lead_generation", content_label: `Site Visit - Sticky CTA - ${projectName}` });
+            onSiteVisit();
+          }}
           className="flex flex-col items-center justify-center gap-1 py-2.5 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-white glow-primary-strong"
         >
           <CalendarCheck className="h-4 w-4" />

@@ -49,7 +49,7 @@ export default function Shankarpally45Card({
 
   return (
     <Link
-      href="/projects/shankarpally-45-acres"
+      href="/shankarpally-45-acres"
       className="glass-card-elevated rounded-[1.5rem] p-8 sm:p-10 relative overflow-hidden h-full flex flex-col cursor-pointer group transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_-15px_rgba(249,115,22,0.25)]"
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />

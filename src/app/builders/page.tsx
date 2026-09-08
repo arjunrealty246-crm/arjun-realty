@@ -27,13 +27,29 @@ export default function BuildersDirectoryPage() {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: builders.map((builder, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: builder.name,
+              url: `${siteConfig.url}/builders/${builder.slug}`,
+              description: builder.description?.slice(0, 160) || `${builder.name} — verified plot builder in Hyderabad`,
+            })),
+          }),
+        }}
+      />
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
         <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.05] -right-48 -top-48" />
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <ScrollReveal className="max-w-3xl">
             <SectionLabel>Partner Builders</SectionLabel>
             <h1 className="mt-6 text-[clamp(2rem,5vw,4rem)] font-bold tracking-[-0.03em] leading-[1.05]">
-              Our <span className="text-gradient">Trusted</span> Builder Partners
+              Verified <span className="text-gradient">Plot Builders</span> in Hyderabad
             </h1>
             <p className="mt-6 text-white/40 text-base sm:text-lg leading-relaxed max-w-xl">
               We partner only with reputed developers who meet our rigorous standards for legal compliance,

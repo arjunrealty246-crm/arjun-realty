@@ -66,12 +66,13 @@ export const insights: Insight[] = [
     categorySlug: "market-updates",
     publishedAt: "2026-08-22",
     author: researchDesk,
+    featuredProjectSlugs: ["jb-pristine-city", "jb-harmony-woods"],
     sections: [
       {
         heading: "Where demand is moving",
         body: [
-          "Hyderabad's residential plot market continues to favor the western and south-western growth rings. The Outer Ring Road (ORR) has matured into a defended address of its own: buyers who once looked only at Gachibowli and HITEC City are now comparing Kannur, Kollur, Mokila and Shankarpally against the Inner Ring, because the ORR has equalized commute times to the IT and financial districts.",
-          "What changed in Q3 is speed. Transaction velocity in corridors like Vikarabad and the Srisailam Highway belt has outpaced the more established ORR nodes, as early-stage pricing on approved layouts still sits well below the prices commanded by fully-developed Inner Ring communities.",
+          "Hyderabad's residential plot market continues to favor the western and south-western growth rings. The [Outer Ring Road (ORR)](/orr) has matured into a defended address of its own: buyers who once looked only at Gachibowli and HITEC City are now comparing Kannur, Kollur, Mokila and Shankarpally against the Inner Ring, because the ORR has equalized commute times to the IT and financial districts.",
+          "What changed in Q3 is speed. Transaction velocity in corridors like [Vikarabad](/insights/why-vikarabad-is-west-hyderabads-next-hotspot) and the Srisailam Highway belt has outpaced the more established ORR nodes, as early-stage pricing on approved layouts still sits well below the prices commanded by fully-developed Inner Ring communities.",
         ],
       },
       {
@@ -105,13 +106,13 @@ export const insights: Insight[] = [
         heading: "The three triggers",
         body: [
           "Every growth corridor follows the same script: connectivity arrives first, employment follows, and land values catch up last. Vikarabad is running that script on fast-forward.",
-          "First, the four-lane expressway connecting ORR Exit No. 18 (Appa Junction) has collapsed the perceived distance between Vikarabad and the Financial District. Second, the Central and State Governments have confirmed a major high-speed rail / bullet-train station at Vikarabad along the proposed corridor to Hyderabad. Third, the West-belt industrial expansion — including plants coming up along the Srisailam axis — is drawing construction-linked employment to the district.",
+          "First, the four-lane expressway connecting ORR Exit No. 18 (Appa Junction) has collapsed the perceived distance between Vikarabad and the Financial District. Second, the Central and State Governments have confirmed a major high-speed rail / bullet-train station at Vikarabad along the proposed corridor to Hyderabad. Third, the West-belt industrial expansion — including plants coming up along the [Srisailam axis](/srisailam-highway-future-city) — is drawing construction-linked employment to the district.",
         ],
       },
       {
         heading: "The price gap",
         body: [
-          "Approved layouts in Vikarabad currently transact at a fraction of the per-square-yard prices in Kokapet, Neopolis and Mokila, yet a buyer travels the same highways to reach the same job nodes. That gap is exactly what early investors in Shankarpally and Tellapur exploited a decade ago.",
+          "Approved layouts in [Vikarabad](/vikarabad) currently transact at a fraction of the per-square-yard prices in Kokapet, Neopolis and Mokila, yet a buyer travels the same highways to reach the same job nodes. That gap is exactly what early investors in Shankarpally and Tellapur exploited a decade ago.",
           "What matters is that the pricing gap is not a quality gap. Ventured, 150-acre DTCP layouts with clear titles, bank loan facility and underground utilities are available in Vikarabad — the infrastructure standard is comparable, the entry price is dramatically lower.",
         ],
       },
@@ -138,7 +139,7 @@ export const insights: Insight[] = [
       {
         heading: "A corridor built on certainty",
         body: [
-          "The Future City growth corridor along the Srisailam Highway has moved from proposal to pipeline. FCDA (Future City Development Authority) is now approving layouts with a defined infrastructure expectations framework, and residential communities are coming up within minutes of the Rajiv Gandhi International Airport.",
+          "The Future City growth corridor along the [Srisailam Highway](/srisailam-highway-future-city) has moved from proposal to pipeline. FCDA (Future City Development Authority) is now approving layouts with a defined infrastructure expectations framework, and residential communities are coming up within minutes of the Rajiv Gandhi International Airport.",
           "Airport adjacency is the single most dependable land-multiplier in Indian real estate. Add a government-anchored industrial ecosystem and you have the classic recipe for sustained appreciation.",
         ],
       },
@@ -153,7 +154,7 @@ export const insights: Insight[] = [
         heading: "Signals for buyers",
         body: [
           "Track three indicators before buying in the corridor: the pace of actual construction starts, the number of FCDA approvals being issued, and the extent of underground infrastructure already deployed in the layout you are evaluating.",
-          "The corridor's early movers — FCDA-approved, amenity-complete communities like JB Harmony Woods near Thummaloor — demonstrate what the post-development baseline looks like. Buying ahead of full build-out, on verified approvals, remains the highest-risk-adjusted entry.",
+          "The corridor's early movers — FCDA-approved, amenity-complete communities like [JB Harmony Woods near Thummaloor](/projects/jb-harmony-woods) — demonstrate what the post-development baseline looks like. Buying ahead of full build-out, on verified approvals, remains the highest-risk-adjusted entry.",
         ],
       },
     ],
@@ -235,6 +236,7 @@ export const insights: Insight[] = [
     categorySlug: "corporate-growth",
     publishedAt: "2026-07-30",
     author: researchDesk,
+    featuredProjectSlugs: ["jb-nature-valley", "upcoming-srisailam-highway"],
     sections: [
       {
         heading: "Why land assemblies are leading indicators",
@@ -268,6 +270,7 @@ export const insights: Insight[] = [
     categorySlug: "buyer-guides",
     publishedAt: "2026-08-16",
     author: nagarjuna,
+    featuredProjectSlugs: ["jb-pristine-city", "jb-serene-county", "jb-harmony-woods"],
     sections: [
       {
         heading: "Why approval authority matters",
@@ -293,14 +296,14 @@ export const insights: Insight[] = [
       {
         heading: "FCDA layouts",
         body: [
-          "FCDA (Future City Development Authority) approves layouts in the Future City growth corridor around the airport and the Srisailam axis. It is the youngest authority but offers early-mover pricing inside a corridor with government-anchored infrastructure commitment.",
+          "FCDA (Future City Development Authority) approves layouts in the [Future City growth corridor](/srisailam-highway-future-city) around the airport and the Srisailam axis. It is the youngest authority but offers early-mover pricing inside a corridor with government-anchored infrastructure commitment.",
           "Choose FCDA for long-horizon positions near the airport, AI City and the manufacturing belt — where appreciation potential outpaces current liquidity.",
         ],
       },
       {
         heading: "The deciding rule",
         body: [
-          "All three are legitimate authorities; the right one depends on your horizon and budget. What is never a matter of choice is verification: confirm the specific layout's approval letter and survey numbers, pull the 30-year EC, and match the Dharani record before any payment.",
+          "All three are legitimate authorities; the right one depends on your horizon and budget. What is never a matter of choice is verification: confirm the specific layout's approval letter and survey numbers, pull the [30-year EC](/insights/encumbrance-certificates-explained-before-buying-land), and match the Dharani record before any payment.",
         ],
       },
     ],
@@ -318,7 +321,7 @@ export const insights: Insight[] = [
       {
         heading: "What an EC actually is",
         body: [
-          "An Encumbrance Certificate (EC) is a chronological record of all registered instruments (sale deeds, mortgages, gifts, leases, wills) that affected a specific property over a given period. Telangana'Sub-Registrars issue it from the books of the sub-registry concerned.",
+          "An Encumbrance Certificate (EC) is a chronological record of all registered instruments (sale deeds, mortgages, gifts, leases, wills) that affected a specific property over a given period. Telangana's Sub-Registrars issue it from the books of the sub-registry concerned.",
           "The name undersells its usefulness: an EC is not a certificate of clean title — it is a complete ledger of every legal event. Whether that ledger is empty or busy tells you exactly what has happened to the land.",
         ],
       },
@@ -387,6 +390,12 @@ export const insights: Insight[] = [
 
 export function getInsightBySlug(slug: string): Insight | undefined {
   return insights.find((i) => i.slug === slug);
+}
+
+export function getInsightsByProject(projectSlug: string, count = 3): Insight[] {
+  return insights
+    .filter((i) => (i.featuredProjectSlugs ?? []).includes(projectSlug))
+    .slice(0, count);
 }
 
 export function getInsightsByCategory(categorySlug: InsightCategorySlug): Insight[] {

@@ -3,9 +3,9 @@ import siteConfig from "@/config/site";
 // ─── Hero Section ───────────────────────────────────
 export const hero = {
   badge: "Hyderabad's Trusted Real Estate Advisory",
-  headline1: "Your Trusted Partner for",
-  headline2: "Smart Real Estate",
-  headline3: "Investments",
+  headline1: "Your Trusted Guide to",
+  headline2: "Approved Plots in",
+  headline3: "Hyderabad",
   subhead: "Independent real estate advisory helping investors find verified HMDA, DTCP and RERA approved properties across Hyderabad. Transparent guidance, project comparison, and end-to-end support from enquiry to registration.",
   primaryCta: "Book Free Consultation",
   secondaryCta: "Explore Projects",

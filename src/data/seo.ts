@@ -3,7 +3,7 @@ export interface SEOData {
   description: string;
   keywords: string[];
   ogImage?: string;
-  ogType?: string;
+  ogType?: "article" | "website" | "book" | "profile" | "music.song" | "music.album" | "music.playlist" | "music.radio_station" | "video.movie" | "video.episode" | "video.tv_show" | "video.other";
 }
 
 const baseKeywords = [
@@ -65,6 +65,66 @@ export const seo: Record<string, SEOData> = {
     description:
       "Discover why Hyderabad is ideal for real estate investment — IT growth, infrastructure expansion and rising demand for HMDA, DTCP approved plots and villas.",
     keywords: [...baseKeywords, "why invest in Hyderabad", "Hyderabad real estate investment", "Hyderabad growth corridors", "Hyderabad property appreciation"],
+    ogType: "article",
+  },
+  vikarabad: {
+    title: "Plots in Vikarabad, West Hyderabad | Arjun Realty",
+    description:
+      "Vikarabad, West Hyderabad's growth corridor — DTCP & RERA approved 150-acre layouts near the Appa Junction expressway and a confirmed bullet-train station.",
+    keywords: [
+      ...baseKeywords,
+      "Vikarabad plots",
+      "plots in Vikarabad",
+      "Vikarabad real estate",
+      "approved plots Vikarabad",
+      "West Hyderabad investment corridor",
+      "Vikarabad bullet train",
+      "JB Pristine City",
+    ],
+  },
+  ibrahimpatnam: {
+    title: "Plots in Ibrahimpatnam, Hyderabad | Arjun Realty",
+    description:
+      "HMDA & RERA approved plots and an upcoming 90-acre villa community in Ibrahimpatnam, South Hyderabad — near Sagar Highway, Adibatla and the airport corridor.",
+    keywords: [
+      ...baseKeywords,
+      "Ibrahimpatnam plots",
+      "plots in Ibrahimpatnam",
+      "Ibrahimpatnam real estate",
+      "residential plots Ibrahimpatnam",
+      "Adibatla plots",
+      "JB Serene City",
+      "South Hyderabad plots",
+    ],
+  },
+  "srisailam-highway-future-city": {
+    title: "Srisailam Highway Plots | South Hyderabad | Arjun Realty",
+    description:
+      "Srisailam Highway plots and villa communities in South Hyderabad's Future City corridor — FCDA & DTCP approved, near the airport. Arjun Realty site visits.",
+    keywords: [
+      ...baseKeywords,
+      "Srisailam Highway plots",
+      "plots on Srisailam Highway",
+      "Future City Hyderabad plots",
+      "Srisailam Highway real estate",
+      "FCDA approved plots",
+      "JB Harmony Woods",
+      "Future City growth corridor",
+    ],
+  },
+  orr: {
+    title: "Plots Near Hyderabad ORR (Outer Ring Road) | Arjun Realty",
+    description:
+      "Verified approved plots and villa communities near Hyderabad's Outer Ring Road (ORR) — connecting ORR Exit 13, 14 and 18 growth corridors across the city.",
+    keywords: [
+      ...baseKeywords,
+      "Hyderabad ORR plots",
+      "plots near Hyderabad ORR",
+      "Outer Ring Road plots Hyderabad",
+      "Hyderabad ORR real estate",
+      "ORR ring plots Hyderabad",
+      "ORR gated communities",
+    ],
   },
   contact: {
     title: "Contact Arjun Realty | Hyderabad Plot Experts",
@@ -106,9 +166,9 @@ export const seo: Record<string, SEOData> = {
     ],
   },
   insights: {
-    title: "Hyderabad Real Estate Insights & Market Updates | Arjun Realty",
+    title: "Hyderabad Real Estate Market Insights | Arjun Realty",
     description:
-      "Market intelligence, growth-corridor analysis and land-buying guides from Arjun Realty — Hyderabad plot prices, corporate investments, approvals and due diligence explained.",
+      "Market intelligence, growth-corridor analysis and land-buying guides from Arjun Realty — Hyderabad plot prices, corporate investments and due diligence.",
     keywords: [
       ...baseKeywords,
       "Hyderabad real estate market update",

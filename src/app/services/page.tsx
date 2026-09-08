@@ -99,7 +99,7 @@ export default function ServicesPage() {
           <ScrollReveal className="max-w-3xl">
             <SectionLabel>Our Services</SectionLabel>
             <h1 className="mt-6 text-[clamp(2rem,5vw,4rem)] font-bold tracking-[-0.03em] leading-[1.05]">
-              End-to-End <span className="text-gradient">Real Estate Advisory</span>
+              End-to-End Real Estate <span className="text-gradient">Advisory in Hyderabad</span>
             </h1>
             <p className="mt-6 text-white/40 text-base sm:text-lg leading-relaxed max-w-xl">
               From your first consultation to final registration — we handle every step

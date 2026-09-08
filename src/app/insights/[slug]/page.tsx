@@ -8,6 +8,7 @@ import SectionLabel from "@/components/SectionLabel";
 import PageBreadcrumbs from "@/components/PageBreadcrumbs";
 import siteConfig from "@/config/site";
 import { getProjectBySlug } from "@/data/projects";
+import { getProjectHref } from "@/lib/project-links";
 import {
   insights,
   getInsightBySlug,
@@ -15,6 +16,32 @@ import {
   getReadingMinutes,
   formatInsightDate,
 } from "@/data/insights";
+
+// Minimal, safe inline-link renderer for insight body paragraphs. Only an
+// explicit `[text](/internal-path)` token becomes a link; every other paragraph
+// (and any unmatched text) renders as plain text exactly as before. This keeps
+// the change surgical and backward-compatible with all existing article content.
+const INLINE_LINK = /\[([^\]]+)\]\(\/([^)]*)\)/;
+
+function renderBodyParagraph(text: string) {
+  const match = text.match(INLINE_LINK);
+  if (!match) return text;
+  const [full, label, path] = match;
+  const before = text.slice(0, text.indexOf(full));
+  const after = text.slice(text.indexOf(full) + full.length);
+  return (
+    <>
+      {before}
+      <Link
+        href={`/${path}`}
+        className="text-primary font-medium underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-colors"
+      >
+        {label}
+      </Link>
+      {after}
+    </>
+  );
+}
 
 export function generateStaticParams() {
   return insights.map((i) => ({ slug: i.slug }));
@@ -186,7 +213,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
                   <div className="space-y-5">
                     {section.body.map((paragraph, pi) => (
                       <p key={pi} className="text-[15px] text-white/45 leading-[1.85]">
-                        {paragraph}
+                        {renderBodyParagraph(paragraph)}
                       </p>
                     ))}
                   </div>
@@ -250,7 +277,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {featuredProjects.map((p, i) => (
                 <ScrollReveal key={p.slug} delay={i * 0.1}>
-                  <Link href={`/projects/${p.slug}`} className="block h-full">
+                  <Link href={getProjectHref(p.slug)} className="block h-full">
                     <div className="glass-card-elevated rounded-2xl overflow-hidden group relative h-full">
                       {p.image ? (
                         <div className="relative h-48 overflow-hidden">

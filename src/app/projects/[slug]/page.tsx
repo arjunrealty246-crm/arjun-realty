@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getRelatedProjects } from "@/data/projects";
 import type { Project } from "@/data/projects";
+import { getInsightBySlug, type Insight } from "@/data/insights";
 import PremiumProjectDetailPage from "@/components/PremiumProjectDetailPage";
 import siteConfig from "@/config/site";
 import { connectDB } from "@/lib/mongodb";
 import { getMergedProject, isUsableMediaUrl } from "@/lib/merged-project";
+import { getProjectHref } from "@/lib/project-links";
 import TestimonialModel from "@/lib/models/Testimonial";
 
 // The project page is backed by admin-editable data in MongoDB. It is rendered
@@ -49,6 +51,18 @@ function buildProjectKeywords(project: Project): string[] {
   return [...new Set(keywords)];
 }
 
+// Normalizes presentation-only formatting of an auto-generated project title
+// part so dash/space styling stays consistent across the project detail system.
+// It only touches separator formatting (spaced hyphens -> en dashes, whitespace
+// collapsing/trimming) and never rewrites names, locations, types, or facts.
+function normalizeTitlePart(text: string): string {
+  if (!text) return text;
+  return text
+    .replace(/\s+-\s+/g, " – ") // spaced hyphen separator -> spaced en dash (site convention)
+    .replace(/\s+/g, " ") // collapse stray whitespace
+    .replace(/^\s+|\s+$/g, ""); // trim
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const project = await getMergedProject(slug);
@@ -56,8 +70,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const isUpcoming = project.status === "Upcoming";
   const isPreLaunch = project.status === "Pre-Launch";
-  const locShort = project.location.split(",")[0].replace(/^(Near |Close to )/, "");
-  const typeShort = project.projectType.replace(/\s*&\s*/g, " & ").split(" ").slice(0, 4).join(" ").replace(/\s*[&,]\s*$/, "").trim();
+  // Auto-generated title parts are normalized for consistent dash/space formatting.
+  const nameTitle = normalizeTitlePart(project.name || "");
+  const locShort = normalizeTitlePart(project.location.split(",")[0].replace(/^(Near |Close to )/, ""));
+  const typeShort = normalizeTitlePart(project.projectType.replace(/\s*&\s*/g, " & ").split(" ").slice(0, 4).join(" ").replace(/\s*[&,]\s*$/, ""));
 
   let title: string;
   const explicitTitle = project.seoTitle?.trim();
@@ -66,32 +82,34 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   } else if (isUpcoming) {
     title = `Upcoming ${typeShort} in ${locShort} | Arjun Realty`;
   } else if (isPreLaunch) {
-    title = `${project.name} | Pre-Launch ${typeShort} in ${locShort}`;
+    title = `${nameTitle} | Pre-Launch ${typeShort} in ${locShort}`;
   } else {
-    title = `${project.name} | ${typeShort} in ${locShort}`;
+    title = `${nameTitle} | ${typeShort} in ${locShort}`;
   }
   if (!explicitTitle && title.length > 60) {
     const words = typeShort.split(" ");
     while (words.length > 1) {
-      const candidate = `${project.name} | ${words.join(" ")}`;
+      const candidate = `${nameTitle} | ${words.join(" ")}`;
       if (candidate.length <= 60) {
         title = candidate;
         break;
       }
       words.pop();
     }
-    if (title.length > 60) title = `${project.name} | ${locShort}`;
+    if (title.length > 60) title = `${nameTitle} | ${locShort}`;
   }
   if (title.length > 60) {
-    const maxLocLen = 60 - project.name.length - 3;
+    const maxLocLen = 60 - nameTitle.length - 3;
     const trimmedLoc = locShort.slice(0, Math.max(10, maxLocLen)).replace(/\s+\S*$/, "");
-    title = `${project.name} | ${trimmedLoc}`;
+    title = `${nameTitle} | ${trimmedLoc}`;
   }
 
   const hasValidPrice = project.startingPrice && project.startingPrice !== "Coming Soon" && project.startingPrice !== "Contact for Price" && project.startingPrice !== "Contact for Latest Price";
 
   let description: string;
-  if (isUpcoming) {
+  if (project.seoDescription?.trim()) {
+    description = project.seoDescription.trim();
+  } else if (isUpcoming) {
     description = `Upcoming ${project.projectType.toLowerCase()} in ${project.location}. ${project.approval}. Register for launch updates and pre-launch benefits from Arjun Realty.`;
   } else if (isPreLaunch) {
     const pricePart = hasValidPrice ? ` Plots from ${project.startingPrice}.` : "";
@@ -113,12 +131,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description,
     keywords: buildProjectKeywords(project),
     alternates: {
-      canonical: `${siteConfig.url}/projects/${slug}`,
+      canonical: slug === "shankarpally-45-acres"
+        ? `${siteConfig.url}/shankarpally-45-acres`
+        : `${siteConfig.url}/projects/${slug}`,
     },
     openGraph: {
       title,
       description,
-      url: `${siteConfig.url}/projects/${slug}`,
+      url: slug === "shankarpally-45-acres"
+        ? `${siteConfig.url}/shankarpally-45-acres`
+        : `${siteConfig.url}/projects/${slug}`,
       siteName: siteConfig.name,
       type: "website",
       images: [
@@ -146,6 +168,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   if (!project) notFound();
 
   const relatedProjects = getRelatedProjects(slug, 3);
+
+  const relatedInsights: Insight[] = (project.relatedInsightSlugs ?? [])
+    .map((s) => getInsightBySlug(s))
+    .filter((i): i is Insight => Boolean(i));
 
   const usableImages = Array.isArray(project.images)
     ? project.images.filter((img) => isUsableMediaUrl(img))
@@ -220,12 +246,17 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const ogImage = rawImg.endsWith(".svg") ? "/og-image.png" : rawImg;
   const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${siteConfig.url}${ogImage}`;
 
+  const productUrl = slug === "shankarpally-45-acres"
+    ? `${siteConfig.url}/shankarpally-45-acres`
+    : `${siteConfig.url}/projects/${slug}`;
+
   const projectSchema = {
     "@context": "https://schema.org",
+    "@id": `${productUrl}#product`,
     "@type": "Product",
     name: project.name,
     description: project.description || `${project.name} is a ${project.projectType} located at ${project.location}. ${project.approval}. Plot sizes: ${project.plotSizes}.`,
-    url: `${siteConfig.url}/projects/${slug}`,
+    url: productUrl,
     image: ogImageUrl,
     brand: {
       "@type": "Organization",
@@ -244,7 +275,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         "@type": "Offer",
         priceCurrency: "INR",
         price: project.startingPrice.replace(/[^0-9]/g, ""),
-        availability: "https://schema.org/InStock",
+        url: productUrl,
+        availability: project.isUpcoming ? "https://schema.org/PreOrder" : "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        seller: { "@id": `${siteConfig.url}/#organization` },
       },
     } : {}),
   };
@@ -268,7 +302,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
       { "@type": "ListItem", position: 2, name: "Projects", item: `${siteConfig.url}/projects` },
-      { "@type": "ListItem", position: 3, name: project.name, item: `${siteConfig.url}/projects/${slug}` },
+      { "@type": "ListItem", position: 3, name: project.name, item: `${siteConfig.url}${getProjectHref(slug)}` },
     ],
   };
 
@@ -277,7 +311,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
-      <PremiumProjectDetailPage project={project} relatedProjects={relatedProjects} testimonials={testimonials} />
+      <PremiumProjectDetailPage project={project} relatedProjects={relatedProjects} relatedInsights={relatedInsights} testimonials={testimonials} />
     </>
   );
 }

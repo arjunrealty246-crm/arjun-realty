@@ -734,7 +734,7 @@ export default function ArjunRealtyOpportunitiesPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/projects/shankarpally-45-acres"
+              href="/shankarpally-45-acres"
               className="btn-premium inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-10 py-4 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
             >
               Explore Project <ArrowRight className="h-4 w-4" />

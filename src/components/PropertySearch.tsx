@@ -108,16 +108,18 @@ export default function PropertySearch({ onFilteredProjects }: PropertySearchPro
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={propertySearch.placeholder}
+            aria-label={propertySearch.placeholder}
             className="w-full bg-white/[0.03] border border-white/[0.06] rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder:text-white/15 focus:outline-none focus:border-primary/30 focus:bg-white/[0.05] transition-all duration-300"
           />
           {searchQuery && (
-            <button onClick={() => setSearchQuery("")} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/20 hover:text-white/50 transition-colors">
+            <button onClick={() => setSearchQuery("")} aria-label="Clear search" className="absolute right-4 top-1/2 -translate-y-1/2 text-white/20 hover:text-white/50 transition-colors">
               <X className="h-3.5 w-3.5" />
             </button>
           )}
         </div>
         <button
           onClick={() => setShowFilters(!showFilters)}
+          aria-expanded={showFilters}
           className={`flex items-center gap-2 px-5 py-3.5 rounded-xl border transition-all duration-300 text-sm font-medium ${
             showFilters || hasActiveFilters
               ? "bg-primary/10 border-primary/25 text-primary"

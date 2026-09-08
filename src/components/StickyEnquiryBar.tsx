@@ -6,6 +6,7 @@ import { Phone, MessageCircle, ArrowRight } from "lucide-react";
 import siteConfig from "@/config/site";
 import RequestCallback from "./RequestCallback";
 import { stickyEnquiryBar } from "@/data/content";
+import { trackEvent } from "@/lib/analytics";
 
 export default function StickyEnquiryBar() {
   const [callbackOpen, setCallbackOpen] = useState(false);
@@ -23,6 +24,9 @@ export default function StickyEnquiryBar() {
           <div className="grid grid-cols-3 gap-2">
             <a
               href={siteConfig.links.tel}
+              onClick={() =>
+                trackEvent("call_click", { event_category: "lead_generation", content_label: "Call - Sticky Bar" })
+              }
               className="flex items-center justify-center gap-1.5 h-11 min-w-0 px-1.5 bg-white/[0.04] border border-white/[0.06] rounded-xl text-[12px] font-semibold text-white/60 hover:text-primary hover:border-primary/20 transition-all duration-300"
             >
               <Phone className="h-4 w-4 shrink-0" />
@@ -32,13 +36,19 @@ export default function StickyEnquiryBar() {
               href={siteConfig.links.wa}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("cta_click", { event_category: "lead_generation", content_label: "WhatsApp - Sticky Bar" })
+              }
               className="flex items-center justify-center gap-1.5 h-11 min-w-0 px-1.5 bg-[#25D366] rounded-xl text-[12px] font-semibold text-white shadow-lg shadow-[#25D366]/20"
             >
               <MessageCircle className="h-4 w-4 shrink-0" />
               <span className="truncate">{stickyEnquiryBar.whatsappLabel}</span>
             </a>
             <button
-              onClick={() => setCallbackOpen(true)}
+              onClick={() => {
+                trackEvent("cta_click", { event_category: "lead_generation", content_label: "Enquiry - Sticky Bar" });
+                setCallbackOpen(true);
+              }}
               className="flex items-center justify-center gap-1.5 h-11 min-w-0 px-1.5 bg-gradient-to-r from-primary to-primary-dark rounded-xl text-[12px] font-semibold text-white glow-primary-strong"
             >
               <span className="truncate">{stickyEnquiryBar.enquiryLabel}</span>

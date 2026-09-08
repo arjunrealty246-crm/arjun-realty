@@ -175,6 +175,23 @@ export default function AboutPage() {
   return (
     <>
       <PageBreadcrumbs items={[{ name: "About", url: "/about" }]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "@id": `${siteConfig.url}/about#aboutpage`,
+            name: "About Arjun Realty",
+            url: `${siteConfig.url}/about`,
+            description:
+              "Arjun Realty is built around one simple principle — the right property should match the right requirement, budget and location.",
+            inLanguage: "en-IN",
+            isPartOf: { "@id": `${siteConfig.url}/#website` },
+            mainEntity: { "@id": `${siteConfig.url}/#organization` },
+          }),
+        }}
+      />
       {/* ── Section 1: About Arjun ── */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.04] -right-48 -top-48" />

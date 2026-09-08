@@ -25,6 +25,7 @@ import { projects } from "@/data/projects";
 import { getBuilderById } from "@/data/builders";
 import { getProjectGradient } from "@/lib/assets";
 import { getDownloadUrl } from "@/lib/download-url";
+import { getProjectHref } from "@/lib/project-links";
 import { useDbProjectImages } from "@/hooks/useDbProjectImages";
 import siteConfig from "@/config/site";
 
@@ -38,7 +39,7 @@ function ProjectCard({ project, index, dbImages }: { project: (typeof projects)[
       <div className="glass-card-elevated rounded-[1.25rem] overflow-hidden group relative h-full flex flex-col cursor-pointer">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10" />
 
-        <Link href={`/projects/${project.slug}`} className="block relative h-56 sm:h-60 overflow-hidden">
+        <Link href={getProjectHref(project.slug)} className="block relative h-56 sm:h-60 overflow-hidden">
           {imageSrc ? (
             <Image
               src={imageSrc}
@@ -75,7 +76,7 @@ function ProjectCard({ project, index, dbImages }: { project: (typeof projects)[
         </Link>
 
         <div className="p-5 lg:p-6 flex flex-col flex-1">
-          <Link href={`/projects/${project.slug}`} className="block">
+          <Link href={getProjectHref(project.slug)} className="block">
             <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors duration-500 tracking-tight mb-1.5">
               {project.name}
             </h3>
@@ -199,7 +200,7 @@ function ProjectCard({ project, index, dbImages }: { project: (typeof projects)[
               </a>
             </div>
             <Link
-              href={`/projects/${project.slug}`}
+              href={getProjectHref(project.slug)}
               onClick={(e) => e.stopPropagation()}
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-[11px] font-semibold text-primary/70 hover:text-primary transition-colors duration-300"
             >

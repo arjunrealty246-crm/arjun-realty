@@ -1,9 +1,32 @@
 import { Shield, FileText, Landmark, Map, CheckCircle2, ArrowRight, Phone, MessageCircle, Building2, Ruler, Zap, Moon, Droplets, CheckCheck } from "lucide-react";
+import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import PageBreadcrumbs from "@/components/PageBreadcrumbs";
 import siteConfig from "@/config/site";
 import { seo } from "@/data/seo";
+
+// Minimal inline-link renderer. Only an explicit `[text](/internal-path)` token
+// becomes a link; all other text renders as plain content unchanged.
+const INLINE_LINK = /\[([^\]]+)\]\(\/([^)]*)\)/;
+
+function renderInlineLinks(text: string) {
+  const match = text.match(INLINE_LINK);
+  if (!match) return text;
+  const [full, label, path] = match;
+  return (
+    <>
+      {text.slice(0, text.indexOf(full))}
+      <Link
+        href={`/${path}`}
+        className="text-primary font-medium underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-colors"
+      >
+        {label}
+      </Link>
+      {text.slice(text.indexOf(full) + full.length)}
+    </>
+  );
+}
 
 const route = "/guides/telangana-plot-buyer-checklist";
 const pageUrl = `${siteConfig.url}${route}`;
@@ -72,7 +95,7 @@ const approvals = [
   {
     key: "FCDA",
     name: "FCDA — Future City Development Authority",
-    tag: "Approvals along the Future City Growth Corridor",
+    tag: "Approvals along the [Future City Growth Corridor](/srisailam-highway-future-city)",
     perks: [
       "Master-planned approval near Future City, AI City & the airport zone",
       "Specified infrastructure and utilities within the corridor",
@@ -244,7 +267,7 @@ export default function PlotBuyerGuidePage() {
                     <span className="text-[22px] font-bold text-gradient tracking-tight">{a.key}</span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-1 tracking-tight">{a.name}</h3>
-                  <p className="text-xs text-primary/60 font-medium mb-4">{a.tag}</p>
+                  <p className="text-xs text-primary/60 font-medium mb-4">{renderInlineLinks(a.tag)}</p>
                   <ul className="space-y-2.5 mt-auto">
                     {a.perks.map((perk) => (
                       <li key={perk} className="flex items-start gap-2.5 text-[13px] text-white/40 leading-relaxed">
