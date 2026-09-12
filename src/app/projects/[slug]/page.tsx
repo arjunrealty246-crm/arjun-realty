@@ -250,6 +250,31 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     ? `${siteConfig.url}/shankarpally-45-acres`
     : `${siteConfig.url}/projects/${slug}`;
 
+  // Google's Product rich result requires an offer (or review/aggregateRating).
+  // One is built only from real pricing data already present on the project: the
+  // first numeric value found across its actual price fields. Placeholder values
+  // ("Contact for Price", "Coming Soon", ...) carry no number, so they are skipped
+  // and no price is ever invented. Availability and seller use the real project
+  // status and the site's Organization.
+  const PRICE_PLACEHOLDERS = new Set(["coming soon", "contact for price", "contact for latest price", "verified pricing on request"]);
+  const realPriceText = [project.startingPrice, project.price, project.currentPrice, project.launchPrice]
+    .map((v) => (typeof v === "string" ? v.trim() : ""))
+    .find((v) => v && !PRICE_PLACEHOLDERS.has(v.toLowerCase()) && /[0-9]/.test(v));
+  const parsedPrice = realPriceText ? Number(realPriceText.replace(/[^0-9]/g, "")) : null;
+  const offersFragment = parsedPrice != null && Number.isFinite(parsedPrice)
+    ? {
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "INR",
+          price: parsedPrice,
+          url: productUrl,
+          availability: project.isUpcoming ? "https://schema.org/PreOrder" : "https://schema.org/InStock",
+          itemCondition: "https://schema.org/NewCondition",
+          seller: { "@id": `${siteConfig.url}/#organization` },
+        },
+      }
+    : {};
+
   const projectSchema = {
     "@context": "https://schema.org",
     "@id": `${productUrl}#product`,
@@ -270,17 +295,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       { "@type": "PropertyValue", name: "Plot Sizes", value: project.plotSizes },
       ...(project.totalAcres ? [{ "@type": "PropertyValue", name: "Total Area", value: `${project.totalAcres} Acres` }] : []),
     ].filter((p) => p.value),
-    ...(project.startingPrice && project.startingPrice !== "Coming Soon" && project.startingPrice !== "Contact for Price" && project.startingPrice !== "Contact for Latest Price" && /[0-9]/.test(project.startingPrice) ? {
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "INR",
-        price: project.startingPrice.replace(/[^0-9]/g, ""),
-        url: productUrl,
-        availability: project.isUpcoming ? "https://schema.org/PreOrder" : "https://schema.org/InStock",
-        itemCondition: "https://schema.org/NewCondition",
-        seller: { "@id": `${siteConfig.url}/#organization` },
-      },
-    } : {}),
+    ...offersFragment,
   };
 
   const faqSchema = Array.isArray(project.faqs) && project.faqs.length > 0 ? {
