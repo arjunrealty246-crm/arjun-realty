@@ -79,7 +79,7 @@ export const insights: Insight[] = [
         heading: "Price action by corridor",
         body: [
           "The Inner Ring remains the highest-value, lowest-yield space — predictable appreciation, premium per-square-yard pricing and limited inventory. The ORR ring offers the balance most investors want: institutional-grade connectivity, satellite-town amenities and better entry points.",
-          "West Hyderabad's Vikarabad corridor is the outlier this quarter. Priced at a fraction of Gachibowli and Kokapet, it is absorbing buyers on the strength of two factors: the confirmed high-speed rail station and the continued industrialization of the belt toward the Future City / AI City zone.",
+          "West Hyderabad's Vikarabad corridor is the outlier this quarter. Priced at a fraction of Gachibowli and Kokapet, it is absorbing buyers on the strength of two factors: the proposed high-speed rail corridor and the continued industrialization of the belt toward the Future City / AI City zone.",
         ],
       },
       {
@@ -95,7 +95,7 @@ export const insights: Insight[] = [
     slug: "why-vikarabad-is-west-hyderabads-next-hotspot",
     title: "Why Vikarabad Is Becoming West Hyderabad's Next Investment Hotspot",
     seoTitle: "Why Vikarabad Is West Hyderabad's Next Hotspot",
-    excerpt: "A confirmed bullet-train station, the Appa Junction expressway and land prices far below Gachibowli are pulling smart money toward Vikarabad.",
+    excerpt: "Proposed Hyderabad–Pune–Mumbai high-speed rail connectivity, the Appa Junction expressway and land prices far below Gachibowli are pulling smart money toward Vikarabad.",
     category: "Market Updates",
     categorySlug: "market-updates",
     publishedAt: "2026-08-15",
@@ -106,7 +106,7 @@ export const insights: Insight[] = [
         heading: "The three triggers",
         body: [
           "Every growth corridor follows the same script: connectivity arrives first, employment follows, and land values catch up last. Vikarabad is running that script on fast-forward.",
-          "First, the four-lane expressway connecting ORR Exit No. 18 (Appa Junction) has collapsed the perceived distance between Vikarabad and the Financial District. Second, the Central and State Governments have confirmed a major high-speed rail / bullet-train station at Vikarabad along the proposed corridor to Hyderabad. Third, the West-belt industrial expansion — including plants coming up along the [Srisailam axis](/srisailam-highway-future-city) — is drawing construction-linked employment to the district.",
+          "First, the four-lane expressway connecting ORR Exit No. 18 (Appa Junction) has collapsed the perceived distance between Vikarabad and the Financial District. Second, the Central and State Governments have proposed a Hyderabad–Pune–Mumbai high-speed rail / bullet-train corridor relevant to the wider Vikarabad region — scope and station details remain subject to official announcements. Third, the West-belt industrial expansion — including plants coming up along the [Srisailam axis](/srisailam-highway-future-city) — is drawing construction-linked employment to the district.",
         ],
       },
       {

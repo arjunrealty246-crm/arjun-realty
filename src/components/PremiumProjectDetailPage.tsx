@@ -51,6 +51,7 @@ import DevelopmentTimeline from "./showcase/DevelopmentTimeline";
 import DevelopmentUpdatesSection from "./showcase/DevelopmentUpdatesSection";
 import ProjectLayoutSection from "./showcase/ProjectLayoutSection";
 import ProjectFactsSection from "./showcase/ProjectFactsSection";
+import ProjectContentSections from "./showcase/ProjectContentSections";
 import FinalCTASection from "./showcase/FinalCTASection";
 import StickyCTABar from "./showcase/StickyCTABar";
 import type { Project } from "@/data/projects";
@@ -926,6 +927,8 @@ export default function PremiumProjectDetailPage({
           </div>
         </section>
       )}
+
+      <ProjectContentSections project={project} />
 
       {/* ════════════════════════════════════════════
           SECTION 8 — WHY INVEST

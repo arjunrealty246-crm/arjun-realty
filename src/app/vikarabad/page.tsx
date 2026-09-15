@@ -21,8 +21,8 @@ const drivers = [
   },
   {
     icon: TrainFront,
-    title: "Confirmed Bullet-Train Station",
-    desc: "The Central and State Governments have proposed a high-speed rail / bullet-train corridor with a confirmed major station at Vikarabad, promising rapid travel times to Hyderabad and strong land-value appreciation.",
+    title: "Proposed High-Speed Rail Corridor",
+    desc: "The Central and State Governments have proposed a Hyderabad–Pune–Mumbai high-speed rail / bullet-train corridor relevant to the wider Vikarabad region. Corridor scope and station details remain subject to official government announcements.",
   },
   {
     icon: ShieldCheck,
@@ -36,7 +36,7 @@ const connectivity = [
   "Just 2.5 KM from Vikarabad Town",
   "Just 3.5 KM from Regional Ring Road (RRR)",
   "Near the four-lane expressway from ORR Exit No.18 (Appa Junction) to Vikarabad",
-  "Proposed high-speed rail / bullet-train corridor with a confirmed major station at Vikarabad",
+  "Proposed Hyderabad–Pune–Mumbai high-speed rail / bullet-train corridor connectivity for the Vikarabad region",
 ];
 
 const landmarks = [
@@ -46,7 +46,7 @@ const landmarks = [
 ];
 
 const faqs = [
-  { q: "Why is Vikarabad considered a growth corridor?", a: "Vikarabad is positioned within the high-growth West Hyderabad Investment Corridor. Connectivity is arriving first — the four-lane expressway from ORR Exit No. 18 (Appa Junction) shortens the drive to the Financial District, and a confirmed major high-speed rail / bullet-train station at Vikarabad is along the proposed corridor to Hyderabad." },
+  { q: "Why is Vikarabad considered a growth corridor?", a: "Vikarabad is positioned within the high-growth West Hyderabad Investment Corridor. Connectivity is arriving first — the four-lane expressway from ORR Exit No. 18 (Appa Junction) shortens the drive to the Financial District, and the proposed Hyderabad–Pune–Mumbai high-speed rail / bullet-train corridor is relevant to the wider Vikarabad region, subject to official government announcements." },
   { q: "What type of plots are available in Vikarabad?", a: "Verified, approved layouts are available, including JB Pristine City — a 150-acre mega master-planned DTCP & RERA approved gated community with plot sizes from 150 to 600 sq. yards and clear titles." },
   { q: "What is the approval status of Vikarabad projects?", a: "As with any layout, verify the specific approval authority. Trusted projects carry DTCP and RERA approvals with clean Dharani records. JB Pristine City is DTCP & RERA approved with a clear title and bank loan facility." },
   { q: "Who is Vikarabad best suited for?", a: "Vikarabad suits investors whose time horizon is 5-10 years and who want to pre-position ahead of the bullet-train working population. End-users should weigh their commute today rather than promotional renders of tomorrow." },
@@ -255,7 +255,7 @@ export default function VikarabadPage() {
             <SectionLabel>Market Intelligence</SectionLabel>
             <h2 className="mt-4 text-xl font-bold tracking-tight mb-3">Why Vikarabad Is Becoming West Hyderabad&apos;s Next Investment Hotspot</h2>
             <p className="text-[13px] text-white/35 leading-relaxed mb-6">
-              A confirmed bullet-train station, the Appa Junction expressway and land
+              Proposed Hyderabad–Pune–Mumbai high-speed rail connectivity, the Appa Junction expressway and land
               prices far below Gachibowli are pulling smart money toward Vikarabad.
             </p>
             <Link

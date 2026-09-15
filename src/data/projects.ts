@@ -33,6 +33,7 @@ export interface ProjectPhase {
   description?: string;
   details?: { label: string; value: string }[];
   highlights?: string[];
+  cta?: { label: string; href: string };
   photos?: string[];
   videos?: string[];
   masterPlanUrl?: string;
@@ -60,6 +61,26 @@ export interface DevelopmentUpdate {
   title: string;
   description?: string;
   images?: string[];
+}
+
+export interface ProjectContentCard {
+  title: string;
+  text: string;
+}
+
+export interface ProjectContentLink {
+  label: string;
+  href: string;
+}
+
+export interface ProjectContentSection {
+  id: string;
+  label?: string;
+  heading: string;
+  paragraphs?: string[];
+  bullets?: string[];
+  cards?: ProjectContentCard[];
+  links?: ProjectContentLink[];
 }
 
 export interface Project {
@@ -125,6 +146,7 @@ export interface Project {
   gallery?: ProjectGalleryItem[];
   developmentUpdates?: DevelopmentUpdate[];
   relatedInsightSlugs?: string[];
+  contentSections?: ProjectContentSection[];
 }
 
 export const projects: Project[] = [
@@ -473,12 +495,12 @@ export const projects: Project[] = [
     location: "Vikarabad, Telangana",
     locationOverview: [
       "JB Pristine City is a 150-acre DTCP & RERA approved mega master-planned gated layout situated in the fast-appreciating growth corridor of Vikarabad, West Hyderabad, within the high-growth West Hyderabad Investment Corridor.",
-      "The project enjoys seamless road connectivity from major IT & financial hubs including Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila and Shankarpally via the four-lane expressway from ORR Exit No. 18, and stands to benefit from the proposed High-Speed Rail / Bullet Train corridor with a confirmed major station at Vikarabad. Plots are available from 150 to 600 Sq. Yards with clear titles and immediate bank loan facility.",
+      "The project enjoys seamless road connectivity from major IT & financial hubs including Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila and Shankarpally via the four-lane expressway from ORR Exit No. 18, and stands to benefit from the proposed Hyderabad–Pune–Mumbai High-Speed Rail corridor connectivity for the Vikarabad region. Plots are available from 150 to 600 Sq. Yards with clear titles and immediate bank loan facility.",
     ],
-    seoTitle: "JB Pristine City | Plots in Vikarabad From ₹13,999",
-    seoDescription: "JB Pristine City is a 150-acre DTCP & RERA approved plotted layout in Vikarabad, West Hyderabad, connected to IT hubs like Kokapet and Gachibowli. Plots available from ₹13,999 per Sq. Yd. Enquire now.",
+    seoTitle: "JB Pristine City Phase 3 | Plots in Vikarabad, RERA",
+    seoDescription: "JB Pristine City Phase 3 — TG RERA registered plots in Vikarabad, West Hyderabad. DTCP & RERA approved 150-acre community; plots from ₹13,999/Sq. Yd. Enquire.",
     tagline: "The Next High-Growth Destination of West Hyderabad | 150-Acre Mega DTCP & RERA Approved Community",
-    description: "JB Pristine City is a 150-acre mega master-planned DTCP & RERA approved gated layout situated in the fast-appreciating growth corridor of Vikarabad, West Hyderabad. Positioned within the high-growth West Hyderabad Investment Corridor, the project enjoys seamless road connectivity from major IT & financial hubs including Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila and Shankarpally via the four-lane expressway from ORR Exit No. 18. It also stands to benefit from the Central and State Government proposed High-Speed Rail / Bullet Train corridor, with a confirmed major station at Vikarabad promising rapid travel times to Hyderabad and exponential land value appreciation. The venture features a 150-acre gated layout with grand entrance arch, wide BT roads, underground utilities, clear titles and an immediate bank loan facility — making it an exceptional high-ROI opportunity for smart tech professionals and long-term investors.",
+    description: "JB Pristine City is a 150-acre mega master-planned DTCP & RERA approved gated layout situated in the fast-appreciating growth corridor of Vikarabad, West Hyderabad. Positioned within the high-growth West Hyderabad Investment Corridor, the project enjoys seamless road connectivity from major IT & financial hubs including Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila and Shankarpally via the four-lane expressway from ORR Exit No. 18. It also stands to benefit from the proposed Hyderabad–Pune–Mumbai High-Speed Rail corridor connectivity for the Vikarabad region. The venture features a 150-acre gated layout with grand entrance arch, wide BT roads, underground utilities, clear titles and an immediate bank loan facility — making it an exceptional high-ROI opportunity for smart tech professionals and long-term investors.",
     mapsUrl: "https://maps.app.goo.gl/QPHZ7D8uQdS2nvyh7",
     price: "Contact for Latest Price",
     startingPrice: "₹13,999 / Sq. Yd.",
@@ -496,7 +518,7 @@ export const projects: Project[] = [
     ],
     connectivity: [
       "Seamless road connectivity from Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila & Shankarpally",
-      "Proposed High-Speed Rail / Bullet Train with Confirmed Major Station at Vikarabad",
+      "Proposed Hyderabad–Pune–Mumbai High-Speed Rail corridor connectivity for the Vikarabad region",
       "Just 2 KM from Vikarabad Railway Station",
       "Just 3.5 KM from Regional Ring Road (RRR)",
       "Near Four-Lane Expressway from ORR Exit No.18",
@@ -508,7 +530,7 @@ export const projects: Project[] = [
     usps: [
       "150-Acre Mega Master-Planned DTCP & RERA Approved Gated Venture",
       "High-Growth West Hyderabad Investment Corridor — seamless connectivity from Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila & Shankarpally",
-      "Central & State Government Proposed High-Speed Rail / Bullet Train with Confirmed Major Station at Vikarabad",
+      "Proposed Hyderabad–Pune–Mumbai High-Speed Rail corridor connectivity for the Vikarabad region",
       "Clear Titles & Immediate Bank Loan Facility",
       "Grand Entrance Arch, Wide BT Roads & Underground Utilities",
       "High-ROI Venture for Smart Tech Professionals & Long-Term Investors",
@@ -517,14 +539,14 @@ export const projects: Project[] = [
       "150-Acre Mega Master-Planned DTCP & RERA Approved Gated Layout",
       "Clear Titles with Immediate Bank Loan Facility",
       "High-ROI Potential along West Hyderabad's Fastest-Appreciating Corridor",
-      "Proposed Bullet Train Connectivity with Confirmed Major Vikarabad Station",
+      "Proposed Hyderabad–Pune–Mumbai High-Speed Rail corridor connectivity for the Vikarabad region",
       "Rapid Connectivity from Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila & Shankarpally",
       "Ideal for Smart Tech Professionals & Long-Term Investors",
     ],
     highlights: [
       "150-Acre Mega Master-Planned DTCP & RERA Approved Community",
       "West Hyderabad Investment Corridor — Connected to Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila & Shankarpally",
-      "Proposed High-Speed Rail / Bullet Train with Confirmed Major Station at Vikarabad",
+      "Proposed Hyderabad–Pune–Mumbai High-Speed Rail corridor connectivity for the Vikarabad region",
       "Grand Entrance Arch, Wide BT Roads & Underground Utilities",
       "Clear Titles & Immediate Bank Loan Facility",
       "Fast-Appreciating Growth Corridor of Vikarabad",
@@ -540,14 +562,18 @@ export const projects: Project[] = [
       { q: "What are the available plot sizes?", a: "Plots are available in 150, 165, 183, 200, 220, 300, 400, 500, and 600 Sq. Yards." },
       { q: "What is the starting price?", a: "Plots start from ₹13,999 per Sq. Yard." },
       { q: "How is JB Pristine City connected to Hyderabad?", a: "It enjoys seamless road connectivity from major IT & financial hubs including Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila and Shankarpally via the four-lane expressway from ORR Exit No. 18." },
-      { q: "What about the proposed Bullet Train?", a: "The Central and State Government proposed High-Speed Rail / Bullet Train corridor includes a confirmed major station at Vikarabad, promising rapid travel times to Hyderabad and strong land value appreciation." },
+      { q: "What about the proposed Bullet Train / High-Speed Rail?", a: "The proposed Hyderabad–Pune–Mumbai High-Speed Rail corridor is a long-term infrastructure proposal for the wider Vikarabad region. JB Pristine City already benefits from the existing Vikarabad Railway Station and the proposed Regional Ring Road (RRR); corridor scope and station details are subject to official government announcements." },
       { q: "Is bank loan available?", a: "Yes, immediate bank loan facility is available through leading financial institutions." },
+      { q: "What is JB Pristine City Phase 3?", a: "JB's Pristine City Phase-3 is registered with the Telangana Real Estate Regulatory Authority (TG RERA) at Kothagadi, Vikarabad, Telangana. As per the registration certificate, the promoter is JB Western Projects and the registration is valid from 07/02/2026 to 07/02/2028 (RERA No. P02100010790). Phase 3 plot availability, pricing and site-visit details are shared on enquiry." },
+      { q: "Where exactly is JB Pristine City located?", a: "JB Pristine City is located at Vikarabad, Telangana, in the West Hyderabad growth corridor — it is not located in Shankarpally or Mokila. The road approach from the city leaves the Outer Ring Road at Exit No. 18 (Appa Junction) and continues via Moinabad, Chevella and Manneguda toward Vikarabad." },
+      { q: "How is West Hyderabad connected to Vikarabad?", a: "The approach from West Hyderabad leaves the Outer Ring Road at Exit No. 18 (Appa Junction) and continues via Moinabad, Chevella and Manneguda toward Vikarabad, along the Hyderabad–Bijapur Highway / NH-163 direction. The project data also places JB Pristine City close to the proposed Regional Ring Road (RRR)." },
+      { q: "Is JB Pristine City near the Regional Ring Road (RRR)?", a: "Yes. The project data places JB Pristine City approximately 3.5 KM from the proposed Regional Ring Road (RRR), which supports the long-term road connectivity of the Vikarabad region." },
     ],
     whatsappCta: "Get Pristine City Details",
     projectArea: "150-Acre Mega Gated Venture",
     locationAdvantages: [
       "Seamless connectivity from major IT & financial hubs — Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila & Shankarpally",
-      "Proposed High-Speed Rail / Bullet Train with Confirmed Major Station at Vikarabad",
+      "Proposed Hyderabad–Pune–Mumbai High-Speed Rail corridor connectivity for the Vikarabad region",
       "Just 2 KM from Vikarabad Railway Station",
       "Just 2.5 KM from Vikarabad Town",
       "Just 3.5 KM from Regional Ring Road (RRR)",
@@ -558,9 +584,83 @@ export const projects: Project[] = [
     ],
     whyInvest: [
       "West Hyderabad's fastest-appreciating corridor with easy access to leading IT & financial hubs",
-      "Proposed High-Speed Rail / Bullet Train with confirmed major station at Vikarabad — rapid travel times to Hyderabad",
+      "Proposed Hyderabad–Pune–Mumbai High-Speed Rail corridor connectivity for the Vikarabad region",
       "150-acre master-planned DTCP & RERA approved layout with clear titles and bank loan facility",
       "High-ROI potential powered by smart tech professionals and long-term investor demand",
+    ],
+    contentSections: [
+      {
+        id: "west-hyderabad-vikarabad-connectivity",
+        label: "Connectivity",
+        heading: "West Hyderabad to Vikarabad Connectivity",
+        paragraphs: [
+          "JB Pristine City is located at Vikarabad, reached from West Hyderabad through the established western corridor of Kokapet, Neopolis, Gandipet, Mokila, Shankarpally, Moinabad and Chevella. This is the same belt where residential and plotted development has expanded outward from the ORR, with Vikarabad forming the next destination along that approach.",
+          "The road approach from the city leaves the Outer Ring Road at Exit No. 18 (Appa Junction) and continues via Moinabad, Chevella and Manneguda toward Vikarabad. The project data also places JB Pristine City approximately 3.5 KM from the proposed Regional Ring Road (RRR), which supports the long-term road connectivity of the Vikarabad region.",
+        ],
+        links: [
+          { label: "Why Hyderabad", href: "/why-hyderabad" },
+          { label: "NRI Investment", href: "/nri-investment" },
+        ],
+      },
+      {
+        id: "nearby-growth-corridors",
+        label: "Nearby Growth Corridors",
+        heading: "Shankarpally, Mokila & Chevella — The Approach to Vikarabad",
+        paragraphs: [
+          "JB Pristine City is located in Vikarabad. The locations below form part of the western Hyderabad corridor on the approach toward Vikarabad and help explain the wider growth belt — they are not the project's location.",
+        ],
+        cards: [
+          { title: "Shankarpally", text: "An established plotted-development and villa belt on West Hyderabad's approach toward Vikarabad, and part of the corridor connected to JB Pristine City." },
+          { title: "Mokila", text: "A fast-emerging residential corridor to the west of Hyderabad, located within the same western investment belt on the approach toward Vikarabad." },
+          { title: "Chevella & Moinabad", text: "Positioned on the ORR Exit No. 18 (Appa Junction) route via Moinabad, Chevella and Manneguda toward Vikarabad, anchoring the highway approach into the region." },
+        ],
+      },
+      {
+        id: "orr-exit-18-route",
+        label: "Route",
+        heading: "ORR Exit No. 18 (Appa Junction) to Vikarabad",
+        paragraphs: [
+          "From the Outer Ring Road, the approach to JB Pristine City leaves at Exit No. 18 (Appa Junction) and continues through Moinabad, Chevella and Manneguda toward Vikarabad, along the Hyderabad–Bijapur Highway / NH-163 direction. This is the corridor that links West Hyderabad with the Vikarabad region.",
+        ],
+        bullets: [
+          "ORR Exit No. 18 / Appa Junction → Moinabad",
+          "Moinabad → Chevella",
+          "Chevella → Manneguda",
+          "Manneguda → Vikarabad",
+        ],
+      },
+      {
+        id: "high-speed-rail-vikarabad",
+        label: "High-Speed Rail",
+        heading: "Proposed Hyderabad–Pune–Mumbai High-Speed Rail & Vikarabad",
+        paragraphs: [
+          "The proposed Hyderabad–Pune–Mumbai High-Speed Rail corridor is a long-term infrastructure proposal relevant to the wider Vikarabad region, which already benefits from the existing Vikarabad Railway Station and the proposed Regional Ring Road (RRR). Corridor scope and station details are subject to official government announcements.",
+        ],
+        links: [
+          { label: "DTCP, HMDA & FCDA Approvals Guide", href: "/insights/dtcp-hmda-fcda-approvals-which-to-choose" },
+        ],
+      },
+    ],
+    phases: [
+      {
+        name: "JB's Pristine City Phase-3",
+        status: "TG RERA Registered",
+        description:
+          "JB's Pristine City Phase-3 is registered with the Telangana Real Estate Regulatory Authority (TG RERA) at Kothagadi, Vikarabad, Telangana. As per the registration certificate, the promoter is JB Western Projects and the registration is valid from 07/02/2026 to 07/02/2028. Phase 3 plot availability, pricing and site-visit details are shared on enquiry.",
+        details: [
+          { label: "TG RERA No.", value: "P02100010790" },
+          { label: "Location", value: "Kothagadi, Vikarabad, Telangana" },
+          { label: "Validity", value: "07/02/2026 – 07/02/2028" },
+          { label: "Promoter", value: "JB Western Projects" },
+        ],
+        highlights: [
+          "TG RERA Registered",
+          "Vikarabad, West Hyderabad",
+          "Plots in Vikarabad",
+          "Availability on enquiry",
+        ],
+        cta: { label: "Enquire for Phase 3 availability, pricing & site visit", href: "#enquiry" },
+      },
     ],
     updates: [
       {

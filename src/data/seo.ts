@@ -70,7 +70,7 @@ export const seo: Record<string, SEOData> = {
   vikarabad: {
     title: "Plots in Vikarabad, West Hyderabad | Arjun Realty",
     description:
-      "Vikarabad, West Hyderabad's growth corridor — DTCP & RERA approved 150-acre layouts near the Appa Junction expressway and a confirmed bullet-train station.",
+      "Vikarabad, West Hyderabad's growth corridor — DTCP & RERA approved 150-acre layouts near the Appa Junction expressway and proposed Hyderabad–Pune–Mumbai High-Speed Rail connectivity.",
     keywords: [
       ...baseKeywords,
       "Vikarabad plots",

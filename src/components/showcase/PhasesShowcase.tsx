@@ -14,6 +14,7 @@ import {
   ChevronLeft,
   ChevronRight,
   CheckCircle,
+  ArrowRight,
 } from "lucide-react";
 import ScrollReveal from "../ScrollReveal";
 import SectionLabel from "../SectionLabel";
@@ -247,7 +248,15 @@ export default function PhasesShowcase({ project }: { project: Project }) {
                       )}
                     </div>
                   </div>
-                </div>
+                {phase.cta && (
+                  <a
+                    href={phase.cta.href}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary/[0.08] border border-primary/15 text-[11px] font-semibold text-primary hover:bg-primary/[0.15] transition-colors duration-300"
+                  >
+                    {phase.cta.label} <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                )}
+              </div>
 
                 <div className="p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-5 gap-8">
                   <div className="lg:col-span-2 space-y-5">
