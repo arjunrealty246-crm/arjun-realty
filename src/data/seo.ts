@@ -151,7 +151,7 @@ export const seo: Record<string, SEOData> = {
     keywords: [...baseKeywords, "real estate advisory services Hyderabad", "property consulting Hyderabad", "legal verification plots Hyderabad", "NRI real estate services"],
   },
   "plot-buyer-guide": {
-    title: "Ultimate Plot Buyer Guide: HMDA, DTCP, FCDA & RERA",
+    title: "Plot Buyer Checklist Telangana: HMDA, DTCP, FCDA & RERA",
     description:
       "Verified plot-buying checklist for Hyderabad: legal title clearance, 30-year encumbrance (EC), Dharani checks and HMDA, DTCP, FCDA & RERA approvals explained.",
     keywords: [
