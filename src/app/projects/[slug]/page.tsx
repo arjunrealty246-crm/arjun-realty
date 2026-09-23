@@ -98,8 +98,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
     if (title.length > 60) title = `${nameTitle} | ${locShort}`;
   }
-  if (title.length > 60) {
-    const maxLocLen = 60 - nameTitle.length - 3;
+  const titleLimit = explicitTitle ? 65 : 60;
+  if (title.length > titleLimit) {
+    const maxLocLen = titleLimit - nameTitle.length - 3;
     const trimmedLoc = locShort.slice(0, Math.max(10, maxLocLen)).replace(/\s+\S*$/, "");
     title = `${nameTitle} | ${trimmedLoc}`;
   }
