@@ -1053,7 +1053,7 @@ export const projects: Project[] = [
     approval: "HMDA Approval Under Process",
     location: "Shankarpally – Nawabpet Highway, West Hyderabad",
     seoTitle: "Shankarpally – 108 Acres | HMDA Plots, Nawabpet Highway",
-    seoDescription: "Pre-launch 108-acre HMDA open plotting community on the Shankarpally–Nawabpet Highway, 10 minutes from Shankarpally, with ORR connectivity. From ₹25,000/Sq. Yd.",
+    seoDescription: "Pre-launch 108-acre HMDA open plotting community on the Shankarpally–Nawabpet Highway, 10 minutes from Shankarpally with ORR connectivity. From ₹25,000.",
     description: "An upcoming 108-acre premium HMDA open plotting community located approximately 10 minutes from Shankarpally on the Shankarpally–Nawabpet Highway in West Hyderabad's fastest-growing corridor. The project offers a highway-facing position with excellent connectivity to ORR and proximity to upcoming infrastructure developments. HMDA approval is currently under process — register for pre-launch updates.",
     mapsUrl: "",
     price: "₹25,000 / Sq. Yd.",

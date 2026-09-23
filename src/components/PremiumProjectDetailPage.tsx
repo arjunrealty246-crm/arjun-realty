@@ -452,6 +452,9 @@ export default function PremiumProjectDetailPage({
                 <p className="text-white/45 text-[0.95rem] leading-[1.85] mb-6">
                   {project.description || `${project.name} is a ${project.projectType.toLowerCase()} located at ${project.location}. With ${project.approval} approvals and a focus on premium infrastructure, this project offers an exceptional opportunity for both investment and future home construction.`}
                 </p>
+                <p className="text-white/45 text-[0.95rem] leading-[1.85] mb-6">
+                  Interested in an <Link href="/projects/shankarpally-45-acres" className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">Shankarpally 45 Acres</Link> HMDA open plot in the same corridor? This certified open-plots community offers HMDA &amp; RERA approvals for secure, ready-to-invest development.
+                </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {project.highlights.map((h) => (
                     <div
