@@ -76,14 +76,6 @@ const productSchema = {
   brand: { "@type": "Brand", name: "Arjun Realty" },
   image: `${siteConfig.url}/og-image.png`,
   areaServed: { "@type": "Place", name: PROJECT_LOCATION },
-  offers: {
-    "@type": "Offer",
-    priceCurrency: "INR",
-    price: "0",
-    url: PROJECT_URL,
-    availability: "https://schema.org/InStock",
-    description: "Verified pricing on request — plots of 200, 267, 350 and 500+ sq. yd.",
-  },
   additionalProperty: [
     { "@type": "PropertyValue", name: "Total Extent", value: "45 Acres" },
     { "@type": "PropertyValue", name: "Approval Status", value: "100% HMDA Approved & RERA Registered" },
@@ -91,6 +83,7 @@ const productSchema = {
     { "@type": "PropertyValue", name: "Title", value: "100% Clear Title with Spot Registration" },
     { "@type": "PropertyValue", name: "Plot Sizes", value: "200, 267, 350 & 500+ Sq. Yds." },
     { "@type": "PropertyValue", name: "Bank Loan Facility", value: "Available from Leading Banks" },
+    { "@type": "PropertyValue", name: "Pricing", value: "Verified Pricing on Request" },
   ],
 };
 

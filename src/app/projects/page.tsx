@@ -64,6 +64,17 @@ export default function ProjectsPage() {
               compliance, infrastructure quality, and long-term appreciation
               potential.
             </p>
+            <p className="mt-4 text-white/35 text-sm sm:text-base leading-relaxed max-w-xl">
+              Browse plots and villa communities across Hyderabad and its growth corridors — from HMDA &amp; RERA approved townships in Ibrahimpatnam to FCDA approved plots on the Srisailam Highway. Looking for{" "}
+              <Link href={getProjectHref("jb-pristine-city")} className="text-primary hover:text-primary/80 font-medium transition-colors duration-300">
+                DTCP approved plots in Hyderabad
+              </Link>
+              ? Start with JB Pristine City, our DTCP &amp; RERA approved 150-acre community in Vikarabad, or the DTCP approved &amp; RERA registered{" "}
+              <Link href={getProjectHref("jb-nature-valley")} className="text-primary hover:text-primary/80 font-medium transition-colors duration-300">
+                JB Nature Valley
+              </Link>
+              on NH-65 at Choutuppal. Every page lists the exact approval status, plot sizes and current availability.
+            </p>
           </ScrollReveal>
 
           <div className="mt-10">

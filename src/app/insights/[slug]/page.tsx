@@ -112,13 +112,6 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <PageBreadcrumbs
-        items={[
-          { name: "Insights", url: "/insights" },
-          { name: insight.title, url: pageUrl },
-        ]}
-      />
-
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -144,26 +137,19 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
           }),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
-              { "@type": "ListItem", position: 2, name: "Insights", item: `${siteConfig.url}/insights` },
-              { "@type": "ListItem", position: 3, name: insight.title, item: pageUrl },
-            ],
-          }),
-        }}
-      />
 
       {/* Hero */}
       <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
         <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.05] -right-48 -top-48" />
         <div className="mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
           <article className="max-w-3xl">
+            <PageBreadcrumbs
+              showNav
+              items={[
+                { name: "Insights", url: "/insights" },
+                { name: insight.title, url: pageUrl },
+              ]}
+            />
             <ScrollReveal>
               <Link
                 href={`/insights?category=${insight.categorySlug}`}

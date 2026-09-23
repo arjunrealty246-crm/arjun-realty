@@ -34,7 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((p) => p.slug !== "shankarpally-45-acres")
     .map((p) => ({
       url: `${baseUrl}/projects/${p.slug}`,
-      lastModified: "2026-08-20",
       changeFrequency: "weekly" as const,
       priority: 0.9,
     }));

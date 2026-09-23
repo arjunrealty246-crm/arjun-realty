@@ -153,8 +153,6 @@ const faqs = [
 export default function PlotBuyerGuidePage() {
   return (
     <>
-      <PageBreadcrumbs items={[{ name: "Plot Buyer Verification Guide", url: route }]} />
-
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -191,6 +189,7 @@ export default function PlotBuyerGuidePage() {
       <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
         <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.05] -right-48 -top-48" />
         <div className="mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
+          <PageBreadcrumbs showNav items={[{ name: "Plot Buyer Verification Guide", url: route }]} />
           <ScrollReveal className="max-w-3xl">
             <SectionLabel>Buyer&apos;s Guide</SectionLabel>
             <h1 className="mt-6 text-[clamp(2rem,5vw,3.6rem)] font-bold tracking-[-0.03em] leading-[1.08]">

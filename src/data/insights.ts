@@ -128,7 +128,7 @@ export const insights: Insight[] = [
   {
     slug: "future-city-growth-corridor-whats-driving-land-values",
     title: "The Future City Growth Corridor: What's Driving Land Values",
-    seoTitle: "Future City Corridor: What's Driving Land Values",
+    seoTitle: "Future City Corridor: Land Values Explained",
     excerpt: "FCDA approval, airport proximity and the Foxconn-led electronics belt are converging on the Srisailam Highway — and land prices are responding.",
     category: "Market Updates",
     categorySlug: "market-updates",
@@ -264,7 +264,7 @@ export const insights: Insight[] = [
   {
     slug: "dtcp-hmda-fcda-approvals-which-to-choose",
     title: "DTCP, HMDA or FCDA Approval: Which Is Best for Your Plot Investment?",
-    seoTitle: "DTCP vs HMDA vs FCDA: Choosing Your Plot Approval",
+    seoTitle: "DTCP vs HMDA vs FCDA: Which Plot Approval",
     excerpt: "Three approval authorities, three different value profiles. A plain-English breakdown of HMDA, DTCP and FCDA layouts — and how to choose between them.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
