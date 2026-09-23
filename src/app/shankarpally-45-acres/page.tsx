@@ -12,9 +12,7 @@ import type { Project } from "@/data/projects";
 // reflect the latest saved Admin media/document URLs — never stale or missing.
 export const dynamic = "force-dynamic";
 
-const PROJECT_NAME = "Shankarpally 45 Acres Premium Layout";
 const PROJECT_URL = `${siteConfig.url}/shankarpally-45-acres`;
-const PROJECT_LOCATION = "Near Julkal Village, Shankarpally, West Hyderabad";
 
 export const metadata: Metadata = {
   title: {
@@ -66,27 +64,6 @@ export const metadata: Metadata = {
   },
 };
 
-const productSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: PROJECT_NAME,
-  description:
-    "A 100% HMDA approved and RERA registered 45-acre premium villa plotted development near Julkal Village, Shankarpally, West Hyderabad — on the Golden Triangle of West Hyderabad (Kokapet/Neopolis – Shankarpally – IIT Hyderabad/Kandi). Plots from 200 to 500+ sq. yd. with a 25,000 sq. ft. luxury clubhouse at zero extra charges, clear title with spot registration, underground electricity cabling, dedicated water pipeline and bank loan facility from leading banks.",
-  url: PROJECT_URL,
-  brand: { "@type": "Brand", name: "Arjun Realty" },
-  image: `${siteConfig.url}/og-image.png`,
-  areaServed: { "@type": "Place", name: PROJECT_LOCATION },
-  additionalProperty: [
-    { "@type": "PropertyValue", name: "Total Extent", value: "45 Acres" },
-    { "@type": "PropertyValue", name: "Approval Status", value: "100% HMDA Approved & RERA Registered" },
-    { "@type": "PropertyValue", name: "Clubhouse", value: "25,000 Sq. Ft. Luxury Clubhouse (Zero Extra Charges)" },
-    { "@type": "PropertyValue", name: "Title", value: "100% Clear Title with Spot Registration" },
-    { "@type": "PropertyValue", name: "Plot Sizes", value: "200, 267, 350 & 500+ Sq. Yds." },
-    { "@type": "PropertyValue", name: "Bank Loan Facility", value: "Available from Leading Banks" },
-    { "@type": "PropertyValue", name: "Pricing", value: "Verified Pricing on Request" },
-  ],
-};
-
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -132,9 +109,8 @@ export default async function Page() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
-      <PageBreadcrumbs items={[{ name: "Shankarpally 45 Acres", url: "/shankarpally-45-acres" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <PageBreadcrumbs items={[{ name: "Shankarpally 45 Acres", url: "/shankarpally-45-acres" }]} />
       <Shankarpally45AcresPage project={project as Project} />
     </>
   );
