@@ -460,6 +460,33 @@ export default function PremiumProjectDetailPage({
                     {"."}
                   </>
                 )}
+                {project.slug === "upcoming-srisailam-highway" && (
+                  <>
+                    {" "}Buyers comparing approved plots that are ready in the same corridor can review{" "}
+                    <Link href={getProjectHref("jb-harmony-woods")} className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">
+                      JB Harmony Woods
+                    </Link>
+                    {" — a live 53-acre FCDA approved plotted community near Future City, Thummaloor."}
+                  </>
+                )}
+                {project.slug === "jb-serene-city" && (
+                  <>
+                    {" "}Looking for a smaller HMDA layout closer to the Kongarakalan–Patancheru industrial belt? Compare{" "}
+                    <Link href={getProjectHref("jb-serene-county")} className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">
+                      JB Serene County
+                    </Link>
+                    {" — HMDA approved and TSRERA registered plots near ORR Exit No. 13."}
+                  </>
+                )}
+                {project.slug === "jb-serene-county" && (
+                  <>
+                    {" "}Looking for a larger integrated township closer to Ibrahimpatnam? Compare{" "}
+                    <Link href={getProjectHref("jb-serene-city")} className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">
+                      JB Serene City
+                    </Link>
+                    {" — a 660-acre HMDA approved township on the Nagarjuna Sagar Highway."}
+                  </>
+                )}
               </p>
                 <p className="text-white/45 text-[0.95rem] leading-[1.85] mb-6">
                   Interested in an <Link href="/projects/shankarpally-45-acres" className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">Shankarpally 45 Acres</Link> HMDA open plot in the same corridor? This certified open-plots community offers HMDA &amp; RERA approvals for secure, ready-to-invest development.

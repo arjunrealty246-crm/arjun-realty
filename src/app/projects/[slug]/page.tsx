@@ -24,6 +24,7 @@ function buildProjectKeywords(project: Project): string[] {
   const shortLoc = loc[0] || "Hyderabad";
   const primaryKeyword = `${project.name} ${shortLoc}`;
   const keywords = [
+    ...(project.targetKeywords ?? []).map((k) => k.trim()).filter(Boolean),
     primaryKeyword,
     project.name,
     `${project.name} plots`,
@@ -49,6 +50,33 @@ function buildProjectKeywords(project: Project): string[] {
   }
   if (project.totalAcres) keywords.push(`${project.totalAcres} acre project Hyderabad`);
   return [...new Set(keywords)];
+}
+
+const DEVELOPER_NAMES: Record<string, string> = {
+  "jb-infra": "JB Infra Projects",
+};
+
+function resolveDeveloperName(project: Project): string {
+  const explicit = project.developerName?.trim();
+  if (explicit) return explicit;
+  const mapped = DEVELOPER_NAMES[project.builder];
+  if (mapped) return mapped;
+  return project.marketingPartner?.trim() || project.builder;
+}
+
+function buildProjectAddress(project: Project) {
+  const segments = project.location.split(",").map((s) => s.trim()).filter(Boolean);
+  return {
+    "@type": "PostalAddress",
+    streetAddress: project.location,
+    addressLocality: segments[0] || project.name,
+    addressRegion: "Telangana",
+    addressCountry: "IN",
+  };
+}
+
+function serializeSchema(schema: unknown): string {
+  return JSON.stringify(schema).replace(/</g, "\\u003c");
 }
 
 // Normalizes presentation-only formatting of an auto-generated project title
@@ -98,8 +126,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
     if (title.length > 60) title = `${nameTitle} | ${locShort}`;
   }
-  const titleLimit = explicitTitle ? 65 : 60;
-  if (title.length > titleLimit) {
+  const titleLimit = 60;
+  if (!explicitTitle && title.length > titleLimit) {
     const maxLocLen = titleLimit - nameTitle.length - 3;
     const trimmedLoc = locShort.slice(0, Math.max(10, maxLocLen)).replace(/\s+\S*$/, "");
     title = `${nameTitle} | ${trimmedLoc}`;
@@ -108,8 +136,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const hasValidPrice = project.startingPrice && project.startingPrice !== "Coming Soon" && project.startingPrice !== "Contact for Price" && project.startingPrice !== "Contact for Latest Price";
 
   let description: string;
-  if (project.seoDescription?.trim()) {
-    description = project.seoDescription.trim();
+  const hasExplicitDescription = Boolean(project.seoDescription?.trim());
+  if (hasExplicitDescription) {
+    description = project.seoDescription!.trim();
   } else if (isUpcoming) {
     description = `Upcoming ${project.projectType.toLowerCase()} in ${project.location}. ${project.approval}. Register for launch updates and pre-launch benefits from Arjun Realty.`;
   } else if (isPreLaunch) {
@@ -121,7 +150,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const pricePart = hasValidPrice ? ` Plots from ${project.startingPrice}.` : "";
     description = `${project.name} is a ${project.projectType.toLowerCase()} in ${project.location}. ${project.approval}.${pricePart} Enquire now with Arjun Realty.`;
   }
-  if (description.length > 160) description = description.slice(0, 157) + "...";
+  if (!hasExplicitDescription && description.length > 160) description = description.slice(0, 157) + "...";
 
   const rawImage = project.image || "/og-image.png";
   const ogImage = rawImage.endsWith(".svg") ? "/og-image.png" : rawImage;
@@ -312,6 +341,27 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     })),
   } : null;
 
+  const placeSchema = {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "@id": `${productUrl}#place`,
+    name: project.name,
+    url: productUrl,
+    description: project.seoDescription?.trim() || project.description || `${project.name} — ${project.projectType} in ${project.location}.`,
+    image: ogImageUrl,
+    address: buildProjectAddress(project),
+    additionalType: "https://schema.org/Residence",
+    developer: {
+      "@type": "Organization",
+      name: resolveDeveloperName(project),
+    },
+    additionalProperty: [
+      { "@type": "PropertyValue", name: "Approval", value: project.approval },
+      { "@type": "PropertyValue", name: "Project Type", value: project.projectType },
+      { "@type": "PropertyValue", name: "Plot Sizes", value: project.plotSizes },
+    ].filter((p) => p.value),
+  };
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -325,10 +375,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <>
       {parsedPrice != null && Number.isFinite(parsedPrice) && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeSchema(projectSchema) }} />
       )}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeSchema(placeSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeSchema(breadcrumbSchema) }} />
+      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeSchema(faqSchema) }} />}
       <PremiumProjectDetailPage project={project} relatedProjects={relatedProjects} relatedInsights={relatedInsights} testimonials={testimonials} />
     </>
   );
