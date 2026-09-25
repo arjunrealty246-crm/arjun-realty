@@ -159,7 +159,7 @@ export const projects: Project[] = [
     projectType: "Premium Luxurious Semi-Villa Community Project",
     approval: "FCDA Approved",
     location: "Thummaloor, Future City Growth Corridor, Hyderabad",
-    seoTitle: "JB Harmony Woods | FCDA Plots Near Future City, Thummaloor",
+    seoTitle: "JB Harmony Woods | FCDA Approved Plots Near Future City, Thummaloor",
     seoDescription: "53-acre FCDA approved plots near Future City, Thummaloor, 15 min from Hyderabad Airport. 524 villa plots from ₹25,000/Sq.Yd. Book a site visit.",
     description: "JB Harmony Woods is a 53-acre FCDA approved premium luxurious semi-villa community project located in the Future City growth corridor off Srisailam Highway, Hyderabad. The gated community offers 524 villa plots ranging from 200 to 600 Sq. Yards and 50 boutique villas from 1,800 to 2,400 Sq. Ft., served by a 36,000 Sq. Ft. grand clubhouse with 30+ lifestyle amenities. The entire layout is engineered with advanced MEP (Mechanical, Electrical & Plumbing) infrastructure — featuring 100% underground cabling, dedicated ducting and streamlined utility lines — ensuring zero-disruption maintenance and rapid issue resolution without digging or layout damage in the future. Positioned just 2 minutes from Srisailam Highway and 15 minutes from Rajiv Gandhi International Airport, the project is surrounded by Future City, AI City, Foxconn, and Kaynes Technology — making it a strong proposition for both end-use and investment.",
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=Thummaloor%2C%20Hyderabad",
@@ -250,6 +250,7 @@ export const projects: Project[] = [
       { q: "What is the location advantage of JB Harmony Woods?", a: "The project is just 2 minutes from Srisailam Highway, 8 minutes from ORR Exit 14, 15 minutes from the airport, and minutes away from Future City, AI City, Foxconn, and major landmarks." },
       { q: "Is this project suitable for NRIs?", a: "Absolutely. The FCDA approval, prime location near Future City and AI City, and high appreciation potential make it an ideal investment for NRIs looking for long-term value." },
       { q: "How is the connectivity to IT hubs?", a: "Financial District and Gachibowli are reachable within 35 minutes, Neopolis Knowledge City within 40 minutes, making it convenient for IT professionals." },
+      { q: "How far is JB Harmony Woods from the airport?", a: "JB Harmony Woods is approximately 15 minutes from Rajiv Gandhi International Airport (RGIA), Hyderabad." },
     ],
     testimonials: [
       { name: "Ravi K., Investor", text: "Impressed with the scale of the project and the FCDA approval. The location near Future City and AI City sealed the deal for me." },

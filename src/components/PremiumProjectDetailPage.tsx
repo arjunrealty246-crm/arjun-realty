@@ -449,9 +449,18 @@ export default function PremiumProjectDetailPage({
             <ScrollReveal className="lg:col-span-3">
               <SectionLabel as="h2">Project Overview</SectionLabel>
               <div className="mt-6">
-                <p className="text-white/45 text-[0.95rem] leading-[1.85] mb-6">
-                  {project.description || `${project.name} is a ${project.projectType.toLowerCase()} located at ${project.location}. With ${project.approval} approvals and a focus on premium infrastructure, this project offers an exceptional opportunity for both investment and future home construction.`}
-                </p>
+              <p className="text-white/45 text-[0.95rem] leading-[1.85] mb-6">
+                {project.description || `${project.name} is a ${project.projectType} located at ${project.location}. With ${project.approval} approvals and a focus on premium infrastructure, this project offers an exceptional opportunity for both investment and future home construction.`}
+                {project.slug === "jb-harmony-woods" && (
+                  <>
+                    {" "}The gated community is positioned in the same corridor as{" "}
+                    <Link href="/projects/srisailam-highway-future-city" className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">
+                      Future City
+                    </Link>
+                    {"."}
+                  </>
+                )}
+              </p>
                 <p className="text-white/45 text-[0.95rem] leading-[1.85] mb-6">
                   Interested in an <Link href="/projects/shankarpally-45-acres" className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">Shankarpally 45 Acres</Link> HMDA open plot in the same corridor? This certified open-plots community offers HMDA &amp; RERA approvals for secure, ready-to-invest development.
                 </p>
