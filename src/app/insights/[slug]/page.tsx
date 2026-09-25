@@ -59,9 +59,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title = `${baseTitle.slice(0, maxBase).replace(/\s+\S*$/, "")}… | Arjun Realty`;
   }
 
-  const description = insight.excerpt.length > 160
+  const description = insight.metaDescription
+    ? insight.metaDescription
+    : insight.excerpt.length > 160
     ? `${insight.excerpt.slice(0, 157).replace(/\s+\S*$/, "")}...`
     : insight.excerpt;
+
+  const shareImage = insight.image
+    ? `${siteConfig.url}${insight.image}`
+    : `${siteConfig.url}/og-image.png`;
 
   return {
     title: { absolute: title },
@@ -77,13 +83,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: insight.publishedAt,
       authors: [insight.author.name],
       siteName: siteConfig.name,
-      images: [{ url: siteConfig.url + "/og-image.png", width: 1200, height: 630, alt: `${insight.title} — Arjun Realty Insights` }],
+      images: [{ url: shareImage, width: 1200, height: 630, alt: `${insight.title} — Arjun Realty Insights` }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [siteConfig.url + "/og-image.png"],
+      images: [shareImage],
     },
   };
 }
@@ -96,6 +102,15 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
   const pageUrl = `${siteConfig.url}/insights/${slug}`;
   const readingMinutes = getReadingMinutes(insight);
   const related = getRelatedInsights(insight, 3);
+  const shareImage = insight.image
+    ? `${siteConfig.url}${insight.image}`
+    : `${siteConfig.url}/og-image.png`;
+  const sectionNumbers: number[] = [];
+  let headingsSeen = 0;
+  for (const section of insight.sections) {
+    if (section.heading) headingsSeen += 1;
+    sectionNumbers.push(headingsSeen);
+  }
   const featuredProjects = (insight.featuredProjectSlugs ?? [])
     .map((s) => getProjectBySlug(s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
@@ -126,7 +141,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
               [insight.title, insight.excerpt, ...insight.sections.flatMap((s) => s.body)].join(" ").split(/\s+/).filter(Boolean).length
             ),
             mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
-            image: `${siteConfig.url}/og-image.png`,
+            image: shareImage,
             author: { "@type": "Person", name: insight.author.name, url: `${siteConfig.url}/about` },
             publisher: {
               "@type": "Organization",
@@ -178,6 +193,18 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
                   <Clock3 className="h-3.5 w-3.5 text-primary/70" /> {readingMinutes} min read
                 </span>
               </div>
+              {insight.image ? (
+                <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/[0.06]">
+                  <Image
+                    src={insight.image}
+                    alt={insight.imageAlt || `${insight.title} — Arjun Realty Insights`}
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 768px"
+                    className="object-cover"
+                  />
+                </div>
+              ) : null}
             </ScrollReveal>
           </article>
         </div>
@@ -192,7 +219,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
                 <section key={si}>
                   {section.heading && (
                     <h2 className="text-[clamp(1.3rem,3vw,1.7rem)] font-bold text-white tracking-tight mb-5 flex items-start gap-3">
-                      <span className="text-primary font-mono text-[0.8em] pt-1">0{si + 1}.</span>
+                      <span className="text-primary font-mono text-[0.8em] pt-1">{String(sectionNumbers[si]).padStart(2, "0")}.</span>
                       {section.heading}
                     </h2>
                   )}
