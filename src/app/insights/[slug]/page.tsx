@@ -194,14 +194,15 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
                 </span>
               </div>
               {insight.image ? (
-                <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/[0.06]">
+                <div className="mt-8 w-full overflow-hidden rounded-2xl border border-white/[0.06]">
                   <Image
                     src={insight.image}
                     alt={insight.imageAlt || `${insight.title} — Arjun Realty Insights`}
-                    fill
+                    width={insight.imageWidth ?? 1200}
+                    height={insight.imageHeight ?? 630}
                     priority
                     sizes="(max-width: 768px) 100vw, 768px"
-                    className="object-cover"
+                    className="h-auto w-full"
                   />
                 </div>
               ) : null}

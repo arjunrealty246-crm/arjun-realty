@@ -28,6 +28,8 @@ export interface Insight {
   author: InsightAuthor;
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   featuredProjectSlugs?: string[];
   sections: InsightSection[];
 }
@@ -73,9 +75,11 @@ export const insights: Insight[] = [
     categorySlug: "corporate-growth",
     publishedAt: "2026-09-25",
     author: researchDesk,
-    image: "/images/insights/hyderabad-future-city-ai-investment.png",
+    image: "/images/insights/hyderabad-future-city-ai-investment.jpeg",
     imageAlt:
       "Arjun Realty Insights poster: ₹70,000 Crore AI Investment in Hyderabad Future City, with the 264-acre, up to 1 GW TCS–HyperVault AI data centre campus figures",
+    imageWidth: 1122,
+    imageHeight: 1402,
     featuredProjectSlugs: ["jb-harmony-woods", "jb-serene-county"],
     sections: [
       {
