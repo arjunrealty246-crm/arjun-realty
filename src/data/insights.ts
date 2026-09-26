@@ -11,9 +11,50 @@ export interface InsightAuthor {
   role: string;
 }
 
+/**
+ * Status tone for a tracked development. Drives the colour of the status badge
+ * so a reader can tell an operating asset from an announced one at a glance.
+ * - operational: live / commissioned today
+ * - planned:     announced or proposed, not yet started
+ * - development: physically under construction
+ * - approval:    appraised, tendered or awaiting sanction
+ */
+export type InsightStatusTone = "operational" | "planned" | "development" | "approval";
+
+export interface InsightFact {
+  label: string;
+  value: string;
+}
+
+export interface InsightEntry {
+  title: string;
+  status: string;
+  tone: InsightStatusTone;
+  summary: string;
+  facts?: InsightFact[];
+  note?: string;
+}
+
+export interface InsightLocation {
+  name: string;
+  note: string;
+}
+
+export interface InsightSource {
+  label: string;
+  publisher: string;
+  url: string;
+  date?: string;
+}
+
 export interface InsightSection {
   heading?: string;
   body: string[];
+  entries?: InsightEntry[];
+  locations?: InsightLocation[];
+  checklist?: string[];
+  sources?: InsightSource[];
+  caution?: string;
 }
 
 export interface Insight {
@@ -63,6 +104,366 @@ const nagarjuna: InsightAuthor = {
 };
 
 export const insights: Insight[] = [
+  {
+    slug: "hyderabad-future-city-ai-data-centres-manufacturing-infrastructure-growth",
+    title:
+      "Hyderabad Future City 2026: AI, Data Centres, Manufacturing & Infrastructure Growth",
+    seoTitle: "Hyderabad Future City 2026: AI & Data Centres",
+    metaDescription:
+      "Explore Hyderabad Future City growth: AI and data-centre investments, manufacturing projects, radial roads, RRR connectivity and real-estate impact.",
+    excerpt:
+      "A status-checked research review of the AI, data-centre, manufacturing and road projects shaping Hyderabad Future City — separating what is operational from what is only proposed.",
+    category: "Corporate Investments & Growth",
+    categorySlug: "corporate-growth",
+    publishedAt: "2026-09-26",
+    author: researchDesk,
+    image: "/images/insights/hyderabad-future-city-growth-corridor-ai-data-centres-manufacturing.png",
+    imageAlt:
+      "Hyderabad Future City AI data centres manufacturing and infrastructure growth corridor – Arjun Realty Insights",
+    imageWidth: 1200,
+    imageHeight: 1500,
+    featuredProjectSlugs: ["jb-harmony-woods", "jb-serene-county"],
+    sections: [
+      {
+        body: [
+          "Hyderabad's growth story is no longer confined to the established IT corridors of Hitec City and Gachibowli. Economic activity is spreading outward into the southern and eastern belt around Future City, Kandukur, Meerkhanpet, Maheshwaram and Chandanvelly, where large-format data centre, cloud, manufacturing and logistics projects are operating, under construction, or awaiting approval.",
+          "This is Arjun Realty market research. It separates what is already operational from what has only been announced, and it does not treat an announcement as a completed project. Every figure below is attributed to a named source, and where sources disagree the disagreement is stated rather than hidden. For wider context on why the metro area keeps expanding, see [why Hyderabad continues to grow](/why-hyderabad).",
+          "The corridor deserves attention. That is not the same thing as saying prices will rise, and this article makes no such claim. What follows sets out the documented developments, their current status, and the questions a buyer still has to answer independently.",
+        ],
+      },
+      {
+        heading: "Why Hyderabad Future City Is Getting Attention",
+        body: [
+          "Attention around Hyderabad Future City is the result of several independent trends converging at once: hyperscale AI compute, conventional cloud capacity, electronics manufacturing, airport-linked logistics, and an entirely new road network. None of these on its own would define a corridor. Together they create the employment base that land demand depends on.",
+          "The planning logic matters as much as the corporate announcements. Future City is being shaped as a mixed economic zone rather than a single-industry park, with the state actively allocating both commercial and industrial land. That is a material difference from a stand-alone campus, and it is why the zone is worth tracking at mandal level rather than project by project. We track the corridor at that level, and the exact locations we currently feature are listed on [our projects page](/projects).",
+          "Our earlier analysis of [the Future City growth corridor](/insights/future-city-growth-corridor-whats-driving-land-values) set out the demand mechanics. The developments below are the 2026 evidence base for it, and they are larger and more specific than the pipeline that analysis assumed.",
+        ],
+      },
+      {
+        heading: "Major AI & Data Centre Developments",
+        body: [
+          "Three projects define the current data centre story in this corridor, and only one of them is operating. That distinction is not a technicality. An operating region creates employment and utility demand immediately, while an announced park creates an expectation that may take years to materialise.",
+        ],
+        entries: [
+          {
+            title: "Fortune – Kandukur AI Data Centre Park",
+            status: "Proposed",
+            tone: "planned",
+            summary:
+              "Fortune Hospitality & Infra announced a proposed hyperscale AI data-centre park at Kandukur mandal in Rangareddy district, within the Hyderabad Metropolitan Region. The announcement was carried by media as a company statement; no primary company press release has been published, so these figures are company claims rather than independently audited numbers.",
+            facts: [
+              { label: "Proposed land area", value: "About 170 acres" },
+              { label: "Announced initial investment", value: "₹60,000 crore" },
+              { label: "Potential cumulative at full build-out", value: "Up to ₹1 lakh crore" },
+              { label: "Proposed IT load", value: "1,200–1,600 MW" },
+            ],
+            note: "The ₹1 lakh crore figure is a potential later-phase total as additional phases and operator infrastructure are commissioned — it is not capital already invested. The park is described as four independently operable hyperscale modules of up to 400 MW each. Sources also disagree on the land position: some reporting indicates Telangana Industrial Infrastructure Corporation land has been allotted, while Business Standard reported the proposal remains at a preliminary stage subject to land allotment and statutory approvals.",
+          },
+          {
+            title: "SBI – Bharat Future City Data Centre",
+            status: "Land allocation",
+            tone: "planned",
+            summary:
+              "The Telangana government agreed to allot about 10 acres at Meerkhanpet, in the Bharat Future City area of Kandukur mandal in Rangareddy district, to the State Bank of India for a proposed data centre. The allocation was reported on 17 September 2026.",
+            facts: [
+              { label: "Area", value: "About 10 acres" },
+              { label: "Location", value: "Meerkhanpet, Kandukur mandal" },
+              { label: "Purpose", value: "Proposed data centre" },
+            ],
+            note: "This is a land allocation, not a commissioned facility. Seven of the ten acres were offered in lieu of disputed land at Raidurg, and SBI is expected to pay for the remaining three acres. Neither SBI nor the state government has published a release, and no construction timeline has been reported.",
+          },
+          {
+            title: "Microsoft – India South Central Cloud Region",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "Microsoft announced general availability of its India South Central cloud region in Hyderabad on 6 August 2026. The region is built on a three-zone architecture and supports Azure and AI workloads. Telangana's IT Minister inaugurated the facility at Chandanvelly in Rangareddy district on 24 September 2026.",
+            facts: [
+              { label: "Status", value: "Operational" },
+              { label: "Architecture", value: "Three Availability Zones" },
+              { label: "Location", value: "Chandanvelly, Rangareddy district" },
+              { label: "Part of", value: "Microsoft's ~$20.5 bn India commitment" },
+            ],
+            note: "The $20.5 billion is a broader India cloud and AI commitment, comprising $3 billion announced in January 2025 and $17.5 billion in December 2025. It is not an investment attributable to this one region.",
+          },
+        ],
+      },
+      {
+        heading: "Manufacturing Investments",
+        body: [
+          "Manufacturing announcements in the wider southern corridor are smaller in headline value than the data centre projects, but they sit closer to the ground. Factories employ continuously once built, and they place demands on power, water and labour that data centres do not.",
+        ],
+        entries: [
+          {
+            title: "Crompton Greaves – E-City, Maheshwaram",
+            status: "Announced",
+            tone: "planned",
+            summary:
+              "Crompton Greaves Consumer Electricals plans a manufacturing facility at E-City in Maheshwaram, near Hyderabad international airport. Telangana government reporting puts the investment at about ₹375 crore, while the company's own Q1 FY27 disclosure refers to roughly ₹350 crore of phase-one capex for fan manufacturing.",
+            facts: [
+              { label: "Government-stated investment", value: "About ₹375 crore" },
+              { label: "Company-disclosed phase-one capex", value: "About ₹350 crore" },
+              { label: "Land", value: "~50 acres at E-City" },
+              {
+                label: "Phase-one product focus",
+                value: "Induction and BLDC ceiling, table, wall and pedestal fans",
+              },
+            ],
+            note: "No Crompton press release naming Hyderabad has been published, and the ₹375 crore figure originates with the state government rather than the company. Phase two, covering pumps, mixer grinders and a centralised motor plant, is a proposal within the presentation to the state and is not committed. Reports indicate the facility is expected to become operational in 2027 — that is a schedule, not a completion.",
+          },
+          {
+            title: "Amara Raja – Divitipally, Mahabubnagar",
+            status: "Commissioned",
+            tone: "operational",
+            summary:
+              "Amara Raja Advanced Cell Technologies commissioned a customer qualification plant at its Giga Corridor site at Divitipally in Mahabubnagar district. The commissioning was announced on 15 July 2026 and the facility was inaugurated by the Chief Minister.",
+            facts: [
+              { label: "Investment in this facility", value: "About ₹500 crore" },
+              { label: "Initial capacity", value: "60 MWh" },
+              { label: "Location", value: "Divitipally, Mahabubnagar district" },
+              { label: "Wider programme", value: "₹9,500 crore, 16 GWh Giga Corridor" },
+            ],
+            note: "The roughly ₹500 crore refers to this qualification plant alone. It sits inside a cumulative phase-one investment of more than ₹1,500 crore across the wider Giga Corridor programme, so the two figures should not be conflated. The first Giga unit at 2 GWh is not yet built, and commercial production has been scheduled for 2027.",
+          },
+        ],
+      },
+      {
+        heading: "Infrastructure Supporting the Growth Corridor",
+        body: [
+          "Road and ring-road projects determine how quickly any of the above converts into accessible land. The status of each is materially different, and the distinction matters more than usual here because the corridor's connectivity case rests on infrastructure that is not yet finished. The comparison is also relative: the existing [Outer Ring Road](/orr) is already carrying traffic that these radial roads are meant to redistribute.",
+        ],
+        entries: [
+          {
+            title: "Radial Road-1 – Raviryal to Amanagallu",
+            status: "Under development",
+            tone: "development",
+            summary:
+              "The 41.5 km Ratan Tata Greenfield Radial Road-1 links the Raviryal interchange at ORR Exit 13 with Amanagallu on the proposed Regional Ring Road. The foundation stone was laid in September 2025 and civil works are under way.",
+            facts: [
+              { label: "Length", value: "41.5 km" },
+              { label: "HMDA project estimate", value: "₹4,621 crore including land" },
+              { label: "Target completion", value: "May 2028" },
+              { label: "Configuration", value: "3+3 lanes, expandable to 4+4" },
+            ],
+            note: "The ₹4,621 crore figure is HMDA's total estimate including land acquisition; construction-only figures of around ₹4,030 crore are also in circulation. Right of way is 100 metres with a 20-metre central median reserved for Metro and rail. Rithwik Projects is executing phase one and L&T phase two.",
+          },
+          {
+            title: "Radial Road-2 – Budwel to Nacharam",
+            status: "Tendered",
+            tone: "approval",
+            summary:
+              "An 81.15 km greenfield expressway would link the Outer Ring Road at Kothwalguda and Budwel, Exit 17, with National Highway 167 near Nacharam. Technical bids have been invited for all three civil packages.",
+            facts: [
+              { label: "Length", value: "81.15 km" },
+              { label: "Civil estimate", value: "About ₹3,295 crore, three packages" },
+              { label: "Implementing agency", value: "Hyderabad Growth Corridor Ltd (HMDA wing)" },
+              { label: "Stipulated period", value: "18 months from date of agreement" },
+            ],
+            note: "This project is at tender stage and is not under construction. Bids were published in September 2026 with a 30 September 2026 deadline. A total cost of about ₹5,060 crore including land acquisition has also been reported, so the ₹3,295 crore should be read as a civil works estimate. Land acquisition is running across 41 villages, with roughly 902 of 1,486 acres acquired at the time of reporting.",
+          },
+          {
+            title: "Regional Ring Road – Northern Segment",
+            status: "Appraised, not approved",
+            tone: "approval",
+            summary:
+              "The proposed 161.518 km six-lane Northern Regional Ring Road would run from Girmapur in Sangareddy district to Tangad Palle in Yadadri Bhuvanagiri district, through Sangareddy, Medak and Siddipet. The proposal has been appraised by the PPPAC at a capital cost of ₹23,935.6 crore.",
+            facts: [
+              { label: "Northern length", value: "161.518 km" },
+              { label: "PPPAC-appraised cost", value: "₹23,935.6 crore" },
+              { label: "Structure", value: "18-year concession, 3 years construction" },
+              { label: "Mode", value: "Hybrid Annuity" },
+            ],
+            note: "Appraised is not approved. At the latest verified reporting, Union Cabinet approval was still awaited, and no part of the ring road has been built or opened. Land notifications have been issued for about 99 per cent of the requirement, with compensation awards declared for about 87 per cent. The southern segment, a 201 km draft plan submitted in March 2026, remains without an approved alignment. Some reporting cites ₹23,995.60 crore instead; the Ministry figure is ₹23,935.6 crore.",
+          },
+        ],
+      },
+      {
+        heading: "Key Locations to Watch",
+        body: [
+          "These are the nodes that recur across the announcements above. Distances between them are large enough that a single project location does not confer the same connectivity on every nearby plot, which is why we publish an exact village and mandal on every project page rather than a corridor label.",
+          "The Srisailam and Kongarakalan stretches of the wider Tata Greenfield corridor sit to the west of these nodes and are covered separately in [our Srisailam Highway analysis](/srisailam-highway-future-city).",
+        ],
+        locations: [
+          {
+            name: "Hyderabad",
+            note: "The metropolitan reference point. Employment, airport access and existing infrastructure are concentrated here, so most corridor pricing is a function of the journey into the city.",
+          },
+          {
+            name: "Rajiv Gandhi International Airport",
+            note: "The region's principal air gateway, and the anchor for airport-linked logistics and the Maheshwaram manufacturing belt.",
+          },
+          {
+            name: "Maheshwaram",
+            note: "South-east of the city and close to the airport. Host to the announced Crompton Greaves manufacturing facility at E-City.",
+          },
+          {
+            name: "Kandukur",
+            note: "Rangareddy district, inside the Hyderabad Metropolitan Region. Site of the proposed Fortune AI data-centre park.",
+          },
+          {
+            name: "Meerkhanpet / Bharat Future City",
+            note: "The Bharat Future City area within Kandukur mandal, where the state has allocated land to SBI for a proposed data centre.",
+          },
+          {
+            name: "Chandanvelly",
+            note: "Shabad mandal, Rangareddy district. Location of Microsoft's operational India South Central cloud region.",
+          },
+        ],
+      },
+      {
+        heading: "Why This Corridor Matters",
+        body: [
+          "The documented drivers are unglamorous but they are real. Operating data centre capacity creates high-wage technical employment. Manufacturing creates longer-term, higher-volume operational roles. Both consume power and water at a scale that forces infrastructure investment, and both generate demand for construction labour, transport, catering and retail in the surrounding villages.",
+          "Logistics follows connectivity. Radial Road-1 and Radial Road-2 are planned to redistribute freight and passenger movement away from the existing ring network, and the Regional Ring Road is intended to bind peripheral growth nodes together. If those alignments are built as proposed, travel-time relationships across the southern and eastern belt will change.",
+          "For investors, the practical implication is that employment nodes and road corridors should be assessed together rather than separately. A plot close to an announced data centre but far from an operating road is a different proposition from one close to both.",
+          "Our [corporate land assembly analysis](/insights/corporate-land-assemblies-reading-hyderabads-next-growth-corridors) sets out how to read those employment-and-connectivity relationships.",
+          "[Our earlier AI investment review](/insights/hyderabad-future-city-70000-crore-ai-data-centre-investment) covers the single largest announcement in this corridor in detail.",
+        ],
+      },
+      {
+        heading: "Potential Real Estate Impact",
+        body: [
+          "Everything in this section is forward-looking analysis, not a forecast and not a promise. If the announced investments are executed and the supporting road and utility infrastructure is delivered on schedule, the corridor could see increased employment-related housing demand, rental demand near working populations, supporting retail and services, logistics and commercial activity, and broader investor attention.",
+          "The same list reads in reverse just as easily. Execution timelines have a long history of slipping in Indian infrastructure. Radial Road-2 is still at tender, the Regional Ring Road is still awaiting approval, and the two largest data centre projects tracked here are proposed rather than built. Announced capital is not deployed capital, and a park that has not broken ground cannot support worker housing demand.",
+          "Risks worth weighing include project execution timelines, approval and sanction delays, incomplete road and utility delivery, competing supply in the same corridors, and broader market conditions such as interest rates and regional demand. Of the eight developments tracked in this article, two are operational, three are announced or allocated, and three sit at infrastructure stage. That mix is what a genuinely early-stage corridor looks like, and it is why corridor-level enthusiasm should be checked against project-level status.",
+        ],
+        caution:
+          "Real-estate appreciation is not guaranteed. Property decisions should be based on verified approvals, exact location, connectivity, developer credibility and market conditions.",
+      },
+      {
+        heading: "What Property Buyers Should Verify",
+        body: [
+          "The gap between a growth-corridor narrative and a safe purchase is verification. Work through the following before committing, and treat any unanswered item as a reason to wait rather than a reason to move faster.",
+          "If a seller cannot answer the first three items with documentation, the remaining questions are largely academic. Our [first-time plot buyer checklist](/insights/first-time-plot-investor-checklist-hyderabad) walks through the same checks in sequence.",
+          "The wider [Telangana plot buyer guide](/guides/telangana-plot-buyer-checklist) covers the paperwork in more depth, including the approval and survey checks that decide whether a layout is registrable at all.",
+        ],
+        checklist: [
+          "Whether the layout carries HMDA, DTCP or FCDA approval, and which authority actually granted it. DTCP, HMDA or FCDA is the most common point of confusion in this corridor, and it is not a formality.",
+          "Whether the project is RERA registered where registration applies, and what the registration actually covers.",
+          "Whether the title is clear, supported by a clean encumbrance certificate covering the full 30-year period.",
+          "Whether there is actual road access today, as opposed to access shown on a layout that depends on a road still at tender or approval stage.",
+          "Which surrounding infrastructure is existing and which is proposed, established from dated sources rather than brochures.",
+          "The real distance and travel time to the nearest operating employment node, measured at the hours people actually commute.",
+          "The current development status of the project, and whether the developer has delivered comparable projects before.",
+          "Whether water and power are actually available at the site, and whether any capacity has been formally allocated.",
+          "The developer's delivery record, resident references, and the payment terms being offered.",
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "Hyderabad Future City and the surrounding southern and eastern growth corridor are attracting attention because multiple AI, data-centre, manufacturing and infrastructure initiatives are developing or being proposed. That is a fair summary. It is not a reason to buy immediately, and it is not a reason to ignore the corridor either.",
+          "The distinction that matters is status. Microsoft's cloud region is operating. Amara Raja's qualification plant is commissioned. Radial Road-1 is under construction. Fortune's park, SBI's plot and Crompton's factory are announced. Radial Road-2 is at tender and the Regional Ring Road is appraised but unapproved. Each of those supports a different level of confidence, and diligence should reflect the difference rather than average it out.",
+          "The project we currently feature closest to this corridor is [JB Harmony Woods](/projects/jb-harmony-woods), located in the Future City Growth Corridor at Thummaloor.",
+          "Also relevant is [JB Serene County](/projects/jb-serene-county), near the Kongarakalan stretch of the Tata Greenfield Growth Corridor. Both should be assessed against the same verification list as any other purchase, and neither should be treated as a proxy for the announcements documented above.",
+        ],
+        sources: [
+          {
+            label: "Fortune Hospitality plans ₹60,000 crore AI data-centre park",
+            publisher: "The Economic Times",
+            url: "https://economictimes.indiatimes.com/ai/ai-insights/fortune-hospitality-plans-rs-60000-crore-ai-data-centre-park/articleshow/133980126.cms",
+            date: "9 Sep 2026",
+          },
+          {
+            label: "Fortune to set up hyperscale AI data-centre park in Telangana",
+            publisher: "Business Standard",
+            url: "https://www.business-standard.com/companies/news/fortune-to-set-up-60-000-cr-hyperscale-ai-data-centre-park-in-telangana-126091000632_1.html",
+            date: "10 Sep 2026",
+          },
+          {
+            label: "Fortune plans ₹60,000 crore AI data-centre park in Telangana",
+            publisher: "Telangana Today",
+            url: "https://telanganatoday.com/fortune-plans-rs-60000-crore-ai-data-centre-park-in-telangana",
+            date: "9 Sep 2026",
+          },
+          {
+            label: "SBI data centre gets 10 acres in Future City",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/sbi-data-centre-gets-10-acres-in-future-city/article71477456.ece",
+            date: "17 Sep 2026",
+          },
+          {
+            label: "SBI gets 10 acres for data centre project in Future City",
+            publisher: "Times of India",
+            url: "https://timesofindia.indiatimes.com/city/hyderabad/sbi-gets-10-acres-for-data-centre-project-in-future-city/articleshow/134319828.cms",
+            date: "17 Sep 2026",
+          },
+          {
+            label: "Microsoft's newest India datacenter region goes live",
+            publisher: "Microsoft Source Asia",
+            url: "https://news.microsoft.com/source/asia/features/microsofts-newest-india-datacenter-region-goes-live-to-power-the-countrys-ai-economy-and-enable-frontier-firms",
+            date: "6 Aug 2026",
+          },
+          {
+            label: "India South Central region established as a strategic hub for Asia and the Global South",
+            publisher: "Microsoft Source Asia",
+            url: "https://news.microsoft.com/source/asia/2026/09/21/ai-ambition-into-action-microsoft-brings-ai-ready-capabilities-across-its-india-cloud-infrastructure-establishes-india-south-central-region-as-a-strategic-hub-for-asia-and-global-south",
+            date: "21 Sep 2026",
+          },
+          {
+            label: "Microsoft opens India South Central datacenter region in Telangana",
+            publisher: "ThePrint (PTI)",
+            url: "https://theprint.in/india/microsoft-opens-india-south-central-datacenter-region-in-telangana/3052228/",
+            date: "24 Sep 2026",
+          },
+          {
+            label: "Hyderabad to house mega fan factory",
+            publisher: "Times of India",
+            url: "https://timesofindia.indiatimes.com/city/hyderabad/hyderabad-to-house-mega-fan-factory/articleshow/134396862.cms",
+            date: "22 Sep 2026",
+          },
+          {
+            label: "Crompton Greaves Q1 FY27 investor presentation",
+            publisher: "Crompton Greaves Consumer Electricals",
+            url: "https://reports.crompton.co.in/shopify/public/files/QaF9d2omQ4_Investor%20PresentationQ1.pdf",
+            date: "6 Aug 2026",
+          },
+          {
+            label: "Amara Raja launches customer qualification plant at its Giga Corridor",
+            publisher: "Amara Raja",
+            url: "https://amararaja.com/press_release/amara-raja-launches-cqp-advancing-the-nations-li-ion-battery-ambitions/",
+            date: "16 Jul 2026",
+          },
+          {
+            label: "Amara Raja commissions ₹500 crore lithium-ion customer qualification plant",
+            publisher: "Times of India",
+            url: "https://timesofindia.indiatimes.com/city/hyderabad/amara-raja-commissions-500cr-lithium-ion-customer-qualification-plant-in-tgana/articleshow/132416746.cms",
+            date: "15 Jul 2026",
+          },
+          {
+            label: "Telangana plans modern eight-lane Ratan Tata radial road",
+            publisher: "Deccan Chronicle",
+            url: "https://www.deccanchronicle.com/southern-states/telangana/telangana-plans-modern-eight-lane-ratan-tata-radial-road-1979667",
+            date: "16 Aug 2026",
+          },
+          {
+            label: "HGCL lays ground for 81 km Radial Road-2 works",
+            publisher: "The New Indian Express",
+            url: "https://www.newindianexpress.com/cities/hyderabad/2026/Sep/21/hgcl-lays-ground-for-81-km-radial-road-2-works",
+            date: "21 Sep 2026",
+          },
+          {
+            label: "Decision on Hyderabad Regional Ring Road investment to be based on DPR",
+            publisher: "The New Indian Express",
+            url: "https://www.newindianexpress.com/states/telangana/2026/Jul/30/decision-on-hyderabad-regional-ring-road-investment-will-be-based-on-dpr-centre",
+            date: "30 Jul 2026",
+          },
+          {
+            label: "Development of RRR northern section to be taken up in two separate packages",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/development-of-rrr-northern-section-to-be-taken-up-in-two-separate-packages/article70938291.ece",
+            date: "4 May 2026",
+          },
+          {
+            label: "RRR south in limbo as Centre sits on alignment",
+            publisher: "Deccan Chronicle",
+            url: "https://www.deccanchronicle.com/southern-states/telangana/rrr-south-in-limbo-as-centre-sits-on-alignment-1990252",
+            date: "24 Sep 2026",
+          },
+        ],
+      },
+    ],
+  },
   {
     slug: "hyderabad-future-city-70000-crore-ai-data-centre-investment",
     title: "₹70,000 Crore AI Investment: How Hyderabad Future City Is Emerging as a Major Digital Infrastructure Hub",

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { CalendarDays, Clock3, ArrowRight, MessageCircle, Phone, MapPin, ShieldCheck, ChevronRight } from "lucide-react";
+import { CalendarDays, Clock3, ArrowRight, MessageCircle, Phone, MapPin, ShieldCheck, ChevronRight, TriangleAlert, ExternalLink } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import PageBreadcrumbs from "@/components/PageBreadcrumbs";
@@ -16,6 +16,7 @@ import {
   getReadingMinutes,
   formatInsightDate,
 } from "@/data/insights";
+import type { InsightStatusTone } from "@/data/insights";
 
 // Minimal, safe inline-link renderer for insight body paragraphs. Only an
 // explicit `[text](/internal-path)` token becomes a link; every other paragraph
@@ -42,6 +43,24 @@ function renderBodyParagraph(text: string) {
     </>
   );
 }
+
+// Status badge palette. Mirrors the existing status-pill idiom used elsewhere on
+// the site (coloured dot + tinted pill) so tracked developments read consistently
+// with project approval badges. Deliberately colour-independent: the status word
+// itself always carries the meaning.
+const STATUS_TONE_CLASS: Record<InsightStatusTone, string> = {
+  operational: "bg-emerald-500/10 text-emerald-400",
+  planned: "bg-amber-500/10 text-amber-400",
+  development: "bg-sky-500/10 text-sky-400",
+  approval: "bg-violet-500/10 text-violet-400",
+};
+
+const STATUS_DOT_CLASS: Record<InsightStatusTone, string> = {
+  operational: "bg-emerald-400",
+  planned: "bg-amber-400",
+  development: "bg-sky-400",
+  approval: "bg-violet-400",
+};
 
 export function generateStaticParams() {
   return insights.map((i) => ({ slug: i.slug }));
@@ -83,7 +102,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: insight.publishedAt,
       authors: [insight.author.name],
       siteName: siteConfig.name,
-      images: [{ url: shareImage, width: 1200, height: 630, alt: `${insight.title} — Arjun Realty Insights` }],
+      images: [{ url: shareImage, width: insight.imageWidth ?? 1200, height: insight.imageHeight ?? 630, alt: `${insight.title} — Arjun Realty Insights` }],
     },
     twitter: {
       card: "summary_large_image",
@@ -231,6 +250,103 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
                       </p>
                     ))}
                   </div>
+
+                  {section.caution ? (
+                    <div className="mt-6 flex gap-3 rounded-2xl border border-primary/20 bg-primary/[0.06] p-5">
+                      <TriangleAlert className="h-4 w-4 shrink-0 text-primary" />
+                      <p className="text-[13px] leading-relaxed text-white/70">{section.caution}</p>
+                    </div>
+                  ) : null}
+
+                  {section.entries ? (
+                    <div className="mt-7 grid grid-cols-1 gap-5 md:grid-cols-2">
+                      {section.entries.map((entry) => (
+                        <div key={entry.title} className="glass-card h-full rounded-2xl p-6">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span
+                              className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${STATUS_TONE_CLASS[entry.tone]}`}
+                            >
+                              <span className={`h-1.5 w-1.5 rounded-full ${STATUS_DOT_CLASS[entry.tone]}`} />
+                              {entry.status}
+                            </span>
+                          </div>
+                          <h3 className="mt-4 text-[17px] font-bold leading-snug tracking-tight text-white">
+                            {entry.title}
+                          </h3>
+                          <p className="mt-2.5 text-[13.5px] leading-relaxed text-white/45">{entry.summary}</p>
+                          {entry.facts ? (
+                            <dl className="mt-4 space-y-2 border-t border-white/[0.06] pt-4">
+                              {entry.facts.map((fact) => (
+                                <div key={fact.label} className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+                                  <dt className="text-[11px] uppercase tracking-wider text-white/30">{fact.label}</dt>
+                                  <dd className="text-[13px] font-semibold text-white/80">{fact.value}</dd>
+                                </div>
+                              ))}
+                            </dl>
+                          ) : null}
+                          {entry.note ? (
+                            <p className="mt-4 text-[12px] leading-relaxed text-white/35">{entry.note}</p>
+                          ) : null}
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {section.locations ? (
+                    <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {section.locations.map((location) => (
+                        <div key={location.name} className="glass-card h-full rounded-2xl p-5">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="h-3.5 w-3.5 shrink-0 text-primary/70" />
+                            <h3 className="text-[14px] font-bold tracking-tight text-white">{location.name}</h3>
+                          </div>
+                          <p className="mt-2 text-[13px] leading-relaxed text-white/45">{location.note}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  {section.checklist ? (
+                    <ul className="mt-7 space-y-3">
+                      {section.checklist.map((item, ci) => (
+                        <li key={item} className="flex gap-3 rounded-2xl glass-card p-4">
+                          <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-bold text-primary">
+                            {ci + 1}
+                          </span>
+                          <span className="text-[13.5px] leading-relaxed text-white/60">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+
+                  {section.sources ? (
+                    <div className="mt-7 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6">
+                      <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/35">
+                        Sources &amp; References
+                      </h3>
+                      <ul className="mt-4 space-y-2.5">
+                        {section.sources.map((source) => (
+                          <li key={source.url}>
+                            <a
+                              href={source.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group flex gap-3 text-[13px] leading-relaxed text-white/50 transition-colors hover:text-primary"
+                            >
+                              <ExternalLink className="mt-1 h-3.5 w-3.5 shrink-0 text-white/25 transition-colors group-hover:text-primary/70" />
+                              <span>
+                                <span className="font-semibold text-white/70 group-hover:text-primary">
+                                  {source.publisher}
+                                </span>
+                                {source.date ? <span className="text-white/30"> · {source.date}</span> : null}
+                                <span className="block text-white/35">{source.label}</span>
+                              </span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
                 </section>
               ))}
             </div>
