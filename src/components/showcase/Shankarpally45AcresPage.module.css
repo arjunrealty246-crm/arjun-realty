@@ -1,0 +1,401 @@
+/* ============================================================================
+ * Premium light theme — Shankarpally 45 Acres  ·  route /shankarpally-45-acres
+ * ----------------------------------------------------------------------------
+ * PAGE-SCOPED ONLY. Every selector is anchored to `.root` (or `.onDark`) inside
+ * this file, so no rule here can reach any other route, shared component or the
+ * global theme. `src/app/globals.css` is NOT modified and no global token is
+ * redefined — the site's Arjun Realty orange / gold brand colours are reused
+ * as-is for CTAs and highlights.
+ *
+ * Palette intent (brief):
+ *   · deep charcoal / near-black  → headings, primary ink
+ *   · warm off-white / neutral    → page + section surfaces, card fills
+ *   · Arjun Realty orange         → CTAs, highlights, active states only
+ *   · subtle gold / warm neutral  → hairlines, eyebrow rules, small accents
+ * No new gradients or glow are introduced beyond softening the existing ones.
+ * ========================================================================== */
+
+.root {
+  /* ---- warm off-white / light neutral surfaces ---- */
+  --sp-canvas: #f6f3ed;
+  --sp-canvas-alt: #fbf9f5;
+  --sp-surface: #ffffff;
+  --sp-line: #e7dfd2;
+  --sp-line-soft: #f0eae0;
+
+  /* ---- deep charcoal ink ramp (AA on --sp-canvas) ---- */
+  --sp-ink: #17161a;        /* 16.1:1  headings                     */
+  --sp-ink-80: #2c2a24;     /* 10.5:1                               */
+  --sp-ink-70: #3e3b33;     /*  7.6:1  body                         */
+  --sp-ink-60: #4b473e;     /*  6.3:1                               */
+  --sp-ink-50: #575046;     /*  5.7:1  secondary                    */
+  --sp-ink-45: #5e574c;     /*  5.2:1                               */
+  --sp-ink-40: #655e53;     /*  4.8:1  muted copy                   */
+  --sp-ink-35: #6c6559;
+  --sp-ink-30: #736c5f;
+  --sp-ink-25: #7a7365;
+  --sp-ink-20: #827a6b;     /* decorative rules / chevrons          */
+
+  /* ---- accents: deeper shades used ONLY where the accent must read as text
+         on a light surface. Button fills keep the brand #F97316. ---- */
+  --sp-accent: #c2410c;     /*  4.9:1  deep orange, brand hue       */
+  --sp-gold-ink: #8a6a3b;   /*  4.7:1                               */
+  --sp-emerald-ink: #047857;
+  --sp-red-ink: #b91c1c;
+  --sp-sky-ink: #0369a1;
+
+  background-color: var(--sp-canvas);
+  color: var(--sp-ink-70);
+}
+
+/* NOTE: .root intentionally sets no transform / filter / backdrop-filter /
+   contain / will-change, so `position: fixed` children (sticky CTA bar,
+   modals) keep positioning against the viewport exactly as before. */
+
+/* ============================================================================
+ * 1. INK — page-owned white text becomes charcoal on the light canvas
+ * ========================================================================== */
+
+.root [class~="text-white"]        { color: var(--sp-ink); }
+.root [class~="text-white/85"]     { color: var(--sp-ink-80); }
+.root [class~="text-white/80"]     { color: var(--sp-ink-80); }
+.root [class~="text-white/75"]     { color: #35322b; }
+.root [class~="text-white/70"]     { color: var(--sp-ink-70); }
+.root [class~="text-white/60"]     { color: var(--sp-ink-60); }
+.root [class~="text-white/55"]     { color: #524d44; }
+.root [class~="text-white/50"]     { color: var(--sp-ink-50); }
+.root [class~="text-white/45"]     { color: var(--sp-ink-45); }
+.root [class~="text-white/40"]     { color: var(--sp-ink-40); }
+.root [class~="text-white/35"]     { color: var(--sp-ink-35); }
+.root [class~="text-white/30"]     { color: var(--sp-ink-30); }
+.root [class~="text-white/25"]     { color: var(--sp-ink-25); }
+.root [class~="text-white/20"]     { color: var(--sp-ink-20); }
+.root [class~="text-white/[0.04]"] { color: var(--sp-line); }
+
+.root [class~="hover:text-white"]      { color: var(--sp-ink); }
+.root [class~="hover:text-white/90"]   { color: var(--sp-ink); }
+.root [class~="group-hover:text-white/70"] { color: var(--sp-ink-70); }
+
+/* ============================================================================
+ * 2. SURFACES + HAIRLINES
+ * ========================================================================== */
+
+.root [class~="bg-white/[0.02]"] { background-color: rgba(255, 255, 255, 0.72); }
+.root [class~="bg-white/[0.03]"] { background-color: rgba(255, 255, 255, 0.8); }
+.root [class~="bg-white/[0.04]"] { background-color: rgba(255, 255, 255, 0.86); }
+.root [class~="bg-white/[0.05]"] { background-color: rgba(255, 255, 255, 0.92); }
+.root [class~="bg-white/5"]      { background-color: rgba(255, 255, 255, 0.9); }
+
+.root [class~="border-white/[0.04]"] { border-color: var(--sp-line-soft); }
+.root [class~="border-white/[0.05]"] { border-color: var(--sp-line-soft); }
+.root [class~="border-white/[0.06]"] { border-color: var(--sp-line); }
+.root [class~="border-white/[0.08]"] { border-color: var(--sp-line); }
+.root [class~="border-white/10"]      { border-color: var(--sp-line); }
+.root [class~="border-white/20"]      { border-color: #d9cfbe; }
+.root [class~="hover:border-white/[0.06]"]:hover { border-color: #d9cfbe; }
+
+/* ============================================================================
+ * 3. GLOBAL UTILITIES RE-SKINNED FOR THIS PAGE ONLY
+ *    Originals stay untouched in globals.css.
+ * ========================================================================== */
+
+/* alternating section band: warm neutral instead of dark glass */
+.root [class~="bg-section-alt"] {
+  background: linear-gradient(180deg, #fbf9f5 0%, #f4f0e8 100%);
+}
+
+/* glass cards → clean warm-white surfaces with a hairline + soft shadow */
+.root [class~="glass-card"] {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  box-shadow: 0 1px 2px rgba(35, 30, 22, 0.04), 0 8px 24px -12px rgba(35, 30, 22, 0.12);
+}
+.root [class~="glass-card"]::before {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, transparent 55%);
+}
+.root [class~="glass-card"]::after {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.9) 50%, transparent 100%);
+}
+.root [class~="glass-card"]:hover {
+  background: var(--sp-surface);
+  border-color: #ddd2c0;
+  box-shadow: 0 2px 4px rgba(35, 30, 22, 0.05), 0 16px 40px -16px rgba(35, 30, 22, 0.18),
+    0 0 0 1px rgba(249, 115, 22, 0.06);
+}
+
+.root [class~="glass-card-elevated"] {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  box-shadow: 0 2px 4px rgba(35, 30, 22, 0.04), 0 18px 48px -18px rgba(35, 30, 22, 0.16);
+}
+.root [class~="glass-card-elevated"]::before {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.045) 0%, transparent 55%);
+}
+.root [class~="glass-card-elevated"]::after {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.9) 50%, transparent 100%);
+}
+.root [class~="glass-card-elevated"]:hover {
+  background: var(--sp-surface);
+  border-color: #ddd2c0;
+  box-shadow: 0 4px 8px rgba(35, 30, 22, 0.05), 0 28px 60px -20px rgba(35, 30, 22, 0.2),
+    0 0 0 1px rgba(249, 115, 22, 0.07);
+}
+
+/* form controls: light input, dark value text, warm placeholder */
+.root [class~="input-luxury"] {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-line);
+  color: var(--sp-ink);
+}
+.root [class~="input-luxury"]::placeholder { color: var(--sp-ink-20); }
+.root [class~="input-luxury"]:focus {
+  background: var(--sp-surface);
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+/* heading gradient: deeper brand-orange→gold so it stays legible on light,
+   and the looping animation is removed (brief: no flashy effects) */
+.root [class~="text-gradient"] {
+  background: linear-gradient(135deg, #c2410c 0%, #8a6a3b 60%, #c2410c 100%);
+  background-size: 100% auto;
+  animation: none;
+}
+.root [class~="text-gradient-static"] {
+  background: linear-gradient(135deg, #c2410c, #8a6a3b);
+}
+.root [class~="text-gradient-gold"] {
+  background: linear-gradient(135deg, #8a6a3b, #b08d57, #8a6a3b);
+}
+
+/* decorative blur orbs: far subtler on a light canvas */
+.root [class~="ambient-orb"] { opacity: 0.5; }
+.root [class~="glow-primary-strong"] {
+  box-shadow: 0 0 18px rgba(249, 115, 22, 0.1), 0 0 44px rgba(249, 115, 22, 0.06);
+}
+
+/* ============================================================================
+ * 4. ACCENT TEXT / SEMANTIC COLOURS — readable on light
+ *    Brand orange is preserved as the accent hue; only its *text* shade is
+ *    deepened so small orange text clears WCAG AA.
+ * ========================================================================== */
+
+.root [class~="text-primary"]      { color: var(--sp-accent); }
+.root [class~="text-primary/70"]   { color: #b45309; }
+.root [class~="text-primary/40"]   { color: #c2410c; }
+.root [class~="text-gold"]         { color: var(--sp-gold-ink); }
+.root [class~="text-emerald-400"]  { color: var(--sp-emerald-ink); }
+.root [class~="text-red-400"]      { color: var(--sp-red-ink); }
+.root [class~="text-sky-400"]      { color: var(--sp-sky-ink); }
+.root [class~="text-green-400"]    { color: var(--sp-emerald-ink); }
+.root [class~="accent-amber-500"]  { accent-color: #b45309; }
+
+/* tint chips keep the brand hue but sit on a warm base */
+.root [class~="bg-primary/10"]      { background-color: rgba(249, 115, 22, 0.1); }
+.root [class~="bg-primary/[0.08]"]  { background-color: rgba(249, 115, 22, 0.09); }
+.root [class~="bg-primary/[0.06]"]  { background-color: rgba(249, 115, 22, 0.07); }
+.root [class~="bg-primary/[0.05]"]  { background-color: rgba(249, 115, 22, 0.06); }
+.root [class~="bg-primary/[0.03]"]  { background-color: rgba(249, 115, 22, 0.05); }
+.root [class~="bg-primary/[0.02]"]  { background-color: rgba(249, 115, 22, 0.035); }
+.root [class~="bg-gold/[0.02]"]     { background-color: rgba(176, 141, 87, 0.05); }
+.root [class~="bg-gold/[0.03]"]     { background-color: rgba(176, 141, 87, 0.07); }
+.root [class~="bg-gold/[0.05]"]     { background-color: rgba(176, 141, 87, 0.1); }
+.root [class~="bg-gold/10"]         { background-color: rgba(176, 141, 87, 0.12); }
+.root [class~="border-primary/20"]  { border-color: rgba(249, 115, 22, 0.28); }
+.root [class~="border-primary/25"]  { border-color: rgba(249, 115, 22, 0.32); }
+.root [class~="border-primary/30"]  { border-color: rgba(249, 115, 22, 0.38); }
+.root [class~="border-gold/20"]     { border-color: rgba(176, 141, 87, 0.34); }
+
+/* ============================================================================
+ * 5. KEEP-LIGHT EXCEPTIONS (placed last so they win)
+ *    Anything that sits on a saturated brand-orange or dark fill keeps white
+ *    text, because remapping it to charcoal would destroy contrast.
+ * ========================================================================== */
+
+.root [class~="bg-primary/90"][class~="text-white"],
+.root [class~="bg-primary"][class~="text-white"],
+.root [class~="from-primary"][class~="text-white"],
+.root [class~="bg-black/95"][class~="text-white"],
+.root [class~="bg-black/90"][class~="text-white"] {
+  color: #ffffff;
+}
+
+/* ============================================================================
+ * 6. DARK SURFACES — hero, lightboxes, modals, sticky bar
+ *    `.onDark` restores the original light-on-dark treatment inside a subtree
+ *    so photography scrims and modal overlays keep their contrast.
+ * ========================================================================== */
+
+.onDark [class~="text-white"]        { color: #ffffff; }
+.onDark [class~="text-white/90"]     { color: rgba(255, 255, 255, 0.9); }
+.onDark [class~="text-white/85"]     { color: rgba(255, 255, 255, 0.85); }
+.onDark [class~="text-white/80"]     { color: rgba(255, 255, 255, 0.8); }
+.onDark [class~="text-white/75"]     { color: rgba(255, 255, 255, 0.75); }
+.onDark [class~="text-white/70"]     { color: rgba(255, 255, 255, 0.7); }
+.onDark [class~="text-white/60"]     { color: rgba(255, 255, 255, 0.6); }
+.onDark [class~="text-white/55"]     { color: rgba(255, 255, 255, 0.55); }
+.onDark [class~="text-white/50"]     { color: rgba(255, 255, 255, 0.5); }
+.onDark [class~="text-white/45"]     { color: rgba(255, 255, 255, 0.45); }
+.onDark [class~="text-white/40"]     { color: rgba(255, 255, 255, 0.4); }
+.onDark [class~="text-white/35"]     { color: rgba(255, 255, 255, 0.35); }
+.onDark [class~="text-white/30"]     { color: rgba(255, 255, 255, 0.3); }
+.onDark [class~="text-white/25"]     { color: rgba(255, 255, 255, 0.25); }
+.onDark [class~="text-white/20"]     { color: rgba(255, 255, 255, 0.2); }
+.onDark [class~="hover:text-white"]:hover { color: #ffffff; }
+.onDark [class~="group-hover:text-white/70"]:hover { color: rgba(255, 255, 255, 0.7); }
+
+/* scrims / chips / hairlines stay dark inside .onDark */
+.onDark [class~="bg-white/[0.02]"] { background-color: rgba(255, 255, 255, 0.04); }
+.onDark [class~="bg-white/[0.03]"] { background-color: rgba(255, 255, 255, 0.05); }
+.onDark [class~="bg-white/[0.04]"] { background-color: rgba(255, 255, 255, 0.06); }
+.onDark [class~="bg-white/[0.05]"] { background-color: rgba(255, 255, 255, 0.07); }
+.onDark [class~="bg-white/5"]      { background-color: rgba(255, 255, 255, 0.07); }
+.onDark [class~="border-white/[0.04]"],
+.onDark [class~="border-white/[0.05]"],
+.onDark [class~="border-white/[0.06]"],
+.onDark [class~="border-white/[0.08]"],
+.onDark [class~="border-white/10"] {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.onDark [class~="border-white/20"] { border-color: rgba(255, 255, 255, 0.22); }
+
+/* keep brand-bright gradient text + gold on the dark hero */
+.onDark [class~="text-gradient"] {
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 25%, #d4a574 50%, #fb923c 75%, #f97316 100%);
+  background-size: 200% auto;
+  animation: none;
+}
+.onDark [class~="text-gold"]    { color: #d4a574; }
+.onDark [class~="text-primary"] { color: #fb923c; }
+.onDark [class~="text-emerald-400"] { color: #34d399; }
+.onDark [class~="text-red-400"] { color: #f87171; }
+.onDark [class~="text-sky-400"] { color: #38bdf8; }
+.onDark [class~="text-green-400"] { color: #4ade80; }
+.onDark [class~="glass-card"] {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.onDark [class~="glass-card-elevated"] {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.onDark [class~="input-luxury"] {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+.onDark [class~="input-luxury"]::placeholder { color: rgba(255, 255, 255, 0.2); }
+
+/* ============================================================================
+ * 7. DARK GLASS CHIPS INSIDE LIGHT SECTIONS
+ *    `glass` / `glass-strong` are dark translucent surfaces and are never
+ *    converted to light, so any text sitting on them must stay light. These
+ *    chips appear inside otherwise-light sections (gallery filter pills,
+ *    caption badges, the shared BrochureDownload modal), and some of them are
+ *    rendered by shared components that must not be modified.
+ * ========================================================================== */
+
+.root [class~="glass"],
+.root [class~="glass-strong"] {
+  background: rgba(23, 22, 26, 0.72);
+  border: 1px solid rgba(23, 22, 26, 0.08);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(35, 30, 22, 0.16);
+}
+
+.root [class~="glass"] [class~="text-white"],
+.root [class~="glass-strong"] [class~="text-white"],
+.root [class~="glass"][class~="text-white"],
+.root [class~="glass-strong"][class~="text-white"] { color: #fff; }
+
+.root [class~="glass"] [class~="text-white/90"],
+.root [class~="glass-strong"] [class~="text-white/90"],
+.root [class~="glass"][class~="text-white/90"],
+.root [class~="glass-strong"][class~="text-white/90"] { color: rgba(255, 255, 255, 0.9); }
+
+.root [class~="glass"] [class~="text-white/80"],
+.root [class~="glass-strong"] [class~="text-white/80"],
+.root [class~="glass"][class~="text-white/80"],
+.root [class~="glass-strong"][class~="text-white/80"] { color: rgba(255, 255, 255, 0.8); }
+
+.root [class~="glass"] [class~="text-white/70"],
+.root [class~="glass-strong"] [class~="text-white/70"],
+.root [class~="glass"][class~="text-white/70"],
+.root [class~="glass-strong"][class~="text-white/70"] { color: rgba(255, 255, 255, 0.7); }
+
+.root [class~="glass"] [class~="text-white/60"],
+.root [class~="glass-strong"] [class~="text-white/60"],
+.root [class~="glass"][class~="text-white/60"],
+.root [class~="glass-strong"][class~="text-white/60"] { color: rgba(255, 255, 255, 0.6); }
+
+.root [class~="glass"] [class~="text-white/50"],
+.root [class~="glass-strong"] [class~="text-white/50"],
+.root [class~="glass"][class~="text-white/50"],
+.root [class~="glass-strong"][class~="text-white/50"] { color: rgba(255, 255, 255, 0.5); }
+
+.root [class~="glass"] [class~="text-white/40"],
+.root [class~="glass-strong"] [class~="text-white/40"],
+.root [class~="glass"][class~="text-white/40"],
+.root [class~="glass-strong"][class~="text-white/40"] { color: rgba(255, 255, 255, 0.4); }
+
+.root [class~="glass"]:hover,
+.root [class~="glass-strong"]:hover { background: rgba(23, 22, 26, 0.82); }
+.root [class~="glass"]:hover [class~="hover:text-white"],
+.root [class~="glass-strong"]:hover [class~="hover:text-white"] { color: #fff; }
+.root [class~="glass"][class~="hover:text-white"]:hover,
+.root [class~="glass-strong"][class~="hover:text-white"]:hover { color: #fff; }
+
+/* shared glass-strong modal panels (BrochureDownload) keep their dark input
+   treatment rather than inheriting the page's light form styling */
+.root [class~="glass-strong"] [class~="input-luxury"] {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* ============================================================================
+ * 8. MOBILE UX — fixed-header clearance
+ * ----------------------------------------------------------------------------
+ * The site header is `position: fixed` (z-70) and is ~84px tall on mobile
+ * (44px logo + py-5) collapsing to ~68px once scrolled (py-3). Every anchor
+ * jump on this page uses `scrollIntoView({ block: "start" })` — both the
+ * global SmoothScroll handler (href="#...") and the page's own scrollToId() —
+ * which parks the target flush against the top of the viewport, underneath
+ * the header.
+ *
+ * `scroll-margin-top` offsets the scroll *landing position* only, so it costs
+ * no layout height and creates no extra blank space while the page is read.
+ * Scoped to mobile + tablet so desktop header behaviour is untouched.
+ * ========================================================================== */
+
+@media (max-width: 767px) {
+  /* anchor landing targets: #media, #documents, #gate-*, #book-site-visit,
+     #sk-* (the last group are form fields, so a programmatic focus/anchor
+     jump also clears the header) */
+  .root [id] {
+    scroll-margin-top: 5.5rem; /* 88px > 84px mobile header height */
+  }
+
+  /* section headings, so a future/programmatic scroll to a heading is also
+     clear of the header rather than tucking under it */
+  .root section > div > h1,
+  .root section > div > h2,
+  .root h2,
+  .root h3 {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+/* very narrow phones (≤ 360px): the header wraps tighter, so reserve a touch
+   more clearance. Still scroll-offset only — no layout space is added. */
+@media (max-width: 360px) {
+  .root [id] {
+    scroll-margin-top: 6rem;
+  }
+  .root section > div > h1,
+  .root section > div > h2,
+  .root h2,
+  .root h3 {
+    scroll-margin-top: 6rem;
+  }
+}

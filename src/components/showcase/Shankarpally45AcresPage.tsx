@@ -50,7 +50,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import BrochureDownload from "@/components/BrochureDownload";
 import SiteVisitModal from "@/components/SiteVisitModal";
-import StickyCTABar from "@/components/showcase/StickyCTABar";
+import styles from "./Shankarpally45AcresPage.module.css";
 
 const FALLBACK_PROJECT: Project = {
   slug: "shankarpally-45-acres",
@@ -270,9 +270,9 @@ export default function Shankarpally45AcresPage({
   const openGate = useCallback((request: GateRequest) => setGate(request), []);
 
   return (
-    <>
+    <div className={styles.root}>
       {/* ══════════ HERO ══════════ */}
-      <section className="relative pt-28 pb-14 lg:pt-36 lg:pb-16 overflow-hidden">
+      <section className={`relative pt-28 pb-14 lg:pt-36 lg:pb-16 overflow-hidden ${styles.onDark}`}>
         <HeroBackground project={project} />
         <div className="ambient-orb w-[700px] h-[700px] bg-primary/[0.08] -right-64 -top-64" />
         <div className="ambient-orb w-[500px] h-[500px] bg-gold/[0.03] -left-48 bottom-0" />
@@ -631,16 +631,17 @@ export default function Shankarpally45AcresPage({
         </div>
       </section>
 
-      <StickyCTABar projectName={project.name} onSiteVisit={() => setSiteVisitOpen(true)} ctaLabel="Free Cab Visit" />
-      <SiteVisitModal isOpen={siteVisitOpen} onClose={() => setSiteVisitOpen(false)} projectName={project.name} />
-      <VideoHeroModal open={videoOpen} onClose={() => setVideoOpen(false)} onRequestVideo={(r) => openGate(r)} project={project} />
-      <LeadGateModal
-        open={gate !== null}
-        request={gate}
-        onClose={() => setGate(null)}
-        projectName={project.name}
-      />
-    </>
+      <div className={styles.onDark}>
+        <SiteVisitModal isOpen={siteVisitOpen} onClose={() => setSiteVisitOpen(false)} projectName={project.name} />
+        <VideoHeroModal open={videoOpen} onClose={() => setVideoOpen(false)} onRequestVideo={(r) => openGate(r)} project={project} />
+        <LeadGateModal
+          open={gate !== null}
+          request={gate}
+          onClose={() => setGate(null)}
+          projectName={project.name}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -928,7 +929,7 @@ function MediaGallerySection({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
+            className={`fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 ${styles.onDark}`}
             onClick={() => setLightboxIndex(null)}
           >
             <button
@@ -1410,10 +1411,10 @@ function LeadGateModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[110] bg-black/90 backdrop-blur-lg flex items-center justify-center p-4"
-          onClick={onClose}
-        >
-          <motion.div
+            className={`fixed inset-0 z-[110] bg-black/90 backdrop-blur-lg flex items-center justify-center p-4 ${styles.onDark}`}
+            onClick={onClose}
+          >
+            <motion.div
             initial={{ opacity: 0, y: 24, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 24, scale: 0.97 }}
@@ -1533,10 +1534,10 @@ function VideoHeroModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[105] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4"
-          onClick={onClose}
-        >
-          <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
+            className={`fixed inset-0 z-[105] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 ${styles.onDark}`}
+            onClick={onClose}
+          >
+            <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
             <div className="relative aspect-video rounded-2xl overflow-hidden bg-black border border-white/[0.05]">
               {playing && videoSrc ? (
                 <video className="h-full w-full object-contain" controls autoPlay playsInline poster={posterSrc}>
