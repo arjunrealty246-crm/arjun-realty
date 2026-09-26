@@ -38,7 +38,13 @@
 
   /* ---- accents: deeper shades used ONLY where the accent must read as text
          on a light surface. Button fills keep the brand #F97316. ---- */
-  --sp-accent: #c2410c;     /*  4.9:1  deep orange, brand hue       */
+  --sp-accent: #b03a09;     /*  5.7:1  deep orange, brand hue.
+                                Measured from rendered pixels (not just the
+                                nominal swatch), so the value already allows
+                                for antialiased glyph edges and for the
+                                `bg-primary/[0.06]` tint on the plot-size
+                                chips. Keeps the 11px chip labels at/above
+                                WCAG AA 4.5:1.                        */
   --sp-gold-ink: #8a6a3b;   /*  4.7:1                               */
   --sp-emerald-ink: #047857;
   --sp-red-ink: #b91c1c;
@@ -154,18 +160,43 @@
   box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
 }
 
-/* heading gradient: deeper brand-orange→gold so it stays legible on light,
-   and the looping animation is removed (brief: no flashy effects) */
-.root [class~="text-gradient"] {
-  background: linear-gradient(135deg, #c2410c 0%, #8a6a3b 60%, #c2410c 100%);
-  background-size: 100% auto;
-  animation: none;
-}
-.root [class~="text-gradient-static"] {
-  background: linear-gradient(135deg, #c2410c, #8a6a3b);
-}
+/* Gradient-filled text is REMOVED from this page — root cause of the orange
+   rectangles that used to sit on the headings and stat values.
+
+   The global `.text-gradient` (globals.css) renders text by painting a gradient
+   and clipping it to the glyphs:
+
+       .text-gradient {
+         background: linear-gradient(...);      <-- shorthand
+         background-clip: text;
+         -webkit-text-fill-color: transparent;
+       }
+
+   The previous page override re-declared `background:` (the shorthand) to retune
+   the colours. The shorthand RESETS `background-clip` to `border-box`, and since
+   `.root [class~="text-gradient"]` (0,2,0) outranks `.text-gradient` (0,1,0) the
+   reset won. Result: the gradient painted as a solid orange/brown RECTANGLE
+   filling the span, while `-webkit-text-fill-color: transparent` still applied
+   so the real glyphs were invisible on top of it.
+
+   Fix = delete the mechanism, not re-tune it. `background: none` is used
+   deliberately and is safe here precisely BECAUSE it declares no gradient: it
+   clears background-image, background-color AND background-clip in one go, so no
+   rectangle of any kind can be painted behind the text. Do NOT downgrade this to
+   `background-image: none` — that would leave background-clip negotiable and
+   reopen the bug. `-webkit-text-fill-color` is then forced opaque so the glyphs
+   are guaranteed visible.
+
+   The TSX for this page emits no `text-gradient*` class at all; these rules are
+   defence-in-depth so any `text-gradient*` reappearing inside `.root` (including
+   from a shared component) still renders as plain solid text. */
+.root [class~="text-gradient"],
+.root [class~="text-gradient-static"],
 .root [class~="text-gradient-gold"] {
-  background: linear-gradient(135deg, #8a6a3b, #b08d57, #8a6a3b);
+  background: none;
+  color: var(--sp-accent);
+  -webkit-text-fill-color: var(--sp-accent);
+  animation: none;
 }
 
 /* decorative blur orbs: far subtler on a light canvas */
@@ -259,10 +290,14 @@
 }
 .onDark [class~="border-white/20"] { border-color: rgba(255, 255, 255, 0.22); }
 
-/* keep brand-bright gradient text + gold on the dark hero */
-.onDark [class~="text-gradient"] {
-  background: linear-gradient(135deg, #fb923c 0%, #f97316 25%, #d4a574 50%, #fb923c 75%, #f97316 100%);
-  background-size: 200% auto;
+/* Gradient-filled text is removed here too — the hero/overlay subtree gets a
+   plain solid brand-orange text colour instead of a clipped gradient. */
+.onDark [class~="text-gradient"],
+.onDark [class~="text-gradient-static"],
+.onDark [class~="text-gradient-gold"] {
+  background: none;
+  color: #fb923c;
+  -webkit-text-fill-color: #fb923c;
   animation: none;
 }
 .onDark [class~="text-gold"]    { color: #d4a574; }

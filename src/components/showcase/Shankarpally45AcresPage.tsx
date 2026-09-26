@@ -287,7 +287,7 @@ export default function Shankarpally45AcresPage({
             <SectionLabel>Premium Villa Plotted Community · Shankarpally, West Hyderabad</SectionLabel>
 
             <h1 className="mt-6 text-[clamp(2.2rem,5.5vw,4rem)] font-bold tracking-[-0.03em] leading-[1.06] max-w-4xl">
-              Shankarpally 45 Acres — Luxury <span className="text-gradient">HMDA &amp; RERA Approved</span> Plotted Community
+              Shankarpally 45 Acres — Luxury <span className="text-primary">HMDA &amp; RERA Approved</span> Plotted Community
             </h1>
 
             <p className="mt-6 text-base sm:text-lg text-white/45 leading-relaxed max-w-3xl">
@@ -348,7 +348,7 @@ export default function Shankarpally45AcresPage({
             <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3.5">
               {stats.map((s) => (
                 <div key={s.label} className="glass-card rounded-2xl px-6 py-5 border-white/[0.06]">
-                  <p className="text-[22px] sm:text-2xl font-bold text-gradient tracking-tight">{s.value}</p>
+                  <p className="text-[22px] sm:text-2xl font-bold text-primary tracking-tight">{s.value}</p>
                   <p className="mt-1 text-[11px] uppercase tracking-[0.12em] text-white/35">{s.label}</p>
                 </div>
               ))}
@@ -375,7 +375,7 @@ export default function Shankarpally45AcresPage({
           <ScrollReveal className="max-w-3xl mb-12">
             <SectionLabel>Location Story</SectionLabel>
             <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em]">
-              West Hyderabad&apos;s <span className="text-gradient">Premier Growth Corridor</span>
+              West Hyderabad&apos;s <span className="text-primary">Premier Growth Corridor</span>
             </h2>
             <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
               The 45-acre venture sits at the centre of the Golden Triangle of West Hyderabad —
@@ -427,7 +427,7 @@ export default function Shankarpally45AcresPage({
             <ScrollReveal>
               <SectionLabel>Infrastructure &amp; Luxury Boom</SectionLabel>
               <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em]">
-                Infrastructure Momentum Meets an <span className="text-gradient">Ultra-Premium Micro-Market</span>
+                Infrastructure Momentum Meets an <span className="text-primary">Ultra-Premium Micro-Market</span>
               </h2>
               <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
                 Luxury villa ventures around Shankarpally command ₹7 Cr and are rising — with landmark price points
@@ -450,7 +450,7 @@ export default function Shankarpally45AcresPage({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {luxeStats.map((s) => (
                   <div key={s.value} className="glass-card rounded-2xl p-6">
-                    <p className="text-3xl font-bold text-gradient tracking-tight">{s.value}</p>
+                    <p className="text-3xl font-bold text-primary tracking-tight">{s.value}</p>
                     <p className="mt-2 text-xs text-white/40 leading-relaxed">{s.label}</p>
                   </div>
                 ))}
@@ -478,7 +478,7 @@ export default function Shankarpally45AcresPage({
           <ScrollReveal className="max-w-3xl mb-12">
             <SectionLabel>Project Snapshot</SectionLabel>
             <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em]">
-              Highlights &amp; <span className="text-gradient">Specifications</span>
+              Highlights &amp; <span className="text-primary">Specifications</span>
             </h2>
             <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
               A 100% HMDA approved &amp; RERA registered, bankable canvas for 200–500+ sq. yd. villa plots — with a
@@ -516,7 +516,7 @@ export default function Shankarpally45AcresPage({
           <ScrollReveal>
             <SectionLabel>Frequently Asked Questions</SectionLabel>
             <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em] mb-8">
-              Everything You Need to <span className="text-gradient">Know</span>
+              Everything You Need to <span className="text-primary">Know</span>
             </h2>
             <div className="space-y-3 max-w-3xl">
               {project.faqs?.map((faq, i) => (
@@ -561,7 +561,7 @@ export default function Shankarpally45AcresPage({
             <ScrollReveal className="max-w-3xl mb-10">
               <SectionLabel>Explore More</SectionLabel>
               <h2 className="mt-5 text-[clamp(1.6rem,3.5vw,2.4rem)] font-bold tracking-[-0.02em]">
-                Other <span className="text-gradient">Verified Opportunities</span>
+                Other <span className="text-primary">Verified Opportunities</span>
               </h2>
             </ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -597,7 +597,7 @@ export default function Shankarpally45AcresPage({
               <div className="relative">
                 <p className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Shankarpally 45 Acres Premium Layout</p>
                 <h2 className="mt-4 text-[clamp(2rem,5vw,3.4rem)] font-bold tracking-[-0.03em] leading-[1.08]">
-                  Secure Your Plot in West Hyderabad&apos;s <span className="text-gradient">High-Growth Corridor</span>
+                  Secure Your Plot in West Hyderabad&apos;s <span className="text-primary">High-Growth Corridor</span>
                 </h2>
                 <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
                   Speak directly with our founders — no call centers, no pressure. Get verified pricing, the full HMDA &amp;
@@ -758,7 +758,7 @@ function MediaGallerySection({
         <ScrollReveal className="max-w-3xl mb-10">
           <SectionLabel>Project Media &amp; Gallery</SectionLabel>
           <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em]">
-            Gallery, Layouts &amp; <span className="text-gradient">Site Impressions</span>
+            Gallery, Layouts &amp; <span className="text-primary">Site Impressions</span>
           </h2>
           <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
             Targeted renders and site impressions below are illustrative. High-resolution photographs, the walkthrough
@@ -1066,7 +1066,7 @@ function TrustDocumentsSection({
         <ScrollReveal className="max-w-3xl mb-10">
           <SectionLabel>Trust, Approvals &amp; Verification Center</SectionLabel>
           <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em]">
-            Proof First — <span className="text-gradient">Approvals, Bank Support &amp; Docs</span>
+            Proof First — <span className="text-primary">Approvals, Bank Support &amp; Docs</span>
           </h2>
           <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
             Straight to the proof, right at the top. Every document below is genuine and available — View opens the
@@ -1251,7 +1251,7 @@ function FastTrackAndGrowthSection() {
           <ScrollReveal className="w-full">
             <SectionLabel>Fast-Track Execution Progress</SectionLabel>
             <h2 className="mt-5 text-[clamp(1.6rem,3.4vw,2.6rem)] font-bold tracking-[-0.02em]">
-              On-Ground Infrastructure &amp; <span className="text-gradient">Execution Status</span>
+              On-Ground Infrastructure &amp; <span className="text-primary">Execution Status</span>
             </h2>
             <p className="mt-4 text-sm sm:text-base text-white/40 leading-relaxed">
               One of the fastest-developing gated plotting communities in Shankarpally. Core underground infrastructure
@@ -1266,7 +1266,7 @@ function FastTrackAndGrowthSection() {
                 { value: "24/7", label: "Security & Gated Access" },
               ].map((s) => (
                 <div key={s.label} className="glass-card rounded-2xl px-5 py-4">
-                  <p className="text-xl lg:text-2xl font-bold text-gradient tracking-tight">{s.value}</p>
+                  <p className="text-xl lg:text-2xl font-bold text-primary tracking-tight">{s.value}</p>
                   <p className="mt-1 text-[11px] uppercase tracking-[0.1em] text-white/35">{s.label}</p>
                 </div>
               ))}
@@ -1287,7 +1287,7 @@ function FastTrackAndGrowthSection() {
                         </div>
                       </div>
                       <div className="text-right shrink-0">
-                        <p className="text-[15px] font-bold text-gradient">{e.state}</p>
+                        <p className="text-[15px] font-bold text-primary">{e.state}</p>
                         <p className="text-[11px] text-white/30">{e.value}%</p>
                       </div>
                     </div>
@@ -1309,7 +1309,7 @@ function FastTrackAndGrowthSection() {
           <ScrollReveal delay={0.1} className="w-full">
             <SectionLabel>West Hyderabad Growth Matrix</SectionLabel>
             <h2 className="mt-5 text-[clamp(1.6rem,3.4vw,2.6rem)] font-bold tracking-[-0.02em]">
-              Minutes to the <span className="text-gradient">Growth Axis</span>
+              Minutes to the <span className="text-primary">Growth Axis</span>
             </h2>
             <p className="mt-4 text-sm sm:text-base text-white/40 leading-relaxed">
               Shankarpally anchors the Golden Triangle connecting Kokapet/Neopolis and the IIT Hyderabad/Kandi
@@ -1658,7 +1658,7 @@ function ShankarpallyLeadWidget({ projectName }: { projectName: string }) {
           <ScrollReveal>
             <SectionLabel>Book Your Visit</SectionLabel>
             <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em]">
-              Schedule Your <span className="text-gradient">Free Site Visit</span>
+              Schedule Your <span className="text-primary">Free Site Visit</span>
             </h2>
             <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
               Share your details and our advisory team will confirm your visit. Request a cab and we will arrange free
