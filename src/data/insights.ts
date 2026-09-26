@@ -52,6 +52,7 @@ export interface InsightSection {
   body: string[];
   entries?: InsightEntry[];
   locations?: InsightLocation[];
+  drivers?: string[];
   checklist?: string[];
   sources?: InsightSource[];
   caution?: string;
@@ -110,31 +111,31 @@ export const insights: Insight[] = [
       "Hyderabad Future City 2026: AI, Data Centres, Manufacturing & Infrastructure Growth",
     seoTitle: "Hyderabad Future City 2026: AI & Data Centres",
     metaDescription:
-      "Explore Hyderabad Future City growth: AI and data-centre investments, manufacturing projects, radial roads, RRR connectivity and real-estate impact.",
+      "Explore Hyderabad Future City growth through AI, data centres, manufacturing projects, radial roads, RRR connectivity and emerging real-estate opportunities.",
     excerpt:
       "A status-checked research review of the AI, data-centre, manufacturing and road projects shaping Hyderabad Future City — separating what is operational from what is only proposed.",
     category: "Corporate Investments & Growth",
     categorySlug: "corporate-growth",
     publishedAt: "2026-09-26",
     author: researchDesk,
-    image: "/images/insights/hyderabad-future-city-growth-corridor-ai-data-centres-manufacturing.png",
+    image: "/images/insights/hyderabad-future-city-growth-corridor-ai-data-centres-manufacturing.jpg",
     imageAlt:
-      "Hyderabad Future City AI data centres manufacturing and infrastructure growth corridor – Arjun Realty Insights",
-    imageWidth: 1200,
-    imageHeight: 1500,
+      "Hyderabad Future City growth corridor with AI data centres manufacturing and infrastructure developments – Arjun Realty Insights",
+    imageWidth: 900,
+    imageHeight: 1600,
     featuredProjectSlugs: ["jb-harmony-woods", "jb-serene-county"],
     sections: [
       {
         body: [
-          "Hyderabad's growth story is no longer confined to the established IT corridors of Hitec City and Gachibowli. Economic activity is spreading outward into the southern and eastern belt around Future City, Kandukur, Meerkhanpet, Maheshwaram and Chandanvelly, where large-format data centre, cloud, manufacturing and logistics projects are operating, under construction, or awaiting approval.",
-          "This is Arjun Realty market research. It separates what is already operational from what has only been announced, and it does not treat an announcement as a completed project. Every figure below is attributed to a named source, and where sources disagree the disagreement is stated rather than hidden. For wider context on why the metro area keeps expanding, see [why Hyderabad continues to grow](/why-hyderabad).",
-          "The corridor deserves attention. That is not the same thing as saying prices will rise, and this article makes no such claim. What follows sets out the documented developments, their current status, and the questions a buyer still has to answer independently.",
+          "Hyderabad's growth is no longer confined to the established IT corridors of Hitec City and Gachibowli. Economic activity is extending outward into emerging economic zones around Bharat Future City, Meerkhanpet, Kandukur, Maheshwaram, Chandanvelly and the airport-side corridor, where large-format AI, data centre, cloud, advanced manufacturing, airport-connectivity, radial-road and logistics projects are operating, commissioned, under construction, or awaiting approval.",
+          "This is Arjun Realty market research. It separates what is already operational or commissioned from what has only been announced, allocated or tendered, and it does not treat an announcement as a completed project. Every figure below is attributed to a named source, and where sources disagree the disagreement is stated rather than hidden. For wider context on why the metro area keeps expanding, see [why Hyderabad continues to grow](/why-hyderabad).",
+          "The corridor deserves attention. That is not the same thing as saying prices will rise, and this article makes no such claim. What follows sets out the documented developments behind Hyderabad Future City investment interest, their current status, and the questions a buyer still has to answer independently.",
         ],
       },
       {
         heading: "Why Hyderabad Future City Is Getting Attention",
         body: [
-          "Attention around Hyderabad Future City is the result of several independent trends converging at once: hyperscale AI compute, conventional cloud capacity, electronics manufacturing, airport-linked logistics, and an entirely new road network. None of these on its own would define a corridor. Together they create the employment base that land demand depends on.",
+          "Attention around Hyderabad Future City is the result of several independent trends converging at once: Hyderabad AI investment in hyperscale compute, conventional cloud capacity, Hyderabad data centre investment at industrial scale, electronics manufacturing, airport-linked logistics, and an entirely new road network. None of these on its own would define a corridor. Together they create the employment base that land demand depends on.",
           "The planning logic matters as much as the corporate announcements. Future City is being shaped as a mixed economic zone rather than a single-industry park, with the state actively allocating both commercial and industrial land. That is a material difference from a stand-alone campus, and it is why the zone is worth tracking at mandal level rather than project by project. We track the corridor at that level, and the exact locations we currently feature are listed on [our projects page](/projects).",
           "Our earlier analysis of [the Future City growth corridor](/insights/future-city-growth-corridor-whats-driving-land-values) set out the demand mechanics. The developments below are the 2026 evidence base for it, and they are larger and more specific than the pipeline that analysis assumed.",
         ],
@@ -142,7 +143,7 @@ export const insights: Insight[] = [
       {
         heading: "Major AI & Data Centre Developments",
         body: [
-          "Three projects define the current data centre story in this corridor, and only one of them is operating. That distinction is not a technicality. An operating region creates employment and utility demand immediately, while an announced park creates an expectation that may take years to materialise.",
+          "Three projects define the current data centre story in this corridor, and only one of them is operating. That distinction is not a technicality. An operating region creates employment and utility demand immediately, while an announced park creates an expectation that may take years to materialise. The distance between announced and operational Hyderabad AI data centres is the single most important thing to understand about this corridor.",
         ],
         entries: [
           {
@@ -164,7 +165,7 @@ export const insights: Insight[] = [
             status: "Land allocation",
             tone: "planned",
             summary:
-              "The Telangana government agreed to allot about 10 acres at Meerkhanpet, in the Bharat Future City area of Kandukur mandal in Rangareddy district, to the State Bank of India for a proposed data centre. The allocation was reported on 17 September 2026.",
+              "The Telangana government agreed to allot about 10 acres at Meerkhanpet, in the Bharat Future City area of Kandukur mandal in Rangareddy district, to the State Bank of India for a proposed data centre within Meerkhanpet Future City. The allocation was reported on 17 September 2026.",
             facts: [
               { label: "Area", value: "About 10 acres" },
               { label: "Location", value: "Meerkhanpet, Kandukur mandal" },
@@ -199,7 +200,7 @@ export const insights: Insight[] = [
             status: "Announced",
             tone: "planned",
             summary:
-              "Crompton Greaves Consumer Electricals plans a manufacturing facility at E-City in Maheshwaram, near Hyderabad international airport. Telangana government reporting puts the investment at about ₹375 crore, while the company's own Q1 FY27 disclosure refers to roughly ₹350 crore of phase-one capex for fan manufacturing.",
+              "Crompton Greaves Consumer Electricals plans a manufacturing facility at E-City in Maheshwaram, near Hyderabad international airport, which is one of the clearer signals yet for Maheshwaram real estate demand. Telangana government reporting puts the investment at about ₹375 crore, while the company's own Q1 FY27 disclosure refers to roughly ₹350 crore of phase-one capex for fan manufacturing.",
             facts: [
               { label: "Government-stated investment", value: "About ₹375 crore" },
               { label: "Company-disclosed phase-one capex", value: "About ₹350 crore" },
@@ -228,9 +229,9 @@ export const insights: Insight[] = [
         ],
       },
       {
-        heading: "Infrastructure Supporting the Growth Corridor",
+        heading: "Infrastructure & Connectivity",
         body: [
-          "Road and ring-road projects determine how quickly any of the above converts into accessible land. The status of each is materially different, and the distinction matters more than usual here because the corridor's connectivity case rests on infrastructure that is not yet finished. The comparison is also relative: the existing [Outer Ring Road](/orr) is already carrying traffic that these radial roads are meant to redistribute.",
+          "Road and ring-road projects determine how quickly any of the above converts into accessible land. The status of each is materially different, and the distinction matters more than usual here because the corridor's connectivity case rests on infrastructure that is not yet finished. The comparison is also relative: the existing [Outer Ring Road](/orr) is already carrying traffic that these radial roads are meant to redistribute. The headline Hyderabad infrastructure projects for this corridor are the Hyderabad radial roads, and the Hyderabad RRR is the frame they are meant to sit inside. Radial Road 1 Hyderabad is under construction and Radial Road 2 Hyderabad is at tender, so none of the three is finished.",
         ],
         entries: [
           {
@@ -278,9 +279,9 @@ export const insights: Insight[] = [
         ],
       },
       {
-        heading: "Key Locations to Watch",
+        heading: "Key Locations in the Hyderabad Future City Growth Corridor",
         body: [
-          "These are the nodes that recur across the announcements above. Distances between them are large enough that a single project location does not confer the same connectivity on every nearby plot, which is why we publish an exact village and mandal on every project page rather than a corridor label.",
+          "These are the nodes that recur across the announcements above. Kandukur Hyderabad, Maheshwaram and Chandanvelly sit far enough apart that a single project location does not confer the same connectivity on every nearby plot, which is why we publish an exact village and mandal on every project page rather than a corridor label. Plots near Future City, plots near Kandukur and plots near Maheshwaram are not interchangeable, and Kandukur real estate in particular should be assessed on its own approvals rather than on proximity to an announcement.",
           "The Srisailam and Kongarakalan stretches of the wider Tata Greenfield corridor sit to the west of these nodes and are covered separately in [our Srisailam Highway analysis](/srisailam-highway-future-city).",
         ],
         locations: [
@@ -301,8 +302,12 @@ export const insights: Insight[] = [
             note: "Rangareddy district, inside the Hyderabad Metropolitan Region. Site of the proposed Fortune AI data-centre park.",
           },
           {
-            name: "Meerkhanpet / Bharat Future City",
-            note: "The Bharat Future City area within Kandukur mandal, where the state has allocated land to SBI for a proposed data centre.",
+            name: "Meerkhanpet",
+            note: "Village and locality within Kandukur mandal where the state has allocated land to SBI for a proposed data centre.",
+          },
+          {
+            name: "Bharat Future City",
+            note: "The planned economic zone encompassing Meerkhanpet and surrounding Kandukur-area land, positioned as a mixed commercial and industrial destination.",
           },
           {
             name: "Chandanvelly",
@@ -315,15 +320,24 @@ export const insights: Insight[] = [
         body: [
           "The documented drivers are unglamorous but they are real. Operating data centre capacity creates high-wage technical employment. Manufacturing creates longer-term, higher-volume operational roles. Both consume power and water at a scale that forces infrastructure investment, and both generate demand for construction labour, transport, catering and retail in the surrounding villages.",
           "Logistics follows connectivity. Radial Road-1 and Radial Road-2 are planned to redistribute freight and passenger movement away from the existing ring network, and the Regional Ring Road is intended to bind peripheral growth nodes together. If those alignments are built as proposed, travel-time relationships across the southern and eastern belt will change.",
-          "For investors, the practical implication is that employment nodes and road corridors should be assessed together rather than separately. A plot close to an announced data centre but far from an operating road is a different proposition from one close to both.",
+          "These are documented and projected development drivers rather than completed outcomes, and each carries a different status and timing. The six that matter most are set out below.",
+          "For buyers, the practical implication is that employment nodes and road corridors should be assessed together rather than separately. A plot close to an announced data centre but far from an operating road is a different proposition from one close to both.",
           "Our [corporate land assembly analysis](/insights/corporate-land-assemblies-reading-hyderabads-next-growth-corridors) sets out how to read those employment-and-connectivity relationships.",
           "[Our earlier AI investment review](/insights/hyderabad-future-city-70000-crore-ai-data-centre-investment) covers the single largest announcement in this corridor in detail.",
         ],
+        drivers: [
+          "AI & Digital Infrastructure — hyperscale compute and cloud capacity, which create high-wage technical employment once operational.",
+          "Manufacturing & Industrial Expansion — factories that employ continuously and place sustained demand on power, water and labour.",
+          "Better Regional Connectivity — radial roads and the Regional Ring Road intended to redistribute freight and passenger movement.",
+          "Airport Proximity — Rajiv Gandhi International Airport as the anchor for air cargo, logistics and the Maheshwaram manufacturing belt.",
+          "Employment Ecosystem — the combined technical, operational, construction and support roles that create housing and rental demand.",
+          "Long-Term Economic Activity — the multi-phase nature of the announced programmes, which implies a build-out measured in years rather than quarters.",
+        ],
       },
       {
-        heading: "Potential Real Estate Impact",
+        heading: "Potential Real-Estate Impact — Analysis, Not a Guarantee",
         body: [
-          "Everything in this section is forward-looking analysis, not a forecast and not a promise. If the announced investments are executed and the supporting road and utility infrastructure is delivered on schedule, the corridor could see increased employment-related housing demand, rental demand near working populations, supporting retail and services, logistics and commercial activity, and broader investor attention.",
+          "Everything in this section is forward-looking analysis, not a forecast and not a promise. If the announced investments are executed and the supporting road and utility infrastructure is delivered on schedule, Future City real estate could see increased employment-related housing demand, rental demand near working populations, supporting retail and services, logistics and commercial activity, and broader Hyderabad real estate investment interest.",
           "The same list reads in reverse just as easily. Execution timelines have a long history of slipping in Indian infrastructure. Radial Road-2 is still at tender, the Regional Ring Road is still awaiting approval, and the two largest data centre projects tracked here are proposed rather than built. Announced capital is not deployed capital, and a park that has not broken ground cannot support worker housing demand.",
           "Risks worth weighing include project execution timelines, approval and sanction delays, incomplete road and utility delivery, competing supply in the same corridors, and broader market conditions such as interest rates and regional demand. Of the eight developments tracked in this article, two are operational, three are announced or allocated, and three sit at infrastructure stage. That mix is what a genuinely early-stage corridor looks like, and it is why corridor-level enthusiasm should be checked against project-level status.",
         ],
@@ -333,7 +347,7 @@ export const insights: Insight[] = [
       {
         heading: "What Property Buyers Should Verify",
         body: [
-          "The gap between a growth-corridor narrative and a safe purchase is verification. Work through the following before committing, and treat any unanswered item as a reason to wait rather than a reason to move faster.",
+          "The gap between a growth-corridor narrative and a safe purchase is verification. Future City plots should be worked through against the following before committing, and any unanswered item should be treated as a reason to wait rather than a reason to move faster.",
           "If a seller cannot answer the first three items with documentation, the remaining questions are largely academic. Our [first-time plot buyer checklist](/insights/first-time-plot-investor-checklist-hyderabad) walks through the same checks in sequence.",
           "The wider [Telangana plot buyer guide](/guides/telangana-plot-buyer-checklist) covers the paperwork in more depth, including the approval and survey checks that decide whether a layout is registrable at all.",
         ],
@@ -347,15 +361,18 @@ export const insights: Insight[] = [
           "The current development status of the project, and whether the developer has delivered comparable projects before.",
           "Whether water and power are actually available at the site, and whether any capacity has been formally allocated.",
           "The developer's delivery record, resident references, and the payment terms being offered.",
+          "That all supporting documentation is in hand and verified before any payment or agreement is signed, not after.",
         ],
       },
       {
         heading: "Conclusion",
         body: [
-          "Hyderabad Future City and the surrounding southern and eastern growth corridor are attracting attention because multiple AI, data-centre, manufacturing and infrastructure initiatives are developing or being proposed. That is a fair summary. It is not a reason to buy immediately, and it is not a reason to ignore the corridor either.",
+          "Future City Hyderabad and its surrounding southern and south-eastern growth corridor are attracting attention because several AI, data-centre, manufacturing and infrastructure developments are converging. That is a fair summary. It is not a reason to buy immediately, and it is not a reason to ignore the corridor either.",
           "The distinction that matters is status. Microsoft's cloud region is operating. Amara Raja's qualification plant is commissioned. Radial Road-1 is under construction. Fortune's park, SBI's plot and Crompton's factory are announced. Radial Road-2 is at tender and the Regional Ring Road is appraised but unapproved. Each of those supports a different level of confidence, and diligence should reflect the difference rather than average it out.",
+          "Readers should evaluate individual properties independently rather than assuming every location in the corridor will perform equally. A single approved layout can sit many kilometres and several approval stages away from an announced project, and corridor-level attention does not transfer to a specific parcel automatically.",
           "The project we currently feature closest to this corridor is [JB Harmony Woods](/projects/jb-harmony-woods), located in the Future City Growth Corridor at Thummaloor.",
           "Also relevant is [JB Serene County](/projects/jb-serene-county), near the Kongarakalan stretch of the Tata Greenfield Growth Corridor. Both should be assessed against the same verification list as any other purchase, and neither should be treated as a proxy for the announcements documented above.",
+          "At Arjun Realty, our Insights section focuses on verified market developments, infrastructure trends and property-research information to help buyers make more informed real-estate decisions.",
         ],
         sources: [
           {

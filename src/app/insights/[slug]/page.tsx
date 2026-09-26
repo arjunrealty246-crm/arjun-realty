@@ -212,21 +212,23 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
                   <Clock3 className="h-3.5 w-3.5 text-primary/70" /> {readingMinutes} min read
                 </span>
               </div>
-              {insight.image ? (
-                <div className="mt-8 w-full overflow-hidden rounded-2xl border border-white/[0.06]">
-                  <Image
-                    src={insight.image}
-                    alt={insight.imageAlt || `${insight.title} — Arjun Realty Insights`}
-                    width={insight.imageWidth ?? 1200}
-                    height={insight.imageHeight ?? 630}
-                    priority
-                    sizes="(max-width: 768px) 100vw, 768px"
-                    className="h-auto w-full"
-                  />
-                </div>
-              ) : null}
             </ScrollReveal>
           </article>
+          <ScrollReveal>
+            {insight.image ? (
+              <div className="mx-auto mt-8 w-full max-w-[850px] overflow-hidden rounded-2xl border border-white/[0.06]">
+                <Image
+                  src={insight.image}
+                  alt={insight.imageAlt || `${insight.title} — Arjun Realty Insights`}
+                  width={insight.imageWidth ?? 1200}
+                  height={insight.imageHeight ?? 630}
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 850px"
+                  className="h-auto w-full"
+                />
+              </div>
+            ) : null}
+          </ScrollReveal>
         </div>
       </section>
 
@@ -304,6 +306,19 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
                         </div>
                       ))}
                     </div>
+                  ) : null}
+
+                  {section.drivers ? (
+                    <ol className="mt-7 space-y-3">
+                      {section.drivers.map((driver, di) => (
+                        <li key={driver} className="flex gap-3 rounded-2xl glass-card p-4">
+                          <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-bold text-primary">
+                            {di + 1}
+                          </span>
+                          <span className="text-[13.5px] leading-relaxed text-white/60">{driver}</span>
+                        </li>
+                      ))}
+                    </ol>
                   ) : null}
 
                   {section.checklist ? (
