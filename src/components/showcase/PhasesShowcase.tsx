@@ -19,6 +19,10 @@ import {
 import ScrollReveal from "../ScrollReveal";
 import SectionLabel from "../SectionLabel";
 import ProjectVideo from "../ProjectVideo";
+import {
+  openDocumentInNewTab,
+  useGatedDocumentLink,
+} from "../DocumentAccessGate";
 import { getDownloadUrl } from "@/lib/download-url";
 import type { Project, ProjectPhase } from "@/data/projects";
 
@@ -132,6 +136,7 @@ function PhaseMedia({ phase, project }: { phase: ProjectPhase; project: Project 
 }
 
 function PhaseDocuments({ phase }: { phase: ProjectPhase }) {
+  const gateLink = useGatedDocumentLink();
   const docs = (phase.documents || []).filter((d) => d.url);
   const links: { label: string; url: string; kind: "download" | "view" }[] = [];
 
@@ -148,6 +153,7 @@ function PhaseDocuments({ phase }: { phase: ProjectPhase }) {
           href={getDownloadUrl(l.url)}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={gateLink(l.label, () => openDocumentInNewTab(getDownloadUrl(l.url)))}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/[0.08] border border-primary/15 text-[11px] font-semibold text-primary hover:bg-primary/[0.15] transition-colors duration-300"
         >
           <FileText className="h-3 w-3" /> {l.label}
@@ -160,6 +166,7 @@ function PhaseDocuments({ phase }: { phase: ProjectPhase }) {
           href={getDownloadUrl(d.url)}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={gateLink(d.name, () => openDocumentInNewTab(getDownloadUrl(d.url)))}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/60 hover:border-primary/20 hover:text-primary transition-colors duration-300"
         >
           <FileText className="h-3 w-3" /> {d.name}
@@ -171,6 +178,7 @@ function PhaseDocuments({ phase }: { phase: ProjectPhase }) {
 }
 
 function PhasePlan({ phase, project }: { phase: ProjectPhase; project: Project }) {
+  const gateLink = useGatedDocumentLink();
   const planUrl = phase.masterPlanUrl || phase.layoutUrl;
   if (!planUrl) return null;
 
@@ -190,6 +198,7 @@ function PhasePlan({ phase, project }: { phase: ProjectPhase; project: Project }
           href={planUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={gateLink(`${phase.name} Layout`, () => openDocumentInNewTab(planUrl))}
           className="absolute inset-0 flex items-center justify-center bg-charcoal-dark/40 opacity-0 hover:opacity-100 transition-opacity duration-300"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-xs font-semibold text-white">
@@ -205,6 +214,7 @@ function PhasePlan({ phase, project }: { phase: ProjectPhase; project: Project }
       href={getDownloadUrl(planUrl)}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={gateLink(`${phase.name} Layout`, () => openDocumentInNewTab(getDownloadUrl(planUrl)))}
       className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/60 hover:border-primary/20 hover:text-primary transition-colors duration-300"
     >
       <MapIcon className="h-3 w-3" /> Open Layout

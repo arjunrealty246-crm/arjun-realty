@@ -11,6 +11,13 @@ import {
 import ScrollReveal from "../ScrollReveal";
 import SectionLabel from "../SectionLabel";
 import BrochureDownload from "../BrochureDownload";
+import {
+  downloadDocument,
+  openDocumentInNewTab,
+  useDocumentAccessApi,
+  useGatedDocumentLink,
+} from "../DocumentAccessGate";
+import type { DocumentAccessRequest } from "../DocumentAccessGate";
 import { getDownloadUrl } from "@/lib/download-url";
 import type { Project, ProjectDocument } from "@/data/projects";
 
@@ -24,12 +31,13 @@ interface DocItem {
   custom?: React.ReactNode;
 }
 
-function ViewDownload({ url, kind }: { url: string; kind: "image" | "pdf" | "link" }) {
+function ViewDownload({ url, kind, name }: { url: string; kind: "image" | "pdf" | "link"; name: string }) {
   const ext = url.toLowerCase().split("?")[0].slice(url.lastIndexOf("."));
   const isImage = /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(ext);
   const isPdf = ext === ".pdf";
   const isExternal = /^https?:\/\//i.test(url);
   const downloadUrl = getDownloadUrl(url);
+  const gateLink = useGatedDocumentLink();
 
   if (isExternal) {
     return (
@@ -38,6 +46,7 @@ function ViewDownload({ url, kind }: { url: string; kind: "image" | "pdf" | "lin
           href={downloadUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={gateLink(name, () => openDocumentInNewTab(downloadUrl))}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/[0.08] border border-primary/15 text-[11px] font-semibold text-primary hover:bg-primary/[0.15] transition-colors duration-300"
         >
           <ExternalLink className="h-3 w-3" /> {isImage ? "View Image" : isPdf ? "Open PDF" : "Open"}
@@ -45,6 +54,7 @@ function ViewDownload({ url, kind }: { url: string; kind: "image" | "pdf" | "lin
         <a
           href={downloadUrl}
           download
+          onClick={gateLink(name, () => downloadDocument(downloadUrl))}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/60 hover:border-primary/20 hover:text-primary transition-colors duration-300"
         >
           <Download className="h-3 w-3" /> Download
@@ -58,6 +68,7 @@ function ViewDownload({ url, kind }: { url: string; kind: "image" | "pdf" | "lin
       <a
         href={url}
         download
+        onClick={gateLink(name, () => downloadDocument(url))}
         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/[0.08] border border-primary/15 text-[11px] font-semibold text-primary hover:bg-primary/[0.15] transition-colors duration-300"
       >
         <Download className="h-3 w-3" /> Download
@@ -68,6 +79,14 @@ function ViewDownload({ url, kind }: { url: string; kind: "image" | "pdf" | "lin
 
 export default function DocumentCentre({ project }: { project: Project }) {
   const docs: ProjectDocument[] = (project.documents || []).filter((d) => d.url);
+  const api = useDocumentAccessApi();
+  const gateLink = useGatedDocumentLink();
+
+  // Falls back to a pass-through when rendered outside a gated project page, so
+  // the links keep working exactly as they did before the gate existed.
+  const requestDocument =
+    api?.requestDocument ??
+    ((input: Omit<DocumentAccessRequest, "projectName">) => input.grant());
 
   const items: DocItem[] = [];
 
@@ -144,6 +163,7 @@ export default function DocumentCentre({ project }: { project: Project }) {
                       href={getDownloadUrl(project.brochureUrl)}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={gateLink("Project Brochure", () => openDocumentInNewTab(getDownloadUrl(project.brochureUrl!)))}
                       className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-primary/[0.08] border border-primary/15 text-[12px] font-semibold text-primary hover:bg-primary/[0.15] transition-colors duration-300"
                     >
                       <ExternalLink className="h-3.5 w-3.5" /> View Brochure
@@ -151,13 +171,20 @@ export default function DocumentCentre({ project }: { project: Project }) {
                     <a
                       href={getDownloadUrl(project.brochureUrl)}
                       download
+                      onClick={gateLink("Project Brochure", () => downloadDocument(getDownloadUrl(project.brochureUrl!)))}
                       className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-[12px] font-semibold text-white/60 hover:border-primary/20 hover:text-primary transition-colors duration-300"
                     >
                       <Download className="h-3.5 w-3.5" /> Download Brochure
                     </a>
                   </>
                 ) : (
-                  <BrochureDownload project={project} variant="card" />
+                  <BrochureDownload
+                    project={project}
+                    variant="card"
+                    onRequestAccess={(grant) =>
+                      requestDocument({ documentName: "Project Brochure & Pricing Matrix", grant })
+                    }
+                  />
                 )}
               </div>
             </div>
@@ -179,7 +206,7 @@ export default function DocumentCentre({ project }: { project: Project }) {
                 </div>
                 <div className="flex-1" />
                 <div className="flex justify-end">
-                  <ViewDownload url={d.url} kind={d.type === "pdf" ? "pdf" : "link"} />
+                  <ViewDownload url={d.url} kind={d.type === "pdf" ? "pdf" : "link"} name={d.name} />
                 </div>
               </div>
             </ScrollReveal>
@@ -202,7 +229,7 @@ export default function DocumentCentre({ project }: { project: Project }) {
                 <div className="flex-1" />
                 {item.url ? (
                   <div className="flex justify-end">
-                    <ViewDownload url={item.url} kind={item.kind} />
+                    <ViewDownload url={item.url} kind={item.kind} name={item.name} />
                   </div>
                 ) : null}
               </div>

@@ -42,6 +42,10 @@ import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
 import BrochureDownload from "./BrochureDownload";
 import SiteVisitModal from "./SiteVisitModal";
+import DocumentAccessGate, {
+  DocumentAccessProvider,
+  useDocumentAccess,
+} from "./DocumentAccessGate";
 import HeroVideoBackground from "./HeroVideoBackground";
 import ProjectVideo from "./ProjectVideo";
 import ShowcaseMediaGallery from "./showcase/ShowcaseMediaGallery";
@@ -130,6 +134,8 @@ export default function PremiumProjectDetailPage({
   const [siteVisitOpen, setSiteVisitOpen] = useState(false);
   const [amenitiesExpanded, setAmenitiesExpanded] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const { request: documentRequest, requestDocument, closeDocumentAccess } =
+    useDocumentAccess(project.name);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -143,6 +149,27 @@ export default function PremiumProjectDetailPage({
   const visibleAmenities = amenitiesExpanded
     ? project.amenities
     : project.amenities.slice(0, 8);
+
+  // `usps` and `investmentHighlights` are editable in Admin and persisted, but
+  // had no public render path. Both are folded into the section they belong to
+  // rather than adding new sections: USPs are selling points, so they join the
+  // existing Highlights grid; investment highlights join the Why Invest grid.
+  // De-duplicated so an item repeated across both fields is not shown twice.
+  const highlightItems = Array.from(
+    new Set(
+      [...project.highlights, ...(project.usps ?? [])]
+        .map((item) => (item || "").trim())
+        .filter(Boolean)
+    )
+  );
+
+  const whyInvestItems = Array.from(
+    new Set(
+      [...project.whyInvest, ...(project.investmentHighlights ?? [])]
+        .map((item) => (item || "").trim())
+        .filter(Boolean)
+    )
+  );
 
   const waMessage = encodeURIComponent(
     `Hi, I'm interested in ${project.name}.\nPlease share more details.`
@@ -192,7 +219,7 @@ export default function PremiumProjectDetailPage({
   };
 
   return (
-    <>
+    <DocumentAccessProvider requestDocument={requestDocument} projectName={project.name}>
       {/* ════════════════════════════════════════════
           SECTION 1 — PREMIUM HERO WITH DRONE VIDEO
       ════════════════════════════════════════════ */}
@@ -321,7 +348,13 @@ export default function PremiumProjectDetailPage({
                 >
                   <Phone className="h-4 w-4" /> Call Now
                 </a>
-                <BrochureDownload project={project} variant="button" />
+                <BrochureDownload
+                  project={project}
+                  variant="button"
+                  onRequestAccess={(grant) =>
+                    requestDocument({ documentName: "Project Brochure & Pricing Matrix", grant })
+                  }
+                />
                 <button
                   onClick={() => {
                     trackEvent("site_visit", { event_category: "lead_generation", content_label: `Site Visit - ${project.name}` });
@@ -492,7 +525,7 @@ export default function PremiumProjectDetailPage({
                   Interested in an <Link href="/projects/shankarpally-45-acres" className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">Shankarpally 45 Acres</Link> HMDA open plot in the same corridor? This certified open-plots community offers HMDA &amp; RERA approvals for secure, ready-to-invest development.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {project.highlights.map((h) => (
+                  {highlightItems.map((h) => (
                     <div
                       key={h}
                       className="flex items-center gap-3 glass-card rounded-xl px-5 py-3.5 group hover:border-primary/10 transition-all duration-300"
@@ -972,13 +1005,13 @@ export default function PremiumProjectDetailPage({
       {/* ════════════════════════════════════════════
           SECTION 8 — WHY INVEST
       ════════════════════════════════════════════ */}
-      {project.whyInvest.length > 0 && (
+      {whyInvestItems.length > 0 && (
         <section className="pb-16 lg:pb-20">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
             <ScrollReveal>
               <SectionLabel as="h2">Why Invest in {project.name}?</SectionLabel>
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {project.whyInvest.map((wi, i) => (
+                {whyInvestItems.map((wi, i) => (
                   <div
                     key={wi}
                     className="flex items-start gap-4 glass-card rounded-xl px-5 py-5 group hover:border-primary/10 transition-all duration-300"
@@ -1241,7 +1274,13 @@ export default function PremiumProjectDetailPage({
                       <ArrowRight className="h-4 w-4 text-white/15 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
                     </a>
 
-                    <BrochureDownload project={project} variant="card" />
+                    <BrochureDownload
+                      project={project}
+                      variant="card"
+                      onRequestAccess={(grant) =>
+                        requestDocument({ documentName: "Project Brochure & Pricing Matrix", grant })
+                      }
+                    />
 
                     <button
                       onClick={() => {
@@ -1429,6 +1468,11 @@ export default function PremiumProjectDetailPage({
         onClose={() => setSiteVisitOpen(false)}
         projectName={project.name}
       />
-    </>
+
+      <DocumentAccessGate
+        request={documentRequest}
+        onClose={closeDocumentAccess}
+      />
+    </DocumentAccessProvider>
   );
 }

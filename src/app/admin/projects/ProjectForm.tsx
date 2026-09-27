@@ -6,6 +6,7 @@ import { ArrowLeft, Save, Upload, X, Plus, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { uploadWithProgress } from "@/lib/client-upload";
 import { compressLargeVideo, VideoCompressError } from "@/lib/video-compress";
+import { PROJECT_CLEARABLE_ARRAY_FIELDS } from "@/lib/validation";
 
 interface ProjectFormData {
   name: string;
@@ -77,6 +78,10 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
   const [newHighlight, setNewHighlight] = useState("");
   const [newAdvantage, setNewAdvantage] = useState("");
   const [newWhyInvest, setNewWhyInvest] = useState("");
+  const [newUsp, setNewUsp] = useState("");
+  const [newInvestmentHighlight, setNewInvestmentHighlight] = useState("");
+  const [newConnectivity, setNewConnectivity] = useState("");
+  const [newLandmark, setNewLandmark] = useState("");
   const [newFaqQ, setNewFaqQ] = useState("");
   const [newFaqA, setNewFaqA] = useState("");
   const [newTestName, setNewTestName] = useState("");
@@ -241,6 +246,14 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
         gallery: form.gallery.map((g) => ({ ...g, src: (g.src || "").trim(), type: (g.type || "").trim() })),
         developmentUpdates: form.developmentUpdates.map((d) => ({ ...d, images: (d.images || []).map((img) => img.trim()).filter(Boolean) })),
         documents: form.documents.map((d) => ({ ...d, url: (d.url || "").trim() })),
+        // Record which list fields the admin has deliberately emptied. Mongoose
+        // initialises unset arrays to `[]`, so without this marker a cleared list
+        // is indistinguishable from an unset one and the public page would keep
+        // serving the static default instead of the empty list just saved.
+        clearedFields: PROJECT_CLEARABLE_ARRAY_FIELDS.filter((field) => {
+          const value = (form as unknown as Record<string, unknown>)[field];
+          return Array.isArray(value) && value.length === 0;
+        }),
       };
       const url = isEdit ? `/api/projects/${projectId}` : "/api/projects";
       const method = isEdit ? "PUT" : "POST";
@@ -271,8 +284,8 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
       <div className="flex gap-2 mb-2">
         <input type="text" value={inputVal} onChange={(e) => setInput(e.target.value)}
           className="flex-1 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30"
-          placeholder={placeholder} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addItem(field, inputVal); } }} />
-        <button type="button" onClick={() => addItem(field, inputVal)}
+          placeholder={placeholder} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); if (inputVal.trim()) { addItem(field, inputVal); setInput(""); } } }} />
+        <button type="button" onClick={() => { if (inputVal.trim()) { addItem(field, inputVal); setInput(""); } }}
           className="h-9 w-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-all">
           <Plus className="h-4 w-4" />
         </button>
@@ -993,12 +1006,12 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
           <div className="space-y-8">
             {renderArrayField("Amenities", "amenities", newAmenity, setNewAmenity, "Swimming Pool, Yoga Area...")}
             {renderArrayField("Highlights", "highlights", newHighlight, setNewHighlight, "FCDA Approved...")}
-            {renderArrayField("USPs", "usps", "", () => {}, "")}
-            {renderArrayField("Location Advantages", "locationAdvantages", newAdvantage, setNewAdvantage, "2 Minutes to Srisailam Highway...")}
-            {renderArrayField("Why Invest", "whyInvest", newWhyInvest, setNewWhyInvest, "FCDA Approved project...")}
-            {renderArrayField("Investment Highlights", "investmentHighlights", "", () => {}, "")}
-            {renderArrayField("Connectivity", "connectivity", "", () => {}, "")}
-            {renderArrayField("Nearby Landmarks", "nearbyLandmarks", "", () => {}, "")}
+        {renderArrayField("USPs", "usps", newUsp, setNewUsp, "Best investment pocket in the corridor...")}
+        {renderArrayField("Location Advantages", "locationAdvantages", newAdvantage, setNewAdvantage, "2 Minutes to Srisailam Highway...")}
+        {renderArrayField("Why Invest", "whyInvest", newWhyInvest, setNewWhyInvest, "FCDA Approved project...")}
+        {renderArrayField("Investment Highlights", "investmentHighlights", newInvestmentHighlight, setNewInvestmentHighlight, "100% clear title with spot registration...")}
+        {renderArrayField("Connectivity", "connectivity", newConnectivity, setNewConnectivity, "10 Minutes to ORR...")}
+        {renderArrayField("Nearby Landmarks", "nearbyLandmarks", newLandmark, setNewLandmark, "Nearby IIT Hyderabad...")}
           </div>
         </div>
 

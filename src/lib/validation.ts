@@ -5,18 +5,34 @@ const PROJECT_STRING_FIELDS = [
   "clubhouseDetails", "brochureUrl", "layoutPdfUrl", "image", "videoUrl",
   "droneVideoUrl", "heroVideo", "masterPlanUrl", "locationMapUrl", "whatsappCta",
   "projectArea", "description", "layoutUrl", "locationUrl",
-  "seoTitle", "tagline",
+  "seoTitle", "tagline", "developerName", "seoDescription",
+  "locationOverviewLabel", "locationOverviewHeading",
 ];
 
 const PROJECT_ARRAY_FIELDS = [
   "amenities", "connectivity", "nearbyLandmarks", "investmentHighlights",
   "highlights", "usps", "galleryImages", "images", "videos",
-  "locationAdvantages", "whyInvest",
+  "locationAdvantages", "whyInvest", "locationOverview", "targetKeywords",
+  "relatedInsightSlugs", "clearedFields",
 ];
 
 const PROJECT_OBJECT_ARRAY_FIELDS = [
   "faqs", "testimonials", "gallery", "developmentUpdates", "documents",
-  "updates", "units", "phases",
+  "updates", "units", "phases", "contentSections",
+];
+
+/**
+ * Array fields an admin is allowed to empty out from the Project form.
+ *
+ * Mongoose initialises unset array paths to `[]`, so "field is an empty array"
+ * cannot distinguish "never configured" from "deliberately cleared". When the
+ * admin empties one of these, its name is recorded in `clearedFields`, and only
+ * then does an empty array override the static default. This keeps a project
+ * that has never been configured from blanking its own content.
+ */
+export const PROJECT_CLEARABLE_ARRAY_FIELDS: readonly string[] = [
+  ...PROJECT_ARRAY_FIELDS.filter((f) => f !== "clearedFields"),
+  ...PROJECT_OBJECT_ARRAY_FIELDS,
 ];
 
 const PROJECT_BOOLEAN_FIELDS = ["isUpcoming", "bankLoanAvailable", "siteVisitBooking"];

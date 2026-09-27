@@ -50,6 +50,12 @@ import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import BrochureDownload from "@/components/BrochureDownload";
 import SiteVisitModal from "@/components/SiteVisitModal";
+import DocumentAccessGate, {
+  downloadDocument,
+  openDocumentInNewTab,
+  useDocumentAccess,
+} from "@/components/DocumentAccessGate";
+import DevelopmentUpdatesSection from "./DevelopmentUpdatesSection";
 import styles from "./Shankarpally45AcresPage.module.css";
 
 const FALLBACK_PROJECT: Project = {
@@ -217,11 +223,46 @@ const HERO_POSTER_SRC = "/images/projects/shankarpally-45acres-hero.svg";
 // A media URL is usable when it is an absolute (Cloudinary) URL or an existing
 // `/images/...` asset. Local `/uploads/projects/...` paths that were never
 // actually uploaded are treated as unusable so broken tiles are never shown.
-function isUsableUrl(value: string): boolean {
-  const v = (value || "").trim();
-  if (!v) return false;
-  return /^https?:\/\//i.test(v) || v.startsWith("/images/");
-}
+  function isUsableUrl(value: string): boolean {
+    const v = (value || "").trim();
+    if (!v) return false;
+    return /^https?:\/\//i.test(v) || v.startsWith("/images/");
+  }
+
+  // A brochure is only offered when the stored asset demonstrably belongs to THIS
+  // project. Project data can carry a stale or mis-assigned remote brochure (a file
+  // belonging to a different development), which would otherwise hand a visitor
+  // somebody else's PDF from this page. Requiring the asset name to carry this
+  // project's own distinctive name blocks that without ever inventing a replacement
+  // URL, and it re-enables itself automatically once a correctly named file lands.
+  function isBrochureForThisProject(value: string, project: Project): boolean {
+    const v = (value || "").trim();
+    if (!isUsableUrl(v)) return false;
+    if (!/\.pdf(?:$|[?#])/i.test(v) && !v.includes("raw/upload")) return false;
+
+    const path = v.split(/[?#]/)[0];
+    const file = path.slice(path.lastIndexOf("/") + 1).toLowerCase();
+    if (!file) return false;
+
+    const flat = file.replace(/[^a-z0-9]/g, "");
+
+    // Generic marketing words are shared by every development, so they can never
+    // prove ownership of a file. Only the project's own distinctive name counts.
+    const generic = new Set([
+      "acres", "acre", "layout", "layouts", "plan", "plans", "planning", "premium",
+      "villa", "villas", "plot", "plots", "plotted", "community", "project",
+      "projects", "brochure", "booking", "homes", "township", "residency",
+      "residencies", "avenue", "avenues", "heights", "greens", "resort", "estate",
+    ]);
+    const distinctive = [project.slug, project.name]
+      .flatMap((t) => [t, ...t.split(/[^a-zA-Z0-9]+/)])
+      .map((t) => t.toLowerCase().replace(/[^a-z0-9]/g, ""))
+      .filter((t) => t.length >= 5 && !generic.has(t));
+    if (!distinctive.length) return false;
+
+    return distinctive.some((t) => flat.includes(t));
+  }
+
 
 function HeroBackground({ project }: { project: Project }) {
   return (
@@ -262,12 +303,35 @@ export default function Shankarpally45AcresPage({
   const project = propProject ?? FALLBACK_PROJECT;
   const [siteVisitOpen, setSiteVisitOpen] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
-  const [gate, setGate] = useState<GateRequest | null>(null);
   const [videoOpen, setVideoOpen] = useState(false);
+  const { request: gate, requestDocument, closeDocumentAccess } =
+    useDocumentAccess(project.name);
+
+  // `investmentHighlights` is editable in Admin and persisted but had no render
+  // path. It is folded into the existing Why Invest list rather than adding a
+  // new section. De-duplicated so an item in both fields is not shown twice.
+  const whyInvestPoints = Array.from(
+    new Set(
+      [...project.whyInvest, ...(project.investmentHighlights ?? [])]
+        .map((item) => (item || "").trim())
+        .filter(Boolean)
+    )
+  ).slice(0, 4);
 
   const waUrl = `${siteConfig.links.wa}?text=${encodeURIComponent(project.whatsappCta || "")}`;
 
-  const openGate = useCallback((request: GateRequest) => setGate(request), []);
+  const openGate = useCallback(
+    (request: GateRequest) =>
+      requestDocument({
+        documentName: request.intent,
+        grant: request.grant ?? (() => {}),
+        note: request.message,
+        title: request.title,
+        subtitle: request.subtitle,
+        ctaLabel: request.ctaLabel,
+      }),
+    [requestDocument]
+  );
 
   return (
     <div className={styles.root}>
@@ -287,7 +351,7 @@ export default function Shankarpally45AcresPage({
             <SectionLabel>Premium Villa Plotted Community · Shankarpally, West Hyderabad</SectionLabel>
 
             <h1 className="mt-6 text-[clamp(2.2rem,5.5vw,4rem)] font-bold tracking-[-0.03em] leading-[1.06] max-w-4xl">
-              Shankarpally 45 Acres — Luxury <span className="text-primary">HMDA &amp; RERA Approved</span> Plotted Community
+              Shankarpally 45 Acres — Luxury <span className={styles.heroAccent}>HMDA &amp; RERA Approved</span> Plotted Community
             </h1>
 
             <p className="mt-6 text-base sm:text-lg text-white/45 leading-relaxed max-w-3xl">
@@ -437,7 +501,7 @@ export default function Shankarpally45AcresPage({
                 25,000 sq. ft. luxury clubhouse included at zero extra charges.
               </p>
               <ul className="mt-6 space-y-3">
-                {project.whyInvest.slice(0, 4).map((point) => (
+                {whyInvestPoints.map((point) => (
                   <li key={point} className="flex items-start gap-3 text-[13px] text-white/40 leading-relaxed">
                     <TrendingUp className="h-4 w-4 text-primary shrink-0 mt-0.5" />
                     {point}
@@ -506,10 +570,14 @@ export default function Shankarpally45AcresPage({
       {/* ══════════ FAST-TRACK EXECUTION & WEST HYDERABAD GROWTH MATRIX ══════════ */}
       <FastTrackAndGrowthSection />
 
+      {/* ══════════ PROJECT UPDATES — ADMIN-ENTERED DEVELOPMENT UPDATES ══════════ */}
+      <DevelopmentUpdatesSection project={project} />
+
       {/* ══════════ LEAD CAPTURE — FREE CAB SITE VISIT ══════════ */}
       <ShankarpallyLeadWidget projectName={project.name} />
 
       {/* ══════════ FAQ ══════════ */}
+      {project.faqs && project.faqs.length > 0 && (
       <section className="py-16 lg:py-20 bg-section-alt relative overflow-hidden">
         <div className="ambient-orb w-[500px] h-[500px] bg-primary/[0.03] -left-48 top-1/3" />
         <div className="relative mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
@@ -553,6 +621,7 @@ export default function Shankarpally45AcresPage({
           </ScrollReveal>
         </div>
       </section>
+      )}
 
       {/* ══════════ RELATED PROJECTS ══════════ */}
       {related.length > 0 && (
@@ -634,13 +703,9 @@ export default function Shankarpally45AcresPage({
       <div className={styles.onDark}>
         <SiteVisitModal isOpen={siteVisitOpen} onClose={() => setSiteVisitOpen(false)} projectName={project.name} />
         <VideoHeroModal open={videoOpen} onClose={() => setVideoOpen(false)} onRequestVideo={(r) => openGate(r)} project={project} />
-        <LeadGateModal
-          open={gate !== null}
-          request={gate}
-          onClose={() => setGate(null)}
-          projectName={project.name}
-        />
       </div>
+
+      <DocumentAccessGate request={gate} onClose={closeDocumentAccess} />
     </div>
   );
 }
@@ -657,6 +722,14 @@ interface GateRequest {
   intent: string;
   message: string;
   ctaLabel: string;
+  /**
+   * Performs the real action once the shared gate has captured the lead.
+   * Optional: message-only requests (video, availability) are delivered by the
+   * gate's own WhatsApp handoff and have nothing further to open.
+   */
+  grant?: () => void;
+  title?: string;
+  subtitle?: string;
 }
 
 type GalleryItem = { src: string; title: string; cat: string };
@@ -738,11 +811,36 @@ function MediaGallerySection({
       ctaLabel: "Request Layout PDF",
     });
 
+  // The master layout is a protected project document, so the view/download
+  // actions go through the same page gate as every other document. `grant` runs
+  // the original open/download, unchanged, once access is approved.
+  const viewMasterLayout = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onRequestPlot({
+      intent: "Official Master Layout Plan (PDF)",
+      message: `${projectName}\n\nPlease share the official HMDA-approved master layout plan (PDF) of ${projectName}.`,
+      grant: () => openDocumentInNewTab(getDownloadUrl(masterLayoutSrc)),
+      ctaLabel: "View Document",
+    });
+  };
+
+  const downloadMasterLayout = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    onRequestPlot({
+      intent: "Official Master Layout Plan (PDF)",
+      message: `${projectName}\n\nPlease share the official HMDA-approved master layout plan (PDF) of ${projectName}.`,
+      grant: () => downloadDocument(getDownloadUrl(masterLayoutSrc)),
+      ctaLabel: "View Document",
+    });
+  };
+
   const requestVideo = () =>
     onRequestVideo({
       intent: "Walkthrough & Drone Video Footage",
       message: `${projectName}\n\nPlease share the latest walkthrough and drone aerial footage of ${projectName}.`,
       ctaLabel: "Request Video Footage",
+      title: "Request the Walkthrough Video",
+      subtitle: "Share your details and our team will send the latest footage on WhatsApp.",
     });
 
   const requestPlot = () =>
@@ -750,6 +848,8 @@ function MediaGallerySection({
       intent: "Live Plot Availability & Corner Plots",
       message: `${projectName}\n\nPlease share the live plot availability (200 / 267 / 350 / 500+ sq. yd.) and corner plot options.`,
       ctaLabel: "Check Live Availability",
+      title: "Check Live Plot Availability",
+      subtitle: "Share your details and our team will send current availability on WhatsApp.",
     });
 
   return (
@@ -898,6 +998,7 @@ function MediaGallerySection({
                     href={getDownloadUrl(masterLayoutSrc)}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={viewMasterLayout}
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-[12px] font-semibold text-white/70 hover:border-primary/25 hover:text-white transition-colors"
                   >
                     <Eye className="h-4 w-4" /> View Layout PDF
@@ -905,6 +1006,7 @@ function MediaGallerySection({
                   <a
                     href={getDownloadUrl(masterLayoutSrc)}
                     download
+                    onClick={downloadMasterLayout}
                     className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary to-primary-dark text-[12px] font-semibold text-white glow-primary-strong hover:opacity-90 transition-opacity"
                   >
                     <Download className="h-4 w-4" /> Download High-Res PDF
@@ -1006,7 +1108,7 @@ function buildTrustDocs(project: Project): {
   instant?: boolean;
   key: string;
 }[] {
-  const brochure = project.brochureUrl && isUsableUrl(project.brochureUrl) ? project.brochureUrl : "";
+  const brochure = isBrochureForThisProject(project.brochureUrl, project) ? project.brochureUrl.trim() : "";
 
   return [
     {
@@ -1039,7 +1141,7 @@ function buildTrustDocs(project: Project): {
     {
       icon: FileText,
       title: "Master Brochure & Pricing Matrix",
-      tag: "Instant PDF",
+      tag: brochure ? "Instant PDF" : "Coming soon",
       intent: "Brochure & Pricing Matrix",
       desc: "The complete featured brochure plus the current verified pricing matrix — available instantly as PDF.",
       url: brochure,
@@ -1056,8 +1158,40 @@ function TrustDocumentsSection({
   project: Project;
   onRequestDoc: (r: GateRequest) => void;
 }) {
-  const gate = (intent: string, ctaLabel: string, message: string) =>
-    onRequestDoc({ intent, ctaLabel, message: `${project.name}\n\n${message}` });
+  const gate = (
+    intent: string,
+    ctaLabel: string,
+    message: string,
+    grant: () => void
+  ) =>
+    onRequestDoc({
+      intent,
+      ctaLabel,
+      message: `${project.name}\n\n${message}`,
+      grant,
+    });
+
+  // Every document below is protected: the shared lead gate runs first, then the
+  // caller's original open/download runs unchanged.
+  const gateDoc = (d: { intent: string }, grant: () => void) =>
+    gate(
+      d.intent,
+      "View Document",
+      `Please share the ${d.intent.toLowerCase()} for ${project.name}.`,
+      grant
+    );
+
+  const viewDoc = (url: string) => () =>
+    window.open(getDownloadUrl(url), "_blank", "noopener");
+
+  const downloadDoc = (url: string) => () => {
+    const a = document.createElement("a");
+    a.href = getDownloadUrl(url);
+    a.download = "";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
 
   return (
     <section id="documents" className="pt-14 pb-16 lg:pt-16 lg:pb-20 bg-section-alt relative overflow-hidden">
@@ -1094,41 +1228,47 @@ function TrustDocumentsSection({
 
                 {d.instant ? (
                   <div className="mt-auto flex flex-wrap items-center gap-2.5">
-                    <BrochureDownload project={project} variant="button" label="Download PDF" />
-                    {d.url && (
-                      <a
-                        href={getDownloadUrl(d.url)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] text-[12px] font-semibold text-white/60 hover:text-white transition-colors"
-                      >
-                        <Eye className="h-3.5 w-3.5" /> View Brochure
-                      </a>
+                    {d.url ? (
+                      <>
+                        <BrochureDownload
+                          project={project}
+                          variant="button"
+                          label="Download PDF"
+                          onRequestAccess={(grant) => gateDoc(d, grant)}
+                        />
+                        <button
+                          onClick={() => gateDoc(d, viewDoc(d.url!))}
+                          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] text-[12px] font-semibold text-white/60 hover:text-white transition-colors"
+                        >
+                          <Eye className="h-3.5 w-3.5" /> View Brochure
+                        </button>
+                      </>
+                    ) : (
+                      <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.03] text-[12px] font-semibold text-white/50">
+                        <Timer className="h-3.5 w-3.5" /> Brochure coming soon
+                      </span>
                     )}
                   </div>
                 ) : d.url ? (
                   <div className="mt-auto flex flex-wrap items-center gap-2.5">
-                    <a
-                      href={getDownloadUrl(d.url)}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={() => gateDoc(d, viewDoc(d.url!))}
                       className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] text-[12px] font-semibold text-white/60 hover:text-white transition-colors"
                     >
                       <Eye className="h-3.5 w-3.5" /> View
-                    </a>
-                    <a
-                      href={getDownloadUrl(d.url)}
-                      download
+                    </button>
+                    <button
+                      onClick={() => gateDoc(d, downloadDoc(d.url!))}
                       className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-primary/25 bg-primary/[0.08] text-[12px] font-semibold text-white hover:bg-primary/[0.16] transition-colors"
                     >
                       <Download className="h-3.5 w-3.5 text-primary" /> Get PDF
-                    </a>
+                    </button>
                   </div>
                 ) : (
                   <div className="mt-auto flex flex-wrap items-center gap-2.5">
                     <button
                       onClick={() =>
-                        gate(d.intent, "View Now", `Please share ${d.intent.toLowerCase()} for ${project.name} on WhatsApp.`)
+                        gateDoc(d, () => {})
                       }
                       className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] text-[12px] font-semibold text-white/60 hover:text-white transition-colors"
                     >
@@ -1136,7 +1276,7 @@ function TrustDocumentsSection({
                     </button>
                     <button
                       onClick={() =>
-                        gate(d.intent, "Get PDF", `Please share the ${d.intent.toLowerCase()} PDF for ${project.name}.`)
+                        gateDoc(d, () => {})
                       }
                       className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full border border-primary/25 bg-primary/[0.08] text-[12px] font-semibold text-white hover:bg-primary/[0.16] transition-colors"
                     >
@@ -1352,157 +1492,6 @@ function FastTrackAndGrowthSection() {
   );
 }
 
-function LeadGateModal({
-  open,
-  request,
-  onClose,
-  projectName,
-}: {
-  open: boolean;
-  request: GateRequest | null;
-  onClose: () => void;
-  projectName: string;
-}) {
-  const [form, setForm] = useState({ name: "", phone: "" });
-  const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
-  const [error, setError] = useState("");
-
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!request || status === "submitting") return;
-    if (!form.name.trim() || !form.phone.trim()) {
-      setError("Please enter your name and phone number.");
-      return;
-    }
-    setError("");
-    setStatus("submitting");
-
-    void submitLead({
-      name: form.name,
-      mobile: form.phone,
-      project: projectName,
-      message: `Requested: ${request.intent}`,
-      source: "Project Enquiry",
-      leadType: "Document Request",
-    });
-
-    const text = encodeURIComponent(`${request.message}\n\nName: ${form.name}\nPhone: ${form.phone}`);
-
-    setTimeout(() => {
-      setStatus("done");
-      setTimeout(() => {
-        window.open(`${siteConfig.links.wa}?text=${text}`, "_blank");
-        setForm({ name: "", phone: "" });
-        setStatus("idle");
-        onClose();
-      }, 1400);
-    }, 500);
-  };
-
-  return (
-    <AnimatePresence>
-      {open && request && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-            className={`fixed inset-0 z-[110] bg-black/90 backdrop-blur-lg flex items-center justify-center p-4 ${styles.onDark}`}
-            onClick={onClose}
-          >
-            <motion.div
-            initial={{ opacity: 0, y: 24, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 24, scale: 0.97 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="glass-card-elevated rounded-3xl w-full max-w-md p-7 sm:p-8 relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={onClose}
-              className="absolute top-5 right-5 h-9 w-9 rounded-full glass flex items-center justify-center text-white/50 hover:text-white transition-colors duration-300"
-            >
-              <X className="h-4 w-4" />
-            </button>
-
-            {status === "done" ? (
-              <div className="text-center py-8">
-                <div className="mx-auto h-16 w-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center mb-5">
-                  <CheckCircle2 className="h-8 w-8 text-emerald-400" />
-                </div>
-                <h3 className="text-lg font-bold text-white">Request Received!</h3>
-                <p className="mt-2 text-sm text-white/40 leading-relaxed">
-                  We&apos;ve opened WhatsApp with your details — press send and the {request.intent.toLowerCase()} will be
-                  shared instantly by our team.
-                </p>
-              </div>
-            ) : (
-              <motion.form onSubmit={handleSubmit} initial={false} className="space-y-5">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.16em] text-primary font-bold">Trust &amp; Verification Center</p>
-                  <h3 className="mt-2 text-xl font-bold text-white leading-snug">{request.intent}</h3>
-                  <p className="mt-2 text-xs text-white/35 leading-relaxed">
-                    Share your details once — the document is sent instantly on WhatsApp, followed by a guided handover
-                    during your free site visit.
-                  </p>
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-white/40 mb-2" htmlFor="gate-name">
-                    Your Name *
-                  </label>
-                  <input
-                    id="gate-name"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder="Enter your full name"
-                    className="input-luxury"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-white/40 mb-2" htmlFor="gate-phone">
-                    Phone / WhatsApp *
-                  </label>
-                  <input
-                    id="gate-phone"
-                    name="phone"
-                    value={form.phone}
-                    onChange={handleChange}
-                    placeholder="Enter your phone number"
-                    className="input-luxury"
-                    pattern="[+]?[0-9\s\-()]{10,15}"
-                    title="Please enter a valid phone number"
-                    required
-                  />
-                </div>
-                {error && <p className="text-xs text-red-400">{error}</p>}
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  className="w-full btn-premium inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 rounded-full text-[13px] font-semibold text-white glow-primary-strong disabled:opacity-60"
-                >
-                  {status === "submitting" ? (
-                    <><Loader2 className="h-4 w-4 animate-spin" /> Processing...</>
-                  ) : (
-                    <><Lock className="h-4 w-4" /> {request.ctaLabel}</>
-                  )}
-                </button>
-                <p className="text-center text-[11px] text-white/25">
-                  By submitting you agree to be contacted by Arjun Realty. We never share your details.
-                </p>
-              </motion.form>
-            )}
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
 
 function VideoHeroModal({
   open,
@@ -1525,6 +1514,8 @@ function VideoHeroModal({
       intent: "Walkthrough & Drone Video Footage",
       message: "Hi! Please share the latest walkthrough and drone aerial footage of Shankarpally 45 Acres Premium Layout.",
       ctaLabel: "Request Footage",
+      title: "Request the Walkthrough Video",
+      subtitle: "Share your details and our team will send the latest footage on WhatsApp.",
     });
 
   return (

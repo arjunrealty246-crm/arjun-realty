@@ -5,9 +5,13 @@ export interface IProject extends Document {
   name: string;
   builder: string;
   marketingPartner?: string;
+  developerName?: string;
   projectType: string;
   approval: string;
   location: string;
+  locationOverview?: string[];
+  locationOverviewLabel?: string;
+  locationOverviewHeading?: string;
   mapsUrl: string;
   price: string;
   launchPrice?: string;
@@ -49,6 +53,8 @@ export interface IProject extends Document {
   whyInvest: string[];
   description?: string;
   seoTitle?: string;
+  seoDescription?: string;
+  targetKeywords?: string[];
   tagline?: string;
   phases?: {
     name: string;
@@ -70,6 +76,22 @@ export interface IProject extends Document {
   locationUrl?: string;
   gallery?: { src: string; title?: string; category?: string; type?: string }[];
   developmentUpdates?: { date?: string; title: string; description?: string; images?: string[] }[];
+  relatedInsightSlugs?: string[];
+  /**
+   * Names of array fields the admin deliberately emptied. Present so an
+   * explicit clear can override the static default - see
+   * PROJECT_CLEARABLE_ARRAY_FIELDS in lib/validation.ts.
+   */
+  clearedFields?: string[];
+  contentSections?: {
+    id: string;
+    label?: string;
+    heading: string;
+    paragraphs?: string[];
+    bullets?: string[];
+    cards?: { title: string; text: string }[];
+    links?: { label: string; href: string }[];
+  }[];
   sortOrder: number;
   createdAt: Date;
   updatedAt: Date;
@@ -81,9 +103,13 @@ const ProjectSchema = new Schema<IProject>(
     name: { type: String, required: true },
     builder: { type: String, required: true },
     marketingPartner: String,
+    developerName: String,
     projectType: { type: String, required: true },
     approval: { type: String, required: true },
     location: { type: String, required: true },
+    locationOverview: [{ type: String }],
+    locationOverviewLabel: String,
+    locationOverviewHeading: String,
     mapsUrl: { type: String, default: "" },
     price: { type: String, default: "" },
     launchPrice: String,
@@ -125,6 +151,8 @@ const ProjectSchema = new Schema<IProject>(
     whyInvest: [{ type: String }],
     description: String,
     seoTitle: String,
+    seoDescription: String,
+    targetKeywords: [{ type: String }],
     tagline: String,
     phases: [
       {
@@ -148,6 +176,19 @@ const ProjectSchema = new Schema<IProject>(
     locationUrl: String,
     gallery: [{ src: String, title: String, category: String, type: { type: String, default: "image" } }],
     developmentUpdates: [{ date: String, title: String, description: String, images: [String] }],
+    relatedInsightSlugs: [{ type: String }],
+    clearedFields: [{ type: String }],
+    contentSections: [
+      {
+        id: String,
+        label: String,
+        heading: String,
+        paragraphs: [{ type: String }],
+        bullets: [{ type: String }],
+        cards: [{ title: String, text: String }],
+        links: [{ label: String, href: String }],
+      },
+    ],
     sortOrder: { type: Number, default: 0 },
   },
   { timestamps: true }

@@ -16,7 +16,7 @@ const baseKeywords = [
   "real estate advisory Hyderabad",
   "K. Nagarjuna",
   "invest in Hyderabad",
-  "residential plots Hyderabad",
+  "residential plots in Hyderabad",
   "NRI real estate investment",
   "property advisory Hyderabad",
   "real estate investment Hyderabad",
@@ -31,8 +31,8 @@ export const seo: Record<string, SEOData> = {
       ...baseKeywords,
       "Arjun Realty Premium Advisory",
       "approved plots Hyderabad",
-      "open plots Hyderabad",
-      "HMDA plots",
+      "open plots in Hyderabad",
+      "HMDA plots in Hyderabad",
       "DTCP plots",
     ],
   },
@@ -43,10 +43,10 @@ export const seo: Record<string, SEOData> = {
     keywords: [...baseKeywords, "about Arjun Realty", "independent real estate advisory Hyderabad", "real estate advisor Hyderabad"],
   },
   projects: {
-    title: "HMDA & DTCP Approved Plots in Hyderabad | Arjun Realty",
+    title: "DTCP Approved Plots for Sale in Hyderabad | Arjun Realty",
     description:
-      "Explore verified HMDA, DTCP & RERA approved residential plots and gated communities across Hyderabad's top growth corridors with NRI-friendly guidance.",
-    keywords: [...baseKeywords, "HMDA approved projects Hyderabad", "DTCP approved plots Hyderabad", "residential plots in Hyderabad", "gated communities Hyderabad"],
+      "Explore verified HMDA, DTCP & RERA approved plots for sale across Hyderabad corridors. Compare DTCP approved open plots in Vikarabad, Choutuppal and beyond.",
+    keywords: [...baseKeywords, "HMDA approved projects Hyderabad", "DTCP approved plots Hyderabad", "DTCP approved plots for sale in Hyderabad", "DTCP & RERA approved open plots", "open plots in Hyderabad", "plots for sale in Hyderabad", "residential plots in Hyderabad", "gated communities Hyderabad"],
   },
   builders: {
     title: "Verified Plot Builders in Hyderabad | Arjun Realty",

@@ -19,6 +19,11 @@ import ScrollReveal from "../ScrollReveal";
 import SectionLabel from "../SectionLabel";
 import { getProjectMedia, getProjectGradient } from "@/lib/assets";
 import { getDownloadUrl } from "@/lib/download-url";
+import {
+  downloadDocument,
+  openDocumentInNewTab,
+  useGatedDocumentLink,
+} from "../DocumentAccessGate";
 import type { Project, ProjectMediaItem } from "@/data/projects";
 
 const BLUR =
@@ -53,6 +58,7 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [failed, setFailed] = useState<Record<number, boolean>>({});
   const [masterPlanFailed, setMasterPlanFailed] = useState(false);
+  const gateLink = useGatedDocumentLink();
 
   const total = media.length;
 
@@ -214,6 +220,7 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                           <a
                             href={getDownloadUrl(project.layoutPdfUrl)}
                             download
+                            onClick={gateLink("Layout PDF", () => downloadDocument(getDownloadUrl(project.layoutPdfUrl)))}
                             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors duration-300"
                           >
                             <Download className="h-3.5 w-3.5" /> Download Layout
@@ -224,6 +231,7 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                             href={getDownloadUrl(project.masterPlanUrl)}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={gateLink("Master Plan", () => openDocumentInNewTab(getDownloadUrl(project.masterPlanUrl)))}
                             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors duration-300"
                           >
                             <ExternalLink className="h-3.5 w-3.5" /> View Full Size

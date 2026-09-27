@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import siteConfig from "@/config/site";
 import PageBreadcrumbs from "@/components/PageBreadcrumbs";
 import Shankarpally45AcresPage from "@/components/showcase/Shankarpally45AcresPage";
-import { getMergedProject } from "@/lib/merged-project";
+import { getMergedProject, isUsableMediaUrl } from "@/lib/merged-project";
 import type { Project } from "@/data/projects";
 
 // This page mirrors the same project shown at /projects/shankarpally-45-acres.
@@ -106,6 +106,16 @@ const faqSchema = {
 export default async function Page() {
   const project = await getMergedProject("shankarpally-45-acres");
   if (!project) notFound();
+
+  // Admin-entered development-update images are free text, and next/image throws
+  // on any src that is neither an absolute http(s) URL nor an existing /public
+  // file. The dynamic project route already filters these; this page needs the
+  // same guard so one bad URL cannot 500 the public page.
+  if (Array.isArray(project.developmentUpdates)) {
+    project.developmentUpdates = project.developmentUpdates
+      .filter((u) => u && u.title)
+      .map((u) => ({ ...u, images: (u.images || []).filter((img) => isUsableMediaUrl(img)) }));
+  }
 
   return (
     <>

@@ -127,15 +127,21 @@ interface BrochureDownloadProps {
   project: Project;
   variant?: "button" | "card";
   label?: string;
+  /**
+   * When provided, a click hands control to the caller along with a `grant`
+   * callback that runs the normal download. Used to put the shared document
+   * access gate in front of the brochure without duplicating any download code.
+   */
+  onRequestAccess?: (grant: () => void) => void;
 }
 
-export default function BrochureDownload({ project, variant = "button", label = "Download Brochure" }: BrochureDownloadProps) {
+export default function BrochureDownload({ project, variant = "button", label = "Download Brochure", onRequestAccess }: BrochureDownloadProps) {
   const [state, setState] = useState<"idle" | "generating" | "done">("idle");
   const [showModal, setShowModal] = useState(false);
 
   const hasPDF = project.brochureUrl && (project.brochureUrl.endsWith(".pdf") || project.brochureUrl.includes("raw/upload"));
 
-  const handleDownload = () => {
+  const performDownload = () => {
     setState("generating");
 
     if (hasPDF) {
@@ -164,6 +170,14 @@ export default function BrochureDownload({ project, variant = "button", label = 
       setState("done");
       setTimeout(() => setState("idle"), 3000);
     }, 800);
+  };
+
+  const handleDownload = () => {
+    if (onRequestAccess) {
+      onRequestAccess(() => performDownload());
+      return;
+    }
+    performDownload();
   };
 
   const handleViewInBrowser = () => {

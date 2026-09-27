@@ -27,8 +27,13 @@ const SKIP_DB_KEYS = new Set(["_id", "__v", "createdAt", "updatedAt", "sortOrder
 
 /**
  * Returns the merged project: the static project record overridden by saved
- * Admin data from MongoDB. Empty/undefined DB fields do not clobber the static
+ * Admin data from MongoDB. Undefined/null DB fields do not clobber the static
  * defaults. Falls back to the static record when the DB is unavailable.
+ *
+ * Empty arrays are skipped by default, because Mongoose initialises unset array
+ * paths to `[]` and that must not blank a project's static content. An admin who
+ * deliberately empties a list has that field recorded in `clearedFields`, and
+ * only those recorded fields are allowed to override with an empty array.
  */
 export async function getMergedProject(slug: string): Promise<Project | null> {
   const staticProject = getProjectBySlug(slug);
@@ -41,10 +46,16 @@ export async function getMergedProject(slug: string): Promise<Project | null> {
     const dbProject = await ProjectModel.findOne({ slug }).lean() as Record<string, unknown> | null;
     if (dbProject) {
       const plainProject = toPlainObject(dbProject);
+      const clearedFields = new Set(
+        (Array.isArray(plainProject.clearedFields) ? plainProject.clearedFields : []).filter(
+          (f): f is string => typeof f === "string"
+        )
+      );
       for (const [key, val] of Object.entries(plainProject)) {
         if (SKIP_DB_KEYS.has(key)) continue;
+        if (key === "clearedFields") continue;
         if (val === undefined || val === null) continue;
-        if (Array.isArray(val) && val.length === 0) continue;
+        if (Array.isArray(val) && val.length === 0 && !clearedFields.has(key)) continue;
         (project as Record<string, unknown>)[key] = val;
       }
     }

@@ -404,7 +404,7 @@ export const projects: Project[] = [
     projectType: "Premium HMDA Residential Plotting Project",
     approval: "HMDA Approved · TSRERA Registered",
     location: "Near Kongarakalan – Tata Greenfield Growth Corridor, Hyderabad",
-    seoTitle: "JB Serene County Plots near Kongarakalan & Foxconn | HMDA Gated Layout",
+    seoTitle: "JB Serene County Plots near Kongarakalan & Foxconn | HMDA",
     seoDescription: "Premium villa plots in JB Serene County near Kongarakalan, Adibatla TCS corridor. High appreciation potential & verified titles. Get latest pricing.",
     targetKeywords: [
       "JB Serene County",
@@ -518,7 +518,7 @@ export const projects: Project[] = [
       "JB Pristine City is a 150-acre DTCP & RERA approved mega master-planned gated layout situated in the fast-appreciating growth corridor of Vikarabad, West Hyderabad, within the high-growth West Hyderabad Investment Corridor.",
       "The project enjoys seamless road connectivity from major IT & financial hubs including Kokapet, Neopolis, Gachibowli, Nanakramguda, Gandipet, Mokila and Shankarpally via the four-lane expressway from ORR Exit No. 18, and stands to benefit from the proposed Hyderabad–Pune–Mumbai High-Speed Rail corridor connectivity for the Vikarabad region. Plots are available from 150 to 600 Sq. Yards with clear titles and immediate bank loan facility.",
     ],
-    seoTitle: "JB Pristine City Plots for Sale in Vikarabad | DTCP Approved | Arjun Realty",
+    seoTitle: "JB Pristine City | Plots for Sale in Vikarabad | Arjun Realty",
     seoDescription: "DTCP approved villa plots in JB Pristine City, Vikarabad near Hyderabad-Bijapur highway. Verified titles, spot registration & clear amenities. Download layout plan.",
     targetKeywords: [
       "JB Pristine City",
@@ -723,7 +723,7 @@ export const projects: Project[] = [
       "JB Serene City is located in Ibrahimpatnam, South Hyderabad, and ranks among the largest integrated townships in the area at 660 acres. It is surrounded by established government institutions — BDL, BEL, NSG Campus and OCTOPUS Training Centre — along with educational institutions such as Guru Nanak University and CVR College of Engineering.",
       "The township is highway-facing with connectivity to the ORR, the airport and Hyderabad's IT corridor, and already has 100+ families residing within an HMDA and RERA approved development.",
     ],
-    seoTitle: "JB Serene City Ibrahimpatnam Plots | HMDA Approved Sagar Highway | Arjun Realty",
+    seoTitle: "JB Serene City Plots | Ibrahimpatnam HMDA, Sagar Highway",
     seoDescription: "Explore HMDA approved open plots in JB Serene City, Ibrahimpatnam on Nagarjuna Sagar Highway. Gated layout with modern amenities. Book site visit.",
     targetKeywords: [
       "JB Serene City",
@@ -1028,7 +1028,7 @@ export const projects: Project[] = [
     projectType: "Premium Highway Facing Gated Residential Township",
     approval: "DTCP & RERA Under Process",
     location: "Srisailam Highway, Hyderabad",
-    seoTitle: "Upcoming Plots near Srisailam Highway & Future City | Arjun Realty",
+    seoTitle: "Upcoming Plots | Srisailam Highway & Future City | Arjun Realty",
     seoDescription: "Explore new and upcoming gated layouts along Srisailam Highway corridor near Mucherla Future City. Early investment benefits & layout maps.",
     targetKeywords: [
       "upcoming plots Srisailam Highway",

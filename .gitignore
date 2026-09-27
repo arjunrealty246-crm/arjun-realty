@@ -40,6 +40,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# local browser / visual verification artifacts (throwaway, never commit)
+/verify-*/
+/chrome-profile*/
+chrome-profile/
+**/chrome-profile*/
+
 .vercel
 public/uploads/
 .env*

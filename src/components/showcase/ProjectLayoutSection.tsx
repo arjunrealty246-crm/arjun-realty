@@ -12,6 +12,11 @@ import {
 } from "lucide-react";
 import ScrollReveal from "../ScrollReveal";
 import SectionLabel from "../SectionLabel";
+import {
+  downloadDocument,
+  openDocumentInNewTab,
+  useGatedDocumentLink,
+} from "../DocumentAccessGate";
 import { getDownloadUrl } from "@/lib/download-url";
 import type { Project } from "@/data/projects";
 
@@ -27,6 +32,7 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
   const layoutUrl = project.layoutUrl || project.masterPlanUrl || project.layoutPdfUrl || "";
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [failed, setFailed] = useState(false);
+  const gateLink = useGatedDocumentLink();
 
   if (!layoutUrl) return null;
 
@@ -81,6 +87,7 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
                   <a
                     href={layoutUrl}
                     download
+                    onClick={gateLink("Layout / Master Plan", () => downloadDocument(layoutUrl))}
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/60 hover:border-primary/20 hover:text-primary transition-colors duration-300"
                   >
                     <Download className="h-3.5 w-3.5" /> Download
@@ -154,6 +161,7 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
                 href={getDownloadUrl(layoutUrl)}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={gateLink("Layout Plan", () => openDocumentInNewTab(getDownloadUrl(layoutUrl)))}
                 className="btn-premium inline-flex items-center gap-2.5 bg-gradient-to-r from-primary to-primary-dark px-6 py-3 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
               >
                 <ExternalLink className="h-4 w-4" /> View Layout
@@ -161,6 +169,7 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
               <a
                 href={getDownloadUrl(layoutUrl)}
                 download
+                onClick={gateLink("Layout Plan", () => downloadDocument(getDownloadUrl(layoutUrl)))}
                 className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/[0.04] border border-white/[0.08] text-[13px] font-semibold text-white/60 hover:bg-white/[0.07] hover:border-primary/20 hover:text-primary transition-all duration-300"
               >
                 <Download className="h-4 w-4" /> Download Layout

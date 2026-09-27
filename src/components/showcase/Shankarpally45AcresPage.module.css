@@ -221,6 +221,46 @@
 .root [class~="text-green-400"]    { color: var(--sp-emerald-ink); }
 .root [class~="accent-amber-500"]  { accent-color: #b45309; }
 
+/* ============================================================================
+ * 4b. HERO HEADING ACCENT — real gradient TEXT (never a rectangle)
+ *
+ * The original defect: a page-level `background:` SHORTHAND was used to restyle
+ * `text-gradient`. The shorthand resets `background-clip` back to `border-box`
+ * while the global utility's `-webkit-text-fill-color: transparent` still
+ * applies, so the gradient painted as a solid slab and the glyphs vanished on
+ * top of it. The block was never behind the text — the text was invisible and
+ * the leftover background showed through.
+ *
+ * This rule cannot regress that way, because it never uses the `background`
+ * shorthand at all:
+ *   1. `background-image` is the LONGHAND, so background-clip is untouched.
+ *   2. Both `-webkit-background-clip` and unprefixed `background-clip` are set
+ *      explicitly to `text` immediately afterwards.
+ *   3. `color` is set to a solid readable orange by default and only becomes
+ *      transparent INSIDE `@supports`, so a browser without background-clip:text
+ *      shows solid orange text rather than invisible text.
+ * No absolutely-positioned layer, no pseudo-element, no z-index trick is used.
+ * ========================================================================== */
+.heroAccent {
+  color: #fb923c; /* readable fallback if background-clip:text is unsupported */
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .heroAccent {
+    background-image: linear-gradient(
+      100deg,
+      #fb923c 0%,
+      #f97316 28%,
+      #d4a574 52%,
+      #f97316 76%,
+      #fb923c 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
 /* tint chips keep the brand hue but sit on a warm base */
 .root [class~="bg-primary/10"]      { background-color: rgba(249, 115, 22, 0.1); }
 .root [class~="bg-primary/[0.08]"]  { background-color: rgba(249, 115, 22, 0.09); }
@@ -256,6 +296,20 @@
  *    `.onDark` restores the original light-on-dark treatment inside a subtree
  *    so photography scrims and modal overlays keep their contrast.
  * ========================================================================== */
+
+/* Default ink for the hero/modal headings.
+ *
+ * `.root` sets `color: var(--sp-ink-70)` (#3e3b33) for the light page canvas.
+ * The rules below only remap EXPLICIT `text-white*` utilities, so a heading that
+ * carries no colour class (the hero <h1> does not) kept inheriting that dark ink
+ * inside a near-black hero — measured at 1.65:1, i.e. effectively invisible.
+ *
+ * `.onDark` and `.root` are both ANCESTORS of the heading, and neither declares
+ * `color` on the heading itself, so inheritance is what applies here: a
+ * declaration on the nearer ancestor (.onDark) wins over the further one
+ * (.root) with no specificity fight. Explicit utilities below still override it
+ * because a direct declaration always beats inheritance. */
+.onDark h1 { color: #ffffff; }
 
 .onDark [class~="text-white"]        { color: #ffffff; }
 .onDark [class~="text-white/90"]     { color: rgba(255, 255, 255, 0.9); }
@@ -318,6 +372,19 @@
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(255, 255, 255, 0.06);
   color: #fff;
+}
+/* `.root [class~="input-luxury"]:focus` (above, specificity 0,3,0) paints the
+   focused field with the LIGHT page surface -- var(--sp-surface) = #fff -- and
+   outranks the `.onDark` surface rule (0,2,0) that this subtree needs. Because
+   `.onDark` still forces `color: #fff`, focusing a field inside any dark modal
+   on this page turned the typed value white-on-white and invisible. Matching the
+   focus state here keeps the dark surface while typing. */
+.onDark [class~="input-luxury"]:focus {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(249, 115, 22, 0.35);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+  color: #fff;
+  -webkit-text-fill-color: #fff;
 }
 .onDark [class~="input-luxury"]::placeholder { color: rgba(255, 255, 255, 0.2); }
 

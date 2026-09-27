@@ -15,6 +15,25 @@ import { getProjectHref } from "@/lib/project-links";
 import { useDbProjectImages } from "@/hooks/useDbProjectImages";
 import siteConfig from "@/config/site";
 
+const DTCP_APPROVED_PROJECTS = allProjects.filter(
+  (p) => p.approval.includes("DTCP") && !p.approval.toLowerCase().includes("under process")
+);
+
+const PROJECT_FAQS = [
+  {
+    q: "Which DTCP approved plots are available in Hyderabad?",
+    a: "Arjun Realty lists DTCP approved projects across Hyderabad, including JB Pristine City — a 150-acre DTCP & RERA approved gated community in Vikarabad, West Hyderabad — and JB Nature Valley, a 720+ acre DTCP approved and RERA registered township on NH-65 at Choutuppal. Each project page lists its exact approval status, plot sizes and starting price.",
+  },
+  {
+    q: "What is the difference between HMDA, DTCP and RERA approved plots?",
+    a: "HMDA and DTCP are Telangana's land-use approval authorities, while RERA registration is the separate real-estate regulatory registration. A project can carry one or both approvals, so buyers should check the approval string on each project page. Our DTCP, HMDA & FCDA approvals guide explains how to verify each one before booking.",
+  },
+  {
+    q: "Do you help with bank loans and site visits for plots?",
+    a: "Yes. Bank loan facility is available on several of the layouts we represent, and our team arranges guided site visits. Contact Arjun Realty with the project name and we will share current availability, plot sizes and the approval documents to verify before you pay anything.",
+  },
+];
+
 export default function ProjectsPage() {
   const [filtered, setFiltered] = useState<Project[]>(allProjects);
   const dbImages = useDbProjectImages();
@@ -47,6 +66,20 @@ export default function ProjectsPage() {
               name: project.name,
               url: `${siteConfig.url}${getProjectHref(project.slug)}`,
               description: project.description?.slice(0, 160) || `${project.name} premium real estate project in ${project.location}`,
+            })),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: PROJECT_FAQS.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
             })),
           }),
         }}
@@ -175,6 +208,103 @@ export default function ProjectsPage() {
               </a>
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="py-20 lg:py-28">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <ScrollReveal>
+            <SectionLabel>DTCP Approved Inventory</SectionLabel>
+            <h2 className="mt-5 text-2xl sm:text-3xl font-bold tracking-tight mb-4">
+              DTCP &amp; RERA Approved <span className="text-gradient">Plots in Hyderabad</span>
+            </h2>
+            <p className="text-white/40 text-sm sm:text-base leading-relaxed max-w-3xl mb-10">
+              Searching for DTCP approved plots for sale in Hyderabad, or DTCP &amp; RERA
+              approved open plots? These are the layouts in our inventory that carry
+              a completed DTCP approval today. Projects still under approval are
+              labelled as such on their own pages and are never listed here.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {DTCP_APPROVED_PROJECTS.map((p) => (
+                <Link key={p.slug} href={getProjectHref(p.slug)}>
+                  <motion.div
+                    whileHover={{ y: -6 }}
+                    className="glass-card rounded-[1.25rem] p-7 h-full flex flex-col group"
+                  >
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                      <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors duration-500 tracking-tight">
+                        {p.name}
+                      </h3>
+                      <span className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-400/10 text-emerald-400 text-[10px] font-semibold">
+                        <Shield className="h-3 w-3" /> {p.approval.split("·")[0].trim()}
+                      </span>
+                    </div>
+                    <p className="flex items-center gap-1.5 text-xs text-white/35 mb-2">
+                      <MapPin className="h-3 w-3 text-primary/60" /> {p.location}
+                    </p>
+                    {p.totalAcres && (
+                      <p className="text-xs text-white/30 mb-4">{p.totalAcres} acre layout</p>
+                    )}
+                    <p className="text-[13px] text-white/40 leading-relaxed mb-5">
+                      {p.plotSizes}
+                    </p>
+                    <div className="mt-auto pt-4 border-t border-white/[0.04] flex items-center justify-between">
+                      <span className="text-sm font-bold text-gradient">{p.startingPrice}</span>
+                      <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-primary group-hover:gap-2.5 transition-all duration-500">
+                        View Details <ArrowRight className="h-3.5 w-3.5" />
+                      </span>
+                    </div>
+                  </motion.div>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <span className="text-white/30 text-[13px] self-center">Explore by corridor:</span>
+              {[
+                { label: "Vikarabad plots", href: "/vikarabad" },
+                { label: "Ibrahimpatnam plots", href: "/ibrahimpatnam" },
+                { label: "Srisailam Highway plots", href: "/srisailam-highway-future-city" },
+                { label: "Plots near ORR", href: "/orr" },
+              ].map((c) => (
+                <Link
+                  key={c.href}
+                  href={c.href}
+                  className="px-4 py-2 rounded-full border border-white/[0.08] text-[12px] font-medium text-white/50 hover:text-primary hover:border-primary/30 transition-colors duration-300"
+                >
+                  {c.label}
+                </Link>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="pb-20 lg:pb-28">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <ScrollReveal>
+            <SectionLabel>Plot Buying Questions</SectionLabel>
+            <h2 className="mt-5 text-2xl sm:text-3xl font-bold tracking-tight mb-8">
+              DTCP &amp; RERA Approved <span className="text-gradient">Plots — FAQ</span>
+            </h2>
+            <div className="space-y-3 max-w-3xl">
+              {PROJECT_FAQS.map((faq) => (
+                <div key={faq.q} className="glass-card rounded-xl p-6">
+                  <h3 className="text-[15px] font-bold text-white mb-2">{faq.q}</h3>
+                  <p className="text-[13px] text-white/40 leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-white/30 text-[13px] mt-6 max-w-3xl">
+              Read our{" "}
+              <Link
+                href="/insights/dtcp-hmda-fcda-approvals-which-to-choose"
+                className="text-primary hover:text-primary/80 font-medium transition-colors duration-300"
+              >
+                DTCP, HMDA &amp; FCDA approvals guide
+              </Link>{" "}
+              to verify approvals before you book.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
