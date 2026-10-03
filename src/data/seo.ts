@@ -252,6 +252,21 @@ export const seo: Record<string, SEOData> = {
         "open plots in Choutuppal",
       ],
     },
+    "vikarabad-industrial-parks-nh163-expansion-jb-pristine-city-guide": {
+      title: "Vikarabad Plots 2026 & JB Pristine City | Arjun Realty",
+      description:
+        "Explore the 2026 transformation of Vikarabad: 4 new industrial parks (Lagacherla 1200 acres, Parigi, Doma), NH-163 4-laning, and DTCP plots at JB Pristine City.",
+      ogType: "article",
+      keywords: [
+        ...baseKeywords,
+        "Vikarabad plots for sale",
+        "JB Pristine City Vikarabad",
+        "plots in Vikarabad DTCP",
+        "Vikarabad industrial parks",
+        "Hyderabad Bijapur highway plots",
+        "Vikarabad real estate 2026",
+      ],
+    },
     privacy: {
       title: "Privacy Policy | Arjun Realty",
     description:
