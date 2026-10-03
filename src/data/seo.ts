@@ -237,6 +237,21 @@ export const seo: Record<string, SEOData> = {
         "Hyderabad land investment guide",
       ],
     },
+    "nh-65-choutuppal-6-lane-expansion-real-estate-guide": {
+      title: "NH-65 Choutuppal 6-Lane: Plot Guide | Arjun Realty",
+      description:
+        "Analyze NH-65 Vijayawada Highway 6-lane tender updates, Choutuppal RRR junction impact, dry port logistics, and DTCP plot price trends at JB Nature Valley.",
+      ogType: "article",
+      keywords: [
+        ...baseKeywords,
+        "Choutuppal plots for sale",
+        "NH 65 6 lane expansion",
+        "JB Nature Valley Choutuppal",
+        "Vijayawada highway plots",
+        "Choutuppal RRR real estate",
+        "open plots in Choutuppal",
+      ],
+    },
     privacy: {
       title: "Privacy Policy | Arjun Realty",
     description:
