@@ -267,6 +267,21 @@ export const seo: Record<string, SEOData> = {
         "Vikarabad real estate 2026",
       ],
     },
+    "hyderabad-gcc-boom-shankarpally-connectivity-investment-guide": {
+      title: "Shankarpally Plots & Hyderabad GCC Boom | Arjun Realty",
+      description:
+        "Discover how Neopolis GCC growth, Kollur Radial Road and defense employment anchors drive residential plot appreciation across Shankarpally.",
+      ogType: "article",
+      keywords: [
+        ...baseKeywords,
+        "Shankarpally plots for sale",
+        "Hyderabad GCC real estate impact",
+        "Kollur to Shankarpally distance",
+        "Neopolis to Shankarpally",
+        "open plots in Shankarpally HMDA",
+        "Shankarpally vs Mokila investment",
+      ],
+    },
     privacy: {
       title: "Privacy Policy | Arjun Realty",
     description:
