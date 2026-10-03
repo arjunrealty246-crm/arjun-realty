@@ -16,10 +16,10 @@ const PROJECT_URL = `${siteConfig.url}/shankarpally-45-acres`;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "HMDA & RERA Approved 45-Acre Plotted Layout in Shankarpally | Arjun Realty",
+    absolute: "Shankarpally 45 Acres: HMDA & RERA Approved Plots for Sale | Arjun Realty",
   },
   description:
-    "Explore Shankarpally 45 Acres — a 100% HMDA approved & RERA registered premium villa plotted development near Julkal Village on West Hyderabad's Premier Growth Corridor (The Golden Triangle). 25,000 SFT clubhouse, clear title with spot registration, 200–500+ sq. yd. plots. Book a free site visit.",
+    "HMDA & RERA approved plots for sale in Shankarpally — a 45-acre premium villa plotted development in West Hyderabad. Plots 200–500+ sq. yd. Book a free site visit.",
   keywords: [
     "HMDA approved plots Shankarpally",
     "RERA registered plots Hyderabad",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     canonical: PROJECT_URL,
   },
   openGraph: {
-    title: "HMDA & RERA Approved 45-Acre Plotted Layout in Shankarpally | Arjun Realty",
+    title: "Shankarpally 45 Acres: HMDA & RERA Approved Plots for Sale | Arjun Realty",
     description:
-      "100% HMDA approved & RERA registered premium villa plotted development on West Hyderabad's Premier Growth Corridor. 25,000 SFT clubhouse, clear title with spot registration, 200–500+ sq. yd. plots.",
+      "HMDA & RERA approved plots for sale in Shankarpally — a 45-acre premium villa plotted development in West Hyderabad. Plots 200–500+ sq. yd.",
     url: PROJECT_URL,
     siteName: siteConfig.name,
     locale: "en_IN",
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "HMDA & RERA Approved 45-Acre Plotted Layout in Shankarpally | Arjun Realty",
+    title: "Shankarpally 45 Acres: HMDA & RERA Approved Plots for Sale | Arjun Realty",
     description:
-      "100% HMDA approved & RERA registered premium villa plotted development on West Hyderabad's Premier Growth Corridor.",
+      "HMDA & RERA approved plots for sale in Shankarpally — a 45-acre premium villa plotted development in West Hyderabad.",
     images: [`${siteConfig.url}/og-image.png`],
   },
   robots: {

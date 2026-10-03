@@ -38,12 +38,15 @@ function ViewDownload({ url, kind, name }: { url: string; kind: "image" | "pdf" 
   const isExternal = /^https?:\/\//i.test(url);
   const downloadUrl = getDownloadUrl(url);
   const gateLink = useGatedDocumentLink();
+  const api = useDocumentAccessApi();
 
   if (isExternal) {
     return (
       <div className="flex items-center gap-2">
         <a
-          href={downloadUrl}
+          href={api ? undefined : downloadUrl}
+          role={api ? "button" : undefined}
+          tabIndex={api ? 0 : undefined}
           target="_blank"
           rel="noopener noreferrer"
           onClick={gateLink(name, () => openDocumentInNewTab(downloadUrl))}
@@ -52,7 +55,9 @@ function ViewDownload({ url, kind, name }: { url: string; kind: "image" | "pdf" 
           <ExternalLink className="h-3 w-3" /> {isImage ? "View Image" : isPdf ? "Open PDF" : "Open"}
         </a>
         <a
-          href={downloadUrl}
+          href={api ? undefined : downloadUrl}
+          role={api ? "button" : undefined}
+          tabIndex={api ? 0 : undefined}
           download
           onClick={gateLink(name, () => downloadDocument(downloadUrl))}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/60 hover:border-primary/20 hover:text-primary transition-colors duration-300"
@@ -66,7 +71,9 @@ function ViewDownload({ url, kind, name }: { url: string; kind: "image" | "pdf" 
   return (
     <div className="flex items-center gap-2">
       <a
-        href={url}
+        href={api ? undefined : url}
+        role={api ? "button" : undefined}
+        tabIndex={api ? 0 : undefined}
         download
         onClick={gateLink(name, () => downloadDocument(url))}
         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/[0.08] border border-primary/15 text-[11px] font-semibold text-primary hover:bg-primary/[0.15] transition-colors duration-300"
@@ -160,7 +167,9 @@ export default function DocumentCentre({ project }: { project: Project }) {
                 {hasUploadedBrochure ? (
                   <>
                     <a
-                      href={getDownloadUrl(project.brochureUrl)}
+                      href={api ? undefined : getDownloadUrl(project.brochureUrl)}
+                      role={api ? "button" : undefined}
+                      tabIndex={api ? 0 : undefined}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={gateLink("Project Brochure", () => openDocumentInNewTab(getDownloadUrl(project.brochureUrl!)))}
@@ -169,7 +178,9 @@ export default function DocumentCentre({ project }: { project: Project }) {
                       <ExternalLink className="h-3.5 w-3.5" /> View Brochure
                     </a>
                     <a
-                      href={getDownloadUrl(project.brochureUrl)}
+                      href={api ? undefined : getDownloadUrl(project.brochureUrl)}
+                      role={api ? "button" : undefined}
+                      tabIndex={api ? 0 : undefined}
                       download
                       onClick={gateLink("Project Brochure", () => downloadDocument(getDownloadUrl(project.brochureUrl!)))}
                       className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-[12px] font-semibold text-white/60 hover:border-primary/20 hover:text-primary transition-colors duration-300"

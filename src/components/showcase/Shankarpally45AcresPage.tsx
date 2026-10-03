@@ -351,7 +351,7 @@ export default function Shankarpally45AcresPage({
             <SectionLabel>Premium Villa Plotted Community · Shankarpally, West Hyderabad</SectionLabel>
 
             <h1 className="mt-6 text-[clamp(2.2rem,5.5vw,4rem)] font-bold tracking-[-0.03em] leading-[1.06] max-w-4xl">
-              Shankarpally 45 Acres — Luxury <span className={styles.heroAccent}>HMDA &amp; RERA Approved</span> Plotted Community
+              Shankarpally 45 Acres — Luxury <span className={styles.heroAccent}>HMDA &amp; RERA Approved</span> Plots for Sale
             </h1>
 
             <p className="mt-6 text-base sm:text-lg text-white/45 leading-relaxed max-w-3xl">

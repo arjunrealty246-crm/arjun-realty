@@ -15,6 +15,7 @@ import SectionLabel from "../SectionLabel";
 import {
   downloadDocument,
   openDocumentInNewTab,
+  useDocumentAccessApi,
   useGatedDocumentLink,
 } from "../DocumentAccessGate";
 import { getDownloadUrl } from "@/lib/download-url";
@@ -33,6 +34,7 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [failed, setFailed] = useState(false);
   const gateLink = useGatedDocumentLink();
+  const api = useDocumentAccessApi();
 
   if (!layoutUrl) return null;
 
@@ -85,7 +87,9 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
                     <ExternalLink className="h-3.5 w-3.5" /> View Layout
                   </button>
                   <a
-                    href={layoutUrl}
+                    href={api ? undefined : layoutUrl}
+                    role={api ? "button" : undefined}
+                    tabIndex={api ? 0 : undefined}
                     download
                     onClick={gateLink("Layout / Master Plan", () => downloadDocument(layoutUrl))}
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/60 hover:border-primary/20 hover:text-primary transition-colors duration-300"
@@ -158,7 +162,9 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
             </div>
             <div className="flex flex-wrap gap-3">
               <a
-                href={getDownloadUrl(layoutUrl)}
+                href={api ? undefined : getDownloadUrl(layoutUrl)}
+                role={api ? "button" : undefined}
+                tabIndex={api ? 0 : undefined}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={gateLink("Layout Plan", () => openDocumentInNewTab(getDownloadUrl(layoutUrl)))}
@@ -167,7 +173,9 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
                 <ExternalLink className="h-4 w-4" /> View Layout
               </a>
               <a
-                href={getDownloadUrl(layoutUrl)}
+                href={api ? undefined : getDownloadUrl(layoutUrl)}
+                role={api ? "button" : undefined}
+                tabIndex={api ? 0 : undefined}
                 download
                 onClick={gateLink("Layout Plan", () => downloadDocument(getDownloadUrl(layoutUrl)))}
                 className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/[0.04] border border-white/[0.08] text-[13px] font-semibold text-white/60 hover:bg-white/[0.07] hover:border-primary/20 hover:text-primary transition-all duration-300"

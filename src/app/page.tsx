@@ -80,6 +80,11 @@ export default function HomePage() {
         </div>
       </section>
       <ProjectsSection />
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 -mt-4 mb-4 text-center">
+        <Link href="/insights" className="inline-flex items-center gap-2 text-[13px] text-white/30 hover:text-primary transition-colors duration-300 font-medium">
+          Read our market insights <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
 
       <div className="section-divider mx-auto max-w-5xl" />
 

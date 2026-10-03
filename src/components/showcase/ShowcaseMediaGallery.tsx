@@ -22,6 +22,7 @@ import { getDownloadUrl } from "@/lib/download-url";
 import {
   downloadDocument,
   openDocumentInNewTab,
+  useDocumentAccessApi,
   useGatedDocumentLink,
 } from "../DocumentAccessGate";
 import type { Project, ProjectMediaItem } from "@/data/projects";
@@ -59,6 +60,7 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
   const [failed, setFailed] = useState<Record<number, boolean>>({});
   const [masterPlanFailed, setMasterPlanFailed] = useState(false);
   const gateLink = useGatedDocumentLink();
+  const api = useDocumentAccessApi();
 
   const total = media.length;
 
@@ -218,7 +220,9 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                       <div className="flex items-center gap-4">
                         {project.layoutPdfUrl && (
                           <a
-                            href={getDownloadUrl(project.layoutPdfUrl)}
+                            href={api ? undefined : getDownloadUrl(project.layoutPdfUrl)}
+                            role={api ? "button" : undefined}
+                            tabIndex={api ? 0 : undefined}
                             download
                             onClick={gateLink("Layout PDF", () => downloadDocument(getDownloadUrl(project.layoutPdfUrl)))}
                             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors duration-300"
@@ -228,7 +232,9 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                         )}
                         {project.masterPlanUrl && (
                           <a
-                            href={getDownloadUrl(project.masterPlanUrl)}
+                            href={api ? undefined : getDownloadUrl(project.masterPlanUrl)}
+                            role={api ? "button" : undefined}
+                            tabIndex={api ? 0 : undefined}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={gateLink("Master Plan", () => openDocumentInNewTab(getDownloadUrl(project.masterPlanUrl)))}

@@ -55,7 +55,10 @@ function markGranted(key: string): void {
 
 /** View action: same as a `target="_blank"` link. */
 export function openDocumentInNewTab(url: string): void {
-  window.open(url, "_blank", "noopener");
+  // Once the lead POST has been awaited, the click's user activation is spent,
+  // so the new tab can be refused. Falling back to a same-tab navigation still
+  // delivers the document instead of silently doing nothing.
+  if (!window.open(url, "_blank", "noopener")) window.location.assign(url);
 }
 
 /** Download action: same as a `download` link. */
@@ -256,34 +259,42 @@ export default function DocumentAccessGate({
 
     const pageUrl = window.location.href;
 
-    // Fire-and-forget: the lead is recorded by the existing /api/leads pipeline
-    // (deduped per mobile + source + project server-side).
-    void submitLead({
-      name,
-      mobile: phone,
-      whatsapp: phone,
-      project: request.projectName,
-      source: "Project Enquiry",
-      leadType: "Document Request",
-      message: buildLeadMessage(request.documentName, pageUrl, request.note),
-    });
+    // Reserved synchronously, inside the original click, while Chrome's user
+    // activation is still valid. Nothing is navigated here: the window is only
+    // used once /api/leads confirms the lead was stored, and it is closed again
+    // if the lead fails. A window.open() issued after the await would be blocked,
+    // because that activation no longer applies.
+    const handoff = window.open("about:blank", "noopener");
 
-    // The caller's own open/download runs first and still inside the submit
-    // click, so it keeps the browser's single popup allowance. A failed step is
-    // never marked as unlocked, so the next click retries instead of silently
-    // doing nothing.
-    let opened = true;
-    try {
-      request.grant();
-    } catch (err) {
-      opened = false;
-      console.error("DocumentAccessGate: document action failed", err);
-    }
-    if (opened) markGranted(grantedKey(request));
+    void (async () => {
+      // The lead must exist before anything is unlocked. submitLead resolves an
+      // { ok } result rather than throwing, so it is checked explicitly.
+      let lead: { ok: boolean; error?: string };
+      try {
+        lead = await submitLead({
+          name,
+          mobile: phone,
+          whatsapp: phone,
+          project: request.projectName,
+          source: "Project Enquiry",
+          leadType: "Document Request",
+          message: buildLeadMessage(request.documentName, pageUrl, request.note),
+        });
+      } catch (err) {
+        console.error("DocumentAccessGate: lead submission failed", err);
+        lead = { ok: false, error: "Network error" };
+      }
 
-    // Existing WhatsApp handoff, unchanged and still on the same configured link.
-    window.open(
-      `${siteConfig.links.wa}?text=${encodeURIComponent(
+      if (!lead.ok) {
+        handoff?.close();
+        setStatus("idle");
+        setError(lead.error || "We could not save your details. Please try again.");
+        return;
+      }
+
+      // Existing WhatsApp handoff, still on the same configured link, but routed
+      // through the window reserved above so it cannot be popup-blocked.
+      const whatsappUrl = `${siteConfig.links.wa}?text=${encodeURIComponent(
         buildWhatsAppText(
           name,
           phone,
@@ -291,24 +302,40 @@ export default function DocumentAccessGate({
           request.documentName,
           pageUrl
         )
-      )}`,
-      "_blank",
-      "noopener"
-    );
+      )}`;
 
-    setForm({ name: "", phone: "" });
+      if (handoff && !handoff.closed) {
+        handoff.location.replace(whatsappUrl);
+      } else {
+        window.open(whatsappUrl, "_blank", "noopener");
+      }
 
-    if (!opened) {
-      setStatus("idle");
-      setError("That document could not be opened automatically. Please try again.");
-      return;
-    }
+      // Only now is the caller's own open/download unlocked, still on the
+      // original code path. A failed step is never marked as unlocked, so the
+      // next click retries instead of silently doing nothing.
+      let opened = true;
+      try {
+        request.grant();
+      } catch (err) {
+        opened = false;
+        console.error("DocumentAccessGate: document action failed", err);
+      }
+      if (opened) markGranted(grantedKey(request));
 
-    setStatus("done");
-    window.setTimeout(() => {
-      setStatus("idle");
-      onClose();
-    }, 1500);
+      setForm({ name: "", phone: "" });
+
+      if (!opened) {
+        setStatus("idle");
+        setError("That document could not be opened automatically. Please try again.");
+        return;
+      }
+
+      setStatus("done");
+      window.setTimeout(() => {
+        setStatus("idle");
+        onClose();
+      }, 1500);
+    })();
   };
 
   return (

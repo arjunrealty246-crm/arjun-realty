@@ -90,7 +90,7 @@ export default function ProjectsPage() {
           <ScrollReveal className="max-w-3xl">
             <SectionLabel>Our Projects</SectionLabel>
             <h1 className="mt-6 text-[clamp(2rem,5vw,4rem)] font-bold tracking-[-0.03em] leading-[1.05]">
-              HMDA &amp; DTCP <span className="text-gradient">Approved Plots</span> in Hyderabad
+              HMDA &amp; DTCP <span className="text-gradient">Approved Plots</span> for Sale in Hyderabad
             </h1>
             <p className="mt-6 text-white/40 text-base sm:text-lg leading-relaxed max-w-xl">
               Every project we offer has been meticulously vetted for legal
@@ -98,7 +98,7 @@ export default function ProjectsPage() {
               potential.
             </p>
             <p className="mt-4 text-white/35 text-sm sm:text-base leading-relaxed max-w-xl">
-              Browse plots and villa communities across Hyderabad and its growth corridors — from HMDA &amp; RERA approved townships in Ibrahimpatnam to FCDA approved plots on the Srisailam Highway. Looking for{" "}
+              Browse villa plots and open plots for sale across Hyderabad and its growth corridors — from HMDA &amp; RERA approved townships in Ibrahimpatnam to FCDA approved plots on the Srisailam Highway. Looking for{" "}
               <Link href={getProjectHref("jb-pristine-city")} className="text-primary hover:text-primary/80 font-medium transition-colors duration-300">
                 DTCP approved plots in Hyderabad
               </Link>

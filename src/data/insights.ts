@@ -106,6 +106,666 @@ const nagarjuna: InsightAuthor = {
 
 export const insights: Insight[] = [
   {
+    slug: "future-city-2026-what-has-actually-changed",
+    title: "Future City 2026: What Has Actually Changed in the Last 6 Months?",
+    seoTitle: "Future City Hyderabad 2026: What's Changed",
+    metaDescription:
+      "Beyond the hype: Discover verified ground updates in Hyderabad Future City for 2026, including FCDA progress, Radial Road-1, and AWS data center footprints.",
+    excerpt:
+      "FCDA layouts, hyperscale AI campus groundbreakings and Radial Road-1 taking shape: a status-checked read on what has genuinely changed in Future City over the last six months.",
+    category: "Market Updates",
+    categorySlug: "market-updates",
+    publishedAt: "2026-10-03",
+    author: researchDesk,
+    image: "/images/insights/hyderabad-future-city-ai-investment.jpeg",
+    imageAlt:
+      "Hyderabad Future City 2026 ground updates showing AI data centre campuses and radial road development - Arjun Realty Insights",
+    imageWidth: 1122,
+    imageHeight: 1402,
+    featuredProjectSlugs: ["jb-harmony-woods", "upcoming-srisailam-highway"],
+    sections: [
+      {
+        body: [
+          "For most of the last decade, Future City has been sold as a concept: a master plan, a line on a district map, a notification sitting in a file. Over the last six months that abstraction has started to come apart, because the corridor now has things you can physically point at - an authority issuing layouts against a defined infrastructure framework, hyperscale campuses breaking ground, and a radial road being taken up in sections. The purpose of this review is to separate those two things, so that nobody pays a master-plan price for a ground-level reality which has not arrived yet.",
+          "The most useful way to read the [Future City growth story](/srisailam-highway-future-city) right now is as a stack of independent timelines rather than a single launch date. Approvals, campuses and roads are each moving at their own speed, and they are not synchronised with one another. A layout approved this quarter can still sit behind a road that is two years from being tendered.",
+          "Our earlier corridor analysis set out the demand mechanics behind this interest. What follows is the more recent evidence base for it, and it is deliberately narrower and more checkable than the pipeline that earlier analysis assumed.",
+        ],
+      },
+      {
+        heading: "FCDA has moved from notification to functioning authority",
+        body: [
+          "The most consequential change of the last six months is administrative rather than visible. FCDA, the Future City Development Authority, has now completed its formation and runs real on-ground operations as an approval body, rather than remaining a proposal awaiting constitution. Its practical function is master plan regulation: approving layouts that sit inside the notified master plan, defining the infrastructure expectations a layout has to satisfy before plots in it can be sold, and holding land use and density assumptions consistent across the villages that make up the plan area.",
+          "That distinction is commercial, not administrative. A layout approved by an authority working to a defined infrastructure expectations framework carries a materially different risk profile from an unregistered private layout that merely happens to fall inside the master plan boundary. Being inside the plan is not the same as being approved by the body that now regulates it, and this is the single easiest distinction for a buyer to get wrong.",
+        ],
+        entries: [
+          {
+            title: "Master plan regulation",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "FCDA approves layouts within the notified master plan and sets the infrastructure expectations a layout must meet before sale. This is the framework that separates an authority-approved layout from unregistered land sitting inside the plan boundary.",
+            facts: [
+              { label: "Regulating authority", value: "FCDA (Future City Development Authority)" },
+              { label: "Scope", value: "Master plan layouts, land use and density" },
+              { label: "Why it matters to buyers", value: "Establishes which authority actually granted approval" },
+            ],
+            note: "Ask any seller which body approved the specific layout in front of you. An answer of the DTCP or HMDA, when the land sits in the master plan area, means the approval is either outside FCDA's jurisdiction or has not been issued at all.",
+          },
+          {
+            title: "Layout approvals against an infrastructure framework",
+            status: "Under way",
+            tone: "approval",
+            summary:
+              "Approvals are being issued against defined infrastructure expectations rather than in isolation, which ties the commercial viability of a layout to road, drainage and power commitments made at approval stage.",
+            facts: [
+              { label: "Approval basis", value: "Infrastructure expectations set at layout approval" },
+              { label: "Typical buyer test", value: "Road access exists today, not on a future layout" },
+              { label: "Common gap", value: "Approval granted, trunk road still at tender stage" },
+            ],
+            note: "An approval is a statement about a layout. It is not a statement that the surrounding roads have been built, and the two are frequently confused in brochure material.",
+          },
+        ],
+      },
+      {
+        heading: "Hyperscale AI campuses have moved to groundbreakings",
+        body: [
+          "The second change is that the data centre story has moved from allocation letters to construction activity. Two programmes define this corridor, and they sit at different stages, so treating them as a single wave would overstate how much is finished. Both matter because they are the demand source behind the employment case: an operating campus creates technical and support roles immediately, whereas an announced park creates an expectation that may take years to convert.",
+          "Neither campus should be read as commissioned capacity when assessing land nearby. The commercially relevant questions are narrower: has construction started, is the plot secured and approved for that use, and how much of the power and water capacity is formally allocated rather than assumed.",
+        ],
+        entries: [
+          {
+            title: "AWS hyperscale AI data centre",
+            status: "Groundbreaking",
+            tone: "development",
+            summary:
+              "Amazon Web Services has been reported breaking ground on hyperscale AI capacity in the Future City corridor. Groundbreaking is the point at which a project stops being a press release and starts creating construction employment, subcontract demand and a visible site presence.",
+            facts: [
+              { label: "Operator", value: "Amazon Web Services (AWS)" },
+              { label: "Reported stage", value: "Groundbreaking on hyperscale AI capacity" },
+              { label: "Land impact", value: "Creates direct and indirect demand near the campus boundary" },
+            ],
+            note: "A campus under construction is a stronger demand signal than a memorandum of understanding, but it is still not operating capacity. Track construction progress and utility allocation rather than assuming the employment base already exists.",
+          },
+          {
+            title: "TCS AI data centre campus at HyperVault",
+            status: "Under construction",
+            tone: "development",
+            summary:
+              "Tata Consultancy Services has announced a large AI data centre campus at HyperVault in the Hyderabad region. TCS brings a different demand profile from a global cloud operator, particularly in terms of sustained technical employment and vendor procurement around a single operator.",
+            facts: [
+              { label: "Operator", value: "Tata Consultancy Services (TCS)" },
+              { label: "Site", value: "HyperVault, Hyderabad region" },
+              { label: "Demand profile", value: "Sustained technical roles plus vendor procurement" },
+            ],
+            note: "Operator-anchored campuses tend to produce steadier, more predictable hiring than market-led demand. That supports rental and resale assumptions better, but it remains concentrated in one employer, which is a risk worth pricing.",
+          },
+        ],
+      },
+      {
+        heading: "Radial Road-1 and the Srisailam feeder links",
+        body: [
+          "Connectivity is the third timeline, and it is the one buyers most often over-credit. Radial Road-1, the alignment running from Kongara Kalan towards Future City, is the spine that decides whether this corridor is a practical commute or a long drive. Progress here is being made section by section rather than end to end, so the honest question is not whether the road exists but which stretch of it exists today.",
+          "Access to the [Srisailam Highway](/srisailam-highway-future-city) is what converts an isolated master plan into somewhere a daily commuter can actually use. The feeder links matter as much as the trunk alignment, because in most layouts it is the feeder road, not the radial road, that determines the real travel time to the airport, to Gachibowli, or to the nearest operating employment node.",
+        ],
+        locations: [
+          {
+            name: "Kongara Kalan",
+            note: "The western anchor of Radial Road-1 and the point at which the alignment connects towards Future City. Road progress is typically assessed stretch by stretch from this end, not from the master plan boundary.",
+          },
+          {
+            name: "Radial Road-1",
+            note: "The corridor spine running from Kongara Kalan towards Future City. Buyers should ask which sections are laid, which are under construction, and which are still at notification or tender stage.",
+          },
+          {
+            name: "Future City",
+            note: "The master plan area at the eastern end of the corridor. Value here depends on the approach roads actually delivered, not on the plan boundary drawn around it.",
+          },
+        ],
+      },
+      {
+        heading: "Due diligence: moving past speculative farmland",
+        body: [
+          "This is where six months of genuine progress turns into an actual decision. The corridor now carries enough real activity that speculative farmland is no longer the default product being offered, which is an improvement, but it also means more land is being marketed with a story attached to it. The buyer's task has shifted from avoiding the corridor to verifying individual parcels within it.",
+          "The most common confusion here is which authority approved what. Layout approvals inside the master plan area, DTCP sanctioned layouts, and HMDA-approved layouts are different instruments with different consequences, and they are routinely treated as interchangeable in sales material. Our breakdown of [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) sets out what each one actually covers.",
+        ],
+        checklist: [
+          "Which authority approved this specific layout, and whether that approval is DTCP, HMDA or FCDA. Get the approval reference, not a verbal assurance.",
+          "Whether you have a clear title, supported by a clean encumbrance certificate covering the full 30-year period rather than a shorter commercial search.",
+          "Whether road access exists today, as distinct from access shown on a layout that depends on a road still at tender or notification stage.",
+          "Which parts of Radial Road-1 and the feeder network are laid or under construction, and which are proposed.",
+          "Whether power and water capacity is formally allocated to the layout, and by which authority.",
+          "The real travel time to the nearest operating employment node, measured at commuting hours rather than off-peak.",
+          "Whether the seller is the registered owner, and whether the land is genuinely agricultural, converted, or already part of a layout.",
+          "Whether the price reflects current ground reality, or still embeds a master-plan premium for infrastructure that has not started.",
+        ],
+        caution:
+          "Treat any parcel still being sold on the strength of the master plan alone as speculative farmland, regardless of how close it sits to a campus or radial road. Approval status, title and existing road access are the three tests that separate a verifiable purchase from a bet on a decade of infrastructure spending.",
+      },
+      {
+        heading: "Where to buy with verified paperwork",
+        body: [
+          "If you are serious about exposure to this corridor, the sensible approach is to buy from layouts whose approvals, title and existing infrastructure you can inspect yourself rather than take on trust. The layouts we currently rate as verified, with their approval references and payment terms set out openly, are listed on [our projects page](/projects).",
+          "If you are still working out whether this corridor fits your horizon and risk profile, that judgement is worth making before you shortlist rather than after. You can [request an advisory consultation](/contact) with us, and we will tell you plainly if the parcel you are considering does not meet the standard we would put our own clients behind.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "srisailam-highway-2026-stretch-by-stretch-growth-guide",
+    title: "Srisailam Highway 2026: Stretch-by-Stretch Growth & Plot Buying Guide",
+    seoTitle: "Srisailam Highway 2026: Plot Buying Guide",
+    metaDescription:
+      "Detailed 2026 corridor analysis of Srisailam Highway: Tukkuguda, Maheshwaram, Kandukur, Kadthal. Compare plot prices, RRR impact and investment feasibility.",
+    excerpt:
+      "The Srisailam Highway is not one market. A stretch-by-stretch 2026 guide to Tukkuguda, Maheshwaram, Kandukur and Kadthal - what drives price on each, and what to verify before you buy.",
+    category: "Market Updates",
+    categorySlug: "market-updates",
+    publishedAt: "2026-10-03",
+    author: researchDesk,
+    image: "/images/insights/hyderabad-future-city-growth-corridor-ai-data-centres-manufacturing.jpg",
+    imageAlt:
+      "Srisailam Highway corridor stretches near Tukkuguda Maheshwaram and Kandukur plotted layouts - Arjun Realty Insights",
+    imageWidth: 900,
+    imageHeight: 1600,
+    featuredProjectSlugs: ["upcoming-srisailam-highway", "jb-harmony-woods"],
+    sections: [
+      {
+        body: [
+          "Ask two buyers what they paid per square yard on the Srisailam Highway and you will often get two different numbers, both of them honest. That is not evasion. The Srisailam Highway is not one market. It is a chain of distinct sub-markets strung along a single road, and the price gap between neighbouring stretches can be wider than the gap between some entirely separate corridors.",
+          "So this guide works outward along the road rather than treating it as a single address. It starts at the airport end of the [Srisailam Highway](/srisailam-highway-future-city), moves through the industrial belt, and finishes in the plotted-growth territory at the far end, then sets out the checks that apply to every stretch.",
+          "The reason to do this carefully is that almost all of the corridor's headline investment stories sit at one end of it. Reading a Future City or data centre headline as though it applied equally from Tukkuguda to Kadthal is the most common pricing error we see on this road.",
+        ],
+      },
+      {
+        heading: "Why the corridor is not a single market",
+        body: [
+          "Four things separate one stretch of this corridor from the next, and each of them moves price independently of the others. Distance from the ORR junction produces the largest single step-down. Proximity to employment produces the largest sustained demand. Approval status determines what you are actually permitted to build. And frontage quality separates plots that can be sold as a product from plots that are simply land with a boundary around them.",
+          "None of these are hidden, but they are routinely presented in a way that flattens them. A brochure showing 'Srisailam Highway' as the location tells you nothing about which of the four stretches it sits in, and on this corridor that single omission can represent a very large difference in both price and build-out timeline.",
+        ],
+        drivers: [
+          "Distance to the ORR junction - the largest single step-down in pricing along the corridor, and the one most often blurred in marketing.",
+          "Airport proximity - the dominant driver of villa and second-home demand in the northern stretches.",
+          "Industrial employment - continuous-shift jobs support demand that does not disappear when a quarter is slow.",
+          "Master plan and approval status - FCDA, DTCP and HMDA sanctioned land is a different product, with different permissions and timelines.",
+          "Frontage and road width - arterial frontage with defined widths and constructed access is a distinct product from interior plots.",
+          "Possession and utilities - power and water at the plot boundary is worth materially more than a connection shown on a layout elsewhere.",
+        ],
+      },
+      {
+        heading: "Stretch 1: Tukkuguda and the ORR Exit 14 junction",
+        body: [
+          "This is the corridor's most established residential end, and the stretch where land is closest to a finished urban condition. The [Outer Ring Road](/orr) junction at Exit 14 is the anchor that most of this stretch's demand is priced against, and it is the point at which the Srisailam Highway stops being a peripheral road and becomes a connector between two major Hyderabad road networks.",
+          "Two forces shape this stretch, and they pull in different directions. Airport proximity supports villa and second-home demand from buyers who want to be near the terminal without paying central-city prices. Commercial and hospitality spillover from the junction supports residential demand in the surrounding layouts, which lifts prices beyond what pure residential use would justify.",
+          "The practical implication is that pricing here is comparatively defensible, because the demand drivers are already built and operating rather than projected. The risk on this stretch is not viability. It is overpaying for a plot whose layout approvals are weaker than the location deserves.",
+        ],
+        entries: [
+          {
+            title: "Tukkuguda residential and villa belt",
+            status: "Established",
+            tone: "operational",
+            summary:
+              "The most developed residential stretch of the corridor, with layouts, commercial frontage and utilities already in place. Demand here is driven by airport proximity and by the working population around the ORR junction rather than by master plan projections.",
+            facts: [
+              { label: "Primary demand", value: "Airport-linked villa and second-home buyers" },
+              { label: "Secondary demand", value: "Employment around the ORR junction" },
+              { label: "Maturity", value: "Existing layouts and operating infrastructure" },
+            ],
+            note: "On an established stretch, the differentiator between layouts is usually the approval set and the internal road widths, not the location. That is where diligence effort is best spent.",
+          },
+          {
+            title: "ORR Exit 14 junction and commercial spillover",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "The junction is the pricing anchor for the northern stretch. Commercial and hospitality development around it generates traffic, footfall and employment that support residential values in adjacent layouts.",
+            facts: [
+              { label: "Role", value: "Regional connectivity anchor and price benchmark" },
+              { label: "Spillover", value: "Commercial and hospitality demand" },
+              { label: "Buyer relevance", value: "Sets the reference price for the whole stretch" },
+            ],
+            note: "Because this stretch is anchored by something already operating, price corrections here tend to be cyclical rather than structural. The bigger risk is buying a weak layout at a strong location price.",
+          },
+        ],
+      },
+      {
+        heading: "Stretch 2: Maheshwaram and the Electronic City SEZ",
+        body: [
+          "Maheshwaram is where the corridor stops being a bedroom corridor and becomes an employment corridor. The industrial node and the SEZ connectivity here create continuous-shift employment - technicians, operators, support staff and their families - which is the kind of demand that supports residential land through a full cycle rather than only during a boom.",
+          "That distinction matters more than it sounds. Corridor demand driven by master plan announcements is sentiment-sensitive and can vanish in a quarter. Demand driven by people who already have a job in the area is far harder to withdraw, because it is tied to a payroll rather than to a story.",
+        ],
+        entries: [
+          {
+            title: "Maheshwaram industrial node",
+            status: "Developing",
+            tone: "development",
+            summary:
+              "Industrial activity concentrated in and around Maheshwaram provides the continuous-shift employment base that underpins residential demand across the surrounding stretches.",
+            facts: [
+              { label: "Demand type", value: "Continuous-shift industrial employment" },
+              { label: "Why it is stronger", value: "Tied to payroll, not to projections" },
+              { label: "Typical buyer", value: "Employees seeking housing near the workplace" },
+            ],
+            note: "Verify which specific industries are operating on the stretch you are buying near. A single large employer is a concentration risk; a mixed industrial base is a stabiliser.",
+          },
+          {
+            title: "Electronic City SEZ and hardware park connectivity",
+            status: "Under development",
+            tone: "development",
+            summary:
+              "Connectivity to the Electronic City SEZ and hardware park linkages extends the employment catchment well beyond Maheshwaram itself, supporting demand across the middle stretches of the corridor.",
+            facts: [
+              { label: "Catchment effect", value: "Extends employment reach across mid-corridor" },
+              { label: "Demand profile", value: "Technical and support workforce housing" },
+              { label: "Buyer test", value: "Confirm actual travel time at commuting hours" },
+            ],
+            note: "SEZ connectivity is often described by distance rather than by travel time. The difference between the two, measured at shift-change hours, is the single most useful test you can run on this stretch.",
+          },
+        ],
+      },
+      {
+        heading: "Stretch 3: Kandukur and the Future City belt",
+        body: [
+          "Kandukur is the stretch where the corridor's growth narrative and its master plan documentation overlap most heavily. The pharma and industrial trajectory here, combined with FCDA master plan realignment, is what puts this stretch at the centre of current interest - and also what makes it the stretch where speculative marketing is most concentrated.",
+          "The reason is structural. When a master plan is realigned and a development authority is actively regulating layouts, land that was agricultural on paper a few years ago can carry a premium today while the corresponding infrastructure is still years from being built. Our recent review of [what has actually changed in Future City](/insights/future-city-2026-what-has-actually-changed) separates the operational parts of this corridor from the ones that are still only planned, and it is worth reading before committing on this stretch.",
+          "Plotted land on this stretch can genuinely appreciate faster than the corridor average when the plan is executed as drawn. The difficulty is that the same mechanism produces the fastest losses when it is not, because the entry price already embeds the plan's full success. High velocity and high risk are the same property here, not opposites.",
+        ],
+        entries: [
+          {
+            title: "Kandukur and the Future City belt",
+            status: "Development",
+            tone: "development",
+            summary:
+              "The corridor's principal growth node, combining pharma and industrial activity with FCDA master plan realignment. Plotted land here can move faster than the corridor average, and can also correct hardest when expectations outrun execution.",
+            facts: [
+              { label: "Demand driver", value: "Pharma, industrial and master plan activity" },
+              { label: "Regulator", value: "FCDA within the notified master plan" },
+              { label: "Risk profile", value: "Highest velocity and highest volatility on the corridor" },
+            ],
+            note: "Price the plan's realistic timeline, not its announced one. If the entry price only works if the master plan is fully executed on schedule, the downside is not a correction - it is a different asset class.",
+          },
+          {
+            title: "FCDA master plan realignment",
+            status: "Under way",
+            tone: "approval",
+            summary:
+              "FCDA regulates master plan layouts and sets the infrastructure expectations a layout must meet before sale. Land use and density assumptions are being held consistent across the villages that make up the plan area.",
+            facts: [
+              { label: "Authority", value: "FCDA (Future City Development Authority)" },
+              { label: "What it governs", value: "Layout approval, land use and density" },
+              { label: "Buyer test", value: "Confirm FCDA approval is issued for your layout" },
+            ],
+            note: "Being inside the master plan boundary is not the same as holding an FCDA-approved layout. This is the most consequential distinction on the entire corridor.",
+          },
+        ],
+      },
+      {
+        heading: "Stretch 4: Kadthal and the Amangal stretch",
+        body: [
+          "The far end of the corridor is agricultural in character and plotted in ambition. Kadthal and the surrounding Amangal stretch represent the longest-horizon opportunity on this road, where the conversion of agricultural land into sanctioned plotted land is the entire investment case rather than one supporting factor.",
+          "The Regional Ring Road intersection is the structural argument for this stretch. Where the RRR crosses, access improves from two directions rather than one, and that changes what the land can eventually support. It is also, precisely for that reason, the stretch where timelines most often slip, because a road intersection is a multi-year coordination problem between several authorities rather than a single approval.",
+        ],
+        locations: [
+          {
+            name: "Kadthal",
+            note: "Long-horizon plotted development at the far end of the corridor. Entry pricing here is set by expectation of conversion rather than by present infrastructure, so the entry price is the main risk to manage.",
+          },
+          {
+            name: "Amangal stretch",
+            note: "Agricultural land adjacent to the plotted-growth zone, where conversion and DTCP sanction are the determining variables. Suitable for buyers with a multi-year horizon and a tolerance for undeveloped surroundings.",
+          },
+          {
+            name: "Regional Ring Road intersection",
+            note: "The structural upside on this stretch: two-directional access changes what the land can support long term. Also the main timeline risk, since it depends on multiple authorities coordinating.",
+          },
+        ],
+        caution:
+          "Long-horizon stretches can be entirely reasonable buys at the right price and entirely unreasonable ones 30 per cent higher. Model the return on a delayed conversion, not on an on-schedule one, and check whether the quoted price already assumes the RRR intersection is operational.",
+      },
+      {
+        heading: "Verification and pricing checklist",
+        body: [
+          "Whatever stretch you are buying on, the same six categories of check decide whether the plot is a verifiable purchase or a bet. The reason this works as a single checklist is that the corridor's stretches differ in price and timeline, but not in the ways they fail.",
+          "The approval question is the one buyers most often get wrong, because HMDA sanctioned plots, DTCP approved layouts and layouts inside the Future City master plan are routinely described in the same sentence despite being different instruments. Our comparison of [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) sets out what each one actually covers and what each permits.",
+        ],
+        checklist: [
+          "Zone and approval: whether the land is HMDA sanctioned, DTCP approved, or an FCDA-approved layout inside the Future City master plan - and which one you are actually buying.",
+          "Title and encumbrance: a clean encumbrance certificate covering the full 30-year period, not a shorter commercial search, plus confirmation that the seller is the registered owner.",
+          "Arterial road widths: the sanctioned and as-built width of the adjoining arterial road, and whether the plot's frontage actually abuts it rather than a future alignment.",
+          "Internal layout widths: whether the layout's own internal roads are 30, 40 or 60 feet, since this is what determines whether larger homes are buildable at all.",
+          "Possession and utilities: whether power and water reach the plot boundary today, and by which authority, rather than on a layout plan.",
+          "Access reality: whether you can reach the plot on the road today, and which sections of the adjoining arterial are laid, under construction, or still at tender.",
+          "Price basis: what the quoted rate assumes about approval status and timeline, and whether the same plot makes sense if that assumption slips by two years.",
+          "Travel time: actual distance and commute to the nearest operating employment node, measured at shift-change or commuting hours.",
+        ],
+        caution:
+          "On this corridor the most common loss is not buying the wrong stretch. It is buying at a stretch-one price on a stretch-four budget assumption. Price the timeline you actually get, not the one the brochure describes.",
+      },
+      {
+        heading: "Where to buy, and how to see it",
+        body: [
+          "If you are ready to move from research to a site visit, the Srisailam Highway plotted ventures we currently rate as verified are listed on [our projects page](/projects), each with its approval references and payment terms set out openly so you can check them against the checklist above before you travel.",
+          "On a corridor with this much variation between stretches, we would rather you walked three layouts and rejected two of them than committed on a brochure. You can [schedule a layout visit](/schedule-site-visit) and we will walk you through the stretches in order of how we would actually shortlist them, including the parts of the corridor we would tell you to avoid.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "shankarpally-plot-investment-2026-buyers-guide",
+    title: "Shankarpally Plot Investment 2026: What Buyers Should Check Before Buying",
+    seoTitle: "Shankarpally Plot Investment 2026 Checklist",
+    metaDescription:
+      "Evaluating plots in Shankarpally? Review key checks for 2026: HMDA vs DTCP approvals, title clearance, main road vs interior layouts, and resale liquidity.",
+    excerpt:
+      "A practical 2026 buying guide to Shankarpally: how HMDA and DTCP sanctioning differ, why main road and interior plots trade price against accessibility, and what to check on the ground before paying a token.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-03",
+    author: researchDesk,
+    featuredProjectSlugs: ["shankarpally-45-acres", "upcoming-shankarpally"],
+    sections: [
+      {
+        body: [
+          "Shankarpally has quietly become one of the most searched plot corridors in west Hyderabad, and that search interest is running well ahead of the corridor's on-ground development. Demand is real. So is the gap between what buyers are shown and what they are actually buying, which is why the useful question here is not whether Shankarpally will grow. It is what specifically you should verify before you commit.",
+          "This guide walks through that in the order the decisions actually happen: why demand is rising, which sanctioning route your land sits on, what kind of plot you have bought, what the infrastructure will realistically deliver, which documents must exist before payment, how long you should expect to hold, and what to physically check on site before you pay a token.",
+          "If you want to see what a properly sanctioned layout on this corridor looks like in practice, our [Shankarpally 45-acre layout](/shankarpally-45-acres) is documented end to end, including its internal road widths, and is a reasonable reference point for what to ask any Shankarpally seller.",
+        ],
+      },
+      {
+        heading: "Why Shankarpally demand is growing",
+        body: [
+          "The demand story here is employment-led rather than announcement-led, which is the more durable kind. Shankarpally sits inside the western growth belt, and its appeal comes from being close to a cluster of employment nodes that already exist or are under construction: Neopolis, Kokapet, and the financial district employment that has been pulling white-collar demand westward. Buyers are not paying for a master plan on this corridor. They are paying for a commute.",
+          "The second factor is what sits between those nodes. Shankarpally's green buffer and open land give it something the inner corridors no longer have, which is breathing space, lower density and larger plot sizes at a fraction of inner-ring pricing. That combination is why family buyers in particular have moved here, and it is why demand has held even in periods when the wider Hyderabad land market has cooled.",
+          "It is worth being precise that Shankarpally is a different investment proposition from the southern growth corridors, and the two should not be compared on price-per-square-yard headlines. We have covered the southern dynamic separately in our review of [what has actually changed in Future City](/insights/future-city-2026-what-has-actually-changed), and the two corridors fail in entirely different ways.",
+        ],
+        drivers: [
+          "Proximity to Neopolis and Kokapet - western employment nodes that convert directly into rental and resale demand.",
+          "Financial district access - the reason white-collar buyers accept a longer commute for larger plots and lower density.",
+          "Green corridor balance - open land and lower density at a discount to the inner ring.",
+          "Existing road access - Shankarpally is not a purely projected corridor; it is already connected and already being built out.",
+          "Plot affordability relative to the inner ring - the same budget buys materially larger plot sizes here.",
+        ],
+      },
+      {
+        heading: "HMDA versus DTCP: why the sanctioning detail matters",
+        body: [
+          "This is the single most consequential thing to establish before you buy anything on this corridor, and it is routinely glossed over. HMDA sanctioned plots, DTCP approved layouts and unsanctioned agricultural land are three different products, and they differ in what you are permitted to build, how long approval takes, how easily the plot resells, and what happens to your money if the approval does not materialise.",
+          "The practical difference between the two sanctioned routes is in their development regulation and approval machinery, not in the marketing language. Both can produce a genuinely good plot. Both can also be mishandled, because the sanction order, the layout approval and the individual plot sale are three separate documents that buyers routinely assume are one. Our comparison of [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) sets out what each instrument actually covers.",
+        ],
+        entries: [
+          {
+            title: "HMDA sanctioned plots",
+            status: "Established route",
+            tone: "operational",
+            summary:
+              "Plots within the Hyderabad Metropolitan Region sanctioned through HMDA planning processes. The route is well established and widely understood, with a comparatively predictable approval path.",
+            facts: [
+              { label: "Authority", value: "HMDA" },
+              { label: "Buyer relevance", value: "Clear sanction status and defined development rules" },
+              { label: "Common gap", value: "Assuming layout sanction equals plot-level approval" },
+            ],
+            note: "HMDA sanctioned is one of the stronger positions on this corridor, but you still need the layout sanction order in your hand, not just the seller's assurance.",
+          },
+          {
+            title: "DTCP approved layouts",
+            status: "Established route",
+            tone: "operational",
+            summary:
+              "Layouts approved through DTCP processes, common across the wider Hyderabad market. The distinction from HMDA lies in development regulation and approval mechanics rather than in a simple hierarchy of quality.",
+            facts: [
+              { label: "Authority", value: "DTCP" },
+              { label: "Buyer relevance", value: "Defined approval, but verify which stage it has reached" },
+              { label: "Common gap", value: "Pre-approval land marketed as an approved layout" },
+            ],
+            note: "Ask for the approval stage in writing. 'Approved', 'sanctioned' and 'pre-approved' are used interchangeably in Shankarpally sales material and mean very different things.",
+          },
+          {
+            title: "Unsanctioned agricultural land",
+            status: "Avoid for plot buyers",
+            tone: "planned",
+            summary:
+              "Agricultural land marketed with a projected future layout. It can be cheap and occasionally can be correct, but it carries the conversion risk that sanctioned land does not.",
+            facts: [
+              { label: "Status", value: "No layout sanction" },
+              { label: "Risk", value: "Conversion timing is outside your control" },
+              { label: "Rule of thumb", value: "If it is not sanctioned, it is farmland" },
+            ],
+            note: "This is the category most likely to produce a total loss of the advance. It should be evaluated as speculative farmland, not as a plot purchase.",
+          },
+        ],
+      },
+      {
+        heading: "Main road versus interior layouts",
+        body: [
+          "Within a single sanctioned layout there are usually two entirely different products, and they are priced as such. Plots fronting the main or arterial road carry a substantial premium over interior plots because access is immediate, the frontage supports commercial or villa use, and resale is simpler. Interior plots are cheaper, and the discount is not always unjustified - but you should know precisely what you are trading away.",
+          "What you give up by going interior is access convenience and frontage optionality. What you keep is a lower entry price on the same sanctioned layout, the same approval framework, and usually identical access to the layout's common infrastructure. For a buyer whose plan is a self-built home and whose budget is the binding constraint, an interior plot on a strong arterial is frequently the more rational purchase. For an investor expecting resale, the frontage is usually what they are buying.",
+          "Road width is the detail that gets skipped. Whether the adjoining road is 30, 40, 60 or 100 feet determines what can actually be built and what the plot will be worth on resale, and it is stated in the layout sanction documentation rather than in the brochure.",
+        ],
+        caution:
+          "A discounted interior plot is cheap for a reason, and the reason is usually road width and frontage. Before accepting a discount, ask for the internal road widths of the specific block your plot sits in, not the layout's best road.",
+      },
+      {
+        heading: "Ground connectivity and infrastructure",
+        body: [
+          "Shankarpally's connectivity case rests on three things: the radial road links that tie the corridor into the wider network, the 100ft road expansions that improve internal circulation, and improving suburban transit. All three are real and all three are incomplete, and the gap between the announced network and the delivered network is where most of the pricing risk sits.",
+          "Radial links matter most because they convert distance into travel time. A corridor that is thirty kilometres away but connected by a functioning radial road can be more practical for a daily commuter than a much closer corridor with no direct link. The test is never the distance on the brochure. It is the minutes at shift-change or peak commuting hours, on the route you would actually use.",
+          "The 100ft expansions are the quieter story and the one with the clearest effect on plot value. Wider internal arterials improve circulation, reduce the practical distance to every interior plot, and are the reason some blocks within a layout appreciate faster than others. They are also phased, so which block you buy relative to the current phase end is a genuine consideration. Transit connectivity is the slowest of the three to arrive, but it is the one that most reliably widens the buyer pool over time.",
+        ],
+      },
+      {
+        heading: "Plot documentation checklist",
+        body: [
+          "Documentation is where a Shankarpally purchase is either sound or quietly exposed. Four documents do most of the work, and every one of them should be in your hands before an advance is paid, not promised for later. If a seller cannot produce them, that is not a paperwork gap. It is the answer.",
+        ],
+        checklist: [
+          "Title search: a current title search confirming the seller is the registered owner and the chain of title is unbroken.",
+          "30-year Encumbrance Certificate: covering the full 30-year period rather than a shorter commercial search, with no active encumbrances against the land.",
+          "Layout sanction order: the actual sanction order for the specific layout, showing sanctioned use, plot sizes, road widths and development regulations.",
+          "RERA registration: where registration applies to the project, the registration certificate and what it actually covers in terms of the layout and the promoter.",
+          "HMDA or DTCP approval reference: the specific approval number for your plot's layout, verifiable independently with the authority.",
+          "Khata / tax records and land conversion proof where the plot has been converted from agricultural use.",
+          "Approved layout plan: the sanctioned plan showing your plot number, its dimensions, its frontage and the adjoining road width.",
+          "Payment terms in writing: what the token amount is, what it buys, and the documented refund position if approval or registration does not proceed.",
+        ],
+        caution:
+          "A token advance is not a deposit. Until you know exactly what the token buys, what triggers a refund, and who holds the money, treat it as unsecured lending. This is the point in the transaction where a small amount of patience is worth a great deal.",
+      },
+      {
+        heading: "Resale liquidity and growth horizon",
+        body: [
+          "Shankarpally plots are not a short-term trade, and the realistic holding period is longer than most first-time buyers expect. The employment drivers are genuine, but they build over years, the road network phases over years, and the industrial and residential absorption on this corridor has always moved gradually rather than in jumps. Any expectation of a quick resale is an expectation that has historically not been met here.",
+          "A realistic horizon for a sanctioned, main-road plot on this corridor is measured in years rather than quarters, and the exit depends far more on frontage, road width and layout approval quality than on the year you bought. Interior plots on weaker blocks can take substantially longer still, and are the category where liquidity risk is most often underestimated.",
+          "The practical way to hold is to buy something you would be content to own for the full horizon. A plot that only makes sense if Shankarpally re-rates within two years is a speculative position, and it should be evaluated as one rather than described as an investment.",
+        ],
+      },
+      {
+        heading: "Practical site visit checklist",
+        body: [
+          "Documentation tells you what a layout is permitted to be. A site visit tells you whether it currently is. Both are necessary, and the on-ground checks below are the ones buyers most often skip because they feel redundant once the papers look clean.",
+          "Go at a weekday morning if you can, and go to the specific block rather than the layout entrance. Most of what matters on this corridor is invisible from the sales gallery.",
+        ],
+        checklist: [
+          "Stand at your actual plot and confirm the plot number markers match your paperwork.",
+          "Walk the road frontage your plot abuts and measure or estimate the width, then compare it against the sanctioned layout plan.",
+          "Confirm whether you can reach the plot by road today, and identify which sections of the route are laid, under construction, or still earthen.",
+          "Look for the 100ft road expansion alignment on site and establish whether the phase nearest your plot is complete.",
+          "Check for power poles, transformers and water lines at the plot boundary, and ask to see an existing connection rather than a plan.",
+          "Inspect the drainage and stormwater provisions, since these are usually the first thing visibly incomplete in a developing layout.",
+          "Note the neighbouring plots and what stage they are at, since an entirely empty block is a different investment from a part-built one.",
+          "Confirm drainage and access do not depend on land the developer does not yet control.",
+          "Visit at both a mid-morning and an evening weekday to see the actual noise and traffic conditions on the adjoining road.",
+        ],
+      },
+      {
+        heading: "Talk to us about Shankarpally layouts",
+        body: [
+          "Looking for verified plotted developments in Shankarpally? Consult Arjun Realty for vetted layouts and transparent documentation.",
+          "The layouts we currently rate as verified are listed on [our projects page](/projects), with approval references and payment terms set out openly rather than summarised in a brochure.",
+          "Our [Shankarpally 108-acre venture](/projects/upcoming-shankarpally) is documented end to end, so you can hold any other Shankarpally seller to the same standard before you commit.",
+          "The [Shankarpally 45-acre layout](/shankarpally-45-acres) publishes its internal road widths and layout documentation openly, which is the quickest way to see what a properly documented Shankarpally layout actually looks like.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "hyderabad-south-vs-west-future-city-srisailam-shankarpally-comparison",
+    title:
+      "Hyderabad South vs West: Future City, Srisailam Highway & Shankarpally – How Should Buyers Compare?",
+    seoTitle: "Hyderabad South vs West 2026 Comparison",
+    metaDescription:
+      "Comparing Hyderabad South vs West for plot investment in 2026: Future City, Srisailam Highway, Shankarpally & Vikarabad on pricing, growth, and timeline.",
+    excerpt:
+      "South Hyderabad and West Hyderabad are at different stages of the same growth story. A corridor-by-corridor comparison of pricing, infrastructure, approvals, holding period and the buyer each one actually suits.",
+    category: "Market Updates",
+    categorySlug: "market-updates",
+    publishedAt: "2026-10-03",
+    author: researchDesk,
+    featuredProjectSlugs: [
+      "upcoming-srisailam-highway",
+      "shankarpally-45-acres",
+      "jb-pristine-city",
+    ],
+    sections: [
+      {
+        body: [
+          "Most buyers do not choose a Hyderabad corridor. They inherit one, from whichever part of the city they already live in or from whoever they happened to speak to first. That is an understandable way to start and a poor way to decide, because the two halves of Hyderabad's growth story are genuinely behaving differently in 2026 and they reward different kinds of buyer.",
+          "This is a comparison, not a recommendation. We have published detailed corridor-level guides for the southern and western growth belts separately, starting with [what has actually changed in Future City](/insights/future-city-2026-what-has-actually-changed), because a corridor-by-corridor view is the only honest way to compare them. The summary below is for buyers who want the decision made faster.",
+          "The most common mistake in this comparison is comparing the two zones on headline price per square yard. That single number hides the approval status, the frontage, the holding period and the infrastructure stage, and those four variables do more to determine your actual outcome than the rate does.",
+        ],
+      },
+      {
+        heading: "The macro comparison",
+        body: [
+          "South Hyderabad, anchored on the Future City and Srisailam Highway growth corridor, is a planned-and-regulated growth story. Its appeal is built on a notified master plan, an operating development authority and industrial demand arriving from large campuses. Demand there is employment-led and largely future-facing, which means higher variance and a longer time to maturity.",
+          "Both southern sub-markets sit inside the wider [Srisailam Highway growth corridor](/srisailam-highway-future-city), and it is worth reading that corridor as a whole before narrowing to a stretch, because approval status and infrastructure stage differ materially between one section and the next.",
+          "West Hyderabad, anchored on Shankarpally and [Vikarabad](/vikarabad), is an established-employment story. Its drivers already exist: the financial district, Kokapet and Neopolis, and a road network that buyers can use today. Demand there is lifestyle and convenience-led, which produces steadier near-term occupancy and lower volatility.",
+          "The southern corridor is where we would send a buyer with a long horizon and a high tolerance for variance who wants maximum upside from infrastructure delivery. The western corridor is where we would send a buyer who needs the asset to make sense in three to five years, or who is buying for a specific personal use case. Neither is the better investment in the abstract. They are different instruments.",
+        ],
+        entries: [
+          {
+            title: "South Hyderabad: Future City and the Srisailam Highway",
+            status: "Planned growth",
+            tone: "planned",
+            summary:
+              "A master-plan-led corridor with an operating development authority, radial road investment and hyperscale industrial demand. Higher variance, longer maturity, higher potential return if the plan executes as drawn.",
+            facts: [
+              { label: "Growth model", value: "Planned and regulated master plan" },
+              { label: "Demand type", value: "Industrial, AI and campus employment" },
+              { label: "Time to maturity", value: "Multi-year" },
+            ],
+            note: "Buyers here are underwriting a plan as much as a location. Model the delayed case, not the announced timeline.",
+          },
+          {
+            title: "West Hyderabad: Shankarpally and Vikarabad",
+            status: "Established growth",
+            tone: "operational",
+            summary:
+              "An employment-spillover and lifestyle corridor served by existing IT, financial district and commercial nodes, with road access already in use. Lower variance, faster utility, lower ceiling on upside.",
+            facts: [
+              { label: "Growth model", value: "Established employment spillover" },
+              { label: "Demand type", value: "Resident, lifestyle and convenience demand" },
+              { label: "Time to maturity", value: "Medium term" },
+            ],
+            note: "The trade for lower volatility is a lower ceiling. Buyers expecting a multiple should not come here for the first time.",
+          },
+        ],
+      },
+      {
+        heading: "Infrastructure stage and horizons",
+        body: [
+          "This is the variable that most separates the two zones, and it is the one most often glossed over in comparison tables. Southern infrastructure investment is faster in absolute terms and slower in delivered terms, because it is building out a new network rather than extending an existing one. Western infrastructure is more incremental, which means less visible in headlines but more reliably delivered on the ground.",
+          "In practice, a South Hyderabad buyer today is often buying ahead of road and utility delivery on the assumption that a later phase will arrive. A West Hyderabad buyer is more often buying alongside delivery that is already visible. Our review of the [Future City corridor](/insights/future-city-2026-what-has-actually-changed) separates which southern components are operational and which are still only planned, and that same test should be applied to any specific layout.",
+        ],
+        drivers: [
+          "South - industrial and IT-led infrastructure, deployed at scale but against a new network, so delivery is phased and partly dependent on multiple authorities coordinating.",
+          "South - radial road and master plan investment with long lead times between sanction, tender and construction.",
+          "West - Neopolis and Kokapet spillover, where employment infrastructure is already operating and being absorbed.",
+          "West - residential lifestyle plotted growth, where internal road widths and plot-level amenities are delivered ahead of demand.",
+          "Both - suburban transit improving, which is the slowest-moving but most durable driver of the buyer pool on either side.",
+        ],
+      },
+      {
+        heading: "Employment drivers",
+        body: [
+          "The southern story is concentrated, large-ticket and industrial. Hyperscale AI and data centre campuses from operators including AWS and TCS, together with hardware and electronics clusters, create a narrow band of very well-paid technical employment. That band is genuine and it is growing, but it is concentrated in a small number of employers, which means the employment base is strong and also somewhat dependent on a few corporate decisions.",
+          "The western story is broader and less concentrated. Financial district, IT corridor connectivity and commercial nodes produce a wider spread of professional and support roles across many employers. Weaker at the top of the wage distribution, considerably more diversified at the base, which is why western residential demand holds up in softer markets.",
+          "The practical consequence for a buyer is about resilience rather than upside. A southern plot's value case leans on a small number of large employers arriving and staying. A western plot's value case leans on a broad professional population that already exists. Our [stretch-by-stretch Srisailam Highway guide](/insights/srisailam-highway-2026-stretch-by-stretch-growth-guide) sets out how much of the southern employment case is already operating versus announced.",
+        ],
+      },
+      {
+        heading: "Price trajectory and entry thresholds",
+        body: [
+          "Capital outlay is the clearest hard difference between the two zones, and it runs in a predictable direction. Entry-level products in the west are reachable at a lower ticket than comparable entry points in the south, largely because western land is further from the city's highest-value employment nodes and because the approval frameworks there are longer established. Premium products in the south carry higher entry thresholds because they sit closer to the corridor's principal planned investment.",
+          "The trajectory difference is subtler than the entry difference. Southern prices have a steeper theoretical slope because infrastructure value is being created ahead of delivery, and a steeper downside slope for the same reason. Western prices move less dramatically in either direction, because the demand is already partly realised and the product is more readily comparable transaction to transaction.",
+          "We do not quote per-square-yard rates here, because they move and because a rate without an approval status and a frontage description is not comparable. The number that should drive your decision is the total outlay against your horizon: what you can deploy, how long you can hold it, and what would have to be true for the exit to work. Get current rates for specific layouts, compare them on identical terms, and treat any figure quoted without a plot number as an indication rather than a comparable.",
+        ],
+        caution:
+          "Southern and western plots should never be compared on headline rate per square yard. A higher southern rate on an FCDA-approved main-road plot and a lower western rate on an unsanctioned interior plot are not two data points. They are two different assets, and the cheaper one is frequently the riskier one.",
+      },
+      {
+        heading: "Approval and due diligence",
+        body: [
+          "Diligence is where the two zones diverge most sharply, and the southern corridor carries the more specific trap. In the south, the critical question is whether your plot holds approval from the authority that regulates the master plan it sits in. Being inside the Future City master plan boundary is not the same as holding an FCDA-approved layout, and that distinction is the most consequential one in the southern corridor.",
+          "In the west, the framework is more familiar, which brings its own risk: buyers assume that familiarity means adequacy. HMDA and DTCP sanctioned plots are genuinely stronger products, but the sanction order, the layout approval and the individual plot sale remain three separate documents, and a west Hyderabad seller using approved language loosely is no rarer than a south Hyderabad one. Our comparison of [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) sets out what each instrument covers.",
+        ],
+        checklist: [
+          "South: confirm which authority approved your specific layout, and obtain the approval reference directly rather than via the seller's representative.",
+          "South: establish whether the plot is an FCDA-approved layout inside the master plan, an HMDA sanctioned plot, or unregistered land inside the plan boundary.",
+          "South: verify what infrastructure the layout was approved against, and whether that infrastructure is delivered, under construction, or still at tender.",
+          "West: obtain the layout sanction order showing sanctioned use, plot sizes and internal road widths.",
+          "West: verify the 30-year encumbrance certificate and confirm the seller is the registered owner with an unbroken chain of title.",
+          "Both: check RERA registration where it applies, and confirm what the registration actually covers in terms of the layout and the promoter.",
+          "Both: confirm power and water reach the plot boundary today, and by which authority, rather than on a layout plan.",
+          "Both: establish arterial and internal road widths for the specific block, since this drives both buildability and resale.",
+        ],
+      },
+      {
+        heading: "Buyer profile matrix",
+        body: [
+          "The honest summary of this comparison is that these two corridors suit different buyers rather than different budgets. Almost every buyer we speak to can afford one of them and only one of them makes sense for them, and the variable that decides it is horizon and risk tolerance rather than capital.",
+          "Where the western corridors suit a buyer who wants the diligence to be routine rather than novel, our [Shankarpally buying guide](/insights/shankarpally-plot-investment-2026-buyers-guide) sets out the specific documentation and site-visit checks that corridor requires, which differ in detail from the southern master-plan equivalents.",
+        ],
+        entries: [
+          {
+            title: "Suited to Future City and Srisailam Highway",
+            status: "Long horizon",
+            tone: "development",
+            summary:
+              "For buyers with a multi-year horizon, high tolerance for variance, and a genuine interest in infrastructure delivery as a theme rather than as a footnote. This is where the higher potential return is available, and where the higher probability of a disappointing year also sits.",
+            facts: [
+              { label: "Horizon", value: "Multi-year, phased" },
+              { label: "Risk appetite", value: "High" },
+              { label: "Objective", value: "Long-term appreciation from infrastructure delivery" },
+            ],
+            note: "Suited to buyers who would still hold through a flat two years without panic selling, because that is the base case rather than the worst case.",
+          },
+          {
+            title: "Suited to Shankarpally and Vikarabad",
+            status: "Medium horizon",
+            tone: "operational",
+            summary:
+              "For buyers who need the asset to make sense within three to five years, or who are buying for a specific personal use such as a weekend home near established employment. Demand is broader and already partly realised.",
+            facts: [
+              { label: "Horizon", value: "Medium term, three to five years" },
+              { label: "Risk appetite", value: "Moderate" },
+              { label: "Objective", value: "Immediate utility, weekend home or medium-term appreciation" },
+            ],
+            note: "This corridor carries a different diligence routine from the southern master-plan layouts: a 30-year encumbrance certificate, the layout sanction order, and internal road widths for the specific block all matter more here than FCDA approval status does.",
+          },
+        ],
+      },
+      {
+        heading: "Match the corridor to your capital and horizon",
+        body: [
+          "The most useful thing we can do with this comparison is turn it into a decision rather than leave it as information. A personalised portfolio consultation lets us match your available capital, your risk appetite and your intended holding period against the corridors that genuinely fit, and tell you plainly which of the two we would rule out.",
+          "The layouts we currently rate as verified across both zones are listed on [our projects page](/projects), with approval references and payment terms set out openly so you can compare them on identical terms rather than on brochure descriptions.",
+          "On the western side, our [Shankarpally 108-acre venture](/projects/upcoming-shankarpally) is documented end to end, including internal road widths, so you can hold any Shankarpally seller to the same standard.",
+          "The [Shankarpally 45-acre layout](/shankarpally-45-acres) publishes its layout documentation openly, which is the quickest way to benchmark anything else you are shown.",
+          "If you would rather talk it through before you shortlist anything, you can [request a consultation](/contact) and we will start from your capital and horizon rather than from our inventory.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "hyderabad-future-city-ai-data-centres-manufacturing-infrastructure-growth",
     title:
       "Hyderabad Future City 2026: AI, Data Centres, Manufacturing & Infrastructure Growth",
@@ -484,7 +1144,7 @@ export const insights: Insight[] = [
   {
     slug: "hyderabad-future-city-70000-crore-ai-data-centre-investment",
     title: "₹70,000 Crore AI Investment: How Hyderabad Future City Is Emerging as a Major Digital Infrastructure Hub",
-    seoTitle: "₹70,000 Crore AI Investment in Hyderabad Future City | Arjun Realty",
+    seoTitle: "₹70,000 Crore AI Investment: Future City",
     metaDescription:
       "Explore the ₹70,000 crore TCS–HyperVault AI data centre investment in Hyderabad Future City and understand its potential impact on infrastructure, employment and real estate growth.",
     excerpt:
@@ -584,7 +1244,7 @@ export const insights: Insight[] = [
     categorySlug: "market-updates",
     publishedAt: "2026-08-22",
     author: researchDesk,
-    featuredProjectSlugs: ["jb-pristine-city", "jb-harmony-woods"],
+    featuredProjectSlugs: ["jb-pristine-city", "jb-harmony-woods", "shankarpally-45-acres"],
     sections: [
       {
         heading: "Where demand is moving",
@@ -612,7 +1272,7 @@ export const insights: Insight[] = [
   {
     slug: "why-vikarabad-is-west-hyderabads-next-hotspot",
     title: "Why Vikarabad Is Becoming West Hyderabad's Next Investment Hotspot",
-    seoTitle: "Why Vikarabad Is West Hyderabad's Next Hotspot",
+    seoTitle: "Why Vikarabad Is West Hyderabad's Hotspot",
     excerpt: "Proposed Hyderabad–Pune–Mumbai high-speed rail connectivity, the Appa Junction expressway and land prices far below Gachibowli are pulling smart money toward Vikarabad.",
     category: "Market Updates",
     categorySlug: "market-updates",
@@ -686,7 +1346,7 @@ export const insights: Insight[] = [
     categorySlug: "corporate-growth",
     publishedAt: "2026-08-19",
     author: researchDesk,
-    featuredProjectSlugs: ["jb-harmony-woods"],
+    featuredProjectSlugs: ["jb-harmony-woods", "upcoming-srisailam-highway"],
     sections: [
       {
         heading: "Follow the shovels, not the announcements",
@@ -754,7 +1414,7 @@ export const insights: Insight[] = [
     categorySlug: "corporate-growth",
     publishedAt: "2026-07-30",
     author: researchDesk,
-    featuredProjectSlugs: ["jb-nature-valley", "upcoming-srisailam-highway"],
+    featuredProjectSlugs: ["jb-nature-valley", "upcoming-srisailam-highway", "jb-serene-county"],
     sections: [
       {
         heading: "Why land assemblies are leading indicators",
@@ -829,12 +1489,13 @@ export const insights: Insight[] = [
   {
     slug: "encumbrance-certificates-explained-before-buying-land",
     title: "Encumbrance Certificates Explained: How to Read One Before Buying Land",
-    seoTitle: "Encumbrance Certificates Explained for Land Buyers",
+    seoTitle: "Encumbrance Certificates: A Guide for Buyers",
     excerpt: "A 30-year Encumbrance Certificate is your land title's MRI scan. Here's what an EC is, where to get it, and how to spot the red flags hidden in it.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
     publishedAt: "2026-08-02",
     author: nagarjuna,
+    featuredProjectSlugs: ["jb-harmony-woods", "jb-pristine-city"],
     sections: [
       {
         heading: "What an EC actually is",
@@ -875,6 +1536,7 @@ export const insights: Insight[] = [
     categorySlug: "buyer-guides",
     publishedAt: "2026-07-25",
     author: nagarjuna,
+    featuredProjectSlugs: ["jb-pristine-city", "jb-harmony-woods", "jb-nature-valley"],
     sections: [
       {
         heading: "The seven checks",

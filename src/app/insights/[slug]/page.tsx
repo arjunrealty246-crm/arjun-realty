@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { CalendarDays, Clock3, ArrowRight, MessageCircle, Phone, MapPin, ShieldCheck, ChevronRight, TriangleAlert, ExternalLink } from "lucide-react";
+import { CalendarDays, Clock3, ArrowRight, Phone, MapPin, ShieldCheck, ChevronRight, TriangleAlert, ExternalLink } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import PageBreadcrumbs from "@/components/PageBreadcrumbs";
@@ -139,10 +139,6 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
     .filter(Boolean)
     .slice(0, 2)
     .join("");
-
-  const waQuery = encodeURIComponent(
-    `Hi Arjun Realty, I read "${insight.title}". I would like to discuss investing in this growth zone and schedule a site visit.`
-  );
 
   return (
     <>
@@ -388,14 +384,12 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 lg:justify-end">
-                  <a
-                    href={`${siteConfig.links.wa}?text=${waQuery}`}
-                    target="_blank"
-                    rel="noreferrer"
+                  <Link
+                    href="/schedule-site-visit"
                     className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
                   >
-                    <MessageCircle className="h-4 w-4" /> Schedule Site Visit
-                  </a>
+                    <CalendarDays className="h-4 w-4" /> Schedule a Site Visit
+                  </Link>
                   <a
                     href={siteConfig.links.tel}
                     className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-[13px] font-semibold text-white/70 border border-white/10 hover:border-primary/50 transition-colors"

@@ -43,9 +43,9 @@ export const seo: Record<string, SEOData> = {
     keywords: [...baseKeywords, "about Arjun Realty", "independent real estate advisory Hyderabad", "real estate advisor Hyderabad"],
   },
   projects: {
-    title: "DTCP Approved Plots for Sale in Hyderabad | Arjun Realty",
+    title: "HMDA & DTCP Approved Plots in Hyderabad | Arjun Realty",
     description:
-      "Explore verified HMDA, DTCP & RERA approved plots for sale across Hyderabad corridors. Compare DTCP approved open plots in Vikarabad, Choutuppal and beyond.",
+      "Browse HMDA and DTCP approved plots for sale in Hyderabad — verified RERA approved villa plots in Vikarabad, Choutuppal, Ibrahimpatnam and Srisailam Highway.",
     keywords: [...baseKeywords, "HMDA approved projects Hyderabad", "DTCP approved plots Hyderabad", "DTCP approved plots for sale in Hyderabad", "DTCP & RERA approved open plots", "open plots in Hyderabad", "plots for sale in Hyderabad", "residential plots in Hyderabad", "gated communities Hyderabad"],
   },
   builders: {
@@ -70,7 +70,7 @@ export const seo: Record<string, SEOData> = {
   vikarabad: {
     title: "Plots in Vikarabad, West Hyderabad | Arjun Realty",
     description:
-      "Vikarabad, West Hyderabad's growth corridor — DTCP & RERA approved 150-acre layouts near the Appa Junction expressway and proposed Hyderabad–Pune–Mumbai High-Speed Rail connectivity.",
+      "Vikarabad, West Hyderabad's growth corridor — DTCP & RERA approved 150-acre layouts near the Appa Junction expressway and Hyderabad–Pune–Mumbai High-Speed Rail.",
     keywords: [
       ...baseKeywords,
       "Vikarabad plots",
@@ -180,8 +180,65 @@ export const seo: Record<string, SEOData> = {
       "corporate investments Hyderabad real estate",
     ],
   },
-  privacy: {
-    title: "Privacy Policy | Arjun Realty",
+    "future-city-2026-what-has-actually-changed": {
+      title: "Future City Hyderabad 2026: What's Changed | Arjun Realty",
+      description:
+        "Beyond the hype: Discover verified ground updates in Hyderabad Future City for 2026, including FCDA progress, Radial Road-1, and AWS data center footprints.",
+      ogType: "article",
+      keywords: [
+        ...baseKeywords,
+        "Future City Hyderabad 2026",
+        "Future City real estate updates",
+        "FCDA developments",
+        "Radial Road 1 Future City",
+        "Open plots near Future City Hyderabad",
+      ],
+    },
+    "srisailam-highway-2026-stretch-by-stretch-growth-guide": {
+      title: "Srisailam Highway 2026: Plot Buying Guide | Arjun Realty",
+      description:
+        "Detailed 2026 corridor analysis of Srisailam Highway: Tukkuguda, Maheshwaram, Kandukur, Kadthal. Compare plot prices, RRR impact and investment feasibility.",
+      ogType: "article",
+      keywords: [
+        ...baseKeywords,
+        "Open plots in Srisailam Highway",
+        "Srisailam Highway plots",
+        "Plots for sale in Srisailam Highway",
+        "Tukkuguda plots",
+        "Future City plots",
+        "Srisailam Highway investment",
+      ],
+    },
+    "shankarpally-plot-investment-2026-buyers-guide": {
+      title: "Shankarpally Plot Investment 2026 Checklist | Arjun Realty",
+      description:
+        "Evaluating plots in Shankarpally? Review key checks for 2026: HMDA vs DTCP approvals, title clearance, main road vs interior layouts, and resale liquidity.",
+      ogType: "article",
+      keywords: [
+        ...baseKeywords,
+        "Shankarpally plot investment",
+        "plots in Shankarpally",
+        "Shankarpally HMDA plots",
+        "buy land in Shankarpally",
+        "Shankarpally real estate 2026",
+      ],
+    },
+    "hyderabad-south-vs-west-future-city-srisailam-shankarpally-comparison": {
+      title: "Hyderabad South vs West 2026 Comparison | Arjun Realty",
+      description:
+        "Comparing Hyderabad South vs West for plot investment in 2026: Future City, Srisailam Highway, Shankarpally & Vikarabad on pricing, growth, and timeline.",
+      ogType: "article",
+      keywords: [
+        ...baseKeywords,
+        "Hyderabad South vs West real estate",
+        "Future City vs Shankarpally plots",
+        "Srisailam Highway investment 2026",
+        "Vikarabad open plots",
+        "Hyderabad land investment guide",
+      ],
+    },
+    privacy: {
+      title: "Privacy Policy | Arjun Realty",
     description:
       "Privacy policy for Arjun Realty — how we collect, use and protect your personal information when you use our Hyderabad real estate advisory services.",
     keywords: [...baseKeywords, "privacy policy"],

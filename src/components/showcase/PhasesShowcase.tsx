@@ -21,6 +21,7 @@ import SectionLabel from "../SectionLabel";
 import ProjectVideo from "../ProjectVideo";
 import {
   openDocumentInNewTab,
+  useDocumentAccessApi,
   useGatedDocumentLink,
 } from "../DocumentAccessGate";
 import { getDownloadUrl } from "@/lib/download-url";
@@ -137,6 +138,7 @@ function PhaseMedia({ phase, project }: { phase: ProjectPhase; project: Project 
 
 function PhaseDocuments({ phase }: { phase: ProjectPhase }) {
   const gateLink = useGatedDocumentLink();
+  const api = useDocumentAccessApi();
   const docs = (phase.documents || []).filter((d) => d.url);
   const links: { label: string; url: string; kind: "download" | "view" }[] = [];
 
@@ -150,7 +152,9 @@ function PhaseDocuments({ phase }: { phase: ProjectPhase }) {
       {links.map((l) => (
         <a
           key={l.label}
-          href={getDownloadUrl(l.url)}
+          href={api ? undefined : getDownloadUrl(l.url)}
+          role={api ? "button" : undefined}
+          tabIndex={api ? 0 : undefined}
           target="_blank"
           rel="noopener noreferrer"
           onClick={gateLink(l.label, () => openDocumentInNewTab(getDownloadUrl(l.url)))}
@@ -163,7 +167,9 @@ function PhaseDocuments({ phase }: { phase: ProjectPhase }) {
       {docs.map((d) => (
         <a
           key={d.name}
-          href={getDownloadUrl(d.url)}
+          href={api ? undefined : getDownloadUrl(d.url)}
+          role={api ? "button" : undefined}
+          tabIndex={api ? 0 : undefined}
           target="_blank"
           rel="noopener noreferrer"
           onClick={gateLink(d.name, () => openDocumentInNewTab(getDownloadUrl(d.url)))}
@@ -179,6 +185,7 @@ function PhaseDocuments({ phase }: { phase: ProjectPhase }) {
 
 function PhasePlan({ phase, project }: { phase: ProjectPhase; project: Project }) {
   const gateLink = useGatedDocumentLink();
+  const api = useDocumentAccessApi();
   const planUrl = phase.masterPlanUrl || phase.layoutUrl;
   if (!planUrl) return null;
 
@@ -195,7 +202,9 @@ function PhasePlan({ phase, project }: { phase: ProjectPhase; project: Project }
           blurDataURL={BLUR}
         />
         <a
-          href={planUrl}
+          href={api ? undefined : planUrl}
+          role={api ? "button" : undefined}
+          tabIndex={api ? 0 : undefined}
           target="_blank"
           rel="noopener noreferrer"
           onClick={gateLink(`${phase.name} Layout`, () => openDocumentInNewTab(planUrl))}
@@ -211,7 +220,9 @@ function PhasePlan({ phase, project }: { phase: ProjectPhase; project: Project }
 
   return (
     <a
-      href={getDownloadUrl(planUrl)}
+      href={api ? undefined : getDownloadUrl(planUrl)}
+      role={api ? "button" : undefined}
+      tabIndex={api ? 0 : undefined}
       target="_blank"
       rel="noopener noreferrer"
       onClick={gateLink(`${phase.name} Layout`, () => openDocumentInNewTab(getDownloadUrl(planUrl)))}
