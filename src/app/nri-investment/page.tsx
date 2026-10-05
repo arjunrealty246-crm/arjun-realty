@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import ContactSection from "@/components/ContactSection";
-import { Globe, Shield, TrendingUp, CheckCircle2, FileText, Phone, ArrowRight, Building, Banknote } from "lucide-react";
+import { Globe, Shield, TrendingUp, CheckCircle2, FileText, Phone, ArrowRight, Building, Banknote, MapPin } from "lucide-react";
 import Link from "next/link";
 import siteConfig from "@/config/site";
+import { projects } from "@/data/projects";
+import { getProjectHref } from "@/lib/project-links";
 
 const INLINE_LINK = /\[([^\]]+)\]\(\/([^)]*)\)/g;
 
@@ -32,12 +34,26 @@ function renderInlineLinks(text: string) {
 
 const steps = [
   { num: "01", title: "Free Consultation", desc: "Connect with our NRI desk via video call. We understand your goals, risk appetite, and investment timeline.", icon: Phone },
-  { num: "02", title: "Curated Shortlist", desc: "Receive a personalized portfolio of [vetted projects](/projects) across high-growth corridors like the [ORR ring](/orr), matched to your budget and objectives.", icon: Building },
+  { num: "02", title: "Curated Shortlist", desc: "Receive a personalized portfolio of [vetted projects](/projects) across high-growth corridors like the [ORR ring](/orr), matched to your budget and objectives. The corridor case is set out on [Why Hyderabad](/why-hyderabad).", icon: Building },
   { num: "03", title: "Virtual Tour", desc: "Immersive site visits via high-res video tours, drone footage, and detailed project documentation.", icon: Globe },
   { num: "04", title: "Legal Verification", desc: "Independent title search, encumbrance certificate, and government approval verification. Compare [DTCP vs HMDA vs FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose).", icon: FileText },
   { num: "05", title: "Secure Transaction", desc: "RBI & FEMA compliant payment routing. NRE/NRO account support. Complete documentation.", icon: Banknote },
   { num: "06", title: "Registration & Beyond", desc: "End-to-end registration handled remotely. Quarterly updates on your investment's performance.", icon: TrendingUp },
 ];
+
+// Curated shortlist surfaced for visitors who want to move from the process
+// explanation straight to a specific layout. Slugs are hard-coded on purpose:
+// the three projects below are all approved and live, which keeps the
+// `upcoming-*` projects out of NRI-facing recommendations. Every field rendered
+// comes from the shared project record, so nothing here restates project copy.
+const projectsSection = {
+  label: "Curated Shortlist",
+  heading: "Layouts We Walk NRI Buyers Through",
+  intro:
+    "Three approved layouts in different parts of the Hyderabad market, each carrying a named sanctioning authority — FCDA, HMDA or DTCP — with a different spread of plot sizes, acreage and entry pricing.",
+  contextLink: { label: "Why Hyderabad is worth investing in", href: "/why-hyderabad" },
+  slugs: ["jb-harmony-woods", "jb-serene-county", "jb-pristine-city"],
+};
 
 const faqs = [
   { q: "Can I invest as an NRI without visiting India?", a: "Absolutely. We offer complete remote investment support including virtual site tours, digital documentation, and RBI-compliant payment routing." },
@@ -149,6 +165,76 @@ export default function NRIInvestmentPage() {
                 </motion.div>
               </ScrollReveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Curated projects */}
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <ScrollReveal className="text-center mb-14 lg:mb-16">
+            <SectionLabel>{projectsSection.label}</SectionLabel>
+            <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.02em]">
+              {projectsSection.heading.split("NRI")[0]}
+              <span className="text-gradient">NRI</span>
+              {projectsSection.heading.split("NRI")[1]}
+            </h2>
+            <p className="mt-4 text-white/30 max-w-2xl mx-auto text-[0.9rem] leading-relaxed">
+              {projectsSection.intro}
+            </p>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {projectsSection.slugs.map((slug, i) => {
+              const project = projects.find((p) => p.slug === slug);
+              if (!project) return null;
+              return (
+                <ScrollReveal key={project.slug} delay={i * 0.08}>
+                  <motion.div whileHover={{ y: -4 }} className="glass-card rounded-2xl p-7 group h-full flex flex-col">
+                    <div className="flex items-start justify-between gap-3 mb-4">
+                      <h3 className="text-base font-bold text-white tracking-tight">{project.name}</h3>
+                      <span className="shrink-0 text-[10px] font-semibold text-primary/70 uppercase tracking-wider bg-primary/[0.08] px-2.5 py-1 rounded-full">
+                        {project.badge}
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-2 mb-3">
+                      <MapPin className="h-3.5 w-3.5 text-primary/60 shrink-0 mt-0.5" />
+                      <p className="text-[12px] text-white/40 leading-relaxed">{project.location}</p>
+                    </div>
+                    <p className="text-[12px] text-white/35 leading-relaxed mb-5">{project.plotSizes}</p>
+                    <div className="mt-auto space-y-1">
+                      <p className="text-[11px] text-white/30">
+                        <span className="text-white/20">Approval: </span>
+                        {project.approval}
+                      </p>
+                      <p className="text-[11px] text-white/30">
+                        <span className="text-white/20">From: </span>
+                        <span className="text-primary font-medium">{project.startingPrice}</span>
+                      </p>
+                    </div>
+                    <Link
+                      href={getProjectHref(project.slug)}
+                      className="mt-5 inline-flex items-center gap-2 text-[13px] font-semibold text-primary hover:gap-3 transition-all duration-300"
+                    >
+                      {project.name} — view project <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </motion.div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-2">
+            <Link
+              href={projectsSection.contextLink.href}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary/[0.08] border border-primary/15 text-[11px] font-semibold text-primary hover:bg-primary/[0.15] transition-colors duration-300"
+            >
+              {projectsSection.contextLink.label} <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary/[0.08] border border-primary/15 text-[11px] font-semibold text-primary hover:bg-primary/[0.15] transition-colors duration-300"
+            >
+              Compare all projects <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
         </div>
       </section>

@@ -70,9 +70,9 @@ export default function WhyHyderabadPage() {
               Why Invest in <span className="text-gradient">Hyderabad Real Estate</span>
             </h1>
             <p className="mt-6 text-white/40 text-base sm:text-lg leading-relaxed max-w-xl">
-              Hyderabad is in the middle of the most transformative infrastructure
-              wave in Indian history. The 2024–2028 pipeline will redefine
-              real estate value forever.
+              {renderInlineLinks(
+                "Hyderabad is in the middle of the most transformative infrastructure wave in Indian history. The 2024–2028 pipeline will redefine real estate value forever. Buyers who cannot travel to India on short notice can work through the same research remotely — our [investing in Hyderabad from abroad](/nri-investment) process explains how."
+              )}
             </p>
           </ScrollReveal>
         </div>
