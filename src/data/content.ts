@@ -224,7 +224,7 @@ export const brochureDownload = {
 // ─── Calculator ─────────────────────────────────────
 export const calculator = {
   heading: "Investment Calculator",
-  description: "Estimate your potential returns on Hyderabad real estate investment.",
+  description: "Explore a hypothetical investment scenario for Hyderabad real estate.",
   investmentLabel: "Investment Amount (₹)",
   durationLabel: "Duration (Years)",
   appreciationLabel: "Expected Annual Appreciation (%)",

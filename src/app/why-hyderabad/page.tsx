@@ -42,7 +42,7 @@ const growthStats = [
   { label: "IT Exports", value: "$30B+", desc: "Annual IT exports" },
   { label: "GDP Growth", value: "8.5%", desc: "Consistent annual growth" },
   { label: "Job Creation", value: "500K+", desc: "New jobs by 2028" },
-  { label: "Appreciation", value: "22%", desc: "Avg. annual returns" },
+  { label: "Growth Potential", value: "Growth", desc: "Location & Market Dependent" },
 ];
 
 export default function WhyHyderabadPage() {

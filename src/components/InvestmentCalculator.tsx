@@ -34,7 +34,7 @@ export default function InvestmentCalculator() {
         <ScrollReveal className="text-center mb-14 lg:mb-20">
           <SectionLabel>{calculator.heading}</SectionLabel>
           <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
-            See Your <span className="text-gradient">Wealth Grow</span>
+            Explore Your <span className="text-gradient">Investment Scenario</span>
           </h2>
           <p className="mt-4 text-white/30 max-w-lg mx-auto text-[0.9rem] leading-relaxed">
             {calculator.description}
@@ -99,7 +99,7 @@ export default function InvestmentCalculator() {
               {/* Appreciation Rate */}
               <div className="mb-2">
                 <div className="flex items-center justify-between mb-3">
-                  <label className="text-[12px] text-white/40 font-medium uppercase tracking-wider">Expected Appreciation</label>
+                  <label className="text-[12px] text-white/40 font-medium uppercase tracking-wider">Illustrative Annual Rate</label>
                   <span className="text-[14px] font-bold text-gradient">{appreciation}% p.a.</span>
                 </div>
                 <input
@@ -118,7 +118,10 @@ export default function InvestmentCalculator() {
               </div>
 
               <p className="text-[10px] text-white/15 mt-4 text-center">
-                Based on historical Hyderabad appreciation rates of 12–25% annually in prime corridors.
+                Hyderabad offers multiple high-growth investment corridors, with investment potential varying by location, project quality, infrastructure and market conditions.
+              </p>
+              <p className="text-[10px] text-white/15 mt-2 text-center">
+                For illustration only. This rate is a user-selected assumption and is not a guaranteed or expected return.
               </p>
             </div>
           </ScrollReveal>
@@ -129,11 +132,11 @@ export default function InvestmentCalculator() {
               {/* Future Value */}
               <div className="glass-card-elevated rounded-[1.5rem] p-8 sm:p-10 relative overflow-hidden text-center">
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
-                <p className="text-[11px] text-white/35 uppercase tracking-[0.2em] font-medium mb-3">Projected Future Value</p>
+                <p className="text-[11px] text-white/35 uppercase tracking-[0.2em] font-medium mb-3">Illustrative Future Value</p>
                 <div className="text-[clamp(2rem,5vw,3.5rem)] font-bold text-gradient tracking-tight leading-none mb-2">
                   {formatCurrency(result.futureValue)}
                 </div>
-                <p className="text-[12px] text-white/25">in {years} years at {appreciation}% p.a.</p>
+                <p className="text-[12px] text-white/25">in {years} years at your selected {appreciation}% p.a. rate</p>
               </div>
 
               {/* Stats grid */}
@@ -149,21 +152,21 @@ export default function InvestmentCalculator() {
                   <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                     <TrendingUp className="h-4 w-4 text-primary" />
                   </div>
-                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Returns</p>
+                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Illustrative Returns</p>
                   <p className="text-lg font-bold text-gradient">+{formatCurrency(result.returns)}</p>
                 </div>
                 <div className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center">
                   <div className="h-10 w-10 rounded-xl bg-gold/10 flex items-center justify-center mb-3">
                     <Clock className="h-4 w-4 text-gold" />
                   </div>
-                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Wealth Multiple</p>
+                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Illustrative Multiple</p>
                   <p className="text-lg font-bold text-white/80">{(result.futureValue / result.investedAmount).toFixed(1)}x</p>
                 </div>
                 <div className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center">
                   <div className="h-10 w-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-3">
                     <TrendingUp className="h-4 w-4 text-blue-400" />
                   </div>
-                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Effective CAGR</p>
+                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Illustrative CAGR</p>
                   <p className="text-lg font-bold text-white/80">{result.cagr.toFixed(1)}%</p>
                 </div>
               </div>

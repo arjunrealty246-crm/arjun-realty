@@ -57,7 +57,7 @@ export const seo: Record<string, SEOData> = {
   "nri-investment": {
     title: "NRI Property Investment in Hyderabad | Arjun Realty",
     description:
-      "Complete NRI property investment advisory in Hyderabad — HMDA & DTCP approved plots, virtual tours, remote documentation and RBI-compliant payments.",
+      "NRI property investment in Hyderabad: HMDA & DTCP approved plots, virtual tours, property documentation guidance and remote investment support. Get a free consultation.",
     keywords: [...baseKeywords, "NRI real estate investment Hyderabad", "NRI property advisory Hyderabad", "invest in Hyderabad from abroad", "NRI plots Hyderabad"],
   },
   "why-hyderabad": {

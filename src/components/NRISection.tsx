@@ -23,9 +23,9 @@ const benefits = [
   },
   {
     icon: TrendingUp,
-    title: "Exceptional Returns",
-    description: "Hyderabad's prime corridors have delivered 15–25% annual appreciation over the past 5 years. Plots near ORR, the airport, and the Financial District continue to outperform.",
-    tag: "15–25% Annual Returns",
+    title: "Growth Corridors",
+    description: "Explore Hyderabad's high-growth investment corridors with location-specific market insights and project-level due diligence.",
+    tag: "Location-Specific Insights",
   },
 ];
 

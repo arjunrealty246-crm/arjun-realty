@@ -92,6 +92,14 @@ export default function NRIInvestmentPage() {
               Purpose-built investment solutions for Non-Resident Indians.
               We make investing in India as seamless as investing next door.
             </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#contact"
+                className="btn-premium inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-8 py-4 rounded-full text-[13px] font-semibold text-white shadow-[0_8px_32px_rgba(249,115,22,0.2)]"
+              >
+                Get Free NRI Investment Consultation <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -103,7 +111,7 @@ export default function NRIInvestmentPage() {
             {[
               { icon: Globe, title: "Global Access", desc: "Invest from 10+ countries. Virtual tours, remote documentation, doorstep delivery." },
               { icon: Shield, title: "Legal Protection", desc: "FEMA & RBI compliance. Independent legal vetting. Title insurance available." },
-              { icon: TrendingUp, title: "Superior Returns", desc: "15–25% annual appreciation. Consistently outperforming other Indian metros. See where prices are moving in the [Q3 2026 market update](/insights/hyderabad-real-estate-market-update-q3-2026)." },
+              { icon: TrendingUp, title: "Growth Potential", desc: "Explore Hyderabad's high-growth investment corridors with location-specific market insights and project-level due diligence. See where prices are moving in the [Q3 2026 market update](/insights/hyderabad-real-estate-market-update-q3-2026)." },
             ].map((b, i) => (
               <ScrollReveal key={b.title} delay={i * 0.08}>
                 <motion.div whileHover={{ y: -4 }} className="glass-card rounded-2xl p-7 text-center group h-full">

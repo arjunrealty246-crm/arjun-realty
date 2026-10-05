@@ -51,7 +51,7 @@ export default function ContactSection() {
   const update = (field: string, value: string) => setForm((p) => ({ ...p, [field]: value }));
 
   return (
-    <section className="relative pt-28 pb-44 md:py-28 lg:py-36 overflow-hidden" id="contact">
+    <section className="relative pt-28 pb-44 md:py-28 lg:py-36 overflow-hidden scroll-mt-24" id="contact">
       <div className="ambient-orb w-[500px] h-[500px] bg-primary/[0.03] left-1/4 -top-48" />
 
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">

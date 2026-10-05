@@ -68,7 +68,7 @@ const stats = [
   { label: "GDP Growth", value: "8.2%", change: "+1.4% YoY" },
   { label: "IT Exports", value: "$32B", change: "3rd in India" },
   { label: "Pop. Growth", value: "+24%", change: "Since 2015" },
-  { label: "Avg. Appreciation", value: "18–25%", change: "Annual ROI" },
+  { label: "Growth Potential", value: "Corridors", change: "Location & Market Dependent" },
 ];
 
 export default function WhyHyderabadSection() {
