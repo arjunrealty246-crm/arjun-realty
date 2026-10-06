@@ -288,19 +288,6 @@ export const aboutPage = {
   visionDescription: "To become India's most trusted independent real estate advisory platform.",
 };
 
-// ─── NRI Investment Page ────────────────────────────
-export const nriPage = {
-  heroTitle: "NRI Real Estate Investment",
-  heroDescription: "Seamless, transparent and secure property investment in Hyderabad for NRIs — from anywhere in the world.",
-  processSteps: [
-    { step: "01", title: "Connect", desc: "Reach out via call, WhatsApp, or our website. We will schedule a virtual consultation at your convenience." },
-    { step: "02", title: "Explore", desc: "Virtual site tours, detailed project reports, and personalized recommendations based on your goals." },
-    { step: "03", title: "Verify", desc: "Complete legal due diligence. Title checks, approval verification, and compliance reports shared transparently." },
-    { step: "04", title: "Invest", desc: "RBI-compliant payment processing, remote documentation, and doorstep registration." },
-  ],
-  cta: "Start Your Investment Journey",
-};
-
 // ─── Builders Page ──────────────────────────────────
 export const buildersPage = {
   pageTitle: "Our Trusted Builders",

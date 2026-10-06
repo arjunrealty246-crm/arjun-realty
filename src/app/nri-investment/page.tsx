@@ -8,6 +8,7 @@ import { Globe, Shield, TrendingUp, CheckCircle2, FileText, Phone, ArrowRight, B
 import Link from "next/link";
 import siteConfig from "@/config/site";
 import { projects } from "@/data/projects";
+import { nriFaqs } from "@/data/faqs";
 import { getProjectHref } from "@/lib/project-links";
 
 const INLINE_LINK = /\[([^\]]+)\]\(\/([^)]*)\)/g;
@@ -55,13 +56,7 @@ const projectsSection = {
   slugs: ["jb-harmony-woods", "jb-serene-county", "jb-pristine-city"],
 };
 
-const faqs = [
-  { q: "Can I invest as an NRI without visiting India?", a: "Absolutely. We offer complete remote investment support including virtual site tours, digital documentation, and RBI-compliant payment routing." },
-  { q: "What approvals should I look for?", a: "All projects we showcase carry HMDA, DTCP, FCDA, or RERA approval. We also provide independent legal verification through top-tier law firms." },
-  { q: "How do I repatriate funds?", a: "We guide you through FEMA-compliant repatriation procedures. Typically, gains from approved real estate investments can be repatriated through your NRE/NRO account." },
-  { q: "What is the minimum investment?", a: "Our curated selection starts from ₹35 Lakh for premium plots and ₹1.2 Cr for luxury apartments." },
-  { q: "Do you charge advisory fees?", a: "No. Our advisory service is complimentary. We earn from the developer, not from you." },
-];
+const faqs = nriFaqs;
 
 export default function NRIInvestmentPage() {
   return (

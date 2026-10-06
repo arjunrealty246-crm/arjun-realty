@@ -6,6 +6,7 @@ import SectionLabel from "@/components/SectionLabel";
 import ContactSection from "@/components/ContactSection";
 import { Search, Shield, TrendingUp, MapPin, Globe, FileText, Phone, ArrowRight, ClipboardCheck, Handshake } from "lucide-react";
 import siteConfig from "@/config/site";
+import { remoteSupportAnswer } from "@/data/faqs";
 
 const services = [
   {
@@ -53,7 +54,7 @@ const faqs = [
   { q: "Is Arjun Realty a brokerage or an advisory?", a: "We are an independent real estate advisory, not a brokerage. Our recommendations are unbiased — we work with multiple verified builders and earn from the developer, never from you." },
   { q: "Do you charge any fees for your services?", a: "No. Our advisory services are completely free. There are no consultation charges, no hidden fees, and zero brokerage." },
   { q: "How do you verify project approvals?", a: "We independently verify every project's HMDA, DTCP, FCDA, or RERA approval status, land title, and encumbrance certificate before recommending it." },
-  { q: "Can I invest from outside Hyderabad?", a: "Yes. We offer complete remote investment support including virtual site tours, digital documentation, and RBI-compliant payment routing. Our NRI desk handles everything." },
+  { q: "Can I invest from outside Hyderabad?", a: `Yes. ${remoteSupportAnswer} Our NRI desk handles everything.` },
   { q: "What areas do you cover?", a: "We cover all major growth corridors of Hyderabad — ORR zones, Shamshabad, Kollur, Srisailam Highway, Shankarpally, Ibrahimpatnam, Vikarabad, NH-65, and more." },
   { q: "How long does the process take?", a: "From initial consultation to registration, the typical timeline is 2–4 weeks depending on the project and documentation requirements." },
 ];

@@ -3,6 +3,9 @@ export interface FAQ {
   a: string;
 }
 
+export const remoteSupportAnswer =
+  "We offer complete remote investment support including virtual site tours, digital documentation, and RBI-compliant payment routing.";
+
 export const homeFaqs: FAQ[] = [
   {
     q: "What types of projects does Arjun Realty offer?",
@@ -39,7 +42,7 @@ export const homeFaqs: FAQ[] = [
 ];
 
 export const nriFaqs: FAQ[] = [
-  { q: "Can I invest as an NRI without visiting India?", a: "Absolutely. We offer complete remote investment support including virtual site tours, digital documentation, and RBI-compliant payment routing." },
+  { q: "Can I invest as an NRI without visiting India?", a: `Absolutely. ${remoteSupportAnswer}` },
   { q: "What approvals should I look for?", a: "All projects we showcase carry HMDA, DTCP, FCDA, or RERA approval. We also provide independent legal verification through top-tier law firms." },
   { q: "How do I repatriate funds?", a: "We guide you through FEMA-compliant repatriation procedures. Typically, gains from approved real estate investments can be repatriated through your NRE/NRO account." },
   { q: "What is the minimum investment?", a: "Our curated selection starts from ₹35 Lakh for premium plots and ₹1.2 Cr for luxury apartments." },
