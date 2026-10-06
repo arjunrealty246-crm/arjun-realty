@@ -487,7 +487,7 @@ export default function PremiumProjectDetailPage({
                 {project.slug === "jb-harmony-woods" && (
                   <>
                     {" "}The gated community is positioned in the same corridor as{" "}
-                    <Link href="/projects/srisailam-highway-future-city" className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">
+                    <Link href="/srisailam-highway-future-city" className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">
                       Future City
                     </Link>
                     {"."}
@@ -509,6 +509,11 @@ export default function PremiumProjectDetailPage({
                       JB Serene County
                     </Link>
                     {" — HMDA approved and TSRERA registered plots near ORR Exit No. 13."}
+                    {" "}For wider background on the corridor, our{" "}
+                    <Link href="/ibrahimpatnam" className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">
+                      Ibrahimpatnam plots guide
+                    </Link>
+                    {" covers the highway access, institutional neighbours and pricing across this part of South Hyderabad."}
                   </>
                 )}
                 {project.slug === "jb-serene-county" && (
@@ -522,7 +527,7 @@ export default function PremiumProjectDetailPage({
                 )}
               </p>
                 <p className="text-white/45 text-[0.95rem] leading-[1.85] mb-6">
-                  Interested in an <Link href="/projects/shankarpally-45-acres" className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">Shankarpally 45 Acres</Link> HMDA open plot in the same corridor? This certified open-plots community offers HMDA &amp; RERA approvals for secure, ready-to-invest development.
+                  Interested in an <Link href={getProjectHref("shankarpally-45-acres")} className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">Shankarpally 45 Acres</Link> HMDA open plot in the same corridor? This certified open-plots community offers HMDA &amp; RERA approvals for secure, ready-to-invest development.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {highlightItems.map((h) => (

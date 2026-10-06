@@ -1785,7 +1785,7 @@ export const insights: Insight[] = [
       {
         heading: "Follow the shovels, not the announcements",
         body: [
-          "Corporate investment moves land markets with a lag — first the land assembly, then the plant, then the housing, then the plot appreciation. The Srisailam Highway belt is now in the third phase.",
+          "Corporate investment moves land markets with a lag — first the land assembly, then the plant, then the housing, then the plot appreciation. The [Srisailam Highway belt](/srisailam-highway-future-city) is now in the third phase.",
           "Large-scale electronics manufacturing campuses in the Airport-Future City arc have crossed the announcement stage into commissioning. Beyond their direct employment, they trigger a multiplier: logistics, component suppliers, hospitality and housing follow the anchor factory within months, not years.",
         ],
       },
@@ -1820,7 +1820,7 @@ export const insights: Insight[] = [
         heading: "The Neopolis playbook",
         body: [
           "Neopolis' quantum leaps followed a repeatable sequence: corporate campuses signed, floor-space index (FSI) and public infrastructure upgraded, and then residential prices compounded for a full decade. Kokapet and Narsingi are living through the same sequence now.",
-          "The corporate hub effect is not confined to the immediate ring. It radiates outward along the highway it sits on — and the Western ORR arms, leading toward Gandipet, Mokila and beyond, are the current radiation zones.",
+          "The corporate hub effect is not confined to the immediate ring. It radiates outward along the highway it sits on — and the [Western ORR arms](/orr), leading toward Gandipet, Mokila and beyond, are the current radiation zones.",
         ],
       },
       {
@@ -1834,7 +1834,7 @@ export const insights: Insight[] = [
         heading: "Practical application",
         body: [
           "For investors, the question is simple: can you hold through the construction phase of the connecting infrastructure? If yes, the western corridor's pre-consolidation pricing is the opportunity.",
-          "Project selection remains king — a DTCP & RERA approved layout on the corridor, like JB Pristine City in Vikarabad, pairs the hub-driven thesis with the safety of verifiable legal status.",
+          "Project selection remains king — a DTCP & RERA approved layout on the corridor, like [JB Pristine City in Vikarabad](/projects/jb-pristine-city), pairs the hub-driven thesis with the safety of verifiable legal status.",
         ],
       },
     ],
@@ -1860,8 +1860,8 @@ export const insights: Insight[] = [
       {
         heading: "Where the current assemblies point",
         body: [
-          "Three arcs are active today: the Srisailam Highway electronics belt, the western ORR arms, and the industrial zones along NH-65/Shamshabad axis. Assembly activity in each is already documented through registered purchase instruments visible in EC records and Dharani mutation data.",
-          "You do not need insider sources to track them. Periodic EC checks around assembly hotspots, and mutation alerts on specific villages, are enough to stay ahead of the crowd.",
+          "Three arcs are active today: the [Srisailam Highway electronics belt](/srisailam-highway-future-city), the western ORR arms, and the industrial zones along NH-65/Shamshabad axis. Assembly activity in each is already documented through registered purchase instruments visible in EC records and Dharani mutation data.",
+          "You do not need insider sources to track them. [Periodic EC checks](/insights/encumbrance-certificates-explained-before-buying-land) around assembly hotspots, and mutation alerts on specific villages, are enough to stay ahead of the crowd.",
         ],
       },
       {
@@ -1956,7 +1956,7 @@ export const insights: Insight[] = [
         heading: "Where and how to get one",
         body: [
           "ECs are available from the respective Sub-Registrar office online or in person in Telangana, typically within a working day. Order it in the name that will buy — sellers' ECs prove their history; a fresh EC in the buyer's name documents the latest transaction.",
-          "Ask for the certified copy of the oldest entry in the chain too. A clean, linked, 30-year paper trail is the cheapest insurance policy in real estate.",
+          "Ask for the certified copy of the oldest entry in the chain too. A clean, linked, 30-year paper trail is the cheapest insurance policy in real estate — our [Telangana plot buyer checklist](/guides/telangana-plot-buyer-checklist) sets out the rest of the checks to run alongside it.",
         ],
       },
     ],
@@ -1975,8 +1975,8 @@ export const insights: Insight[] = [
       {
         heading: "The seven checks",
         body: [
-          "Step 1: Approval. Establish which authority approved the layout and pull the approval document. HMDA, DTCP, FCDA or RERA all qualify; an unapproved copy of an approved name does not.",
-          "Step 2: Encumbrance. Obtain a 30-year EC and confirm a continuous, transaction-free history in the current owner share.",
+          "Step 1: Approval. Establish [which authority approved the layout](/insights/dtcp-hmda-fcda-approvals-which-to-choose) and pull the approval document. HMDA, DTCP, FCDA or RERA all qualify; an unapproved copy of an approved name does not.",
+          "Step 2: Encumbrance. Obtain a [30-year EC](/insights/encumbrance-certificates-explained-before-buying-land) and confirm a continuous, transaction-free history in the current owner share.",
           "Step 3: Dharani. Verify the survey/patta number, the khata name and the land classification on the Dharani portal — the record must reconcile with the sale deed.",
           "Step 4: Zoning. Confirm the Master Plan shows Residential use — not conservation, green, water or road-widening reservations.",
           "Step 5: Ownership. Match the seller's identity to the registered documents and check whether co-owners or family members have legally valid claims.",

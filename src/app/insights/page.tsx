@@ -4,6 +4,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import PageBreadcrumbs from "@/components/PageBreadcrumbs";
 import siteConfig from "@/config/site";
+import { getProjectHref } from "@/lib/project-links";
 import {
   insights,
   insightCategories,
@@ -180,10 +181,10 @@ export default async function InsightsPage({ searchParams }: { searchParams: Pro
               </div>
               <div className="space-y-3">
                 {[
-                  { name: "JB Harmony Woods", loc: "Thummaloor, Srisailam Highway", tag: "FCDA Approved" },
-                  { name: "JB Pristine City", loc: "Vikarabad, West Hyderabad", tag: "DTCP & RERA Approved" },
+                  { slug: "jb-harmony-woods", name: "JB Harmony Woods", loc: "Thummaloor, Srisailam Highway", tag: "FCDA Approved" },
+                  { slug: "jb-pristine-city", name: "JB Pristine City", loc: "Vikarabad, West Hyderabad", tag: "DTCP & RERA Approved" },
                 ].map((p) => (
-                  <Link key={p.name} href={`/projects/${p.name.toLowerCase().replaceAll(" ", "-")}`} className="glass-card-elevated rounded-2xl p-5 flex items-center gap-4 group">
+                  <Link key={p.slug} href={getProjectHref(p.slug)} className="glass-card-elevated rounded-2xl p-5 flex items-center gap-4 group">
                     <div className="h-11 w-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                       <MapPin className="h-5 w-5 text-primary" />
                     </div>

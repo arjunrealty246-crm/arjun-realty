@@ -86,6 +86,30 @@ export default function HomePage() {
         </Link>
       </div>
 
+      {/* ── Corridor page links: gives every location landing page a path in from the homepage ── */}
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 mb-2 text-center">
+        <p className="text-[11px] uppercase tracking-[0.16em] text-white/25 font-semibold mb-3.5">
+          Explore plots by corridor
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
+          {[
+            { href: "/srisailam-highway-future-city", label: "Srisailam Highway & Future City plots" },
+            { href: "/orr", label: "Plots near Hyderabad ORR" },
+            { href: "/vikarabad", label: "Plots in Vikarabad, West Hyderabad" },
+            { href: "/ibrahimpatnam", label: "Approved plots in Ibrahimpatnam" },
+            { href: "/shankarpally-45-acres", label: "Shankarpally 45-acre HMDA plots" },
+          ].map((corridor) => (
+            <Link
+              key={corridor.href}
+              href={corridor.href}
+              className="text-[13px] text-white/30 hover:text-primary transition-colors duration-300 font-medium"
+            >
+              {corridor.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+
       <div className="section-divider mx-auto max-w-5xl" />
 
       {/* ── Why Choose Us ── */}
