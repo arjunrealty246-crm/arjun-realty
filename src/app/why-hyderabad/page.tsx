@@ -132,6 +132,77 @@ export default function WhyHyderabadPage() {
         </div>
       </section>
 
+      {/* Growth drivers */}
+      <section className="py-16 lg:py-24">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+          <div className="max-w-4xl mx-auto">
+            <ScrollReveal>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4">Where Corporate Growth Shows Up on the Ground</h2>
+              <p className="text-white/40 text-sm sm:text-base leading-relaxed mb-4">
+                {renderInlineLinks(
+                  "Financial-district campuses have already turned Kokapet and Neopolis into premium addresses, and the same mechanism is now radiating west along the Outer Ring Road. Our [Kokapet to Neopolis analysis](/insights/kokapet-neopolis-the-corporate-hub-effect) traces how that hub effect reaches residential plots."
+                )}
+              </p>
+              <p className="text-white/40 text-sm sm:text-base leading-relaxed mb-4">
+                {renderInlineLinks(
+                  "East Hyderabad runs on a different engine. Our [NH-65 Choutuppal expansion guide](/insights/nh-65-choutuppal-6-lane-expansion-real-estate-guide) covers the six-laning, the proposed RRR interchange and the dry port cluster, and sets out what to verify before buying there."
+                )}
+              </p>
+              <p className="text-white/40 text-sm sm:text-base leading-relaxed">
+                {renderInlineLinks(
+                  "The Outer Ring Road ties these stories together across the city. [Approved plots and villa communities near the ORR](/orr) are listed with the exits they sit on, including Exit 13, 14 and 18."
+                )}
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal className="mt-14">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4">Corridors Buyers Compare Most Often</h2>
+              <p className="text-white/40 text-sm sm:text-base leading-relaxed mb-4">
+                {renderInlineLinks(
+                  "Most shortlists start with three corridors. [Vikarabad in West Hyderabad](/vikarabad) sits near the Appa Junction expressway and the Hyderabad-Pune-Mumbai High-Speed Rail, with DTCP and RERA approved layouts."
+                )}
+              </p>
+              <p className="text-white/40 text-sm sm:text-base leading-relaxed mb-4">
+                {renderInlineLinks(
+                  "[Ibrahimpatnam in South Hyderabad](/ibrahimpatnam) sits near Sagar Highway, Adibatla and the airport corridor, with HMDA and RERA approved plots alongside an upcoming villa community."
+                )}
+              </p>
+              <p className="text-white/40 text-sm sm:text-base leading-relaxed">
+                {renderInlineLinks(
+                  "Also in West Hyderabad, [Shankarpally 45 Acres](/shankarpally-45-acres) is a 45-acre plotted development."
+                )}
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal className="mt-14">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4">What to Verify Before You Buy</h2>
+              <p className="text-white/40 text-sm sm:text-base leading-relaxed mb-4">
+                {renderInlineLinks(
+                  "Three approval authorities, three different value profiles. [DTCP, HMDA or FCDA: which is best](/insights/dtcp-hmda-fcda-approvals-which-to-choose) is a plain-English breakdown of the three authorities and how to choose between them."
+                )}
+              </p>
+              <p className="text-white/40 text-sm sm:text-base leading-relaxed">
+                {renderInlineLinks(
+                  "The paperwork runs alongside it: title clearance, a 30-year encumbrance certificate, Dharani checks and the approvals themselves. [The Telangana plot buyer checklist](/guides/telangana-plot-buyer-checklist) walks through the full sequence."
+                )}
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal className="mt-14">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4">What Counts as Evidence</h2>
+              <p className="text-white/40 text-sm sm:text-base leading-relaxed mb-4">
+                Our research separates what is already operational or commissioned from what has only been announced, allocated or tendered, and it does not treat an announcement as a completed project. Every figure is attributed to a named source, and where sources disagree the disagreement is stated rather than hidden.
+              </p>
+              <p className="text-white/40 text-sm sm:text-base leading-relaxed">
+                {renderInlineLinks(
+                  "That work is published in [Insights and Market Updates](/insights) - corridor analysis, corporate investment signals and step-by-step buyer guides for investors who verify before they invest."
+                )}
+              </p>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-section-alt">
         <div className="mx-auto max-w-3xl px-5 text-center">
