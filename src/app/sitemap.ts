@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import siteConfig from "@/config/site";
 import { projects } from "@/data/projects";
-import { insights } from "@/data/insights";
+import { insights, insightCategories, getInsightsByCategory } from "@/data/insights";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
@@ -38,6 +38,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     }));
 
+  const insightCategoryRoutes = insightCategories.flatMap((c) => {
+    const articles = getInsightsByCategory(c.slug);
+    if (articles.length === 0) return [];
+    const lastModified = articles.reduce(
+      (max, a) => (a.publishedAt > max ? a.publishedAt : max),
+      articles[0].publishedAt
+    );
+    return [
+      {
+        url: `${baseUrl}/insights/category/${c.slug}`,
+        lastModified,
+        changeFrequency: "weekly" as const,
+        priority: 0.7,
+      },
+    ];
+  });
+
   const insightRoutes = insights.map((i) => ({
     url: `${baseUrl}/insights/${i.slug}`,
     lastModified: i.publishedAt,
@@ -45,5 +62,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...projectRoutes, ...insightRoutes];
+  return [...staticRoutes, ...insightCategoryRoutes, ...projectRoutes, ...insightRoutes];
 }

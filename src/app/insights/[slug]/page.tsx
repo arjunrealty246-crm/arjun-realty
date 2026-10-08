@@ -182,7 +182,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
             />
             <ScrollReveal>
               <Link
-                href={`/insights?category=${insight.categorySlug}`}
+                href={`/insights/category/${insight.categorySlug}`}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider hover:bg-primary/15 transition-colors"
               >
                 {insight.category}

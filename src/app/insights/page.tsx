@@ -102,7 +102,7 @@ export default async function InsightsPage({ searchParams }: { searchParams: Pro
               return (
                 <Link
                   key={cat.slug}
-                  href={`/insights?category=${cat.slug}`}
+                  href={`/insights/category/${cat.slug}`}
                   className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-semibold transition-colors duration-300 border ${
                     isActive
                       ? "text-white bg-primary/15 border-primary/40 glow-primary-strong"
