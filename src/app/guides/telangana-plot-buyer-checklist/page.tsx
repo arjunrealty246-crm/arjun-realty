@@ -105,6 +105,33 @@ const approvals = [
   },
 ];
 
+const dueDiligence = [
+  {
+    title: "Survey Number & Boundaries",
+    desc: "Verify the exact survey/sub-division number. Match the sale deed, revenue records, approved layout and physical boundaries.",
+  },
+  {
+    title: "Ownership & Link Documents",
+    desc: "Verify the current owner's name. Check the complete registered title/link-document chain.",
+  },
+  {
+    title: "30-Year Encumbrance Certificate",
+    desc: "Check for registered sales, mortgages, charges or other encumbrances.",
+  },
+  {
+    title: "Prohibited Property / 22-A Status",
+    desc: "Verify whether the survey number appears in the applicable prohibited-property records before paying an advance.",
+  },
+  {
+    title: "Approved Layout / LP Number",
+    desc: "Verify the actual approved layout and LP number with the relevant planning authority.",
+  },
+  {
+    title: "Master Plan / FTL / Buffer / Land-Use Restrictions",
+    desc: "Check applicable master-plan zoning and whether any lake, FTL, buffer, road-widening or other planning restriction affects the property.",
+  },
+];
+
 const reraPoints = [
   "RERA registration binds the developer to the sanctioned layout, completion timelines and promised infrastructure — so your investment is contractually protected.",
   "The project's sanctioned plan and details are published on the Telangana RERA portal, making it easy to verify legal authenticity before you buy.",
@@ -279,6 +306,67 @@ export default function PlotBuyerGuidePage() {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Due diligence — approval alone is not enough */}
+      <section id="due-diligence" className="py-16 lg:py-20 bg-section-alt">
+        <div className="mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-12">
+          <ScrollReveal className="max-w-3xl mb-10">
+            <SectionLabel>Before You Pay an Advance</SectionLabel>
+            <h2 className="mt-5 text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.02em]">
+              HMDA or DTCP Approval Alone <span className="text-gradient">Is Not Enough</span>
+            </h2>
+            <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed">
+              An approved layout is an important first step, but buyers should not rely on the approval alone. Before paying an
+              advance, verify the property title, survey details, encumbrances, layout approval and applicable planning
+              restrictions.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal className="mb-8">
+            <div className="glass-card rounded-2xl p-6 sm:p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                {dueDiligence.map((item) => (
+                  <div key={item.title} className="flex items-start gap-3">
+                    <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-[14px] font-bold text-white mb-1.5 tracking-tight">{item.title}</h3>
+                      <p className="text-[13px] text-white/40 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal className="mb-8">
+            <div className="flex items-start gap-3 rounded-2xl border border-primary/20 bg-primary/[0.06] p-6">
+              <Shield className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+              <p className="text-[13px] sm:text-sm text-white/60 leading-relaxed">
+                At Arjun Realty, we encourage buyers to verify the property before they invest—not simply rely on a brochure or
+                approval claim.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="rounded-2xl p-7 border border-white/10 bg-white/[0.03] flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+              <h3 className="text-lg font-bold text-white tracking-tight">
+                Need help verifying a plot before you invest?
+              </h3>
+              <a
+                href={waConsult}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-premium inline-flex items-center gap-2.5 shrink-0 bg-gradient-to-r from-primary to-primary-dark px-6 py-3 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
+              >
+                Get a Free Due Diligence Consultation <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
