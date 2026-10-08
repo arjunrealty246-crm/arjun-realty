@@ -24,7 +24,7 @@ const baseKeywords = [
 
 export const seo: Record<string, SEOData> = {
   home: {
-    title: "Arjun Realty | HMDA & DTCP Approved Plots in Hyderabad",
+    title: "Arjun Realty | Verified Plots & Land Advisory in Hyderabad",
     description:
       "Arjun Realty — Hyderabad's trusted advisor for verified HMDA, DTCP & RERA approved plots, gated communities and NRI investments.",
     keywords: [
