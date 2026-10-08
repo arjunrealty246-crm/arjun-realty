@@ -172,6 +172,11 @@ export default function WhyHyderabadPage() {
                   "Also in West Hyderabad, [Shankarpally 45 Acres](/shankarpally-45-acres) is a 45-acre plotted development."
                 )}
               </p>
+              <p className="mt-4 text-white/40 text-sm sm:text-base leading-relaxed">
+                {renderInlineLinks(
+                  "For the wider picture, the [Shankarpally corridor page](/arjun-realty) sets out both current and upcoming opportunities there, alongside how the corridor compares with the surrounding market."
+                )}
+              </p>
             </ScrollReveal>
 
             <ScrollReveal className="mt-14">

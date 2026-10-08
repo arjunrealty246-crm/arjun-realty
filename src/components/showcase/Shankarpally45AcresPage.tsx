@@ -549,6 +549,16 @@ export default function Shankarpally45AcresPage({
               25,000 sq. ft. luxury clubhouse, aggressive on-ground execution and direct connectivity to Gachibowli,
               Nanakramguda and Neopolis on the Golden Triangle of West Hyderabad.
             </p>
+            <p className="mt-3 text-white/40 text-sm sm:text-base leading-relaxed">
+              Comparing this layout with the rest of the corridor?{" "}
+              <Link
+                href="/arjun-realty"
+                className="text-primary hover:text-primary/80 font-medium transition-colors duration-300"
+              >
+                Shankarpally current and upcoming opportunities
+              </Link>{" "}
+              are set out side by side, including how the corridor compares with the surrounding market.
+            </p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

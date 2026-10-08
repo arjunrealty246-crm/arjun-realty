@@ -265,6 +265,7 @@ export default function ProjectsPage() {
                 { label: "Ibrahimpatnam plots", href: "/ibrahimpatnam" },
                 { label: "Srisailam Highway plots", href: "/srisailam-highway-future-city" },
                 { label: "Plots near ORR", href: "/orr" },
+                { label: "Shankarpally plots", href: "/arjun-realty" },
               ].map((c) => (
                 <Link
                   key={c.href}
