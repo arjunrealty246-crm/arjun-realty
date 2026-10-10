@@ -2000,6 +2000,264 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "invest-telangana-global-summit-2026-bharat-future-city-hyderabad-real-estate",
+    title:
+      "Telangana Global Summit 2026: How Bharat Future City Could Influence Hyderabad Real Estate Growth",
+    seoTitle: "Telangana Global Summit 2026 & Future City",
+    metaDescription:
+      "The Invest Telangana Global Summit 2026 runs 7-9 December at Bharat Future City, where the 30,000-acre project's master plan is expected to be unveiled.",
+    excerpt:
+      "Telangana hosts the Invest Telangana Global Summit 2026 from 7 to 9 December at Bharat Future City, where the 30,000-acre project's master plan is expected to be unveiled. A status-checked look at what that signals for Hyderabad's plot market.",
+    category: "Corporate Investments & Growth",
+    categorySlug: "corporate-growth",
+    publishedAt: "2026-10-10",
+    author: researchDesk,
+    image: "/images/insights/telangana-global-summit-2026-bharat-future-city.jpg",
+    imageAlt:
+      "Telangana Global Summit 2026 poster: Bharat Future City and Hyderabad real estate growth - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods", "upcoming-srisailam-highway"],
+    sections: [
+      {
+        body: [
+          "Telangana will host the Invest Telangana Global Summit 2026 from 7 to 9 December at Bharat Future City, the 30,000-acre development planned on Hyderabad's southern periphery. The state has said the master plan for Bharat Future City will be unveiled at the summit, and the event is being positioned as the second edition of the state's flagship investment meet after the December 2025 summit.",
+          "For anyone watching Hyderabad's plot and land market, the summit matters for a specific reason: it is the point at which the Future City master plan is expected to move from a talked-about framework to a published document. That is an information and regulation milestone rather than a construction one, and the two should not be confused. This is Arjun Realty market research; it separates what has been officially stated from what remains inference, and it makes no claim that any specific land price will rise. For the wider backdrop, see [why Hyderabad keeps expanding](/why-hyderabad).",
+        ],
+      },
+      {
+        heading: "What Is the Invest Telangana Global Summit 2026?",
+        body: [
+          "The state government is hosting the Invest Telangana Global Summit-2026 from 7 to 9 December at Bharat Future City. The venue is the under-construction Young India Skills University campus, which sits inside the Future City area and is expected to be ready by December.",
+          "It is the second edition of the state's flagship investor summit. The first, held in December 2025 at Future City, was branded the Telangana Rising Global Summit and, according to the state, drew representatives from a large number of countries. The 2026 edition carries the theme \"Invest Telangana\".",
+          "In September 2026 the Chief Minister invited the Union Defence Minister to attend the summit and to inaugurate a Raksha Expo-2026 held alongside it, planned to include an aerospace, defence and space conference, an air show and live demonstrations. The summit itself is aimed at attracting investment across the state's target sectors, with Future City as the showcase.",
+        ],
+      },
+      {
+        heading: "Bharat Future City: What the Master Plan Is Meant to Cover",
+        body: [
+          "Bharat Future City is a planned greenfield development of about 30,000 acres on Hyderabad's southern periphery, largely within Rangareddy district around the Kandukur belt. The state has described it as a pollution-free, net-zero global metropolis and a destination aimed at Fortune 500 companies and Global Capability Centres.",
+          "The master plan is being prepared by Surbana Jurong, a Singapore government-owned urban and infrastructure consultancy, and is expected to be released during the December summit. The city is planned with dedicated zones for sectors including artificial intelligence, life sciences, healthcare, education, industry, sports, entertainment and ecotourism, rather than as a single-industry park.",
+          "Officials have said the government already holds possession of roughly 20,000 of the 30,000 acres and is in the process of acquiring the remainder. The Future City Development Authority (FCDA) has opened an office in the project area, and work on the road linking the life-sciences hub to the National Highway is progressing.",
+          "The scale is worth setting beside the benchmark the state itself uses. In an address to investors, the Chief Minister compared the roughly 30,000-acre Bharat Future City with Gujarat's GIFT City, which spans about 700 acres. That comparison is intended to signal ambition rather than a like-for-like plan, and it is best read that way.",
+        ],
+      },
+      {
+        heading: "Why a Master Plan Unveiling Matters for Land Buyers",
+        body: [
+          "A master plan is not a construction schedule. It is the land-use framework that decides what can be built where, which zones are commercial, industrial or residential, where the roads and utilities are intended to run, and how density is distributed across the area. Those decisions are what eventually determine whether a specific parcel is developable and how it connects to the rest of the city.",
+          "That is why publishing the master plan is a genuine milestone even before ground is broken. Until it is released, much of the corridor's future is described in speeches and concept notes; once it is published, plots, layouts and approvals can be assessed against a defined document. For a buyer, the master plan is the difference between evaluating a location by rumour and evaluating it by the plan that will actually govern it.",
+          "It is equally important not to overstate it. A published master plan does not approve any individual layout, does not clear any title, and does not deliver any road. Each of those remains separate. Our [Future City growth corridor analysis](/insights/future-city-growth-corridor-whats-driving-land-values) sets out how those approval and infrastructure layers stack up independently of the plan.",
+          "The practical distinction is the one buyers get wrong most often: being inside the master plan boundary is not the same as being approved by the authority that regulates it. Since our [earlier status review](/insights/future-city-2026-what-has-actually-changed), FCDA has moved from a notified body to a functioning approval authority, which changes what that distinction means on the ground.",
+        ],
+      },
+      {
+        heading: "What Has Already Landed in and Around Future City",
+        body: [
+          "The summit is arriving into a corridor where a set of named investments has already been announced and one or two assets are physically moving. The distinction between announced, under construction and operational is the single most important thing to hold on to here, because the summit will generate more announcements without changing the status of any of them.",
+        ],
+        entries: [
+          {
+            title: "Amazon Web Services (AWS) - Future City data centre",
+            status: "Under construction",
+            tone: "development",
+            summary:
+              "The Chief Minister laid the foundation stone for an AWS data centre within the Bharat Future City area in July 2026. Groundwork is under way; the facility is not operational.",
+            facts: [
+              { label: "Location", value: "Bharat Future City area" },
+              { label: "Status", value: "Foundation stone laid, July 2026" },
+            ],
+            note: "The AWS project is one component of a multi-year Amazon India investment programme and should not be reported as a completed facility.",
+          },
+          {
+            title: "TCS HyperVault - AI data centre campus",
+            status: "Announced",
+            tone: "planned",
+            summary:
+              "TCS subsidiary HyperVault announced a 264-acre campus of up to 1 GW and up to ₹70,000 crore of planned investment, disclosed on 5 September 2026. Development is described as phased against customer demand rather than built upfront.",
+            facts: [
+              { label: "Land", value: "264 acres" },
+              { label: "Planned capacity", value: "Up to 1 GW" },
+              { label: "Stated investment", value: "Up to ₹70,000 crore" },
+            ],
+          },
+          {
+            title: "CtrlS - 2 GW AI data centre",
+            status: "Under construction",
+            tone: "development",
+            summary:
+              "A 2 GW AI data centre promoted by CtrlS is described in state-linked reporting as under construction in the Bharat Future City area.",
+            facts: [
+              { label: "Planned capacity", value: "2 GW" },
+              { label: "Location", value: "Bharat Future City area" },
+            ],
+          },
+          {
+            title: "State Bank of India - proposed data centre",
+            status: "Land allocated",
+            tone: "planned",
+            summary:
+              "The state agreed to allot about 10 acres in the Bharat Future City area for a proposed SBI data centre, reported in September 2026. This is a land allocation, not a built facility.",
+            facts: [
+              { label: "Area", value: "About 10 acres" },
+              { label: "Purpose", value: "Proposed data centre" },
+            ],
+            note: "Neither SBI nor the state has published a construction timeline for the proposed facility.",
+          },
+          {
+            title: "Radial Road-1 - key access corridor",
+            status: "Under development",
+            tone: "development",
+            summary:
+              "The Ratan Tata Greenfield Radial Road-1, linking the Outer Ring Road to the proposed Regional Ring Road, is the principal access corridor for the Future City area. Civil works are under way, and officials expect visible progress by the time of the December summit.",
+            facts: [
+              { label: "Role", value: "ORR to proposed RRR link" },
+              { label: "Status", value: "Civil works under way" },
+            ],
+          },
+          {
+            title: "Young India Skills University - summit venue",
+            status: "Under construction",
+            tone: "development",
+            summary:
+              "The university campus inside Future City, established under a 2024 state Act, is the venue planned for the December summit and is expected to be ready by December.",
+            facts: [
+              { label: "Established under", value: "YISU (PPP) Act, 2024" },
+              { label: "Role", value: "Planned summit venue" },
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Real Estate Proposals and the Gap Between Interest and Delivery",
+        body: [
+          "Developer interest in the Future City area has been visible. Reporting in July 2026 put the number of real-estate proposals drawn by the project at around 90, while noting that approvals were moving slowly and that most investment activity was concentrated along the Srisailam and Nagarjuna Sagar highway corridors, with others waiting for clarity on the development roadmap. Our [Srisailam Highway corridor analysis](/srisailam-highway-future-city) covers that western flank of the story in more detail.",
+          "That pattern is what an early-stage corridor looks like. A high count of proposals measures interest, not delivery, and interest can coexist with genuine uncertainty about where the final road alignments, utilities and zoning will land. Some of that uncertainty is precisely what the master plan is meant to resolve.",
+        ],
+        caution:
+          "A pipeline of proposals and a summit announcement are not the same as completed development. Property decisions should rest on the approval status and title of the specific plot being bought, not on the number of projects announced in the region.",
+      },
+      {
+        heading: "What This Could Mean for Hyderabad Real Estate",
+        body: [
+          "Everything in this section is analysis, not a forecast. No responsible reading of a summit or a master plan can state that a particular land price will rise, and this article makes no such claim. What the summit can be said to do is sharpen the information available about a large planned development, which is a different and more modest promise.",
+          "The first effect is on information. A published master plan replaces concept-level discussion with a document against which layouts, road connections and land use can be checked. Better information tends to narrow the gap between what sellers claim and what buyers can verify, which is useful even when it is not bullish.",
+          "The second is on infrastructure sequencing. The summit's timing alongside the skills-university campus, the access-road works and the wider radial-road programme means the corridor's connectivity story will be settled partly on the state's own timelines rather than private ones. Buyers should watch delivery dates, not event dates.",
+          "The third is on attention. State-level investment events reliably increase the number of developers, advisers and buyers looking at a corridor. Attention is measurable and early; demand is neither, and the two should not be conflated.",
+        ],
+        drivers: [
+          "Published master plan - a defined land-use framework to assess plots against, replacing concept-level discussion.",
+          "Anchor investment - announced data-centre and cloud projects that imply an employment base, once built.",
+          "Infrastructure sequencing - skills-university campus, radial roads and access corridors moving on state timelines.",
+          "Developer attention - a large pipeline of proposals along the corridors around the project.",
+          "Long-term economic framing - the state's Vision 2047 targets, which set direction but not a delivery date.",
+        ],
+        caution:
+          "Real-estate appreciation is not guaranteed. Property decisions should be based on verified approvals, exact location, connectivity and market conditions.",
+      },
+      {
+        heading: "NRI Investors: What the Summit Changes and What It Does Not",
+        body: [
+          "For non-resident buyers, the summit is best read as a reason to research the corridor more carefully rather than a reason to move faster. The same rules apply from overseas as they do locally: an approved layout, a clear title, a genuine road connection and a developer with a delivery record, verified through documentation rather than a brochure.",
+          "Distance makes verification harder and mis-selling easier, which is why an independent check of the specific plot matters more, not less, when the announcement cycle is active. Our [NRI investment guide](/nri-investment) sets out the process, documentation and remittance considerations for buying land in Hyderabad from abroad.",
+          "One recurring risk in an announcement-heavy market is sales material that borrows credibility from a government event. A reference to \"Future City\" or to a summit in a marketing pitch is neither an approval nor a title. Verify the plot's own status independently before any payment.",
+        ],
+      },
+      {
+        heading: "What Plot Buyers Should Verify Before the Summit",
+        body: [
+          "The checks do not change because a summit is approaching. If anything, they matter more when the surrounding narrative is loud. The list below is the practical version; the wider [Telangana plot buyer guide](/guides/telangana-plot-buyer-checklist) covers the paperwork in more depth.",
+        ],
+        checklist: [
+          "Which authority approved the layout - HMDA, DTCP or FCDA - and whether the project is RERA registered where registration applies.",
+          "Whether the title is clear, supported by an encumbrance certificate covering the full 30-year period.",
+          "Whether the plot sits inside the notified master plan and whether its land use is residential, not a road, green or water reservation.",
+          "Whether road access exists today, as opposed to access shown on a layout that depends on a road still at tender or approval stage.",
+          "The real distance and travel time to the nearest operating employment node, measured at commuting hours.",
+          "Which surrounding infrastructure is existing and which is announced, established from dated sources rather than brochures.",
+          "The developer's delivery record, and whether water and power are actually available at the site.",
+          "That all supporting documents are verified before any payment or agreement is signed, not after.",
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "When is the Invest Telangana Global Summit 2026? It is scheduled for 7 to 9 December 2026 at Bharat Future City, at the Young India Skills University campus.",
+          "Will the Bharat Future City master plan be released at the summit? The state has said the master plan, prepared by Surbana Jurong, is to be unveiled during the December summit. Until it is published, its contents remain a statement of intent rather than a document buyers can rely on.",
+          "Does the summit approve plots or change land titles? No. A summit is an investment event. It does not approve individual layouts, clear titles or deliver roads, and it does not change the approval or title status of any specific plot.",
+          "Is now the right time to buy a plot near Future City? That depends on the specific plot, not on the summit. Verify the layout approval, title, access and infrastructure of the parcel in front of you, and treat the event as a reason to research more closely rather than to move faster.",
+          "Will the summit push up plot prices? No article can responsibly state that. A summit is a demand signal and an information event; whether it translates into price movement depends on execution, supply and wider market conditions over years, not days.",
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "The Invest Telangana Global Summit 2026 is a genuine milestone for Hyderabad's southern growth story, principally because the Bharat Future City master plan is expected to be published at it. For a 30,000-acre planned development, a published land-use framework is a meaningful step from concept toward something buyers can assess.",
+          "It is also, on its own, only that. A summit announcement does not approve a layout, clear a title or build a road. The corridor already carries a mix of operational, under-construction and merely announced assets, and the summit will add more announcements without changing the status of any of them.",
+          "The project we currently feature closest to this corridor is [JB Harmony Woods](/projects/jb-harmony-woods), positioned in the Future City Growth Corridor at Thummaloor and carrying its own FCDA-linked approvals, which should be verified against the project's own documents rather than assumed from its location.",
+          "Also on the same southern corridor is our [Upcoming Project on the Srisailam Highway](/projects/upcoming-srisailam-highway), relevant for readers tracking the wider axis around Future City. Both should be assessed against the same verification list as any other purchase, and neither should be treated as a proxy for the announcements documented above.",
+          "At Arjun Realty, our Insights section focuses on verified market developments, infrastructure trends and property-research information to help buyers make more informed real-estate decisions.",
+        ],
+        sources: [
+          {
+            label: "CM invites Union Defence Minister to Invest Telangana Global Summit-2026 and Raksha Expo-2026",
+            publisher: "Government of Telangana",
+            url: "https://www.telangana.gov.in/news/press-releases/2026/09/honble-chief-minister-sri-a-revanth-reddy-invited-honble-union-defence-minister-sri-rajnath-singh-to-attend-the-invest-telangana-global-summit-2026-and-inaugurate-defence-expo-2026",
+            date: "2 Sep 2026",
+          },
+          {
+            label: "Telangana to unveil Bharat Future City master plan during global investor summit in December",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/telangana-to-unveil-bharat-future-city-master-plan-during-global-investor-summit-in-december/article71305029.ece",
+            date: "4 Aug 2026",
+          },
+          {
+            label: "Bharat Future City master plan to be unveiled in December",
+            publisher: "The New Indian Express",
+            url: "https://www.newindianexpress.com/amp/story/states/telangana/2026/Aug/05/telangana-rising-global-summit-bharat-future-city-master-plan-to-be-unveiled-in-december",
+            date: "5 Aug 2026",
+          },
+          {
+            label: "Global summit is a historic occasion to take Telangana's future to new heights: Bhatti",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/global-summit-is-historic-occasion-to-take-telanganas-future-to-new-heights-bhatti/article71500065.ece",
+            date: "23 Sep 2026",
+          },
+          {
+            label: "Telangana to host Raksha Expo as part of Invest Telangana Global Summit 2026",
+            publisher: "ANI",
+            url: "https://www.indiasnews.net/news/279329497/telangana-to-host-raksha-expo-as-part-of-invest-telangana-global-summit-2026",
+            date: "24 Sep 2026",
+          },
+          {
+            label: "Telangana gears up for second edition of global investors summit in December 2026",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/telangana-gears-up-for-second-edition-of-global-investors-summit-in-december-2026/article71188698.ece",
+            date: "6 Jul 2026",
+          },
+          {
+            label: "Revanth pitches Future City as Telangana's gateway to a $1 trillion economy",
+            publisher: "The Times of India",
+            url: "https://timesofindia.indiatimes.com/city/hyderabad/revanth-pitches-future-city-as-telanganas-gateway-to-1-trillion-economy/articleshow/131642717.cms",
+            date: "10 Jun 2026",
+          },
+          {
+            label: "Future City draws 90 real estate proposals, approvals crawl amid delays",
+            publisher: "The Times of India",
+            url: "https://timesofindia.indiatimes.com/city/hyderabad/future-city-draws-90-real-estate-proposals-approvals-crawl-amid-delays/articleshow/132468055.cms",
+            date: "17 Jul 2026",
+          },
+          {
+            label: "SBI gets 10 acres in Hyderabad's Bharat Future City for proposed data centre",
+            publisher: "ET Enterprise AI",
+            url: "https://enterpriseai.economictimes.indiatimes.com/news/industry/sbi-gets-10-acres-in-hyderabads-bharat-future-city-for-proposed-data-centre/134328974",
+            date: "18 Sep 2026",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
