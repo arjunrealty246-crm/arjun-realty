@@ -53,6 +53,8 @@ interface ProjectFormData {
   developmentUpdates: { date: string; title: string; description: string; images: string[] }[];
   documents: { name: string; url: string; type: string; description: string }[];
   updates: { title: string; description: string; status: string }[];
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 const emptyForm: ProjectFormData = {
@@ -627,6 +629,24 @@ export default function ProjectForm({ projectId }: { projectId?: string | null }
                 className="h-4 w-4 rounded border-white/20 bg-white/[0.04] text-primary focus:ring-primary/30" />
               <span className="text-sm text-white/50">Site Visit Booking</span>
             </label>
+          </div>
+        </div>
+
+        {/* SEO Metadata */}
+        <div className="glass-card-elevated rounded-2xl p-6 lg:p-8">
+          <h2 className="text-lg font-bold text-white mb-6">SEO Metadata (per project)</h2>
+          <p className="text-xs text-white/30 mb-4">These override page metadata for this specific project.</p>
+          <div className="space-y-4">
+            <div>
+              <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">SEO Title</label>
+              <input type="text" value={form.seoTitle || ""} onChange={(e) => update("seoTitle", e.target.value)}
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30" />
+            </div>
+            <div>
+              <label className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">SEO Description</label>
+              <textarea value={form.seoDescription || ""} onChange={(e) => update("seoDescription", e.target.value)} rows={3}
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30" />
+            </div>
           </div>
         </div>
 
