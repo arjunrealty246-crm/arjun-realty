@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CalendarDays, Clock3, ArrowRight, Newspaper, TrendingUp, Building2, ShieldCheck, MessageCircle, MapPin } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
@@ -131,6 +132,18 @@ export default async function InsightsPage({ searchParams }: { searchParams: Pro
                   <Link href={`/insights/${article.slug}`} className="block h-full">
                     <article className="glass-card rounded-2xl p-6 flex flex-col h-full group relative overflow-hidden">
                       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      {article.image ? (
+                        <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-xl border border-white/[0.06]">
+                          <Image
+                            src={article.image}
+                            alt={article.imageAlt || article.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-dark/60 to-transparent" />
+                        </div>
+                      ) : null}
                       <div className="flex items-center justify-between gap-3 mb-4">
                         <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">
                           <Icon className="h-3 w-3" /> {article.category}

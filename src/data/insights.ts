@@ -2258,6 +2258,336 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "srisailam-highway-hyderabad-nh-765-future-growth",
+    title:
+      "Srisailam Highway Hyderabad: NH-765, ORR Exit 14, Airport Connectivity & Future Growth",
+    seoTitle: "Srisailam Highway Hyderabad: NH-765 Guide",
+    metaDescription:
+      "Srisailam Highway Hyderabad explained: NH-765 route, ORR Exit 14 at Tukkuguda, RGIA airport connectivity and the Future City growth belt - status-checked.",
+    excerpt:
+      "The Srisailam Highway is Hyderabad's NH-765 corridor, meeting the Outer Ring Road at ORR Exit 14 in Tukkuguda and running through the airport and Future City belt. A status-checked guide to the highway, its connectivity and what is actually planned.",
+    category: "Market Updates",
+    categorySlug: "market-updates",
+    publishedAt: "2026-10-16",
+    author: researchDesk,
+    image: "/images/insights/srisailam-highway-hyderabad-nh-765-growth-corridor.jpg",
+    imageAlt:
+      "Srisailam Highway Hyderabad corridor infographic showing NH-765, ORR Exit 14 Tukkuguda, RGIA airport, Bharat Future City and the proposed Regional Ring Road - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods", "upcoming-srisailam-highway"],
+    sections: [
+      {
+        body: [
+          "The Srisailam Highway is the stretch of National Highway 765 that leaves Hyderabad's Outer Ring Road at Tukkuguda and runs south-west towards Srisailam, across the airport belt and the emerging Future City corridor. For anyone weighing land on Hyderabad's southern edge, it is less a single road than the spine that connects several different investment stories - and this guide separates the ones that exist today from the ones that are still only planned.",
+          "It is worth being precise about the geography first, because most marketing on this corridor blurs it. The highway meets the city's road network at ORR Exit 14 and runs past the airport-anchored belt, through Amangal and Kadthal, on towards Kalwakurthy and eventually Srisailam. That is a very long line, and the amenity, approvals and price on it change from one stretch to the next - the reason we published a separate [stretch-by-stretch buying guide](/insights/srisailam-highway-2026-stretch-by-stretch-growth-guide) alongside this overview.",
+          "This article is a status-checked explainer of the corridor as infrastructure: what NH-765 is, where the ORR junction sits, how the airport fits in, and which upgrades are built, funded or still at proposal stage. It is Arjun Realty market research. It makes no claim that any particular plot price will rise, and it distinguishes throughout between what is operational and what is merely announced. For the corridor's projects and context, see our [Srisailam Highway & Future City hub](/srisailam-highway-future-city).",
+        ],
+      },
+      {
+        heading: "What the Srisailam Highway Actually Is",
+        body: [
+          "The Srisailam Highway carries the national highway designation NH-765. It begins at the point in Hyderabad where it meets NH-44, and runs through Maisaram, Amangal, Veldanda, Kalwakurthy, Achampet and Srisailam before ending at its junction with NH-565 near Tokapalle on the Andhra Pradesh side. Officially, NH-765 is about 270 km long, of which roughly 192 km lies in Telangana.",
+          "For the Hyderabad end of it, the operative number is the Hyderabad-Srisailam section of NH-765, which is about 187 km. Of that, roughly 125 km from Hyderabad to Brahmanpally has already been developed to two-lane with paved shoulders or four-lane standard. The remaining stretch of about 62 km falls inside the Amrabad Tiger Reserve, where widening has not been carried out.",
+          "One point of terminology matters for buyers. The Srisailam Highway is a national highway, not an expressway: access is not grade-separated or fully controlled, and it carries local traffic along its length. That is a different product from the Outer Ring Road, which is an access-controlled expressway. Treating the two as interchangeable is a common source of error when a layout's connectivity is described.",
+        ],
+      },
+      {
+        heading: "ORR Exit 14 at Tukkuguda: Where the Highway Meets the Ring Road",
+        body: [
+          "The city-side anchor of the Srisailam Highway is its junction with the [Outer Ring Road](/orr) at Exit 14, in the Tukkuguda area. The Nehru Outer Ring Road is a 158-km, eight-lane ring expressway that encircles Hyderabad through around twenty interchanges, and Exit 14 is the point at which NH-765 leaves that ring and heads south. In practice this junction is the corridor's northern gateway: reach it and the whole ORR - and through it the airport, the Financial District and the wider city - is within road reach.",
+          "This is why Exit 14 functions as a pricing benchmark for the corridor rather than just a crossroads. Demand for the stretches nearest the junction, such as Tukkuguda and the adjoining villas belt, is anchored partly by airport proximity and partly by the employment and commercial activity that collects around a major ORR interchange. Because those drivers are already operating rather than projected, this end of the corridor behaves differently from the speculative far end.",
+        ],
+        entries: [
+          {
+            title: "Outer Ring Road - Exit 14, Tukkuguda",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "The interchange where NH-765 (Srisailam Highway) leaves the Nehru Outer Ring Road and heads south. It is the corridor's northern gateway and the anchor for demand in the immediate Tukkuguda belt.",
+            facts: [
+              { label: "Ring road", value: "Nehru ORR, about 158 km, eight-lane" },
+              { label: "Role", value: "NH-765 junction and price benchmark" },
+              { label: "Access", value: "Links the corridor to the airport and the city" },
+            ],
+          },
+          {
+            title: "Tukkuguda residential and villa belt",
+            status: "Established",
+            tone: "operational",
+            summary:
+              "The most built-up residential stretch on the corridor, with layouts, commercial frontage and utilities already in place around the ORR junction.",
+            facts: [
+              { label: "Primary demand", value: "Airport-linked villa and second-home buyers" },
+              { label: "Maturity", value: "Existing layouts and operating infrastructure" },
+            ],
+            note: "On a settled stretch the differentiator between layouts is usually the approval set and the internal road widths, not the location.",
+          },
+        ],
+        caution:
+          "Being close to ORR Exit 14 is a location advantage, not an approval. Confirm the specific layout's sanctioning authority - HMDA, DTCP or FCDA - before treating proximity as value.",
+      },
+      {
+        heading: "Airport Connectivity: What RGIA Really Means for the Corridor",
+        body: [
+          "Rajiv Gandhi International Airport at Shamshabad is the single largest demand anchor on this side of Hyderabad, and the Srisailam Highway runs through the belt it serves. The airport is reached from the corridor primarily through the Outer Ring Road, and its presence supports much of the villa, second-home and rental demand that defines the northern stretches of the corridor.",
+          "It is easy to overstate this. Airport proximity is a genuine driver, but it is measured in real door-to-door travel time, not in a number printed on a brochure. A site that shares the airport's district can still be a slow drive at commuting hours if its access depends on a road that is not yet built. The honest test is a timed run to the terminal at the hour you would actually travel.",
+          "The airport's connectivity is also set to change. Under Hyderabad Metro's Phase II, the sanctioned Part-A programme includes a corridor from Nagole to RGIA at Shamshabad, about 36.6 km long, while a further corridor from RGIA towards the planned Fourth City - about 40 km - remains at survey and cost-assessment stage. Both are proposed or under development rather than operational, and neither should be assumed as present-day connectivity.",
+        ],
+        entries: [
+          {
+            title: "Rajiv Gandhi International Airport (RGIA), Shamshabad",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "Hyderabad's international airport, in the southern belt the corridor serves, reached from the Srisailam axis primarily via the ORR. A principal demand anchor for villa and second-home plots on the corridor.",
+            facts: [
+              { label: "Role", value: "Demand anchor and gateway" },
+              { label: "Access from corridor", value: "Via the Outer Ring Road" },
+            ],
+          },
+          {
+            title: "Metro Phase II - Nagole to RGIA corridor",
+            status: "Sanctioned",
+            tone: "approval",
+            summary:
+              "The airport corridor of Hyderabad Metro's Phase II, about 36.6 km, connecting Nagole to RGIA. Administrative sanction has been given for the Phase II programme; the line is not operational.",
+            facts: [
+              { label: "Length", value: "About 36.6 km" },
+              { label: "Status", value: "Sanctioned under the Phase II programme" },
+            ],
+          },
+          {
+            title: "Proposed metro extension - RGIA to Fourth City",
+            status: "Proposed",
+            tone: "planned",
+            summary:
+              "A planned corridor of about 40 km from RGIA towards the planned Fourth City, with field surveys and cost assessment under way. Alignment is provisional and construction timelines are not fixed.",
+            facts: [
+              { label: "Length", value: "About 40 km" },
+              { label: "Stage", value: "Survey and cost assessment" },
+            ],
+          },
+        ],
+        caution:
+          "Announced or sanctioned metro lines are not existing metro lines. Until a corridor is operational, connectivity here is road-based, and travel-time claims should be verified in person.",
+      },
+      {
+        heading: "NH-765 Upgrades: What Is Built, Funded and Still Proposed",
+        body: [
+          "Three different statuses coexist on the Srisailam Highway, and the temptation is to collapse them into a single 'upcoming highway' story. They are worth keeping apart, because each carries a different timeline and a different level of certainty.",
+          "The first is already done. Roughly 125 km of the Hyderabad-Srisailam section of NH-765 - the important part for plots on the Hyderabad side - has been developed to two-lane with paved shoulders or four-lane standard. That work is operational, and it is what today's corridor access is built on.",
+          "The second is at planning. In August 2025 the Ministry of Road Transport and Highways stated that work had begun on a Detailed Project Report for four-laning the Tukkuguda-Dindi section of NH-765 via Kalwakurthy, a stretch of about 85 km. Officials have linked it to cutting the Hyderabad-Srisailam drive from around five hours to about four, and to allowing traffic to bypass Amangal and Kadthal - but a Detailed Project Report is a study, not a construction contract.",
+          "The third is a longer-horizon proposal. The stretch of about 62 km of NH-765 inside the Amrabad Tiger Reserve, which remains two-lane, has been the subject of a state proposal for a four-lane elevated corridor. Such projects are examined on environmental and cost grounds, and nothing here should be read as a confirmed construction schedule.",
+        ],
+        entries: [
+          {
+            title: "Developed Hyderabad-Srisailam section",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "About 125 km of the roughly 187-km Hyderabad-Srisailam section of NH-765 has been developed to two-lane with paved shoulders or four-lane standard.",
+            facts: [
+              { label: "Developed", value: "About 125 km" },
+              { label: "Section total", value: "About 187 km" },
+            ],
+          },
+          {
+            title: "Four-laning of Tukkuguda-Dindi (via Kalwakurthy)",
+            status: "DPR initiated",
+            tone: "approval",
+            summary:
+              "A four-laning proposal of about 85 km on NH-765 from Tukkuguda to Dindi via Kalwakurthy. A Detailed Project Report was reported as initiated in August 2025.",
+            facts: [
+              { label: "Length", value: "About 85 km" },
+              { label: "Stage", value: "Detailed Project Report initiated" },
+            ],
+          },
+          {
+            title: "Elevated corridor through the Amrabad Tiger Reserve",
+            status: "Proposed",
+            tone: "planned",
+            summary:
+              "A proposal to build a four-lane elevated corridor through the roughly 62-km stretch of NH-765 inside the Amrabad Tiger Reserve, which is currently two-lane. A proposal, not an approved or under-construction work.",
+            facts: [
+              { label: "Length", value: "About 62 km" },
+              { label: "Location", value: "Amrabad Tiger Reserve section" },
+            ],
+          },
+        ],
+        caution:
+          "A Detailed Project Report is the study that precedes a decision to build. For plot-buying purposes, an upgraded status should be treated as a medium to long-term factor, not as present-day infrastructure.",
+      },
+      {
+        heading: "The Regional Ring Road and the Radial Road to Amangal",
+        body: [
+          "The most significant long-term change to this part of Hyderabad's map is the proposed Regional Ring Road, a 100-metre-wide outer ring planned outside the existing ORR. Its northern arc has advanced furthest: about 161.5 km of six-lane highway, for which the Detailed Project Report has been completed and the proposal appraised under the public-private framework, with land acquisition comparatively well progressed. The southern arc, which is the one that relates to the Srisailam Highway belt, is less advanced - its Detailed Project Report is yet to be finalised.",
+          "Where the RRR eventually crosses the Srisailam Highway area, access would improve from two directions rather than one, which is the structural argument for the stretches around Amangal and Kadthal. That argument is real but future-dated, and because it depends on a southern corridor still at DPR stage, its timeline is the least fixed element on this part of the map.",
+          "Closer in, a greenfield radial road is being taken up to connect the ORR with the proposed RRR. The Raviryal-Amangal road, about 41.5 km long and six-lane, links the ORR's Raviryal interchange towards the proposed RRR near Amangal, and is designed with space reserved for a future metro or rail corridor. It is under development, with forest clearance reported as granted, and it is the road that most directly reshapes access to the Future City belt.",
+        ],
+        entries: [
+          {
+            title: "Regional Ring Road (RRR)",
+            status: "Proposed",
+            tone: "planned",
+            summary:
+              "A proposed 100-metre-wide outer ring beyond the ORR. The northern arc's Detailed Project Report is complete and appraised; the southern arc's is not yet finalised.",
+            facts: [
+              { label: "Northern arc", value: "About 161.5 km, six-lane, DPR complete" },
+              { label: "Southern arc", value: "DPR not yet finalised" },
+            ],
+          },
+          {
+            title: "Raviryal-Amangal radial road (ORR to proposed RRR)",
+            status: "Under development",
+            tone: "development",
+            summary:
+              "A greenfield, roughly 41.5-km six-lane radial road linking the ORR at Raviryal to the proposed RRR near Amangal, with space reserved for a future metro or rail line.",
+            facts: [
+              { label: "Length", value: "About 41.5 km" },
+              { label: "Role", value: "ORR to proposed RRR link" },
+            ],
+          },
+        ],
+        caution:
+          "The southern arc of the RRR is still at Detailed Project Report stage. Any plot priced on the assumption that the RRR intersection is imminent is being priced on a timeline that has not been fixed.",
+      },
+      {
+        heading: "Bharat Future City and the Future City Growth Corridor",
+        body: [
+          "The reason so much attention sits on this highway is the planned development at its shoulder. Bharat Future City is a proposed greenfield city of about 30,000 acres on Hyderabad's southern periphery, largely in the Kandukur belt, planned with dedicated zones for sectors such as artificial intelligence, life sciences and industry, and regulated by the Future City Development Authority (FCDA). Its master plan is expected to be published around the December 2026 investment summit.",
+          "A set of named investments has already been announced around it, at different stages of delivery - from a data-centre campus whose foundation has been laid, to projects disclosed but not yet built. Our status review of [what has actually changed in Future City](/insights/future-city-2026-what-has-actually-changed) tracks those individually, and our [growth-corridor analysis](/insights/future-city-growth-corridor-whats-driving-land-values) sets out the demand mechanics behind them.",
+          "For this article the relevant point is narrower: the Srisailam Highway is the western access spine for that belt, which is why the corridor's story and the Future City story are usually told together. They are connected, but they are not the same, and a plot on the highway is not automatically inside the Future City plan or approved by its authority.",
+        ],
+        caution:
+          "A published master plan governs land use; it does not approve any individual layout or clear any title. Being inside a plan boundary and being approved by the authority that regulates it are different things.",
+      },
+      {
+        heading: "What This Means for Plot Buyers on the Corridor",
+        body: [
+          "Everything above is infrastructure context, not a forecast. No responsible reading of a highway, a ring road or a planned city can state that a particular land price will rise, and this article makes no such claim. What the infrastructure does is change access - and access is one of several things that determine what a plot is worth and how easily it can be resold.",
+          "The practical takeaway is that the Srisailam Highway rewards buyer discipline more than most corridors, precisely because so much of its narrative is future-dated. The plots that tend to hold up best here are the ones whose access, approvals and utilities exist now, bought at prices that still make sense if the announced upgrades arrive later than advertised. The approval question in particular is where buyers most often go wrong, because HMDA, DTCP and FCDA layouts are routinely described in a single breath despite being different instruments.",
+        ],
+        drivers: [
+          "Existing access - whether the plot can be reached on a built road today, as opposed to a road still at Detailed Project Report or tender stage.",
+          "Approval authority - whether the layout is sanctioned by HMDA, DTCP or FCDA, and what each instrument actually permits.",
+          "Airport and ORR reach - real door-to-door travel time at commuting hours, not the figure on a brochure.",
+          "Infrastructure status - treating operational, under-construction, sanctioned and proposed items as four different things.",
+          "Utilities at the boundary - power and water actually available, rather than shown on a layout plan.",
+          "Entry-price discipline - pricing the timeline you can verify, not the one being marketed.",
+        ],
+        caution:
+          "Real-estate appreciation is not guaranteed. Property decisions should rest on the verified approvals, exact location and connectivity of the specific plot, and on wider market conditions.",
+      },
+      {
+        heading: "JB Harmony Woods and the Corridor",
+        body: [
+          "The project we currently feature closest to this corridor is [JB Harmony Woods](/projects/jb-harmony-woods), an FCDA-approved premium semi-villa community at Thummaloor, in the Future City growth corridor off the Srisailam Highway. It is positioned by its developer a few minutes from the highway and close to ORR Exit 14, within the belt this article describes - and, like any project on the corridor, it is the project's own approval documents that should be relied on, not its location.",
+          "Also on the same axis is an [upcoming highway-facing township on the Srisailam Highway](/projects/upcoming-srisailam-highway), relevant to readers tracking the corridor's larger-scale proposals. Both should be assessed against the same verification list as any other purchase, and neither should be read as a proxy for the infrastructure discussed above.",
+        ],
+      },
+      {
+        heading: "What to Verify Before You Buy on This Corridor",
+        body: [
+          "Whatever stretch of the Srisailam Highway you are considering, the same checks decide whether a plot is a verifiable purchase or a bet. The corridor's stretches differ in price and timeline, but not in the ways they fail. Our [Telangana plot buyer guide](/guides/telangana-plot-buyer-checklist) covers the paperwork in more depth.",
+        ],
+        checklist: [
+          "Approval: which authority sanctioned the layout - HMDA, DTCP or FCDA - and whether the project is RERA-registered where registration applies.",
+          "Title: a clear title supported by an encumbrance certificate covering the full 30-year period, not a shorter commercial search.",
+          "Land use: whether the plot sits inside the notified master plan and is zoned residential, not a road, green or water reservation.",
+          "Access: whether the road you are told provides access exists today, and which sections of NH-765 or its feeders are actually laid.",
+          "Travel time: the real distance and commute to the airport and the nearest operating employment node, measured at commuting hours.",
+          "Infrastructure status: which surrounding infrastructure is existing and which is announced, established from dated sources rather than brochures.",
+          "Utilities: whether power and water reach the plot boundary today, and by which authority.",
+          "Price basis: what the quoted rate assumes about approvals and timelines, and whether it still works if they slip by two years.",
+        ],
+        caution:
+          "On this corridor the common error is paying an upgraded-highway price for a stretch whose access is still two-lane and whose upgrades remain at Detailed Project Report stage.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "What is the Srisailam Highway called? It is National Highway 765 (NH-765), the Hyderabad-Srisailam highway. It begins in Hyderabad where it meets NH-44 and runs south-west via Amangal, Kalwakurthy and Achampet towards Srisailam.",
+          "Which ORR exit connects to the Srisailam Highway? Exit 14, at Tukkuguda, is the junction where NH-765 leaves the Nehru Outer Ring Road and heads south. It is the corridor's northern gateway.",
+          "Is a four-lane expressway planned on the Srisailam Highway? A four-laning proposal exists for the Tukkuguda-Dindi section via Kalwakurthy, on which a Detailed Project Report was reported as initiated in 2025. Other stretches, including the section through the Amrabad Tiger Reserve, remain at proposal stage. None of this is operational, and DPR work is not construction.",
+          "Does the Regional Ring Road pass near the Srisailam Highway? The proposed RRR is planned as an outer ring beyond the ORR, and its southern arc relates to this belt. The northern arc's Detailed Project Report is complete; the southern arc's is not yet finalised, so its timeline is not fixed.",
+          "Is the Srisailam Highway the same as the airport road? No. The Srisailam Highway is NH-765, running towards Srisailam. Rajiv Gandhi International Airport is reached from the corridor mainly via the Outer Ring Road, and the two are related by proximity rather than being the same road.",
+          "Will plots on the Srisailam Highway appreciate? No article can responsibly state that. Infrastructure changes access; whether that translates into price movement depends on execution, supply and wider market conditions over years.",
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "The Srisailam Highway matters to Hyderabad land buyers because it is where three things meet: an existing national highway, the ORR junction at Tukkuguda that plugs it into the city, and the planned Future City belt at its shoulder. Read at the level of what exists, that is a genuinely well-connected corridor - NH-765 is an operational highway, ORR Exit 14 is an operating interchange, and RGIA is an operating airport.",
+          "Read at the level of what is proposed, it is a corridor with a substantial pipeline: the four-laning of the Tukkuguda-Dindi section, an elevated corridor through the Amrabad Tiger Reserve, the southern Regional Ring Road and its radial link, and a phased metro extension. Each of those is real as a proposal, and none of them is a substitute for present-day access.",
+          "The discipline this corridor rewards is the same one we apply to every project we present. Verify the plot's own approvals, title and access; price the timeline you can check, not the one being marketed; and treat the highway's future upgrades as a reason to research more carefully rather than to move more quickly. Buyers who want to see the corridor and its projects on the ground can [schedule a layout visit](/schedule-site-visit) with our team.",
+        ],
+        sources: [
+          {
+            label: "State-wise length of National Highways in India (NH-765 route: Hyderabad - Amangal - Veldanda - Kalwakurthy - Srisailam - Doranala - Tokapalle)",
+            publisher: "National Highways Authority of India (NHAI)",
+            url: "https://nhai.gov.in/nhai/sites/default/files/StateWiseLengthNHsIndia.pdf",
+            date: "30 Nov 2018",
+          },
+          {
+            label: "Lok Sabha Unstarred Question No. 3408: upgradation of NH-765 and the Hyderabad-Srisailam section",
+            publisher: "Ministry of Road Transport & Highways",
+            url: "https://sansad.in/getFile/loksabhaquestions/annex/184/AU3408_6nmpsy.pdf?source=pqals",
+            date: "20 Mar 2025",
+          },
+          {
+            label: "National Highway 765 (India) - route and length",
+            publisher: "Wikipedia",
+            url: "https://en.wikipedia.org/wiki/National_Highway_765_(India)",
+            date: "Accessed Oct 2026",
+          },
+          {
+            label: "NH-765 expansion from Tukkuguda: DPR initiated for four-laning of Tukkuguda-Dindi via Kalwakurthy",
+            publisher: "Deccan Chronicle",
+            url: "https://www.deccanchronicle.com/southern-states/telangana/nh-765-expansion-from-tukkuguda-to-help-motorists-reach-srisailam-in-4-hours-1895149",
+            date: "2 Aug 2025",
+          },
+          {
+            label: "Outer Ring Road, Hyderabad - exit and interchange junctions (Exit 14, Tukkuguda Junction)",
+            publisher: "Wikipedia",
+            url: "https://en.wikipedia.org/wiki/Outer_Ring_Road,_Hyderabad",
+            date: "Accessed Oct 2026",
+          },
+          {
+            label: "Proposed Alignment of 100 m wide Regional Ring Road (RRR)",
+            publisher: "Hyderabad Metropolitan Development Authority (HMDA)",
+            url: "https://www.hmda.gov.in/proposed-alignment-of-100m-wide-regional-ring-road/",
+            date: "2025",
+          },
+          {
+            label: "Hyderabad Regional Ring Road: northern corridor DPR complete; southern DPR yet to be finalised",
+            publisher: "Swarajya",
+            url: "https://swarajyamag.com/news-brief/hyderabad-regional-ring-road-gadkari-says-99-per-cent-land-notified-for-northern-corridor-southern-dpr-yet-to-be-finalised",
+            date: "30 Jul 2026",
+          },
+          {
+            label: "Telangana's Raviryal-Amangal radial road gets government nod (Stage-II forest clearance)",
+            publisher: "The New Indian Express",
+            url: "https://www.newindianexpress.com/cities/hyderabad/2026/Jun/04/telanganas-raviryal-amangal-radial-road-gets-govt-nod",
+            date: "4 Jun 2026",
+          },
+          {
+            label: "Hyderabad Airport Metro Phase II to span 116.2 km with extension to Fourth City",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/cities/Hyderabad/hyderabad-airport-metro-phase-ii-to-span-1162-km-at-over-32000-crore-with-extension-to-fourth-city/article68697403.ece",
+            date: "29 Sep 2024",
+          },
+          {
+            label: "Telangana to unveil Bharat Future City master plan during global investor summit in December",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/telangana-to-unveil-bharat-future-city-master-plan-during-global-investor-summit-in-december/article71305029.ece",
+            date: "4 Aug 2026",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
