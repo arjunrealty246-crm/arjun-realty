@@ -47,6 +47,27 @@ export interface InsightSource {
   date?: string;
 }
 
+/**
+ * Optional responsive data table for a section. Rendered inside a horizontal
+ * scroll container so wide tables stay usable on mobile without breaking the
+ * page layout. Purely additive: sections without a `table` render exactly as
+ * before.
+ */
+export interface InsightTable {
+  caption?: string;
+  columns: string[];
+  rows: string[][];
+}
+
+/**
+ * Optional question/answer pair rendered as an accessible expandable FAQ item.
+ * Purely additive: sections without `faqs` render exactly as before.
+ */
+export interface InsightFaq {
+  question: string;
+  answer: string;
+}
+
 export interface InsightSection {
   heading?: string;
   body: string[];
@@ -54,6 +75,8 @@ export interface InsightSection {
   locations?: InsightLocation[];
   drivers?: string[];
   checklist?: string[];
+  table?: InsightTable;
+  faqs?: InsightFaq[];
   sources?: InsightSource[];
   caution?: string;
 }
@@ -73,6 +96,8 @@ export interface Insight {
   imageWidth?: number;
   imageHeight?: number;
   featuredProjectSlugs?: string[];
+  /** When true, a clickable table of contents is rendered above the article body. */
+  showToc?: boolean;
   sections: InsightSection[];
 }
 
@@ -2585,6 +2610,1245 @@ export const insights: Insight[] = [
             date: "4 Aug 2026",
           },
         ],
+      },
+    ],
+  },
+  {
+    slug: "south-hyderabad-industrial-growth-corridor",
+    title:
+      "South Hyderabad Industrial Growth Corridor: Companies, Employment, Aerospace, Electronics & Future City",
+    seoTitle: "South Hyderabad Industrial Growth Corridor",
+    metaDescription:
+      "A status-checked guide to South Hyderabad's industrial corridor: GMR Aerocity, aerospace MRO, electronics parks, Foxconn, data centres, Bharat Future City and open plots.",
+    excerpt:
+      "From GMR Aerocity and the aerospace MRO cluster to the Raviryal electronics belt, Foxconn at Kongara Kalan and the planned Bharat Future City, a documented and status-labelled guide to what is operating, what is under construction and what is still only announced.",
+    category: "Corporate Investments & Growth",
+    categorySlug: "corporate-growth",
+    publishedAt: "2026-10-18",
+    author: researchDesk,
+    image: "/images/insights/south-hyderabad-industrial-growth.jpg",
+    imageAlt:
+      "Illustrative schematic of the South Hyderabad industrial and connectivity corridor showing airport, aerospace, electronics, data centre and planned Future City nodes - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods", "upcoming-srisailam-highway"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "South Hyderabad is no longer a single-airport story. Over roughly two decades, the belt around Rajiv Gandhi International Airport (RGIA) at Shamshabad has grown into a set of overlapping industrial economies: an airport-linked business and aerospace cluster at Shamshabad, a precision-engineering and electronics-manufacturing zone around Raviryal and Maheshwaram, a defence and aerospace Special Economic Zone at Adibatla, a fast-rising consumer-electronics plant at Kongara Kalan, and a planned greenfield city, Bharat Future City, to the south. Each operates on its own timetable, and treating them as one interchangeable corridor is the most common mistake buyers make.",
+          "This is Arjun Realty market research. Its purpose is to separate what is operating today from what is under construction, what is only announced or committed, and what remains a long-term vision. The airport economy is genuinely real: an operating international airport, an operating hyperscale cloud region and thousands of people already working in and around GMR Aerocity. A large part of what is marketed as the corridor, however, is still a pipeline. The distance between those two facts is what decides whether a given announcement is relevant to a specific plot, and when.",
+          "The distinction that matters most for property is the difference between an existing employment base and future growth potential. An operating MRO hangar, an operating electronics line or a completed IT campus creates housing, rental and services demand now. An announced data centre or a proposed electronics park creates an expectation that may take years to convert into payroll. Employment-led demand is a documented mechanism; property appreciation is not guaranteed by it, and this article promises no returns. For the wider regional context, see our [Hyderabad Future City 2026 review](/insights/hyderabad-future-city-ai-data-centres-manufacturing-infrastructure-growth) and the [Srisailam Highway NH-765 guide](/insights/srisailam-highway-hyderabad-nh-765-future-growth).",
+        ],
+      },
+      {
+        heading: "The Corridor and Its Locations",
+        body: [
+          "The most useful way to read South Hyderabad is node by node rather than as a single continuous zone. The named locations below are separated by real distances, different mandals and, in several cases, different approval jurisdictions. A facility at Adibatla does not confer the same connectivity on a plot at Kongara Kalan, and Raviryal is not Maheshwaram even though both sit inside Mandal borders that overlap on paper.",
+          "Three practical relationships recur. The Srisailam Highway (NH-765) runs south-west from the Outer Ring Road towards Maheshwaram and Amangal. The airport sits between Shamshabad and Maheshwaram, anchoring the southern industrial belt. And Adibatla sits to the south-east, closer to the Nagarjuna Sagar road, hosting the defence and aerospace SEZ plus an IT campus. Bharat Future City is a separate planned footprint further south again.",
+          "Because these nodes are not adjacent and are not interchangeable, every project page we publish names an exact village and mandal rather than a corridor label. The same discipline applies here: the notes below describe role and status, not a claim that any two locations are equivalent.",
+        ],
+        locations: [
+          {
+            name: "Shamshabad",
+            note: "Home to RGIA and the GMR Aerocity business district. The airport and its MRO, cargo and aerospace tenants are the anchor of the whole southern belt.",
+          },
+          {
+            name: "Tukkuguda",
+            note: "ORR Exit 14 junction on the Srisailam Highway side. A residential, villa and commercial spillover node rather than an industrial one.",
+          },
+          {
+            name: "Raviryal / E-City",
+            note: "Rangareddy district, close to the airport. Site of the government-listed E-City / electronics manufacturing cluster and the legacy Fab City footprint.",
+          },
+          {
+            name: "Adibatla",
+            note: "South-east of the airport near the Nagarjuna Sagar road. Hosts the Aerospace & Precision Engineering SEZ, Tata aerospace facilities and a TCS IT campus.",
+          },
+          {
+            name: "Maheshwaram",
+            note: "Central to the electronics-hardware belt. Home to Hardware Park, the EMC Maheshwaram cluster and several defence-electronics units.",
+          },
+          {
+            name: "Kongara Kalan",
+            note: "Ibrahimpatnam mandal, roughly 15 km from RGIA. Location of the Foxconn Interconnect Technology electronics plant.",
+          },
+          {
+            name: "Mankhal",
+            note: "Industrial Development Area adjoining the Plastic Park, near NH-765. Mature mixed-manufacturing estate rather than a new-tech cluster.",
+          },
+          {
+            name: "Nadergul",
+            note: "Balapur side, near the city. TSIIC Precision Engineering Park, an older and largely occupied small-engineering estate.",
+          },
+          {
+            name: "Chandanvelly",
+            note: "Shabad mandal, Rangareddy district. Location of the operational Microsoft India South Central cloud region.",
+          },
+          {
+            name: "Bharat Future City",
+            note: "A planned greenfield city area south of the airport, within the Farooqhnagar/ FCDA planning footprint. Largely a long-term vision at the time of writing.",
+          },
+        ],
+        caution:
+          "These locations are not adjacent or interchangeable. Proximity to one node does not transfer connectivity, approvals or employment access to another. Always assess a specific plot on its own location and records.",
+      },
+      {
+        heading: "GMR Aerocity Hyderabad",
+        body: [
+          "GMR Aerocity Hyderabad is the airport-led business district developed by the GMR Group around RGIA. It is the one part of this corridor that can be described as an operating economy rather than a pipeline: the airport itself operates, cargo moves, and a set of business and industrial tenants are already on the ground.",
+          "Two different area figures circulate and should not be merged. GMR markets the Aerocity master plan at roughly 1,500 acres of planned development. Within that, the industrial zone, which is the GMR Aerospace & Industrial Park, is separately reported at about 277 acres. The larger number is the district; the smaller number is the industrial component inside it.",
+          "GMR also publishes workforce figures for Aerocity, and here the honesty of a research article matters more than a tidy headline. Different GMR pages have cited both 21,000-plus and 10,000-plus professionals for the same financial-year label. Both are self-reported and neither could be independently verified, so the responsible statement is that the ecosystem supports a workforce measured in the thousands to the low tens of thousands, with the exact figure contested between GMR's own pages.",
+        ],
+        table: {
+          caption:
+            "GMR Aerocity Hyderabad: components and current status. Statuses reflect the best available evidence at the time of writing and are not a substitute for site verification.",
+          columns: ["Component", "What it is", "Status"],
+          rows: [
+            ["Airport (RGIA)", "Operating international airport with cargo, passenger and airside infrastructure", "Operational"],
+            ["GMR Aerospace & Industrial Park", "Industrial zone of about 277 acres within Aerocity", "Operational (multi-product SEZ + DTA)"],
+            ["GMR Business Park", "Grade-A office space within Aerocity", "Operational"],
+            ["GMR Interchange (retail/mixed-use)", "About 20 acres of retail and high-street development", "Under construction"],
+            ["Logistics & warehousing", "Cargo ecosystem plus a logistics park and FTWZ within the industrial zone", "Operational / expanding"],
+            ["Institutional zone & GMR Arena", "Planned skills, events and convention components", "Announced / long-term"],
+          ],
+        },
+        caution:
+          "Aerocity workforce figures are self-reported by GMR and are inconsistent across GMR's own pages. Treat any single number as indicative, not audited.",
+      },
+      {
+        heading: "GMR Aerospace & Industrial Park",
+        body: [
+          "The GMR Aerospace & Industrial Park is the industrial engine of Aerocity and the single most important operating cluster in South Hyderabad. It is run by GMR Hyderabad Aviation SEZ Limited and sits at the RGIA campus at Shamshabad, with airside access that most industrial parks cannot offer.",
+          "The park spans about 277 acres, of which roughly 200 acres are notified as a multi-product Special Economic Zone and the remaining roughly 77 acres are a Domestic Tariff Area. About 20 acres of the SEZ area is an airport-based Free Trade Warehousing Zone. This matters because SEZ units and DTA units operate under different customs and tax regimes, so the park and its tenants are not a single uniform bloc.",
+          "The park hosts a genuine aerospace and advanced-manufacturing ecosystem, not a list of logos on a hoarding. The confirmed tenants include Safran's engine MRO and component entities, Cyient DLM's electronics manufacturing, Skyroot Aerospace's private space facilities, GMR Aero Technic's airframe MRO, and training operations. What follows describes each function rather than repeating names, because the value of the cluster is the complementarity between manufacturing, maintenance, logistics and training.",
+          "It is important to distinguish the wider park from individual company sites. The 277 acres is shared industrial infrastructure: roads, utilities, runway access and common services. Each tenant occupies its own leased plot. Safran's LEAP MRO, for example, occupies a 23.5-acre site within the SEZ, while other tenants occupy very different footprints. The park is not one company campus.",
+        ],
+        table: {
+          caption: "Confirmed aerospace and industrial tenants in the GMR Aerospace & Industrial Park ecosystem.",
+          columns: ["Organisation", "Activity", "Status"],
+          rows: [
+            ["GMR Aero Technic", "Airframe MRO: heavy checks, conversions, painting, component services", "Operational (expanding)"],
+            ["Safran (LEAP MRO)", "CFM LEAP engine maintenance, repair and overhaul", "Operational (initial operations from 2026)"],
+            ["Safran (M88 / Rafale MRO)", "Military engine MRO for the M88 engine", "Announced / committed"],
+            ["Safran Electrical & Power / Safran Aircraft Engines", "Aerospace electrical systems and engine components", "Operational"],
+            ["Cyient DLM", "Integrated electronics manufacturing (PCBA, box build, harnesses)", "Operational"],
+            ["Skyroot Aerospace", "Private launch-vehicle design, assembly and offices", "Operational"],
+            ["Pratt & Whitney", "Engine OEM customer training centre", "Operational"],
+            ["GMR School of Aviation", "DGCA/EASA-approved aviation maintenance training", "Operational"],
+          ],
+        },
+        caution:
+          "SEZ and DTA units operate under different regimes, and tenants occupy individual plots rather than the whole 277 acres. Boeing and Airbus do not have confirmed company-operated facilities inside this park; GMR Aero Technic is a Boeing customer, which is not the same thing.",
+      },
+      {
+        heading: "Safran's Hyderabad Engine MRO and Aerospace Manufacturing",
+        body: [
+          "Safran is the most consequential single investor in the Shamshabad aerospace cluster, and its operations show why precision in reporting matters. There are at least three distinct Safran activities, and their statuses differ.",
+          "The flagship is the CFM LEAP engine MRO, operated as Safran Aircraft Engine Services India. Safran describes it as its largest LEAP engine MRO shop in the world, on a reported 23.5-acre site with a 45,000 sq m facility. It was inaugurated by the Prime Minister on 26 November 2025, with operations brought into service from 2026. The facility targets up to 300 LEAP shop visits a year at full capacity, against an initial throughput closer to 100 engines a year.",
+          "The employment figures need careful handling. Safran reported more than 250 people at launch, ramping toward up to about 1,100 at full capacity, and by mid-2026 a trade report put the current workforce at more than 300. Those are three different things: a launch headcount, a long-term target, and a current payroll. None should be presented as the others.",
+          "Separate from the civil MRO is a smaller M88 military engine facility of about 5,000 sq m, dedicated to the engine that powers the Dassault Rafale, with reported investment above €40 million, capacity for more than 600 engine modules a year and up to about 150 people at full capacity. Safran also has component and systems entities in the park, including Safran Electrical & Power and Safran Aircraft Engines. Tata's separate engine-parts joint venture with Safran at Adibatla is a different site and is covered in the Adibatla section.",
+        ],
+        entries: [
+          {
+            title: "Safran Aircraft Engine Services India — LEAP MRO",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "CFM LEAP-1A and LEAP-1B engine MRO in the GMR Aerospace & Industrial Park SEZ. Inaugurated on 26 November 2025; operations brought into service from 2026. Safran describes it as its largest LEAP MRO facility globally.",
+            facts: [
+              { label: "Site", value: "Reported 23.5 acres; 45,000 sq m facility" },
+              { label: "Target capacity", value: "Up to 300 LEAP shop visits a year" },
+              { label: "People at launch", value: "More than 250" },
+              { label: "Target workforce", value: "Up to about 1,100 at full capacity" },
+              { label: "Reported current workforce", value: "More than 300 (mid-2026 trade report)" },
+            ],
+            note: "The largest-in-the-world claim is Safran's own and is not independently benchmarked to a neutral third-party source.",
+          },
+          {
+            title: "Safran M88 (Rafale) engine facility",
+            status: "Announced / committed",
+            tone: "planned",
+            summary:
+              "A separate, smaller facility dedicated to the M88 engine that powers the Dassault Rafale. Reported as the first Safran military engine maintenance site built outside France.",
+            facts: [
+              { label: "Facility size", value: "About 5,000 sq m" },
+              { label: "Reported investment", value: "More than €40 million" },
+              { label: "Stated capacity", value: "More than 600 engine modules a year" },
+              { label: "Target workforce", value: "Up to about 150 at full capacity" },
+            ],
+            note: "Announced in November 2025. Distinct from the civil LEAP MRO and not to be combined with it.",
+          },
+        ],
+        caution:
+          "Capacity, launch headcount, target headcount and current payroll are four different figures. Do not present a target or a capacity number as current employment, and do not add Safran's facilities together as if they were one plant.",
+      },
+      {
+        heading: "Raviryal E-City and the Electronics Manufacturing Cluster",
+        body: [
+          "Raviryal is the most frequently mis-described location in South Hyderabad. Marketing often refers to a Fab City of over 1,000 acres as if it were today's operating electronics cluster. It is not. The historical Fab City was a 2006 semiconductor proposal that was allocated roughly 1,200 acres and then largely failed; the current government-listed E-City / electronics manufacturing cluster is a separate and smaller footprint.",
+          "The reliable way to read the site is through three layers. First, the historical Fab City: roughly 1,200 acres were allocated in 2006 for a semiconductor project that was never built, with SEZ notifications totalling around 1,075 acres across several tranches. Second, the de-notification: in 2022 the state approved the removal of a large share of that SEZ, leaving a much smaller residual SEZ. Third, the current cluster: the district administration lists the E-City / electronics manufacturing cluster at Raviryal at about 602 acres, with a project cost in the order of ₹769 crore and a projected expected investment around ₹1,800 crore.",
+          "Employment at the cluster is a projection, not a payroll. The district listing cites potential figures in the tens of thousands direct and over two lakh indirect. Those are potential, and they should be labelled as such. The vacant-plot position is more mundane and more useful: the district park table shows the E-City cluster with a large majority of plots still vacant, which is what an electronics cluster with a handful of operating units actually looks like.",
+          "A set of companies has some form of verified presence, and they are listed below with status. Two names that appear in older district directories, HCL Infosystems and a similarly worded electronics entry, could not be corroborated with any current Maheshwaram or Raviryal facility and are treated here as stale directory entries rather than operating units.",
+        ],
+        table: {
+          caption:
+            "Raviryal: historical Fab City versus the current government-listed E-City cluster. These are different footprints and must not be conflated.",
+          columns: ["Layer", "Area reported", "Status"],
+          rows: [
+            ["Fab City land allocation (2006)", "About 1,200 acres", "Historical — semiconductor project not built"],
+            ["Fab City SEZ notifications", "About 1,075 acres across tranches", "Historical"],
+            ["Residual SEZ after 2022 de-notification", "About 163 acres", "Operational (residual)"],
+            ["Current E-City / electronics cluster", "About 602 acres", "Operational cluster, majority of plots vacant"],
+          ],
+        },
+        entries: [
+          {
+            title: "Bhagwati Products (Micromax group)",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "Consumer-electronics manufacturing (mobiles, LED televisions) anchored at Raviryal as an anchor unit of the electronics cluster. Reported allotment of about 18.7 acres.",
+            note: "Subsequent large ECMS expansion announcements have been reported for other states, not for Raviryal. Treat historical job projections as projections.",
+          },
+          {
+            title: "Premier Energies Photovoltaic",
+            status: "Operational",
+            tone: "operational",
+            summary: "Solar-cell manufacturing unit at the Fab City / Raviryal electronics estate, listed on the national solar manufacturing register.",
+          },
+          {
+            title: "Avantel Systems",
+            status: "Operational",
+            tone: "operational",
+            summary: "RF and defence-electronics manufacturing at E-City, Raviryal, with a reported footprint of about four acres.",
+          },
+          {
+            title: "Celkon Impex",
+            status: "Operational (company)",
+            tone: "operational",
+            summary:
+              "Handset company historically allotted land at the E-City hardware park. The company remains active, but current manufacturing scale at Raviryal is unverified.",
+            note: "Historic allotment and historical production claims should be treated as industrial records, not current output.",
+          },
+          {
+            title: "Embedded IT Solutions",
+            status: "Partially verified",
+            tone: "planned",
+            summary:
+              "Listed by the district under the E-City cluster and historically associated with a PCB unit. Current operating status at Raviryal could not be independently confirmed.",
+          },
+        ],
+        caution:
+          "Do not claim the historical Fab City acreage as the current operating cluster. Employment figures for the cluster are potential projections, not current payrolls, and several directory names are historical rather than confirmed operating units.",
+      },
+      {
+        heading: "Maheshwaram Electronics and Hardware Park",
+        body: [
+          "Maheshwaram is the deepest electronics and precision-engineering node in the corridor, and it is also the one with the most confusing set of overlapping park names. There is the Electronic Hardware Manufacturing Cluster (often called the Maheshwaram science park), Hardware Park-I, Hardware Park-II, and a proposed general industrial park. Only some of these are built out.",
+          "The acreage itself is contested across sources, which is normal when a cluster is defined differently by an environmental-clearance boundary, a district listing and the corporation that runs it. District listings cite the Maheshwaram cluster at about 310 acres with a project cost around ₹409 crore, while an environmental-clearance filing for the TSIIC electronic and hardware park describes a site of about 373 acres with a smaller net electronic zone. These are different scopes and should not be averaged.",
+          "Occupancy is the most honest indicator of maturity, and it differs sharply within Maheshwaram. Hardware Park-I is essentially full, with the district table showing all 74 plots occupied. The EMC Maheshwaram cluster is only partly occupied, with roughly 29 of 122 plots taken. Hardware Park-II is the emptiest, with the district listing it among proposed IT/ITES land. That pattern, one full older park and two partly built ones, is what an industrial cluster in transition looks like.",
+          "Several defence and electronics companies operate here with verifiable footprints. They are listed below. Two names that appear in older district directories could not be corroborated and are treated as stale entries.",
+        ],
+        table: {
+          caption:
+            "Maheshwaram-area parks. Acreage is reported from district and clearance sources and differs by definition; occupancy is from the district park table.",
+          columns: ["Park", "Reported extent", "Occupancy", "Status"],
+          rows: [
+            ["Hardware Park-I", "About 310 acres", "74 of 74 plots occupied", "Operational"],
+            ["EMC Maheshwaram cluster", "About 340 acres", "About 29 of 122 plots occupied", "Operational, partly built out"],
+            ["Hardware Park-II", "About 250 acres", "About 4 of 57 plots occupied", "Partly developed / proposed IT-ITES"],
+          ],
+        },
+        entries: [
+          {
+            title: "Zen Technologies",
+            status: "Operational",
+            tone: "operational",
+            summary: "Defence simulation and anti-drone systems manufacturing at Hardware Park, with a Maheshwaram unit reported commissioned.",
+          },
+          {
+            title: "Astra Microwave Products",
+            status: "Operational",
+            tone: "operational",
+            summary: "RF and microwave electronics manufacturing with a Hardware Park (Imarath Kancha) presence.",
+          },
+          {
+            title: "Tata Teleservices",
+            status: "Operational",
+            tone: "operational",
+            summary: "Telecom infrastructure presence at Hardware Park, Raviryal (Kancha Imarat).",
+          },
+          {
+            title: "Avon Defence Systems",
+            status: "Operational",
+            tone: "operational",
+            summary: "Defence-systems manufacturing unit within the TSIIC Hardware Park, Maheshwaram.",
+          },
+          {
+            title: "JSW Defence",
+            status: "Under construction",
+            tone: "development",
+            summary: "A reported UAV / drone manufacturing plant at the Maheshwaram EMC, with groundbreaking reported in late 2025.",
+          },
+        ],
+        caution:
+          "Park acreage differs by definition across sources and should not be averaged or added together. Hardware Park-II is largely undeveloped, and HCL Infosystems and a similarly named electronics entry could not be verified as current Maheshwaram operations.",
+      },
+      {
+        heading: "Adibatla Aerospace, Defence and IT/ITES",
+        body: [
+          "Adibatla, to the south-east of the airport, is the corridor's defence and aerospace manufacturing hub. It contains two distinct things that are often merged: an Aerospace & Precision Engineering SEZ that hosts heavy manufacturing, and an adjacent IT/ITES park anchored by a large Tata Consultancy Services campus.",
+          "The aerospace SEZ is fully occupied on paper, with the district table showing all 11 plots taken. Its reported extent varies between sources from about 338 to about 339 acres, and older listings cite a smaller area, so the extent should be quoted with its source rather than as a single settled figure.",
+          "The manufacturing story at Adibatla is unusually concrete for an Indian industrial corridor because the facilities here build identifiable products. Tata Boeing Aerospace, a joint venture with Boeing, produces AH-64 Apache fuselages and has expanded substantially, delivering its 400th fuselage in late 2026. Tata Lockheed Martin Aerostructures produces C-130J empennages. Tata Advanced Systems has an aerostructures plant, and a Tata-Safran joint venture opened a facility making LEAP engine parts in October 2025. A Dassault-Tata Rafale fuselage facility is under construction.",
+          "Separately, the IT/ITES side of Adibatla is a mixed commercial park of about 160 acres that is largely occupied and anchored by the TCS Adibatla SEZ campus of about 75 acres, completed in 2015. The two halves of Adibatla serve different workforces, which is why the location supports both industrial and salaried residential demand.",
+        ],
+        entries: [
+          {
+            title: "Adibatla Aerospace & Precision Engineering SEZ",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "A TSIIC-managed aerospace SEZ hosting heavy manufacturing. Fully allotted on the district park table. Reported extent varies by source from about 338 to 339 acres.",
+          },
+          {
+            title: "Tata Boeing Aerospace (TBAL)",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "Tata-Boeing joint venture producing AH-64 Apache helicopter fuselages and secondary structures. Has expanded to about 52,000 sq m and reported its 400th fuselage delivered in late 2026.",
+            facts: [
+              { label: "Product", value: "AH-64 Apache fuselages and secondary structures" },
+              { label: "Reported workforce", value: "More than 750" },
+              { label: "Milestone", value: "400th fuselage (late 2026)" },
+            ],
+          },
+          {
+            title: "Tata Advanced Systems (TASL)",
+            status: "Operational",
+            tone: "operational",
+            summary: "Aerostructures manufacturing within the Adibatla aerospace SEZ.",
+          },
+          {
+            title: "Tata Lockheed Martin Aerostructures (TLMAL)",
+            status: "Operational",
+            tone: "operational",
+            summary: "Produces C-130J empennages, with reported output past 260 sets. A separate Tata-Lockheed C-130J defence MRO facility is under construction.",
+          },
+          {
+            title: "Tata-Safran engine-parts facility",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "A Tata centre of excellence with Safran Aircraft Engines producing LEAP engine bearing housings and low-pressure turbine shafts. Inaugurated in October 2025 with reported investment of about ₹425 crore and about 500 skilled roles projected.",
+            note: "Distinct from Safran's LEAP MRO and M88 facilities at the GMR park in Shamshabad.",
+          },
+          {
+            title: "Dassault-Tata Rafale fuselage facility",
+            status: "Under construction",
+            tone: "development",
+            summary:
+              "A Rafale fuselage section production facility, reported as the first such production outside France, with first sections expected around 2028 and reported investment of about ₹440 crore.",
+          },
+        ],
+        caution:
+          "SEZ extents conflict across sources and should be quoted with attribution. The Tata-Lockheed C-130J MRO is described by its promoters only as being 'in India'; its precise Adibatla siting is not explicitly confirmed, and it is still under construction.",
+      },
+      {
+        heading: "Foxconn and Kongara Kalan",
+        body: [
+          "The Foxconn plant at Kongara Kalan is the corridor's clearest example of why status discipline matters. The implementing entity is Foxconn Interconnect Technology (FIT), part of Taiwan's Foxconn / Hon Hai group, operating in India through Chang Yi Interconnect Technology. The plant is about 15 km from RGIA, in Ibrahimpatnam mandal.",
+          "The facility began as a components and connectors project and pivoted to Apple AirPods and true-wireless earbuds, with commercial production reported from around April 2025. That makes it operational, not proposed. But the headline numbers attached to it in early coverage, including figures in the tens of thousands of jobs, were announcements. The only near-term operational headcount reported has been far smaller, in the low thousands and targeting a further ramp.",
+          "This is a case where a single trusted number does not exist. Investment figures have been reported as about ₹4,833 crore of fixed capital and separately as roughly $550 million, and the two are close but not from a single primary disclosure. Job claims have ranged from about 13,000 to about 24,000 to a 2023 projection of 25,000 direct roles. None should be presented as current employment.",
+        ],
+        entries: [
+          {
+            title: "Foxconn Interconnect Technology — Kongara Kalan",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "An electronics plant producing Apple AirPods and true-wireless earbuds, plus components and cables, with commercial production reported from around April 2025.",
+            facts: [
+              { label: "Location", value: "Kongara Kalan, Ibrahimpatnam mandal (~15 km from RGIA)" },
+              { label: "Land", value: "About 120 acres reported allotted" },
+              { label: "Reported operational headcount", value: "About 2,000, targeting about 5,000" },
+            ],
+            note: "Investment and job figures vary widely by source and are largely announcements or projections. Do not reuse a headline employment number from another Foxconn site.",
+          },
+        ],
+        caution:
+          "Do not use a headline employment or investment number from another Foxconn location. For Kongara Kalan, the most defensible current figure is the reported operational headcount in the low thousands, targeting a step-up.",
+      },
+      {
+        heading: "World Trade Center Shamshabad",
+        body: [
+          "World Trade Center Shamshabad is frequently described as if it were a completed commercial landmark. It is not. The main campus is under construction, and only an interim office is operating.",
+          "The centre is a member of the World Trade Centers Association and is promoted by the Hyderabad-based Kapil Group through an entity associated with WTC economic development. Its interim office has operated at Nanakramguda since 2022. The physical campus is planned within the Hardware Park area at Raviryal in Maheshwaram mandal, a short drive from the airport.",
+          "Area claims differ by source and by definition, which is exactly the kind of ambiguity to avoid. The WTC website markets a campus figure in the millions of square feet, while the co-branded developer page for the associated business park cites a smaller built-up area in phases and a site of about eleven acres. These are marketing measures on different bases.",
+          "Until the campus opens, the honest position is that WTC Shamshabad is a committed commercial project with an operating interim presence and no publicly verifiable tenant list, occupancy or opening date. Claims of Fortune 500 tenancy should be treated as marketing until the building is occupied.",
+        ],
+        entries: [
+          {
+            title: "World Trade Center Shamshabad",
+            status: "Under construction",
+            tone: "development",
+            summary:
+              "A WTCA-member trade and business centre promoted by the Kapil Group. The interim office has operated since 2022; the main campus at the Raviryal / Maheshwaram Hardware Park area is under construction.",
+            facts: [
+              { label: "Operator / promoter", value: "Kapil Group (via a WTC economic-development entity)" },
+              { label: "Interim office", value: "Nanakramguda, operating since 2022" },
+              { label: "Planned location", value: "Hardware Park area, Raviryal, Maheshwaram mandal" },
+            ],
+            note: "Area figures differ by definition: a multi-million-square-foot campus claim on the WTC site versus a smaller phased built-up area and an about eleven-acre site on the developer page. No verified tenant list is published.",
+          },
+        ],
+        caution:
+          "Do not state that the WTC Shamshabad campus is open, occupied, or tenanted. Only the interim office operates. Avoid inventing opening dates, tenants or floor areas.",
+      },
+      {
+        heading: "Other Industrial Parks and Companies",
+        body: [
+          "Beyond the headline clusters, Rangareddy district contains a large set of TSIIC industrial parks and estates that quietly make up much of the region's manufacturing base. Several are mature and full; several are partly developed; and a few exist only as proposals on the district's own list.",
+          "The table below reproduces the district government's park figures for the corridor area. Occupancy is the column that matters most, because a park with most plots vacant is a different proposition from one that is full. Where a park is marked proposed on the district list, it should not be described as operational.",
+          "On companies, the district industrial records name a number of units, but a district record of allotment is not the same as proof the unit is running today. Names such as Radiant Appliances & Electronics, Kenwin Solutions, Smart-Waves Technologies and Exicom Telesystems appear in or around these records and are worth verifying individually against current evidence before being relied upon. Astra Microwave and Zen Technologies, by contrast, have corroborated operating footprints in Maheshwaram. A company should only be cited when its name, location and industrial relationship can be supported.",
+        ],
+        table: {
+          caption:
+            "Selected TSIIC industrial parks in the South Hyderabad corridor. Extent and occupancy are from the Ranga Reddy district industries listing (updated April 2025); proposed parks are marked as such.",
+          columns: ["Park", "Location", "Extent", "Occupancy / status"],
+          rows: [
+            ["Hardware Park-I", "Maheshwaram / Raviryal", "About 310 acres", "Full (74/74 plots)"],
+            ["Fab City / E-City", "Raviryal", "About 602 acres", "Mostly vacant (about 20/171 plots)"],
+            ["EMC Maheshwaram", "Maheshwaram", "About 340 acres", "Partly occupied (about 29/122 plots)"],
+            ["Hardware Park-II", "Maheshwaram", "About 250 acres", "Largely vacant; proposed IT-ITES"],
+            ["Aerospace SEZ", "Adibatla", "About 338–339 acres", "Full (11/11 plots)"],
+            ["IP Adibatla IT/ITES", "Adibatla", "About 160 acres", "Mostly occupied"],
+            ["IP Nadergul (Precision Engg.)", "Nadergul / Balapur", "About 129 acres", "Mostly occupied (about 88/101 plots)"],
+            ["IDA Mankhal", "Mankhal", "About 107 acres", "Full (60/60 plots)"],
+            ["IDA Katedan", "Katedan", "About 245 acres", "Full (500/500 plots)"],
+            ["IDA Kothur", "Kothur", "About 182 acres", "Full (88/88 plots)"],
+            ["Autonagar", "Hayathnagar", "About 600 acres", "Full (1,514 plots)"],
+            ["Plastic Park", "Mankhal / Tummaloor", "About 179 acres", "Partly occupied"],
+            ["MSME Industrial Park", "Ibrahimpatnam", "About 129 acres", "Proposed"],
+            ["IP Chandanvelly", "Chandanvelly", "About 1,423 acres", "Large multi-project park, partly developed"],
+            ["IP Kongara Kalan", "Kongara Kalan", "About 320 acres", "Proposed on district list"],
+            ["IP Maheshwaram", "Maheshwaram", "About 340 acres", "Proposed on district list"],
+          ],
+        },
+        caution:
+          "A district record of a company or a plot allotment is not proof of current operation. Proposed parks must not be described as operational, and directory-derived company lists should be labelled as historical where current status is uncertain.",
+      },
+      {
+        heading: "Bharat Future City",
+        body: [
+          "Bharat Future City is the corridor's long-term vision and the project most prone to being over-stated. It is a planned greenfield city south of the airport, and at the time of writing it is a master-plan and land-assembly exercise rather than a built city.",
+          "Two figures must be kept apart. The planning authority, the Farooqhnagar / FCDA special development authority, covers a footprint officially described at around 765 sq km, or roughly 1.89 lakh acres, across seven mandals. The narrower city that is marketed as Bharat Future City is commonly reported at roughly 30,000 acres. Media frequently conflates the two, and they are not the same number.",
+          "The intended sectors are broad: AI and digital infrastructure, data centres, life sciences and health, education and skills, advanced manufacturing, electronics and EV-related activity, logistics and knowledge industries, and entertainment and urban development, with a net-zero and smart-city framing. The master plan has been entrusted to an international consortium and is expected to be unveiled around a December 2026 investor summit, with an FCDA office established at Meerkhanpet in Kandukur mandal.",
+          "The correct classification is therefore administrative vision with some committed individual projects inside it. An MoU signed for the wider state, or a Telangana-wide investment announcement, is not an investment committed specifically to Future City, and a signed agreement is not a built facility.",
+        ],
+        entries: [
+          {
+            title: "Bharat Future City (planned city)",
+            status: "Proposed / long-term",
+            tone: "planned",
+            summary:
+              "A planned greenfield city south of RGIA, within the wider FCDA planning footprint. Master plan under preparation; sectors span AI, data centres, life sciences, education, advanced manufacturing and urban development.",
+            facts: [
+              { label: "FCDA planning footprint", value: "About 765 sq km (about 1.89 lakh acres)" },
+              { label: "Reported city area", value: "About 30,000 acres (reported; distinct from FCDA footprint)" },
+              { label: "Mandals involved", value: "Seven, in Rangareddy district" },
+              { label: "Master-plan status", value: "Under preparation; unveiling expected around December 2026" },
+            ],
+            note: "Administrative elements are committed; city-scale construction is not underway. The final master-plan boundary had not been published at the time of writing.",
+          },
+        ],
+        caution:
+          "Keep the proposed city area separate from the wider planning-authority footprint. Do not treat a Telangana-wide investment announcement as committed specifically to Future City, and do not describe the city as built.",
+      },
+      {
+        heading: "AI, Data Centres and TCS HyperVault",
+        body: [
+          "The data-centre story is the newest layer of the corridor and the one with the largest headline numbers. It is also the layer with the largest gap between announcement and operation, so it deserves careful reading.",
+          "The most prominent project is TCS HyperVault, a subsidiary that signed an agreement with the state in September 2026 to establish a large AI data-centre campus at Bharat Future City, reported at up to one gigawatt of capacity and up to ₹70,000 crore of investment potential. A second, earlier commitment is Amazon Web Services' Telangana data-centre programme under a framework agreement signed in December 2025, reported around ₹60,000 crore, with land allotted and a foundation stone laid in July 2026. A third, and the only operating one in this grouping, is Microsoft's India South Central cloud region at Chandanvelly, which went live in 2026.",
+          "For both the TCS and AWS announcements, the correct status is announced or committed, not operational and not under confirmed construction. Reported site descriptions and employment estimates for these projects could not be tied to a primary company press release in this review and should be treated as reported rather than audited.",
+          "The reason data centres matter to the wider economy is not the buildings themselves but the demand they create: power and grid connection, cooling, fibre, engineering and construction labour, security, and specialist services, plus a growing demand for renewable energy. Those are real, recurring requirements once a campus is operating, which is why the gap between announcement and operation is the whole story.",
+        ],
+        entries: [
+          {
+            title: "TCS HyperVault AI data-centre campus",
+            status: "Announced / committed",
+            tone: "planned",
+            summary:
+              "A subsidiary agreement signed with the Telangana government in September 2026 for a large AI data-centre campus at Bharat Future City, reported at up to 1 GW of capacity and up to ₹70,000 crore of investment potential.",
+            facts: [
+              { label: "Reported capacity", value: "Up to 1 GW" },
+              { label: "Reported investment potential", value: "Up to ₹70,000 crore" },
+              { label: "Reported site", value: "250-plus / 264 acres (reported; see note)" },
+              { label: "Location", value: "Bharat Future City" },
+            ],
+            note: "The exact acreage wording, and any employment estimates, could not be tied to a primary TCS press release in this review. Do not describe the campus as operational.",
+          },
+          {
+            title: "AWS Telangana data-centre programme",
+            status: "Announced / committed",
+            tone: "planned",
+            summary:
+              "A framework agreement signed at the December 2025 state investor event, reported around ₹60,000 crore, with about 202 acres allotted at Bharat Future City and a foundation stone laid in July 2026.",
+            note: "Land allotment and a foundation stone are not operation. Construction status could not be independently confirmed.",
+          },
+          {
+            title: "Microsoft India South Central cloud region",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "An operating hyperscale cloud region at Chandanvelly, opened in 2026, built on a multi-zone architecture and part of Microsoft's wider India cloud and AI commitment.",
+            note: "The multi-billion-dollar India commitment is a national figure and is not attributable to this single region.",
+          },
+        ],
+        caution:
+          "None of the large AI data-centre announcements should be described as operating. Announced capital is not deployed capital, and a phased campus is not a finished one.",
+      },
+      {
+        heading: "Ratan Tata Greenfield Radial Road and Connectivity",
+        body: [
+          "Road infrastructure is what converts an industrial cluster into accessible land, and in this corridor the connectivity is mostly incomplete. The flagship is the Ratan Tata Greenfield Radial Road (Radial Road-1), a 41.5 km corridor linking the Outer Ring Road at the Raviryal area to Amangallu on the proposed Regional Ring Road.",
+          "Radial Road-1 is the most advanced of the radial-road projects. Its foundation stone was laid in September 2025 and civil works are underway, with a reported HMDA project estimate of about ₹4,621 crore including land and a target completion around 2028. Reported configuration is a 3+3 lane carriageway expandable to 4+4, with a right of way wide enough to reserve a central median for future metro or rail. Several of these configuration details were reported in trade coverage rather than an official HMDA project page, so they should be treated as reported.",
+          "The other connectivity projects are at earlier stages. Radial Road-2 has been at tender. The Regional Ring Road's northern segment has been appraised but not approved, and its southern alignment remains unresolved. The airport metro extension is proposed rather than operating. No high-speed rail or regional rapid transit specific to this corridor was confirmed as an operational service.",
+          "For property, the usable takeaway is narrower than the marketing suggests: the existing Outer Ring Road and the airport road network are real today, radial and ring roads are in various stages of delivery, and no proposed rail or road should be treated as operational until it is.",
+        ],
+        entries: [
+          {
+            title: "Ratan Tata Greenfield Radial Road (Radial Road-1)",
+            status: "Under construction",
+            tone: "development",
+            summary:
+              "A 41.5 km radial road linking the ORR at the Raviryal area to Amangallu on the proposed RRR, intended to open up the southern industrial and Future City belt.",
+            facts: [
+              { label: "Length", value: "41.5 km" },
+              { label: "Reported cost", value: "About ₹4,621 crore (HMDA estimate incl. land)" },
+              { label: "Reported configuration", value: "3+3 lanes, expandable to 4+4 (reported)" },
+              { label: "Reported target", value: "Completion around 2028 (reported)" },
+            ],
+            note: "Configuration details were reported in trade coverage rather than an official HMDA project page in this review.",
+          },
+        ],
+        caution:
+          "Do not describe any proposed radial road, ring road, metro or rail line as operational. Only the existing Outer Ring Road and airport access roads operate today.",
+      },
+      {
+        heading: "Employment, Companies and Real-Estate Demand",
+        body: [
+          "The link between industry and property is employment, and it works through specific channels rather than through proximity alone. An operating campus with a salaried workforce creates demand for rental housing near the site, for residential services, and for the retail, healthcare and education that follows the workforce. It creates demand for hotels and commercial services for visitors and suppliers. It creates logistics and supplier activity, and it makes a case for road connectivity improvements.",
+          "What it does not do is guarantee that any particular plot near the campus will appreciate. Proximity to a company is not a property strategy. A plot can be close to an operating facility and still fail on title, approval, access or land use. The correct formulation is that employment-led demand is a documented mechanism that can support long-term demand for legally clear, well-connected land, and that everything beyond that is analysis rather than a promise.",
+          "It also helps to separate two kinds of employment. The existing employment base, in the airport, MRO, electronics and IT clusters, is real and already generating demand. The future growth potential, in data centres, Future City and announced manufacturing, is a pipeline whose timing depends on projects actually being built and staffed. The corridor's level of excitement is best measured against that distinction.",
+        ],
+        drivers: [
+          "Airport and aerospace cluster — operating jobs in MRO, cargo, logistics and engineering that already support housing demand around Shamshabad and Maheshwaram.",
+          "Electronics manufacturing — operating units that employ continuously and place recurring demands on power, water and labour.",
+          "Defence and aerospace SEZ at Adibatla — high-skill manufacturing plus an adjacent salaried IT workforce.",
+          "Announced data centres and Future City — long-horizon potential that should not be treated as current demand.",
+          "Connectivity — the ORR today, radial and ring roads in delivery, which together change travel time to employment nodes.",
+          "Legal and approval quality — the factor that ultimately decides whether proximity to any of the above is safe to rely on.",
+        ],
+        caution:
+          "Employment-led demand is a documented mechanism, not a guarantee of appreciation. Proximity to a company does not by itself make a plot a good investment.",
+      },
+      {
+        heading: "Open Plots and Property Search Guide",
+        body: [
+          "Most buyers arrive at this corridor through a search for plots, so it is worth addressing those searches directly and honestly. People look for open plots in Tukkuguda, Maheshwaram, Future City, Raviryal and Adibatla, for plots near Shamshabad or the Srisailam Highway, and for plots near the Outer Ring Road. These are different requests and the answers are not interchangeable.",
+          "Two cautions should precede any listing. First, inside ORR is a specific location claim, not a marketing flourish: a plot that is merely near or outside the Outer Ring Road should not be described as inside it. Second, HMDA approval should not be claimed for a layout unless that specific layout's approval has been verified, because FCDA, HMDA, DTCP, RERA and industrial approvals each have a different scope, and a conversation about one is not a conversation about another. Our [DTCP, HMDA and FCDA explainer](/insights/dtcp-hmda-fcda-approvals-which-to-choose) sets out the differences.",
+          "Because this corridor contains both operating and announced projects, due diligence here has an extra step: establishing which infrastructure around a plot already exists and which is proposed. The checklist below is the same one we apply to our own listings, and it can be worked through for any plot in the corridor. Our [first-time plot investor checklist](/insights/first-time-plot-investor-checklist-hyderabad) covers the sequence, and the [Telangana plot buyer guide](/guides/telangana-plot-buyer-checklist) covers the paperwork in detail.",
+          "Where we can be specific about our own inventory, we are. The project we currently feature closest to this corridor is [JB Harmony Woods](/projects/jb-harmony-woods), and our related [Srisailam Highway project page](/projects/upcoming-srisailam-highway) covers the adjacent stretch. Both should be assessed against the same checklist as any other purchase and neither should be treated as a proxy for the announcements documented above.",
+        ],
+        checklist: [
+          "Confirm which authority approved the layout — HMDA, DTCP or FCDA — and record the approval number, rather than assuming a generic approval.",
+          "Check whether the plotted development is RERA registered where registration applies, and exactly what the registration covers.",
+          "Verify a clear title with an encumbrance certificate covering the full 30-year period, plus agreement and sale history.",
+          "Check the land-use classification and whether the layout sanction matches the intended use.",
+          "Confirm that the access road physically exists today, as opposed to being shown on a layout that depends on a road at tender or approval stage.",
+          "Establish which surrounding infrastructure is existing and which is proposed, from dated sources rather than brochures.",
+          "Measure the real travel time to the nearest operating employment node at actual commute hours, not straight-line distance.",
+          "Check the mortgage, release and lien status of the land, and whether any part is under acquisition or litigation.",
+          "Confirm water and power availability and whether capacity has been formally allocated, not merely promised.",
+          "Confirm the developer's delivery record on comparable projects before paying, and keep all documentation in hand before signing anything.",
+        ],
+        caution:
+          "Do not use inside ORR when a location is merely near or outside it. Do not claim HMDA approval unless the specific layout's approval is verified, and do not confuse FCDA, HMDA, DTCP, RERA or industrial approvals.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the article above. Where a figure is contested or projected, the answer says so rather than picking the most attractive number.",
+        ],
+        faqs: [
+          {
+            question: "What are the major industries in South Hyderabad?",
+            answer:
+              "The corridor spans several: airport and aviation-linked services, aerospace MRO and components, defence and precision engineering, electronics and hardware manufacturing, and a growing data-centre and cloud segment. The most mature clusters are the GMR Aerospace & Industrial Park at Shamshabad, the aerospace and defence SEZ at Adibatla, and the electronics and hardware parks around Maheshwaram and Raviryal.",
+          },
+          {
+            question: "Which companies are operating around Shamshabad and GMR Aerocity?",
+            answer:
+              "Verified operating names include GMR Aero Technic (airframe MRO), Safran's LEAP engine MRO and its electrical and aircraft-engine entities, Cyient DLM, Skyroot Aerospace, Pratt & Whitney's training centre, and the GMR School of Aviation. The park and its tenants occupy individual plots within a roughly 277-acre industrial zone, not one company campus.",
+          },
+          {
+            question: "What is GMR Aerospace Park known for?",
+            answer:
+              "It is the industrial zone of GMR Aerocity Hyderabad, reported at about 277 acres and partly a multi-product SEZ. It is known for airport-integrated aerospace and advanced manufacturing, including engine MRO, airframe MRO, electronics manufacturing and space-tech assembly, with airside access that most industrial parks do not have.",
+          },
+          {
+            question: "What is Safran doing in Hyderabad?",
+            answer:
+              "Safran runs at least three distinct activities at the GMR park: a CFM LEAP engine MRO (inaugurated November 2025, operations from 2026), a smaller M88 military engine facility for the Rafale engine, and component and systems entities. A separate Tata-Safran joint venture at Adibatla makes LEAP engine parts. These should not be added together as one facility.",
+          },
+          {
+            question: "Is Raviryal the same as Fab City?",
+            answer:
+              "No. Historical Fab City was a 2006 semiconductor proposal of roughly 1,200 acres that was largely not built. The current government-listed E-City / electronics manufacturing cluster at Raviryal is a separate footprint of about 602 acres. Do not cite the historical Fab City acreage as the current operating cluster.",
+          },
+          {
+            question: "Where is the Foxconn plant and is it running?",
+            answer:
+              "Foxconn Interconnect Technology's plant is at Kongara Kalan, in Ibrahimpatnam mandal, about 15 km from RGIA. It is operational, with Apple AirPods and true-wireless production reported from around April 2025. Headline job and investment figures attached to it vary widely and are largely announcements or projections.",
+          },
+          {
+            question: "Is World Trade Center Shamshabad open?",
+            answer:
+              "Only its interim office, which has operated at Nanakramguda since 2022. The main campus at the Raviryal / Maheshwaram Hardware Park area is under construction. Claims about tenants, occupancy or a specific opening date are not independently verifiable and should be treated as marketing until the campus is occupied.",
+          },
+          {
+            question: "Are the data centres at Future City operational?",
+            answer:
+              "No. The TCS HyperVault and AWS data-centre announcements at Bharat Future City are committed or announced, not operational. The one operating hyperscale facility in this corridor is Microsoft's India South Central cloud region at Chandanvelly. Announced capital is not deployed capital.",
+          },
+          {
+            question: "Are open plots in this corridor a guaranteed investment?",
+            answer:
+              "No. Employment-led demand is a real mechanism that can support long-term demand for legally clear, well-connected land, but it does not guarantee that any particular plot will appreciate. Proximity to a company is not a property strategy, and every plot should be verified on approvals, title and access before purchase.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "South Hyderabad's industrial corridor is neither the finished powerhouse that some marketing implies nor an empty promise. It is a mixed picture, and the mix is the point. The airport economy, the aerospace MRO cluster, the defence and aerospace SEZ at Adibatla and the electronics units around Maheshwaram are operating and creating employment now. The Foxconn plant is operating and ramping. The bigger data-centre and Future City announcements are committed but not built.",
+          "For anyone researching this area, the discipline is to read every claim by its status. Operational means operating. Under construction means a site with works underway. Announced or committed means a decision, an agreement or an allotment. Proposed or long-term means a vision. A plot near an operating factory is a different proposition from one near an announced campus, and treating the two as equivalent is the most expensive mistake a buyer can make here.",
+          "Our approach in this article, as elsewhere on Arjun Realty Insights, is to keep the sourcing visible and to avoid promising anything the evidence does not support. Employment-led demand can support well-chosen land over the long term. It does not guarantee appreciation, and it does not make proximity a strategy. As we always say, buyers should verify every property independently against the same due-diligence standard regardless of how favourable the surrounding narrative looks.",
+        ],
+        sources: [
+          {
+            label: "GMR Aerocity Hyderabad — airport land development",
+            publisher: "GMR Group",
+            url: "https://www.gmrgroup.com/airports-and-aero-services/airport-land-development/gmr-aerocity-hyderabad",
+          },
+          {
+            label: "GMR Aerospace & Industrial Park",
+            publisher: "GMR Aerocity Hyderabad",
+            url: "https://www.gmraerocityhyd.com/gmr-aerospace-industrial-park/",
+          },
+          {
+            label: "GMR Aerospace Park Hyderabad hosts world's largest engine MRO facility by Safran",
+            publisher: "GMR Aerocity Hyderabad",
+            url: "https://www.gmraerocityhyd.com/news/gmr-aerospace-park-hyderabad-hosts-worlds-largest-engine-mro-facility-by-safran-positioning-india-as-a-global-aerospace-hub/",
+            date: "27 Nov 2025",
+          },
+          {
+            label: "Safran steps up expansion in India in civil and military aviation",
+            publisher: "Safran",
+            url: "https://www.safran-group.com/pressroom/safran-steps-expansion-india-civil-and-military-aviation-and-deepens-commitment-make-india-2025-11-26",
+            date: "26 Nov 2025",
+          },
+          {
+            label: "Safran's Hyderabad engine MRO starts operations, targets 300 LEAP engines annually",
+            publisher: "The Hindu BusinessLine",
+            url: "https://www.thehindubusinessline.com/companies/safrans-hyderabad-engine-mro-starts-operations-targets-300-leap-engines-annually/article71290583.ece",
+            date: "31 Jul 2026",
+          },
+          {
+            label: "Ranga Reddy district industries — parks, clusters and companies",
+            publisher: "Ranga Reddy District Government",
+            url: "https://rangareddy.telangana.gov.in/industries/",
+            date: "Updated 8 Apr 2025",
+          },
+          {
+            label: "Tata Boeing Aerospace delivers Apache fuselages",
+            publisher: "Boeing India",
+            url: "https://www.boeing.co.in/news/2026/tata-boeing-aerospace-delivers-india-apache-fuselages",
+            date: "Sep 2026",
+          },
+          {
+            label: "Tata firm opens facility to make Safran engine parts",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/tata-firm-opens-facility-to-make-safran-engine-parts/article70212927.ece",
+            date: "28 Oct 2025",
+          },
+          {
+            label: "Dassault-Tata Rafale fuselage facility begins construction",
+            publisher: "Indian Defence Research Wing",
+            url: "https://idrw.org/dassault-tata-rafale-fuselage-facility-begins-construction-first-sections-expected-in-fy2028",
+            date: "10 Jul 2026",
+          },
+          {
+            label: "CM and Industries Minister visit FIT factory to review progress",
+            publisher: "Telangana Department of IT, E&C",
+            url: "https://it.telangana.gov.in/cm-and-industries-minister-visit-fit-factory-to-review-progress/",
+            date: "14 Oct 2024",
+          },
+          {
+            label: "Foxconn subsidiary to ramp up AirPods output in Telangana",
+            publisher: "ET Manufacturing",
+            url: "https://manufacturing.economictimes.indiatimes.com/news/hi-tech/foxconn-subsidiary-to-ramp-up-airpods-output-with-new-production-lines-in-telangana/124802560",
+            date: "25 Oct 2025",
+          },
+          {
+            label: "World Trade Center Shamshabad — about",
+            publisher: "World Trade Center Shamshabad",
+            url: "https://wtcshamshabad.org/aboutus.html",
+          },
+          {
+            label: "World Trade Center Shamshabad — WTCA profile",
+            publisher: "World Trade Centers Association",
+            url: "https://www.wtca.org/world-trade-center-shamshabad",
+          },
+          {
+            label: "Telangana to unveil Bharat Future City master plan during global investor summit in December",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/telangana-to-unveil-bharat-future-city-master-plan-during-global-investor-summit-in-december/article71305029.ece",
+            date: "4 Aug 2026",
+          },
+          {
+            label: "SBI data centre gets 10 acres in Future City",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/sbi-data-centre-gets-10-acres-in-future-city/article71477456.ece",
+            date: "17 Sep 2026",
+          },
+          {
+            label: "Telangana govt allots land for data centres in Future City",
+            publisher: "The News Minute",
+            url: "https://www.thenewsminute.com/story/telangana/telangana-govt-allots-10-acres-for-sbi-data-center-in-future-city",
+            date: "18 Sep 2026",
+          },
+          {
+            label: "Microsoft's newest India datacenter region goes live",
+            publisher: "Microsoft Source Asia",
+            url: "https://news.microsoft.com/source/asia/features/microsofts-newest-india-datacenter-region-goes-live-to-power-the-countrys-ai-economy-and-enable-frontier-firms",
+            date: "6 Aug 2026",
+          },
+          {
+            label: "Telangana CM sets in motion future of state — Radial Road and Future City",
+            publisher: "The New Indian Express",
+            url: "https://www.newindianexpress.com/states/telangana/2025/Sep/28/cm-revanth-reddy-to-set-in-motion-future-of-state-on-september-28",
+            date: "28 Sep 2025",
+          },
+        ],
+        caution:
+          "This article is research, not investment advice. Project statuses and figures change and should be re-verified before any decision. Real-estate appreciation is not guaranteed.",
+      },
+    ],
+  },
+  {
+    slug: "srisailam-highway-tukkuguda-maheshwaram-industrial-growth",
+    title:
+      "South Hyderabad Industrial Growth: Srisailam Highway, Tukkuguda & Maheshwaram",
+    seoTitle: "Srisailam Highway, Tukkuguda & Maheshwaram",
+    metaDescription:
+      "Explore industrial development, companies, employment opportunities and infrastructure growth across Srisailam Highway, Tukkuguda, Maheshwaram and nearby South Hyderabad locations.",
+    excerpt:
+      "A status-checked guide to the industries and employment along the Srisailam Highway belt, from Tukkuguda and Raviryala to Maheshwaram, separating what is operating today from what is still announced or proposed.",
+    category: "Corporate Investments & Growth",
+    categorySlug: "corporate-growth",
+    publishedAt: "2026-10-18",
+    author: researchDesk,
+    image: "/images/insights/srisailam-highway-tukkuguda-maheshwaram-industrial-growth.jpg",
+    imageAlt:
+      "Illustrative view of an industrial and highway corridor representing the Srisailam Highway industrial belt around Tukkuguda and Maheshwaram in South Hyderabad - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods", "upcoming-srisailam-highway"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "The Srisailam Highway, designated NH-765, is the western spine of South Hyderabad's industrial belt. Where it leaves the Outer Ring Road at Exit 14 in Tukkuguda, and runs south past Raviryala, Maheshwaram and Mankhal towards Amangal and Kadthal, it threads through the most concentrated mix of manufacturing and defence-electronics activity on this side of the city. This article looks at the industries and the employment that have grown up along that stretch rather than at the road itself.",
+          "The pattern here is not one industrial estate but several distinct nodes, each with its own park, its own tenants and its own stage of build-out. Tukkuguda is the gateway, with the newest large plant and a full older hardware park. Raviryala carries the reset Fab City land and a major solar manufacturer. Maheshwaram is the electronics and precision-engineering core. Treating these as a single interchangeable cluster is the most common mistake made about the belt, and it is the one this guide works hardest to avoid.",
+          "It is Arjun Realty market research, and it separates what is operating today from what is under construction, what is approved or announced, and what remains a proposal. Employment-led demand is a documented mechanism that can support well-chosen land over the long term; property appreciation is not guaranteed by it, and this article promises no returns.",
+          "For the road and connectivity context behind the belt, see our [Srisailam Highway NH-765 guide](/insights/srisailam-highway-hyderabad-nh-765-future-growth).",
+          "For the wider corridor and its committed pipeline, the [Future City and data-centre review](/insights/hyderabad-future-city-ai-data-centres-manufacturing-infrastructure-growth) is the companion piece.",
+        ],
+      },
+      {
+        heading: "The Srisailam Highway Belt, Node by Node",
+        body: [
+          "Read from the city outward, the belt has a clear geography. Exit 14 at Tukkuguda is the northern gateway. Raviryala and the Fab City land sit just beyond it. Maheshwaram, a few kilometres further south, is the industrial core. Mankhal is an older, mature mixed-manufacturing estate on the same axis. Kongara Kalan lies to the east of the highway near the airport, and the Future City footprint begins further south again.",
+          "Two practical relationships matter. First, proximity to the ORR junction is what makes the northern end of the belt commutable and residential. Second, the industrial nodes sit progressively further south, so a plot close to one facility is not automatically close to the next. The notes below describe each node's role, not a claim that any two are equivalent.",
+        ],
+        locations: [
+          {
+            name: "ORR Exit 14, Tukkuguda",
+            note: "The junction where NH-765 leaves the Outer Ring Road and heads south. The belt's northern gateway and the anchor for villa, plot and rental demand in the immediate area.",
+          },
+          {
+            name: "Tukkuguda",
+            note: "The gateway node. Home to the newest large manufacturing plant, an operating hardware park and the land allotted for new five-star hotels near the airport.",
+          },
+          {
+            name: "Raviryala / Fab City",
+            note: "The site of the long-idle Fab City SEZ, now partly reset for new industry, and of an operating solar-manufacturing plant within the E-City estate.",
+          },
+          {
+            name: "Maheshwaram",
+            note: "The belt's electronics and precision-engineering core, with the EMC Maheshwaram cluster, Hardware Park and several defence-electronics units.",
+          },
+          {
+            name: "Mankhal",
+            note: "A mature mixed-manufacturing industrial development area on the same axis, largely occupied, rather than a new-technology cluster.",
+          },
+          {
+            name: "Kongara Kalan",
+            note: "East of the highway near the airport, in Ibrahimpatnam mandal. Location of the operating Foxconn Interconnect Technology plant.",
+          },
+          {
+            name: "Bharat Future City",
+            note: "A planned greenfield city further south, linked to the belt by the highway corridor and its proposed radial roads. Largely a long-term vision at the time of writing.",
+          },
+        ],
+        caution:
+          "These nodes are separated by real distances and, in several cases, by different approval jurisdictions. Proximity to one does not transfer connectivity, approvals or employment access to another. Assess every plot on its own location and records.",
+      },
+      {
+        heading: "Tukkuguda: The Gateway Node",
+        body: [
+          "Tukkuguda is where the belt is most developed, and it is the natural entry point for anyone reading the corridor. Its position at ORR Exit 14, roughly seven kilometres from Rajiv Gandhi International Airport, gives it the best combination of city access and airport proximity on the stretch, and it is the node where the industrial and residential stories overlap most closely.",
+          "The single largest new investment here is Lenskart's eyewear manufacturing facility, announced through a state MoU in December 2024 and begun with a foundation ceremony in March 2025. The reported outlay is about ₹1,500 crore, and the jobs figure attached at announcement was around two thousand. Those numbers need careful handling: as the company and the state both indicated, commercial production is expected to begin in about two years and full-scale operations in about four, so the employment attached to the plant is a projection for a later phase rather than a present payroll.",
+          "Alongside the new plant, the Tukkuguda side has a genuine operating base. Hardware Park in the Tukkuguda area hosts defence-electronics manufacturing, including VEM Technologies' seeker facility near the Srisailam Road, and Hardware Park-1 is reported to host aerospace units and defence-component suppliers alongside a large logistics operation. That mix, a completed older park and a large new plant under construction, is what a node in active transition looks like.",
+        ],
+        table: {
+          caption:
+            "Tukkuguda-area developments and current status. Statuses reflect the best available evidence at the time of writing and are not a substitute for site or record verification.",
+          columns: ["Development", "Location", "Reported scale", "Status"],
+          rows: [
+            ["Lenskart eyewear manufacturing facility", "Non-SEZ General Park, Tukkuguda / Fab City", "About ₹1,500 crore; about 2,000 jobs projected", "Under construction"],
+            ["VEM Technologies seeker facility", "Hardware Park, Tukkuguda (near Srisailam Road)", "More than ₹100 crore; 1.25 lakh sq ft", "Operational"],
+            ["Hardware Park-1 tenants", "Tukkuguda", "Aerospace, defence-component and logistics units reported", "Operational"],
+            ["Five-star hotels (Oberoi; Venkateswara)", "Hardware Park-3, Tukkuguda", "Oberoi ₹532 crore on 3.63 acres; Venkateswara ₹102 crore on 1 acre", "Land allotted / planned"],
+          ],
+        },
+        entries: [
+          {
+            title: "Lenskart eyewear manufacturing facility",
+            status: "Under construction",
+            tone: "development",
+            summary:
+              "An integrated eyewear manufacturing plant covering frames, lenses and finished eyewear, planned at the Non-SEZ General Park at Tukkuguda near the Outer Ring Road. Announced through a state MoU in December 2024; foundation ceremony in March 2025.",
+            facts: [
+              { label: "Reported investment", value: "About ₹1,500 crore" },
+              { label: "Reported jobs", value: "About 2,000 (projected; reported up to 2,100)" },
+              { label: "Stated timeline", value: "Commercial production in about 2 years; full operations in about 4 years" },
+            ],
+            note: "The jobs figure is a projection given at announcement, not current employment. The plant had not reached commercial production at the time of writing.",
+          },
+          {
+            title: "VEM Technologies — Advanced Systems Division",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "A private-sector seeker manufacturing facility at Hardware Park, Tukkuguda, near the Srisailam Highway, carrying out assembly, integration and testing of radio-frequency (RF) and imaging-infrared (IIR) seekers for missile programmes.",
+            facts: [
+              { label: "Reported investment", value: "More than ₹100 crore" },
+              { label: "Facility size", value: "About 1.25 lakh sq ft" },
+              { label: "Reported capacity", value: "About 60 RF and about 300 IIR seekers a month (company-stated)" },
+            ],
+            note: "Capacity figures are the company's own and represent maximum capability, not current output. The facility dates from 2020.",
+          },
+          {
+            title: "Hardware Park-1, Tukkuguda",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "The first tranche of the Tukkuguda Hardware Park, reported to host aerospace units, defence-component suppliers and a large logistics operation among its operating tenants.",
+            note: "A park-level tenancy statement is a location fact. Individual tenants should be verified separately against current evidence before being relied upon.",
+          },
+        ],
+        caution:
+          "Do not present the Lenskart jobs figure as current employment, and do not merge Tukkuguda's Hardware Park with the separately named Hardware Parks at Maheshwaram. They are different parks in different locations.",
+      },
+      {
+        heading: "Raviryala, Fab City and the Electronics Estate",
+        body: [
+          "Raviryala is the belt's most misdescribed location, so it is worth being precise. Fab City was conceived nearly two decades ago as a semiconductor manufacturing hub and was largely never built. Its Special Economic Zone footprint has since been reduced, and the long-idle land is being redirected towards IT, electronics and energy-storage industry. That is a genuine reset of a failed project, not the opening of a long-established cluster, and it should be read as such.",
+          "The mechanics of the reset are documented. The original Fab City SEZ notifications, issued between 2007 and 2009, covered roughly 1,074 acres. After years of vacancy, the state approved the de-notification of about 912 acres in early 2022, leaving a residual SEZ of about 163 acres. The aim reported in late 2025 was to attract fresh investment along the corridor, with an official projection of several thousand jobs once units begin operating.",
+          "This is also where one of the belt's most significant operating manufacturers sits. Premier Energies runs a solar cell and module manufacturing plant within the E-City estate at Raviryala, in Maheshwaram mandal, commissioned in 2021 and expanded since. Unlike the reset land around it, this is production that is already running, which makes the distinction between the operating plant and the surrounding undeveloped acreage the important one to hold onto.",
+        ],
+        table: {
+          caption:
+            "Fab City / Raviryala: the historical SEZ versus the reset land and the operating estate. These are different layers and should not be conflated.",
+          columns: ["Layer", "Area reported", "Status"],
+          rows: [
+            ["Original Fab City SEZ notifications (2007-2009)", "About 1,074 acres", "Historical; semiconductor project not built"],
+            ["Land de-notified from the SEZ", "About 912 acres (state approval 2022)", "Being redirected to IT, electronics and energy storage"],
+            ["Residual SEZ", "About 163 acres", "Operational (residual)"],
+            ["E-City estate (Premier Energies plant)", "Operating plant within the E-City / Fab City estate", "Operational"],
+          ],
+        },
+        entries: [
+          {
+            title: "Fab City SEZ reset",
+            status: "Government decision (2022-2025)",
+            tone: "approval",
+            summary:
+              "The long-idle Fab City SEZ at Raviryala, in Maheshwaram mandal, was substantially reduced, with about 912 acres de-notified and the land redirected towards IT, electronics and energy-storage industry. Reported target of fresh investment and thousands of projected jobs once units operate.",
+            facts: [
+              { label: "Original SEZ notifications", value: "About 1,074 acres (2007-2009)" },
+              { label: "De-notified", value: "About 912 acres (state approval, 2022)" },
+              { label: "Residual SEZ", value: "About 163 acres" },
+              { label: "Reported investment target", value: "About ₹5,000 crore over the corridor (reported)" },
+              { label: "Reported jobs", value: "About 15,000 direct and indirect (projected)" },
+            ],
+            note: "This is a land and approval decision, not an operating cluster. Built-out activity on the reset land was still limited at the time of writing, and the jobs figure is a projection.",
+          },
+          {
+            title: "Premier Energies — E-City solar manufacturing",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "Solar cell and module manufacturing within the E-City estate at Raviryala, Maheshwaram mandal, commissioned in 2021 and expanded with later production lines. The company lists the E-City / Raviryala site as its registered manufacturing address.",
+            facts: [
+              { label: "2021 plant", value: "Commissioned with 750 MW cell and 750 MW module capacity" },
+              { label: "Reported 2021 investment", value: "About ₹483 crore" },
+              { label: "Later expansions", value: "Additional cell and module lines commissioned in phases" },
+            ],
+            note: "Capacity totals change with each commissioning. Current figures are the company's own and should be treated as reported, not audited.",
+          },
+        ],
+        caution:
+          "Do not cite the historical Fab City acreage as a current operating cluster, and do not present the reset land's projected jobs as a present payroll. The operating solar plant is a distinct facility within the wider estate.",
+      },
+      {
+        heading: "Maheshwaram: Electronics and Hardware Manufacturing",
+        body: [
+          "Maheshwaram is the deepest and oldest industrial node on the belt, and it is also the one with the most overlapping park names. The Electronic Manufacturing Cluster, often called EMC Maheshwaram, sits alongside Hardware Park-I and Hardware Park-II, and a general industrial park. Only some of these are built out, and the acreage is reported differently by different sources.",
+          "The acreage numbers need a note rather than a single figure. The corporation that runs the cluster describes the EMC Maheshwaram project at about 310 acres, while an environmental-clearance filing for the TSIIC electronic and hardware park at Maheshwaram describes a total site of about 373 acres with a net area nearer 340 acres, of which a portion is the electronic zone and the rest a general park. These describe different scopes and should not be averaged or added together.",
+          "Occupancy is the more honest measure of maturity, and it differs sharply within Maheshwaram. The older Hardware Park-I is essentially full, while the newer EMC cluster is only partly occupied and Hardware Park-II is largely undeveloped. A cluster where one park is full and two are still filling is a cluster in transition, and that is the correct way to describe Maheshwaram today.",
+          "Several defence and electronics manufacturers operate here with verifiable footprints, and there is a steady flow of new approvals at the EMC cluster. Both are covered below, with the distinction between operating units and newly approved ones kept explicit.",
+        ],
+        table: {
+          caption:
+            "Maheshwaram-area parks and facilities. Acreage is reported from corporation and clearance sources and differs by definition; occupancy reflects the position reported at the time of writing.",
+          columns: ["Park / facility", "Location", "Reported scale", "Status"],
+          rows: [
+            ["EMC Maheshwaram (TSIIC)", "Maheshwaram", "About 310 acres (corporation project report)", "Operational, partly built out"],
+            ["Electronic & Hardware Park (EC filing)", "Maheshwaram", "About 373 acres total / about 340 acres net", "Mixed; part electronic zone, part general park"],
+            ["Hardware Park-I", "Maheshwaram / Raviryal", "About 310 acres; majority of plots taken", "Operational (largely full)"],
+            ["Hardware Park-II", "Maheshwaram", "About 250 acres", "Largely undeveloped / proposed"],
+          ],
+        },
+        entries: [
+          {
+            title: "EMC Maheshwaram",
+            status: "Operational (partly built)",
+            tone: "operational",
+            summary:
+              "A TSIIC electronic manufacturing cluster at Maheshwaram, promoted under the central Electronics Manufacturing Cluster scheme, hosting electronics and hardware units with plots in various stages of occupancy.",
+            facts: [
+              { label: "Reported extent", value: "About 310 acres (corporation project report)" },
+              { label: "Clearance-filing site", value: "About 373 acres total / about 340 acres net" },
+              { label: "Electronic zone", value: "About 277 acres (clearance filing)" },
+            ],
+            note: "Acreage differs by definition across the corporation report and the clearance filing. Do not average them or treat them as one number.",
+          },
+          {
+            title: "Eight Audio International",
+            status: "Approved / announced",
+            tone: "planned",
+            summary:
+              "Approval announced in August 2026 to establish a speakers and electronics manufacturing facility at EMC Maheshwaram, covering loudspeakers, home-theatre and professional audio products, amplifiers and OEM manufacturing, with acoustic research and testing facilities.",
+            note: "An approval and an announced plan are not construction. Timelines and production phases are the company's own and had not been verified against a built facility at the time of writing.",
+          },
+          {
+            title: "Astra Microwave Products",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "Radio-frequency and microwave electronics manufacturing, including defence-electronics work, with a presence in the Maheshwaram / Hardware Park area.",
+          },
+          {
+            title: "Zen Technologies",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "Defence simulation and anti-drone systems manufacturing, with a Maheshwaram-area unit reported commissioned.",
+          },
+          {
+            title: "Avon Defence Systems",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "Defence-systems manufacturing within the TSIIC Hardware Park area at Maheshwaram.",
+          },
+        ],
+        caution:
+          "Hardware Park-I and the EMC Maheshwaram cluster are separately named parks that are sometimes reported at a similar acreage. Do not merge them, do not average differing acreage figures, and do not describe the partly built or undeveloped parks as full.",
+      },
+      {
+        heading: "Adibatla and Aerospace: A Related but Separate Node",
+        body: [
+          "Adibatla is not on the Srisailam Highway itself; it sits south-east of the airport, closer to the Nagarjuna Sagar road. It matters to this belt because it is where the highest-skill manufacturing in South Hyderabad is concentrated, and a portion of the workforce that commutes to it lives along the better-connected stretches of the Srisailam axis. It is covered here briefly as an employment anchor rather than as part of the highway belt.",
+          "Adibatla hosts an Aerospace and Precision Engineering SEZ that builds identifiable products: Tata Boeing Aerospace produces AH-64 Apache helicopter fuselages in a joint venture with Boeing and has expanded substantially; Tata Lockheed Martin Aerostructures produces C-130J empennages; and a Tata-Safran joint venture opened a facility making LEAP engine parts in October 2025. A Dassault-Tata Rafale fuselage facility is under construction on the same side of the city.",
+          "The other half of Adibatla is a large IT/ITES campus anchored by a TCS facility completed in 2015. The two halves, aerospace manufacturing and salaried IT work, serve different workforces and together give the southern belt a broader employment base than aerospace alone would provide.",
+        ],
+        entries: [
+          {
+            title: "Adibatla aerospace cluster",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "A TSIIC-managed aerospace and precision-engineering SEZ hosting heavy manufacturing by the Tata group and its joint ventures, fully allotted on the district park table.",
+          },
+          {
+            title: "Tata Boeing Aerospace",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "A Tata-Boeing joint venture producing AH-64 Apache helicopter fuselages and secondary structures, and reported to have delivered its 400th fuselage in late 2026.",
+          },
+          {
+            title: "Tata-Safran engine-parts facility",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "A Tata centre of excellence with Safran Aircraft Engines producing LEAP engine parts, inaugurated in October 2025 with reported investment of about ₹425 crore and skilled roles projected.",
+          },
+          {
+            title: "TCS Adibatla campus",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "A large IT/ITES campus at Adibatla, completed in 2015, anchoring salaried employment alongside the aerospace SEZ.",
+          },
+        ],
+        caution:
+          "Adibatla is a separate node from the Srisailam Highway belt and should not be presented as adjacent to it. SEZ extents differ across sources and should be quoted with attribution.",
+      },
+      {
+        heading: "Employment: What Exists and What Is Projected",
+        body: [
+          "The link between industry and property runs through employment, and it works through specific channels rather than through proximity alone. An operating plant with a salaried or shift workforce creates demand for rental housing near the site, for the services that workforce uses, and for the road and utility capacity it consumes. Announced projects create none of this until they are built and staffed.",
+          "That distinction is the most useful filter on this belt, because its announcements are large and its operating base is more modest. On the operating side sit the solar plant at Raviryala, the defence-electronics units at Tukkuguda and Maheshwaram, the aerospace manufacturers at Adibatla and the logistics operations at Tukkuguda's Hardware Park. On the projected side sit the Lenskart plant before full operations, the approved Eight Audio facility, the reset Fab City land and the Future City data-centre pipeline. Both are real; only one is creating payroll today.",
+          "What follows is a documented mechanism, not a guarantee. Employment-led demand can support long-term demand for legally clear, well-connected land. It does not make a particular plot appreciate, and proximity to a company is not a property strategy. The two kinds of employment differ in timing and in certainty, and the level of excitement around the belt is best measured against that difference.",
+        ],
+        drivers: [
+          "Solar and electronics manufacturing at Raviryala and Maheshwaram, which employ continuously and place recurring demands on power, water and labour.",
+          "Defence-electronics units at Tukkuguda and Maheshwaram, which bring higher-skill roles and supplier activity.",
+          "The large new Lenskart plant at Tukkuguda, a significant future employer whose jobs are still projected rather than present.",
+          "The approved EMC Maheshwaram additions, which add to the pipeline but represent no operating payroll yet.",
+          "Aerospace and IT employment at Adibatla, a related node that broadens the workforce the southern belt draws on.",
+          "Connectivity, principally ORR Exit 14 today and the proposed upgrades later, which governs how far that workforce will commute.",
+          "Legal and approval quality, which ultimately decides whether proximity to any of the above is safe to rely on.",
+        ],
+        caution:
+          "Employment-led demand is a documented mechanism, not a guarantee of appreciation. Announced and approved projects should never be counted as present employment.",
+      },
+      {
+        heading: "Connectivity: Exit 14, the Highway and the Proposed Upgrades",
+        body: [
+          "The belt's connectivity is real today and incomplete in its proposed form, and the two should be kept apart. The operating facts are the Outer Ring Road and its Exit 14 junction at Tukkuguda, which plug NH-765 into the city network and the airport, and the roughly 125 km of the Hyderabad-Srisailam section of NH-765 already developed to two-lane with paved shoulders or four-lane standard.",
+          "The proposed facts are at earlier stages. A Detailed Project Report was reported as initiated in 2025 for four-laning the Tukkuguda-Dindi section of NH-765 via Kalwakurthy, a stretch of about 85 km, and the Ratan Tata Greenfield Radial Road linking the ORR near Raviryal towards Amangallu is under construction with completion reported around 2028. A Detailed Project Report is a study, not a road, and proposed upgrades should not be treated as existing access.",
+          "For a buyer, this matters because a plot's current access is a fact and a plot's future access is a forecast. Our [stretch-by-stretch Srisailam Highway guide](/insights/srisailam-highway-2026-stretch-by-stretch-growth-guide) sets out how access and pricing differ along the corridor.",
+          "Which authority approves which layout is a separate question, and our [DTCP, HMDA and FCDA explainer](/insights/dtcp-hmda-fcda-approvals-which-to-choose) covers the differences.",
+        ],
+        caution:
+          "Only the existing Outer Ring Road, its Exit 14 junction and the developed sections of NH-765 operate today. Do not describe the four-laning, the radial road or any ring-road or metro proposal as operational.",
+      },
+      {
+        heading: "Bharat Future City and the Long-Term Pipeline",
+        body: [
+          "At the southern end of the belt, and the reason much of the surrounding land is marketed as a growth corridor, sits Bharat Future City. It is a planned greenfield city within the wider footprint of the Future City Development Authority, which is officially described at roughly 765 square kilometres across several mandals, against a narrower marketed city area widely reported at about 30,000 acres. These are different numbers, and media frequently conflates them.",
+          "The city is a master-plan and land-assembly exercise rather than a built place. A master plan is under preparation, with a global investor summit and an FCDA office now established in the corridor. Within the wider vision sit committed individual projects, most prominently large AI and data-centre proposals alongside a hyperscale cloud region that is already operating elsewhere in the southern belt. The committed projects are real decisions; the city around them is a vision with a long timeline.",
+          "The correct reading for a land buyer is that Future City changes what the belt is being planned for, and over what horizon, without altering what exists today. Our [Bharat Future City 2026 review](/insights/future-city-2026-what-has-actually-changed) tracks what has actually changed.",
+          "The committed pipeline alongside it, including the large data-centre proposals, is documented separately in our [data-centre and manufacturing review](/insights/hyderabad-future-city-ai-data-centres-manufacturing-infrastructure-growth).",
+        ],
+        caution:
+          "Keep the marketed city area separate from the wider planning-authority footprint. A state-wide investment announcement is not an investment committed specifically to Future City, and a signed agreement is not a built facility.",
+      },
+      {
+        heading: "Open Plots Near the Srisailam Highway: A Buyer's Verification Checklist",
+        body: [
+          "Most people arrive at this belt through a search for plots, so it is worth addressing those searches honestly. People look for open plots in Tukkuguda, Maheshwaram, Raviryala and along the Srisailam Highway, and for plots near the ORR or the airport. Those are different requests and the answers are not interchangeable, because the industrial nodes and their employment sit at different distances from one another.",
+          "Two cautions should precede any listing. Inside ORR is a specific location claim, not a marketing flourish, and a plot merely near or outside the ring road should not be described as inside it. Likewise, an approval should be claimed only for the specific layout that holds it, because FCDA, HMDA, DTCP, RERA and industrial approvals each have a different scope.",
+          "The checklist below is the same one we apply to our own listings, and it can be worked through for any plot on the belt. Our [first-time plot investor checklist](/insights/first-time-plot-investor-checklist-hyderabad) covers the sequence.",
+          "For the paperwork that sits behind each step, the [Telangana plot buyer guide](/guides/telangana-plot-buyer-checklist) sets it out in detail.",
+          "Where we can be specific about our own inventory, we are. The project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods), an FCDA-approved semi-villa community off the Srisailam Highway.",
+          "Our related [Srisailam Highway project page](/projects/upcoming-srisailam-highway) covers the adjacent stretch. Both should be assessed against the same checklist as any other purchase and neither should be treated as a proxy for the announcements described above.",
+        ],
+        checklist: [
+          "Confirm which authority approved the layout, whether FCDA, HMDA or DTCP, and record the approval number rather than assuming a generic approval.",
+          "Check whether the plotted development is RERA registered where registration applies, and exactly what the registration covers.",
+          "Verify a clear title with an encumbrance certificate covering the full 30-year period, plus agreement and sale history.",
+          "Confirm the land-use classification and that the layout sanction matches the intended residential use.",
+          "Confirm that the access road physically exists today, rather than depending on a road at DPR or approval stage.",
+          "Establish which surrounding infrastructure is existing and which is proposed, using dated sources rather than brochures.",
+          "Measure the real travel time to the nearest operating employment node at commute hours, not straight-line distance.",
+          "Check the mortgage, release and lien status of the land, and whether any part falls under acquisition or litigation.",
+          "Confirm water and power availability, and whether capacity has been formally allocated rather than merely promised.",
+          "Confirm the developer's delivery record on comparable projects before paying, and keep all documentation in hand before signing.",
+        ],
+        caution:
+          "Do not use inside ORR where a location is merely near or outside it, and do not claim an approval unless the specific layout's approval is verified. A plot near an operating plant is a different proposition from one near an announced campus.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the article above. Where a figure is projected or contested, the answer says so rather than choosing the most attractive number.",
+        ],
+        faqs: [
+          {
+            question: "What industries are growing along the Srisailam Highway?",
+            answer:
+              "The belt spans electronics and hardware manufacturing, solar manufacturing, defence electronics, eyewear and consumer-goods manufacturing, logistics, and aerospace in the related Adibatla node to the south-east. The most active operating centres are the solar plant at Raviryala, the defence-electronics units at Tukkuguda and Maheshwaram, and the aerospace manufacturers at Adibatla.",
+          },
+          {
+            question: "What is Lenskart building at Tukkuguda?",
+            answer:
+              "An integrated eyewear manufacturing facility covering frames, lenses and finished eyewear, announced through a state MoU in December 2024 with a foundation ceremony in March 2025. The reported investment is about ₹1,500 crore and the projected employment is around two thousand, with commercial production expected in about two years and full operations in about four. It is under construction, not yet operating.",
+          },
+          {
+            question: "Is Fab City at Raviryala operational?",
+            answer:
+              "The historical Fab City semiconductor project was largely never built. About 912 acres of its SEZ were de-notified, leaving a residual SEZ of about 163 acres, and the land is being redirected to IT, electronics and energy storage. Fab City as an operating cluster is limited; the solar plant at the adjoining E-City estate is a distinct, operating facility.",
+          },
+          {
+            question: "What is manufactured at Maheshwaram?",
+            answer:
+              "Maheshwaram is the belt's electronics and precision-engineering core, with the EMC Maheshwaram cluster and Hardware Park hosting RF and microwave electronics, defence systems and electronics units. The older Hardware Park-I is largely full while the EMC cluster is partly occupied, so the node is best described as operational and still filling.",
+          },
+          {
+            question: "How many jobs exist in the belt today?",
+            answer:
+              "No single audited figure exists. The forecast headline numbers, such as those for the reset Fab City land or the Lenskart plant, are projections attached to future operations. The present employment base is the operating solar, defence-electronics, aerospace and logistics units, which employ continuously but on a smaller scale than the announced pipeline suggests.",
+          },
+          {
+            question: "Which ORR exit serves the Srisailam Highway industrial belt?",
+            answer:
+              "Exit 14, at Tukkuguda. It is the junction where NH-765 leaves the Nehru Outer Ring Road and heads south, and it is the corridor's northern gateway and its main connectivity anchor. Tukkuguda is roughly seven kilometres from Rajiv Gandhi International Airport.",
+          },
+          {
+            question: "Is the four-laning of NH-765 complete?",
+            answer:
+              "No. Roughly 125 km of the Hyderabad-Srisailam section has been developed to two-lane with paved shoulders or four-lane standard, but a Detailed Project Report was reported as initiated in 2025 for four-laning the Tukkuguda-Dindi section via Kalwakurthy. A DPR is a study, not a completed road.",
+          },
+          {
+            question: "Are open plots along the Srisailam Highway a guaranteed investment?",
+            answer:
+              "No. Employment-led demand is a real mechanism that can support long-term demand for legally clear, well-connected land, but it does not guarantee that any particular plot will appreciate. Proximity to a company is not a property strategy, and every plot should be verified on approvals, title, access and utilities before purchase.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "The Srisailam Highway industrial belt is neither the finished powerhouse that some marketing implies nor an empty promise. It is a mixed picture, and the mix is the point. The solar plant at Raviryala, the defence-electronics units at Tukkuguda and Maheshwaram, the logistics operations at Hardware Park and the aerospace manufacturers at Adibatla are operating and creating employment now. The Lenskart plant is under construction, the Eight Audio facility is approved, and the reset Fab City land and the Future City pipeline are decisions rather than built places.",
+          "For anyone researching this stretch, the discipline is to read every claim by its status. Operational means operating. Under construction means a site with works underway. Approved or announced means a decision, an agreement or an allotment. Proposed or long-term means a vision. A plot near an operating plant is a different proposition from one near an announced campus, and treating the two as equivalent is the most expensive mistake a buyer can make on this corridor.",
+          "Our approach, as elsewhere on Arjun Realty Insights, is to keep the sourcing visible and to avoid promising anything the evidence does not support. The sources behind this article are listed below. Employment-led demand can support well-chosen land over the long term, but it guarantees nothing, and it does not make proximity a strategy.",
+        ],
+        sources: [
+          {
+            label: "Lenskart lays foundation for ₹1,500 crore eyewear manufacturing facility near Hyderabad",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/cities/Hyderabad/lenskart-lays-foundation-for-1500-crore-eyewear-manufacturing-facility-near-hyderabad/article69297983.ece",
+            date: "6 Mar 2025",
+          },
+          {
+            label: "Lenskart to set up ₹1,500 crore factory in Telangana",
+            publisher: "The Hindu BusinessLine",
+            url: "https://www.thehindubusinessline.com/companies/lenskart-to-set-up-1500-crore-factory-in-telangana/article69297495.ece",
+            date: "6 Mar 2025",
+          },
+          {
+            label: "VEM Technologies sets up advanced Seeker facility at Hardware Park, Tukkuguda",
+            publisher: "DefenceXP",
+            url: "https://www.defencexp.com/vem-technologies-sets-up-advanced-seeker-facility-in-hyderabad",
+            date: "30 Oct 2020",
+          },
+          {
+            label: "Telangana to use 922 acres of Fab City for IT, electronics and energy storage",
+            publisher: "Deccan Chronicle",
+            url: "https://www.deccanchronicle.com/southern-states/telangana/telangana-to-use-922-acres-of-fab-city-1917592",
+            date: "16 Nov 2025",
+          },
+          {
+            label: "Two five-star hotels coming up near Shamshabad airport with ₹634 crore investment (Hardware Park-3, Tukkuguda)",
+            publisher: "Telangana Tribune",
+            url: "https://www.telanganatribune.com/two-five-star-hotels-coming-up-near-shamshabad-airport-with-%E2%82%B9634-crore-investment/",
+            date: "16 Sep 2026",
+          },
+          {
+            label: "Premier Energies commissions solar manufacturing facility at E-City, Hyderabad",
+            publisher: "T&D India",
+            url: "https://www.tndindia.com/premier-energies-to-inaugurate-hyderabad-solar-manufacturing-facility-on-july-29",
+            date: "27 Jul 2021",
+          },
+          {
+            label: "Premier Energies — manufacturing and E-City, Maheshwaram registered unit",
+            publisher: "Premier Energies",
+            url: "https://www.premierenergies.com/",
+          },
+          {
+            label: "Telangana Government approves Eight Audio speakers and electronics facility at EMC Maheshwaram",
+            publisher: "The Tribune",
+            url: "https://www.tribuneindia.com/news/business/telangana-government-approves-eight-audios-advanced-speakers-electronics-manufacturing-facility-at-emc-maheshwaram",
+            date: "17 Aug 2026",
+          },
+          {
+            label: "Environmental clearance filing: Electronic and Hardware Park, TSIIC, Maheshwaram",
+            publisher: "environmentclearance.nic.in",
+            url: "https://environmentclearance.nic.in/writereaddata/formB/MODIEC/24082019OHK5VTJVForm1.pdf",
+          },
+          {
+            label: "Ranga Reddy district — industries and industrial parks listing",
+            publisher: "Government of Telangana (Ranga Reddy district)",
+            url: "https://rangareddy.telangana.gov.in/industries/",
+          },
+          {
+            label: "CM and Industries Minister visit FIT factory, Kongara Kalan (Foxconn)",
+            publisher: "Telangana Department of IT, Electronics & Communications",
+            url: "https://it.telangana.gov.in/cm-and-industries-minister-visit-fit-factory-to-review-progress/",
+          },
+          {
+            label: "Foxconn subsidiary to ramp up AirPods output with new production lines in Telangana",
+            publisher: "ET Manufacturing",
+            url: "https://manufacturing.economictimes.indiatimes.com/news/hi-tech/foxconn-subsidiary-to-ramp-up-airpods-output-with-new-production-lines-in-telangana/124802560",
+          },
+          {
+            label: "Tata Boeing Aerospace delivers India Apache fuselages",
+            publisher: "Boeing India",
+            url: "https://www.boeing.co.in/news/2026/tata-boeing-aerospace-delivers-india-apache-fuselages",
+            date: "2026",
+          },
+          {
+            label: "Tata firm opens facility to make Safran engine parts",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/tata-firm-opens-facility-to-make-safran-engine-parts/article70212927.ece",
+          },
+          {
+            label: "NH-765 expansion from Tukkuguda: DPR initiated for four-laning of Tukkuguda-Dindi via Kalwakurthy",
+            publisher: "Deccan Chronicle",
+            url: "https://www.deccanchronicle.com/southern-states/telangana/nh-765-expansion-from-tukkuguda-to-help-motorists-reach-srisailam-in-4-hours-1895149",
+          },
+          {
+            label: "National Highway 765 (India) — route and length",
+            publisher: "Wikipedia",
+            url: "https://en.wikipedia.org/wiki/National_Highway_765_(India)",
+          },
+          {
+            label: "Telangana to unveil Bharat Future City master plan during global investor summit in December",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/telangana-to-unveil-bharat-future-city-master-plan-during-global-investor-summit-in-december/article71305029.ece",
+            date: "4 Aug 2026",
+          },
+        ],
+        caution:
+          "This article is research, not investment advice. Project statuses and figures change and should be re-verified before any decision. Real-estate appreciation is not guaranteed.",
       },
     ],
   },

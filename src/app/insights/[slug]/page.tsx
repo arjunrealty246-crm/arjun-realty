@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { CalendarDays, Clock3, ArrowRight, Phone, MapPin, ShieldCheck, ChevronRight, TriangleAlert, ExternalLink } from "lucide-react";
+import { CalendarDays, Clock3, ArrowRight, Phone, MapPin, ShieldCheck, ChevronRight, TriangleAlert, ExternalLink, List as ListIcon } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLabel from "@/components/SectionLabel";
 import PageBreadcrumbs from "@/components/PageBreadcrumbs";
@@ -130,6 +130,16 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
     if (section.heading) headingsSeen += 1;
     sectionNumbers.push(headingsSeen);
   }
+  const toc = insight.showToc
+    ? insight.sections
+        .map((section, si) => ({ section, si }))
+        .filter(({ section }) => Boolean(section.heading))
+        .map(({ section, si }) => ({
+          id: `section-${si}`,
+          number: sectionNumbers[si],
+          label: section.heading as string,
+        }))
+    : [];
   const featuredProjects = (insight.featuredProjectSlugs ?? [])
     .map((s) => getProjectBySlug(s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p));
@@ -231,10 +241,37 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
       {/* Body */}
       <section className="py-8 lg:py-10">
         <div className="mx-auto max-w-3xl px-5 sm:px-8 lg:px-12">
+          {toc.length > 0 ? (
+            <ScrollReveal>
+              <nav
+                aria-label="Table of contents"
+                className="mb-10 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 lg:p-7"
+              >
+                <h2 className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white/35">
+                  <ListIcon className="h-4 w-4 text-primary/70" /> Table of Contents
+                </h2>
+                <ol className="mt-4 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
+                  {toc.map((item) => (
+                    <li key={item.id}>
+                      <a
+                        href={`#${item.id}`}
+                        className="group flex items-baseline gap-2.5 text-[13.5px] leading-relaxed text-white/50 hover:text-primary transition-colors"
+                      >
+                        <span className="font-mono text-[0.8em] text-primary/60 group-hover:text-primary">
+                          {String(item.number).padStart(2, "0")}
+                        </span>
+                        <span>{item.label}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            </ScrollReveal>
+          ) : null}
           <ScrollReveal>
             <div className="space-y-10">
               {insight.sections.map((section, si) => (
-                <section key={si}>
+                <section key={si} id={`section-${si}`} className="scroll-mt-28">
                   {section.heading && (
                     <h2 className="text-[clamp(1.3rem,3vw,1.7rem)] font-bold text-white tracking-tight mb-5 flex items-start gap-3">
                       <span className="text-primary font-mono text-[0.8em] pt-1">{String(sectionNumbers[si]).padStart(2, "0")}.</span>
@@ -328,6 +365,64 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
                         </li>
                       ))}
                     </ul>
+                  ) : null}
+
+                  {section.table ? (
+                    <figure className="mt-7">
+                      <div className="overflow-x-auto rounded-2xl border border-white/[0.06] bg-white/[0.02]">
+                        <table className="w-full min-w-[640px] border-collapse text-left text-[13px]">
+                          <thead>
+                            <tr className="border-b border-white/10">
+                              {section.table.columns.map((col) => (
+                                <th
+                                  key={col}
+                                  scope="col"
+                                  className="whitespace-nowrap px-4 py-3 text-[11px] font-bold uppercase tracking-wider text-white/40"
+                                >
+                                  {col}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {section.table.rows.map((row, ri) => (
+                              <tr key={ri} className="border-b border-white/[0.05] align-top last:border-0">
+                                {row.map((cell, ci) => (
+                                  <td
+                                    key={ci}
+                                    className={`px-4 py-3 leading-relaxed ${ci === 0 ? "font-semibold text-white/80" : "text-white/50"}`}
+                                  >
+                                    {cell}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                      {section.table.caption ? (
+                        <figcaption className="mt-3 text-[12px] leading-relaxed text-white/35">
+                          {section.table.caption}
+                        </figcaption>
+                      ) : null}
+                    </figure>
+                  ) : null}
+
+                  {section.faqs ? (
+                    <div className="mt-7 space-y-3">
+                      {section.faqs.map((faq, fi) => (
+                        <details
+                          key={fi}
+                          className="group rounded-2xl border border-white/[0.06] bg-white/[0.02] open:bg-white/[0.03] transition-colors"
+                        >
+                          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-[14.5px] font-semibold text-white/80 [&::-webkit-details-marker]:hidden">
+                            {faq.question}
+                            <ChevronRight className="h-4 w-4 shrink-0 text-primary transition-transform duration-300 group-open:rotate-90" />
+                          </summary>
+                          <p className="px-5 pb-5 text-[13.5px] leading-relaxed text-white/45">{faq.answer}</p>
+                        </details>
+                      ))}
+                    </div>
                   ) : null}
 
                   {section.sources ? (
