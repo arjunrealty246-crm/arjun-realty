@@ -6911,6 +6911,183 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "reselling-plot-srisailam-highway-guide",
+    title:
+      "Reselling a Plot on the Srisailam Highway: Process, Documents and Tax Basics (2026)",
+    seoTitle: "Reselling a Plot on Srisailam Highway",
+    metaDescription:
+      "A 2026 seller's guide to reselling a plot on the Srisailam Highway: the documents buyers ask for, pricing against the government market value, the registered sale process, and tax basics.",
+    excerpt:
+      "How to resell a plot on the Srisailam Highway: the documents buyers will ask for, how pricing and the government market value work, the registered sale process, and the tax basics a seller should understand.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-31",
+    author: researchDesk,
+    image: "/images/insights/reselling-plot-srisailam-highway-guide.jpg",
+    imageAlt:
+      "A seller and buyer completing the registered sale of a plot on the Srisailam Highway - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "When a buyer weighs a plot on the Srisailam Highway, the question that is easy to forget is how it will one day be sold. Resale is simpler when the purchase was made well: a clean title, an approved layout and a complete set of records are what make a plot easy to sell, and the absence of them is what stalls a sale.",
+          "This guide looks at the other side of the transaction - how to resell a plot, the documents buyers and their lawyers will ask for, how pricing works against the government market value, the registered sale process, and the tax basics. It follows our [first-time plot investor checklist](/insights/first-time-plot-investor-checklist-hyderabad), which treats exit as one of the checks at purchase. It is Arjun Realty market research, not legal or tax advice; confirm your position with a lawyer and a chartered accountant.",
+        ],
+      },
+      {
+        heading: "Why the Records You Kept Decide the Ease of the Sale",
+        body: [
+          "A resale is a due-diligence exercise run by the buyer. The buyer's lawyer will reconstruct the plot's history from the documents - the chain of title, the encumbrance position, the layout approval and the tax records - and any gap is a question that has to be answered before the deal can close.",
+          "The seller who kept the paperwork from the original purchase sells quickly; the seller who has to chase a missing deed, an unrenewed record or an unclear approval loses weeks. The practical lesson is that the documents matter at purchase precisely because they are what you will be asked for at resale.",
+        ],
+      },
+      {
+        heading: "The Documents Buyers Will Ask For",
+        body: [
+          "The exact list depends on the buyer's lawyer, but the categories are consistent. A seller who can produce these promptly is in a far stronger position.",
+        ],
+        checklist: [
+          "The registered sale deed by which you bought the plot, and any earlier deeds in the chain of title.",
+          "The current encumbrance certificate for the plot.",
+          "The approved layout plan and the approval from HMDA, DTCP or FCDA.",
+          "The latest property tax receipts and any revenue records for the plot.",
+          "The government market value (basic value) record used for registration.",
+          "Identity and address proof of the seller, and of all co-owners if the plot is jointly held.",
+          "Where the plot was bought with a loan, the loan-closure and no-dues evidence.",
+          "Any power of attorney, release deed or succession record that affects who can sell.",
+        ],
+        caution:
+          "This is a general list. The buyer's lawyer will specify the documents required, and any gap in the chain of title should be resolved with legal advice before you agree a sale.",
+      },
+      {
+        heading: "Pricing and the Government Market Value",
+        body: [
+          "Two values matter in a resale. The first is the government market value, the basic value used by the registration department to compute stamp duty; stamp duty is charged on the higher of the price written in the deed and this value. The second is the price agreed between the buyer and the seller, which reflects the location, the size, the position and the state of the market.",
+          "A sale cannot be registered below the government market value, so it is worth checking the current basic value for the plot before setting a price and before agreeing the terms of the deed. The buyer and seller should be clear on the value that will appear in the deed, because understating it creates a liability rather than a saving.",
+        ],
+        caution:
+          "The government market value is revised from time to time and is specific to the survey number. Confirm the current value on the registration department's portal before agreeing the deed.",
+      },
+      {
+        heading: "The Sale Process, Step by Step",
+        body: [
+          "A resale follows the same route as any sale of immovable property. The buyer and seller agree terms, usually recorded in an agreement to sell with a token advance; the balance is paid on or before registration; and the transfer is completed by a registered sale deed at the jurisdictional Sub-Registrar's office.",
+          "In Telangana the process runs largely online through the registration department's system. The parties complete public data entry, the duty is computed and paid, and a slot is booked at the Sub-Registrar's office. At registration the parties and witnesses provide photographs and thumb impressions on the prescribed form under section 32A of the Registration Act, 1908. The deed should be presented for registration within the time allowed by that Act.",
+        ],
+      },
+      {
+        heading: "If the Plot Is Jointly Owned",
+        body: [
+          "Where the plot is held by more than one person, every co-owner must be part of the sale, or must have authorised it, because a buyer is buying all the shares. A sale by one co-owner of the whole property is not valid; each co-owner can transfer only their own share.",
+          "If one co-owner wants to exit before the whole plot is sold, the usual route is a release or transfer of that share to the other co-owners through a registered instrument. Our guide to [joint ownership of a plot](/insights/joint-ownership-plot-buying-srisailam-highway) covers how shares and exits work.",
+        ],
+        caution:
+          "Co-ownership and succession questions affect who can validly sell a plot. Where any co-owner has died or is unavailable, take legal advice before agreeing a sale.",
+      },
+      {
+        heading: "The Tax Basics a Seller Should Understand",
+        body: [
+          "The buyer of immovable property has a tax-deduction obligation: where the seller is a resident and the consideration or the stamp duty value is fifty lakh rupees or more, the buyer must deduct tax at source and deposit it, under the provision now carried in the Income-tax Act, 2025 that replaced section 194-IA of the 1961 Act. A seller should confirm how this is handled so the net proceeds are as expected.",
+          "On the seller's side, a transfer of a plot can give rise to capital gains tax, and the position depends on how long the plot was held and on the law in force at the time of sale. Where the seller is a non-resident, the position is different again, and the rules on TDS and repatriation are more involved. We cover that separately in our guide to [selling land in India as an NRI](/insights/nri-selling-land-india-capital-gains-tds-repatriation).",
+        ],
+        caution:
+          "Tax liability depends on the law in force, the holding period and the seller's circumstances and changes over time. Confirm the current position with a chartered accountant before agreeing a sale.",
+      },
+      {
+        heading: "Common Delays and How to Avoid Them",
+        body: [
+          "Most delayed resales are caused by a small number of avoidable problems. Being ready for them is most of the work of selling well.",
+        ],
+        drivers: [
+          "A gap in the chain of title - resolve it before listing the plot, not when a buyer's lawyer raises it.",
+          "An old or missing encumbrance certificate - obtain a current one for the period the buyer requires.",
+          "An unclear or expired approval - confirm the layout approval is current and matches the plot.",
+          "Unpaid property tax or dues - clear them so the buyer's search comes back clean.",
+          "Two government values mismatched - agree a deed price at or above the current basic value to avoid a reference.",
+          "Multiple co-owners with differing intentions - align all co-owners, or document a release, before the sale.",
+        ],
+        caution:
+          "Each of these can be resolved in advance with the right records and, where needed, legal help. Do not agree a sale until the title and approval position is clear.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide above and should be read with the disclaimers that follow.",
+        ],
+        faqs: [
+          {
+            question: "What documents do I need to sell a plot in Telangana?",
+            answer:
+              "The registered sale deed and any earlier deeds in the chain of title, a current encumbrance certificate, the approved layout plan and approval, property tax records, the government market value, the seller's identity proof, and evidence of loan closure where applicable. The buyer's lawyer will specify the final list.",
+          },
+          {
+            question: "Can I sell a plot below the government market value?",
+            answer:
+              "A sale cannot be registered below the government market value, because stamp duty is charged on the higher of the deed price and that value. Understating the price to reduce duty creates a liability rather than a saving.",
+          },
+          {
+            question: "How is a plot sale completed?",
+            answer:
+              "By a registered sale deed at the jurisdictional Sub-Registrar's office, usually after an agreement to sell with a token advance. In Telangana the process runs largely online through the registration department, and the deed should be presented within the time allowed by the Registration Act, 1908.",
+          },
+          {
+            question: "Who deducts TDS when a plot is sold?",
+            answer:
+              "The buyer deducts tax at source where the seller is a resident and the consideration or the stamp duty value is fifty lakh rupees or more, under the provision that replaced section 194-IA. Where the seller is a non-resident, the position is different.",
+          },
+          {
+            question: "Is capital gains tax payable on the sale of a plot?",
+            answer:
+              "A transfer of a plot can give rise to capital gains tax, and the position depends on the holding period and the law in force at the time of sale. Confirm the current position with a chartered accountant before agreeing a sale.",
+          },
+          {
+            question: "Can one co-owner sell a jointly owned plot?",
+            answer:
+              "No. A buyer needs all the shares, so every co-owner must be part of the sale or must have authorised it. A co-owner can transfer only their own share, usually through a registered release or transfer to the other co-owners.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "Reselling a plot on the Srisailam Highway is easier than it looks for a seller who bought well and kept the records. The documents that made the purchase sound - a clean chain of title, a current encumbrance certificate, the layout approval and the tax records - are exactly what buyers and their lawyers ask for. Price against the current government market value, keep every co-owner in the transaction, complete the transfer by a registered sale deed, and understand the tax position before you agree terms. Done that way, the exit that buyers should plan for becomes a straightforward one.",
+          "Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, an FCDA-approved semi-villa community with villa plots and boutique villas. General sources behind the points above are listed below.",
+        ],
+        sources: [
+          {
+            label:
+              "Registration Act, 1908: presentation and registration of documents, and section 32A photographs and thumb impressions",
+            publisher: "Government of India",
+            url: "https://www.indiacode.nic.in/",
+          },
+          {
+            label:
+              "Registration and Stamps Department, Government of Telangana: registration of sale deeds, the encumbrance certificate and the government market value",
+            publisher: "Government of Telangana",
+            url: "https://registration.telangana.gov.in/",
+          },
+          {
+            label:
+              "Income Tax Department, Government of India: capital gains on the transfer of immovable property, and tax deduction at source on its purchase",
+            publisher: "Income Tax Department, Government of India",
+            url: "https://www.incometax.gov.in/",
+          },
+          {
+            label:
+              "Transfer of Property Act, 1882: transfer of property and the rights of co-owners",
+            publisher: "Government of India",
+            url: "https://www.indiacode.nic.in/",
+          },
+        ],
+        caution:
+          "This article is general research, not legal or tax advice. Title, registration and tax positions depend on the specific property and change over time; confirm the current position with a qualified lawyer and a chartered accountant before acting.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
