@@ -5039,6 +5039,210 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "nri-buy-agricultural-land-india-fema-conversion",
+    title: "Can NRIs Buy Agricultural Land or Farmland in India? The FEMA Restriction, Telangana Land Conversion and What It Means for the Srisailam Highway Corridor (2026)",
+    seoTitle: "Can NRIs Buy Agricultural Land in India?",
+    metaDescription:
+      "Can an NRI or OCI buy agricultural land in India? A 2026 guide to the FEMA restriction on farmland and farm houses, Telangana land-conversion rules, and what the Srisailam Highway corridor means for approved plots.",
+    excerpt:
+      "FEMA bars non-residents from buying agricultural land, farm houses and plantation property. Here is what that means in Telangana, how land conversion works, and why an approved non-agricultural plot is the route for NRI buyers on the Srisailam Highway.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-21",
+    author: researchDesk,
+    image: "/images/insights/nri-buy-agricultural-land-india-fema-conversion.jpg",
+    imageAlt:
+      "Agricultural fields beside an approved residential plot layout on the Srisailam Highway, illustrating the FEMA restriction on NRI farmland purchases in India - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "The Srisailam Highway belt still has farmland in it. Drive from Tukkuguda towards Kadthal and Amangal and the approved layouts give way, in places, to open agricultural fields, and it is fair to ask whether a non-resident can simply buy one of those parcels at a lower price and hold it. It is the most common question NRI buyers ask about land in India, and the answer turns on a single central rule rather than on the local market.",
+          "The short answer is that the foreign-exchange rules that apply to non-residents do not allow an NRI or OCI to buy agricultural land, a farm house or plantation property in the ordinary way. This guide sets out that restriction, the exceptions for inheritance and gift, the way Telangana converts agricultural land to non-agricultural use, and why the practical route for a non-resident buyer on this corridor is an already-approved, non-agricultural plot. It pairs with our guide to [selling land in India as an NRI](/insights/nri-selling-land-india-capital-gains-tds-repatriation), which covers the exit side.",
+          "It is Arjun Realty market research, not legal or investment advice. The rules here turn on individual facts and change from time to time; confirm your position with a qualified lawyer and, where money is moving, your bank, before you commit to a purchase.",
+        ],
+      },
+      {
+        heading: "What FEMA Allows an NRI or OCI to Buy",
+        body: [
+          "The rulebook is the Foreign Exchange Management (Acquisition and Transfer of Immovable Property in India) Regulations, 2018, issued by the Reserve Bank of India under the Foreign Exchange Management Act and dated 26 March 2018. It sets out, in a short list of provisions, who may acquire what. An NRI or OCI may acquire immovable property in India other than agricultural land, a farm house or plantation property.",
+          "The word acquire is broad. It covers purchase, gift and inheritance, so the restriction is not only on buying at arm's length. The permission is directed at residential and commercial property, and it is the character of the property at the point of acquisition that governs.",
+        ],
+        table: {
+          caption: "What the FEMA regulations allow an NRI or OCI to acquire.",
+          columns: ["Property type", "Position under the FEMA regulations"],
+          rows: [
+            ["Residential or commercial property", "May be acquired by purchase, by gift from a resident or an NRI or OCI relative, or by inheritance"],
+            ["Agricultural land, farm house or plantation property", "May not be acquired by purchase or gift; may be acquired only by inheritance"],
+          ],
+        },
+        caution:
+          "This is a summary of the framework, not legal advice. Eligibility depends on your status, the seller and the specific parcel; obtain a legal opinion before paying any advance.",
+      },
+      {
+        heading: "NRI, OCI and Foreign National: The Distinction Matters",
+        body: [
+          "How much a non-resident can buy depends on which of three categories they fall into. An NRI is an Indian citizen who is resident outside India, an OCI is an Overseas Citizen of India cardholder, and a foreign national is a person who is neither. The first two share the general permission to buy residential and commercial property; the third faces a tighter set of rules.",
+          "A foreign national who is not an NRI or OCI may acquire immovable property in India only by way of a lease for a period not exceeding five years, or by inheritance, and requires prior permission from the Reserve Bank of India for anything else. Citizens of certain countries specified by the RBI are subject to a further requirement of prior permission, although the position is relaxed for an OCI cardholder.",
+          "There is also a narrow case for spouses. Where a foreign national of non-Indian origin is married to an Indian citizen or to an NRI or OCI, that person may, subject to conditions, acquire one immovable property jointly with the spouse. Agricultural land, a farm house and plantation property remain outside that permission, as they do for NRIs and OCIs generally.",
+        ],
+      },
+      {
+        heading: "The Telangana Angle: Converting Agricultural Land to Non-Agricultural Use",
+        body: [
+          "Because the FEMA restriction turns on the character of the land, the state-law question of land classification matters. In Telangana, using agricultural land for a house, a layout or any other non-agricultural purpose requires conversion under the Telangana Agricultural Land (Conversion for Non Agricultural Purposes) Act, 2006.",
+          "Section 3 of that Act provides that no agricultural land in the State shall be put to a non-agricultural purpose without the prior permission of the competent authority. An applicant applies through the website prescribed for the purpose, along with the conversion tax. Where land has already been put to a non-agricultural use without permission, the conversion is treated as deemed, and an additional penalty of 50% of the conversion tax applies.",
+          "The application carries a declaration, by affidavit, that the land does not fall foul of the Telangana Land Reforms (Ceiling on Agricultural Holdings) Act, 1973, the Telangana Assigned Lands (Prohibition of Transfers) Act, 1977 or the Telangana Scheduled Areas Land Transfer Regulation, 1959. Once converted, the land is removed from the revenue Record of Rights and entered on the Non-Agricultural Dharani portal, and a Non-Agricultural Immovable Property Pass Book is issued. The register of land records in the State is maintained under the Telangana Rights in Land and Pattadar Pass Books Act, 2020, which is the Dharani portal most buyers encounter.",
+        ],
+        table: {
+          caption: "How agricultural land is converted to non-agricultural use in Telangana.",
+          columns: ["Step", "What it involves"],
+          rows: [
+            ["Check the classification", "Confirm on the land records whether the parcel is agricultural or already non-agricultural"],
+            ["Apply for conversion", "Apply through the prescribed State website with the conversion tax"],
+            ["Pay the tax", "Conversion tax as prescribed, and a 50% penalty where the land was converted without prior permission"],
+            ["Update the record", "The parcel is entered on the Non-Agricultural Dharani portal and a Non-Agricultural Immovable Property Pass Book is issued"],
+          ],
+        },
+        caution:
+          "Conversion rules, fees and the forms change. Confirm the current process and the classification of the specific parcel with the revenue authorities and a lawyer.",
+      },
+      {
+        heading: "Why Conversion Alone Does Not Settle the FEMA Question",
+        body: [
+          "It is tempting to read the conversion route as a way around the FEMA restriction: convert the agricultural land to a non-agricultural use, then buy it as a non-agricultural plot. That reasoning should not be relied on without advice. Conversion changes the land's use under state law; it does not by itself change who may acquire the land under the foreign-exchange regulations, which speak to the character of the property and to the status of the acquirer.",
+          "The practical consequence is that a non-resident buyer is on far firmer ground buying property that is already non-agricultural and part of an approved layout, with the classification and the approvals on record before payment, than in buying a raw agricultural parcel and relying on a conversion to cure the position. Where a parcel has been converted, the paperwork that shows the conversion, the approved layout and the current land use is the evidence a lawyer and a bank will want to see.",
+        ],
+        caution:
+          "Whether a converted parcel can be acquired by a non-resident is a legal question that depends on the facts. Take a written legal opinion before treating a conversion certificate as sufficient.",
+      },
+      {
+        heading: "The Srisailam Highway Corridor: Approvals, FCDA and What Counts as a Safe Buy",
+        body: [
+          "The corridor is now planned across more than one jurisdiction, and the approvals are the buyer's real protection. Much of the belt falls within the Hyderabad Metropolitan Development Authority, whose area was expanded in 2025. Alongside it, the State constituted the Future City Development Authority, or FCDA, in March 2025 under Section 3-A of the Telangana Urban Areas (Development) Act, 1975.",
+          "The FCDA jurisdiction covers about 765 square kilometres across seven mandals and 56 revenue villages in Rangareddy district, between the Srisailam national highway (NH-765) and the Nagarjunasagar highway, and it has been widened further as the authority prepares its master plan. For a non-resident, the line that matters is between a plot in an approved layout, where the land use and the layout are on record, and a raw agricultural parcel, which a non-resident generally cannot buy. Our guide to [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) explains how the authorities differ.",
+        ],
+        caution:
+          "Approval status and jurisdiction change as new authorities are constituted and boundaries are revised. Verify the current position for the specific layout.",
+      },
+      {
+        heading: "Due Diligence Before an NRI Buys Land in Telangana",
+        body: [
+          "The list below is the sequence that answers the eligibility question and the title question at the same time. It is a planning checklist, not a substitute for professional advice.",
+        ],
+        checklist: [
+          "Confirm whether the parcel is agricultural or non-agricultural on the land records before you negotiate.",
+          "Confirm that the layout is approved by the competent authority and that the land use permits what you intend to do.",
+          "Check that the land is not assigned land, endowment land, ceiling-surplus land or inside a scheduled area.",
+          "Verify the title and the encumbrances from the relevant records and an encumbrance certificate.",
+          "Route payments through banking channels, from an NRE or NRO account as applicable, and keep the evidence.",
+          "Obtain a written legal opinion on your eligibility as a non-resident before paying any advance.",
+        ],
+        caution:
+          "This is general guidance. Land records, classifications and approvals are specific to each parcel and should be checked at source.",
+      },
+      {
+        heading: "Gifting, Inheritance and Buying with a Spouse",
+        body: [
+          "The exceptions matter for families, and inheritance is the main one. An NRI or OCI may inherit any immovable property in India, including agricultural land, a farm house and plantation property, from a person resident in India, or from a person resident outside India who had acquired it lawfully. It is the route by which many non-residents come to hold agricultural land at all.",
+          "A gift is narrower than inheritance. The regulations permit an NRI or OCI to acquire immovable property by way of gift from a resident or from an NRI or OCI relative, but agricultural land, a farm house and plantation property are excluded from that permission, so they cannot be received by gift in the same way as residential property. Where the acquirer is a foreign national married to an Indian citizen or to an NRI or OCI, one property may be acquired jointly with the spouse, subject to conditions, again excluding agricultural land, farm houses and plantations.",
+        ],
+        caution:
+          "Inheritance, gift and joint-ownership rules carry conditions and documentation. Confirm the position with a lawyer and, for the record updates, the revenue authorities.",
+      },
+      {
+        heading: "Practical Implications for NRI Buyers on the Srisailam Highway",
+        body: [
+          "For most non-resident buyers the conclusion is straightforward. Buy an approved plot, not farmland. The inventory we feature on this belt sits in approvals that provide for residential use, which keeps the FEMA question simple: the property is non-agricultural, the layout is on record, and the acquisition is of the kind the regulations permit.",
+          "Our [first-time plot investor checklist](/insights/first-time-plot-investor-checklist-hyderabad) sets out what to verify on any plot before purchase, and it applies whether the buyer is resident or non-resident.",
+          "The title side deserves the same care. Our guide to [encumbrance certificates](/insights/encumbrance-certificates-explained-before-buying-land) explains what the record shows and why it should be read before any advance.",
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the framework above and should be read with the disclaimers that follow.",
+        ],
+        faqs: [
+          {
+            question: "Can an NRI buy agricultural land in India?",
+            answer:
+              "Not by purchase. Under the FEMA regulations an NRI or OCI may acquire immovable property other than agricultural land, a farm house or plantation property. Agricultural land may be acquired only by inheritance.",
+          },
+          {
+            question: "Can an NRI buy a farmhouse or plantation property?",
+            answer:
+              "No, not by purchase or gift. The same restriction that covers agricultural land covers farm houses and plantation property; inheritance is the exception.",
+          },
+          {
+            question: "Can an OCI buy agricultural land in India?",
+            answer:
+              "No. An OCI cardholder is subject to the same restriction as an NRI and may acquire property other than agricultural land, a farm house or plantation property.",
+          },
+          {
+            question: "Can an NRI inherit agricultural land in India?",
+            answer:
+              "Yes. An NRI or OCI may acquire any immovable property in India, including agricultural land, by way of inheritance, either from a person resident in India or from a non-resident who held it lawfully.",
+          },
+          {
+            question: "If land is converted to non-agricultural use, can an NRI then buy it?",
+            answer:
+              "Conversion changes the land use under state law; it does not by itself change the position under the foreign-exchange regulations. Treat the two questions separately and take a legal opinion; in practice, buying property that is already non-agricultural and approved is the safer route.",
+          },
+          {
+            question: "Can a non-resident buy an approved residential plot in Telangana?",
+            answer:
+              "Yes, where the property is non-agricultural and residential or commercial, the layout is approved by the competent authority, and payment is made through proper banking channels. Verify the classification and the approvals before paying.",
+          },
+          {
+            question: "Are citizens of some countries subject to extra restrictions?",
+            answer:
+              "Yes. Citizens of certain specified countries require prior permission from the Reserve Bank of India to acquire immovable property, with a measure of relaxation for OCI cardholders. Confirm the position with your bank and a lawyer.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "The rule for non-resident buyers on the Srisailam Highway is simpler than the paperwork around it suggests. An NRI or OCI cannot buy agricultural land, a farm house or plantation property; those can only be inherited. Land that is already non-agricultural and part of an approved layout can be bought, provided the title and the approvals are clean and the money moves through banking channels. Where a parcel is agricultural, the conversion route changes the land use but does not, by itself, settle the foreign-exchange question, so it is not a shortcut a non-resident should rely on without a legal opinion.",
+          "Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, a layout of residential plots and semi-villas. The official sources behind the FEMA and Telangana points are listed below.",
+        ],
+        sources: [
+          {
+            label: "Foreign Exchange Management (Acquisition and Transfer of Immovable Property in India) Regulations, 2018 (FEMA 21(R)/2018-RB): acquisition by an NRI or OCI other than agricultural land, farm house or plantation property, and acquisition by gift or inheritance",
+            publisher: "Reserve Bank of India",
+            url: "https://www.rbi.org.in/",
+          },
+          {
+            label: "Frequently asked questions on acquisition and transfer of immovable property in India by non-residents",
+            publisher: "Reserve Bank of India",
+            url: "https://www.rbi.org.in/",
+          },
+          {
+            label: "Telangana Agricultural Land (Conversion for Non Agricultural Purposes) Act, 2006 (Act No. 3 of 2006): prior permission, conversion tax and deemed conversion",
+            publisher: "Government of Telangana",
+            url: "https://law.telangana.gov.in/",
+          },
+          {
+            label: "Telangana Rights in Land and Pattadar Pass Books Act, 2020, and the Dharani land-records portal",
+            publisher: "Government of Telangana",
+            url: "https://dharani.telangana.gov.in/",
+          },
+          {
+            label: "Future City Development Authority (FCDA), constituted under Section 3-A of the Telangana Urban Areas (Development) Act, 1975",
+            publisher: "Government of Telangana",
+            url: "https://fcda.telangana.gov.in/",
+          },
+        ],
+        caution:
+          "This article is general research, not legal, tax or investment advice. The FEMA regulations, Telangana land-conversion rules and development-authority boundaries change and depend on individual circumstances; verify the current position with a qualified lawyer and, where relevant, your bank before acting.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
