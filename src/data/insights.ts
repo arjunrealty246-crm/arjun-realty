@@ -3862,7 +3862,7 @@ export const insights: Insight[] = [
       "Operating payroll versus projected headcount: a status-checked guide to who actually employs people along the Srisailam Highway belt, and how that employment reaches land and rental demand.",
     category: "Corporate Investments & Growth",
     categorySlug: "corporate-growth",
-    publishedAt: "2026-10-20",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/srisailam-highway-employment-industrial-growth.jpg",
     imageAlt:
@@ -4274,7 +4274,7 @@ export const insights: Insight[] = [
       "Schools, healthcare, commute and everyday essentials: a verification-first guide to liveability along the Srisailam Highway belt for families and NRI buyers considering a move or a home.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-20",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/living-near-srisailam-highway-liveability-guide.jpg",
     imageAlt:
@@ -4554,7 +4554,7 @@ export const insights: Insight[] = [
       "What actually rents on the Srisailam Highway belt, which property types produce income, how to calculate net rent realistically, and how NRIs can manage a property from abroad.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-20",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/srisailam-highway-rental-income-nri-landlord-guide.jpg",
     imageAlt:
@@ -4813,7 +4813,7 @@ export const insights: Insight[] = [
       "Long-term capital gains, the buyer's TDS on the full sale value, the lower or nil deduction certificate, and the RBI rules for repatriating sale proceeds - a 2026 guide for NRI land sellers.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-20",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/nri-selling-land-india-capital-gains-tds-repatriation.jpg",
     imageAlt:
@@ -5049,7 +5049,7 @@ export const insights: Insight[] = [
       "FEMA bars non-residents from buying agricultural land, farm houses and plantation property. Here is what that means in Telangana, how land conversion works, and why an approved non-agricultural plot is the route for NRI buyers on the Srisailam Highway.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-21",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/nri-buy-agricultural-land-india-fema-conversion.jpg",
     imageAlt:
@@ -5254,7 +5254,7 @@ export const insights: Insight[] = [
       "How an NRI actually buys a plot in Telangana - payment through NRE or NRO, stamp duty and registration, the sale-deed process, buying through a power of attorney, and verifying the land record before you pay.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-22",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/nri-buying-property-india-registration-stamp-duty.jpg",
     imageAlt:
@@ -5485,7 +5485,7 @@ export const insights: Insight[] = [
       "Plots or apartments? How the two ways to own on the Srisailam Highway differ on ownership, cost, approvals, rental demand and use - and how to choose between them.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-23",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/villa-plots-vs-apartments-srisailam-highway.jpg",
     imageAlt:
@@ -5668,7 +5668,7 @@ export const insights: Insight[] = [
       "Can you get a home loan for a plot? How plot loans differ from home loans, what lenders look at, the documents you need, and how the loan turns into a construction loan when you build.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-24",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/home-loan-for-plot-srisailam-highway.jpg",
     imageAlt:
@@ -5839,7 +5839,7 @@ export const insights: Insight[] = [
       "You own the plot - now what? The two approvals involved, the building-permission process, the construction stages, what drives the cost, and how to finance and complete the build.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-25",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/building-a-house-on-srisailam-highway-plot.jpg",
     imageAlt:
@@ -6040,7 +6040,7 @@ export const insights: Insight[] = [
       "Gated community or open layout? How the two kinds of plot on the Srisailam Highway differ on security, amenities, ongoing cost, management, approvals and the freedom to build - and how to choose.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-26",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/gated-community-vs-open-plots-srisailam-highway.jpg",
     imageAlt:
@@ -6216,7 +6216,7 @@ export const insights: Insight[] = [
       "200, 300 or 500 square yards? What a plot size actually determines after setbacks, how the common sizes compare, and how to choose the one that fits your house plan and budget.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-27",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/which-plot-size-to-buy-srisailam-highway.jpg",
     imageAlt:
@@ -6385,7 +6385,7 @@ export const insights: Insight[] = [
       "Same size, different position, different plot. How corner, park-facing, interior and main-road plots compare on light, access, privacy, setbacks and price - and what to verify before you buy.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-28",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/corner-interior-park-facing-plot-srisailam-highway.jpg",
     imageAlt:
@@ -6558,7 +6558,7 @@ export const insights: Insight[] = [
       "East, west, north or south facing? What plot facing actually means, how each direction affects light and heat, what vastu really says, and what to check before you buy on the Srisailam Highway.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-29",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/plot-facing-direction-east-west-north-south-srisailam.jpg",
     imageAlt:
@@ -6743,7 +6743,7 @@ export const insights: Insight[] = [
       "Buying a plot with a spouse, parent or friend? How joint ownership works, how shares are recorded, how loans and co-applicants interact, and what to decide before the deed is signed.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-30",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/joint-ownership-plot-buying-srisailam-highway.jpg",
     imageAlt:
@@ -6922,7 +6922,7 @@ export const insights: Insight[] = [
       "How to resell a plot on the Srisailam Highway: the documents buyers will ask for, how pricing and the government market value work, the registered sale process, and the tax basics a seller should understand.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-10-31",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/reselling-plot-srisailam-highway-guide.jpg",
     imageAlt:
@@ -7099,7 +7099,7 @@ export const insights: Insight[] = [
       "A registered sale deed is not the last step. Here is how the government's land record is updated after you buy a plot in Telangana, the shift from Dharani to Bhu Bharati, the fees, and what a buyer should verify.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-11-01",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/land-mutation-after-buying-plot-telangana.jpg",
     imageAlt:
@@ -7111,7 +7111,7 @@ export const insights: Insight[] = [
     sections: [
       {
         body: [
-          "Buying a plot on the Srisailam Highway usually ends with a registered sale deed and a satisfied handshake. For the buyer, though, the government's record of who owns the land is a separate question, and it is updated through a process called mutation. A deed in your drawer is proof of your purchase; the Record of Rights is what the revenue administration reads when it comes to tax, layouts and disputes.",
+          "Buying a plot on the [Srisailam Highway](/srisailam-highway-future-city) usually ends with a registered sale deed and a satisfied handshake. For the buyer, though, the government's record of who owns the land is a separate question, and it is updated through a process called mutation. A deed in your drawer is proof of your purchase; the Record of Rights is what the revenue administration reads when it comes to tax, layouts and disputes.",
           "This guide explains how the land record is updated after a registered plot purchase in Telangana, the shift from the Dharani portal to the Bhu Bharati system, the fees involved, and what a buyer should verify afterwards. It follows our guide to [registering property in India](/insights/nri-buying-property-india-registration-stamp-duty). It is Arjun Realty market research, not legal advice; confirm the position for your specific land with the revenue authorities and a qualified lawyer.",
         ],
       },
@@ -7295,7 +7295,7 @@ export const insights: Insight[] = [
       "What to check on the ground before you buy an open plot near the Srisailam Highway: approach road and access, boundaries and survey markers, drainage, utilities, surrounding development, and a printable checklist.",
     category: "Buyer Guides",
     categorySlug: "buyer-guides",
-    publishedAt: "2026-11-02",
+    publishedAt: "2026-10-19",
     author: researchDesk,
     image: "/images/insights/plot-site-inspection-checklist-srisailam-highway.jpg",
     imageAlt:
@@ -7385,7 +7385,7 @@ export const insights: Insight[] = [
         heading: "Surrounding Development and Infrastructure Claims",
         body: [
           "Look beyond the plot's own boundary. What is actually built nearby - homes, industries, farmland or nothing? Is the layout itself developed with roads and plots demarcated, or is it raw land with a plan? The answers frame what living or building there would involve in the near term.",
-          "Infrastructure claims around the Srisailam Highway and the Future City belt should be read carefully: a working road is not the same as an announced one, and an operating facility is not the same as a proposed project. Separate what exists, what is under construction and what is merely announced, and verify anything central to your decision with the source.",
+          "Infrastructure claims around the [Srisailam Highway and the Future City belt](/srisailam-highway-future-city) should be read carefully: a working road is not the same as an announced one, and an operating facility is not the same as a proposed project. Separate what exists, what is under construction and what is merely announced, and verify anything central to your decision with the source.",
           "Our guide to [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) sets out how layout approvals work.",
           "Our look at the [Future City corridor](/insights/future-city-2026-what-has-actually-changed) explains how to tell what has actually changed from what is only proposed.",
         ],
