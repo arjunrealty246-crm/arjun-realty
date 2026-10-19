@@ -131,6 +131,192 @@ const nagarjuna: InsightAuthor = {
 
 export const insights: Insight[] = [
   {
+    slug: "open-plots-mokila-gandipet-kokapet-vs-shankarpally",
+    title:
+      "Open Plots in Mokila, Gandipet and Kokapet: What Buyers Should Compare Before Choosing Shankarpally",
+    seoTitle: "Open Plots in Mokila, Gandipet & Kokapet",
+    metaDescription:
+      "Compare open plots in Mokila, Gandipet and Kokapet against Shankarpally on product, approvals, commute and entry ticket — and what to verify before you buy.",
+    excerpt:
+      "Mokila, Gandipet and Kokapet are the three West Hyderabad addresses buyers weigh most often against Shankarpally. A fair, side-by-side comparison of what each one actually offers, who it suits, and what to verify before you commit.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-19",
+    author: researchDesk,
+    image: "/images/insights/open-plots-mokila-gandipet-kokapet-vs-shankarpally.jpg",
+    imageAlt:
+      "Comparison of open plots in Mokila, Gandipet and Kokapet against Shankarpally, West Hyderabad",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["shankarpally-45-acres", "upcoming-shankarpally"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "Few buyers start with a corridor. Most start with a place someone has heard of — Mokila, Gandipet or Kokapet — and a question attached to it: is this where I should buy? This guide compares those three West Hyderabad addresses against Shankarpally, the corridor where Arjun Realty actually transacts, so you can see where each one genuinely fits rather than where it is marketed.",
+          "A disclosure first, because it changes how you should read the rest. Arjun Realty does not sell, market or represent plots or apartments in Mokila, Gandipet or Kokapet. We operate in [open plots in Shankarpally](/shankarpally) on the western growth belt. Everything below about the other three is a fair market comparison drawn from public information, not an offer.",
+          "One caution runs through the whole article. These four names are often treated as substitutes for one another. They are not. They differ in what is being sold, which authority sanctions it, how far it sits from employment, and how much capital it takes to enter. Comparing them on a single rate per square yard is the most common mistake we are asked to correct.",
+        ],
+      },
+      {
+        heading: "Why these four are compared at all",
+        body: [
+          "All four sit on the same side of the city and share one practical anchor: the financial district around Kokapet and Neopolis, together with the IT belt at Gachibowli and HITEC City. A buyer working in that belt can plausibly live in any of the four, which is exactly why they end up on the same shortlist. We covered how that employment engine works in our analysis of [Kokapet, Neopolis and the record land market](/insights/neopolis-kokapet-land-auction-price-shankarpally).",
+          "What changed is that the Outer Ring Road quietly flattened the differences in commute. Once travel times to the same job nodes converge, the deciding variables stop being distance and start being product, approval, entry ticket and liquidity. Those four variables are the backbone of this comparison.",
+          "There is also a stage difference. Some of these localities are mature and largely built out; others are still absorbing new layout supply. Maturity changes how resale behaves and it changes what a buyer can realistically negotiate, so it belongs in the comparison as much as price does.",
+        ],
+      },
+      {
+        heading: "What each address actually is",
+        body: [
+          "The fastest way to compare the four is to state plainly what each one predominantly sells today. This is the distinction most comparison tables leave out, and it drives almost everything else a buyer cares about.",
+        ],
+        entries: [
+          {
+            title: "Mokila",
+            status: "Plotted corridor",
+            tone: "operational",
+            summary:
+              "A plotted-development corridor on the western edge, associated with villa plots and gated layouts and served by the ORR. Its appeal is a plotted product positioned closer to the city's western employment nodes than the deeper corridors further out.",
+            facts: [
+              { label: "Product", value: "Villa plots and open plots" },
+              { label: "Approval", value: "Layout-specific (HMDA, DTCP or panchayat)" },
+              { label: "Supply", value: "Established, layout-dependent" },
+            ],
+            note: "Mokila hosts layouts across more than one approval regime, so the sanction order for the specific layout matters more than the locality name on the gate.",
+          },
+          {
+            title: "Gandipet",
+            status: "Mature premium locality",
+            tone: "operational",
+            summary:
+              "An established, affluent residential pocket around the Gandipet lake area, dominated by villas, gated communities and older built-up neighbourhoods rather than fresh open plotting.",
+            facts: [
+              { label: "Product", value: "Villas and gated communities, largely built" },
+              { label: "Approval", value: "Mixed; new plotted supply is limited" },
+              { label: "Supply", value: "Low new-plot supply, higher entry" },
+            ],
+            note: "Gandipet is a product most buyers enter as a built villa or a unit in a gated community rather than as a fresh open plot.",
+          },
+          {
+            title: "Kokapet",
+            status: "Apartment-led premium",
+            tone: "development",
+            summary:
+              "West Hyderabad's premium high-rise market, built around the financial district, Neopolis and the ORR. The dominant product is apartments and ultra-luxury towers, not open plots.",
+            facts: [
+              { label: "Product", value: "High-rise and ultra-luxury apartments" },
+              { label: "Driver", value: "Financial district and Neopolis offices" },
+              { label: "Entry", value: "High; portal-listed flats commonly ₹9,500–12,700/sq ft" },
+            ],
+            note: "Kokapet's open land is largely institutional and released by HMDA, so buying an open plot here is an unusual and high-ticket purchase rather than a standard layout sale.",
+          },
+          {
+            title: "Shankarpally",
+            status: "HMDA plotted growth",
+            tone: "development",
+            summary:
+              "A western growth corridor whose product is sanctioned open plots. Arjun Realty's own communities here are documented open plotting: the 45-acre layout is HMDA-approved and RERA-registered, and the 108-acre project's HMDA approval is under process.",
+            facts: [
+              { label: "Product", value: "Open plots, 200–500+ sq yd" },
+              { label: "Approval", value: "HMDA; 45-acre also RERA; 108-acre under process" },
+              { label: "Entry", value: "Generally below the core; documented layouts" },
+            ],
+            note: "This is the only one of the four where Arjun Realty transacts, and the standard we hold layouts to is published openly.",
+          },
+        ],
+      },
+      {
+        heading: "The four compared side by side",
+        body: [
+          "Laid out together, the four separate quickly. The table below is a fair reading of the differences as they stand, not a ranking. Availability and pricing vary from one layout to the next and move over time, so use it to frame the decision and then verify the specific plot.",
+        ],
+        table: {
+          caption:
+            "Qualitative comparison based on the predominant product and the approval framework in each locality. It is a framing aid, not a price list — confirm details for the specific layout or project you are shown.",
+          columns: ["", "Mokila", "Gandipet", "Kokapet", "Shankarpally"],
+          rows: [
+            ["Predominant product", "Villa and open plots", "Villas and gated communities", "High-rise apartments", "HMDA-approved open plots"],
+            ["Approval framework", "Layout-specific (HMDA/DTCP/panchayat)", "Mixed, largely built", "Apartments via RERA; land via HMDA auctions", "HMDA; 45-acre also RERA"],
+            ["Distance to financial district", "Close to the ORR and the core", "Short ride on established roads", "Immediate", "Short drive via the Kandi corridor"],
+            ["New open-plot supply", "Moderate", "Low", "Very low", "Active"],
+            ["Entry ticket", "Mid", "High (built villas)", "High (apartments)", "Lower than the core"],
+            ["Best suited to", "Buyers wanting plots near the core", "Buyers wanting an established premium address", "Apartment and rental buyers", "Plot buyers wanting documented HMDA layouts"],
+          ],
+        },
+      },
+      {
+        heading: "Price and what you are actually paying for",
+        body: [
+          "Entry ticket is the clearest hard difference among the four. The apartment-led market at Kokapet sits at one of the highest entry points, and its pricing is comparatively well documented: portal listings through mid-2026 put mainstream Kokapet flats at roughly ₹9,500 to ₹12,700 per square foot, with ultra-luxury towers higher again. That is a built, per-square-foot rate rather than a land rate, so it is not directly comparable with a plot.",
+          "Gandipet is a mature address and is priced as one. New open plotting there is scarce, so the realistic way in is a villa or a unit in an established gated community, at a premium over the plotted corridors further out.",
+          "Mokila and Shankarpally are both plotted markets, and both are generally more affordable per square yard than the core. Between the two, the honest statement is that they differ more on layout quality, approval and position than on a single headline rate. That is why we publish documentation for our layouts rather than a single promotional number.",
+        ],
+        caution:
+          "Never compare these four on headline rate alone. A per-square-foot apartment price, a per-square-yard plot price and a fully built villa price are three different units. Compare total outlay against product, approval and horizon — and treat any figure quoted without a plot or unit reference as an indication rather than a comparable.",
+      },
+      {
+        heading: "Approvals and due diligence",
+        body: [
+          "Approval is where a fair comparison earns its keep. Kokapet's apartments are RERA-registered projects, but an open plot there is rare and typically released through HMDA's land auctions rather than sold as a standard layout plot. Gandipet's built stock is largely already sanctioned, so what varies is the specific project. Mokila and Shankarpally both carry a mix of approval regimes across their layouts, which is why the label on the brochure is never enough on its own.",
+          "Whichever locality you choose, the same three documents do the heavy lifting: the layout sanction order, the 30-year encumbrance certificate, and the individual title chain. Our comparison of [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) sets out what each authority actually covers.",
+        ],
+        checklist: [
+          "Obtain the layout sanction order for the specific layout and confirm the sanctioning authority, the plotted use and the internal road widths.",
+          "Pull the 30-year encumbrance certificate and confirm the seller is the registered owner on an unbroken chain of title.",
+          "Confirm RERA registration where apartments or a registered plotted layout are involved, and check what the registration actually covers.",
+          "Check the approved plot sizes and setbacks against what you intend to build.",
+          "Verify that power, water and drainage reach the plot boundary today, and by which authority, rather than only on a layout plan.",
+          "For a plot, confirm the arterial and internal road widths for your specific block, since these drive both buildability and resale.",
+        ],
+      },
+      {
+        heading: "Commute, liveability and infrastructure stage",
+        body: [
+          "All four ride on the same western employment belt, but the infrastructure stage differs. Kokapet and Gandipet sit closest to built-out employment and established roads, and Mokila benefits from ORR access that is already in use.",
+          "Shankarpally sits further west along the Shankarpally–Kandi corridor, with NH-65 access and ORR connectivity toward Kokapet and Neopolis. The proposed Gandipet–Shankarpally six-lane highway is not completed, so treat it as forward-looking connectivity rather than as something you can use today.",
+          "The practical test is door-to-door commute on a weekday morning, measured by you rather than assumed from a map. Once travel times to the same job nodes converge, the choice correctly shifts back to product and approval rather than raw distance.",
+        ],
+      },
+      {
+        heading: "How to choose, and where we transact",
+        body: [
+          "The cleanest decision rule is to start from the product you actually want, not the place you have heard of. If you want an apartment close to the financial district, Kokapet is built for that. If you want a mature premium villa address, look at Gandipet. If you want a plotted product, Mokila and Shankarpally are the real comparison — and there the deciding factors are approval, layout quality and liquidity rather than the postcode.",
+          "Then hold the plot to a standard rather than to a locality. Our [Shankarpally plot buyer's guide](/insights/shankarpally-plot-investment-2026-buyers-guide) sets out the specific documentation and site-visit checks we expect on this corridor, and the same discipline applies to any layout you are shown elsewhere.",
+        ],
+      },
+      {
+        heading: "Where you can buy with Arjun Realty",
+        body: [
+          "Arjun Realty transacts in one of these four corridors: Shankarpally. Our communities there are documented end to end, so you can compare them against anything else you are shown on identical terms rather than on brochure descriptions.",
+          "The [Shankarpally 45-acre layout](/shankarpally-45-acres) is HMDA-approved and RERA-registered, with plots from 200 to 500+ square yards and pricing on request.",
+          "Our [Shankarpally 108-acre open plotted community](/projects/upcoming-shankarpally) on the Shankarpally–Nawabpet Highway is an early-stage HMDA project whose approval is currently under process.",
+          "For the corridor as a whole, the [open plots in Shankarpally](/shankarpally) landing page sets out connectivity, landmarks and current opportunities.",
+          "If you would rather compare options against your own capital and horizon before you shortlist anything, you can [request a consultation](/contact) and we will start from your commute and budget rather than from our inventory.",
+        ],
+        sources: [
+          { label: "Hyderabad Metropolitan Development Authority — approvals, layouts and land auctions", publisher: "HMDA", url: "https://www.hmda.gov.in/" },
+          { label: "Telangana State Real Estate Regulatory Authority — registered projects", publisher: "TS RERA", url: "https://rera.telangana.gov.in/" },
+          { label: "Registration and Stamps Department, Government of Telangana — encumbrance and registration records", publisher: "IGRS Telangana", url: "https://registration.telangana.gov.in/" },
+          { label: "Kokapet real estate 2026: flats around ₹9,500–₹12,700 per sq ft (portal listings, mid-2026)", publisher: "PropNewz", url: "https://www.propnewz.com/blog/kokapet-real-estate-hyderabad-2026-06-29", date: "29 Jun 2026" },
+          { label: "Two new interchanges to ease traffic in Hyderabad (Kokapet trumpet interchange, ₹65 crore)", publisher: "The New Indian Express", url: "https://www.newindianexpress.com/cities/hyderabad/2022/jan/03/2-new-interchanges-to-ease-traffic-in-hyderabad-2402423.html", date: "3 Jan 2022" },
+        ],
+      },
+      {
+        heading: "Frequently asked questions",
+        body: [],
+        faqs: [
+          { question: "Are there open plots for sale in Kokapet?", answer: "Kokapet is predominantly an apartment and ultra-luxury market. Open plotting there is uncommon, and where land is released it is typically through HMDA's land auctions rather than as standard layout plots. If open plots are what you want, the honest comparison is between Mokila and Shankarpally rather than with Kokapet." },
+          { question: "Is Mokila better than Shankarpally for plots?", answer: "They are different positions rather than better and worse. Mokila sits closer to the ORR and the core, while Shankarpally sits further west along the Shankarpally–Kandi corridor with a larger, more active supply of documented HMDA layouts. The right answer depends on your commute, your budget and how much documentation you want to be able to verify." },
+          { question: "Is Gandipet a good place to buy an open plot?", answer: "Gandipet is a mature, affluent address where the product is largely villas and established gated communities rather than fresh open plots. New plotted supply is limited, so buyers usually enter Gandipet as a built asset rather than as a plot." },
+          { question: "Does Arjun Realty sell plots in Mokila, Gandipet or Kokapet?", answer: "No. Arjun Realty transacts in open plots in Shankarpally, on the western growth belt. Mokila, Gandipet and Kokapet are covered here as a fair market comparison only." },
+          { question: "Which of the four is closest to the financial district?", answer: "Kokapet sits immediately beside the financial district and Neopolis. Mokila and Gandipet are short rides away via established roads, and Shankarpally is a short drive further west along the Shankarpally–Kandi corridor. Confirm the actual weekday commute for your specific workplace before you decide." },
+          { question: "Will the Gandipet–Shankarpally six-lane highway raise plot values?", answer: "It is a proposed road and is not completed. It may improve connectivity if and when it is delivered, but we do not treat proposed infrastructure as a guaranteed driver of value, and no one should buy on that assumption alone." },
+        ],
+      },
+    ],
+  },
+  {
     slug: "neopolis-kokapet-land-auction-price-shankarpally",
     title: "Neopolis Kokapet Real Estate: Record Land Prices, Premium Communities and Shankarpally Plot Alternatives",
     seoTitle: "Neopolis Kokapet Land Auction & Plot Prices",
