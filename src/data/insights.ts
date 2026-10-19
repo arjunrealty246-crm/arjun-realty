@@ -7284,6 +7284,220 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "plot-site-inspection-checklist-srisailam-highway",
+    title:
+      "How to Inspect a Plot Before Buying: A Site-Visit Checklist for the Srisailam Highway (2026)",
+    seoTitle: "Plot Site Inspection Checklist: Srisailam",
+    metaDescription:
+      "A 2026 buyer's site-visit checklist for inspecting an open plot near the Srisailam Highway: approach road and access, boundaries and survey markers, drainage, utilities, surrounding development, and what to photograph.",
+    excerpt:
+      "What to check on the ground before you buy an open plot near the Srisailam Highway: approach road and access, boundaries and survey markers, drainage, utilities, surrounding development, and a printable checklist.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-11-02",
+    author: researchDesk,
+    image: "/images/insights/plot-site-inspection-checklist-srisailam-highway.jpg",
+    imageAlt:
+      "A buyer inspecting plot boundaries and a layout approach road on the Srisailam Highway - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "Most of what decides whether a plot is right for you is not visible on a website. Approvals, a clean encumbrance certificate and a registered deed all matter, but a plot can clear every desk check and still disappoint on the ground: an approach road that does not exist, a boundary that does not match the plan, or a low corner that holds water every monsoon.",
+          "This guide is a practical checklist for the site visit itself - what to look at, what to ask, and what to record. It follows our [first-time plot investor checklist](/insights/first-time-plot-investor-checklist-hyderabad), which treats the visit as one step in a wider set of checks. It is Arjun Realty market research, not legal advice; always pair a site visit with independent legal due diligence.",
+        ],
+      },
+      {
+        heading: "A Site Visit Is Not Legal Due Diligence",
+        body: [
+          "It is worth being precise about what a site visit can and cannot do. A physical inspection answers questions about the land and its surroundings as they exist today: access, boundaries, levels, utilities and neighbouring development. It cannot tell you who owns the land or whether the title is clear.",
+          "Legal due diligence is a separate exercise. It reads the chain of title, the [encumbrance certificate](/insights/encumbrance-certificates-explained-before-buying-land), the survey position, the layout approval and the registration records.",
+          "Our walkthrough of [property registration](/insights/nri-buying-property-india-registration-stamp-duty) covers that side. A promising site visit is not a substitute for it, and a clean title is not a substitute for seeing the plot.",
+        ],
+        caution:
+          "A site visit does not replace independent title, encumbrance, survey and layout-approval checks, or the applicable registration steps. Treat it as one part of due diligence, not the whole of it.",
+      },
+      {
+        heading: "The Site-Visit Checklist",
+        body: [
+          "Print or copy this list and work through it on the ground. Tick each item only once you have actually confirmed it.",
+        ],
+        checklist: [
+          "Approach road: confirm the road to the plot exists on the ground and is usable, not only shown on the layout.",
+          "Road access: check whether the road is a public road or an internal layout road, and note its condition after rain.",
+          "Connectivity: note the route you actually took from the highway and how long it took in real conditions.",
+          "Boundaries: locate all four corners and check whether the extent and shape match the approved layout.",
+          "Survey markers: look for survey stones or markers and note whether they are present, displaced or missing.",
+          "Survey numbers: note the survey number(s) and compare them with the layout plan and the sale documents.",
+          "Demarcation: check whether the layout is demarcated and whether plot numbers are visible on the ground.",
+          "Neighbouring plots: note how the plots on each side are used - vacant, built, fenced or encroached.",
+          "Ground level: check whether the plot sits level with the road or clearly below or above it.",
+          "Slope: observe the natural slope and the direction in which rainwater would run across the plot.",
+          "Drainage: look for drains, standing water or erosion marks, especially along the boundaries.",
+          "Waterlogging signs: check for damp patches, cracks or dense vegetation that suggest repeated pooling.",
+          "Electricity: note existing poles, lines or transformers serving the area, and whether the supply is live.",
+          "Electricity - existing or proposed: separate a connection that works today from one that is only proposed.",
+          "Water: check for existing lines, borewells or supply in nearby plots, and confirm what is available now.",
+          "Water - existing or proposed: do not treat a planned supply as available until it exists on the ground.",
+          "Surrounding development: note what is actually built nearby and how developed the layout itself is.",
+          "Access routes: walk or drive the connecting roads to confirm they genuinely reach the plot.",
+          "Infrastructure claims: separate what is built and working from what is only announced or planned.",
+          "Adjoining land use: note whether nearby land is residential, agricultural, industrial or vacant.",
+        ],
+      },
+      {
+        heading: "Approach Road and Access",
+        body: [
+          "Access is the single most common disappointment. A layout brochure may show a wide road while the ground shows a narrow track, an unfinished stretch or a route that crosses someone else's land. Walk or drive the approach yourself and judge whether a vehicle can reach the plot in the monsoon as well as in the dry season.",
+          "Note whether the road you used is a public road or an internal road within the layout, because that affects who maintains it. If the access depends on a road that is only proposed, treat it as a risk to be confirmed with the layout's approved plan and the local authorities rather than as an existing facility.",
+        ],
+        caution:
+          "Road widths, ownership and alignment shown on a plan should be verified against the approved layout and the local authority. Do not rely on a brochure or a verbal assurance about access.",
+      },
+      {
+        heading: "Boundaries, Dimensions and Survey Markers",
+        body: [
+          "Confirm the plot's actual extent and shape rather than assuming the number in the brochure. Locate the corners, pace or measure the sides where you can, and check whether the plot is rectangular or has an irregular edge that the plan may not emphasise. Compare the survey number on the ground with the one in the documents.",
+          "Survey stones or markers are useful evidence of where the boundaries lie, but their absence or displacement is common. Where markers are missing or a boundary is unclear, note it and have the position confirmed by a licensed surveyor before you commit; a boundary dispute is far cheaper to avoid than to settle.",
+        ],
+      },
+      {
+        heading: "Ground Level, Slope and Drainage",
+        body: [
+          "Where water goes is a question buyers ask too late. Stand on the plot and look at the levels: is it above, level with, or below the road? Which way does the land fall? In a low-lying plot, or one at the end of a slope, rainwater from surrounding land may collect on it.",
+          "Look for the physical signs of poor drainage: standing water, damp ground, cracks, salt-like patches or unusually dense vegetation. Check these near the boundaries and along the approach road, where blocked drains often show first. The observations here are about the land as it is today; the design of any drainage works is a matter for a qualified engineer.",
+        ],
+        caution:
+          "Drainage, filling and level works have engineering and sometimes approval implications. If the plot appears to need them, get professional advice before deciding.",
+      },
+      {
+        heading: "Electricity and Water: Existing Versus Proposed",
+        body: [
+          "Utilities deserve particular care because they are easy to overstate. For electricity, check whether poles, lines or a transformer already serve the area and whether the supply is live, rather than accepting a statement that power will be brought in. For water, check whether there are existing lines or working borewells serving nearby plots, and what is actually available today.",
+          "The important distinction is between what exists and what is proposed. A planned substation, an announced pipeline or a future connection is not the same as a working service, and it may never arrive on the timeline imagined. Note both, label them clearly, and if a service is essential to your plan, ask how and when it can be obtained from the relevant authority.",
+        ],
+      },
+      {
+        heading: "Surrounding Development and Infrastructure Claims",
+        body: [
+          "Look beyond the plot's own boundary. What is actually built nearby - homes, industries, farmland or nothing? Is the layout itself developed with roads and plots demarcated, or is it raw land with a plan? The answers frame what living or building there would involve in the near term.",
+          "Infrastructure claims around the Srisailam Highway and the Future City belt should be read carefully: a working road is not the same as an announced one, and an operating facility is not the same as a proposed project. Separate what exists, what is under construction and what is merely announced, and verify anything central to your decision with the source.",
+          "Our guide to [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) sets out how layout approvals work.",
+          "Our look at the [Future City corridor](/insights/future-city-2026-what-has-actually-changed) explains how to tell what has actually changed from what is only proposed.",
+        ],
+        caution:
+          "Announcements, proposals and news reports are not the same as completed infrastructure. Treat them as context, not as facilities that already exist.",
+      },
+      {
+        heading: "Documents and Questions to Carry",
+        body: [
+          "Take the layout plan and the plot details with you, so that you can compare the paper position with the ground. Ask the seller or the layout representative the specific questions below, and note the answers - and who gave them - for your records.",
+        ],
+        checklist: [
+          "Which approvals does the layout hold, and where can they be independently verified?",
+          "What is the survey number, and does it match the one in the sale documents?",
+          "What is the current encumbrance position, and can an up-to-date certificate be provided?",
+          "Is the approach road a public road or an internal layout road, and who maintains it?",
+          "Which utilities - electricity and water - exist today, and which are only proposed?",
+          "Are there any pending dues, disputes or encumbrances on the plot or the layout?",
+        ],
+      },
+      {
+        heading: "What to Collect During the Visit",
+        body: [
+          "A visit produces evidence you will rely on later, when the memory of a hot afternoon has faded. Record it methodically so that you can compare plots and re-check specific observations.",
+        ],
+        checklist: [
+          "Photograph all four corners of the plot and the plot number or demarcation if visible.",
+          "Photograph the approach road in both directions, and the connecting route from the highway.",
+          "Photograph any standing water, encroachment, missing marker or boundary ambiguity.",
+          "Record a short walk-around video from inside the plot boundary.",
+          "Save the exact GPS location pin and coordinates, not just the layout or project name.",
+          "Note the date, time and recent weather, and keep these notes with the plot's documents.",
+        ],
+        caution:
+          "Photographs and pins help you compare plots and re-verify later, but they are not proof of title or of an approval. Keep them alongside, not instead of, the legal records.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide above and should be read with the disclaimers that follow.",
+        ],
+        faqs: [
+          {
+            question: "What should I check on a plot site visit?",
+            answer:
+              "Approach road and actual access, boundaries and survey markers against the layout, ground level, slope and drainage signs, existing versus proposed electricity and water, surrounding development, and the documents and questions you carry. Record photographs, a video and the exact location pin.",
+          },
+          {
+            question: "Does a site visit replace legal checks?",
+            answer:
+              "No. A site visit confirms physical conditions only. It does not replace independent title, encumbrance, survey, layout-approval and registration checks, which are a separate and essential part of due diligence.",
+          },
+          {
+            question: "How do I know if the access road is real?",
+            answer:
+              "Walk or drive the approach yourself and see whether it exists on the ground and remains usable after rain. Confirm whether it is a public road or an internal layout road, and verify its position against the approved layout rather than a brochure.",
+          },
+          {
+            question: "How can I tell existing utilities from proposed ones?",
+            answer:
+              "Look for working poles, lines, transformers, water lines or borewells serving nearby plots. A planned substation, pipeline or future connection is not an existing service, so label it as proposed and ask how and when it can actually be obtained.",
+          },
+          {
+            question: "How do I check for waterlogging on a plot?",
+            answer:
+              "Check the plot's level relative to the road and the direction of the natural slope, and look for standing water, damp ground, cracks or unusually dense vegetation, especially near boundaries and the approach road. Get engineering advice if drainage works appear necessary.",
+          },
+          {
+            question: "What should I collect during the visit?",
+            answer:
+              "Photographs of all four corners, the approach road and any problem signs; a short walk-around video; the exact GPS location pin; and dated notes of your observations and the seller's answers.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "A good plot on the Srisailam Highway is one that holds up both on paper and on the ground. The site visit is where you test the ground: does the access exist, do the boundaries match, does the water drain, are the utilities real, and does the surrounding area match the story you were told. Work through the checklist, record what you see, and ask the questions that only the site can answer.",
+          "Then close the loop - take the observations back to the legal side, including the title, the [encumbrance position](/insights/encumbrance-certificates-explained-before-buying-land) and the approvals.",
+          "If you later sell, our guide to the [reselling process](/insights/reselling-plot-srisailam-highway-guide) explains what buyers will ask for.",
+          "Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, an FCDA-approved semi-villa community with villa plots and boutique villas. General sources behind the points above are listed below.",
+        ],
+        sources: [
+          {
+            label:
+              "Hyderabad Metropolitan Development Authority: layout approvals, development permissions and the zoning of land",
+            publisher: "Government of Telangana",
+            url: "https://www.hmda.gov.in/",
+          },
+          {
+            label:
+              "Registration and Stamps Department, Government of Telangana: verifying sale documents, encumbrance and the government market value",
+            publisher: "Government of Telangana",
+            url: "https://registration.telangana.gov.in/",
+          },
+          {
+            label:
+              "Bureau of Indian Standards: National Building Code of India, for general guidance on construction, drainage, levels and services",
+            publisher: "Bureau of Indian Standards",
+            url: "https://www.bis.gov.in/",
+          },
+          {
+            label: "National Portal of India: state land records and revenue department services",
+            publisher: "Government of India",
+            url: "https://www.india.gov.in/",
+          },
+        ],
+        caution:
+          "This article is general research, not legal or engineering advice. Site conditions, approvals and utilities are specific to each plot and change over time; confirm them through a physical inspection, the relevant authorities and qualified professionals before acting.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
