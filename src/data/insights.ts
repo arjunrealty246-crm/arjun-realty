@@ -5828,6 +5828,207 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "building-a-house-on-srisailam-highway-plot",
+    title:
+      "Building a House on a Plot on the Srisailam Highway: Permissions, Process and Budgeting (2026)",
+    seoTitle: "Building a House on Your Srisailam Plot",
+    metaDescription:
+      "A 2026 guide to building a house on a plot on the Srisailam Highway: layout and building permissions, the construction stages, what drives cost, financing the build and completion records.",
+    excerpt:
+      "You own the plot - now what? The two approvals involved, the building-permission process, the construction stages, what drives the cost, and how to finance and complete the build.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-25",
+    author: researchDesk,
+    image: "/images/insights/building-a-house-on-srisailam-highway-plot.jpg",
+    imageAlt:
+      "A house under construction on a residential plot on the Srisailam Highway - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "Buying the plot is the first half of the plan; the house is the second. Once a plot on the Srisailam Highway is registered in your name, the questions change from title and approvals to what can be built, who approves it, what the stages are, and how to pay for it.",
+          "This guide walks through building on a plot in Telangana as it stands in 2026 - the difference between the layout approval the plot already has and the building permission you now need, the process of getting that permission, the construction stages, what drives cost, financing, and the records to complete at the end. It follows our guides to [choosing between villa plots and apartments](/insights/villa-plots-vs-apartments-srisailam-highway) and to financing a plot. It is Arjun Realty market research, not legal, engineering or financial advice; confirm permissions and costs with the local authority and a licensed professional.",
+        ],
+      },
+      {
+        heading: "Two Different Approvals: Layout and Building",
+        body: [
+          "A plot in an approved layout already has one permission behind it: the layout approval, granted by the competent authority - HMDA, DTCP or, in the Future City belt, FCDA. That approval confirms the layout and the land use; it does not authorise a specific house on a specific plot.",
+          "The second approval is the building permission, sometimes called the building plan sanction. This is the permission to construct a particular building on the plot, to a particular design, and it is applied for separately. Approaching a plot as if the layout approval is enough is one of the most common mistakes a first-time builder makes.",
+        ],
+        caution:
+          "Layout approval and building permission are different. Confirm the authority with jurisdiction over your plot before designing, because the application route depends on it.",
+      },
+      {
+        heading: "Confirming What Can Be Built on Your Plot",
+        body: [
+          "Before any design work, establish the rules that apply to the plot: the permitted built-up area in relation to the plot size, the required setbacks from the boundaries, the height limits and the land use. These come from the applicable building rules and the layout, and they determine the size and shape of the house that can be sanctioned.",
+          "The plot's own conditions matter too: orientation and access, the width of the approach road, and any conditions recorded in the layout. A design prepared without checking these tends to come back for revision, which costs time before construction has even started.",
+        ],
+        caution:
+          "The rules that bind a plot depend on its location, the authority and the layout. Confirm the applicable rules with the local authority or a licensed architect before finalising a design.",
+      },
+      {
+        heading: "Design and the Building Permission",
+        body: [
+          "The design is prepared by a licensed architect or engineer and submitted as a set of drawings: the site plan, the floor plans, the elevations and the structural drawings. In Telangana, building permissions are processed through the state's online building-permission system, which combines an application route with a self-certification route for eligible proposals.",
+          "The permission, once granted, usually has a validity period within which construction must begin or be completed. Building beyond the sanctioned plan - extra floors, larger coverage - is a compliance problem, not a shortcut, and it can complicate the completion certificate and the property's records later.",
+        ],
+        caution:
+          "Building permissions are governed by the applicable rules and an online approval system. Follow the sanctioned plan and confirm the current process and timelines with the local authority.",
+      },
+      {
+        heading: "Site Preparation and Utilities",
+        body: [
+          "With permission in hand, the site is prepared for construction. That typically means clearing and levelling the plot, setting out the building lines, and constructing a compound wall and a temporary access. Water and electricity for construction are arranged as temporary connections at this stage.",
+          "The permanent utility connections - water, drainage and electricity to the finished house - are applied for through the respective agencies. On a developing corridor, the availability and the lead time for these connections can vary by location, so it is worth confirming them early rather than at the end of the build.",
+        ],
+      },
+      {
+        heading: "The Construction Stages, in Order",
+        body: [
+          "A house is built in a sequence, and each stage has to be completed and checked before the next begins. The table below sets out the usual order.",
+        ],
+        table: {
+          caption: "The typical sequence of construction on a residential plot.",
+          columns: ["Stage", "What happens"],
+          rows: [
+            ["Excavation and foundation", "Digging, footings and the foundation that carries the structure"],
+            ["Structure", "Columns, beams and slabs that frame the building"],
+            ["Masonry and internal work", "Walls, plastering and internal partitions"],
+            ["Services", "Electrical conduits, plumbing and drainage within the structure"],
+            ["Finishes", "Flooring, doors and windows, painting and fittings"],
+            ["External works", "Boundary, driveway, landscaping and the permanent connections"],
+          ],
+        },
+        caution:
+          "The stages and the checks within them depend on the design and the site. Follow the engineered drawings and the applicable standards.",
+      },
+      {
+        heading: "What Drives the Cost, Without Guessing the Number",
+        body: [
+          "Construction cost is usually quoted per square foot of built-up area, but the figure is not fixed: it moves with the size and specification of the house, the design, the site conditions, and the material and labour rates at the time of building. That is why a reliable number comes from a current estimate for your own design, not from a general rate.",
+          "The main cost categories are consistent, even when the amounts are not: professional fees for design and supervision; statutory and utility charges; the structure; the finishes and fittings, which is where specification choices move the cost most; and a contingency for the unexpected. A budget that omits the contingency and the statutory charges is the one that overruns.",
+        ],
+        caution:
+          "Cost varies with design, specification, site and prevailing rates, and is not fixed by any single figure. Obtain a current itemised estimate for your own design before committing.",
+      },
+      {
+        heading: "Financing the Build",
+        body: [
+          "A house is often funded through a construction loan or a combined plot-plus-construction loan, in which the lender sanctions an amount for the land and the build and disburses it in stages as construction reaches agreed milestones. This needs a construction plan and an estimate up front.",
+          "Where the plot was bought with a plot loan, lenders often expect construction to begin within a set period, and may offer to convert or extend the loan for the build. We cover the options, the loan-to-value rule and the documents in our guide to [home loans for a plot on the Srisailam Highway](/insights/home-loan-for-plot-srisailam-highway).",
+        ],
+        caution:
+          "Loan structures, disbursement milestones and any construction conditions are set by each lender. Confirm the terms with the bank or housing finance company before starting the build.",
+      },
+      {
+        heading: "Choosing and Managing a Contractor",
+        body: [
+          "The builder or contractor is engaged on either a labour-only basis, with the owner supplying materials, or a full contract including materials. Whichever the route, the agreement should set out the scope, the specification, the payment schedule tied to milestones, the timeline and what happens if the work is delayed.",
+          "A practical checklist keeps the build on track and the records clean.",
+        ],
+        checklist: [
+          "Confirm the building permission and build strictly to the sanctioned plan.",
+          "Agree the scope, specification and a milestone-linked payment schedule in writing.",
+          "Keep the engineered drawings on site and have each stage inspected before it is covered up.",
+          "Record material purchases and keep the bills with the project file.",
+          "Apply for the permanent water, drainage and electricity connections in good time.",
+          "Track progress against the milestone schedule and hold back a retention until snags are fixed.",
+          "Keep statutory approvals, drawings and completion records together for the property file.",
+        ],
+        caution:
+          "Engaging a contractor is a commercial and legal matter. Use a clear written contract and take advice specific to your project.",
+      },
+      {
+        heading: "Completion, Occupancy and Records",
+        body: [
+          "When the house is finished, the process is not over. A completion or occupancy certificate, where the applicable rules require one, confirms that the building was constructed in accordance with the sanctioned plan. Property tax assessment for the built structure follows, and the revenue records should reflect the completed property.",
+          "Keeping the sanctioned drawings, the permissions, the completion records and the utility documentation together is what makes the house easy to insure, occupy and, eventually, sell.",
+        ],
+        caution:
+          "Completion and occupancy requirements depend on the authority and the building. Confirm what is required for your property before occupying it.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide above and should be read with the disclaimers that follow.",
+        ],
+        faqs: [
+          {
+            question: "Do I need a separate permission to build on an approved plot?",
+            answer:
+              "Yes. The layout approval covers the layout and the land use, not a specific house. A building permission, granted for a particular design under the applicable rules, is applied for separately before construction.",
+          },
+          {
+            question: "How is a building permission applied for in Telangana?",
+            answer:
+              "Building permissions in Telangana are processed through the state's online building-permission system, which provides an application route and a self-certification route for eligible proposals. Confirm the current process and jurisdiction with the local authority.",
+          },
+          {
+            question: "How much does it cost to build a house?",
+            answer:
+              "Cost varies with the size and specification of the house, the design, the site conditions and prevailing material and labour rates, so no single figure applies. A reliable number comes from a current itemised estimate for your own design, including statutory charges and a contingency.",
+          },
+          {
+            question: "Can I build in stages?",
+            answer:
+              "Construction follows a sequence - foundation, structure, masonry, services, finishes and external works - and each stage has to be completed and inspected before the next. Whether to build all at once or plan for a later extension depends on the design and the sanctioned plan.",
+          },
+          {
+            question: "How is a build financed?",
+            answer:
+              "Often through a construction loan or a combined plot-plus-construction loan, disbursed in stages as the build reaches agreed milestones, which needs a construction plan and an estimate up front. Where the plot was bought with a plot loan, the lender may expect construction within a set period.",
+          },
+          {
+            question: "What should I keep at the end?",
+            answer:
+              "The sanctioned drawings and permissions, the building permission, the completion or occupancy records where required, the property tax assessment for the built structure and the utility documentation - kept together in the property file.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "Building on a plot on the Srisailam Highway is a sequence, and it starts before the first brick: confirm what the plot allows, get the building permission for a design that fits, prepare the site and the utilities, then build in stages against a clear contract and a budget that includes statutory charges and a contingency. At the end, the completion records and the sanctioned drawings are what make the house easy to occupy, insure and eventually sell.",
+          "Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, an FCDA-approved layout of residential plots and semi-villas. General sources behind the points above are listed below.",
+        ],
+        sources: [
+          {
+            label:
+              "Telangana State Building Permission Approval and Self Certification System (TS-bPASS): online building permissions",
+            publisher: "Government of Telangana",
+            url: "https://tgbpass.telangana.gov.in/",
+          },
+          {
+            label:
+              "Telangana Urban Areas (Development) Act, 1975, and layout and building approvals by HMDA and the Future City Development Authority (FCDA)",
+            publisher: "Government of Telangana",
+            url: "https://www.hmda.gov.in/",
+          },
+          {
+            label:
+              "National Building Code of India and the applicable state building rules",
+            publisher: "Bureau of Indian Standards",
+            url: "https://www.bis.gov.in/",
+          },
+          {
+            label:
+              "Registration and Stamps Department, Government of Telangana: registration of sale deeds and property records",
+            publisher: "Government of Telangana",
+            url: "https://registration.telangana.gov.in/",
+          },
+        ],
+        caution:
+          "This article is general research, not legal, engineering or financial advice. Permissions, building rules, costs and completion requirements depend on the specific plot and the applicable authority and change over time; confirm them with the local authority and a licensed architect, engineer or lawyer before acting.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
