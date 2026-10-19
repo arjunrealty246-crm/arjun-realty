@@ -6374,6 +6374,179 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "corner-interior-park-facing-plot-srisailam-highway",
+    title:
+      "Corner, Park-Facing or Interior Plot? Choosing the Right Position on the Srisailam Highway (2026)",
+    seoTitle: "Corner or Interior Plot? Srisailam Guide",
+    metaDescription:
+      "A 2026 buyer's guide to plot position on the Srisailam Highway: how corner, park-facing, interior and main-road plots compare on light, access, privacy, setbacks and price, and how to choose.",
+    excerpt:
+      "Same size, different position, different plot. How corner, park-facing, interior and main-road plots compare on light, access, privacy, setbacks and price - and what to verify before you buy.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-28",
+    author: researchDesk,
+    image: "/images/insights/corner-interior-park-facing-plot-srisailam-highway.jpg",
+    imageAlt:
+      "An approved residential layout on the Srisailam Highway showing corner and interior plots - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "Two plots in the same layout can be the same size and still be very different buys. What separates them is position: whether the plot sits on a corner, faces a park or an amenity, lies on a main road, or sits quietly inside the layout. Position affects light, access, privacy and price before a single brick is laid.",
+          "This guide explains how plot positions compare on the Srisailam Highway and what to check before choosing. It follows our guide to [which plot size to buy](/insights/which-plot-size-to-buy-srisailam-highway). It is Arjun Realty market research, not legal or financial advice; the applicable building rules, including any special setback for a corner plot, should be confirmed for the specific plot.",
+        ],
+      },
+      {
+        heading: "Why Position Matters Within the Same Layout",
+        body: [
+          "A layout is a grid of roads, plots and open spaces, and a plot's position in that grid decides how much of it is exposed. A corner plot has two open sides; an interior plot has neighbours on both sides; a plot facing a park looks out over open space. Each configuration changes the light, the privacy, the access and the outlook.",
+          "Position also affects price. Corner and park-facing plots usually carry a premium because they are seen as more desirable, while interior plots are often the more economical choice in the same layout. Whether that premium is worth it depends on how you plan to use the plot.",
+        ],
+      },
+      {
+        heading: "How the Positions Compare",
+        body: [
+          "The table below sets out the main trade-offs a buyer weighs on this corridor.",
+        ],
+        table: {
+          caption: "Comparing plot positions within a layout on the Srisailam Highway.",
+          columns: ["Position", "Advantages", "Trade-offs"],
+          rows: [
+            ["Corner plot", "Two open sides, more light and air, easier access", "Higher price; more boundary to build; may carry a larger corner setback"],
+            ["Park or amenity-facing", "Open outlook, quieter, a sense of space", "Premium price; a public park can bring activity and footfall"],
+            ["Interior plot", "More privacy, fewer open sides, often lower price", "Neighbours on both sides; less outlook and light"],
+            ["Main-road facing", "Visibility and easy access", "More noise and traffic; some rules restrict certain uses"],
+          ],
+        },
+        caution:
+          "These are general trade-offs. The rules that apply to a plot - setbacks, permitted use and any special condition for a corner or main-road plot - depend on the layout and the authority.",
+      },
+      {
+        heading: "Corner Plots",
+        body: [
+          "A corner plot is open on two sides, which brings more natural light and cross-ventilation, easier access, and a sense of space that an interior plot does not have. It is often the most flexible plot to design on, because the house can be oriented to use the two open frontages.",
+          "The trade-offs are cost and rules. Corner plots usually carry a premium, they require more boundary wall because two sides face the road, and building rules often require a larger setback for corner plots for visibility at the junction. Both the premium and the setback should be checked before you buy.",
+        ],
+      },
+      {
+        heading: "Park-Facing and Amenity-Facing Plots",
+        body: [
+          "A plot facing a park, a green space or a community amenity looks out over open land rather than a neighbour's wall, so it keeps its light and its outlook. In a gated layout this is often the most sought-after position, and it is usually priced accordingly.",
+          "The one caution is that a public or shared park is also a place of activity. A park-facing plot can be quieter than a road-facing one, but it is not private open land; footfall, play areas and events are part of living beside shared space. It is worth seeing the layout's open spaces in use, not just on the plan.",
+        ],
+      },
+      {
+        heading: "Interior Plots",
+        body: [
+          "An interior plot sits within the grid, with neighbours on both sides. It gives up the open outlook of a corner or park-facing plot, but it gains privacy and, in most layouts, a lower price. For a buyer whose budget is better spent on the house than on the plot's position, an interior plot is often the sensible choice.",
+          "Interior plots can also be quieter, because they are away from the main movement through the layout. The design needs to work harder to bring in light and cross-ventilation, which is a matter for the architect rather than a reason to rule the plot out.",
+        ],
+      },
+      {
+        heading: "Main-Road and Arterial-Facing Plots",
+        body: [
+          "A plot facing the main road through a layout, or an arterial road, offers visibility and easy access. That can suit a buyer who values convenience, and in some locations it may support a permissible mixed or commercial use, which should always be confirmed against the sanctioned layout rather than assumed.",
+          "The trade-off is exposure to noise and traffic, and, in some cases, restrictions on what may be built. A main-road frontage is a different product from a quiet interior plot, and it should be priced and chosen as one.",
+        ],
+      },
+      {
+        heading: "What to Verify Regardless of Position",
+        body: [
+          "Whatever the position, the checks are the same foundation: an approved layout, non-agricultural land use and a clean title. Position is a preference; approval and title are the conditions that make the plot safe to buy. Our guide to [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) explains how to confirm which authority approved a layout.",
+          "Beyond that, read the setback rules that apply to the specific plot, especially for a corner plot, and confirm the road widths and the boundary. When you come to design, our guide to [building a house on a plot](/insights/building-a-house-on-srisailam-highway-plot) covers how position feeds into the plan.",
+        ],
+      },
+      {
+        heading: "A Buyer Checklist for Plot Position",
+        body: [
+          "A short checklist turns position from a matter of feel into something you can verify before you decide.",
+        ],
+        checklist: [
+          "Visit the layout in person and stand on the plot; check what it actually faces on each side.",
+          "For a corner plot, confirm the price premium and any larger corner setback required by the building rules.",
+          "For a park-facing plot, see the open space in use and check how public it is.",
+          "For an interior plot, assess how light and cross-ventilation will reach the house design.",
+          "For a main-road plot, confirm the permissible use in the sanctioned layout before assuming any commercial potential.",
+          "Check the road widths and access on each side of the plot.",
+          "Confirm the layout approval, land use and title regardless of position.",
+        ],
+        caution:
+          "Position preferences are personal, but setbacks, permitted use and road widths are governed by the layout and the applicable rules. Confirm them at source before buying.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide above and should be read with the disclaimers that follow.",
+        ],
+        faqs: [
+          {
+            question: "Is a corner plot better than an interior plot?",
+            answer:
+              "A corner plot usually offers more light, air and space because it is open on two sides, but it normally costs more and may require a larger corner setback. An interior plot gives up some outlook for more privacy and often a lower price. Neither is better in the abstract; it depends on your priorities.",
+          },
+          {
+            question: "Why do corner plots cost more?",
+            answer:
+              "They are seen as more desirable because they are open on two sides and easier to design on, so they usually carry a premium in the same layout. That premium should be weighed against the extra boundary wall and any larger setback the building rules require.",
+          },
+          {
+            question: "Is a park-facing plot a good buy?",
+            answer:
+              "A plot facing a park or amenity keeps an open outlook, which many buyers value, and it is usually priced at a premium. The caution is that shared open space can bring activity and footfall, so it is worth seeing the space in use before deciding.",
+          },
+          {
+            question: "Does a corner plot have a different setback?",
+            answer:
+              "Building rules often require a larger setback for corner plots, for visibility at the junction. The exact requirement depends on the plot, the layout and the authority, so it should be confirmed for the specific plot before you buy.",
+          },
+          {
+            question: "Can I run a shop or office from a main-road plot?",
+            answer:
+              "Only if the sanctioned layout permits that use for the plot. A main-road frontage does not by itself create a commercial entitlement, so the permissible use should be confirmed against the layout rather than assumed.",
+          },
+          {
+            question: "Does position affect what I can build?",
+            answer:
+              "It can. Setbacks, road widths and permitted use vary with position, and a corner or main-road plot may be subject to different rules. The design and the applicable rules should be confirmed with a licensed architect before finalising a plan.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "Within one layout on the Srisailam Highway, position is what separates otherwise identical plots. A corner plot buys light, air and access at a premium and often a larger setback; a park-facing plot buys an open outlook at a price; an interior plot trades outlook for privacy and economy; and a main-road plot trades quiet for visibility. The right choice follows how you plan to use the plot - and, whatever the position, it rests on the same foundation of an approved layout, non-agricultural land use and a clean title.",
+          "Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, an FCDA-approved semi-villa community with villa plots and boutique villas. General sources behind the points above are listed below.",
+        ],
+        sources: [
+          {
+            label:
+              "Telangana Urban Areas (Development) Act, 1975, and the building rules governing setbacks, road widths and permitted use, as administered by HMDA and the Future City Development Authority (FCDA)",
+            publisher: "Government of Telangana",
+            url: "https://www.hmda.gov.in/",
+          },
+          {
+            label:
+              "Telangana State Building Permission Approval and Self Certification System (TS-bPASS): building permissions and the applicable rules, including corner-plot setbacks",
+            publisher: "Government of Telangana",
+            url: "https://tgbpass.telangana.gov.in/",
+          },
+          {
+            label:
+              "Real Estate (Regulation and Development) Act, 2016: registration of real estate projects, including plotted development, and sanctioned layout disclosures",
+            publisher: "Government of India",
+            url: "https://www.indiacode.nic.in/",
+          },
+        ],
+        caution:
+          "This article is general research, not legal or financial advice. Setbacks, permitted use and building rules depend on the specific plot and the applicable authority and change over time; confirm them with the local authority or a licensed architect before acting.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
