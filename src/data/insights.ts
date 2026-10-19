@@ -3852,6 +3852,418 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "srisailam-highway-employment-industrial-growth",
+    title: "Employment and Industrial Growth Near Srisailam Highway",
+    seoTitle: "Srisailam Highway Jobs & Employment Growth",
+    metaDescription:
+      "A status-checked guide to jobs and employment near Srisailam Highway - which plants are hiring today, which roles are only projected, and what it means for land and rental demand.",
+    excerpt:
+      "Operating payroll versus projected headcount: a status-checked guide to who actually employs people along the Srisailam Highway belt, and how that employment reaches land and rental demand.",
+    category: "Corporate Investments & Growth",
+    categorySlug: "corporate-growth",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/srisailam-highway-employment-industrial-growth.jpg",
+    imageAlt:
+      "Industrial facilities and workforce representing employment and industrial growth along the Srisailam Highway belt in South Hyderabad - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods", "upcoming-srisailam-highway"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "This article takes a narrower question than our wider corridor coverage: not what is being built along the belt, but who is actually employing people there, and what kind of work it is. Employment is the channel through which industry reaches property, so it deserves a guide of its own rather than a paragraph inside a larger one.",
+          "The discipline that matters here is the difference between an operating payroll and a projected one. An operating plant pays wages now, and its workforce needs somewhere to live, to travel and to spend. An announced plant creates an expectation, and the jobs attached to it at announcement are forecasts that can move. This guide keeps those two categories strictly apart. For the industrial geography behind these employers, see the [Srisailam Highway industrial growth guide](/insights/srisailam-highway-tukkuguda-maheshwaram-industrial-growth).",
+          "It is Arjun Realty market research, based on the sourcing listed at the end. It deliberately avoids publishing a single headline jobs figure for the belt, because no audited figure exists and the commonly quoted numbers are either sector-level state totals or projections attached to plants that are not yet operating. Employment-led demand is a documented mechanism; it does not make any particular plot appreciate, and this article promises no returns.",
+        ],
+      },
+      {
+        heading: "Why Employment Is the Most Useful Filter on This Belt",
+        body: [
+          "Industrial announcements on this corridor are large and frequent, and they are often described as though the jobs were already there. The more useful question is whether a payroll exists today. An incentive agreement, a memorandum of understanding or even a foundation ceremony is a decision; a payroll is people on a shop floor receiving wages. Only the second creates housing, rental and services demand that a landowner can actually observe.",
+          "There are three ways operating employment touches land, and each works through a specific channel rather than through proximity by itself. It creates rental demand close to the plant, because a shift and technical workforce wants to live within a workable commute. It creates demand for the services that workforce uses. And it consumes road, water and power capacity, which shapes which parts of the corridor can absorb residential growth at all. None of this is automatic, and none of it transfers to a plot merely because the plot happens to be nearby.",
+        ],
+        drivers: [
+          "Rental demand within a workable commute of an operating plant, weighted towards shift and technical staff.",
+          "Local service demand from a resident workforce, from retail to healthcare and schooling.",
+          "Road, water and power capacity consumed by industry, which conditions where residential growth can follow.",
+          "Supplier and subcontractor activity clustering around large anchor employers.",
+          "Higher-skill roles near defence, aerospace and IT anchors, which support a more affluent catchment.",
+          "The lag between an announcement and a payroll, the single most commonly understated factor on this corridor.",
+        ],
+        caution:
+          "Employment-led demand is a mechanism, not a guarantee. Announced or projected jobs are not present payroll and should never be counted as though they were.",
+      },
+      {
+        heading: "Who Is Actually Hiring Today: The Operating Payroll",
+        body: [
+          "The belt's present employment sits in a set of facilities that are running and staffing shifts today. They are unglamorous next to the headline announcements, but they are the part of the story that already touches the local housing and rental market.",
+          "Solar and electronics manufacturing is the most continuous employer on the stretch. Premier Energies runs a solar cell and module plant within the E-City estate at Raviryala, commissioned in 2021 and expanded since, employing a mix of shop-floor operators, technicians and engineers across shifts. The defence-electronics units at Tukkuguda and Maheshwaram, including VEM Technologies, Astra Microwave, Zen Technologies and Avon Defence, employ a more specialised workforce of assembly technicians, radio-frequency and systems engineers, and quality staff. The Tukkuguda Hardware Park adds aerospace-component and logistics operations, whose workforce is weighted towards warehousing, dispatch and support roles.",
+          "Treating these as one interchangeable cluster would overstate the case, because each node draws a different skill mix and sits at a different distance from the city. The corridor context around them is set out in our [South Hyderabad industrial growth corridor](/insights/south-hyderabad-industrial-growth-corridor) analysis.",
+        ],
+        table: {
+          caption:
+            "Operating employers on the Srisailam Highway belt. Statuses reflect the best available evidence at the time of writing and are not a substitute for site or record verification.",
+          columns: ["Facility", "Sector", "Location", "Employment character", "Status"],
+          rows: [
+            ["Premier Energies solar plant", "Solar manufacturing", "E-City estate, Raviryala", "Shift operators, technicians, engineers", "Operational"],
+            ["VEM Technologies seeker facility", "Defence electronics", "Hardware Park, Tukkuguda", "RF and systems engineers, assembly technicians", "Operational"],
+            ["Hardware Park-1 tenants", "Aerospace components, logistics", "Tukkuguda", "Warehousing, dispatch and support roles", "Operational"],
+            ["Defence-electronics units", "Defence electronics", "Maheshwaram / Hardware Park", "Assembly, quality and test staff", "Operational"],
+          ],
+        },
+        entries: [
+          {
+            title: "Premier Energies - E-City solar manufacturing",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "Solar cell and module manufacturing within the E-City estate at Raviryala, Maheshwaram mandal, commissioned in 2021 and expanded with later production lines. A continuous, shift-based manufacturing employer.",
+            facts: [
+              { label: "2021 plant", value: "Commissioned with 750 MW cell and 750 MW module capacity" },
+              { label: "Reported 2021 investment", value: "About \u20B9483 crore" },
+              { label: "Workforce type", value: "Shop-floor operators, technicians and engineers across shifts" },
+            ],
+            note: "Capacity totals change with each commissioning and are the company's own. This entry describes the employment character, not a current headcount.",
+          },
+          {
+            title: "VEM Technologies - Advanced Systems Division",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "A private-sector seeker manufacturing facility at Hardware Park, Tukkuguda, near the Srisailam Highway, carrying out assembly, integration and testing of radio-frequency and imaging-infrared seekers for missile programmes.",
+            facts: [
+              { label: "Reported investment", value: "More than \u20B9100 crore" },
+              { label: "Facility size", value: "About 1.25 lakh sq ft" },
+              { label: "Workforce type", value: "RF and systems engineers, precision assembly and test technicians" },
+            ],
+            note: "Capacity figures are the company's own and represent maximum capability, not current output.",
+          },
+          {
+            title: "Hardware Park-1, Tukkuguda",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "The first tranche of the Tukkuguda Hardware Park, reported to host aerospace units, defence-component suppliers and a large logistics operation among its operating tenants.",
+            note: "A park-level tenancy statement is a location fact. Individual tenants and their headcount should be verified separately before being relied upon.",
+          },
+        ],
+        caution:
+          "Do not present a reported or announced headcount as current employment, and do not merge the separately named Hardware Parks at Tukkuguda and Maheshwaram. They are different parks in different locations.",
+      },
+      {
+        heading: "What Is Announced or Projected, Not Yet Payroll",
+        body: [
+          "The numbers most often quoted for this belt belong to plants that are not yet staffed. They are legitimate plans, and some are substantial, but they are forecasts. Presenting them as existing employment is the single most common error in coverage of this corridor.",
+          "Three programmes dominate the projected side. The Lenskart eyewear plant at Tukkuguda is under construction, with roughly two thousand jobs reported at announcement but commercial production expected only in about two years. The approved Eight Audio speakers facility at EMC Maheshwaram is a decision rather than a building. And the reset Fab City land at Raviryala carries a headline projection of thousands of direct and indirect jobs once units operate, against land that was still being redirected at the time of writing.",
+          "The Future City data-centre pipeline is a fourth projected source, and in headline terms the largest of all, but it belongs to a longer horizon and a wider geography than the belt itself. It is best read as a direction of travel rather than a payroll in waiting.",
+        ],
+        table: {
+          caption:
+            "Projected and announced employment on the belt. Reported employment is a forecast attached to a decision, not current payroll.",
+          columns: ["Development", "Reported employment", "Basis of the figure", "Status"],
+          rows: [
+            ["Lenskart eyewear plant, Tukkuguda", "About 2,000 (reported up to 2,100)", "Announcement projection", "Under construction"],
+            ["Eight Audio facility, EMC Maheshwaram", "Not disclosed", "Approval announcement", "Approved / announced"],
+            ["Reset Fab City land, Raviryala", "About 15,000 direct and indirect", "Official projection once units operate", "Approval / land decision"],
+            ["Future City data-centre pipeline", "Not quantified per facility", "Programme-level proposal", "Proposed / long-term"],
+          ],
+        },
+        entries: [
+          {
+            title: "Lenskart eyewear manufacturing facility",
+            status: "Under construction",
+            tone: "development",
+            summary:
+              "An integrated eyewear manufacturing plant covering frames, lenses and finished eyewear, planned at the Non-SEZ General Park at Tukkuguda near the Outer Ring Road. Announced through a state MoU in December 2024; foundation ceremony in March 2025.",
+            facts: [
+              { label: "Reported investment", value: "About \u20B91,500 crore" },
+              { label: "Reported jobs", value: "About 2,000 (projected; reported up to 2,100)" },
+              { label: "Stated timeline", value: "Commercial production in about 2 years; full operations in about 4 years" },
+            ],
+            note: "The jobs figure is a projection given at announcement, not current employment. The plant had not reached commercial production at the time of writing.",
+          },
+          {
+            title: "Eight Audio International",
+            status: "Approved / announced",
+            tone: "planned",
+            summary:
+              "Approval announced in August 2026 to establish a speakers and electronics manufacturing facility at EMC Maheshwaram, covering loudspeakers, home-theatre and professional audio products, amplifiers and OEM manufacturing, with acoustic research and testing facilities.",
+            note: "An approval and an announced plan are not construction. Timelines and production phases are the company's own and had not been verified against a built facility at the time of writing.",
+          },
+          {
+            title: "Fab City SEZ reset",
+            status: "Government decision (2022-2025)",
+            tone: "approval",
+            summary:
+              "The long-idle Fab City SEZ at Raviryala, in Maheshwaram mandal, was substantially reduced, with about 912 acres de-notified and the land redirected towards IT, electronics and energy-storage industry, with a reported projection of thousands of jobs once units operate.",
+            facts: [
+              { label: "Original SEZ notifications", value: "About 1,074 acres (2007-2009)" },
+              { label: "De-notified", value: "About 912 acres (state approval, 2022)" },
+              { label: "Reported jobs", value: "About 15,000 direct and indirect (projected)" },
+            ],
+            note: "This is a land and approval decision, not an operating cluster. The jobs figure is a projection, and built-out activity on the reset land was still limited at the time of writing.",
+          },
+        ],
+        caution:
+          "Do not cite the Lenskart or Fab City jobs figures as present employment. They are projections attached to plants and land that are not yet staffed, and the timelines are the companies' or the state's own.",
+      },
+      {
+        heading: "The Aerospace and IT Workforce at Adibatla",
+        body: [
+          "Adibatla is not on the highway, but it is where South Hyderabad's highest-skill manufacturing employment sits, and part of that workforce lives along the better-connected stretches of the Srisailam axis. It is covered here as an employment anchor rather than a corridor node of its own.",
+          "The aerospace cluster builds identifiable products with a precise, skilled workforce. Tata Boeing Aerospace produces AH-64 Apache helicopter fuselages and has expanded substantially. Tata Lockheed Martin Aerostructures produces C-130J empennages. A Tata-Safran joint venture opened a LEAP engine-parts facility in October 2025, with reported investment of about \u20B9425 crore and skilled roles projected. A Dassault-Tata Rafale fuselage facility is under construction on the same side of the city. Alongside the manufacturing sits a large TCS IT/ITES campus, completed in 2015, which anchors salaried employment of a different kind.",
+          "For land demand, the relevance is the skill level as much as the headcount. Precision engineering and IT both support better-paying, more stable employment, which supports a different kind of housing demand from pure logistics work.",
+        ],
+        entries: [
+          {
+            title: "Tata Boeing Aerospace",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "A Tata-Boeing joint venture producing AH-64 Apache helicopter fuselages and secondary structures, reported to have delivered its 400th fuselage in late 2026.",
+          },
+          {
+            title: "Tata-Safran engine-parts facility",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "A Tata centre of excellence with Safran Aircraft Engines producing LEAP engine parts, inaugurated in October 2025 with reported investment of about \u20B9425 crore and skilled roles projected.",
+          },
+          {
+            title: "TCS Adibatla campus",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "A large IT/ITES campus at Adibatla, completed in 2015, anchoring salaried employment alongside the aerospace SEZ.",
+          },
+          {
+            title: "Dassault-Tata Rafale fuselage facility",
+            status: "Under construction",
+            tone: "development",
+            summary:
+              "A Rafale fuselage manufacturing facility under construction on the Adibatla side of the city, which would add further precision-engineering employment once built.",
+            note: "Under construction at the time of writing; no operating payroll yet.",
+          },
+        ],
+        caution:
+          "Adibatla is a separate node from the Srisailam Highway belt and should not be presented as adjacent to it. Its employment is relevant to the belt as a skill anchor, not as a local employer.",
+      },
+      {
+        heading: "The Geography of the Commute",
+        body: [
+          "Employment only reaches a plot through a commute, so the distance between the two is the fact that matters. The industrial nodes are spread across a real stretch of highway, and a plot close to one facility is not close to the next.",
+          "Read from the city outward, the operating employment concentrates at Raviryala and Maheshwaram, with Tukkuguda closest to the Outer Ring Road and the airport, and Mankhal and Kongara Kalan as separate nodes on the same broad axis. Adibatla sits south-east of the airport, and Future City is further south again. Measured travel time at commute hours, not straight-line distance, is what determines whether a location is genuinely commutable for a given workforce.",
+        ],
+        locations: [
+          {
+            name: "Tukkuguda",
+            note: "The gateway node at ORR Exit 14, roughly seven kilometres from the airport. Combines operating hardware-park employment with the largest plant under construction.",
+          },
+          {
+            name: "Raviryala / E-City",
+            note: "Site of the operating Premier Energies solar plant and of the reset Fab City land, so it mixes present payroll with projected employment.",
+          },
+          {
+            name: "Maheshwaram",
+            note: "The electronics and precision-engineering core, with a mix of operating units and newly approved facilities still to be built.",
+          },
+          {
+            name: "Mankhal",
+            note: "A mature mixed-manufacturing estate on the same axis, largely occupied, with steadier but lower-profile employment.",
+          },
+          {
+            name: "Kongara Kalan",
+            note: "East of the highway near the airport, in Ibrahimpatnam mandal, with an operating electronics-assembly plant.",
+          },
+          {
+            name: "Adibatla",
+            note: "South-east of the airport, the highest-skill manufacturing and IT employment anchor in South Hyderabad. Not on the highway.",
+          },
+          {
+            name: "Bharat Future City",
+            note: "Further south again; a planning and land-assembly exercise whose employment belongs to a long horizon.",
+          },
+        ],
+        caution:
+          "These nodes are separated by real distances and, in some cases, by different approval jurisdictions. Proximity to one does not transfer connectivity, approvals or employment access to another.",
+      },
+      {
+        heading: "What Kind of Work, and Why It Matters",
+        body: [
+          "The mix of work matters because different workforces create different local demand. Continuous shift manufacturing and logistics create steady rental demand close to a site; higher-skill defence, aerospace and IT employment supports a more affluent catchment with different housing preferences. A node dominated by one kind of work will not behave like a node dominated by another.",
+          "This guide deliberately avoids wage or salary figures. No reliable, attributable pay data exists at the level of a single corridor, and the numbers that circulate in marketing material are not sourced. What can be described with confidence is the category of work and whether it exists today.",
+        ],
+        table: {
+          caption:
+            "Categories of work associated with the belt. This describes the type of employment, not a headcount, and not a pay range.",
+          columns: ["Work category", "Typical roles", "Principal locations", "Basis"],
+          rows: [
+            ["Solar and electronics manufacturing", "Shop-floor operators, technicians, maintenance", "Raviryala, Maheshwaram", "Operational"],
+            ["Defence electronics", "RF and systems engineers, assembly and quality technicians", "Tukkuguda, Maheshwaram", "Operational"],
+            ["Aerospace and precision engineering", "Precision fitters, CNC machinists, quality, engineers", "Adibatla", "Operational"],
+            ["IT and IT-enabled services", "Software and support staff (salaried)", "Adibatla", "Operational"],
+            ["Logistics and warehousing", "Pick-pack, dispatch, drivers, support", "Tukkuguda, Mankhal", "Operational"],
+            ["Consumer-goods manufacturing", "Integrated production roles", "Tukkuguda (Lenskart)", "Under construction"],
+            ["Electronics (audio)", "Production and testing", "Maheshwaram (Eight Audio)", "Approved"],
+            ["Data centres", "Construction first, then technical operations", "Future City pipeline", "Proposed"],
+          ],
+        },
+        caution:
+          "Do not attach a wage range to any role here. The category of work is verifiable; a corridor-level pay figure is not.",
+      },
+      {
+        heading: "How Employment Reaches Land and Rental Demand",
+        body: [
+          "The connection is real but indirect, and it operates over years rather than quarters. An operating plant brings a workforce; the workforce needs housing, schooling, healthcare and retail; that demand supports rents and occupancy near the plant; and over a long horizon it can support land values in locations that are genuinely commutable. Every link in that chain can fail, and the further a claim sits from an operating plant, the weaker it becomes.",
+          "It also depends on supply. A corridor that adds a great deal of land at once can absorb employment-driven demand without much price movement, while a location with restricted competing supply may move more. This is why proximity alone is not a strategy, and why a location with real operating employment, genuine access and constrained competing supply is a different proposition from one that only has a large announcement.",
+          "For buyers, the useful discipline is to ask what employment a location has today, what commute that implies, and what would have to be true for the projected employers to become payroll. Our [first-time plot investor checklist](/insights/first-time-plot-investor-checklist-hyderabad) sets out the verification sequence that follows.",
+        ],
+        caution:
+          "Do not treat an announced employer's projected headcount as present rental demand. Verify operating payroll, commute and access before relying on employment in any purchase decision.",
+      },
+      {
+        heading: "What This Means for Plot Buyers and NRIs",
+        body: [
+          "For NRI buyers in particular, this belt is often sold on a single headline number, usually the largest projected jobs figure in the vicinity. The disciplined approach is to set the headline aside and work from the operating facts, then decide whether the location stands up without it.",
+          "Where we can be specific about our own inventory, we are. The project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods), an FCDA-approved semi-villa community off the Srisailam Highway, and our related [Srisailam Highway project page](/projects/upcoming-srisailam-highway) covers the adjacent stretch. Both should be assessed against the same checklist as any other purchase and neither should be treated as a proxy for the announcements described above.",
+        ],
+        checklist: [
+          "Confirm which nearby employers are operating today, and what workforce they actually staff, from dated sources rather than a brochure.",
+          "Measure the real commute time from the plot to the nearest operating node at peak hours, not straight-line distance.",
+          "Separate operating payroll from projected headcount, and do not price projected jobs into today's decision.",
+          "Check whether the layout's approval is real and current, and which authority granted it, before anything else.",
+          "Confirm that access roads, water and power exist physically, since industry and housing compete for the same capacity.",
+          "Assess whether competing land supply is restricted, because abundant supply can absorb employment demand without supporting prices.",
+          "For NRI purchases, verify power of attorney, the remittance route, and RERA registration where it applies.",
+          "Treat rental expectations as a risky range rather than a guaranteed yield, and model a period of vacancy.",
+          "Keep the decision anchored to legally clear, well-connected land irrespective of any single employer.",
+        ],
+        caution:
+          "Proximity to an employer is not a property strategy. Employment-led demand is a documented mechanism, not a guarantee of appreciation or rental yield.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the article above. Where a figure is projected or contested, the answer says so rather than choosing the most attractive number.",
+        ],
+        faqs: [
+          {
+            question: "Which companies are hiring near Srisailam Highway today?",
+            answer:
+              "The operating employers include the Premier Energies solar plant at Raviryala, the defence-electronics units at Tukkuguda and Maheshwaram such as VEM Technologies, Astra Microwave, Zen Technologies and Avon Defence, and the aerospace-component and logistics tenants of the Tukkuguda Hardware Park. These facilities staff shifts today; the larger headline plants are still under construction or announced.",
+          },
+          {
+            question: "How many jobs have been created along the Srisailam Highway belt?",
+            answer:
+              "No single audited figure exists. The headline numbers that circulate, such as the roughly two thousand jobs reported for the Lenskart plant or the thousands projected for the reset Fab City land, are forecasts attached to future operations. The present employment base is the operating solar, defence-electronics, aerospace and logistics units, which employ continuously but on a smaller scale than the announced pipeline suggests.",
+          },
+          {
+            question: "Is the Lenskart plant at Tukkuguda operating yet?",
+            answer:
+              "No. It is under construction. The facility was announced through a state MoU in December 2024 with a foundation ceremony in March 2025, and commercial production was expected in about two years with full operations in about four. The jobs figure is a projection, not current employment.",
+          },
+          {
+            question: "What kind of jobs does the belt create?",
+            answer:
+              "The work is weighted towards shop-floor operators, technicians and maintenance staff in solar and electronics manufacturing; RF and systems engineers and precision assembly staff in defence electronics; precision fitters and quality staff in aerospace; and warehousing, dispatch and support roles in logistics. IT and IT-enabled services employment sits in the related Adibatla node rather than on the highway itself.",
+          },
+          {
+            question: "Does employment near Srisailam Highway increase property prices?",
+            answer:
+              "Not by itself and not automatically. Employment is a genuine mechanism that can support long-term demand for legally clear, well-connected land, but appreciation depends on many factors including supply, infrastructure and the wider market. Proximity to an employer is not a property strategy, and this article promises no returns.",
+          },
+          {
+            question: "Which is better for rental demand, manufacturing or IT?",
+            answer:
+              "They create different kinds of demand. Continuous shift manufacturing and logistics create steady rental demand close to the site, often for shared or budget housing. IT and higher-skill aerospace employment supports a more affluent catchment with different housing and rental preferences. The relevant question for a buyer is which kind of workforce a given location can actually serve within a commutable distance.",
+          },
+          {
+            question: "Are these employment figures something NRI investors can rely on?",
+            answer:
+              "Use them as context, not as a guarantee. Rely on operating payroll, verified approvals, existing access and water and power availability. Projected headcounts attached to plants that are not yet built should never be treated as present demand, and every purchase should be verified on title, approval and access before commitment.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "Employment and industrial growth on the Srisailam Highway belt are real, but they are at different stages, and that difference is the whole story. The solar plant at Raviryala, the defence-electronics units at Tukkuguda and Maheshwaram, the logistics operations at Hardware Park and the aerospace manufacturers at Adibatla are operating and paying wages now. The Lenskart plant is under construction, the Eight Audio facility is approved, and the reset Fab City land and the Future City pipeline are decisions rather than built, staffed places.",
+          "For anyone researching land on this stretch, the discipline is to read every employment claim by its status. Operating means a payroll today. Under construction means a site with works underway but no payroll yet. Approved or announced means a decision or an agreement. Proposed or long-term means a vision. A location near an operating plant is a different proposition from one near an announced campus, and treating the two as equivalent is the most expensive mistake a buyer can make on this corridor.",
+          "For the industrial geography and project statuses behind these employers, our [Srisailam Highway industrial growth guide](/insights/srisailam-highway-tukkuguda-maheshwaram-industrial-growth) is the companion piece. Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is JB Harmony Woods at Thummaloor. The sources behind this article are listed below. Employment-led demand can support well-chosen land over the long term, but it guarantees nothing, and it does not make proximity a strategy.",
+        ],
+        sources: [
+          {
+            label: "Lenskart lays foundation for \u20B91,500 crore eyewear manufacturing facility near Hyderabad",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/cities/Hyderabad/lenskart-lays-foundation-for-1500-crore-eyewear-manufacturing-facility-near-hyderabad/article69297983.ece",
+            date: "6 Mar 2025",
+          },
+          {
+            label: "Lenskart to set up \u20B91,500 crore factory in Telangana",
+            publisher: "The Hindu BusinessLine",
+            url: "https://www.thehindubusinessline.com/companies/lenskart-to-set-up-1500-crore-factory-in-telangana/article69297495.ece",
+            date: "6 Mar 2025",
+          },
+          {
+            label: "VEM Technologies sets up advanced Seeker facility at Hardware Park, Tukkuguda",
+            publisher: "DefenceXP",
+            url: "https://www.defencexp.com/vem-technologies-sets-up-advanced-seeker-facility-in-hyderabad",
+            date: "30 Oct 2020",
+          },
+          {
+            label: "Premier Energies commissions solar manufacturing facility at E-City, Hyderabad",
+            publisher: "T&D India",
+            url: "https://www.tndindia.com/premier-energies-to-inaugurate-hyderabad-solar-manufacturing-facility-on-july-29",
+            date: "27 Jul 2021",
+          },
+          {
+            label: "Telangana to use 922 acres of Fab City for IT, electronics and energy storage",
+            publisher: "Deccan Chronicle",
+            url: "https://www.deccanchronicle.com/southern-states/telangana/telangana-to-use-922-acres-of-fab-city-1917592",
+            date: "16 Nov 2025",
+          },
+          {
+            label: "Telangana Government approves Eight Audio speakers and electronics facility at EMC Maheshwaram",
+            publisher: "The Tribune",
+            url: "https://www.tribuneindia.com/news/business/telangana-government-approves-eight-audios-advanced-speakers-electronics-manufacturing-facility-at-emc-maheshwaram",
+            date: "17 Aug 2026",
+          },
+          {
+            label: "Tata Boeing Aerospace delivers India Apache fuselages",
+            publisher: "Boeing India",
+            url: "https://www.boeing.co.in/news/2026/tata-boeing-aerospace-delivers-india-apache-fuselages",
+            date: "2026",
+          },
+          {
+            label: "Tata firm opens facility to make Safran engine parts",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/tata-firm-opens-facility-to-make-safran-engine-parts/article70212927.ece",
+          },
+          {
+            label: "Environmental clearance filing: Electronic and Hardware Park, TSIIC, Maheshwaram",
+            publisher: "environmentclearance.nic.in",
+            url: "https://environmentclearance.nic.in/writereaddata/formB/MODIEC/24082019OHK5VTJVForm1.pdf",
+          },
+          {
+            label: "Ranga Reddy district - industries and industrial parks listing",
+            publisher: "Government of Telangana (Ranga Reddy district)",
+            url: "https://rangareddy.telangana.gov.in/industries/",
+          },
+          {
+            label: "Telangana to unveil Bharat Future City master plan during global investor summit in December",
+            publisher: "The Hindu",
+            url: "https://www.thehindu.com/news/national/telangana/telangana-to-unveil-bharat-future-city-master-plan-during-global-investor-summit-in-december/article71305029.ece",
+            date: "4 Aug 2026",
+          },
+        ],
+        caution:
+          "This article is research, not investment advice. Project statuses, employment figures and timelines change and should be re-verified before any decision. Real-estate appreciation and rental yield are not guaranteed.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
