@@ -6732,6 +6732,185 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "joint-ownership-plot-buying-srisailam-highway",
+    title:
+      "Buying a Plot Together: Joint Ownership and Co-Buying on the Srisailam Highway (2026)",
+    seoTitle: "Joint Ownership of a Plot: How It Works",
+    metaDescription:
+      "A 2026 buyer's guide to joint ownership of a plot on the Srisailam Highway: how co-ownership works, equal and unequal shares, loans and co-applicants, documents, and how to exit later.",
+    excerpt:
+      "Buying a plot with a spouse, parent or friend? How joint ownership works, how shares are recorded, how loans and co-applicants interact, and what to decide before the deed is signed.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-30",
+    author: researchDesk,
+    image: "/images/insights/joint-ownership-plot-buying-srisailam-highway.jpg",
+    imageAlt:
+      "A family reviewing the sale deed for a jointly owned plot on the Srisailam Highway - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "A large share of plot purchases on the Srisailam Highway are made by more than one buyer - a husband and wife, a parent and a child, siblings, or friends pooling funds. Buying together raises a set of questions that a solo purchase does not: whose name goes on the deed, in what share, who is on the loan, and how the arrangement can be unwound later.",
+          "This guide explains joint ownership and co-buying of a plot - how the law treats it, the decisions to make before signing, how loans and co-applicants interact, and how to exit later. It complements our [first-time plot investor checklist](/insights/first-time-plot-investor-checklist-hyderabad). It is Arjun Realty market research, not legal or tax advice; co-ownership outcomes depend on the deed and on personal law, so confirm your position with a lawyer.",
+        ],
+      },
+      {
+        heading: "What Joint Ownership Actually Means",
+        body: [
+          "When two or more people buy immovable property together, they become co-owners. Each holds a share of the property, and the share - equal or unequal - should be recorded in the sale deed. Co-ownership is governed by the Transfer of Property Act, 1882, which deals with the rights of several co-owners, including the transfer of individual shares.",
+          "The practical consequence is that no single co-owner owns the whole property. Each owns their share, and each can generally deal with that share - including selling or transferring it - subject to the terms of the deed and the applicable law. That is why the terms recorded at purchase matter so much later.",
+        ],
+      },
+      {
+        heading: "Decisions to Settle Before You Sign",
+        body: [
+          "Most disputes about jointly owned property trace back to decisions that were never made explicitly at the start. The table below sets out what to settle before the deed is signed.",
+        ],
+        table: {
+          caption: "Decisions to settle before buying a plot jointly.",
+          columns: ["Decision", "Options", "Why it matters"],
+          rows: [
+            ["Names on the deed", "All buyers, or some as co-owners", "Only those on the deed hold a legal share"],
+            ["Shares", "Equal, or unequal by contribution", "Determines each co-owner's rights in the property"],
+            ["Funding and contribution", "Documented records of who paid what", "Supports the share recorded and avoids later disputes"],
+            ["Loan and co-applicant", "Co-owner, co-applicant, or both", "A co-applicant need not be a co-owner, and vice versa"],
+            ["Exit and transfer", "How a share can be sold or released", "Deciding the process early avoids conflict later"],
+          ],
+        },
+        caution:
+          "How a share is held and transferred depends on the deed and on personal law. The observations here are general; take legal advice on your specific arrangement.",
+      },
+      {
+        heading: "Equal and Unequal Shares",
+        body: [
+          "The simplest arrangement is an equal share for each co-owner. Where the contributions are unequal - one buyer paying more, or a parent funding most of the purchase - the shares can be recorded unequally to reflect that, so the deed matches the reality of who paid what.",
+          "Recording shares accurately at the time of purchase is what protects each co-owner. If the deed shows equal shares but the funding was not equal, or the deed omits a buyer who contributed, the legal position and the practical understanding diverge - which is exactly the kind of gap that becomes a dispute.",
+        ],
+      },
+      {
+        heading: "Who to Add as a Co-Owner",
+        body: [
+          "Common arrangements include a husband and wife buying together, a parent adding an adult child, siblings buying jointly, and, less commonly, friends or business associates. Each brings different considerations around succession, loans and exit.",
+          "Adding an adult child or parent can be a straightforward way to bring family members into the purchase, provided the shares and the funding are recorded. Bringing in a non-family co-owner is a commercial arrangement and benefits from a written understanding alongside the deed, even though the deed is what the law looks to.",
+        ],
+      },
+      {
+        heading: "Loans, Co-Owners and Co-Applicants",
+        body: [
+          "It is important not to confuse a co-owner with a co-applicant. A co-owner holds a share in the property, recorded in the deed. A co-applicant is a person who signs the loan, whose income supports the eligibility, and who is liable for repayment. A co-applicant need not be a co-owner, and a co-owner need not be a co-applicant - though lenders often prefer, and sometimes require, that the co-owner also be a co-applicant.",
+          "Lenders usually want the co-applicant to have an insurable interest in the property, so a co-owner who is also a co-applicant is the common pattern. If a parent is a co-applicant but not a co-owner, or vice versa, the lender should be told clearly and the arrangement documented. We cover the financing side in our guide to [home loans for a plot](/insights/home-loan-for-plot-srisailam-highway).",
+        ],
+        caution:
+          "Loan eligibility and the requirement that a co-owner be a co-applicant are set by each lender. Confirm the position with the bank before finalising the names on the deed.",
+      },
+      {
+        heading: "Matters That Depend on Personal Law",
+        body: [
+          "What happens to a co-owner's share on death, and whether the property passes to the surviving co-owner, depends on how the property is held and on the personal law that applies to the deceased. This is an area where general statements mislead, because the outcome can differ between personal laws and between a jointly held property and one held with defined shares.",
+          "The practical step is to keep a valid, current nomination or will, and to have the deed and the succession position reviewed by a lawyer, so that the intended outcome is achieved rather than assumed.",
+        ],
+        caution:
+          "Succession and the devolution of a share depend on personal law and the terms of the deed. This is not self-help territory; take legal advice.",
+      },
+      {
+        heading: "Changing or Exiting Joint Ownership Later",
+        body: [
+          "Co-ownership is not permanent. A co-owner can generally transfer or sell their share, and one co-owner can release their interest to another through a registered instrument. Because a share in immovable property is itself immovable property, such transfers typically require registration under the Registration Act, 1908.",
+          "A co-owner may also seek a partition, dividing the property so each holds a defined portion. Whatever the route, the guiding principle is that transactions involving a share should be documented and registered, so the record reflects the true position and the property remains easy to sell later.",
+        ],
+      },
+      {
+        heading: "A Due-Diligence Checklist for Joint Buyers",
+        body: [
+          "The checks below keep a joint purchase clean from the start and make the eventual exit simple.",
+        ],
+        checklist: [
+          "Decide and record the co-owners and their shares in the sale deed before signing.",
+          "Keep documented records of who contributed what to the purchase.",
+          "Agree in writing whether a co-owner is also a co-applicant on the loan.",
+          "Confirm the lender's requirement on co-owners and co-applicants before finalising names.",
+          "Check the title, encumbrance certificate and layout approval for the plot, as any buyer would.",
+          "Keep a valid nomination or will and have the succession position reviewed by a lawyer.",
+          "Agree how a share can be transferred or released, and document it if the arrangement is commercial.",
+          "Update the revenue records after registration to reflect all co-owners.",
+        ],
+        caution:
+          "Joint ownership arrangements are specific to the deed and the parties. Take a legal opinion before finalising names, shares and any side agreement.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide above and should be read with the disclaimers that follow.",
+        ],
+        faqs: [
+          {
+            question: "Can two people buy a plot together in India?",
+            answer:
+              "Yes. Two or more buyers can purchase a plot as co-owners, with their names and shares recorded in the sale deed. Each co-owner then holds a share of the property, governed by the Transfer of Property Act, 1882.",
+          },
+          {
+            question: "Should co-owners have equal shares?",
+            answer:
+              "Shares can be equal or unequal. Where contributions differ, the shares can be recorded unequally to reflect who paid what. Recording the shares accurately at purchase is what protects each co-owner and avoids later disputes.",
+          },
+          {
+            question: "Is a loan co-applicant the same as a co-owner?",
+            answer:
+              "No. A co-owner holds a share recorded in the deed, while a co-applicant signs the loan and is liable for repayment. Lenders usually prefer the co-owner to also be a co-applicant because they want the applicant to have an insurable interest in the property.",
+          },
+          {
+            question: "Does a jointly owned plot automatically pass to the surviving owner?",
+            answer:
+              "Not automatically. What happens to a co-owner's share on death depends on how the property is held and on the personal law that applies. Keeping a valid nomination or will and taking legal advice is the practical safeguard.",
+          },
+          {
+            question: "Can one co-owner sell their share?",
+            answer:
+              "Generally yes, subject to the terms of the deed and the applicable law. A share in immovable property is itself immovable property, so transferring or releasing a share typically requires a registered instrument under the Registration Act, 1908.",
+          },
+          {
+            question: "What should a joint buyer check before paying?",
+            answer:
+              "The names and shares to be recorded in the deed, records of each person's contribution, the loan and co-applicant arrangement, the title and encumbrance position of the plot, and how a share can be transferred or released later.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "Buying a plot together is common and entirely workable, provided the arrangement is recorded rather than assumed. The names and shares go in the deed; the contributions are documented; the loan and co-applicant position is confirmed with the lender; and the succession and exit routes are understood before, not after, the purchase. Do those things, and a jointly owned plot on the Srisailam Highway is as straightforward to hold and to sell as one owned alone.",
+          "Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, an FCDA-approved semi-villa community with villa plots and boutique villas. General sources behind the points above are listed below.",
+        ],
+        sources: [
+          {
+            label:
+              "Transfer of Property Act, 1882: rights of several co-owners and transfer of a share in property",
+            publisher: "Government of India",
+            url: "https://www.indiacode.nic.in/",
+          },
+          {
+            label:
+              "Registration Act, 1908: registration of instruments transferring or releasing an interest in immovable property",
+            publisher: "Government of India",
+            url: "https://www.indiacode.nic.in/",
+          },
+          {
+            label:
+              "Registration and Stamps Department, Government of Telangana: registration of sale deeds and property records",
+            publisher: "Government of Telangana",
+            url: "https://registration.telangana.gov.in/",
+          },
+        ],
+        caution:
+          "This article is general research, not legal or tax advice. Co-ownership, succession and the transfer of a share depend on the deed and on personal law and change over time; confirm your position with a qualified lawyer before acting.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
