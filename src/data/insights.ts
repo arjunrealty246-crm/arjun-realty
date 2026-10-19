@@ -6547,6 +6547,191 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "plot-facing-direction-east-west-north-south-srisailam",
+    title:
+      "Which Direction Should a Plot Face? East, West, North and South Facing Plots on the Srisailam Highway (2026)",
+    seoTitle: "Which Direction Should a Plot Face?",
+    metaDescription:
+      "A 2026 buyer's guide to plot facing on the Srisailam Highway: what east, west, north and south facing plots mean, how facing affects light and heat, the vastu question, and what to check.",
+    excerpt:
+      "East, west, north or south facing? What plot facing actually means, how each direction affects light and heat, what vastu really says, and what to check before you buy on the Srisailam Highway.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-29",
+    author: researchDesk,
+    image: "/images/insights/plot-facing-direction-east-west-north-south-srisailam.jpg",
+    imageAlt:
+      "An approved residential plot on the Srisailam Highway with a sunrise showing its road frontage - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "Few buyer questions come up as often as plot facing. East, west, north or south facing - the direction the front of the plot looks to - is part of almost every conversation about buying a plot, and it is often treated as a deciding factor. It is worth understanding what facing actually means, what it affects in practice, and how much weight it deserves.",
+          "This guide explains plot facing for a buyer on the Srisailam Highway: what the term means, how each direction affects light and heat, how vastu fits in, and what to check before you buy. It sits alongside our guide to [choosing the position of a plot within a layout](/insights/corner-interior-park-facing-plot-srisailam-highway). It is Arjun Realty market research, not legal or financial advice.",
+        ],
+      },
+      {
+        heading: "What Plot Facing Actually Means",
+        body: [
+          "The facing of a plot is the compass direction of the road or approach it fronts, because that frontage is where the main entrance is placed. In a planned layout, the facing is set by the layout: a plot abutting a road running east-west faces north or south, and a plot on a road running north-south faces east or west.",
+          "The important point is that facing is a property of the plot's position in the layout, not a choice the buyer makes. It is fixed by the roads around the plot, and it can be confirmed from the sanctioned layout plan. That is also why facing should not be confused with the orientation of the rooms inside a house, which the design can vary.",
+        ],
+        caution:
+          "Confirm the facing from the sanctioned layout plan and the road the plot fronts, rather than from a rough sense of direction on site.",
+      },
+      {
+        heading: "Light and Heat: How Each Direction Behaves",
+        body: [
+          "The practical effect of facing is on sunlight and heat. In the northern hemisphere, the sun rises in the east and sets in the west, moving across the southern sky through the day. That produces a different pattern of light and heat on each of the four facings, which is what most of the practical discussion of facing is really about.",
+          "The table below summarises the general behaviour of each direction. These are broad patterns, not rules; the specific effect depends on the design, the setbacks and the surroundings.",
+        ],
+        table: {
+          caption: "The general light and heat behaviour of each plot facing.",
+          columns: ["Facing", "Light and heat behaviour", "Practical note"],
+          rows: [
+            ["East", "Morning sun on the front, softer light early", "A popular facing; pleasant mornings, less afternoon heat on the front"],
+            ["West", "Afternoon and evening sun on the front", "Strong late-day heat on the front; shading and glazing design matter"],
+            ["North", "Indirect light for much of the day, little harsh sun", "Even, diffuse light; often comfortable for front rooms"],
+            ["South", "Sun high overhead crossing the southern sky", "Good overall light; overhangs and shading handle the midday sun"],
+          ],
+        },
+        caution:
+          "These patterns are general. The real performance of a house depends on the design, the orientation of rooms, shading and the local climate.",
+      },
+      {
+        heading: "East-Facing Plots",
+        body: [
+          "An east-facing plot has its frontage towards the morning sun, so the front rooms tend to catch the softer early light while the rear takes the stronger afternoon sun. Many buyers regard it as a pleasant facing, and it is among the most commonly preferred.",
+          "Because the hottest part of the day is at the rear rather than the front, the design can place utility areas and the less-used rooms towards the hotter side. As with every facing, the plan and the setbacks do most of the work.",
+        ],
+      },
+      {
+        heading: "West-Facing Plots",
+        body: [
+          "A west-facing plot takes the afternoon and evening sun on its frontage, which means the front of the house can become hot late in the day, especially in summer. The conventional response is design: shading, overhangs, appropriate glazing and the placement of rooms that tolerate heat towards the west.",
+          "Handled well, a west-facing plot is perfectly livable and can even be an advantage in the evening. It is usually the perception of afternoon heat, rather than the facing itself, that makes some buyers hesitate - and that is a design question at least as much as a plot question.",
+        ],
+      },
+      {
+        heading: "North-Facing Plots",
+        body: [
+          "A north-facing plot receives indirect light through much of the day, with little of the harsh direct sun. That can make it comfortable and well-lit without the glare or the heat of an east or west frontage, which is why some buyers prefer it for the even quality of light.",
+          "It is worth separating facing from the internal layout here, because a north-facing plot does not mean a dark house. Rooms can still be oriented to catch light through the day; the facing sets the frontage, not the whole design.",
+        ],
+      },
+      {
+        heading: "South-Facing Plots",
+        body: [
+          "A south-facing plot has the sun crossing high overhead on its southern side through the day, so it generally receives good light. The midday sun is strong, which makes shading - overhangs, deep balconies, appropriate glazing - useful, but also means the plot is well-lit and can be designed for comfortable temperatures.",
+          "South facing is often the least discussed of the four, yet it can be a strong choice with good design. The general principle holds: facing sets the frontage, while the plan and the shading decide how the house actually performs.",
+        ],
+      },
+      {
+        heading: "The Vastu Question, Handled Honestly",
+        body: [
+          "A large part of the interest in facing comes from vastu, and it is reasonable for a buyer to consider it. The practical points are that vastu opinions vary, that different practitioners and schools place different weight on the same facing, and that no building rule or authority mandates a particular facing.",
+          "The sensible approach is to treat vastu as a personal preference and to weigh it alongside the practical factors - light, heat, access, the layout's roads and the price. A modest premium for a facing you value is a personal choice; a large premium paid purely on a belief, on a plot that suits you less in every other way, is worth questioning. Confirm any premium with the seller rather than assuming it is standard.",
+        ],
+        caution:
+          "Vastu is a matter of personal and cultural preference, not a legal or building requirement. Evaluate any premium for a facing against the plot's practical merits.",
+      },
+      {
+        heading: "Facing, Setbacks and the House Plan",
+        body: [
+          "Facing interacts with the other plot decisions. The frontage and the setbacks determine where the house can sit, and the facing then guides how the rooms are oriented within that envelope. A design that responds to the facing - placing living areas, bedrooms and utilities where they perform best - is what converts a facing into a comfortable home.",
+          "Our guide to [building a house on a plot](/insights/building-a-house-on-srisailam-highway-plot) covers how the plan follows from the plot, and a licensed architect can advise on orienting rooms to the specific facing.",
+        ],
+      },
+      {
+        heading: "A Buyer Checklist for Plot Facing",
+        body: [
+          "Facing is one factor among several. A short checklist keeps it in proportion. Our [first-time plot investor checklist](/insights/first-time-plot-investor-checklist-hyderabad) covers the wider checks in more detail.",
+        ],
+        checklist: [
+          "Confirm the facing from the sanctioned layout plan and the road the plot fronts.",
+          "Weigh the facing against how the plot is actually used: entrance, parking, garden and room placement.",
+          "Consider the climate: a west frontage needs more shading in the afternoon heat.",
+          "Check whether a facing premium is being charged, and whether it is documented rather than assumed.",
+          "Treat vastu as a personal preference and weigh it against the practical merits of the plot.",
+          "Confirm the setbacks and the buildable area, which matter at least as much as facing.",
+          "Confirm the layout approval, land use and title regardless of facing.",
+        ],
+        caution:
+          "Facing preferences are personal, but setbacks, land use and title are governed by the layout and the applicable rules. Confirm them at source before buying.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide above and should be read with the disclaimers that follow.",
+        ],
+        faqs: [
+          {
+            question: "What does the facing of a plot mean?",
+            answer:
+              "It is the compass direction of the road or approach the plot fronts, because that frontage is where the main entrance is placed. Facing is set by the layout's roads and can be confirmed from the sanctioned layout plan.",
+          },
+          {
+            question: "Which facing is best for a plot?",
+            answer:
+              "There is no single best facing. Each direction has a different pattern of light and heat, and the best choice depends on the design and your preferences. What matters most is a plot that suits your plan, with good setbacks and a clean title.",
+          },
+          {
+            question: "Are east-facing plots better than west-facing plots?",
+            answer:
+              "East-facing plots catch the softer morning sun on the front, while west-facing plots take the stronger afternoon heat on the front. Neither is inherently better; a west-facing plot performs well with appropriate shading and design.",
+          },
+          {
+            question: "Does facing affect the price of a plot?",
+            answer:
+              "Preferences for certain facings can influence price, so a facing premium may be charged. Whether it is worth paying depends on how much you value the facing, and any premium should be confirmed and documented rather than assumed.",
+          },
+          {
+            question: "Do I have to follow vastu when buying a plot?",
+            answer:
+              "No. Vastu is a matter of personal and cultural preference, and no building rule or authority mandates a particular facing. It is reasonable to consider it, but it should be weighed against the practical factors and not paid for blindly.",
+          },
+          {
+            question: "Can I change the facing of a house on a north-facing plot?",
+            answer:
+              "The plot's facing is fixed by its road frontage, but the internal layout is not. Rooms can be oriented within the buildable area to catch light and manage heat, so a north-facing plot can still be designed as a bright, comfortable home.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "Plot facing is the direction of the road the plot fronts, set by the layout rather than chosen. Its real effect is on light and heat, and each of the four facings behaves differently through the day - but the design, the setbacks and the plan do most of the work in how a home actually feels. Vastu is a personal preference, not a requirement, and any premium for a facing is worth weighing against the plot's practical merits. On the Srisailam Highway, a plot that suits your plan, in an approved layout with a clean title, is the foundation; facing is the finishing consideration.",
+          "Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, an FCDA-approved semi-villa community with villa plots and boutique villas. General sources behind the points above are listed below.",
+        ],
+        sources: [
+          {
+            label:
+              "National Building Code of India: requirements for natural lighting and ventilation in buildings",
+            publisher: "Bureau of Indian Standards",
+            url: "https://www.bis.gov.in/",
+          },
+          {
+            label:
+              "Telangana Urban Areas (Development) Act, 1975, and the building rules governing setbacks and orientation, as administered by HMDA and the Future City Development Authority (FCDA)",
+            publisher: "Government of Telangana",
+            url: "https://www.hmda.gov.in/",
+          },
+          {
+            label:
+              "Real Estate (Regulation and Development) Act, 2016: registration of plotted development projects and sanctioned layout disclosures",
+            publisher: "Government of India",
+            url: "https://www.indiacode.nic.in/",
+          },
+        ],
+        caution:
+          "This article is general research, not legal or financial advice. Facing, setbacks and building rules depend on the specific plot and the applicable authority and change over time; confirm them with the local authority or a licensed architect before acting.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
