@@ -6205,6 +6205,175 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "which-plot-size-to-buy-srisailam-highway",
+    title:
+      "Which Plot Size Should You Buy on the Srisailam Highway? A 2026 Guide to 200, 300 and 500 Sq Yd Plots",
+    seoTitle: "Which Plot Size to Buy Near Srisailam",
+    metaDescription:
+      "A 2026 buyer's guide to plot sizes on the Srisailam Highway: what a plot size actually determines, how square yards convert, how 200, 300 and 500 sq yd plots compare, and how to choose.",
+    excerpt:
+      "200, 300 or 500 square yards? What a plot size actually determines after setbacks, how the common sizes compare, and how to choose the one that fits your house plan and budget.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-27",
+    author: researchDesk,
+    image: "/images/insights/which-plot-size-to-buy-srisailam-highway.jpg",
+    imageAlt:
+      "Aerial view of residential plots of different sizes in an approved layout on the Srisailam Highway - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "After choosing where on the Srisailam Highway to buy comes a smaller but very practical decision: how big a plot. Plot sizes are usually quoted in square yards - 200, 267, 300 and 500 are the common bands - and the number you choose shapes how much house you can build, how much open space you keep, and how easily the plot can be resold.",
+          "This guide explains what a plot size actually determines, how the common sizes compare, and how to choose the one that fits your plan. It follows our guide to [choosing between villa plots and apartments](/insights/villa-plots-vs-apartments-srisailam-highway).",
+          "Because the buildable area is what really matters, it is worth reading alongside our guide to [building a house on a plot](/insights/building-a-house-on-srisailam-highway-plot). It is Arjun Realty market research, not legal or financial advice; confirm the design potential of any plot against the applicable building rules.",
+        ],
+      },
+      {
+        heading: "What a Plot Size Actually Determines",
+        body: [
+          "The headline plot size is the total area of the land, but what matters for building is the area left after the mandatory setbacks from the boundaries. The buildable area, not the headline figure, decides how large a house can be constructed on the plot under the applicable building rules.",
+          "Beyond the house, the size of the plot decides everything around it: how much garden or open space remains, how much parking fits, whether a future extension is possible, and how the plot feels to live on day to day. A larger plot is not simply a bigger house; it is more land around the house.",
+        ],
+      },
+      {
+        heading: "How Plot Sizes Are Measured",
+        body: [
+          "Plots are usually sold in square yards, while building plans and documents are often in square feet. One square yard is nine square feet, which is the conversion to keep in mind when comparing a plot size to a house layout.",
+          "The table below shows the common bands on this corridor and what they typically translate to. These are arithmetic conversions, not recommendations, and the buildable area on any plot depends on the setbacks that apply to it.",
+        ],
+        table: {
+          caption: "Common plot sizes on the Srisailam Highway and their approximate area.",
+          columns: ["Plot size", "Approximate area", "Character"],
+          rows: [
+            ["150 sq yd", "About 1,350 sq ft", "Compact; often a smaller built-up footprint"],
+            ["200 sq yd", "About 1,800 sq ft", "A common base size for a family home"],
+            ["267 sq yd", "About 2,400 sq ft", "More setback and open space around the house"],
+            ["300 sq yd", "About 2,700 sq ft", "Comfortable for a larger house with garden"],
+            ["500 sq yd and above", "About 4,500 sq ft and up", "Premium; room for a large house, garden and parking"],
+          ],
+        },
+        caution:
+          "The buildable area on any plot is the total area less the setbacks required by the applicable building rules, which depend on the plot and the authority. Confirm the figure before designing.",
+      },
+      {
+        heading: "Small Plots: 150 to 200 Square Yards",
+        body: [
+          "A 200 square yard plot is a common starting size for a family home, and it can carry a well-planned house if the design uses the space efficiently. The trade-off is that setbacks eat into a smaller area, so the built-up area and the open space around the house are both limited.",
+          "For a buyer whose priority is the house rather than the land, a smaller plot can be the efficient choice, because a smaller share of the budget goes into the land itself. The limits show up in the outdoor space and in the scope for a future extension.",
+        ],
+      },
+      {
+        heading: "Mid-Size Plots: 250 to 350 Square Yards",
+        body: [
+          "Plots of around 267 to 300 square yards sit in a comfortable middle. The extra width and depth allow better setbacks, more garden, and easier parking, and they give a designer more freedom to orient rooms and place a larger house without crowding the boundaries.",
+          "This band tends to suit buyers who want a substantial family home with usable outdoor space, without moving into the premium end of the corridor. Many layouts on this belt offer sizes in this range.",
+        ],
+      },
+      {
+        heading: "Large Plots: 500 Square Yards and Above",
+        body: [
+          "A plot of 500 square yards or more offers generous space: a large house, a garden, parking for several vehicles, and often room for an outbuilding or a future addition. It suits buyers who value the land and the setting as much as the structure.",
+          "The considerations are proportion and value. A large plot needs a design that uses it well, so the house does not appear lost in the space, and the plot should still match its surroundings. Larger plots also attract a narrower pool of buyers on resale, simply because fewer buyers are in the market for that size.",
+        ],
+      },
+      {
+        heading: "Size, Budget and the Resale Pool",
+        body: [
+          "Plot size interacts with budget in two ways: the larger the plot, the more of the budget goes into the land, and the more land there is to build on and maintain later. The right balance is the smallest plot on which your intended house can be built comfortably, not always the largest you can afford.",
+          "There is also a resale dimension. The most common sizes - around 200 and 267 square yards - appeal to the widest pool of buyers, while very large plots, though attractive, appeal to fewer. Our [first-time plot investor checklist](/insights/first-time-plot-investor-checklist-hyderabad) covers the wider checks to make before buying.",
+        ],
+      },
+      {
+        heading: "A Buyer Checklist for Choosing a Size",
+        body: [
+          "The practical way to choose is to work backwards from the house you want to build, then confirm the plot that allows it. A short checklist makes it concrete.",
+        ],
+        checklist: [
+          "Decide the house you actually want: number of bedrooms, floors and whether you need a garden or parking for multiple vehicles.",
+          "Convert the plot size from square yards to square feet (one square yard is nine square feet) to compare with house layouts.",
+          "Establish the setbacks and the buildable area for the plot under the applicable building rules.",
+          "Confirm the house you want fits the buildable area with the setbacks applied.",
+          "Check the plot's width and depth, not just the total area, because a narrow or oddly shaped plot can restrict the plan.",
+          "Weigh the share of your budget that goes into land against the cost of the build.",
+          "Consider the resale pool: the most common sizes tend to have the widest demand.",
+        ],
+        caution:
+          "The buildable area, setbacks and plot dimensions are specific to each plot. Confirm them with the layout documents and the applicable building rules before deciding on a size.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide above and should be read with the disclaimers that follow.",
+        ],
+        faqs: [
+          {
+            question: "What is the best plot size to buy on the Srisailam Highway?",
+            answer:
+              "There is no single best size. The right plot is the smallest one on which your intended house can be built comfortably within the applicable setbacks. A 200 square yard plot is a common base for a family home, while 267 to 300 square yards gives more outdoor space and design freedom.",
+          },
+          {
+            question: "How many square feet is a 200 square yard plot?",
+            answer:
+              "About 1,800 square feet, because one square yard is nine square feet. A 300 square yard plot is about 2,700 square feet, and a 500 square yard plot is about 4,500 square feet.",
+          },
+          {
+            question: "Can I build a large house on a 200 square yard plot?",
+            answer:
+              "A well-designed house is possible on a 200 square yard plot, but the mandatory setbacks reduce the buildable area, so the footprint and the open space are both limited. Working with a licensed architect to fit the design to the available area matters more on smaller plots.",
+          },
+          {
+            question: "Does a bigger plot always mean a better buy?",
+            answer:
+              "Not necessarily. A larger plot puts more of your budget into land and into future upkeep, and very large plots attract a narrower resale pool. The right size is the one that fits your house plan and budget, not simply the largest available.",
+          },
+          {
+            question: "Why does the width of a plot matter, not just the area?",
+            answer:
+              "Two plots of the same area can have different widths and depths, and setbacks are applied to each side. A narrow or irregular plot can restrict the house plan more than its total area suggests, which is why dimensions should be checked alongside the headline size.",
+          },
+          {
+            question: "How do I confirm what I can build on a plot?",
+            answer:
+              "Confirm the setbacks and the buildable area for the specific plot under the applicable building rules, then check that your intended house fits. A licensed architect or the local authority can confirm the rules that apply to the plot.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "On the Srisailam Highway, the plot size you choose decides what you can build and how much land surrounds the house. The headline figure in square yards is only the start; the buildable area after setbacks, the width and depth, and the share of your budget that goes into land are what shape the outcome. The most common sizes, around 200 and 267 square yards, balance a family home against outdoor space and a wide resale pool, while larger plots reward buyers who value the land itself.",
+          "Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, an FCDA-approved semi-villa community with villa plots and boutique villas. General sources behind the points above are listed below.",
+        ],
+        sources: [
+          {
+            label:
+              "Telangana Urban Areas (Development) Act, 1975, and the building rules governing setbacks and buildable area, as administered by HMDA and the Future City Development Authority (FCDA)",
+            publisher: "Government of Telangana",
+            url: "https://www.hmda.gov.in/",
+          },
+          {
+            label:
+              "Telangana State Building Permission Approval and Self Certification System (TS-bPASS): building permissions and the applicable rules",
+            publisher: "Government of Telangana",
+            url: "https://tgbpass.telangana.gov.in/",
+          },
+          {
+            label:
+              "National Building Code of India and the applicable state building rules on setbacks and coverage",
+            publisher: "Bureau of Indian Standards",
+            url: "https://www.bis.gov.in/",
+          },
+        ],
+        caution:
+          "This article is general research, not legal or financial advice. Setbacks, buildable areas and building rules depend on the specific plot and the applicable authority and change over time; confirm them with the local authority or a licensed architect before acting.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
