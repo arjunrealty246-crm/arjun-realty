@@ -557,7 +557,15 @@ export default function Shankarpally45AcresPage({
               >
                 Shankarpally current and upcoming opportunities
               </Link>{" "}
-              are set out side by side, including how the corridor compares with the surrounding market.
+              are set out side by side, including how the corridor compares with the surrounding market. For the
+              wider corridor view, see{" "}
+              <Link
+                href="/shankarpally"
+                className="text-primary hover:text-primary/80 font-medium transition-colors duration-300"
+              >
+                Open Plots in Shankarpally
+              </Link>{" "}
+              across West Hyderabad.
             </p>
           </ScrollReveal>
 
