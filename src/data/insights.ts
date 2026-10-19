@@ -4803,6 +4803,242 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "nri-selling-land-india-capital-gains-tds-repatriation",
+    title: "Selling Land in India as an NRI: Capital Gains Tax, TDS, Buyer Obligations and Repatriating the Sale Proceeds (2026)",
+    seoTitle: "NRI Selling Land in India: Tax & TDS Guide",
+    metaDescription:
+      "A practical 2026 guide for NRIs selling land in India: capital gains tax and the 24-month rule, the buyer's TDS obligation, the lower or nil deduction certificate, and repatriating sale proceeds via RBI/FEMA.",
+    excerpt:
+      "Long-term capital gains, the buyer's TDS on the full sale value, the lower or nil deduction certificate, and the RBI rules for repatriating sale proceeds - a 2026 guide for NRI land sellers.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/nri-selling-land-india-capital-gains-tds-repatriation.jpg",
+    imageAlt:
+      "Hyderabad skyline representing NRI land sales, capital gains tax and repatriation of property sale proceeds on the Srisailam Highway - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "For most non-resident owners, land around Hyderabad was bought to hold, not to sell. The Srisailam Highway belt in particular has been an appreciation story, and the exit is a decision most owners defer. When the exit does come, the mechanics of the sale matter as much as the price: the tax is deducted before the money reaches you, the rate depends on how long the land was held, and the route that takes the proceeds back abroad has its own rules and forms.",
+          "This guide sets out the framework as it stands in 2026, when the new Income-tax Act, 2025 has replaced the 1961 Act and renumbered the sections and forms that appear in older articles. It covers capital gains on land, the buyer's tax-deduction obligation, the lower and nil deduction certificate, and the RBI and FEMA rules for repatriating sale proceeds. For the income side of ownership, see our [Srisailam Highway rental income guide](/insights/srisailam-highway-rental-income-nri-landlord-guide).",
+          "It is Arjun Realty market research, not tax or legal advice. Every transaction turns on its own facts, and the figures below are stated as methods or clearly labelled illustrations rather than as advice. Confirm your position with a qualified chartered accountant before you commit to a sale.",
+        ],
+      },
+      {
+        heading: "What Changed in 2026: The New Act and the Renumbering",
+        body: [
+          "The Income-tax Act, 2025 (Act 30 of 2025) came into force on 1 April 2026 and applies to tax year 2026-27. It consolidates the 1961 Act and presents the tax-deduction provisions in a simplified tabular form, but it renumbers the sections and forms that older guides still use. A sale in 2026 falls under the new law, so it helps to know both the old and the new references.",
+        ],
+        table: {
+          caption:
+            "Old and new references for the provisions that govern a non-resident's sale of land. The policy is broadly unchanged; the labels are.",
+          columns: ["What it governs", "1961 Act / old form", "2025 Act / new form"],
+          rows: [
+            ["TDS on payments to non-residents (the buyer's obligation)", "Section 195", "Section 393(2) (Section 393 Table, Sl. No. 17)"],
+            ["Lower or nil tax-deduction certificate", "Section 197, Form 13", "Section 395(1), Form 128"],
+            ["Quarterly TDS return for non-resident payments", "Form 27Q", "Form 144"],
+            ["TDS certificate issued to the seller", "Form 16A", "Form 131 (or Form 132 under the Form 141 route)"],
+            ["Remittance information and accountant's certificate", "Form 15CA and Form 15CB", "Form 145 and Form 146"],
+            ["Property TDS challan-cum-statement", "Form 26QB", "Form 141 (Schedule E for non-resident sellers)"],
+          ],
+        },
+        caution:
+          "References change with the law. Confirm the current section numbers and forms with your chartered accountant at the time of the transaction.",
+      },
+      {
+        body: [
+          "One practical change arrived during 2026. From 1 October 2026, a resident individual or HUF buying immovable property from a non-resident no longer needs a Tax Deduction and Collection Account Number (TAN); they use their PAN and file Form 141 with Schedule E instead. The higher deduction rates that apply to non-resident sellers, and the rule that tax is deducted on the full sale value, are untouched by that simplification.",
+        ],
+      },
+      {
+        heading: "Capital Gains Tax on Land Sold by an NRI",
+        body: [
+          "For an individual, the tax depends on how long the land was held. For immovable property the dividing line is 24 months: held for more than 24 months, the gain is long-term; held for 24 months or less, it is short-term. This holding period has applied to land since the rules were rationalised in 2024 and is unchanged in 2026.",
+        ],
+        table: {
+          caption: "How the gain is classified and taxed for an individual seller.",
+          columns: ["Holding period", "Type of gain", "Rate for an NRI (before surcharge and cess)"],
+          rows: [
+            ["More than 24 months", "Long-term capital gain", "12.5% without indexation"],
+            ["24 months or less", "Short-term capital gain", "Taxed at applicable slab rates"],
+          ],
+        },
+        caution:
+          "Rates depend on the transaction, the holding period and the seller's total income. Treat every figure here as an illustration and confirm the computation with a chartered accountant.",
+      },
+      {
+        body: [
+          "The change that matters most to non-resident sellers is indexation. Until 23 July 2024, long-term gains on property were taxed at 20% with the benefit of indexation, which adjusted the purchase price for inflation. The rate was cut to 12.5%, but indexation was withdrawn for transfers on or after 23 July 2024. Resident individuals and HUFs were then given an option to compute tax at 20% with indexation or 12.5% without it, whichever is lower, for land or buildings acquired before 23 July 2024. That option does not extend to non-residents. An NRI selling land bought years ago therefore pays 12.5% on the full nominal gain, with no inflation adjustment.",
+          "Surcharge, based on the seller's total income, and the 4% health and education cess apply on top of the base rate. Because an NRI may hold a long-term asset bought years earlier, the nominal gain can look large even when the real, inflation-adjusted gain is modest. That is the core difference between an NRI exit and a resident exit on the same land.",
+          "The distinction also matters for the buyer's withholding. Tax is deducted on the sale consideration, not the gain, so a seller whose cost was a large fraction of the price can see far more deducted than the tax actually due. The certificate described next is what closes that gap.",
+        ],
+      },
+      {
+        heading: "The Buyer's Obligation: TDS, TAN and the Lower or Nil Deduction Certificate",
+        body: [
+          "When a buyer pays a non-resident for immovable property, the buyer must deduct tax at source before paying. Under the 2025 Act this sits in section 393(2), which was section 195 of the 1961 Act. There is no threshold: the obligation applies to the first rupee of a taxable payment. A buyer who fails to deduct can be treated as an assessee in default, so this is the buyer's risk as much as the seller's.",
+          "The least intuitive point is the base on which tax is deducted. The buyer withholds on the full sale consideration, not on the gain, because the buyer has no reliable knowledge of the seller's cost. A seller who bought land for a large fraction of the sale price can therefore see tax deducted that is far higher than the tax actually due on the gain, with the excess recoverable only through a refund.",
+          "The remedy is a lower or nil deduction certificate. The seller applies to the Assessing Officer, before the sale is completed, showing the purchase cost, the expected sale price and any exemptions, and the officer issues a certificate directing the buyer to deduct at a lower rate or nil. Under the 2025 Act the provision is section 395(1), formerly section 197, and the application is made in Form 128, formerly Form 13, electronically. The certificate must be in place before payment; once the buyer has deducted and deposited tax, the only route left is a refund.",
+          "On the buyer's compliance side, the rules were simplified in 2026. Until 30 September 2026, and still for company, firm or LLP buyers, the buyer needed a TAN and filed the quarterly non-resident TDS return, Form 144 (formerly Form 27Q), giving the seller a certificate in Form 131 (formerly Form 16A). From 1 October 2026, a resident individual or HUF buyer uses their PAN and files Form 141 with Schedule E, a challan-cum-statement, within 30 days of the end of the month of deduction, and the seller's certificate is in Form 132. The deduction rate is unchanged; only the reporting route changed.",
+          "The seller should still verify that the tax was actually deducted and deposited. Checking Form 26AS or the Annual Information Statement, and reconciling the TDS certificate, is the difference between a clean refund and a long correspondence.",
+        ],
+        caution:
+          "A lower or nil deduction certificate must be obtained before the buyer pays. It cannot be applied for retrospectively once the deduction is made.",
+      },
+      {
+        heading: "Repatriating the Sale Proceeds: RBI and FEMA Rules",
+        body: [
+          "Moving the money out of India is a separate exercise from paying the tax, and it has its own regulator. The Reserve Bank of India permits a non-resident to repatriate up to USD one million per financial year out of the balance in an NRO account and out of the sale proceeds of assets, subject to payment of the applicable taxes in India and to the satisfaction of the authorised dealer bank.",
+          "How much can be sent depends on how the property was acquired. If the land was bought out of rupee funds, or while the owner was resident in India, the sale proceeds may be repatriated through the NRO route under the USD one million facility, and there is no lock-in period on the sale proceeds of immovable property so acquired. If the property was bought out of foreign exchange received through banking channels, or by debit to an NRE or FCNR(B) account, repatriation is permitted to the extent of the amount actually paid in foreign exchange, and that facility is restricted to not more than two residential properties. Any balance can be credited to the NRO account and remitted under the USD one million facility. Capital gains, too, can be credited to the NRO account.",
+        ],
+        table: {
+          caption: "Repatriation routes for the sale proceeds of immovable property under the RBI and FEMA framework.",
+          columns: ["How the property was acquired", "Repatriation available"],
+          rows: [
+            ["Out of rupee funds (or while resident in India)", "Up to USD 1 million per financial year from the NRO account; no lock-in on the sale proceeds"],
+            ["Out of foreign exchange, NRE or FCNR(B)", "To the extent of the amount paid in foreign exchange; restricted to two residential properties; balance via the USD 1 million NRO facility"],
+          ],
+        },
+        caution:
+          "Repatriation is subject to prevailing FEMA rules and to the authorised dealer's satisfaction. Rules that depend on how the property was acquired are best confirmed with the bank and a chartered accountant before the sale.",
+      },
+      {
+        body: [
+          "There are firm exclusions. The repatriation facility for the sale proceeds of immovable property is not available to citizens of Pakistan, Bangladesh, Sri Lanka, China, Afghanistan, Iran, Nepal and Bhutan. Sale proceeds of agricultural land, farm houses and plantation property are outside the scheme. These are FEMA conditions and do not depend on tax compliance alone.",
+          "Documentation matters as much as eligibility. The authorised dealer bank will require evidence of acquisition, an undertaking by the remitter and a chartered accountant's certificate in the prescribed format. Under the 2025 framework the outward remittance information is furnished in Form 145 and, where the remittance is chargeable to tax and exceeds the threshold, the accountant's certificate is Form 146, the successors to Forms 15CA and 15CB. The sale deed, the original purchase documents, proof of tax paid and the lower or nil deduction certificate should all be assembled before the remittance is attempted.",
+        ],
+      },
+      {
+        heading: "Exemptions and Reinvestment Options",
+        body: [
+          "The capital-gains tax is not always unavoidable. Where the reinvestment conditions are met, the exemption provisions can reduce or eliminate the liability, and they apply to non-residents as well as residents, though the detail is always circumstances-specific.",
+        ],
+        drivers: [
+          "Investment in specified capital-gains bonds (the section 54EC route), subject to a monetary cap and a six-month window.",
+          "Investment in one residential house in India (the section 54F route), where the seller does not own more than the permitted number of houses.",
+          "Deposit of the unutilised gain under the Capital Gains Accounts Scheme before the return due date, to preserve the exemption while a purchase is arranged.",
+          "Relief under a double taxation agreement, which may reduce Indian tax but usually requires a tax residency certificate and the filing of an Indian return.",
+        ],
+        caution:
+          "Exemption provisions carry strict conditions, timelines and caps. Their availability for a non-resident seller should be confirmed with a chartered accountant before relying on them.",
+      },
+      {
+        heading: "What This Means for NRI Owners of Srisailam Highway Plots",
+        body: [
+          "Most non-resident holdings on the Srisailam Highway belt are open plots bought for long-term appreciation rather than income. That shapes the exit. Because an open plot is not a residential house, the section 54 route for a residential house does not apply, and the relevant reinvestment relief, where available, is the one for land and buildings. The belt's investment logic still rests on infrastructure and employment, which we cover in the [Srisailam Highway employment guide](/insights/srisailam-highway-employment-industrial-growth).",
+          "The indexation point bears hardest on this belt. Plots here have often been held for years, and much of the apparent gain is inflation rather than real appreciation. Residents can choose the lower of 12.5% without indexation or 20% with indexation on older property; non-residents cannot. An NRI selling an older plot therefore pays on the full nominal gain, which for a long-held plot with a large nominal gain can be materially more tax than a resident would pay on the same sale.",
+          "The practical consequences for an NRI owner are three. First, arrange the lower or nil deduction certificate before the sale, so the buyer does not withhold tax on the whole price and leave the seller to chase a refund. Second, confirm the buyer's compliance route, because the buyer's obligation did not disappear with the 2026 simplification, and the seller needs the tax credit to claim any refund. Third, plan the repatriation early, because the USD one million annual limit, the two-residential-property rule and the documentation requirements are all easier to satisfy when they are anticipated rather than discovered at the bank.",
+          "None of this changes the merits of the corridor; it changes the practicalities of exit. Owners who treat the sale as a financial project rather than only a price negotiation are the ones who keep the difference. Our [first-time plot investor checklist](/insights/first-time-plot-investor-checklist-hyderabad) is a useful mirror for what to verify, in reverse, when you sell.",
+        ],
+        caution:
+          "Tax treatment depends on the individual's facts and residence status. Confirm your position, and the eligibility of any exemption, with a chartered accountant.",
+      },
+      {
+        heading: "A Practical Sequence for an NRI Sale",
+        body: [
+          "The order of operations matters more than any single rate, because several steps must happen before the buyer pays.",
+        ],
+        checklist: [
+          "Confirm your residential status for the year of sale under the Income-tax Act; it governs the whole framework.",
+          "Establish the cost, the holding period and whether the gain is long-term or short-term.",
+          "Estimate the tax with a chartered accountant, testing the actual liability against what the buyer would otherwise withhold.",
+          "Apply for the lower or nil deduction certificate in Form 128 under section 395(1) before the sale is completed.",
+          "Agree the buyer's compliance route, and confirm the deduction is deposited and a TDS certificate is issued.",
+          "Keep the sale deed, original purchase documents and proof of acquisition together for the repatriation file.",
+          "Verify the TDS credit in Form 26AS or the Annual Information Statement, and file your Indian return.",
+          "Complete the prescribed remittance forms and the accountant's certificate with the authorised dealer bank before remitting.",
+          "Repatriate within the USD one million per financial year limit, and within the two-residential-property rule where it applies.",
+        ],
+        caution:
+          "The sequence and the paperwork differ with each transaction and bank. Treat this as a planning checklist, not a substitute for professional advice.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the framework above and use both the 1961 and 2025 references, because search and advisers still use both.",
+        ],
+        faqs: [
+          {
+            question: "How long must I hold land in India to pay the lower long-term rate?",
+            answer:
+              "More than 24 months. Land held for 24 months or less produces a short-term gain, taxed at the individual's applicable slab rates, which is usually higher. The 24-month threshold applies to immovable property, including open land.",
+          },
+          {
+            question: "Are NRIs eligible for indexation on property bought before July 2024?",
+            answer:
+              "No. The option to pay 20% with indexation, as an alternative to 12.5% without it, is available to resident individuals and HUFs for land or buildings acquired before 23 July 2024 and transferred on or after that date. Non-residents pay 12.5% without indexation.",
+          },
+          {
+            question: "Who deducts TDS when an NRI sells property in India?",
+            answer:
+              "The buyer deducts tax at source before paying the seller, on the full sale consideration, with no threshold. This was section 195 of the 1961 Act and is section 393(2) of the Income-tax Act, 2025. A buyer who fails to deduct can be treated as an assessee in default.",
+          },
+          {
+            question: "Can I reduce the TDS on my sale?",
+            answer:
+              "Yes, by applying to the Assessing Officer for a lower or nil deduction certificate before the sale. Under the 2025 Act this is Form 128 under section 395(1), formerly Form 13 under section 197. It must be obtained before the buyer pays; it cannot be applied retrospectively.",
+          },
+          {
+            question: "Does the buyer still need a TAN to deduct TDS?",
+            answer:
+              "For company, firm or LLP buyers, and for payments up to 30 September 2026, a TAN is required and the non-resident TDS return is Form 144. From 1 October 2026, a resident individual or HUF buyer uses their PAN and files Form 141 with Schedule E instead.",
+          },
+          {
+            question: "How much can an NRI repatriate from a property sale?",
+            answer:
+              "Up to USD one million per financial year out of an NRO account and sale proceeds, subject to tax paid. Where the property was bought out of foreign exchange, repatriation is limited to the amount paid in foreign exchange and to not more than two residential properties. Property bought out of rupee funds has no lock-in on the sale proceeds.",
+          },
+          {
+            question: "Can the sale proceeds of agricultural land or a farmhouse be repatriated?",
+            answer:
+              "No. The repatriation facility does not cover agricultural land, farm houses or plantation property, and it is not available to citizens of certain countries. Confirm eligibility with your bank and a chartered accountant before the sale.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "Selling land in India as an NRI in 2026 means working with a framework that was renumbered but not fundamentally rewritten. Long-term gains on land held more than 24 months are taxed at 12.5% without indexation, and non-residents cannot elect the older indexation option that residents still can on pre-July 2024 property. The buyer must deduct tax on the full sale consideration, which is why the lower or nil deduction certificate, obtained before the sale, is the single most valuable step a non-resident seller can take.",
+          "On the way out, the RBI and FEMA rules set the pace: up to USD one million per financial year on the NRO route, a two-residential-property limit for property bought out of foreign exchange, and prescribed forms supported by a chartered accountant's certificate. Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor. The official sources behind the tax and FEMA points are listed below.",
+        ],
+        sources: [
+          {
+            label: "Income-tax Act, 2025 and the section and form mapping (section 393(2) for payments to non-residents, section 395(1) and Form 128 for lower or nil deduction, Form 144 for the non-resident TDS return)",
+            publisher: "Income Tax Department, Government of India",
+            url: "https://www.incometax.gov.in/",
+          },
+          {
+            label: "Capital gains on the transfer of immovable property: the 24-month holding period and the 12.5% long-term rate without indexation",
+            publisher: "Income Tax Department, Government of India",
+            url: "https://www.incometax.gov.in/",
+          },
+          {
+            label: "Remittance information and accountant's certificate for outward remittances (Form 145 and Form 146, formerly Form 15CA and Form 15CB)",
+            publisher: "Income Tax Department, Government of India",
+            url: "https://www.incometax.gov.in/",
+          },
+          {
+            label: "Master Direction and FAQs on remittance facilities for non-resident Indians and persons of Indian origin (USD one million per financial year; repatriation of sale proceeds of immovable property)",
+            publisher: "Reserve Bank of India",
+            url: "https://www.rbi.org.in/",
+          },
+          {
+            label: "Acquisition and transfer of immovable property in India by non-residents",
+            publisher: "Reserve Bank of India",
+            url: "https://www.rbi.org.in/",
+          },
+        ],
+        caution:
+          "This article is general research, not tax, legal or investment advice. Tax rates, thresholds, section numbers, forms and FEMA rules change and depend on individual circumstances; verify the current position with a qualified chartered accountant and the authorised dealer bank before acting.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
