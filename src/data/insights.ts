@@ -131,6 +131,234 @@ const nagarjuna: InsightAuthor = {
 
 export const insights: Insight[] = [
   {
+    slug: "schools-near-srisailam-highway-ib-cbse-tukkuguda",
+    title:
+      "Education Hub of Srisailam Highway: IB and CBSE Schools Near Tukkuguda, Raviryal and Rachuloor",
+    seoTitle: "IB & CBSE Schools Near Srisailam Highway",
+    metaDescription:
+      "A parent guide to IB and CBSE schools near Tukkuguda, Raviryal and Rachuloor on the Srisailam Highway - board differences and how to verify a school.",
+    excerpt:
+      "IB and CBSE schooling has arrived around Tukkuguda, Raviryal and Rachuloor on the Srisailam Highway. A parent-focused guide to what each board means, the schools that can be verified on the corridor, and how to assess one before you commit.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-19",
+    author: researchDesk,
+    image: "/images/insights/schools-near-srisailam-highway-ib-cbse-tukkuguda.jpg",
+    imageAlt:
+      "IB and CBSE schools near Tukkuguda, Raviryal and Rachuloor on the Srisailam Highway - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods", "upcoming-srisailam-highway"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "For most families, the decision to buy land or a home on the Srisailam Highway begins with a school, not a price. The corridor south of the Outer Ring Road at Tukkuguda has, over several years, assembled one of the wider spreads of schooling in South Hyderabad - from a major International Baccalaureate campus to long-established neighbourhood schools. This guide maps what is actually there around Tukkuguda, Raviryal, Rachuloor and Maheswaram, and, just as importantly, explains how to verify any school for yourself.",
+          "A disclosure before we begin. Arjun Realty is a land and plotted-development advisory, not a school consultant. We do not represent any school, and nothing here is an endorsement or a ranking. Where a school is named, it is because its details could be checked against the school's own published information or an official board record; where something could not be verified, this guide says so rather than filling the gap.",
+          "The corridor itself is worth understanding first, because access shapes the daily school run. It is the stretch of NH-765 that leaves the Outer Ring Road at Exit 14 in Tukkuguda and runs south past Maheshwaram; our [connectivity guide to the Srisailam Highway](/insights/srisailam-highway-hyderabad-nh-765-future-growth) sets out how it links to the airport, the city and the industrial belt.",
+        ],
+      },
+      {
+        heading: "Why Education Leads the Decision on This Corridor",
+        body: [
+          "On a corridor where jobs, roads and land prices dominate the headlines, education is the quieter but more decisive filter. A family will tolerate a longer commute to work far more readily than a difficult school run for a young child. That is why credible schooling is often what turns a plotted corridor into a place where families actually settle, rather than only invest.",
+          "The belt around Tukkuguda has crossed that threshold. It now supports a genuine range of boards and fee levels rather than a single tier, so families with different priorities - a specific board, a boarding option, a shorter commute, or a more affordable neighbourhood school - can each find a fit within the same area. The practical task is not finding a school but matching the right one to a household's circumstances.",
+          "One caution governs the whole article: schooling is location-specific and it changes. A campus can add or drop a grade, an affiliation can be renewed or lapse, and transport routes can move. Treat every school named below as the starting point for your own visit and verification, not as a settled fact.",
+        ],
+        drivers: [
+          "Board - whether the family wants an international or a national curriculum.",
+          "Continuity - whether the school runs through the grades a child will need, year after year.",
+          "Commute - the real, door-to-door school-run time at peak hours.",
+          "Transport - whether a safe school bus actually covers your address.",
+          "Fees and admissions - the full cost and the admission calendar, not just the headline fee.",
+          "Class size and support - teacher-student ratio, and how learning support is handled.",
+        ],
+      },
+      {
+        heading: "IB and CBSE: What the Two Boards Actually Mean",
+        body: [
+          "The corridor's schools largely fall into two families of curriculum, and understanding the difference is the first step to a sensible choice. The International Baccalaureate, or IB, is a set of internationally recognised programmes. CBSE is India's national Central Board of Secondary Education. They are built around different aims, and neither is automatically better than the other.",
+          "The IB runs as a continuum. The Primary Years Programme, or PYP, covers the early and primary years. The Middle Years Programme, or MYP, spans the lower secondary years. The Diploma Programme, or DP, is the final two-year, examination-based qualification recognised by universities worldwide. A school can be authorised for one, two or all three of these, and authorisation is granted programme by programme rather than all at once.",
+          "CBSE is a single national framework that runs from the foundational years through to Class 12, with board examinations at the end of Class 10 and Class 12. It is the curriculum most Indian families know best, with a strong emphasis on a common syllabus, formal assessment and, in the senior years, the science, commerce and humanities streams.",
+        ],
+        table: {
+          caption:
+            "A like-for-like summary of the two boards as they are commonly offered on this corridor. It is a framing aid, not a ranking - a well-run school of either board can be the right choice.",
+          columns: ["", "IB (International Baccalaureate)", "CBSE (Central Board)"],
+          rows: [
+            ["Structure", "A continuum: PYP, MYP and DP, authorised stage by stage", "A single framework from the foundational years to Class 12"],
+            ["Assessment", "Continuous assessment, with an externally examined Diploma at the end", "School assessment, then board examinations at Classes 10 and 12"],
+            ["Often chosen for", "Inquiry-led, internationally mobile education", "A familiar, structured national curriculum and clear Indian pathways"],
+            ["Recognition", "Moving between countries, and overseas university applications", "Widely recognised across India for higher education"],
+            ["Authorisation", "Each programme is authorised separately by the IB", "Affiliation is granted to the school by the CBSE"],
+          ],
+        },
+        caution:
+          "The IB and CBSE suit different children and different family plans. Neither is superior, and a good school of either board can be the right choice. Match the board to your child and your plans, not to a ranking.",
+      },
+      {
+        heading: "IB Schools Near Tukkuguda and Maheshwaram",
+        body: [
+          "Two IB World Schools anchor the corridor, and both are within reach of Tukkuguda. One sits on the Rachuloor Road side of the Srisailam Highway; the other is in the Hardware Park area of Maheswaram Mandal, close to the airport. Both are verified IB World Schools, meaning the International Baccalaureate Organisation has authorised their programmes.",
+        ],
+        entries: [
+          {
+            title: "Manchester Global School",
+            status: "IB World School",
+            tone: "operational",
+            summary:
+              "A large campus on Rachuloor Road off the Srisailam Highway, offering the IB continuum alongside CBSE and taking both day scholars and boarders.",
+            facts: [
+              { label: "Boards", value: "IB (PYP, MYP, DP) and CBSE" },
+              { label: "IB school code", value: "063412" },
+              { label: "CBSE affiliation", value: "3630531" },
+              { label: "Location", value: "Rachuloor Road, Srisailam Highway" },
+              { label: "Boarding", value: "Day and boarding (boys and girls)" },
+            ],
+            note: "IB authorisation is granted programme by programme. The school's most recent IB programme authorisations were granted during 2025-2026, so confirm the current status of each programme directly.",
+          },
+          {
+            title: "The Aga Khan Academy Hyderabad",
+            status: "IB World School",
+            tone: "operational",
+            summary:
+              "A non-profit, non-denominational day and residential school in the Hardware Park area of Maheswaram Mandal, operating since 2011 and offering the full IB continuum.",
+            facts: [
+              { label: "Board", value: "IB (PYP, MYP, DP)" },
+              { label: "IB school code", value: "049369" },
+              { label: "Grades", value: "1 to 12" },
+              { label: "Residential", value: "From Grade 6" },
+              { label: "Location", value: "Hardware Park, Maheswaram Mandal" },
+            ],
+            note: "Admission is selective and the school is internationally oriented rather than a neighbourhood option. Its stated aim is to develop homegrown leaders through a broad, values-led curriculum.",
+          },
+        ],
+        caution:
+          "Programmes, grade coverage and admission policies change. Confirm current classes, fees and the status of each IB programme directly with the school before you apply.",
+      },
+      {
+        heading: "CBSE and Neighbourhood Schools Around Tukkuguda",
+        body: [
+          "Beyond the two IB campuses, the corridor is served mainly by CBSE and other national-pattern schools that cater to families living locally, several of them based in and around Tukkuguda itself. As with any school, the details below are points to confirm on a visit rather than settled facts.",
+          "The belt also sits within reach of large national and State school groups that operate across Hyderabad, including chains such as Sri Chaitanya. We are deliberately not naming a specific branch here, because a particular branch could not be verified from the group's own official information at the time of writing. Where a chain appeals, use the group's official branch locator and confirm the exact campus, board and address directly rather than relying on a third-party listing.",
+        ],
+        entries: [
+          {
+            title: "Sloka International School (Tukkuguda campus)",
+            status: "CBSE",
+            tone: "operational",
+            summary:
+              "A CBSE school offering pre-primary to Grade 8 at its Tukkuguda campus, part of a wider group that also runs Cambridge IGCSE higher grades at another campus.",
+            facts: [
+              { label: "Board", value: "CBSE at the Tukkuguda campus" },
+              { label: "Classes", value: "Pre-primary to Grade 8" },
+              { label: "Location", value: "Tukkuguda, Maheswaram" },
+            ],
+            note: "Grade coverage varies by campus across the group, so confirm the exact classes offered at the Tukkuguda campus itself.",
+          },
+          {
+            title: "Devendra Vidyalaya",
+            status: "CBSE and SSC",
+            tone: "operational",
+            summary:
+              "A neighbourhood school on Srisailam Main Road at Tukkuguda that offers both a CBSE curriculum and a State (SSC) curriculum under one roof.",
+            facts: [
+              { label: "Boards", value: "CBSE (Grades I-VIII) and SSC (Nursery-Grade X)" },
+              { label: "Location", value: "Srisailam Main Road, Tukkuguda" },
+              { label: "Admissions", value: "Open for 2026-2027" },
+            ],
+            note: "One of the few local schools offering a choice of a national and a State stream, which can suit families weighing either pathway.",
+          },
+          {
+            title: "Bhashyam Blooms, Maheswaram",
+            status: "CBSE pattern",
+            tone: "operational",
+            summary:
+              "A school in the Maheswaram area serving the upper-primary and secondary years, following the CBSE pattern along with State-stream sections.",
+            facts: [
+              { label: "Classes", value: "V to X" },
+              { label: "Board", value: "CBSE pattern, with State-stream sections" },
+              { label: "Location", value: "Tummalur, Maheswaram Mandal" },
+            ],
+            note: "Class coverage is specific to the school, so confirm the exact grades and stream offered for the year you are applying.",
+          },
+        ],
+        caution:
+          "Bhashyam Blooms is included as a Maheswaram-area option; verify its classes, board and stream directly. School offerings on a growing corridor change from year to year.",
+      },
+      {
+        heading: "Schools and the Places They Serve",
+        body: [
+          "Because schooling on the belt is concentrated in a few locations, it helps to see where the options sit relative to the corridor. The map below is a guide to where schooling clusters, not a statement of distance or catchment.",
+        ],
+        locations: [
+          { name: "Tukkuguda", note: "The corridor's school hub, with the widest concentration of options - an IB and CBSE campus on the Rachuloor Road side, plus CBSE and State schools within and around the village." },
+          { name: "Rachuloor Road side", note: "Home to a large IB and CBSE campus on the Srisailam Highway, drawing families from across the belt rather than only the immediate village." },
+          { name: "Hardware Park / Maheswaram Mandal", note: "Location of The Aga Khan Academy Hyderabad, an IB day and residential school, set close to the airport and the aerospace and pharma employment belt." },
+          { name: "Maheshwaram", note: "The mandal headquarters, with neighbourhood schooling serving local families and acting as an anchor for the stretch further south." },
+          { name: "Raviryal", note: "A village on the corridor with no school verifiable under its own name at the time of writing; families here typically look to the Tukkuguda and Maheswaram options above." },
+        ],
+        caution:
+          "This is a broad map of where schooling is concentrated, not a statement of distance or catchment. Confirm each school's actual location and transport coverage for your own address.",
+      },
+      {
+        heading: "How to Assess a School Before You Commit",
+        body: [
+          "Choosing a school is a decision of its own, and the same discipline that applies to buying land applies here. The most common mistake is to judge a school from a website or a friend's recommendation alone. The reliable method is to visit at ordinary school hours, ask specific questions, and verify the answers that matter.",
+        ],
+        checklist: [
+          "Confirm the board and, for an IB school, which programmes (PYP, MYP, DP) are currently authorised - check the IB's own register, not only the school's brochure.",
+          "Confirm the exact grades offered at the campus you are applying to, since coverage can vary between campuses of the same group.",
+          "Ask for the current teacher-student ratio and average class size, and see a class in progress.",
+          "Drive the school run at the actual drop-off and pick-up times, not at midday.",
+          "Confirm whether school transport covers your address, and review the route and safety arrangements.",
+          "Ask for the full fee schedule, including transport, activity and any one-time charges.",
+          "Ask how the school supports children who need extra help, and how it communicates with parents.",
+          "For a boarding or residential option, visit the hostels and meet the residential staff.",
+          "Ask about admissions timing and whether a waiting list operates for your child's grade.",
+        ],
+        caution:
+          "A school's website describes its best case. A visit at normal hours, a look at a real class and a direct question about transport and fees tell you what a family will actually experience.",
+      },
+      {
+        heading: "Connecting Education to Where You Live",
+        body: [
+          "Because schooling is the decisive filter for many families, it also shapes where buying a home makes sense. On the Srisailam Highway, the practical approach is to choose the school first and then the neighbourhood within a workable school run of it, rather than the reverse. A plot that looks well priced on a map can be a poor family choice if the daily school run is long or the transport does not reach it.",
+          "Our own focus on this corridor is plotted land and gated communities around Tukkuguda. [JB Harmony Woods](/projects/jb-harmony-woods) is an FCDA-approved semi-villa community off the Srisailam Highway, positioned for families who want to be within reach of the area's schooling.",
+          "Our adjacent [Srisailam Highway plotted community](/projects/upcoming-srisailam-highway) serves the same belt, and both are assessed against documentation and site checks rather than proximity claims.",
+          "For the wider picture of what is changing along this road - employment, infrastructure and land values - the [Srisailam Highway Future City corridor page](/srisailam-highway-future-city) sets out the context.",
+          "For the family-liveability questions that sit alongside schooling, from healthcare to the daily commute, our [liveability guide](/insights/living-near-srisailam-highway-liveability-guide) covers them.",
+        ],
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [],
+        faqs: [
+          { question: "Which board is better for my child - IB or CBSE?", answer: "Neither is universally better. The IB is inquiry-led and internationally oriented, often chosen by families who may move countries or target overseas universities. CBSE is a structured national curriculum that most Indian families and higher-education pathways are built around. The right choice depends on your child and your plans, not on a ranking." },
+          { question: "Are there IB schools near Tukkuguda on the Srisailam Highway?", answer: "Yes. Two IB World Schools are within reach: Manchester Global School on Rachuloor Road off the Srisailam Highway, and The Aga Khan Academy Hyderabad in the Hardware Park area of Maheswaram Mandal. Both are authorised IB World Schools, and both offer the IB continuum with day and, in one case, residential options." },
+          { question: "Are there CBSE schools near Tukkuguda?", answer: "Yes. Several, including Sloka International School's Tukkuguda campus (CBSE, pre-primary to Grade 8) and Devendra Vidyalaya on Srisailam Main Road, which runs both a CBSE and a State (SSC) curriculum. Confirm the exact classes offered before you apply." },
+          { question: "Is there a Sri Chaitanya school at Tukkuguda or Raviryal?", answer: "We could not verify a specific Sri Chaitanya branch at Tukkuguda or Raviryal from the group's official information. The group operates widely across Telangana, so use its official branch locator and confirm the exact campus and address directly." },
+          { question: "How do I verify a school's board before admitting my child?", answer: "For an IB school, check the programme on the International Baccalaureate's own register of authorised schools. For a CBSE school, ask for the affiliation number and verify it through official records. Visit at normal school hours and confirm transport and fees in person." },
+          { question: "Does living near the Srisailam Highway make the school run easier?", answer: "It depends on the specific plot and the school. Distances and drive times vary with traffic and road works, so the reliable test is to drive the exact route at the actual school-run hours before you commit. Our liveability guide covers the wider family questions." },
+        ],
+      },
+      {
+        heading: "Sources and Further Reading",
+        body: [
+          "School details in this article were checked against each school's own published information and, for IB authorisation, the International Baccalaureate Organisation's register of authorised schools. Schools change, so verify current board, grades, fees and transport directly before applying.",
+        ],
+        sources: [
+          { label: "Register of authorised IB World Schools and programmes", publisher: "International Baccalaureate Organisation", url: "https://www.ibo.org/" },
+          { label: "Manchester Global School - official website", publisher: "Manchester Global School", url: "https://manchester.global/" },
+          { label: "The Aga Khan Academy Hyderabad - official website", publisher: "Aga Khan Academies", url: "https://www.agakhanacademies.org/hyderabad" },
+          { label: "Sloka International School - official website", publisher: "Sloka International School", url: "https://www.slokainternational.com/" },
+          { label: "Devendra Vidyalaya - official website", publisher: "Devendra Vidyalaya", url: "https://www.devendravidyalaya.edu.in/" },
+          { label: "Bhashyam Blooms Maheswaram - official website", publisher: "Bhashyam Blooms Maheswaram", url: "https://bloomsmaheswaram.in/" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "open-plots-mokila-gandipet-kokapet-vs-shankarpally",
     title:
       "Open Plots in Mokila, Gandipet and Kokapet: What Buyers Should Compare Before Choosing Shankarpally",
@@ -4640,7 +4868,7 @@ export const insights: Insight[] = [
       {
         heading: "Schools and Education: What Exists and How to Verify",
         body: [
-          "Education is usually the first filter a family applies, and here the belt offers a genuine range rather than a single tier. The most recognised anchor is the Aga Khan Academy Hyderabad, an International Baccalaureate school located in the Hardware Park area of Maheshwaram Mandal, which has operated since 2011. It is an internationally oriented school rather than a neighbourhood one, and admission is academically selective, so it serves families specifically seeking that model rather than the general catchment.",
+          "Education is usually the first filter a family applies, and here the belt offers a genuine range rather than a single tier. The most recognised anchor is the Aga Khan Academy Hyderabad, an International Baccalaureate school located in the Hardware Park area of Maheshwaram Mandal, which has operated since 2011. It is an internationally oriented school rather than a neighbourhood one, and admission is academically selective, so it serves families specifically seeking that model rather than the general catchment. For a source-checked list of the IB and CBSE schools along this stretch, see our [schools near the Srisailam Highway guide](/insights/schools-near-srisailam-highway-ib-cbse-tukkuguda).",
           "Beyond that anchor, the mandal headquarters at Shamshabad and Maheshwaram have long-established schooling - government and model schools, and a spread of private schools serving the local population - along with junior colleges. What the belt does not yet offer everywhere is a wide choice of premium international schooling within a short drive; families who prioritise that tend to compare across the wider airport-side corridor rather than a single stretch of highway.",
           "Because school quality and availability are specific to a location and change over time, the practical approach is to verify rather than assume, and to visit in person. For the purchase-side due diligence that sits alongside this, our [first-time plot investor checklist](/insights/first-time-plot-investor-checklist-hyderabad) covers the sequence.",
         ],
