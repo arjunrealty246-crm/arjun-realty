@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/why-hyderabad`, lastModified: "2026-08-20", changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${baseUrl}/vikarabad`, lastModified: "2026-09-01", changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${baseUrl}/ibrahimpatnam`, lastModified: "2026-09-01", changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${baseUrl}/shankarpally`, lastModified: "2026-10-19", changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${baseUrl}/orr`, lastModified: "2026-09-01", changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${baseUrl}/srisailam-highway-future-city`, lastModified: "2026-09-01", changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${baseUrl}/nri-investment`, lastModified: "2026-08-20", changeFrequency: "monthly" as const, priority: 0.7 },

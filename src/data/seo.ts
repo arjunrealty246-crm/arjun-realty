@@ -97,6 +97,23 @@ export const seo: Record<string, SEOData> = {
       "South Hyderabad plots",
     ],
   },
+  shankarpally: {
+    title: "Open Plots in Shankarpally, West Hyderabad | Arjun Realty",
+    description:
+      "Open plots for sale in Shankarpally, West Hyderabad - HMDA approved layouts near Kokapet, Neopolis and the ORR. Compare projects and book a free site visit.",
+    keywords: [
+      ...baseKeywords,
+      "Open Plots in Shankarpally",
+      "HMDA approved plots in Shankarpally",
+      "Plots for sale in Shankarpally",
+      "Open plots in Shankarpally West Hyderabad",
+      "Shankarpally plots",
+      "Shankarpally real estate",
+      "villa plots Shankarpally",
+      "Shankarpally Kandi corridor",
+      "plots near Kokapet and Neopolis",
+    ],
+  },
   "srisailam-highway-future-city": {
     title: "Srisailam Highway Plots | South Hyderabad | Arjun Realty",
     description:
