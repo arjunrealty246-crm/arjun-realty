@@ -5657,6 +5657,177 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "home-loan-for-plot-srisailam-highway",
+    title:
+      "Home Loan for a Plot on the Srisailam Highway: LTV, Eligibility, Documents and Plot Loan vs Home Loan (2026)",
+    seoTitle: "Home Loan for a Plot: Srisailam Guide",
+    metaDescription:
+      "A 2026 guide to financing a plot on the Srisailam Highway: how a plot loan differs from a home loan, the loan-to-value rule, eligibility, documents, construction-linked options and the NRI position.",
+    excerpt:
+      "Can you get a home loan for a plot? How plot loans differ from home loans, what lenders look at, the documents you need, and how the loan turns into a construction loan when you build.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-24",
+    author: researchDesk,
+    image: "/images/insights/home-loan-for-plot-srisailam-highway.jpg",
+    imageAlt:
+      "An approved residential plot on the Srisailam Highway with home-loan paperwork - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "For many buyers the plot is only the first half of the cost; the house comes later, and both are usually financed. That raises a practical question that sits underneath almost every plot purchase: can you get a home loan for land, and how does it differ from a loan for a built home?",
+          "This guide answers that for a buyer on the Srisailam Highway - how a plot loan differs from a home loan, how much a lender will typically fund, what decides eligibility, the documents involved, and how the loan carries over into construction. It complements our guide to choosing between [villa plots and apartments](/insights/villa-plots-vs-apartments-srisailam-highway). It is Arjun Realty market research, not financial, tax or legal advice; loan terms vary by lender and change over time, so confirm current terms directly.",
+        ],
+      },
+      {
+        heading: "Plot Loans and Home Loans Are Not the Same Product",
+        body: [
+          "A home loan is secured against a built or under-construction house. A plot loan is secured against land. Because land produces no income on its own and cannot be occupied, lenders treat it as a riskier security: plot loans usually come with a shorter repayment period than a home loan, a lower share of the value funded, and sometimes a slightly different rate.",
+          "The distinction matters most at the end. Many lenders treat a plot loan as a productive loan only if a house is built on the plot within a set period, often a few years. If construction does not happen, some lenders may change the rate or convert the loan. The practical takeaway is that a plot loan is usually best understood as the first stage of a build, not a permanent way to hold land.",
+        ],
+        table: {
+          caption: "How the main property-finance routes compare.",
+          columns: ["Loan type", "What it funds", "Typical shape"],
+          rows: [
+            ["Plot loan", "Purchase of land", "Shorter tenure, lower share of value funded, often construction-linked"],
+            ["Home loan", "A built or under-construction house or flat", "Longer tenure, higher share of value funded"],
+            ["Plot-plus-construction loan", "Land now, construction later", "Single sanction, disbursed in stages as the build progresses"],
+          ],
+        },
+        caution:
+          "The features above are general and set by each lender. Confirm the tenure, the share funded and any construction condition directly with the bank or housing finance company.",
+      },
+      {
+        heading: "How Much a Lender Will Fund: The Loan-to-Value Rule",
+        body: [
+          "Lenders do not fund the full price of any property. The share they will lend against its value - the loan-to-value ratio - is capped by the Reserve Bank of India's norms for housing loans, and a plot is normally funded at a lower ratio than a built home. The buyer has to meet the difference, the down payment, from their own funds.",
+          "Because the property on the Srisailam Highway is often a newly developed plot, lenders also look at the layout. A plot in an approved layout, where the land use and the survey number are on record, is easier to fund than an unapproved parcel. Our guide to [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) explains how to confirm which authority approved a layout.",
+        ],
+        caution:
+          "Loan-to-value limits and eligibility rules are set by the regulator and by each lender, and change over time. Treat any figure you see, including in this article, as general and confirm the current position with the lender.",
+      },
+      {
+        heading: "What Decides Eligibility",
+        body: [
+          "For a salaried or self-employed applicant, the lender looks at income and how much of it is already committed to other loans, at the credit history, at age and remaining working years, and at the property itself. A plot that is approved, with clear title, financed through a recognised lender, fits the profile; a disputed or unauthorised parcel does not.",
+          "The single most useful preparation is to fix the property paperwork before applying. A clean title, an encumbrance certificate and the layout approval are what a lender and its legal team will ask for, and having them ready shortens the process.",
+        ],
+      },
+      {
+        heading: "Documents a Plot Loan Usually Needs",
+        body: [
+          "The exact list differs by lender, but the categories are consistent. Keeping them ready in advance is the practical way to avoid delay.",
+        ],
+        checklist: [
+          "Identity and address proof of the applicant, and of any co-applicant.",
+          "Income proof: salary slips and bank statements, or income-tax returns for a self-employed applicant.",
+          "Employment or business continuity proof.",
+          "The sale agreement or allotment letter for the plot.",
+          "The title documents and the encumbrance certificate for the property.",
+          "The approved layout plan and the approval from HMDA, DTCP or FCDA.",
+          "The government market value and the latest property tax receipt, where applicable.",
+          "Proof of the down payment and the source of those funds.",
+        ],
+        caution:
+          "Lenders publish their own document checklists. Confirm the current list with the specific bank or housing finance company before applying.",
+      },
+      {
+        heading: "From Plot Loan to Construction: The Combined Route",
+        body: [
+          "Because land is only the first stage, many buyers take a combined plot-plus-construction loan. The lender sanctions a single amount covering the plot and the planned house, and disburses it in stages: an initial part for the land purchase, and the rest as construction reaches agreed milestones.",
+          "This route needs a construction plan and an estimate up front, and it usually ties the loan to building within a set time. For a buyer who intends to build rather than hold vacant land, it is often the more efficient structure, because the loan and the building permission are planned together. If you are still deciding whether to build or to buy a ready unit, that choice is the subject of our plots-versus-apartments guide.",
+        ],
+      },
+      {
+        heading: "The NRI Position on Financing a Plot",
+        body: [
+          "A non-resident buyer can finance a purchase in India, but the rules on how the loan is repaid are specific. Repayment should come through normal banking channels, from an NRE, NRO or FCNR(B) account. Some lenders offer home and plot loans to NRIs on defined terms, often with a resident co-applicant or a power of attorney in place to manage the paperwork.",
+          "The purchase itself is permitted for non-agricultural property, and payment must route through banking channels. Our guide to [buying property in India as an NRI](/insights/nri-buying-property-india-registration-stamp-duty) covers the purchase process.",
+          "The property checks matter as much as the finance. Our first-time buyer notes on [checking a plot before you pay](/insights/first-time-plot-investor-checklist-hyderabad) cover the title, approval and record-verification steps to complete before applying.",
+        ],
+        caution:
+          "NRI lending terms, repayment rules and documentation differ by lender and depend on your residency status. Confirm the current position with your bank and, where relevant, a tax adviser.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide above and should be read with the disclaimers that follow.",
+        ],
+        faqs: [
+          {
+            question: "Can I get a home loan to buy a plot?",
+            answer:
+              "Yes, but it is usually a plot loan rather than a standard home loan. Lenders typically fund a lower share of the value, offer a shorter tenure, and may require that a house be built on the plot within a set period. Confirm the terms with the specific lender.",
+          },
+          {
+            question: "How much of a plot will a lender fund?",
+            answer:
+              "Lenders fund a share of the property's value, subject to the loan-to-value limits set by the Reserve Bank of India, and a plot is normally funded at a lower ratio than a built home. The buyer meets the remaining down payment from their own funds.",
+          },
+          {
+            question: "What is a plot-plus-construction loan?",
+            answer:
+              "It is a single loan covering both the land and the house to be built on it, disbursed in stages as construction reaches agreed milestones. It usually requires a construction plan and estimate up front and a commitment to build within a set time.",
+          },
+          {
+            question: "Does a plot loan have tax benefits?",
+            answer:
+              "The tax treatment of interest and repayment can depend on whether and when a house is built on the plot, and on your circumstances. Tax rules change, so confirm the current position with a chartered accountant rather than relying on general statements.",
+          },
+          {
+            question: "Can an NRI get a loan for a plot in India?",
+            answer:
+              "Many lenders offer home and plot loans to non-resident buyers on defined terms, with repayment made through normal banking channels from an NRE, NRO or FCNR(B) account. Terms vary by lender and may require a resident co-applicant or a power of attorney.",
+          },
+          {
+            question: "What documents does a plot loan need?",
+            answer:
+              "Identity and address proof, income proof, the sale agreement, the title documents and encumbrance certificate, the approved layout plan and approval, and proof of the down payment. Lenders publish their own checklists, so confirm the current list before applying.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "A plot on the Srisailam Highway can be financed, but it is worth understanding the difference between a plot loan and a home loan before you apply. A plot loan funds land, usually with a lower share of value and a shorter tenure, and it is often tied to building within a set time. A combined plot-plus-construction loan plans the land and the build together. In every case the lender looks at the same things: your income and repayment capacity, and a property with a clean title and an approved layout.",
+          "Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, an FCDA-approved layout of residential plots and semi-villas. General sources behind the points above are listed below.",
+        ],
+        sources: [
+          {
+            label:
+              "Reserve Bank of India: norms for housing finance, including loan-to-value limits, and the master directions on lending",
+            publisher: "Reserve Bank of India",
+            url: "https://www.rbi.org.in/",
+          },
+          {
+            label:
+              "National Housing Bank: regulation and supervision of housing finance companies",
+            publisher: "National Housing Bank",
+            url: "https://nhb.org.in/",
+          },
+          {
+            label:
+              "Telangana Urban Areas (Development) Act, 1975, and layout approval by HMDA and the Future City Development Authority (FCDA)",
+            publisher: "Government of Telangana",
+            url: "https://www.hmda.gov.in/",
+          },
+          {
+            label:
+              "Registration and Stamps Department, Government of Telangana: registration of sale deeds and the encumbrance certificate",
+            publisher: "Government of Telangana",
+            url: "https://registration.telangana.gov.in/",
+          },
+        ],
+        caution:
+          "This article is general research, not financial, tax or legal advice. Loan terms, eligibility rules and tax treatment depend on the lender and on individual circumstances and change over time; confirm the current position with the bank or housing finance company and a chartered accountant before acting.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
