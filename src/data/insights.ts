@@ -131,6 +131,148 @@ const nagarjuna: InsightAuthor = {
 
 export const insights: Insight[] = [
   {
+    slug: "neopolis-kokapet-land-auction-price-shankarpally",
+    title: "Neopolis Kokapet Real Estate: Record Land Prices, Premium Communities and Shankarpally Plot Alternatives",
+    seoTitle: "Neopolis Kokapet Land Auction & Plot Prices",
+    metaDescription: "HMDA Neopolis Kokapet land auctions topped ₹151 cr per acre. See verified auction data, apartment price bands and open-plot alternatives in Shankarpally.",
+    excerpt: "Neopolis set the price ceiling for West Hyderabad land. We separate the verified HMDA auction numbers, apartment price bands and office rents from the marketing - then compare them honestly with open-plot buying in Shankarpally.",
+    category: "Market Updates",
+    categorySlug: "market-updates",
+    publishedAt: "2026-10-19",
+    author: researchDesk,
+    image: "/images/insights/neopolis-kokapet-land-auction-price-shankarpally.jpg",
+    imageAlt: "High-rise apartments and mixed-use development on the western Hyderabad corridor near Kokapet and Neopolis",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["shankarpally-45-acres", "upcoming-shankarpally"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "The phrase 'Neopolis Kokapet land auction price' is worth understanding precisely, because few things move West Hyderabad's land market the way these government auctions do. The handful of parcels the Hyderabad Metropolitan Development Authority releases inside the Neopolis layout set the floor under the premium end of the corridor, and through late 2025 and again in 2026 that floor stepped up sharply. This article reads the verified, dated auction record, explains how the auctions actually work, and then does the part most coverage skips: compares the numbers honestly with open-plot buying in Shankarpally, where Arjun Realty actually transacts.",
+          "One thing to state up front. Arjun Realty does not market, sell or represent apartments, villas, commercial space or plots inside Neopolis. We operate in [open plots in Shankarpally](/shankarpally), on the western growth corridor a short drive further out. Everything below about Neopolis is presented as a sourced, dated market case study - not as an offer.",
+        ],
+      },
+      {
+        heading: "How an HMDA Neopolis land auction actually works",
+        body: [
+          "HMDA does not release Neopolis land onto the open market. It sells a few plots at a time through periodic e-auctions, and that scarcity is a large part of why the numbers look the way they do. Every auction notice fixes an upset price, also called the reserve price - the minimum per-acre figure HMDA is willing to accept. Bidders register and pay an earnest money deposit, which for the recent Neopolis plots was ₹5 crore per plot, and bids then move up in fixed increments.",
+          "The upset price and the final price are therefore two different things, and property marketing routinely blurs them. The upset price is HMDA's floor. The final price is what the winning bidder actually agreed to pay, and it can land exactly on the floor or well above it. In the November 2025 rounds the upset price was ₹99 crore per acre and the top parcel cleared at ₹151.25 crore per acre, a premium of roughly 53% over the reserve. In the September 2026 round the upset price was ₹120 crore per acre and the plot drew a single bid at that level - the floor became the price.",
+        ],
+        table: {
+          caption: "Winning bids per acre as reported by The New Indian Express, The Hindu and Telangana Today. HMDA fixed a ₹99 crore per acre upset price for the November-December 2025 Neopolis rounds and ₹120 crore per acre for the September 2026 round. Plot 17 appears twice because it was offered in two separate rounds - November 2025 and September 2026 - which are distinct auction events, not duplicate records. These are historical auction records, not forecasts.",
+          columns: ["Auction date", "Plot", "Area", "Upset price / acre", "Winning bid / acre", "Notes"],
+          rows: [
+            ["24 Nov 2025", "Plot 18", "5.31 acres", "₹99 crore", "₹137.25 crore", "MSN Urban Ventures LLP"],
+            ["24 Nov 2025", "Plot 17 (Nov 2025 round)", "4.59 acres", "₹99 crore", "₹136.50 crore", "Vajra Housing Projects LLP"],
+            ["28 Nov 2025", "Plot 15", "4.03 acres", "₹99 crore", "₹151.25 crore", "Record high (winning consortium)"],
+            ["28 Nov 2025", "Plot 16", "5.03 acres", "₹99 crore", "₹147.75 crore", "Godrej Properties Ltd"],
+            ["3 Dec 2025", "Plot 19", "4.00 acres", "₹99 crore", "₹131.00 crore", "Yula Constructions / Globus Infracon LLP"],
+            ["3 Dec 2025", "Plot 20", "4.04 acres", "₹99 crore", "₹118.00 crore", "Brigade Enterprises Ltd"],
+            ["Aug 2023", "Neopolis plot", "3.60 acres", "Not disclosed", "₹100.75 crore", "Record at the time"],
+            ["9 Sep 2026", "Plot 17 (Sep 2026 round)", "4.59 acres", "₹120 crore", "₹120.00 crore", "Separate Sep 2026 auction; single bid at the upset price"],
+          ],
+        },
+        caution: "Auction outcomes are historical records. A high clearing price is a fact about what one buyer paid on one day - it is not a valuation of any other property and not a forecast of future prices.",
+        sources: [
+          { label: "Neopolis plots in Kokapet fetch record prices (Plots 17 and 18 raise over ₹1,356 crore)", publisher: "The New Indian Express", url: "https://www.newindianexpress.com/states/telangana/2025/Nov/25/neopolis-plots-in-kokapet-fetch-record-prices-as-two-parcels-raise-over-rs-1356-crore-in-e-auction", date: "25 Nov 2025" },
+          { label: "Another auction, another windfall for HMDA (record ₹151.25 crore per acre, Plots 15 and 16)", publisher: "The New Indian Express", url: "https://www.newindianexpress.com/states/telangana/2025/Nov/29/another-auction-another-windfall-for-hmda-3", date: "29 Nov 2025" },
+          { label: "HMDA's Neopolis three-phase auction yields ₹3,708 crore (Plots 19 and 20)", publisher: "The New Indian Express", url: "https://www.newindianexpress.com/cities/hyderabad/2025/Dec/04/hmdas-neopolis-3-phase-auction-yields-rs-3708-crore", date: "4 Dec 2025" },
+          { label: "At ₹137.25 crore per acre, Neopolis shatters its own record in HMDA e-auction", publisher: "The Hindu", url: "https://www.thehindu.com/news/national/telangana/at-13725-crore-per-acre-neopolis-shatters-own-record-in-hmda-e-auction/article70318496.ece", date: "24 Nov 2025" },
+          { label: "HMDA to auction Hyderabad's Kokapet land at ₹120 crore per acre", publisher: "Siasat", url: "https://www.siasat.com/hmda-to-auction-hyderabad-kokapet-land-at-rs-120-cr-per-acre-3522400", date: "11 Aug 2026" },
+          { label: "HMDA land auction in Kokapet fetches ₹115-120 crore per acre bids (September 2026 result)", publisher: "PropertyWala", url: "https://propertywala.com/news/residential/hmda-land-auction-in-kokapet-fetches-record-115-120-crore-per-acre-bids" },
+        ],
+      },
+      {
+        heading: "Neopolis and Kokapet: what HMDA has already built",
+        body: [
+          "Neopolis is not a private township. It is an HMDA-planned layout inside Kokapet, laid out through the city's master-planning process and released to developers plot by plot. It is a greenfield development of government land of about 530 acres, planned as a multipurpose precinct - housing, commercial buildings, shopping centres and offices, along with parks, gardens and community spaces - rather than a single-use residential estate.",
+          "The infrastructure came first, and that is the layout's real distinction. Public reporting on the layout describes internal roads built to two trunk widths - 45 metres with an eight-lane carriageway and 36 metres with a six-lane carriageway - carrying underground water lines, drainage, stormwater drains and underground power cabling, with a dedicated substation. Those are the layout's internal trunk roads. They are unusually wide, but the distinction matters: the 45-metre roads are the primary internal carriageways, not every street inside every project, and they are not interchangeable with the '150 feet' figure that circulates in some listings.",
+          "About 41 acres of the layout are earmarked for hospitality, retail, commercial and healthcare development - the planned civic and commercial realm HMDA laid out alongside the residential plots. That is a different thing from the clubhouse, pool and landscaped amenities inside an individual gated community, which belong to that project and its residents, not to the layout. Marketing that blends the two is common; keep them separate when you compare.",
+        ],
+        sources: [
+          { label: "Neopolis layout context: 41.2 acres earmarked for hospitality, retail, commercial and healthcare (One by MSN project profile)", publisher: "PropNewz", url: "https://www.propnewz.com/project/one-by-msn-neopolis-kokapet-hyderabad", date: "Aug 2026" },
+          { label: "Greenfield township in Neopolis built by HMDA to be ready by June-end (greenfield, multipurpose layout, 45 m and 36 m roads, underground utilities, substation)", publisher: "The New Indian Express", url: "https://www.newindianexpress.com/hyderabad/2023/Jun/06/greenfield-township-in-neopolisdeveloped-by-hmda-to-be-ready-by-june-end-2582274.html", date: "6 Jun 2023" },
+          { label: "Two new interchanges to ease traffic in Hyderabad (530-acre Kokapet layout planned for multipurpose use)", publisher: "The New Indian Express", url: "https://www.newindianexpress.com/cities/hyderabad/2022/jan/03/2-new-interchanges-to-ease-traffic-in-hyderabad-2402423.html", date: "3 Jan 2022" },
+        ],
+      },
+      {
+        heading: "Connecting Neopolis: the ORR trumpet, the financial district and 'Exit 1A'",
+        body: [
+          "Neopolis's connectivity rests on one asset more than any other: a dedicated trumpet interchange linking the layout to the Outer Ring Road. HMDA built it under its Strategic Road Development Programme at a reported cost of about ₹65 crore, with five exit lanes, three entry lanes and eight toll booths. At completion in 2025 HMDA described it as the ORR's 22nd interchange and located it around three kilometres from the Financial District interchange.",
+          "Naming needs care here, because two systems are in circulation. Some property listings and mapping platforms label this ramp 'Exit 1A'. HMDA and the mainstream press describe it as the 22nd interchange, the Kokapet trumpet. Both point to the same piece of road. If you see 'Exit 1A' in a brochure, read it as the listing's shorthand for the Kokapet trumpet interchange rather than as an official HMDA designation.",
+          "The practical distances reported around Neopolis are short. The Financial District is roughly two to three kilometres away, the Gachibowli and HITEC City belt is a short drive beyond that, and the airport is reachable via the ORR. A metro rail extension toward Kokapet and Neopolis forms part of Hyderabad Metro's Phase 2 programme; it is not operational today, so treat it as pipeline rather than as connectivity you can use now.",
+        ],
+        sources: [
+          { label: "Hyderabad: Kokapet trumpet flyover ready to ease traffic with seamless ORR access", publisher: "Telangana Today", url: "https://telanganatoday.com/hyderabad-kokapet-trumpet-flyover-ready-to-ease-traffic-with-seamless-orr-access", date: "26 Jun 2025" },
+          { label: "Two new interchanges to ease traffic in Hyderabad (Kokapet trumpet, ₹65 crore)", publisher: "The New Indian Express", url: "https://www.newindianexpress.com/cities/hyderabad/2022/jan/03/2-new-interchanges-to-ease-traffic-in-hyderabad-2402423.html", date: "3 Jan 2022" },
+        ],
+      },
+      {
+        heading: "The premium ecosystem: apartments, gated communities and offices",
+        body: [
+          "The reason land prices matter is what gets built on the land. Neopolis and the wider Kokapet micro-market sit at the premium end of West Hyderabad's residential market, dominated by high-rise and ultra-luxury apartments rather than plots. Portal listing data through mid-2026 puts mainstream Kokapet apartment rates at roughly ₹9,500 to ₹12,700 per square foot, with an average near ₹11,200, and ultra-luxury towers inside the Neopolis belt quoting above ₹15,000 per square foot.",
+          "Named, publicly marketed launches give a sense of the ticket sizes. These are developer and portal quotations collected through 2026, not registered sale prices, and they move week to week. Examples marketed in the Neopolis belt and wider Kokapet include One by MSN, Godrej Epoque, Brigade's Kokapet launches and Sattva Lago, with entry tickets that commonly start at roughly ₹3.5 crore for premium configurations and run well above ₹8 crore for the largest ultra-luxury units. Confirm a live cost sheet and the project's RERA registration before you rely on any figure.",
+          "Offices are the demand engine underneath all of this. Knight Frank India's data for the first quarter of 2026 put Hyderabad office leasing at a record 5.86 million square feet, up 48% year on year, at an average transacted rent of ₹77.5 per square foot per month. In Kokapet specifically, two recent large Grade-A leases reported through registration records are KFin Technologies taking about 2.42 lakh square feet at a starting rent of roughly ₹45 per square foot per month, and PepsiCo leasing about 91,300 square feet at around ₹58 per square foot per month. Those tenants are the workforce that keeps absorbing the residential towers next door.",
+          "We looked at the longer structural version of this story earlier, in our analysis of [how Kokapet and Neopolis became a corporate hub and what it means for the western corridor](/insights/kokapet-neopolis-the-corporate-hub-effect). The auction numbers in this article are the hard-edged, dated version of the same demand.",
+        ],
+        caution: "Apartment price bands above are listing quotations from portals and developer material, not registered transaction prices. Floor rise, facing, parking and other charges can move the effective cost materially. Always verify a specific unit's cost sheet and the project's RERA registration.",
+        sources: [
+          { label: "Hyderabad office leasing in Q1 2026 reaches a record 5.86 million sq ft at ₹77.5/sq ft per month", publisher: "PropNewz (citing Knight Frank India)", url: "https://www.propnewz.com/blog/hyderabad-office-q1-2026-kokapet-tellapur-2026-05-09", date: "9 May 2026" },
+          { label: "KFin Technologies leases over 2.42 lakh sq ft in Kokapet at around ₹45/sq ft per month", publisher: "The Economic Times", url: "https://economictimes.indiatimes.com/industry/services/property-/-cstruction/kfin-technologies-leases-over-2-42-lakh-sq-ft-office-in-hyderabads-kokapet/articleshow/132537362.cms", date: "21 Jul 2026" },
+          { label: "PepsiCo leases 91,314 sq ft of GCC office space in Hyderabad for ₹35 crore over 5 years", publisher: "Hindustan Times", url: "https://www.hindustantimes.com/real-estate/pepsico-leases-91-314-sq-ft-gcc-office-space-in-hyderabad-for-35-crore-over-5-years-101787224069848.html", date: "21 Aug 2026" },
+          { label: "Kokapet real estate 2026: flats around ₹9,500-₹12,700 per sq ft (portal listings, mid-2026), average near ₹11,200", publisher: "PropNewz", url: "https://www.propnewz.com/blog/kokapet-real-estate-hyderabad-2026-06-29", date: "29 Jun 2026" },
+        ],
+      },
+      {
+        heading: "Neopolis versus Shankarpally: two different products, not two prices",
+        body: [
+          "This is where most comparisons mislead, so it is worth stating plainly. A Neopolis apartment and a Shankarpally plot are not equivalent products, and their headline prices are not comparable. Apartments are constructed homes sold per square foot of built-up area. Open plots are land sold per square yard, and one square yard is nine square feet. Comparing '₹15,000 per square foot' with '₹25,000 per square yard' as if one were cheaper is a category error.",
+          "The budgets also contain different things. An apartment's quoted price is the starting point for a stack of additions - floor rise, parking, statutory charges and more - and what you end up owning is a unit inside a building. A plot's price buys land, and you then carry the separate, ongoing questions of title, layout approval, access, water and power, development status and holding cost, plus the future cost of construction if you build.",
+          "The honest framing is that these are different instruments for different buyers, not a cheaper-versus-dearer story. A buyer who wants a finished, financeable, immediate-use home is in a different market from one who wants a land asset to hold or build on later. Neither is wrong; they answer different questions.",
+        ],
+        table: {
+          caption: "A structural comparison only, not a valuation. Entries are indicative and vary by project, unit and layout. Verify current pricing and documents for any specific property.",
+          columns: ["", "Neopolis apartment", "Shankarpally open plot"],
+          rows: [
+            ["Product", "Constructed home in a high-rise project", "Land parcel you can hold or build on"],
+            ["Pricing unit", "Per square foot of built-up area", "Per square yard of land (1 sq yd = 9 sq ft)"],
+            ["Typical entry", "Premium 3-4 BHK ranges from roughly ₹3.5 crore", "Land cost only; construction is a later, separate cost"],
+            ["What the price covers", "Construction and common areas, plus add-ons and statutory charges", "Land; access and utilities depend on the specific layout"],
+            ["Recurring cost", "Maintenance, corpus and property tax", "Holding cost; future construction if you build"],
+            ["Governance", "RERA-registered project with builder-defined amenities", "Layout approval, title and encumbrance verification"],
+          ],
+        },
+        caution: "This is a structural comparison, not investment advice, and it makes no claim about future appreciation in either location.",
+      },
+      {
+        heading: "What the auction prices do and do not tell you",
+        body: [
+          "What the Neopolis auction record does tell you, with dates attached, is that demand for scarce, well-serviced land on the western corridor is real and that HMDA's pricing has climbed meaningfully since 2023. That is a genuine, checkable signal about the corridor's direction.",
+          "What it does not tell you is that a plot further west will move by the same amount, or that Neopolis prices will keep rising. A winning bid reflects one developer's view of one parcel at one moment, underwritten by a specific high-density apartment product with generous FSI. A Shankarpally open plot is a different asset, with a different buyer pool, a different supply situation and a different build outcome. It may benefit from the same corridor demand; it is not the same trade, and no one can responsibly promise it will appreciate more.",
+          "Treat the auction result as context rather than as a trigger. The disciplined version of the decision still runs on the same checks it always did: a verified title, the correct approval for the specific layout, usable access, delivered utilities, and a price you can comfortably hold.",
+        ],
+      },
+      {
+        heading: "If you want land rather than a high-rise",
+        body: [
+          "Exploring real estate investment in Hyderabad? Neopolis illustrates the premium end of the market. If you are weighing a residential open plot as an alternative, look at [our available open plots in Shankarpally](/shankarpally). We can share current plot prices, verified project and approval details, and arrange a site visit.",
+          "For our own projects in the corridor, we publish specifics rather than a headline rate. The [Shankarpally 45-acre layout](/shankarpally-45-acres) is HMDA-approved and RERA-registered, with plots from 200 to 500+ square yards and pricing on request.",
+          "The [Shankarpally 108-acre venture](/projects/upcoming-shankarpally) is an early-stage open plotting community on the Shankarpally-Nawabpet highway, with indicative pricing. Treat any figure here as indicative, and confirm the live rate and availability at the time you enquire.",
+          "If you would like a recommendation matched to your budget and timeline, [speak to our team](/contact) and tell us what you are actually trying to achieve.",
+        ],
+        faqs: [
+          { question: "What was the highest HMDA Neopolis land auction price?", answer: "The record stood at ₹151.25 crore per acre, for Plot 15 (4.03 acres) in the November 2025 round, against an upset price of ₹99 crore per acre. In the December 2025 round two plots cleared at ₹131 crore and ₹118 crore per acre, and at the September 2026 round the Neopolis plot drew a single bid at its ₹120 crore per acre upset price." },
+          { question: "What is the difference between the upset price and the final auction price?", answer: "The upset price is HMDA's reserve - the minimum it will accept, stated in the auction notice. The final price is the winning bid, which can land exactly at the reserve or far above it. The November 2025 Neopolis round cleared well above reserve; the September 2026 round cleared at the reserve itself." },
+          { question: "Is Neopolis the same as Kokapet?", answer: "Neopolis is an HMDA-planned layout within Kokapet, in West Hyderabad. Kokapet is the wider locality; Neopolis is the master-planned, multi-purpose-zoned portion that HMDA developed and auctioned plot by plot." },
+          { question: "How wide are the roads inside the Neopolis layout?", answer: "HMDA's layout plans describe internal trunk roads of two widths - 45 metres with an eight-lane carriageway and 36 metres with a six-lane carriageway - with underground utilities. These are the layout's primary internal roads, not every street within every project." },
+          { question: "Does Arjun Realty sell property in Neopolis?", answer: "No. Arjun Realty does not market or sell apartments, villas, commercial space or plots in Neopolis. We deal in open plots on the western growth corridor, including Shankarpally. This article presents Neopolis as a verified market case study for context." },
+          { question: "Are Shankarpally plots a replacement for a Neopolis apartment?", answer: "Not a like-for-like one. Apartments are constructed homes priced per square foot; open plots are land priced per square yard, with different costs, risks and governance. The right choice depends on how you intend to use the property and how long you can hold it." },
+        ],
+      },
+    ],
+  },
+  {
     slug: "future-city-2026-what-has-actually-changed",
     title: "Future City 2026: What Has Actually Changed in the Last 6 Months?",
     seoTitle: "Future City Hyderabad 2026: What's Changed",
