@@ -5243,6 +5243,237 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "nri-buying-property-india-registration-stamp-duty",
+    title:
+      "Buying Property in India as an NRI: Stamp Duty, Registration, Power of Attorney and Dharani Verification on the Srisailam Highway (2026)",
+    seoTitle: "Buying Property in India as an NRI",
+    metaDescription:
+      "A 2026 guide for NRIs buying a plot in Telangana: the FEMA payment rules, stamp duty and registration charges, the sale-deed process, power of attorney and land-record verification on the Srisailam Highway.",
+    excerpt:
+      "How an NRI actually buys a plot in Telangana - payment through NRE or NRO, stamp duty and registration, the sale-deed process, buying through a power of attorney, and verifying the land record before you pay.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-22",
+    author: researchDesk,
+    image: "/images/insights/nri-buying-property-india-registration-stamp-duty.jpg",
+    imageAlt:
+      "An NRI buyer reviewing the sale deed and registration papers for a plot on the Srisailam Highway - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "Most guides for non-resident buyers stop at whether they can buy. The harder questions come next: how the money is paid, how the sale deed is registered, what it costs, and how to complete the purchase when you are not in the country. For an NRI buying a plot on the Srisailam Highway, the transaction itself is the part that has to be got right.",
+          "This guide walks through the process as it stands in 2026 - the point at which the foreign-exchange rules apply, the choice between approved, non-agricultural land and raw agricultural land, the verification of title and land records, the registration and the taxes and fees on it, and the power of attorney that lets a buyer complete the purchase from abroad. It complements our guide to the [FEMA restriction on agricultural land](/insights/nri-buy-agricultural-land-india-fema-conversion).",
+          "It is Arjun Realty market research, not legal, tax or investment advice. Property law, registration fees and foreign-exchange rules depend on individual facts and change over time; confirm your position with a qualified lawyer and, where money is moving, your bank, before you pay.",
+        ],
+      },
+      {
+        heading: "The FEMA Position: What an NRI Buyer Can Pay With",
+        body: [
+          "The starting point is the Reserve Bank of India's foreign-exchange rules. An NRI does not need the central bank's permission to buy residential or commercial property in India; the general permission covers it. The rule that matters in practice is how the purchase is paid for, because the source of funds is what the central bank regulates.",
+          "Payment for the property must come from funds received in India through normal banking channels, by way of an inward remittance from abroad, or from an NRE, FCNR(B) or NRO account. Payment cannot be made by traveller's cheque, by foreign currency notes or by any other mode. For a buyer sending money from abroad, that means routing it through a bank so the trail is on record.",
+          "When you sell later, the source of the original payment determines how much can be repatriated. Land bought out of rupee funds, or while the owner was resident in India, can be repatriated through the NRO route up to the annual limit; land bought out of foreign exchange is repatriated to the extent of the amount actually paid in foreign exchange. We cover that side in our guide to [selling land in India as an NRI](/insights/nri-selling-land-india-capital-gains-tds-repatriation).",
+        ],
+        table: {
+          caption: "Payment sources and the foreign-exchange position for an NRI buyer.",
+          columns: ["Payment source", "Position"],
+          rows: [
+            ["Inward remittance through banking channels", "Permitted"],
+            ["Debit to an NRE, FCNR(B) or NRO account", "Permitted"],
+            ["Traveller's cheque or foreign currency notes", "Not permitted"],
+            [
+              "Reserve Bank of India prior permission",
+              "Not required for residential or commercial property",
+            ],
+          ],
+        },
+        caution:
+          "The foreign-exchange rules apply to how the property is paid for, not only to the purchase itself. Route every payment through a bank and keep the evidence.",
+      },
+      {
+        heading: "Step One: Choose Land That an NRI Can Actually Buy",
+        body: [
+          "The single most important decision comes before any negotiation: the character of the land. An NRI cannot buy agricultural land, a farm house or plantation property, so a raw agricultural parcel is out, however attractive the price. What can be bought is non-agricultural property - residential or commercial - and in practice that means a plot in an approved layout where the land use is already residential.",
+          "On the Srisailam Highway corridor, the approvals are the buyer's protection. Depending on the location, a layout may fall under the Hyderabad Metropolitan Development Authority or, across the Future City belt, the Future City Development Authority. Our guide to [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) explains how to tell which authority governs a layout and what the approval means.",
+        ],
+        caution:
+          "Confirm the current land use and the approving authority for the specific survey number. Approvals and jurisdiction change as new authorities are constituted.",
+      },
+      {
+        heading: "Step Two: Verify the Title and the Land Record",
+        body: [
+          "Before money changes hands, the buyer - or the buyer's lawyer - should verify the seller's title and the encumbrances on the land. The public records to consult are the encumbrance certificate, which lists registered transactions and mortgages over the property, and the government market value, which sets a floor for the registration charges. Non-agricultural transactions are registered and searchable through the Registration and Stamps Department's online system, commonly called IGRS.",
+          "For agricultural land, records sit on the Dharani portal instead. Because the two systems cover different land, a buyer should establish first which one applies to the parcel, then read the record in full. Our explainer on [encumbrance certificates](/insights/encumbrance-certificates-explained-before-buying-land) sets out what the record shows and why it should never be skipped.",
+        ],
+        caution:
+          "Land records, prohibited lists and encumbrances are specific to each parcel. Read them at source and take a written legal opinion on title before paying any advance.",
+      },
+      {
+        heading: "Step Three: The Sale Agreement and Payment",
+        body: [
+          "The transaction usually begins with an agreement to sell, exchanged with a token advance, and later the sale deed. The agreement records the parties, the property, the price and the timelines for the balance payment and registration. For a non-resident buyer, the agreement should also fix how the balance will be paid through banking channels and, where a power of attorney is being used, identify the attorney.",
+          "Payments should follow the agreement and the foreign-exchange rules: the advance and the balance from the permitted sources, with the bank trail preserved. Understating the price in the deed to reduce stamp duty is a false economy; duty is charged on the higher of the price and the government market value, and a deficit can lead to a reference and a penalty under the stamp law.",
+        ],
+        caution:
+          "Keep every payment and its source documented. The bank trail is what supports both the purchase and any future repatriation.",
+      },
+      {
+        heading: "Step Four: Registration, Stamp Duty and Registration Charges",
+        body: [
+          "A sale of immovable property is completed by a registered sale deed. In Telangana the deed is registered with the jurisdictional Sub-Registrar through the Registration and Stamps Department's online system, IGRS. Registration is what turns a private agreement into a public record of ownership; an unregistered or under-stamped deed carries limited legal weight.",
+          "Three heads of cost fall on the buyer. Stamp duty is the state tax on the instrument, levied under the Indian Stamp Act, 1899 as it applies in Telangana, with rates revised by G.O.Ms.No.59 dated 20 July 2021. To that are added a transfer duty and a registration fee. All three are charged on the chargeable value, which is the higher of the price written in the deed and the government market value.",
+          "The process is largely online. The parties complete public data entry of the property and party details, the duty is computed and paid, and a slot is booked at the Sub-Registrar's office. At registration the parties and witnesses provide photographs and left thumb impressions on the prescribed form under section 32A of the Registration Act, 1908. A deed should be presented for registration within the time allowed by that Act.",
+        ],
+        table: {
+          caption: "The three heads of cost on a sale deed in Telangana, and what drives them.",
+          columns: ["Head of cost", "What it is"],
+          rows: [
+            [
+              "Stamp duty",
+              "The state tax on the deed, under the Indian Stamp Act, 1899 as applicable in Telangana",
+            ],
+            ["Transfer duty", "A duty levied on the transfer, additional to stamp duty"],
+            ["Registration fee", "The fee for recording the deed with the Sub-Registrar"],
+            [
+              "Chargeable value",
+              "The higher of the price in the deed and the government market value",
+            ],
+          ],
+        },
+        caution:
+          "The exact rates depend on the jurisdiction, the deed and the values, and are revised from time to time. Use the duty-fee calculator on the IGRS portal and confirm the figure before you pay; nothing here states a rate for your transaction.",
+      },
+      {
+        heading: "Power of Attorney: Completing the Purchase from Abroad",
+        body: [
+          "Most non-resident buyers cannot travel for every step, so the purchase is often completed through a power of attorney - a document by which the buyer authorises someone in India to act on their behalf. For a property purchase, the safer instrument is a special (specific) power of attorney, limited to the identified property and the specific acts, rather than a general power of attorney that grants broad discretion.",
+          "A power of attorney executed abroad must be signed before a notary in the country where the buyer lives and then either apostilled, in countries that are party to the Hague Apostille Convention, or attested by the Indian embassy or consulate. On arrival in India the document must be stamped within the prescribed period - three months from receipt is the usual rule - and, where it is used to present a document for registration, the power of attorney itself must be registered. Telangana's registration department publishes the format and the attestation requirements.",
+          "Two cautions are worth stating plainly. First, a sale executed only through a general power of attorney does not convey title; the Supreme Court held in Suraj Lamp & Industries v State of Haryana (2011) that only a registered sale deed transfers ownership, so the power of attorney should be a means to sign the deed, not a substitute for it. Second, the attorney should be chosen carefully and the authority drafted narrowly, because a power of attorney is itself a powerful document.",
+        ],
+        caution:
+          "Power-of-attorney law and procedure are technical. Have the document drafted and checked by a lawyer in both countries and follow the Telangana registration requirements.",
+      },
+      {
+        heading: "The Buyer's Tax Deduction on the Purchase",
+        body: [
+          "Separately from stamp duty, the buyer of immovable property has a tax-deduction obligation. Where the property is bought from a resident seller and the consideration or the stamp duty value is fifty lakh rupees or more, the buyer must deduct tax at source and deposit it with the government; that obligation sits in section 194-IA of the Income-tax Act, 1961, and in the corresponding provision of the Income-tax Act, 2025 that replaced it. The deduction is made on the higher of the consideration and the stamp duty value, and a buyer who fails to deduct can be treated as an assessee in default.",
+          "Where the seller is a non-resident, the position is different again: the deduction is on the full consideration and the rate and the forms follow the rules for payments to non-residents. Our guide to [selling land in India as an NRI](/insights/nri-selling-land-india-capital-gains-tds-repatriation) covers that side of the transaction in detail.",
+        ],
+        caution:
+          "Tax-deduction rates, thresholds and forms change. Confirm the current position, and the correct provision under the Income-tax Act, 2025, with a chartered accountant before the transaction.",
+      },
+      {
+        heading: "After Registration: Records and Holding the Plot",
+        body: [
+          "Registration is not quite the end. A buyer should ensure the property records reflect the new ownership - mutation in the revenue record - and, for a plot in a layout, that the change is noted by the layout or the association as applicable. Keeping the registered deed, the payment trail and the power of attorney together makes the eventual sale far simpler.",
+          "An open plot held for the long term also has running costs and questions that a non-resident owner should plan for, from property tax and upkeep to tenant demand if a structure is later built. We cover the income side in our guide to [rental income on the Srisailam Highway](/insights/srisailam-highway-rental-income-nri-landlord-guide).",
+        ],
+      },
+      {
+        heading: "A Step-by-Step Checklist for NRI Buyers",
+        body: [
+          "The sequence below brings the eligibility, the funding, the verification and the registration into one order. It is a planning checklist, not a substitute for professional advice; our [first-time plot investor checklist](/insights/first-time-plot-investor-checklist-hyderabad) covers the plot-level checks in more detail.",
+        ],
+        checklist: [
+          "Confirm the property is non-agricultural (residential or commercial) and that an NRI or OCI can buy it.",
+          "Confirm the layout is approved by the competent authority - HMDA, DTCP or FCDA.",
+          "Read the encumbrance certificate and the government market value for the survey number.",
+          "Take a written legal opinion on title before paying any advance.",
+          "Route all payments through banking channels from an inward remittance or an NRE, FCNR(B) or NRO account.",
+          "If buying through a power of attorney, execute a specific power of attorney, have it notarised and apostilled or attested, stamped and, where required, registered.",
+          "Budget for stamp duty, transfer duty and registration fee on the chargeable value, and confirm the figure on the IGRS portal.",
+          "Complete public data entry, pay the duty and book the Sub-Registrar slot for registration.",
+          "Sign and register the sale deed, and collect the registered deed from the IGRS portal.",
+          "Update the revenue records and keep the deed, the payment trail and the power of attorney together.",
+        ],
+        caution:
+          "The steps and the documents differ with each parcel and each buyer. Treat this as a planning checklist and confirm the specifics with a lawyer and a chartered accountant.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the process above and should be read with the disclaimers that follow.",
+        ],
+        faqs: [
+          {
+            question: "Can an NRI buy a plot in Telangana without RBI permission?",
+            answer:
+              "Yes, for residential or commercial property. The Reserve Bank has granted a general permission for an NRI or OCI to acquire immovable property other than agricultural land, a farm house or plantation property, so no prior permission is needed. The purchase must be paid for from the permitted sources.",
+          },
+          {
+            question: "How must an NRI pay for the property?",
+            answer:
+              "From funds received in India through normal banking channels by inward remittance, or by debit to an NRE, FCNR(B) or NRO account. Payment by traveller's cheque, foreign currency notes or any other mode is not allowed.",
+          },
+          {
+            question: "What are the stamp duty and registration charges in Telangana?",
+            answer:
+              "A sale deed carries three heads of cost - stamp duty, transfer duty and a registration fee - charged on the higher of the price in the deed and the government market value. The rates depend on the jurisdiction and the deed, and are revised from time to time; confirm the exact figure on the IGRS portal before paying.",
+          },
+          {
+            question: "Can an NRI buy property through a power of attorney?",
+            answer:
+              "Yes. A specific power of attorney, executed before a notary abroad and apostilled or attested, then stamped and, where required, registered in India, allows a representative to sign and register the deed. A general power of attorney sale does not convey title; a registered sale deed is still required.",
+          },
+          {
+            question: "Does the buyer have to deduct tax on the purchase?",
+            answer:
+              "Where the property is bought from a resident seller and the consideration or the stamp duty value is fifty lakh rupees or more, the buyer must deduct tax at source. Where the seller is a non-resident, the deduction is on the full consideration under the rules for payments to non-residents. Confirm the current position with a chartered accountant.",
+          },
+          {
+            question: "How long does registration take?",
+            answer:
+              "The process is largely online - public data entry, payment of the duty and a booked slot at the Sub-Registrar - and a deed should be presented for registration within the time allowed by the Registration Act, 1908. Confirm the current step timings on the IGRS portal.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "Buying a plot in India as an NRI in 2026 is less about a single rule than about getting a sequence right. The purchase is permitted for residential and commercial property, so the first decision is to buy approved, non-agricultural land rather than farmland. The money must move through banking channels. The title and the land record must be verified before payment. The deed is completed by registration, with stamp duty, transfer duty and registration fee charged on the higher of the price and the government market value. And where the buyer cannot travel, a specific power of attorney, properly executed and stamped, allows the purchase to be completed in India.",
+          "On this corridor, the practical filter is the same one the approvals impose: a plot in an approved layout, with the land use and the layout on record. Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, a layout of residential plots and semi-villas. The official sources behind the points above are listed below.",
+        ],
+        sources: [
+          {
+            label:
+              "General permission and FAQs on acquisition and transfer of immovable property in India by NRIs and OCI cardholders: property other than agricultural land, farm house or plantation property, and payment out of inward remittances or NRE, FCNR(B) or NRO accounts",
+            publisher: "Reserve Bank of India",
+            url: "https://www.rbi.org.in/",
+          },
+          {
+            label:
+              "NRI registration FAQs, Registration and Stamps Department, Government of Telangana",
+            publisher: "Government of Telangana",
+            url: "https://registration.telangana.gov.in/",
+          },
+          {
+            label:
+              "Indian Stamp Act, 1899 as applicable in Telangana, and G.O.Ms.No.59 dated 20 July 2021 revising stamp duty on certain instruments",
+            publisher: "Government of Telangana",
+            url: "https://registration.telangana.gov.in/",
+          },
+          {
+            label:
+              "Registration Act, 1908: presentation and registration of documents, and section 32A photographs and thumb impressions",
+            publisher: "Government of India",
+            url: "https://www.indiacode.nic.in/",
+          },
+          {
+            label:
+              "Tax deduction at source on the purchase of immovable property (section 194-IA) and on payments to non-residents",
+            publisher: "Income Tax Department, Government of India",
+            url: "https://www.incometax.gov.in/",
+          },
+        ],
+        caution:
+          "This article is general research, not legal, tax or investment advice. Property law, registration fees and foreign-exchange rules depend on individual facts and change over time; verify the current position with a qualified lawyer and, where relevant, your bank and a chartered accountant before acting.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
