@@ -7088,6 +7088,202 @@ export const insights: Insight[] = [
       },
     ],
   },
+  {
+    slug: "land-mutation-after-buying-plot-telangana",
+    title:
+      "Land Mutation After Buying a Plot in Telangana: Dharani to Bhu Bharati Record Transfer (2026)",
+    seoTitle: "Land Mutation in Telangana After a Plot Buy",
+    metaDescription:
+      "A 2026 buyer's guide to land mutation in Telangana: how the Record of Rights is updated after a registered plot purchase, the move from Dharani to Bhu Bharati, the fees, and what to verify.",
+    excerpt:
+      "A registered sale deed is not the last step. Here is how the government's land record is updated after you buy a plot in Telangana, the shift from Dharani to Bhu Bharati, the fees, and what a buyer should verify.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-11-01",
+    author: researchDesk,
+    image: "/images/insights/land-mutation-after-buying-plot-telangana.jpg",
+    imageAlt:
+      "A plot owner checking land record and passbook details after registration in Telangana - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "Buying a plot on the Srisailam Highway usually ends with a registered sale deed and a satisfied handshake. For the buyer, though, the government's record of who owns the land is a separate question, and it is updated through a process called mutation. A deed in your drawer is proof of your purchase; the Record of Rights is what the revenue administration reads when it comes to tax, layouts and disputes.",
+          "This guide explains how the land record is updated after a registered plot purchase in Telangana, the shift from the Dharani portal to the Bhu Bharati system, the fees involved, and what a buyer should verify afterwards. It follows our guide to [registering property in India](/insights/nri-buying-property-india-registration-stamp-duty). It is Arjun Realty market research, not legal advice; confirm the position for your specific land with the revenue authorities and a qualified lawyer.",
+        ],
+      },
+      {
+        heading: "Why the Registered Deed Is Not the Last Step",
+        body: [
+          "Registration and mutation are related but distinct. Registration, under the Registration Act, 1908, records the transfer of the property and charges the stamp duty. Mutation is the change to the Record of Rights - the revenue administration's register of who holds which land - so that the government's own records name the new holder.",
+          "For the buyer the difference matters whenever the land record is consulted: paying land revenue or property tax, applying for a layout or building permission, or defending ownership in a dispute. A sale that is registered but not reflected in the Record of Rights leaves a gap that is best closed promptly rather than discovered years later.",
+        ],
+      },
+      {
+        heading: "From Dharani to Bhu Bharati: The Record-Keeping Shift",
+        body: [
+          "Telangana introduced the Dharani portal in 2020 under the Telangana Rights in Land and Pattadar Pass Books Act, 2020, as a single window for land records, registration and mutation. It has since been replaced by a new statute: the Telangana Bhu Bharati (Record of Rights in Land) Act, 2024, brought into force as Act No. 1 of 2025, with rules notified through G.O.Ms.No.39 dated 14 April 2025.",
+          "Under the new law the online system is the Bhu Bharati portal, and references to \"Dharani\" or the \"Dharani Portal\" in the earlier law read as references to Bhu Bharati. The practical services a buyer deals with - the Record of Rights, the Pattadar Pass Book-cum-Title Deed, mutation and encumbrance records - continue, but under the new Act and portal. When you are asked for a passbook or land record in 2026, this is the framework behind it.",
+        ],
+        caution:
+          "Land record systems and their portals change, and access issues are not unusual. Confirm the current portal and process with the local revenue office rather than relying on an old link.",
+      },
+      {
+        heading: "What Mutation Does to the Record",
+        body: [
+          "At its simplest, mutation deletes the transferred land from the transferor's account and adds it to the transferee's account in the Record of Rights, and issues a new Pattadar Pass Book-cum-Title Deed to the buyer, or updates an existing one. The Act's design is that this follows immediately after registration, so that a registered transfer is reflected in the records rather than left pending.",
+          "For an agricultural holding the transaction is registered through the portal and the Tahsildar carries out the consequential amendment to the Record of Rights. For non-agricultural or abadi land there is a separate path, described below, because that land is recorded under municipal and panchayat law rather than the agricultural Record of Rights.",
+        ],
+      },
+      {
+        heading: "The Mutation Process After a Registered Sale",
+        body: [
+          "Where the change is consequent on a registered sale, the starting point is the registration itself. The parties complete the transaction through the portal, a slot is booked, the document is registered, and the consequential mutation is carried out in the Record of Rights. The buyer then holds an updated passbook and title deed reflecting the new ownership.",
+          "Mutation charges are prescribed under the Bhu Bharati Rules. The figures below are those notified with the 2025 rules and are the kind of charge that can be revised, so treat them as a current reference point rather than a permanent amount.",
+        ],
+        table: {
+          caption: "Prescribed charges under the Bhu Bharati Rules (G.O.Ms.No.39, 14 April 2025)",
+          columns: ["Service", "Charge", "Notes"],
+          rows: [
+            [
+              "Mutation or succession",
+              "Rs 2,500 per acre or Rs 62.50 per gunta",
+              "Charged on the change to the Record of Rights",
+            ],
+            [
+              "Pattadar Pass Book-cum-Title Deed",
+              "Rs 300",
+              "Issued to the buyer, or an existing passbook updated",
+            ],
+            [
+              "Registration stamp duty and fee",
+              "As fixed by the Registration Department",
+              "Charged separately on the sale deed under the Registration Act and the Indian Stamp Act",
+            ],
+          ],
+        },
+        caution:
+          "Charges are prescribed by rule and can change, and the applicable amount depends on the land's extent and classification. Verify the current charges with the registration and revenue offices.",
+      },
+      {
+        heading: "Non-Agricultural and Abadi Land: A Different Path",
+        body: [
+          "Not every plot sits in the agricultural Record of Rights. A plotted layout carved out of converted land, or abadi (habitation) land, is dealt with differently: the transfer is registered with the Sub-Registrar under the Registration Act, 1908, and the record change is made under the municipal and panchayat framework - the Telangana Panchayat Raj Act, 2018 and the municipal laws - rather than a Tahsildar's agricultural mutation.",
+          "This is why the classification of the land matters to a buyer. Before purchase it is worth confirming whether the plot is recorded as agricultural land, as converted non-agricultural land, or as abadi land, because that determines which record you will be dealing with after registration. Our guide to [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) covers how the layout approval fits into this picture.",
+        ],
+      },
+      {
+        heading: "What a Buyer Should Verify After Purchase",
+        body: [
+          "Verification does not end at registration. A short set of checks confirms that the purchase is reflected properly in the government's records.",
+        ],
+        checklist: [
+          "The registered sale deed, with the registration number and the Sub-Registrar's office recorded.",
+          "The updated Record of Rights showing your name as the holder of the plot.",
+          "The Pattadar Pass Book-cum-Title Deed issued or updated to your name.",
+          "The latest Encumbrance Certificate for the plot after registration.",
+          "Proof of payment of mutation charges and the passbook fee.",
+          "For a layout plot, confirmation that the layout and the plot number match the approved plan.",
+          "For converted land, the record of non-agricultural conversion in the land records.",
+          "Receipts for any land revenue or property tax due on the plot.",
+        ],
+        caution:
+          "This is a general list. The records that apply depend on the land's classification, and any mismatch should be raised with the revenue office and, where needed, a lawyer.",
+      },
+      {
+        heading: "Common Problems and How to Reduce Them",
+        body: [
+          "Land-record problems are common enough that they are a regular subject of public reporting, and most of them are easier to prevent than to fix. The buyer's defence is a clean purchase and a prompt, documented follow-up.",
+        ],
+        drivers: [
+          "Buying without checking that the seller's name is correctly in the Record of Rights.",
+          "Assuming registration alone updates the government's records - follow up on the mutation.",
+          "Ignoring the land's classification - agricultural, converted non-agricultural or abadi - until a problem appears.",
+          "Letting passbook or record errors stand rather than applying for correction promptly.",
+          "Relying on an old passbook copy instead of the current record after purchase.",
+          "Failing to keep the fee receipts and the updated records together with the deed.",
+        ],
+        caution:
+          "If a record shows an unexpected name or entry, take legal advice before paying further amounts or agreeing further steps.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide above and should be read with the disclaimers that follow.",
+        ],
+        faqs: [
+          {
+            question: "Is mutation the same as registration?",
+            answer:
+              "No. Registration records the transfer of the property and charges stamp duty. Mutation changes the Record of Rights so that the government's records name the new holder. A buyer should confirm both are complete.",
+          },
+          {
+            question: "Is Dharani still used in Telangana?",
+            answer:
+              "The Dharani portal of 2020 has been replaced by the Bhu Bharati system under the Telangana Bhu Bharati (Record of Rights in Land) Act, 2024, in force as Act No. 1 of 2025, with rules notified in G.O.Ms.No.39 on 14 April 2025. References to \"Dharani\" read as references to Bhu Bharati.",
+          },
+          {
+            question: "What does mutation cost in Telangana?",
+            answer:
+              "Under the Bhu Bharati Rules notified in April 2025, mutation or succession is charged at Rs 2,500 per acre or Rs 62.50 per gunta, and a Pattadar Pass Book-cum-Title Deed at Rs 300, with registration stamp duty and fee charged separately. Charges can be revised, so verify the current amount.",
+          },
+          {
+            question: "Does mutation apply to layout plots?",
+            answer:
+              "It depends on the land's classification. Agricultural holdings go through mutation in the Record of Rights, while non-agricultural or abadi plots are registered with the Sub-Registrar and the record change follows municipal and panchayat law. Confirm the classification before purchase.",
+          },
+          {
+            question: "How soon after registration should mutation happen?",
+            answer:
+              "The law is designed so that the record change follows immediately after registration, and a registered transfer should be reflected in the Record of Rights rather than left pending. Follow up promptly and keep the updated records with the deed.",
+          },
+          {
+            question: "What if the land record shows the wrong name?",
+            answer:
+              "Passbook and record entries can be corrected on application to the revenue authorities. Where a record shows an unexpected name or entry, take legal advice before paying further amounts or agreeing further steps.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "For a plot buyer on the Srisailam Highway, mutation is the quiet step that makes the purchase complete in the government's own records. In 2026 that record sits under the Bhu Bharati Act of 2024 and its portal, which replaced the Dharani system. Understand the land's classification, keep the registration and mutation documents together, pay the prescribed charges, and verify that your name appears in the Record of Rights rather than assuming it. Those habits turn a good purchase into a cleanly documented one.",
+          "Where we can be specific about our own inventory, we are: the project we currently feature closest to this belt is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, an FCDA-approved semi-villa community with villa plots and boutique villas. General sources behind the points above are listed below.",
+        ],
+        sources: [
+          {
+            label:
+              "Telangana Bhu Bharati (Record of Rights in Land) Act, 2024 (Act No. 1 of 2025): mutation, the Record of Rights and the Pattadar Pass Book-cum-Title Deed",
+            publisher: "Government of Telangana",
+            url: "https://law.telangana.gov.in/",
+          },
+          {
+            label:
+              "Bhu Bharati Rules, G.O.Ms.No.39 dated 14 April 2025: procedure for registration and mutation, and the prescribed charges",
+            publisher: "Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/",
+          },
+          {
+            label:
+              "Registration and Stamps Department, Government of Telangana: registration of documents and mutation on transfer",
+            publisher: "Government of Telangana",
+            url: "https://registration.telangana.gov.in/",
+          },
+          {
+            label:
+              "Telangana Panchayat Raj Act, 2018: record of rights for non-agricultural and abadi land",
+            publisher: "Government of Telangana",
+            url: "https://www.indiacode.nic.in/",
+          },
+        ],
+        caution:
+          "This article is general research, not legal advice. Land-record and mutation positions depend on the land's classification and the applicable law at the time; confirm the current position with the revenue authorities and a qualified lawyer before acting.",
+      },
+    ],
+  },
 ];
 
 export function getInsightBySlug(slug: string): Insight | undefined {
