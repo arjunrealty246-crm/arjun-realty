@@ -131,6 +131,4212 @@ const nagarjuna: InsightAuthor = {
 
 export const insights: Insight[] = [
   {
+    slug: "verify-open-plot-road-access-telangana",
+    title:
+      "How to Verify Road Access Before Buying an Open Plot in Telangana",
+    seoTitle: "Verify Road Access for an Open Plot in Telangana",
+    metaDescription:
+      "Verify road access on a Telangana open plot: compare the approved layout plan with the site, check approach and internal road width, and spot blocked access.",
+    excerpt:
+      "A road drawn on a layout plan is not the same as a road you can legally use. Here is how to compare the approved plan, the plot records and the ground, and what to check before you pay for an open plot.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/verify-open-plot-road-access-telangana.jpg",
+    imageAlt:
+      "Verifying road access for a Telangana open plot against the approved layout plan and site - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        heading: "A Road on Paper Is Not a Road You Can Use",
+        body: [
+          "Every plot is sold with a road. The question a buyer should ask is not whether a road appears on the map, but whether the road that appears - the approach to the layout and the internal roads inside it - is actually usable, legally connected and consistent with what was approved. A line on a marketing plan and a formed, accessible road on the ground are two different facts, and the gap between them is where access disputes live.",
+          "Access problems are among the hardest to fix after purchase. A plot can be perfectly good land and still be difficult to build on or resell if the only way in crosses someone else's property, if the internal road was never formed, or if the road the brochure showed was a proposal rather than an approved one. The time to test access is before you pay, from the documents and on the ground.",
+          "This guide is about access specifically: how to compare the approved layout plan, the plot records and the physical site, how to think about road width and status, how to spot a blocked, encroached or neighbour-dependent approach, and what to request from the seller or developer and verify with the planning authority. It is general research, not a title opinion or legal advice.",
+          "It sits alongside our guide to [reading an approved layout plan](/insights/how-to-read-approved-plot-layout-plan-telangana) and our guide to verifying survey numbers and plot boundaries. Those explain how to read the plan and match the identifiers; this one focuses on whether the roads that connect the plot are real, usable and approved.",
+        ],
+        caution:
+          "Do not assume a road is legally public merely because it exists on the ground or appears on a map. Status depends on the approval, the records and the applicable rules, which vary by location and layout. Confirm the position for your specific parcel.",
+      },
+      {
+        heading: "Approved Layout Road vs a Road You Can Actually Reach",
+        body: [
+          "In an approved layout, the roads are part of the sanctioned scheme: the planner shows the layout's internal roads and how the layout connects to the surrounding network, and the approving authority sanctions or conditions that arrangement. That approved road network is the baseline you are buying into, because it is the arrangement the authority has accepted.",
+          "On the ground, three things can differ from that baseline. The road may never have been formed to the required standard - BuildNow's own FAQ notes that, where a site abuts only a katcha road, the layout can still be approved but the developer must form a WBM road at the release of the draft layout and a BT road along with internal roads before approval of the final layout. So the road you drive in on today may be at an earlier stage than the approval contemplates.",
+          "Second, the road may exist but not in the width or alignment the plan shows. Third, the usable approach on the ground may run over land that is not part of the approved road at all - a neighbouring private field, a piece of government land, a bund or a track that has been used informally for years. Any of these can leave a plot connected in practice but not connected in law.",
+          "The buyer's method is to hold the three views side by side: the approved plan, the current records and the ground. Where they agree, access is on a firmer footing. Where they disagree, the difference is the question to resolve before paying.",
+        ],
+        table: {
+          caption:
+            "The same road can look different depending on where you look. Compare all three before concluding that access is fine.",
+          columns: ["View", "What it shows", "What it can hide"],
+          rows: [
+            ["Approved layout plan", "The sanctioned internal roads and the intended connection to the network", "Whether the road was actually formed, and its on-ground width"],
+            ["Current records", "The parcel, ownership and the classified road or public land position", "Physical encroachment or a road that was never built"],
+            ["The ground", "What you can actually drive or walk on today", "That the usable track is not an approved or public road"],
+          ],
+        },
+        caution:
+          "A formed road on the ground and an approved road on the plan are two separate tests. Passing one does not automatically pass the other.",
+      },
+      {
+        heading: "Compare the Plan, the Plot and the Survey",
+        body: [
+          "Start with the approved plan. Read the layout's road network - the approach from the main road, the internal roads, and the roads that bound your plot. Note the width the plan marks for each, the junctions, and any reserved or amenity land the roads run beside. BuildNow publishes layout approvals and conditions, and HMDA's Ease of Doing Business pages set out the development-permission procedure, the document checklist and the timelines, so there is an official process and record behind a genuine approval.",
+          "Then match the plot. Confirm that the plot number you are being sold appears on the approved plan, that the roads bounding it are the plan's roads, and that the survey and subdivision numbers in the plan match the revenue record. This is where the [survey and boundary check](/insights/verify-survey-number-plot-boundaries-telangana) does its work: a plot can be drawn on a plan in a position that does not match its survey identity, and the mismatch often shows up first at the access edge.",
+          "Finally, walk the ground and compare. Measure, even roughly, the width of the approach and the internal roads at the points that matter - the entrance, the junction, and along your plot's frontage. Look at what the road runs across, what it runs beside, and where it goes at each end. A road that narrows to a footpath, dead-ends into a compound wall, or crosses a field with no connecting road is telling you something the brochure will not.",
+          "Keep a record: dated photographs of the approach from the main road, the junction into the layout, the road along your plot, and the boundaries. A dated visual record is far more useful than a memory when you discuss access with the developer, the authority or your lawyer.",
+        ],
+        caution:
+          "Do not rely on a plot number alone. Confirm that the plot, its bounding roads and its survey identity agree across the approved plan, the revenue record and the ground.",
+      },
+      {
+        heading: "Road Width and Status: Check the Rule, Not a Rule of Thumb",
+        body: [
+          "Road width is one of the most repeated - and most misapplied - numbers in the plot market. Buyers commonly hear a figure such as 30 or 33 feet and treat it as a standard. On the official record, BuildNow's FAQ states that the minimum width of internal roads for layout approval should be 12.00 metres, or 40 feet, and that 25-foot internal roads are not permissible. That is a strong signal that a casually quoted narrow width deserves a question, not acceptance.",
+          "But one figure is not universal. The required width, and what counts as acceptable, depends on the location, the layout rules that apply, the class of road and the specific approval conditions. A road in one jurisdiction or layout category may be governed by a different requirement than another. The safe method is not to memorise a number but to check the applicable current rule and the actual approval for your layout, and to compare the plan's stated width with what is on the ground.",
+          "Status is a separate question from width. A road can be wide and still not be a legal public road in the sense the buyer assumes. The plan may show a road that is intended to vest in the local body, or a road that is internal to a private layout, or a road that is a proposal. The HMDA's LRS/BRS page explains that the government brought in rules to regularise unapproved and illegal layouts because such layouts were violating the development plan and lacking basic infrastructure such as proper roads - which is precisely why the approval status of the road matters as much as its width.",
+          "So ask two questions, not one: what width does the applicable rule and the approval require, and what is the legal status of this road? A road being on the map answers neither on its own.",
+        ],
+        table: {
+          caption:
+            "A buyer's framing for road width and status. Confirm the specific requirement and status for your layout; do not treat any single figure as universal.",
+          columns: ["Question", "Why it matters", "Where to confirm"],
+          rows: [
+            ["What width does the approval and rule require", "Width affects usability and whether the layout complies", "The sanctioned plan and the applicable layout rules"],
+            ["What width exists on the ground", "A plan width that is not built is a red flag", "Measure at the entrance, junction and plot frontage"],
+            ["What is the road's legal status", "A private or unapproved track is not a public road", "The approval conditions and the planning authority"],
+            ["Who maintains it", "Affects who fixes it and who can control it", "The approval, the local body and the layout conditions"],
+          ],
+        },
+        caution:
+          "Do not present or rely on one road-width requirement as universal for every location or layout. Verify the applicable current rule and the approval for your specific parcel.",
+        sources: [
+          {
+            label:
+              "BuildNow FAQs: minimum internal road width of 12.00 mts / 40'-00\" for layout approval, and the road-formation requirement where a site abuts a katcha road",
+            publisher: "BuildNow, Government of Telangana",
+            url: "https://buildnow.telangana.gov.in/faqs/",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Spotting Blocked, Encroached or Neighbour-Dependent Access",
+        body: [
+          "Access problems rarely announce themselves. They show up as small discrepancies that, taken together, mean the road you were shown is not the road you can rely on. Learning to spot them is the practical core of this check.",
+          "A blocked approach is the clearest. A gate, a compound wall, a locked barrier, parked machinery or a built structure across the road means the physical path is obstructed, whatever the plan says. Encroachment is a subtler version: a portion of the road or its margin is built over, fenced, cultivated or occupied, so the road exists on paper but is narrowed or blocked in practice. Because enforcement, when it happens, is a formal process - BuildNow's FAQ describes demolitions and the consequences that follow - an encroached road is not something a buyer should plan to fix personally.",
+          "The most dangerous category is neighbour-dependent access: the only usable way in crosses private land. The owner of that land may be cooperative today and sell, fence or build tomorrow. A right that depends on a neighbour's goodwill is not the same as a road that is part of the approved layout or a public road. This is common on the edges of growing corridors, where a service track across a field has been used for years without ever being a road in the records.",
+          "There is also the access that depends on land with its own restrictions - a lake bund, a nala, government land or an assigned parcel. Our guide to [prohibited properties](/insights/check-prohibited-properties-telangana-open-plots) explains why a route across such land is a separate problem, not a shortcut, and the same caution applies to plots near a lake FTL or its buffer. If the way in crosses any of these, treat it as a question for the planning authority and a lawyer before you treat the plot as accessible.",
+        ],
+        drivers: [
+          "The only way to the plot crosses a neighbouring private field or an unconnected track.",
+          "The approach narrows sharply at the entrance or at a junction, or reduces to a footpath.",
+          "A compound wall, gate, structure or cultivated strip occupies part of the road or its margin.",
+          "The road on the ground does not match the width or alignment shown on the approved plan.",
+          "The 'road' shown in the brochure runs across land that is not part of the sanctioned layout.",
+          "The approach crosses a lake bund, nala, government land or an assigned parcel.",
+          "The seller says the approach is 'used by everyone' but cannot show it is an approved or public road.",
+          "The internal roads are still katcha while you are told they will be formed later.",
+        ],
+        caution:
+          "A road that is usable because a neighbour currently allows it is not a secured access. Ask what its approved or public status is, not whether it is convenient today.",
+      },
+      {
+        heading: "What to Request From the Seller or Developer",
+        body: [
+          "The documents that settle access questions are the approved plan and its conditions, and the records that show the plot and the roads it depends on. Ask for these before you pay, and ask for current copies rather than a sales brochure.",
+          "Where access touches a water body, the BuildNow FAQ adds a specific requirement: a plot abutting a water body such as a river, vagu, lake, pond, kunta or nala needs a No Objection Certificate from the irrigation and revenue departments, and plots falling in the bed or full-tank-level of such water bodies cannot be permitted for building. Where a high-tension tower line crosses, the same FAQ says the land beneath the tower line to the width of the tower base is to be kept as greenery, with 10-metre-wide roads on either side of the tower base. These are approval-level conditions that bear directly on access and buildability.",
+          "Line up the documents with the ordinary title and record set. The approved layout and its conditions belong with the [title chain and sale deed](/insights/sale-deed-link-documents-title-chain-telangana), the Encumbrance Certificate and the other record documents, so the access picture is read with ownership, charges and approvals together, not in isolation.",
+        ],
+        table: {
+          caption:
+            "A practical document set for an access check. Request current copies, and reconcile them with each other before paying.",
+          columns: ["Request", "What it helps confirm"],
+          rows: [
+            ["Approved layout plan and sanction proceedings", "The sanctioned road network, widths and conditions"],
+            ["Layout conditions and approval letter", "Road-formation obligations, NOCs and reservations"],
+            ["Plot location on the sanctioned plan", "That your plot and its bounding roads match the approval"],
+            ["Revenue record and survey/subdivision details", "The plot's legal identity and its relationship to the road"],
+            ["Title chain and sale deed schedule", "That the road and the plot are described consistently"],
+            ["Encumbrance Certificate", "Registered charges and their effect on the parcel"],
+            ["Water-body or tower-line NOC, where applicable", "That a specific access or development condition is met"],
+          ],
+        },
+        caution:
+          "A developer's statement that a road 'will be formed' or an NOC 'will come' is not the same as a document in hand. Ask for what exists today and what the approval conditions require.",
+      },
+      {
+        heading: "What to Verify With the Planning Authority",
+        body: [
+          "The seller's documents are only as good as the authority record behind them. The competent planning authority - HMDA, DTCP or the relevant urban local body, depending on where the plot sits - can confirm whether a layout is genuinely approved and what conditions attach to it, so the access check should end at the authority, not at the sales office.",
+          "HMDA's Ease of Doing Business pages set out the development-permission procedure, the procedure for site inspection, the documents required, the timelines for approvals and the relevant government orders and acts. BuildNow, Telangana's unified approval portal, publishes layouts, checklists, timelines and road-formation requirements. The City Citizen Search and the approval records let a buyer or their professional trace an application by number and see the sanctioned copy.",
+          "The practical steps are to confirm the approval number and date, obtain or view the sanctioned plan and conditions, and ask specifically about the approach road and the internal roads - their sanctioned width, their status and any condition about forming them. Where the parcel is in an unapproved or illegal layout, the LRS/BRS framework and its help desk are the relevant reference, because such layouts are exactly the ones that have struggled to provide proper roads.",
+          "You do not have to do this alone. A licensed surveyor or architect can read the plan and measure the ground, and an independent property lawyer can assess whether the access is legally secure. For non-resident buyers who cannot inspect in person, local professional support is essential, and the [NRI investment page](/nri-investment) sets out the broader context.",
+        ],
+        sources: [
+          {
+            label:
+              "HMDA Ease of Doing Business: details and procedure for development permissions, procedure for site inspection, documents required, timelines for approvals, and the EODB wizard including 'Layout With Open Plot'",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/ease-of-doing-business-eodb/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "HMDA LRS/BRS: regularization of unapproved and illegal layouts, and the official concern that such layouts lack development standards and basic infrastructure such as proper roads",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/lrs-brs/",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "A Site-Visit Access Checklist",
+        body: [
+          "Take this list to the site and work through it from the main road inward, comparing what you see with the approved plan as you go.",
+        ],
+        checklist: [
+          "Identify the approved approach from the main road and note whether it matches the sanctioned plan.",
+          "Measure the approach road's width at its narrowest point and compare it with the plan and the applicable requirement.",
+          "Walk the internal roads that bound your plot and check their width, alignment and surface against the plan.",
+          "Confirm the plot number and its bounding roads appear on the sanctioned plan in the position you are shown.",
+          "Check whether any gate, wall, structure, fencing or cultivation blocks or narrows the road.",
+          "Identify whose land the approach crosses, and whether it is an approved or public road rather than a private track.",
+          "Check whether the road runs across a lake bund, nala, government land or an assigned parcel.",
+          "Note the road surface - katcha, WBM or BT - and whether it matches the stage the approval contemplates.",
+          "Look for connecting roads at both ends and confirm the road does not dead-end without a lawful connection.",
+          "Photograph the approach from the main road, the junction, the road along your plot and the boundaries, with dates.",
+          "Ask the seller or developer for the approval number, sanctioned plan and conditions, and the layout's road obligations.",
+          "Confirm the approval and conditions with the competent planning authority before you pay.",
+        ],
+        caution:
+          "This checklist reduces risk but does not remove it. Completing it does not mean the access is legally secure; confirm the position with the planning authority and, where needed, a lawyer.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers are general and reflect the official BuildNow and HMDA pages as accessed on 20 October 2026. Road rules and approval conditions vary by location and layout; confirm the current position for your specific parcel.",
+        ],
+        faqs: [
+          {
+            question:
+              "Is a road shown on a layout plan the same as a road I can legally use?",
+            answer:
+              "No. A road on the approved plan is part of the sanctioned scheme, but the road on the ground may be unformed, narrower than shown, encroached, or a private track across neighbouring land. Treat the plan, the records and the ground as three separate views and compare them; a line on a map does not by itself make a road public or usable.",
+          },
+          {
+            question: "What is the minimum internal road width for layouts in Telangana?",
+            answer:
+              "BuildNow's official FAQ states that the minimum width of internal roads for layout approval should be 12.00 metres, or 40 feet, and that 25-foot internal roads are not permissible. However, the applicable requirement can vary with the location, the layout rules and the approval conditions, so confirm the current rule and the approved width for your specific layout rather than treating one figure as universal.",
+          },
+          {
+            question: "How do I know if a road is public or private?",
+            answer:
+              "Appearance on the ground is not proof. Check the approved layout's status and conditions, whether the road is intended to vest in the local body, and whether the approach crosses private or restricted land. Ask the competent planning authority to confirm the status of the specific road for your layout before you rely on it as public access.",
+          },
+          {
+            question: "What if the only approach to the plot crosses a neighbour's land?",
+            answer:
+              "That is neighbour-dependent access, and it is a serious risk. A route that works because a neighbour currently allows it can be closed or built over later. Ask whether the approach is part of the approved layout or a public road in the records, and take legal advice; do not rely on long informal use as proof of a legal right.",
+          },
+          {
+            question: "My site abuts only a katcha road. Is a layout still approved?",
+            answer:
+              "BuildNow's FAQ says such a layout can be approved, but the developer must form a WBM road at the release of the draft layout and a BT road along with internal roads before approval of the final layout. So the current surface may be at an earlier stage than the final requirement. Confirm the stage, the obligations and the current status in the approval documents.",
+          },
+          {
+            question: "What documents should I ask the seller or developer for?",
+            answer:
+              "Ask for the approved layout plan and sanction proceedings, the layout conditions and approval letter, your plot's location on the sanctioned plan, the revenue record and survey details, the title chain and sale deed schedule, and the Encumbrance Certificate. Where a water body or tower line is involved, ask for the relevant NOC or condition. Request current copies, not a brochure.",
+          },
+          {
+            question: "How do I verify the access with the planning authority?",
+            answer:
+              "Confirm the approval number and date, view or obtain the sanctioned plan and conditions, and ask specifically about the approach and internal roads - their sanctioned width, status and any formation condition. HMDA's Ease of Doing Business pages set out the development-permission and site-inspection procedures, and BuildNow hosts approval records; a licensed surveyor or architect and an independent lawyer can extend this check.",
+          },
+          {
+            question: "Does good road access guarantee the plot is a good buy?",
+            answer:
+              "No. Access is one question among several. A plot can have secure access and still have title, encumbrance, prohibited-property, classification or approval issues. Read the access check together with the title chain, encumbrance, survey and prohibited-property checks, and take independent legal advice before paying.",
+          },
+        ],
+      },
+      {
+        heading: "The Bottom Line",
+        body: [
+          "Road access is easy to take for granted because a road is almost always shown. The buyer's job is to test three things: whether the approach and internal roads match the approved plan, whether they exist in the required width and stage on the ground, and whether the road is genuinely approved or public rather than a track that depends on someone else's land. Do not assume a road is public because it exists or appears on a map.",
+          "Ask for the approved plan and conditions, compare them with the records and the site, measure the width, and confirm the status with the competent planning authority. Where the road crosses a neighbouring parcel, a water body, government land or an assigned parcel, treat it as an unresolved question until the authority and a lawyer say otherwise.",
+          "If you are buying an open plot in the Srisailam Highway corridor, including around Tukkuguda, Thummaloor and the wider Shankarpally belt, run this access check on your exact plot and its bounding roads. If you are considering [JB Harmony Woods](/projects/jb-harmony-woods), verify its road access and approvals independently through the official portals and your lawyer; this article makes no claim about the access status of any specific project.",
+        ],
+        caution:
+          "This is general research, not legal, tax or investment advice. Road-width rules, approval conditions and layout statuses change and vary by location. Verify the current position for your specific parcel with the competent planning authority and obtain independent legal advice before you pay.",
+      },
+    ],
+  },
+  {
+    slug: "mutation-vs-sale-deed-pattadar-passbook-telangana",
+    title:
+      "Mutation vs Sale Deed vs Pattadar Passbook in Telangana: What Plot Buyers Must Understand",
+    seoTitle: "Mutation vs Sale Deed vs Pattadar Passbook in Telangana",
+    metaDescription:
+      "A buyer's guide to the difference between a registered sale deed, mutation and the Pattadar Passbook in Telangana, and what to do when the records do not match.",
+    excerpt:
+      "A registered sale deed, a mutation entry, and a Pattadar Passbook are three different records that answer three different questions. Here is what each does and does not prove, and why a buyer should read them together.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/mutation-vs-sale-deed-pattadar-passbook-telangana.jpg",
+    imageAlt:
+      "Registered sale deed, mutation and Pattadar Passbook compared for Telangana open-plot buyers - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        heading: "Three Records, Three Different Questions",
+        body: [
+          "Buyers often treat 'the papers' as one thing. In Telangana they are at least three records doing three different jobs: the registered sale deed, the mutation or revenue-record entry, and the Pattadar Passbook or Record of Rights. They are related, they are supposed to tell a consistent story, and none of them, on its own, is a complete answer to whether the title is clear.",
+          "This guide is about the distinction, not about the mechanics of any single step. If you want the post-purchase workflow, that is a separate subject covered in our guide to [land mutation after buying a plot in Telangana](/insights/land-mutation-after-buying-plot-telangana). Here the question is narrower and more fundamental: what does each record actually record, what does it prove, and how should a buyer read them together before and after a purchase?",
+          "The reason this matters is that a plot is frequently sold on the strength of one clean-looking document while a second record quietly disagrees. A smart buyer learns what each record can and cannot settle, and treats every mismatch as a question to be answered in writing rather than a detail to be waved through. This is general research, not a title opinion or legal advice.",
+        ],
+        caution:
+          "Records, portals, fees and procedures change, and they differ by land classification. Confirm the current position for your exact parcel with the registration and revenue offices and, where records conflict, an independent property lawyer.",
+      },
+      {
+        heading: "What a Registered Sale Deed Records",
+        body: [
+          "A registered sale deed is the document that transfers ownership from seller to buyer. It is executed by the parties, stamped as required, and registered with the Sub-Registrar or the relevant registering office under the Registration Act, 1908. Once registered, it is a public record of that transfer, with a document number, a year and the office where it was registered.",
+          "What the deed records is the transaction: who transferred to whom, on what date, for what consideration, and a description or schedule of the property. The schedule is meant to identify the land precisely - district, mandal, village, survey and subdivision, extent, plot number where relevant, and the boundaries. That schedule is why the deed is the anchor document of a title chain.",
+          "What the deed does not do, by itself, is update the government's revenue record of who holds the land. Registration records the transfer of ownership between parties; it does not automatically rewrite the Record of Rights. That is the job of mutation and the passbook update, and it is the single most common source of buyer confusion.",
+          "The deed also does not, on its own, prove that the seller had a good title to give. A registered deed of a defective title is still a registered deed. The quality of the title depends on the whole chain and on the absence of defects - which is why the deed has to be read with the records that follow it, and with the [sale deed and link documents](/insights/sale-deed-link-documents-title-chain-telangana) that connect it back through earlier owners.",
+        ],
+        table: {
+          caption:
+            "What a registered sale deed is good for, and what it leaves to other records.",
+          columns: ["The deed records", "The deed does not, by itself"],
+          rows: [
+            ["The transfer between seller and buyer", "Update the revenue Record of Rights"],
+            ["Document number, year and registering office", "Prove the seller held a good title to transfer"],
+            ["The property schedule and boundaries as written", "Confirm the survey, subdivision and extent match the current record"],
+            ["Consideration, parties and date", "Guarantee the land is free of a prohibited or acquisition entry"],
+          ],
+        },
+        caution:
+          "A registration number on a deed confirms the document was registered. It does not confirm the title is clear, the boundaries are correct or the revenue record has been updated.",
+      },
+      {
+        heading: "What Mutation Means and What the Revenue Record Shows",
+        body: [
+          "Mutation is the change to the revenue record - the Record of Rights - so that the government's own register names the new holder after a transfer, succession, partition or other event. In simple terms, mutation takes the land out of the transferor's account and puts it into the transferee's, and issues or updates the Pattadar Passbook accordingly.",
+          "The Record of Rights is the revenue administration's view of who holds which land, with the extent, the survey and subdivision, the land classification and the khata. It is the record the administration reads for land revenue, for various applications and for its own internal purposes. That is what makes mutation useful: it aligns the government's register with the transfer that the deed evidences.",
+          "What mutation is not is proof of ownership in a conclusive sense. Mutation is an administrative and fiscal act of updating the record. It does not, by itself, create or extinguish title, and it does not decide a contested claim. A common and dangerous mistake is to treat a mutation entry as though it settled ownership; in law, a revenue record entry is a record, not a decree.",
+          "The Revenue Department's own FAQ treats record matters as correctable: missing survey or subdivision numbers, wrongly recorded extents, wrongly recorded land nature and name corrections all have defined application routes. That is helpful, but it also tells a buyer that a record entry is a starting point to be verified, not a guarantee to be relied on blindly.",
+        ],
+        table: {
+          caption:
+            "Common events that lead to a mutation or record change, and what each is really doing.",
+          columns: ["Event", "What the record change shows", "What it does not decide"],
+          rows: [
+            ["Purchase of the plot", "The new holder in the Record of Rights", "Whether the seller's title was clear"],
+            ["Succession or inheritance", "The legal heirs recorded as holders", "Any dispute among heirs about shares"],
+            ["Partition", "The separated share recorded in each name", "Boundary or extent disputes between parties"],
+            ["Correction of an error", "The corrected survey, subdivision, extent or name", "Rights of third parties over the parcel"],
+          ],
+        },
+        caution:
+          "Do not state or assume that mutation alone proves ownership. An entry in the revenue record is an administrative record of holding; where ownership is disputed, the question is decided by the competent forum, not by the mutation entry.",
+      },
+      {
+        heading: "What a Pattadar Passbook and Record of Rights Establish",
+        body: [
+          "The Pattadar Passbook-cum-Title Deed, commonly called the passbook or PPB, is the document that summarises the Record of Rights entry for a holder. It identifies the holder and describes the land - survey and subdivision, extent, classification and khata. In 2026 the passbook sits within the Bhu Bharati framework, under the Telangana Bhu Bharati (Record of Rights in Land) Act, 2024, brought into force as Act No. 1 of 2025, which replaced the earlier Dharani system.",
+          "What the passbook establishes is that the revenue record names a particular person as the holder of a particular parcel, with a stated extent and classification. It is the buyer-friendly face of the Record of Rights, and it is central to the post-registration update: the department's own FAQ states that the passbook is updated at the Tahsildar-cum-Joint Sub Registrar office after registration is completed, and that a copy of the electronic passbook is available through the land details search.",
+          "What the passbook does not establish is a guaranteed clear title. A passbook records the holder and the parcel; it does not certify that the boundaries on the ground match the description, that the layout is approved, that the land is free of a prohibited or acquisition entry, or that earlier transfers in the chain were valid. A passbook can be issued even where a deeper title or approval problem exists.",
+          "This is where the buyer's caution belongs. A passbook is strong evidence that the record and the holder are aligned, and it is exactly what you want to see after your own purchase. But it is not a substitute for the title chain, the encumbrance position, the prohibited check or the layout approval. Read it as one reliable record among several.",
+        ],
+        caution:
+          "Do not state or assume that a sale deed or a passbook by itself guarantees clear title. Each is an important record, and each can be undermined by a defect elsewhere in the chain, the classification or the approvals.",
+        sources: [
+          {
+            label:
+              "Bhu Bharati FAQ: the Pattadar Passbook is updated at the Tahsildar-cum-Joint Sub Registrar office after registration is completed, and a copy of the electronic passbook is available in the Bhu Bharati land details search",
+            publisher: "Bhu Bharati, Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/Bhubharati_faq",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Bhu Bharati home: information services include Land Details, Prohibited Lands Details, Encumbrance Details and Registered Document Details",
+            publisher: "Bhu Bharati, Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/homePage?lang=en",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Why the Records Must Be Read Together",
+        body: [
+          "Each record answers a different question, and the only safe way to read them is together. The deed tells you a transfer happened. The mutation and passbook tell you the government's record reflects a holder. The Encumbrance Certificate tells you the registered transaction and charge history. The prohibited search tells you whether the parcel is flagged. The layout approval tells you whether the plot itself was sanctioned. A clean answer in one does not cure a gap in another.",
+          "The identifiers must agree across all of them: district, mandal, revenue village, survey number, subdivision, extent and boundary description. If the deed describes one subdivision and the passbook shows another, or the extent in the passbook differs from the layout schedule, the records are telling different stories about the same plot. That is the moment to stop and reconcile, not to pick the document that looks best.",
+          "There is a practical sequence. Before purchase, the buyer reconciles the deed, the current Record of Rights or passbook, the Encumbrance Certificate, the survey and boundary position, the prohibited status and the approval. After purchase, the buyer confirms that the mutation and passbook update actually name them. Both halves matter: a clean pre-purchase file and an updated post-purchase record together are stronger than either alone.",
+          "Our guide to [verifying survey numbers and plot boundaries](/insights/verify-survey-number-plot-boundaries-telangana) shows how the identifiers are meant to be reconciled, and the [Encumbrance Certificate guide](/insights/encumbrance-certificates-explained-before-buying-land) explains what the transaction-history record can and cannot settle. The prohibited check is its own step in our guide to [checking prohibited properties](/insights/check-prohibited-properties-telangana-open-plots).",
+          "The Bhu Bharati portal also exposes a Registered Document Details search by document number and year, which lets a buyer confirm that a deed is on the register as claimed. It corroborates the deed; it does not, by itself, resolve title.",
+        ],
+        table: {
+          caption:
+            "Which record answers which buyer question. None of these is a complete title answer on its own.",
+          columns: ["Record", "Question it answers", "Question it leaves open"],
+          rows: [
+            ["Registered sale deed", "Was ownership transferred, and on what terms", "Is the revenue record updated, and was the title good"],
+            ["Mutation entry", "Did the administration change the holder of record", "Is the underlying title or claim settled"],
+            ["Pattadar Passbook / Record of Rights", "Whom does the revenue record name as holder", "Are boundaries, approvals and prohibited status clear"],
+            ["Encumbrance Certificate", "What registered transactions and charges exist", "Title perfection, boundaries and current prohibition"],
+            ["Prohibited-properties search", "Is the parcel flagged in the records", "Why the entry exists, or that the parcel is unrestricted"],
+            ["Layout approval", "Was the layout sanctioned as a plotted scheme", "Ownership and the correctness of the revenue record"],
+          ],
+        },
+        caution:
+          "A clean answer in one record is not a reason to skip the others. Reliability comes from the records corroborating each other, on the same identifiers.",
+        sources: [
+          {
+            label:
+              "Bhu Bharati Registered Document Details: search registered documents by document number and year, district, and Tahsildar and Joint Registrar office",
+            publisher: "Bhu Bharati, Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/RegDocumentDetails",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "What to Do When the Records Do Not Match",
+        body: [
+          "Mismatches are common and are not automatically fraud. An outdated deed predating a subdivision, a mutation that was never carried into the record, a part-sale whose extent was not deducted, a name changed after marriage, a classification change from agricultural to non-agricultural - all of these can produce a discrepancy that has an innocent explanation and a defined correction route.",
+          "The buyer's job is not to fix the records, because a buyer usually has no standing to apply for a correction before they own the land. The buyer's job is to make the mismatch visible in writing and insist that the seller, who does have standing, resolves it before registration. If the seller cannot or will not, that itself is information about the transaction you are being asked to enter.",
+          "Where a conflict touches a prohibited entry, an acquisition, government land or an assigned-land restriction, the question needs the jurisdictional office, not just a portal screenshot. Where the conflict is about who owns the land, or about a court dispute, it needs a lawyer. An indemnity or an 'as-is' clause pressed on you to close over a recorded conflict is not a cure; a recorded restriction is not erased by a private contract between buyer and seller.",
+          "Keep a dated record of every check: what you searched, the identifiers you entered, the source and what came back. That note is what your lawyer, your lender and the seller can work from, and it turns a vague worry into a specific question that someone with authority can answer.",
+        ],
+        drivers: [
+          "The name on the passbook never matches the name on the deed, and nobody will explain why.",
+          "The survey or subdivision in the deed is not the one in the current revenue record.",
+          "The extent in the passbook, the deed and the layout schedule do not agree, and the difference is dismissed as rounding.",
+          "A mutation appears to have been made without a matching registered document, or a registered document has no matching mutation.",
+          "The seller offers an indemnity or 'as-is' clause to close over a recorded conflict.",
+          "A correction or a mutation is promised 'after' the payment rather than completed before it.",
+          "A record conflict is explained only orally, with no document and no date.",
+        ],
+        caution:
+          "If the records do not match, do not pay further amounts. Insist on a documented reconciliation by the party with standing, and take independent legal advice where the conflict is significant.",
+      },
+      {
+        heading: "Agricultural Land Records vs a Plotted Layout or Urban Plot",
+        body: [
+          "Not every plot is recorded the same way, and it is a mistake to give one procedure as if it applied to every land category. An agricultural holding is recorded and mutated through the revenue Record of Rights, with the Tahsildar carrying out the consequential change. A plotted layout carved out of converted land, an abadi or habitation plot, or an urban property may follow a different path, because the applicable record-keeping and registration framework is different.",
+          "The classification of the land is therefore a live question for a buyer, not a technicality. Whether the parcel is recorded as agricultural, as converted non-agricultural land, or as abadi land determines which record you will be dealing with, which office is relevant, and what the mutation and passbook update will actually look like after purchase. A layout plot in a sanctioned scheme is not the same file as an inherited agricultural field.",
+          "This is also why a procedure that works for one seller's land may not be correct for the next plot on the same road. Do not accept a neighbour's process as universal, and do not assume that a step you read about applies to your parcel. Confirm the classification first, then the process that goes with it.",
+          "The approval side reinforces the point. A sanctioned layout is a planning fact-about the scheme, not proof of title. Our guides to the [HMDA and DTCP plot-approval checklist](/insights/hmda-dtcp-plot-approval-checklist-hyderabad) and to [reading an approved plot layout plan](/insights/how-to-read-approved-plot-layout-plan-telangana) cover the planning questions that sit alongside the revenue-record questions, and for project sales the [TG RERA registration check](/insights/verify-tg-rera-registration-open-plots-telangana) is a separate exercise again.",
+        ],
+        caution:
+          "Do not present any single mutation or record procedure as universally applicable. The correct path depends on the land's classification and the applicable law; confirm it for the specific parcel.",
+      },
+      {
+        heading: "A Document-Verification Checklist for Plot Buyers",
+        body: [
+          "Use this list to verify the three records against each other and against the wider diligence file, before you pay and again after registration.",
+        ],
+        checklist: [
+          "Obtain the registered sale deed with its document number, year and registering office, and read the property schedule carefully.",
+          "Build the title chain from the current seller back through earlier owners using link documents, and note any gap to be explained.",
+          "Obtain the current Pattadar Passbook or Record of Rights and confirm the recorded holder, extent, survey, subdivision and classification.",
+          "Convert all extents to one unit and confirm the deed, the passbook and the layout schedule agree.",
+          "Pull the Encumbrance Certificate for the parcel and reconcile the transaction and charge history with the deed and the chain.",
+          "Run the prohibited-properties search for the exact survey number and subdivision.",
+          "For a layout plot, confirm the plot number connects to the sanctioned plan and that the survey numbers in the plan match the revenue record.",
+          "For converted or abadi land, confirm the current non-agricultural record or passbook entry matches the transfer.",
+          "Identify any mismatch in name, survey, subdivision, extent or transaction detail and put it in writing to the seller before payment.",
+          "Confirm the land's classification, because the mutation and record path depends on it.",
+          "After registration, confirm the Record of Rights names you as holder and that the passbook is updated, and keep the fee receipts with the deed.",
+          "Keep a dated note of every search, its source and its result for your lawyer, your lender and your file.",
+        ],
+        caution:
+          "This checklist reduces risk but does not remove it. Completing it does not mean the title is clear, and a clean set of records is not a substitute for independent legal review.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers are general and reflect the official Bhu Bharati pages as accessed on 20 October 2026. Land-record positions depend on the land's classification; confirm the current position for your parcel and obtain independent legal advice where records conflict.",
+        ],
+        faqs: [
+          {
+            question: "Is a registered sale deed enough to prove ownership?",
+            answer:
+              "A registered sale deed is the primary evidence of the transfer between seller and buyer, and it is the anchor of the title chain. But it does not, by itself, prove that the seller held a good title to transfer, and it does not update the government's revenue record. Read it together with the title chain, the Record of Rights or passbook, the encumbrance position and the approval records.",
+          },
+          {
+            question: "Does mutation prove ownership?",
+            answer:
+              "No. Mutation is the administrative update of the revenue record to name the new holder. It is useful and important, but it does not conclusively prove ownership and does not decide a contested claim. Treat a mutation entry as a record of holding, not a title decree, and verify it against the title chain and the other records.",
+          },
+          {
+            question: "What is the difference between a mutation and a sale deed?",
+            answer:
+              "A sale deed is the document that transfers ownership and is registered by the Sub-Registrar under the Registration Act. Mutation is the change to the revenue Record of Rights so that the government's register names the new holder. Registration records the transfer between parties; mutation aligns the government's own record with that transfer. A buyer should confirm both are complete.",
+          },
+          {
+            question: "What does a Pattadar Passbook actually establish?",
+            answer:
+              "The Pattadar Passbook-cum-Title Deed summarises the Record of Rights entry for a holder: who is recorded, and the survey, subdivision, extent and classification of the land. It establishes what the revenue record shows. It does not certify clear title, correct boundaries, an approved layout, or the absence of a prohibited, acquisition or government-land entry.",
+          },
+          {
+            question: "Can a passbook or a mutation be wrong?",
+            answer:
+              "Yes. Revenue records can contain errors, and the Revenue Department's own FAQ sets out correction routes for wrongly recorded names, extents, survey and subdivision numbers, land nature and classification, and for land wrongly shown as government or acquired land. An entry is a starting point to verify, not a guarantee to rely on blindly.",
+          },
+          {
+            question: "What should I do if the deed and the passbook do not match?",
+            answer:
+              "Stop and do not pay further amounts until it is reconciled in writing. The buyer usually has no standing to correct the record before owning the land, so the seller, who does, should resolve it before registration. Confirm the position with the relevant registration and revenue office and, where the conflict is significant, obtain independent legal advice.",
+          },
+          {
+            question: "Is the process the same for agricultural land and a plotted layout?",
+            answer:
+              "No, and you should not treat any single procedure as universal. Agricultural holdings are recorded and mutated through the revenue Record of Rights, while converted non-agricultural, abadi or urban plots may follow a different framework and office. Identify the land's classification first, then apply the process that goes with it for that parcel.",
+          },
+          {
+            question: "Do these records together guarantee a clear title?",
+            answer:
+              "No. Reading them together gives a far stronger picture than relying on any one of them, but no combination of revenue records and a registered deed is a guarantee of clear title. Title quality depends on the whole chain and the absence of defects, which is why independent legal review and confirmation with the relevant offices remain essential.",
+          },
+        ],
+      },
+      {
+        heading: "The Bottom Line",
+        body: [
+          "A registered sale deed, a mutation entry and a Pattadar Passbook are not competing versions of the same fact. They are three records answering three different questions, and the buyer's skill is to read them together on the same identifiers. The deed records the transfer, mutation aligns the government's register, and the passbook or Record of Rights shows whom that register names - and none of the three, alone, guarantees a clear title.",
+          "Do not treat mutation as conclusive proof of ownership, and do not treat a deed or a passbook as a title guarantee. Where the records disagree, make the mismatch visible in writing and require the party with standing to reconcile it before you pay. Where the conflict is significant, take it to the relevant registration or revenue office and to an independent property lawyer.",
+          "If you are buying an open plot in the Srisailam Highway corridor, including around Tukkuguda, Thummaloor and the wider Shankarpally belt, apply this reading to your exact survey number, subdivision and extent. If you are considering [JB Harmony Woods](/projects/jb-harmony-woods), verify its records independently through the official portals and your lawyer; this article makes no claim about the legal or record status of any specific project. Non-resident buyers can read the wider process context on the [NRI investment page](/nri-investment).",
+        ],
+        caution:
+          "This is general research, not legal, tax or investment advice. Land-record positions depend on the land's classification and the applicable law at the time. Confirm the current position with the registration and revenue offices and obtain independent legal advice before you act.",
+      },
+    ],
+  },
+  {
+    slug: "check-prohibited-properties-telangana-open-plots",
+    title:
+      "How to Check Prohibited Properties in Telangana Before Buying an Open Plot",
+    seoTitle: "Check Prohibited Properties in Telangana Before Buying",
+    metaDescription:
+      "Source-checked guide to Telangana's prohibited-property records for an open plot: matching the exact survey number and extent, and what to do on a conflict.",
+    excerpt:
+      "A prohibited-property entry can block registration and flag land that the state restricts from transfer. This guide explains what the entry means, how to search the official records by exact parcel, and why an online search is not a title certificate.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/check-prohibited-properties-telangana-open-plots.jpg",
+    imageAlt:
+      "Check prohibited properties in Telangana before buying an open plot - survey number search and verification guide by Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        heading: "What a Prohibited-Property Entry Means",
+        body: [
+          "A prohibited-property entry is a flag in the state's land records that marks a parcel as restricted from transfer until the position is resolved. When a survey number sits on that list, the registration and revenue machinery is being told, in effect, that the land is not free to be sold in the ordinary way. The reason behind the flag varies: assigned land, government land recorded by mistake, land tied to an acquisition, a court dispute, an endowments or trust interest, or an inclusion that a landowner disputes.",
+          "The practical effect for a buyer is serious. A registration officer is required to look at whether a document can lawfully be registered, and a prohibited entry is one of the reasons a document can be stopped. Even where an entry is old, mistaken or under review, a buyer who has already paid without checking is left to recover money from a seller and argue the point later. The check is far cheaper than the dispute.",
+          "This guide is about the buyer's side of that check: what the entry means, how to search the official records for the exact parcel, why the survey number, subdivision, village, mandal and extent have to match your documents, and what to do when the online record and the seller's papers disagree. It is general research, not a title opinion or legal advice, and it does not promise that any parcel is or is not clear.",
+          "One thing to be clear about from the start. The prohibited-property search is one input among many. It sits alongside the title chain, the [sale deed and link documents](/insights/sale-deed-link-documents-title-chain-telangana), the Encumbrance Certificate, the layout approval and the RERA position. A clean prohibited search does not make the other checks unnecessary, and a prohibited search that returns nothing is not a certificate that the land is safe.",
+        ],
+        caution:
+          "A prohibited-property entry is a restriction the state has recorded, not a private opinion. How a specific parcel is treated depends on the exact entry, the reason for it and the current status of any review. Confirm the position for your exact parcel rather than relying on a general description.",
+        sources: [
+          {
+            label:
+              "Bhu Bharati information services: the home page lists Prohibited Lands Details, Land Details, Encumbrance Details and Registered Document Details, and links the prohibited-lands service to the Registration & Stamps Department",
+            publisher: "Bhu Bharati, Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/homePage?lang=en",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Prohibited Properties search: the Registration & Stamps Department page that opens the Section 22A(1) Prohibition Details search by district, mandal, division, village or town and SRO office",
+            publisher: "Registration & Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/openProhibitedProperties.htm",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Why Buyers Should Check It Before Paying",
+        body: [
+          "The check exists to answer one narrow but decisive question: is this specific parcel flagged in the official records in a way that could stop its transfer? That question cannot be answered by a broker's assurance, a brochure, a photograph of a survey stone or a social-media post about a nearby parcel. It has to be answered from the official record for the exact land.",
+          "There is also a difference between the status today and the status at the time of registration. A parcel can be added to or removed from a prohibition list, and an entry can be under review, as the department's own search page notes. A buyer who checks months before paying and never re-checks can still be caught out if the status changes in between. Treat the check as something to repeat close to the transaction, not a one-time formality.",
+          "The stakes go beyond registration. Land that is subject to an assigned-land or government-land restriction, or to an acquisition, can carry restrictions on use, on resale and on the ability to obtain approvals or finance. A bank's legal and technical review will look at the same question from its own angle. Finding the issue early, before an advance is paid, keeps the buyer in control of the negotiation.",
+          "This is why the prohibited check belongs at the start of the diligence stack, not at the end. It is quick, it uses official sources, and it can change the entire decision. The rest of the stack assumes the parcel is transferable; the prohibited check tests that assumption directly.",
+        ],
+        caution:
+          "Do not pay a booking advance or a full consideration on the strength of an oral 'it is clear' statement. Run the official search yourself or through your lawyer, and record the date you checked.",
+      },
+      {
+        heading: "How to Search the Official Prohibited-Property Records",
+        body: [
+          "The prohibited-lands search is reached from the Bhu Bharati information services and is hosted by the Registration & Stamps Department. On the Prohibited Properties page you select the District, the Mandal, the Division, the Village or Town and the SRO Office, then fetch the result. The page is titled around Section 22A(1) Prohibition Details, which ties the list to the registration law's prohibition mechanism.",
+          "Bhu Bharati also exposes other information services that belong in the same sitting. The Land Details Search lets you look up an individual parcel or a Pattadar Passbook, the Encumbrance service shows registered transaction history, and the Registered Document Details service shows document-level records. There is a separate service for ROFR lands, which relates to the recognition of forest rights, and the land-details page also links the CERSAI asset-based search used to trace security interests. Each answers a different question.",
+          "The search form is only useful if you feed it the right identifiers. A district-level guess or a village name typed loosely will not locate the parcel. You need the district, mandal, village or town, and the survey number and subdivision that match the seller's documents, so that what you are looking at is the same land and not a namesake nearby.",
+          "Keep a dated record of what you searched and what came back, including the exact identifiers you entered and the SRO office you selected. That note is what your lawyer, your bank and the seller can work from if the position has to be discussed later. A screenshot or a saved copy is useful evidence that you searched; it is not a certified extract and it is not a clearance.",
+          "The prohibited search is one of several official records to hold in the same file. For a project sale, the promoter and project registration is a separate check covered in our guide to [verifying TG RERA registration for open plots](/insights/verify-tg-rera-registration-open-plots-telangana), and for a plotted layout the planning sanction is a separate question again.",
+        ],
+        table: {
+          caption:
+            "The information services that belong in a prohibited-property and land-record sitting. Each answers a different question; none of them is a title certificate on its own.",
+          columns: ["Service", "What it helps you see", "What it does not settle"],
+          rows: [
+            ["Prohibited Lands Details", "Whether the district, mandal, village and SRO return a prohibition entry", "Why the entry exists, or that the parcel is unrestricted"],
+            ["Land Details Search", "Recorded holder, survey and subdivision, extent, classification and khata", "Ownership beyond the record, or approved-layout status"],
+            ["Encumbrance service", "Registered transactions and charges over the property", "Boundaries, title perfection or the current prohibition position"],
+            ["Registered document details", "Document-level registration records", "Whether the land is free of a restriction"],
+            ["ROFR lands details", "Recognition-of-forest-rights records", "Ordinary revenue title or layout approval"],
+            ["CERSAI asset-based search", "Security interests registered against an asset", "Title, approval or prohibition status"],
+          ],
+        },
+        caution:
+          "Portal labels, menu positions and interfaces change. Navigate from the official Bhu Bharati and Registration & Stamps pages rather than from a saved deep link, so you are always on the current official service.",
+        sources: [
+          {
+            label:
+              "Bhu Bharati Land Details Search: search by Survey No./Sub-Division, Pattadar Passbook, Aadhaar, institution CIN, or passport, with district, mandal and village; the page shows a records-updated date and links the CERSAI asset search",
+            publisher: "Bhu Bharati, Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/knowLandStatus",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Bhu Bharati Prohibited Lands: the information service page that directs users to the Registration & Stamps prohibited-properties search",
+            publisher: "Bhu Bharati, Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/prohibitedPropertySearchAgri",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Match the Exact Parcel, Not a Similar Name",
+        body: [
+          "Most false confidence in a prohibited search comes from matching the wrong parcel. Two survey numbers can differ by a single subdivision suffix, two villages can share a similar name, and the same field can be recorded differently in an old deed and a current record. If the identifiers do not match exactly, the search result describes some other land, and it means nothing for the plot in front of you.",
+          "The identifiers that must line up are the district, the mandal, the revenue village, the survey number, the subdivision, the extent and the boundary description. The plot number on a layout is not a government identifier; it has to connect back to the survey and subdivision through the sanctioned plan. Our guide to [verifying survey numbers and plot boundaries](/insights/verify-survey-number-plot-boundaries-telangana) deals with that reconciliation in detail.",
+          "Extent is a common trap. A deed may describe acres and guntas, a layout may sell square yards, and a revenue record may round. Convert everything to one unit before comparing, and treat a different survey number, a different subdivision or a materially different extent as a question, not a rounding matter. An ambiguity here is the buyer's risk to resolve before paying.",
+          "The Revenue Department's own FAQ treats these mismatches as correctable record issues: missing survey or subdivision numbers, wrongly recorded extents and wrongly recorded land nature all have correction routes, and a parcel wrongly shown as government land or acquired land has a defined grievance path. That is useful context, but it also shows why the buyer must not accept an unexplained mismatch. If the record and the deed disagree, the seller or the authority has to reconcile them in writing.",
+          "The prohibited position and the layout approval are two different questions about the same parcel. A survey number can be free of any prohibition entry and still sit in a layout that was never sanctioned, which is why the parcel check sits alongside the [HMDA and DTCP plot-approval checklist](/insights/hmda-dtcp-plot-approval-checklist-hyderabad) rather than replacing it.",
+        ],
+        table: {
+          caption:
+            "The identifiers that must agree before a prohibited-property search tells you anything about your plot.",
+          columns: ["Identifier", "Why it must match", "What a mismatch usually means"],
+          rows: [
+            ["District, mandal, village", "Portal search is scoped to a location", "You may be searching a different area entirely"],
+            ["Survey number", "The base field identifier", "A different field, or an outdated number that needs re-linking"],
+            ["Subdivision", "Identifies the surveyed part of the field", "The wrong portion, or a subdivision the deed has not captured"],
+            ["Extent", "Confirms the size of the parcel", "A different parcel, a part-sale not recorded, or an error needing correction"],
+            ["Boundary description", "Confirms the physical limits", "Ambiguity about what is actually being sold"],
+          ],
+        },
+        caution:
+          "A search that returns 'no entry' for a similar survey number is not a result for your parcel. Match every identifier to the deed and the layout schedule before you treat the result as relevant.",
+      },
+      {
+        heading: "If the Property Appears on a Prohibited List",
+        body: [
+          "If your parcel appears on the list, do not pay. Treat a positive entry as a stop signal until its meaning and current status are established from the authority, not from the seller's explanation. An entry can exist for many reasons, and only the relevant office can confirm what it means for this parcel and whether it is still in force.",
+          "Bhu Bharati does provide a formal route for disputed inclusions. Its FAQ states that a person can apply through the Grievance relating to prohibited properties list module, requesting removal from the prohibited list, and the portal shows a defined process flow of data entry, Meeseva eKYC and forwarding to the department. That route belongs to the recorded party with the standing to use it; a buyer cannot simply assume it will be exercised, nor can a buyer predict how it will end.",
+          "Do not invent or assume a removal timeline, an approval outcome or a guarantee that the parcel will be cleared. The portal describes the pathway, not the result, and the decision rests with the competent authority. Where the entry is tied to a court matter, the Revenue Department's FAQ describes a separate Court Cases and Intimation route under which disputed survey numbers can be blocked or unblocked on the strength of a court order, again subject to the District Collector's examination.",
+          "The buyer's practical response is to pause and obtain clarity. Ask the seller for the document or order behind the entry, ask the jurisdictional registration and revenue office what the entry currently means for transfer, and have an independent property lawyer assess it. If the seller wants to proceed, the risk and the remedy should be set out in writing before any money changes hands.",
+        ],
+        caution:
+          "A prohibited entry is not something a buyer should try to 'get removed' by persuasion or by paying an intermediary. The lawful route runs through the recorded party and the competent authority, and it is not guaranteed.",
+        sources: [
+          {
+            label:
+              "Bhu Bharati FAQ: how to apply for removal of a survey number from the prohibited properties list, and how disputed survey numbers are blocked or unblocked through the Court Cases and Intimation module",
+            publisher: "Bhu Bharati, Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/Bhubharati_faq",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "When the Online Record Conflicts With the Seller's Papers",
+        body: [
+          "The harder case is not a clean entry or a clean absence, but a conflict. The portal shows a survey number, subdivision, holder, classification or prohibition status that does not line up with the sale deed, the Pattadar Passbook or the layout schedule the seller has handed you. A conflict is not necessarily fraud, but it is always unresolved risk until someone with standing explains it.",
+          "Common causes include an outdated deed that predates a subdivision, a mutation that was never carried into the record, a part-sale whose extent was not deducted, a classification change such as agricultural to non-agricultural, or an entry recorded against a parent survey number that a later subdivision has partly cleared. The Revenue Department's FAQ describes correction routes for many of these, which is a signal that mismatches are known events rather than rare accidents.",
+          "The buyer's job is not to fix the record, because a buyer usually has no standing to apply for a correction before they own the land. The buyer's job is to make the mismatch visible in writing and insist that the seller, who does have standing, resolve it before registration. If the seller cannot or will not, that itself is information about the transaction.",
+          "Where the conflict touches a prohibited entry, an acquisition, government land or an assigned-land restriction, the position needs the jurisdictional office and a lawyer, not just a portal screenshot. The [Encumbrance Certificate](/insights/encumbrance-certificates-explained-before-buying-land) and the title chain answer different parts of the story, and a conflict in the prohibited position should be read together with both.",
+        ],
+        table: {
+          caption:
+            "Common reasons the online record and the seller's papers disagree, and who is best placed to resolve each.",
+          columns: ["Conflict", "Typical cause", "Who resolves it"],
+          rows: [
+            ["Different subdivision or extent", "Old deed predating a subdivision, or a part-sale not deducted", "Recorded holder, through the correction or mutation process"],
+            ["Wrongly shown as government or acquired land", "A recording error or a partial acquisition", "Recorded holder, through the land-matters grievance route"],
+            ["Classification mismatch", "Agricultural converted to non-agricultural, or vice versa", "Recorded holder, through the change-of-land-nature process"],
+            ["Disputed survey number", "A court case or dispute over the parcel", "The parties and the competent authority, on a court order"],
+            ["Prohibited entry with no explanation", "Assigned land, trust or endowments interest, or a disputed inclusion", "Jurisdictional office and an independent property lawyer"],
+          ],
+        },
+        caution:
+          "Do not sign an indemnity, a waiver or an 'as-is' clause to paper over a recorded conflict. A recorded restriction is not cured by a private contract between buyer and seller.",
+      },
+      {
+        heading: "When to Involve the Registration and Revenue Office",
+        body: [
+          "There is a point where a portal search is no longer enough and a person at the counter is needed. If the parcel returns a prohibited entry, if an acquisition or government-land entry touches it, if a court case is recorded against the survey number, or if the record and the deed cannot be reconciled, take the question to the jurisdictional registration and revenue office.",
+          "Go prepared. Carry the search results you captured, the survey and subdivision numbers, the seller's deed and passbook details, and a short written summary of what you found and what you could not resolve. Ask specifically whether a document for this parcel can presently be registered, and whether any restriction is recorded against it. A clear spoken answer is useful, but a written note or an endorsement is better evidence for your file.",
+          "The registration and revenue offices are separate from each other and answer different questions. Registration concerns whether a document can be registered; revenue concerns the record of rights, the classification, mutations and land-matters grievances. A prohibited-property question can touch both, so do not assume one office's answer settles the other.",
+          "The Bhu Bharati FAQ also shows that the machinery for registration and record matters is increasingly integrated, with registration handled at the Tahsildar-cum-Joint Sub Registrar office and record corrections routed through defined modules. Knowing which office owns which question saves both time and wrong turns when a restriction has to be discussed.",
+        ],
+        caution:
+          "Front-desk guidance can vary between offices and change over time. Ask for the position in writing where the amount is significant, and have your lawyer review the answer before you rely on it.",
+      },
+      {
+        heading: "When to Bring in an Independent Property Lawyer",
+        body: [
+          "A lawyer is not optional when the prohibited position is unclear. The moment the check returns an entry, a conflict, an acquisition or a government-land question, an independent property lawyer should look at the whole file: the title chain, the passbook, the encumbrance, the classification and the sanctioned layout, with the prohibited search included.",
+          "The lawyer's value here is not the portal search itself, which any careful buyer can run. It is the judgement that follows: whether a restriction is a genuine bar to transfer, whether the recorded party has a viable remedy, whether a court matter changes the risk, and what a buyer should require as a condition before paying. That is a legal assessment, and it should be in writing.",
+          "Insist on an opinion that identifies what was reviewed, what was assumed and what remains open, and that is based on originals or certified copies rather than a broker's summary. Where the transaction involves non-resident buyers, the process questions add another layer, and the [NRI investment page](/nri-investment) sets out the wider context for overseas buyers who need local professional support.",
+          "The cost of an independent legal review on an open-plot purchase is small compared with the value at risk. Where a prohibited entry or a record conflict exists, treating the lawyer as optional is the most expensive shortcut a buyer can take.",
+        ],
+        caution:
+          "This article is general research, not legal advice. A lawyer's opinion on your specific parcel, documents and facts is what you should act on, not a general article or a portal result.",
+      },
+      {
+        heading: "A Pre-Purchase Prohibited-Property Checklist",
+        body: [
+          "Use this sequence to check the prohibited position as part of the wider diligence, close to the point of payment rather than months in advance. The order follows the way the checks inform each other.",
+        ],
+        checklist: [
+          "Get the exact district, mandal, revenue village, survey number, subdivision and extent from the seller's latest deed and passbook.",
+          "Convert all extents to one unit and confirm the deed, passbook and layout schedule agree before searching.",
+          "Open the prohibited-lands search from the official Bhu Bharati information services and select the correct district, mandal, division, village or town and SRO office.",
+          "Run the search for the exact survey number and subdivision, not a similar number or a neighbouring village.",
+          "Run the Bhu Bharati Land Details Search for the same parcel to see the recorded holder, classification, extent and khata.",
+          "Pull the Encumbrance and Registered Document Details to corroborate the transaction history.",
+          "Check the ROFR lands service and, where relevant, the CERSAI asset search if a lender or security interest is involved.",
+          "Record the date, the identifiers you entered and the exact results, and save a copy for your file.",
+          "If a prohibited entry, acquisition, government-land or court-case entry appears, stop and do not pay until it is explained in writing by the relevant office.",
+          "If the record and the deed conflict on survey, subdivision, extent or classification, ask the seller to reconcile it before registration.",
+          "Take the findings to the jurisdictional registration and revenue office and, where the position is unclear, to an independent property lawyer.",
+          "Re-run the prohibited search again close to registration, because the status can change between your first check and the closing.",
+        ],
+        caution:
+          "This checklist reduces risk; it does not remove it. Completing it does not mean the plot is clear, and a clean search is not a substitute for the title, approval, RERA and encumbrance checks.",
+      },
+      {
+        heading: "Warning Signs That the Check Is Being Avoided",
+        body: [
+          "How a seller responds to the prohibited-property question is as informative as the search result. A seller who welcomes the check is usually a seller with a clean file. A seller who deflects, rushes or supplies explanations instead of documents is telling you something about the risk you are being asked to carry.",
+        ],
+        drivers: [
+          "The seller insists the plot is 'government-approved' or 'clear' but will not share the survey and subdivision details for you to search.",
+          "You are told the prohibited check 'is not needed' or that 'everyone buys in this village without it'.",
+          "A screenshot is offered as proof of clearance, but no identifiers, date or source are shown, and it cannot be reproduced.",
+          "The survey number in the brochure or agreement differs from the one in the deed, and no document explains the link.",
+          "The seller offers to 'handle' a prohibited entry for a fee, or introduces an intermediary to get it removed.",
+          "An indemnity or 'as-is' clause is pressed on you to close over a recorded restriction.",
+          "The requested search result or record is always 'not available today' while you are asked to pay an advance.",
+          "The extent in the deed, passbook and layout do not agree, and the difference is waved away as a rounding matter.",
+          "Pressure is applied to register quickly, before your lawyer or the office can look at the position.",
+          "A positive or ambiguous history is disclosed only after the advance is paid.",
+        ],
+        caution:
+          "A delay in getting a clean answer is normal. A refusal to let you check is not. The buyer can always postpone, and postponing is cheaper than unwinding a payment.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers are general and reflect the official Bhu Bharati and Registration & Stamps pages as accessed on 20 October 2026. Confirm the current position for your exact parcel and obtain legal advice where the amount is significant.",
+        ],
+        faqs: [
+          {
+            question: "What is a prohibited property in Telangana?",
+            answer:
+              "It is a parcel that the state's land records flag as restricted from transfer while the position is unresolved. The reason can be assigned land, government land, an acquisition, a court dispute, an endowments or trust interest, or an inclusion the landowner disputes. The Registration & Stamps prohibited-properties search is titled around the Section 22A(1) Prohibition Details, which links the list to the registration law's prohibition mechanism.",
+          },
+          {
+            question: "How do I check whether a plot is on a prohibited list?",
+            answer:
+              "Open the prohibited-lands service from the official Bhu Bharati information services, which leads to the Registration & Stamps prohibited-properties search. Select the district, mandal, division, village or town and SRO office, and fetch the result for the exact survey number and subdivision. Also run the Bhu Bharati Land Details Search for the same parcel and record a dated copy of what you find.",
+          },
+          {
+            question: "If the search shows no entry, is the plot safe to buy?",
+            answer:
+              "No. An online search is not a title certificate and a no-match result is not a legal clearance. It only means the records you searched did not return a prohibition entry for those identifiers on that date. You still need the title chain, passbook, encumbrance, classification, layout approval and RERA checks, and the status can change between your search and registration.",
+          },
+          {
+            question: "Why must the survey number, subdivision and extent match exactly?",
+            answer:
+              "Because the record is keyed to the exact parcel. A different subdivision, a different extent or a similarly named village means you looked at different land, and the result says nothing about your plot. Match the district, mandal, village, survey number, subdivision, extent and boundaries across the deed, the passbook and the layout schedule before trusting any search result.",
+          },
+          {
+            question: "What should I do if the property appears on a prohibited list or the records conflict?",
+            answer:
+              "Stop and do not pay until the position is explained in writing. Ask the seller for the document behind the entry, take the question to the jurisdictional registration and revenue office, and have an independent property lawyer assess it. If the seller has a remedy through the prohibited-list grievance route, that is the seller's to pursue, and the outcome is not guaranteed.",
+          },
+          {
+            question: "Can I apply to remove a survey number from the prohibited list myself?",
+            answer:
+              "That route is generally for the recorded party with standing, not for a buyer who does not yet own the land. The Bhu Bharati FAQ describes a Grievance relating to prohibited properties list module for requesting removal, with a defined process flow, but it sets out the pathway rather than promising a result. Do not rely on getting an entry removed as a condition of your purchase.",
+          },
+          {
+            question:
+              "When should I involve the registration office and a lawyer?",
+            answer:
+              "Involve the jurisdictional registration and revenue office when the parcel returns a prohibited, acquisition or government-land entry, when a court case is recorded, or when the record and the deed cannot be reconciled. Involve an independent property lawyer whenever the position is unclear, because deciding whether a restriction actually bars the transfer and what to require before paying is a legal judgement, not a portal result.",
+          },
+          {
+            question: "Does a clean prohibited search guarantee I can register the plot?",
+            answer:
+              "No. Registrability depends on several factors, including the nature of the document, the identity and capacity of the parties, the payment of duty and fee, and other statutory checks. A clean prohibited search removes one known obstacle; it does not guarantee registration, and this article makes no promise about any particular transaction or project.",
+          },
+        ],
+      },
+      {
+        heading: "The Bottom Line",
+        body: [
+          "A prohibited-property check is a small, official, repeatable step that can prevent a large, avoidable loss. Search the exact parcel from the official Bhu Bharati and Registration & Stamps services, match the survey number, subdivision, village, mandal and extent to the seller's documents, and keep a dated record of what you find. If an entry or a conflict appears, stop and get it explained in writing.",
+          "Be equally clear about what the check is not. An online search is not a title certificate, and a no-match result is not a legal clearance. The prohibited position is one line in a longer diligence file that also holds the title chain, the encumbrance, the classification, the layout approval and the RERA status. Treat each as a separate question with a separate answer.",
+          "If you are buying an open plot in the Srisailam Highway corridor, including around Tukkuguda, Thummaloor and the wider Shankarpally belt, run this check on your exact survey number and subdivision as part of your own file. If you are considering [JB Harmony Woods](/projects/jb-harmony-woods), verify its records independently through the official portals and your lawyer; this article makes no claim that the project is affected by, or free of, any prohibited-property entry.",
+        ],
+        caution:
+          "This is general research, not legal, tax or investment advice. Prohibited-property records, classifications and project statuses change. Verify the current official position for your exact parcel and obtain independent legal advice before you pay.",
+      },
+    ],
+  },
+  {
+    slug: "telangana-property-registration-charges-open-plots",
+    title:
+      "Telangana Property Registration Charges: Stamp Duty, Registration Fees and Other Buying Costs",
+    seoTitle: "Telangana Registration Charges for Open Plots",
+    metaDescription:
+      "Understand Telangana stamp duty, transfer duty and registration fees for open plots, how the chargeable value is decided, and the extra costs buyers often miss.",
+    excerpt:
+      "Stamp duty, transfer duty and registration fee are three separate levies, and they add up. Here is how the official rates work for an open-plot sale deed, how the chargeable value is picked, and what else lands on the final bill.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/telangana-property-registration-charges-open-plots.jpg",
+    imageAlt:
+      "Telangana property registration charges and stamp duty guide for open-plot buyers - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        heading: "What 'Registration Charges' Actually Means",
+        body: [
+          "Buyers usually say 'registration charges' as if it were one number. In Telangana it is a bundle of separate government levies: stamp duty, transfer duty in some areas, and the registration fee. Each is calculated on a value decided by the Registration and Stamps Department, and each is paid to a different head even though it all appears in one payment flow at the SRO.",
+          "This guide covers the government charges on a normal open-plot purchase. It does not cover the licence-fee or betterment side of buying into a layout, and it does not repeat the title, approval or RERA work that should happen before you register. Those are separate exercises. The stamp-duty article maintained for [NRI buyers](/insights/nri-buying-property-india-registration-stamp-duty) looks at the process from an overseas buyer's angle; this one is the general cost breakdown on the ground.",
+          "Two of those separate exercises matter because they change what the registration means. If the seller's title link is broken, a correctly stamped deed still carries a defective title, and our guide to the [sale deed and link documents in Telangana](/insights/sale-deed-link-documents-title-chain-telangana) explains how the chain is assembled. If the layout itself is not properly approved, the plot's buildability is a separate question from its registration cost, which is why the [HMDA and DTCP plot-approval checklist](/insights/hmda-dtcp-plot-approval-checklist-hyderabad) sits beside the cost work rather than inside it.",
+          "Two things surprise first-time buyers. First, the chargeable value is not automatically your negotiated price. Second, the headline percentage is not the whole cost. Other government and documentation charges still apply. Read the rate and the value rule together, or the estimate will be wrong even when the percentage is right.",
+        ],
+        caution:
+          "Rates, slabs and chargeable-value rules change. The figures here reflect the official Ready Reckoner and Duty Fee Calculator as accessed on 20 October 2026. Always confirm the current rate for your exact deed and locality before you budget or pay.",
+        sources: [
+          {
+            label:
+              "Ready Reckoner (Stamp, Transfer Duty, Registration Fee): published rate table used by the department, including Sale Deed in other areas and in Gram Panchayat",
+            publisher: "Registration & Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/resources/json/READY_RECKONER_MASTER.json",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Telangana Registration & Stamps home: Duty Fee Calculator and the Ready Reckoner panel showing stamp duty, transfer duty, registration fee and chargeable value",
+            publisher: "Registration & Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "The Official Rates for a Sale Deed",
+        body: [
+          "The department publishes a Ready Reckoner that lists the stamp duty, transfer duty and registration fee for each kind of document. For an open plot sold through a normal sale deed, the rates depend mainly on whether the property falls in a Gram Panchayat or in any other area, such as a municipality, municipal corporation or urban development authority area.",
+          "In both cases the combined government charge works out to about 7.5% of the chargeable value, but the split is different. Outside Gram Panchayat areas you pay 5.5% stamp duty, 1.5% transfer duty and 0.5% registration fee. Inside a Gram Panchayat the transfer duty is not charged separately, and the 2% registration fee replaces it. That is the single most common source of confusion when two buyers compare notes and get different totals.",
+        ],
+        table: {
+          caption:
+            "Official rates for a normal sale deed of an open plot, as listed in the department's Ready Reckoner. The combined total is similar; the components differ.",
+          columns: ["Component", "Outside Gram Panchayat", "In Gram Panchayat"],
+          rows: [
+            ["Stamp duty", "5.50%", "5.50%"],
+            ["Transfer duty", "1.50%", "Not charged separately"],
+            ["Registration fee", "0.50%", "2.00%"],
+            ["Combined government charge", "7.50%", "7.50%"],
+            ["Chargeable value", "Market value or consideration, whichever is higher", "Market value or consideration, whichever is higher"],
+          ],
+        },
+        caution:
+          "The labels 'urban' and 'rural' are casually used in the market. The department's test is the area category and the Nature of Deed you select. Do not assume the split from the pin code alone; confirm it on the calculator for the exact locality.",
+        sources: [
+          {
+            label:
+              "Ready Reckoner: Sale Deed (in other areas) at 5.50% stamp duty, 1.50% transfer duty and 0.50% registration fee; Sale Deed (in Gram Panchayath) at 5.50% stamp duty and 2.00% registration fee",
+            publisher: "Registration & Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/resources/json/READY_RECKONER_MASTER.json",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "How the Chargeable Value Is Decided",
+        body: [
+          "The Ready Reckoner states the chargeable value plainly: market value or consideration, whichever is higher. In day-to-day terms, that is the government's assessed value for the property and the price you actually agreed to pay. The department charges on the larger of the two, so a below-market agreement value does not reduce the duty.",
+          "This is why an older registration copy's rupee total can look much smaller than today's bill on a similar plot. The percentage may be the same, but the government market value for the locality has moved. A rise in the assessed value raises the duty even when the rate is unchanged, which is exactly what happened across parts of Telangana after the 2026 upward revision of market values.",
+          "The value is tied to the exact location: district, mandal, village, habitation or locality, and for some property types the ward or block and even the road. Two plots in the same village can sit in different value bands. When you estimate, do not borrow a neighbour's figure unless the locality and band are the same. Run the plot's own details.",
+        ],
+        table: {
+          caption:
+            "The number that duty is actually charged on is the higher of these. Do not budget from the agreement value alone.",
+          columns: ["Input", "What it is", "Effect on the bill"],
+          rows: [
+            ["Government market value", "The department's assessed value for the specific locality and band", "If it is higher than your price, duty is charged on it"],
+            ["Consideration value", "The price stated in the sale agreement", "Only used if it is higher than the government value"],
+            ["Locality and band", "District, mandal, village, habitation, and ward or block where applicable", "Moves the government value up or down even within one village"],
+          ],
+        },
+        caution:
+          "Recording a lower agreement value to reduce stamp duty does not work when the government value is higher, and understatement can create its own legal and tax problems. Price the transaction honestly and budget the duty on the higher figure.",
+      },
+      {
+        heading: "A Worked Example on a Rs 1 Crore Open Plot",
+        body: [
+          "Take an open plot outside a Gram Panchayat with a chargeable value of Rs 1 crore, assuming the government market value is not higher. Applying the official rates gives 5.5% stamp duty, 1.5% transfer duty and 0.5% registration fee. That is the structure most buyers in urban and peri-urban Telangana will meet.",
+          "The same logic runs the other way inside a Gram Panchayat. The total stays near 7.5%, but it arrives as 5.5% stamp duty plus a 2% registration fee, with no separate transfer duty. The next table keeps the two patterns side by side so the arithmetic is not mixed up.",
+        ],
+        table: {
+          caption:
+            "Illustrative calculation on a Rs 1,00,00,000 chargeable value. Replace the value with your own plot's assessed figure for a realistic estimate.",
+          columns: ["Component", "Rate", "Amount outside Gram Panchayat", "Amount in Gram Panchayat"],
+          rows: [
+            ["Stamp duty", "5.50%", "Rs 55,00,000", "Rs 55,00,000"],
+            ["Transfer duty", "1.50% / nil", "Rs 15,00,000", "Not charged separately"],
+            ["Registration fee", "0.50% / 2.00%", "Rs 5,00,000", "Rs 20,00,000"],
+            ["Combined government charge", "~7.50%", "Rs 75,00,000", "Rs 75,00,000"],
+          ],
+        },
+        caution:
+          "This example is deliberately round and illustrative. Your actual bill depends on the government market value for the exact locality, the Nature of Deed, and any applicable caps or concessions. Confirm with the Duty Fee Calculator and, where the amount is large, a document writer or lawyer.",
+      },
+      {
+        heading: "Other Charges People Forget",
+        body: [
+          "Stamp duty, transfer duty and registration fee are not the only money that leaves your account. Registration is a paperwork-intensive process, and several smaller government and professional charges sit around it. None of them is large on its own, but together they move the total well past the headline rate.",
+          "Some of these are fixed or small user charges, some are professional fees, and some depend on the flat or plot. Keep them in a separate line in your budget rather than folding them into the 7.5% figure, because they do not scale with value the same way and a few of them apply even on a low-value deed.",
+        ],
+        table: {
+          caption:
+            "A practical budget should separate the three statutory levies from these supporting costs. Amounts vary by office, document and professional.",
+          columns: ["Cost head", "Typically applies to", "Notes"],
+          rows: [
+            ["Document writing / drafting", "Preparation of the sale deed", "Professional fee, varies by document writer and complexity"],
+            ["Scanning and user charges", "Registration at the SRO", "Small official charges at the time of registration"],
+            ["Encumbrance Certificate", "Verifying the title link before closing", "Per-year or per-period fee; needed before purchase, not only at registration"],
+            ["Certified copies", "Earlier deeds and link documents", "Keep originals; certified copies for the file can add small costs"],
+            ["Mutation after registration", "Updating revenue records in your name", "Separate from registration; confirm the current process and fee"],
+            ["Legal and due-diligence fee", "Title and document review", "Independent lawyer's charge, not a government levy"],
+            ["Stamp-vendor or franking", "Where physical stamp paper is used", "Follow the current departmental route; avoid unofficial intermediaries"],
+          ],
+        },
+        caution:
+          "Do not treat this list as a quotation. Ask your document writer or lawyer for a written, itemised estimate so that a late surprise does not appear on the day of registration.",
+        sources: [
+          {
+            label:
+              "Telangana Registration & Stamps: Fees page for registration-related fees and charges",
+            publisher: "Registration & Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/RegistrationFees.htm",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Encumbrance Certificate guidance for verifying a property's transaction history before purchase",
+            publisher: "Arjun Realty Insights",
+            url: "/insights/encumbrance-certificates-explained-before-buying-land",
+            date: "Internal guide",
+          },
+        ],
+      },
+      {
+        heading: "Urban and Gram Panchayat: Why the Split Differs",
+        body: [
+          "The combined charge is close to 7.5% either way, so why does the split matter? Because the components go to different heads and can behave differently when the rules, caps or concessions change. Transfer duty is associated with the local body in areas outside Gram Panchayats, while the higher registration fee in Gram Panchayat areas stands in for it. A future change to one component does not automatically change the other.",
+          "It also matters because a plot on the edge of a growing corridor can be reclassified as the municipality or corporation expands. A layout registered years ago as Gram Panchayat may now sit inside a municipal or urban development authority area, or vice versa, and the split follows the current classification. Confirm the present category rather than relying on what an old sale deed or brochure printed.",
+          "For buyers in the Srisailam Highway belt, this is a live question. Villages around Tukkuguda, Raviryal, Thummaloor and similar growth pockets can sit in different administrative categories, and the category drives which components appear on the bill. The official calculator resolves it for the chosen locality, so use it rather than comparing across villages.",
+        ],
+        caution:
+          "Administrative boundaries and value bands change over time. A rate or split you were told last year may no longer apply. Re-run the official calculator for the plot you are actually buying.",
+      },
+      {
+        heading: "Gift, Partition, Mortgage and GPA Are Priced Differently",
+        body: [
+          "A sale deed is the common case, but not the only one. The Ready Reckoner prices each document separately, and the differences are large enough that treating everything as a 'sale' will badly misestimate the cost. Gift, partition, mortgage and power of attorney deeds each carry their own stamp duty, transfer duty and registration fee, and some carry caps or minimums.",
+          "The chargeable value can also change with the document. A gift is charged on the market value of the property, mortgage deeds on the mortgage or MOU amount, and partition on the value of the separated share. The value basis is listed alongside the rate, so read both columns before you estimate.",
+          "If your transaction is not a plain sale, confirm the exact document description, the relationship between the parties where relevant, and the caps, because the same broad category can split into family and non-family or Gram Panchayat and other-area rows with different numbers.",
+        ],
+        table: {
+          caption:
+            "Selected official rates for common documents, as listed in the Ready Reckoner. Caps and minimums apply as shown; confirm the exact row for your deed.",
+          columns: ["Document", "Stamp duty", "Transfer duty", "Registration fee"],
+          rows: [
+            ["Sale Deed (outside Gram Panchayat)", "5.50%", "1.50%", "0.50%"],
+            ["Sale Deed (Gram Panchayat)", "5.50%", "Nil", "2.00%"],
+            ["Sale agreement with possession", "5.50% (adjustable)", "Nil", "0.5%, min Rs 1,000, max Rs 50,000"],
+            ["Sale agreement without possession", "0.50% (not adjustable)", "Nil", "0.5%, min Rs 1,000, max Rs 50,000"],
+            ["Conveyance", "5.00%", "Nil", "0.50%"],
+            ["Gift to family member (outside Gram Panchayat)", "2.00%", "0.50%", "0.5%, min Rs 2,000, max Rs 25,000"],
+            ["Gift to non-family member (outside Gram Panchayat)", "5.00%", "1.50%", "0.5%, min Rs 2,000, max Rs 1,00,000"],
+            ["Partition among family members", "0.50%, max Rs 1,00,000", "Nil", "Rs 2,000"],
+            ["Partition outside family", "2.50%", "Nil", "0.5%, min Rs 2,000, max Rs 1,00,000"],
+            ["Mortgage without possession", "0.50%", "Nil", "0.10%"],
+            ["General Power of Attorney (family, to sell)", "Rs 1,000", "Nil", "0.5%, min Rs 2,000, max Rs 20,000"],
+            ["General Power of Attorney (outsider, to sell)", "1.00%", "Nil", "0.5%, min Rs 5,000, max Rs 1,00,000"],
+          ],
+        },
+        caution:
+          "This table is a selection, not the whole Ready Reckoner. There are additional rows for deposit of title deeds, exchange, special power of attorney and government transfers. Match your document to the exact row and read the caps and value basis before budgeting.",
+        sources: [
+          {
+            label:
+              "Ready Reckoner master list: rates for Sale, Gift, Mortgage, General Power of Attorney, Special Power of Attorney, Exchange, Partition and more",
+            publisher: "Registration & Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/resources/json/READY_RECKONER_MASTER.json",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Using the Official Duty Fee Calculator Correctly",
+        body: [
+          "The safest estimate comes from the department's own Duty Fee Calculator, not from a blog, a broker's rough rule or a third-party website. The calculator asks for the district, mandal, village and habitation or locality, the Nature of Deed and sub-deed, the consideration value, and the property details such as property type and extent.",
+          "Getting the Nature of Deed right is the step that most changes the answer. Selecting 'Sale' returns a list of sub-deeds such as Sale Deed, Sale Agreement With Possession, Sale Agreement Without Possession and Conveyance, and each carries a different rate. Picking 'Sale' alone is not enough; pick the exact sub-deed that matches the document you will register.",
+          "For an open plot, select the vacant-land property type. An apartment or building on the same land is priced as a structure, not as vacant land, so a plot with construction will not match a bare-plot calculation. If the site has a building, the cost basis changes and the estimate must use the property type that reflects what is actually being conveyed.",
+          "Record what you entered and the result, including the date. That saved calculation is far more useful than a memory of 'about 7 per cent', and it gives your lawyer or document writer a concrete figure to sanity-check when the SRO issues the final demand.",
+        ],
+        caution:
+          "The calculator is a departmental tool for estimating duty and fee. It does not verify title, approval or your identity as a buyer. Use it for the cost estimate, and keep the title and approval checks separate.",
+        sources: [
+          {
+            label:
+              "Duty Fee Calculator: district, mandal, village, habitation, Nature of Deed and sub-deed, consideration value and property details",
+            publisher: "Registration & Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/DutyFeeCalculator.htm",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Bhu Bharati registration charges calculator: official state portal calculator for registration charges",
+            publisher: "Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/registrationChrgCal",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "A Pre-Registration Cost Checklist",
+        body: [
+          "Use this list to build the budget before you reach the SRO, and to separate government levies from professional and process costs. The order follows the way the bill is actually assembled.",
+        ],
+        checklist: [
+          "Confirm whether the plot is in a Gram Panchayat or in another area, using the official calculator for the exact locality.",
+          "Confirm the exact Nature of Deed and sub-deed that matches the document you will register, not a generic 'sale'.",
+          "Find the government market value for the exact district, mandal, village, habitation and, where applicable, ward or block.",
+          "Compare the government value with your consideration value and budget on the higher of the two.",
+          "Apply the correct stamp duty, transfer duty and registration fee split for that area category.",
+          "Check any cap or minimum that applies to your deed, especially for agreements, gifts, partitions and powers of attorney.",
+          "Add document drafting or writing charges, scanning and user charges, and stamp-vendor or franking costs.",
+          "Add Encumbrance Certificate and certified-copy costs for the due-diligence file.",
+          "Budget for mutation after registration as a separate item.",
+          "Keep legal and due-diligence fees separate from the statutory levies.",
+          "Get a written, itemised estimate from your document writer or lawyer before the appointment.",
+          "Save a dated copy of the official calculator result and all payment receipts.",
+        ],
+      },
+      {
+        heading: "Warning Signs in a Cost Estimate",
+        body: [
+          "A cost estimate is a promise about money, so treat loose numbers as a warning rather than a convenience. These are the claims that most often hide an under-estimate or an assumption that does not apply to your plot.",
+        ],
+        drivers: [
+          "The seller or agent quotes a single 'all-inclusive' percentage without separating stamp duty, transfer duty and registration fee.",
+          "The estimate is based on the agreement value while the government market value for the locality is higher.",
+          "A Gram Panchayat plot is priced using the urban split, or vice versa, without checking the area category.",
+          "The Nature of Deed is left as a generic 'sale' instead of the exact sub-deed being registered.",
+          "A bare-plot rate is applied to a plot that already has a building or structure.",
+          "Caps and minimums for agreements, gifts or partitions are ignored, so the estimate is too low or too high.",
+          "Document writing, scanning, EC, certified copies and mutation are described as 'included' but never itemised.",
+          "A flat rupee figure is quoted with no date or locality, so it cannot be verified against the current calculator.",
+          "The quote depends on recording a value below the government market value to 'save' duty.",
+          "Payment is requested before any written document or official estimate is shared.",
+        ],
+        caution:
+          "An under-estimate is not always a lie; it can come from an honest but wrong assumption. Ask for the working, check the area category and value basis, and correct the assumption before you commit funds.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers are general and reflect the official rate table and calculator as accessed on 20 October 2026. Confirm the current position for your exact deed and locality.",
+        ],
+        faqs: [
+          {
+            question: "What is the total registration charge for an open plot in Telangana?",
+            answer:
+              "For a normal sale deed it works out to about 7.5% of the chargeable value. Outside a Gram Panchayat that is 5.5% stamp duty, 1.5% transfer duty and 0.5% registration fee. Inside a Gram Panchayat it is 5.5% stamp duty and a 2% registration fee, with no separate transfer duty. The combined total is similar, but the components differ.",
+          },
+          {
+            question: "Is stamp duty charged on the sale price or the government value?",
+            answer:
+              "On whichever is higher. The Ready Reckoner describes the chargeable value as market value or consideration, whichever is higher. If the government's assessed market value for the locality exceeds your agreed price, the duty is charged on the government value, so a lower agreement value does not reduce the bill.",
+          },
+          {
+            question: "Why do some people quote 6% and others 7.5% for Telangana?",
+            answer:
+              "The two figures usually come from mixing up the split or the area category. The official Ready Reckoner lists a normal sale deed at 5.5% stamp duty plus 1.5% transfer duty plus 0.5% registration fee outside Gram Panchayats, and 5.5% stamp duty plus a 2% registration fee inside them. Both total about 7.5%. Confirm the current rates and the area category for your exact locality rather than using a single rounded number.",
+          },
+          {
+            question: "Does the registration fee have a cap?",
+            answer:
+              "Some documents carry caps or minimums; a plain sale deed outside a Gram Panchayat is listed at 0.5% with no cap shown in the rate table, while sale agreements, gifts, partitions and powers of attorney list minimum and maximum amounts. Check the exact row for your document, because the caps and minimums differ by deed.",
+          },
+          {
+            question: "How do I calculate the charges for my plot?",
+            answer:
+              "Use the department's Duty Fee Calculator. Enter the district, mandal, village and habitation or locality, choose the exact Nature of Deed and sub-deed, enter the consideration value and the property details, and use the vacant-land type for a bare plot. Save the dated result. The Bhu Bharati registration charges calculator is an additional official tool you can cross-check with.",
+          },
+          {
+            question: "Are gift, partition and mortgage deeds charged the same as a sale?",
+            answer:
+              "No. Each document has its own row in the Ready Reckoner with different stamp duty, transfer duty and registration fee, and some have caps or minimums. The chargeable value basis also changes: a gift is charged on market value, a mortgage on the mortgage or MOU amount, and a partition on the value of the separated share. Match your document to the exact row.",
+          },
+          {
+            question: "What extra costs should I budget beyond the three levies?",
+            answer:
+              "Budget separately for document writing or drafting, scanning and user charges, stamp-vendor or franking costs, Encumbrance Certificate and certified copies, mutation after registration, and legal or due-diligence fees. Ask for a written, itemised estimate so these do not appear as a surprise on the day of registration.",
+          },
+          {
+            question: "Do these government charges guarantee a clear title?",
+            answer:
+              "No. Stamp duty, transfer duty and registration fee are taxes and fees for registering a document. Paying them does not verify the seller's title, the link documents, the mortgage position, the survey boundaries or the approvals. Keep the title, EC and approval checks separate from the cost estimate.",
+          },
+        ],
+      },
+      {
+        heading: "The Bottom Line",
+        body: [
+          "Registration cost is three levies on a value the department decides, not one percentage on the price in your head. Get the area category, the Nature of Deed and the chargeable value right, and the arithmetic follows. For a normal open-plot sale deed that lands near 7.5% of the chargeable value, split as 5.5% plus 1.5% plus 0.5% outside Gram Panchayats or 5.5% plus 2% inside them.",
+          "Then budget the rest honestly. Document writing, scanning, EC, certified copies, mutation and professional fees are real costs and should be itemised rather than hidden inside a rounded rate. A buyer who separates the statutory levies from the supporting costs and checks the official calculator has a far better grip on the final number.",
+          "If you are buying in the Srisailam Highway corridor, including around Tukkuguda, Raviryal and Thummaloor, apply the same method to your exact village and locality before you commit. If you are considering [JB Harmony Woods](/projects/jb-harmony-woods), use its actual locality and document details in the official calculator; this article makes no claim about current rates, values or approval status for any specific project.",
+        ],
+        caution:
+          "This is general research, not legal, tax or investment advice. Rates, market values, caps and area classifications change. Verify the current official rate and chargeable value for your exact deed and locality, and obtain independent advice before you pay.",
+      },
+    ],
+  },
+  {
+    slug: "lake-ftl-buffer-zone-checklist-hyderabad",
+    title:
+      "Lake FTL and Buffer Zones in Hyderabad: What Open-Plot Buyers Must Check",
+    seoTitle: "Lake FTL & Buffer Zone Checklist Hyderabad",
+    metaDescription:
+      "Check lake FTL and buffer-zone risk before buying an open plot in Hyderabad. Read notifications, maps, survey numbers, nalas and layout documents.",
+    excerpt:
+      "A plot can look far from water in a brochure and still sit inside a mapped FTL or buffer. This guide separates lake notifications, maps, survey boundaries and layout approvals before you pay.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/lake-ftl-buffer-zone-checklist-hyderabad.jpg",
+    imageAlt:
+      "Lake FTL and buffer zone verification checklist for Hyderabad open-plot buyers - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    showToc: true,
+    sections: [
+      {
+        heading: "A Lake View Is Not the Legal Test",
+        body: [
+          "An open plot can be marketed as lake-facing, lake-adjacent or simply far from water, while the important question remains unanswered: where does the legally relevant water-body boundary fall in relation to the exact survey number and plot? A pleasant view, a compound wall and a seller's assurance do not answer that question. The answer sits in official maps, notifications, survey records and the conditions attached to the layout.",
+          "Two different ideas are often mixed together. The Full Tank Level, or FTL, is the level a lake or tank reaches when full. The buffer zone is a protected margin around the water body. A property may be outside the water spread but inside a buffer, or inside a mapped FTL on paper while the land is privately owned. Those are not the same legal or practical problem, and a single distance quoted in a sales conversation cannot resolve either.",
+          "This guide is a document-first screening process for open-plot buyers in Hyderabad and surrounding districts. It does not certify that a particular plot is safe, buildable or legally clear. It shows how to identify the relevant water body, read the official record, compare it with the layout and sale documents, and decide when a written clarification, licensed surveyor or property lawyer is necessary.",
+        ],
+        caution:
+          "Do not buy, book or pay a token amount on the strength of a brochure, a Google pin, a seller's statement or a general web search. Those may help you find the right question, but they do not establish the legal status of a specific plot.",
+        sources: [
+          {
+            label:
+              "HYDRAA FAQs: definitions of Full Tank Level and buffer zone, GO Ms No. 168 summary, FTL map and demarcation responsibility",
+            publisher: "Government of Telangana",
+            url: "https://hydraa.telangana.gov.in/faqs",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "HYDRAA Asset Protection Wing: protection of lakes, nalas and public lands, FTL boundary rules and links to the HMDA Lakes Portal and Bhu Bharati",
+            publisher: "Government of Telangana",
+            url: "https://hydraa.telangana.gov.in/functions/asset-protection",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "FTL and Buffer Zone in Plain Language",
+        body: [
+          "HYDRAA's FAQ describes the FTL as the maximum water level a lake, tank or water body can reach, marking the highest point of water storage and an important boundary for development. It says FTL boundaries are formally surveyed and demarcated by the Irrigation Department, using hydrological parameters such as the weir level and sluice level. That is why a line drawn on a marketing map is not a substitute for the official demarcation.",
+          "The same FAQ says FTL areas can contain both government land and private land, and that private land inside an FTL is commonly called Shikam land. Owners may cultivate such land when it is not submerged. This is a critical distinction for buyers: private ownership or a patta does not, by itself, permit a residential layout, building or sale as a normal open plot. Ownership, planning permission and water-body restrictions are separate questions.",
+          "A buffer zone is the protected area around a water body. HYDRAA's FAQ says it helps preserve water quality, biodiversity and ecological balance, and its asset-protection page describes buffers as part of flood prevention and urban planning. The FAQ lists general limits of 30 metres for lakes of 10 hectares or more, 9 metres for lakes below 10 hectares, 9 metres for drains wider than 10 metres and 2 metres for drains up to 10 metres wide. The asset-protection page separately lists a 15-metre buffer for rivers and canals.",
+          "Those figures are a useful screening guide, not a universal answer. The applicable distance can depend on the specific water body, its classification and size, the governing order, the official demarcation and the current notification. A plot 35 metres from one lake may be outside its buffer, while a plot 35 metres from another water body may not be. Ask for the property-specific position rather than applying a number copied from a poster or social-media post.",
+          "The FAQ also summarises GO Ms No. 168 as restricting building and development within lake beds, river beds, nalas and FTL boundaries unless specifically permitted under applicable regulations. The precise permission position depends on the water body, the proposal and the current order. For a buyer, the practical point is that an approved layout, a patta or a registered sale deed does not erase a separate water-body restriction.",
+        ],
+        table: {
+          caption:
+            "These terms describe different checks. None of them, alone, is a title certificate or a building permission for your plot.",
+          columns: ["Term or record", "What it broadly means", "What it does not establish"],
+          rows: [
+            [
+              "Full Tank Level (FTL)",
+              "The maximum water level and boundary of the water body, as officially surveyed and demarcated",
+              "That land outside it is title-clear, approved or free of drainage risk",
+            ],
+            [
+              "Buffer zone",
+              "A protected margin around a water body, with limits that depend on the water body and governing order",
+              "A universal setback for every plot or a substitute for official demarcation",
+            ],
+            [
+              "Preliminary notification",
+              "An earlier published stage identifying a lake and related boundary information",
+              "That the notification is final or that a specific plot's legal status is settled",
+            ],
+            [
+              "Final notification",
+              "A later stage in the notification record",
+              "Ownership, layout approval, access or buildability of a particular plot",
+            ],
+          ],
+        },
+        caution:
+          "Treat 30 metres, 9 metres, 2 metres and 15 metres as published general limits to investigate, not as a survey result for your plot. The specific water body, order, map and demarcation control the answer.",
+        sources: [
+          {
+            label:
+              "HYDRAA FAQs: FTL meaning, private land and Shikam land, GO Ms No. 168 summary, buffer norms, FTL maps and Irrigation Department demarcation",
+            publisher: "Government of Telangana",
+            url: "https://hydraa.telangana.gov.in/faqs",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "HYDRAA Asset Protection Wing: FTL boundary rules, buffer figures and conservation directives",
+            publisher: "Government of Telangana",
+            url: "https://hydraa.telangana.gov.in/functions/asset-protection",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "A Preliminary Notification Is Not a Final Notification",
+        body: [
+          "The HMDA Lakes Portal is a good place to start because it separates preliminary and final notification information. Its table shows the district, mandal, village, lake name and lake ID, followed by the date of preliminary notification, date of final notification, links to FTL and cadastral maps, and a link for survey numbers and area affected in the FTL and buffer zone. It also provides filters for all, preliminary and final records.",
+          "Read those columns literally. A lake can appear with a preliminary notification date and a blank final notification date. That blank is not a final approval and it is not proof that the lake was forgotten. It means the portal is not showing a final notification date for that record at the time you checked. Do not describe a preliminary notification as final, and do not assume that a property is clear because a particular list, map or portal page does not mention it.",
+          "HMDA's Lake Protection Committee page adds institutional context. It lists the committee constituted under GO Ms No. 157 dated 6 April 2010, chaired by the Metropolitan Commissioner, HMDA, along with later GOs dated 24 April 2021 and 8 March 2022. It also publishes lists of identified and newly identified lakes, minutes of meetings, notified lakes, and preliminary notifications in phases inside and outside the Outer Ring Road. Those materials are useful for locating the official record; they do not replace a property-specific legal opinion.",
+          "Notification records and maps also change. A portal entry may be updated, a boundary may be refined, a survey number may be shown differently, or a water body may be outside the particular list you searched. Save a dated copy of what you see, note the lake ID and notification dates, and ask the competent authority to confirm the current position for the exact survey number and plot. A general web page cannot conclusively establish the legal status of a specific property.",
+        ],
+        table: {
+          caption:
+            "Use the official record to establish what stage the water-body record has reached, then keep the property-level questions separate.",
+          columns: ["Record", "What it can help you do", "What you still need"],
+          rows: [
+            [
+              "Preliminary notification entry",
+              "Identify the lake, its location and the published preliminary information",
+              "The current stage, final notification status, official FTL/buffer demarcation and parcel-level advice",
+            ],
+            [
+              "Final notification entry",
+              "Confirm that a later notification stage is recorded for that lake",
+              "The current map, survey numbers affected, layout conditions and a property-specific legal check",
+            ],
+            [
+              "HMDA FTL or cadastral map",
+              "See the mapped water body and compare its general shape with the plot location",
+              "Certified demarcation, boundary coordinates and a surveyor's location of the exact plot",
+            ],
+            [
+              "HMDA Lake Protection Committee page",
+              "Find the committee framework, notified-lake lists, minutes and phase-wise notifications",
+              "A written response for your survey number and the current status of the specific lake",
+            ],
+          ],
+        },
+        caution:
+          "Do not equate a preliminary notification with a final one, and do not treat the absence of an entry in one portal view as a clearance. Search the correct district, mandal, village, lake name and survey number, then verify with the authority.",
+        sources: [
+          {
+            label:
+              "HMDA Lakes Portal: preliminary and final notification filters, notification dates, FTL and cadastral links, and survey numbers and area affected in FTL and buffer zone",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://lakes.hmda.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "HMDA Lake Protection Committee: GO Ms No. 157 dated 6 April 2010, later GOs, identified and notified lakes, minutes and phase-wise preliminary notifications",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/lake-protection-committee/",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Identify the Water Body, Map and Survey Number",
+        body: [
+          "Start with the land description, not the project name. From the sale deed and revenue record, write down the village, mandal, district, survey number, subdivision, extent and the plot's boundaries. Then search the HMDA Lakes Portal using the district, mandal or circle, village and lake name, and note the lake ID. If the water body is a small kunta or a local drain, it may not appear under the name used in the brochure, so search by location and ask the local authority for the official name.",
+          "Open the FTL and cadastral links, and look for the survey number and area shown as affected in the FTL and buffer zone. A match is a reason to stop and investigate. A non-match is not a clearance: the portal may use a different survey number, a subdivision may not be reflected, the map may be general, the relevant water body may sit outside the HMDA list, or the plot may be affected by a nala or drain that is not part of the lake record.",
+          "Our guide to [survey numbers and plot boundaries](/insights/verify-survey-number-plot-boundaries-telangana) explains why the same parcel can carry different survey, subdivision and plot references. A licensed surveyor can locate the plot's coordinates and boundaries on the ground and prepare a drawing to compare with the official map. That is a technical measurement exercise; it is not a legal opinion on title, notification or permissible use.",
+          "If the plot is in a layout, also compare the layout's boundary and internal roads with the water-body map. A road, park or plot shown next to a lake in the layout may be outside the FTL on paper but inside a buffer, or it may sit on a drainage channel that the lake map does not show. The comparison has to be done at the same scale and with the same landmarks, not by holding a brochure next to a phone screenshot.",
+        ],
+        caution:
+          "A portal map is a screening tool. Ask for the official FTL/buffer extract or a written clarification for the exact survey number, and have a licensed surveyor locate the plot before treating the map as conclusive.",
+        sources: [
+          {
+            label:
+              "HMDA Lakes Portal: lake search by district, mandal and village; FTL, cadastral and buffer-zone information",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://lakes.hmda.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Bhu Bharati information services: land details, prohibited lands, encumbrance details and registered document details",
+            publisher: "Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/homePage?lang=en",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Compare the Map With the Layout and Sale Documents",
+        body: [
+          "An approved layout is a planning permission, not a water-body clearance. Read the layout's title block, approval number, conditions and sanctioned drawing, then compare the plot number, survey number, boundaries, roads and reservations with the lake record. The layout may have been approved subject to an NOC, a buffer condition or a restriction that is not visible in the sales brochure. Our guide to [reading an approved plot layout](/insights/how-to-read-approved-plot-layout-plan-telangana) shows where those conditions usually appear.",
+          "The approval route also matters because HMDA, DTCP and other planning authorities keep different records and may attach different conditions. Our [HMDA and DTCP plot-approval checklist](/insights/hmda-dtcp-plot-approval-checklist-hyderabad) explains how to identify the authority and the documents to request. Use it to establish the planning record; it does not decide whether the plot is inside an FTL or buffer.",
+          "The sale deed should describe the same plot, survey number, extent and boundaries as the layout and the revenue record. Read the property schedule and the chain of documents, not only the current seller's name. Our guide to [sale deeds and title chains](/insights/sale-deed-link-documents-title-chain-telangana) explains how a boundary recital or survey reference can drift between documents.",
+          "The Encumbrance Certificate answers a separate question: which registered transactions and charges were indexed for the property and period searched. It can show a mortgage or a registered transaction, but it does not show an FTL, a buffer or a lake notification. Read the [Encumbrance Certificate guide](/insights/encumbrance-certificates-explained-before-buying-land) so that a clean EC is not mistaken for a water-body clearance.",
+          "Bhu Bharati is the Revenue Department's official land-records portal. Its information services include land details, prohibited lands, encumbrance details and registered document details. Use it to match the survey number, patta and revenue record; do not treat a Bhu Bharati entry as a lake-notification map or a legal certificate that the plot is outside an FTL or buffer.",
+          "NALA conversion is yet another layer. It concerns the revenue classification of agricultural land for non-agricultural use; it does not approve a layout, fix an FTL or remove a buffer restriction. Our [NALA conversion guide](/insights/nala-conversion-land-use-checklist-telangana) explains why a conversion order and a water-body clearance are separate documents.",
+          "The practical test is consistency across four columns: the lake record, the layout, the sale and revenue documents, and the ground. If one column says the plot is outside the buffer and another shows an overlap, do not average the answers or choose the most convenient one. Resolve the difference in writing before paying.",
+        ],
+        caution:
+          "An approved layout, a registered sale deed, a clean EC and a Bhu Bharati entry can all be genuine while a separate FTL, buffer or nala issue remains. Do not use one document to answer a question it was never designed to answer.",
+      },
+      {
+        heading: "Nalas, Drainage Channels, Government Land and Access",
+        body: [
+          "A water-body check is not only a lake check. Nalas, vagu, stormwater drains and drainage channels can cross or border a layout, and HYDRAA's FAQ gives separate buffer norms for drains wider than 10 metres and drains up to 10 metres. A plot can be outside a lake's FTL and still have a drainage channel running along its boundary, through an access road or across the approach to the layout.",
+          "Drainage lines can be altered, built over or omitted from a marketing plan. Look for the natural low line, the stormwater route and any culvert or bridge shown on the layout, then compare it with the ground and the authority's drainage record. A road that appears to provide access may depend on a crossing over a nala or on land that is not part of the layout. That is an access and drainage question, not merely a lake-view question.",
+          "Government land and Shikam land need separate attention. HYDRAA's FAQ notes that FTL areas can contain private land, and that private land within an FTL may be Shikam. A patta or revenue entry does not automatically authorise residential development in a restricted zone. Check the revenue classification, prohibited-property entries and the layout approval, and ask the competent authority what use, if any, is permitted for the exact parcel.",
+          "Access deserves the same scrutiny. If the only approach road crosses a lake bund, a nala, government land or a neighbouring private parcel, the physical ability to reach the plot today may not be a legally secure access tomorrow. Compare the approach with the sanctioned layout and the water-body map, and record the route with dated photographs. A site visit after heavy rain can reveal standing water and drainage problems, but it still does not replace the official record.",
+          "For the Srisailam Highway corridor, including Tukkuguda, Raviryal, Thummaloor and Rachuloor, apply the same survey-level check rather than relying on the project name or a general location map. If you are considering [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, ask for the exact layout, approval and water-body clarification for the specific plot and verify them independently; this article makes no claim that the project or any plot is affected or unaffected.",
+        ],
+        caution:
+          "A lake is not the only water-related constraint. Check nalas, drains, bunds, government land and the legal approach road as separate items, especially where the plot's access depends on a low-lying route.",
+      },
+      {
+        heading: "When to Request Written Clarification or Professional Help",
+        body: [
+          "Request written clarification when the FTL or buffer map appears to touch the plot, when the final notification column is blank, when the survey number in the portal differs from the deed, when a nala or drain crosses the layout, when the access road runs along a lake bund, or when the seller says the plot is 'not affected' but cannot show the map. The clarification should identify the district, mandal, village, survey number, subdivision, plot number, water body and the specific question you need answered.",
+          "Ask the competent authority whether the water body has a preliminary or final notification, what FTL and buffer information applies to the survey number, whether any NOC or permission is required, and what the current record shows. Keep the written response, the date, the file or reference number and the name of the office. An oral assurance from a broker, a sales manager or a local contact is not a substitute for that record.",
+          "A licensed surveyor can establish the plot's location and boundaries and prepare a plan showing the relationship between the plot and the mapped FTL or buffer. A property lawyer can review the title chain, the sale deed, the layout approval, the conditions and the effect of the water-body record on the transaction. Those are different skills; one professional may not be able to answer the other's question.",
+          "The right sequence is usually: identify the water body and survey number, obtain the official maps and notification status, compare the layout and sale documents, inspect the site, then take written clarification and professional advice before paying. If a seller resists any of those steps or offers to 'manage' the record, treat that as a reason to slow down, not as a reason to pay faster.",
+        ],
+        caution:
+          "A written clarification is not a guarantee that the plot is risk-free. It is evidence of the authority's current position, which should be read with the title, layout, survey and site checks.",
+      },
+      {
+        heading: "A Buyer's Lake FTL and Buffer Checklist",
+        body: [
+          "Use this checklist before a booking amount, agreement or registration. Each item should produce a document or a dated note, not only a conversation.",
+        ],
+        checklist: [
+          "Identify every lake, tank, kunta, nala and drain near the plot, not only the water body named in the brochure.",
+          "Record the village, mandal, district, survey number, subdivision, extent and plot boundaries from the sale deed.",
+          "Search the HMDA Lakes Portal by district, mandal, village and lake name, and note the lake ID.",
+          "Record the preliminary notification date and the final notification date shown for the lake, without treating a blank as a clearance.",
+          "Obtain the FTL and cadastral map and check whether the plot's survey number or area appears in the FTL or buffer schedule.",
+          "Ask for the applicable buffer distance and the specific order or demarcation for that water body.",
+          "Compare the layout's plot number, survey number, boundaries, roads and reservations with the water-body map.",
+          "Read the layout approval conditions and ask whether an NOC or water-body clearance was required.",
+          "Match the sale deed schedule, title chain, Encumbrance Certificate and Bhu Bharati land details with the plot.",
+          "Check the NALA or land-use position separately; do not treat it as an FTL or buffer clearance.",
+          "Inspect the access road, nala crossings, bunds, low-lying areas and drainage on the ground.",
+          "Request a written clarification from the competent authority for the exact survey number and plot.",
+          "Have a licensed surveyor locate the plot and its boundaries if the map or dimensions are unclear.",
+          "Have a property lawyer review the title, approvals, conditions and the water-body record before paying.",
+          "Keep dated copies of every map, notification, clarification and site photograph with the transaction file.",
+        ],
+        caution:
+          "If any item cannot be answered with a current document, do not convert an oral assurance into a paid presumption.",
+      },
+      {
+        heading: "Warning Signs in a Lake-Adjacent Plot Deal",
+        body: [
+          "These are not automatic proof of illegality, but they are reasons to pause and ask for the underlying record.",
+        ],
+        drivers: [
+          "The seller describes the plot as lake-facing but cannot identify the lake's official name or lake ID.",
+          "The only map is a brochure rendering or a screenshot with no source, date or survey number.",
+          "A preliminary notification is described as a final notification, or a blank final date is treated as approval.",
+          "The seller says the plot is 'outside the buffer' without showing the FTL map or the applicable order.",
+          "The survey number in the portal, the sale deed and the layout do not match.",
+          "The layout shows a road, park or plot over a drainage channel or a low-lying route.",
+          "The approved layout is produced, but the conditions or water-body NOC are missing.",
+          "The approach road crosses a lake bund, nala or land that the seller does not control.",
+          "The land is described as patta or Shikam without an explanation of what development is permitted.",
+          "An agent offers to 'adjust' the map, obtain an oral NOC or complete the record after registration.",
+        ],
+        caution:
+          "Do not accuse anyone of wrongdoing on the basis of a map mismatch alone. Ask for the current official record and take independent legal and technical advice before paying.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers are general. The specific water body, notification, survey number and current order control the property-level answer.",
+        ],
+        faqs: [
+          {
+            question: "What is Full Tank Level (FTL)?",
+            answer:
+              "HYDRAA's FAQ describes FTL as the maximum water level a lake, tank or water body can reach. It marks the highest point of water storage and is an important boundary for development. FTL boundaries are formally surveyed and demarcated by the Irrigation Department.",
+          },
+          {
+            question: "What is a lake buffer zone?",
+            answer:
+              "A buffer zone is a protected area around a water body intended to preserve water quality, biodiversity and ecological balance and to absorb stormwater. HYDRAA publishes general limits, but the applicable distance depends on the specific water body, its classification, the governing order and the official demarcation.",
+          },
+          {
+            question: "Is the 30-metre or 9-metre buffer universal?",
+            answer:
+              "No. HYDRAA's FAQ lists 30 metres for lakes of 10 hectares or more and 9 metres for lakes below 10 hectares, with separate figures for drains. Those are published general limits, not a property-specific survey. Confirm the applicable rule and demarcation for the exact water body and plot.",
+          },
+          {
+            question: "Can private land fall inside an FTL?",
+            answer:
+              "Yes. HYDRAA's FAQ says FTL areas can contain both government and private land, and that private land within an FTL is commonly called Shikam land. Private ownership or a patta does not by itself authorise a residential layout or building in a restricted area.",
+          },
+          {
+            question: "Does a preliminary notification mean the lake is finally notified?",
+            answer:
+              "No. The HMDA Lakes Portal shows preliminary and final notification dates separately, and a final date may be blank. A preliminary entry is not a final notification, and the absence or presence of a portal entry does not by itself establish a specific plot's legal status.",
+          },
+          {
+            question: "How do I check if my plot is in an FTL or buffer zone?",
+            answer:
+              "Match the village, survey number and plot boundaries, search the HMDA Lakes Portal, obtain the FTL and cadastral maps, compare them with the layout and sale documents, and ask the competent authority for a written clarification. A licensed surveyor can locate the plot on the ground.",
+          },
+          {
+            question: "Does an HMDA or DTCP approved layout guarantee there is no lake issue?",
+            answer:
+              "No. A layout approval is a planning permission and may itself be subject to conditions or an NOC. It does not replace the FTL or buffer record, the title, the survey or a property-specific legal check.",
+          },
+          {
+            question: "Are nalas and drainage channels treated the same as lakes?",
+            answer:
+              "No. HYDRAA's FAQ gives separate buffer norms for drains wider than 10 metres and drains up to 10 metres, and a nala may not appear in a lake-specific map. Check the drainage line and access route separately from the lake notification.",
+          },
+        ],
+      },
+      {
+        heading: "The Bottom Line",
+        body: [
+          "Lake risk is not decided by how close the water looks from a balcony. It is decided by the official water-body boundary, the current notification stage, the survey number and the relationship between that record and the exact plot. A buyer who can connect those pieces is in a much stronger position than one who relies on a view, a brochure or a general buffer figure.",
+          "Start with the lake record, then the layout, then the sale and revenue documents, then the ground. Ask for written clarification whenever the map touches the plot, the final notification is unclear or a nala crosses the access. The purpose is not to reject every plot near water; it is to avoid paying for a plot whose legal and practical position nobody has actually verified.",
+        ],
+        caution:
+          "This is general research, not legal, survey or planning advice. Water-body records, notifications, maps and site conditions change. Verify the current official record and obtain independent professional advice before paying.",
+      },
+    ],
+  },
+  {
+    slug: "how-to-read-approved-plot-layout-plan-telangana",
+    title: "How to Read an Approved Plot Layout Plan in Telangana",
+    seoTitle: "How to Read a TG Plot Layout Plan",
+    metaDescription:
+      "Learn how to read a sanctioned Telangana plot layout: plot numbers, dimensions, roads, open spaces, approval conditions, revisions and site checks.",
+    excerpt:
+      "A coloured layout is not the same as a sanctioned drawing. Here is how open-plot buyers in Telangana can find their plot, read dimensions, roads and reservations, and match the plan to the approval and the ground.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/how-to-read-approved-plot-layout-plan-telangana.jpg",
+    imageAlt:
+      "Approved plot layout plan reading checklist for Telangana open-plot buyers - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        heading: "A Layout Drawing Is Evidence, Not a Title Certificate",
+        body: [
+          "A layout plan is a planning document. It shows what a competent authority sanctioned for a defined site at a particular time, subject to the drawing and the conditions attached to the permission. It does not, by itself, prove who owns the land, whether the title is clear, whether a mortgage has been released, whether every road and park exists on the ground, or whether the seller is entitled to sell the plot in front of you.",
+          "The first distinction to make is between a marketing rendering and the approved drawing set. A brochure may redraw the layout, omit an awkward reservation, relabel a park or show a road that is only proposed. HMDA's development-permission procedure states that, after approval and compliance with fees, conditions and mortgage requirements, digitally signed proceedings and drawings are issued. That package - the approval, the proceedings, the sanctioned drawing and the conditions - is what a buyer should be reading.",
+          "This guide is about reading that package. It does not decide whether a particular layout is valid, whether its title is clear or whether its amenities have been delivered. Those remain separate checks, and the drawing is one piece of evidence within them.",
+        ],
+        caution:
+          "Do not treat a glossy layout image, a brochure map or a sales-office print as the sanctioned plan. Ask for the approval and the drawing set that the authority actually issued.",
+        sources: [
+          {
+            label:
+              "HMDA development permissions procedure: title scrutiny, technical scrutiny, site inspection, approval, conditions and issue of digitally signed proceedings and drawings",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/procedure-for-development-permissions",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "DTCP FAQs: planning permission, its distinction from a building licence, and documents and plan requirements",
+            publisher:
+              "Directorate of Town and Country Planning, Government of Telangana",
+            url: "https://dtcp.telangana.gov.in/Home/FAQs",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Identify Which Stage of Plan You Are Looking At",
+        body: [
+          "Before reading the lines, identify the document's stage. BuildNow, Telangana's unified building and layout approval portal, publishes separate undertaking formats for a draft layout and a final layout, and its checklist and timelines also refer to a tentative layout and the release of a mortgage after the final layout. Those labels describe different points in an approval process, not different names for the same drawing.",
+          "A concept or marketing plan is a proposal. A draft or tentative layout is an approval-stage drawing; it may carry conditions, reservations and a mortgage. BuildNow's layout FAQ states that 15% of the plotted area is mortgaged under the approved draft tentative layout and that only 85% of the plotted area can be sold until the mortgage is released. A final layout comes after the draft stage and further compliance; the same FAQ says a WBM road is to be formed at the release of the draft layout and a BT road, along with internal roads, before approval of the final layout.",
+          "BuildNow's published timelines page lists a tentative layout at 21 days, a layout validity of two years from tentative approval, and release of mortgage after the final layout at 21 days. Those are the portal's published service and timeline entries, not a universal substitute for the order in your file. Confirm the stage, validity and conditions in the actual approval documents.",
+        ],
+        table: {
+          caption:
+            "The label on a drawing matters, but the authority's stamp, number, date, revision and conditions matter more.",
+          columns: [
+            "Document you may be shown",
+            "What it can tell you",
+            "What to ask for next",
+          ],
+          rows: [
+            [
+              "Marketing or concept layout",
+              "The promoter's intended arrangement of plots, roads and amenities",
+              "The authority approval number, proceedings and sanctioned drawing",
+            ],
+            [
+              "Draft or tentative layout",
+              "An approval-stage layout, often with conditions, reservations and a mortgage",
+              "The conditions, revision number and what remains before the final layout",
+            ],
+            [
+              "Final layout",
+              "A later stage after draft compliance and further authority steps",
+              "The final approval or proceedings, the release document and the current drawing",
+            ],
+            [
+              "Sanctioned approval packet",
+              "The authority's signed proceedings, approved drawing and conditions",
+              "A current copy, a plot-level match and independent legal and technical checks",
+            ],
+          ],
+        },
+        caution:
+          "If the seller cannot say whether the plan is a concept, draft, tentative or final layout, stop. The stage determines what the drawing can and cannot prove.",
+        sources: [
+          {
+            label:
+              "BuildNow checklist: separate undertaking formats for draft layout and final layout; approved-layout documents in the approval checklist",
+            publisher: "Government of Telangana",
+            url: "https://buildnow.telangana.gov.in/checklist",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "BuildNow timelines: tentative layout, release of mortgage after final layout and layout validity from tentative approval",
+            publisher: "Government of Telangana",
+            url: "https://buildnow.telangana.gov.in/timelines",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Start With the Title Block, Not the Plot Number",
+        body: [
+          "Every serious layout drawing has a title block. Read it before you look for a plot. It should identify the layout, the revenue village, mandal and district, the survey numbers, the total site extent, the approving authority, the approval or file number, the date, the drawing number and the revision. If those fields are missing, the drawing has not yet answered the first question: what exactly was approved, where, and by whom?",
+          "DTCP's public layout table uses a similar identity set: L.P. number and year, file number, town or gram panchayat, locality, survey numbers and site extent. Use those fields to match the drawing against the authority record rather than relying on the project name in the brochure. A layout can be marketed under a new name while the approval record uses the legal layout name or the landowner's name.",
+          "The north arrow and scale are orientation tools, not decoration. Use the north arrow to understand which road is north or south of the plot, and use the scale to understand the drawing's proportions. Do not scale dimensions off a printed or photographed plan; use the written dimensions and the area statement. A photograph taken at an angle can distort lengths even when the underlying drawing is correct.",
+        ],
+        caution:
+          "A title block that names a different village, survey number, authority or approval number from the sale documents is a mismatch to resolve, not a detail to ignore.",
+        sources: [
+          {
+            label:
+              "DTCP layout approvals table: L.P. number and year, file number, town or gram panchayat, locality, survey numbers and site extent",
+            publisher:
+              "Directorate of Town and Country Planning, Government of Telangana",
+            url: "https://dtcp.telangana.gov.in/Home/Layouts",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Locate the Exact Plot on the Drawing",
+        body: [
+          "Find the layout boundary first, then the approach road and the internal road network. Follow the road names or numbers to the block or plot series, and locate the plot from the roads and adjoining plots rather than scanning only for a number. Plot numbers can be repeated across phases or blocks, and a number without its block, road and survey context can point to the wrong parcel.",
+          "Once you find the plot, check the plot schedule or area statement. It should state the plot number, dimensions, area, the road it abuts and, where the drawing provides it, the survey number. Compare that entry with the sale deed schedule and the seller's allotment letter. A plot number that matches while the dimensions, survey number or extent do not is still a mismatch.",
+          "Look at what surrounds the plot on the drawing: another plot, a road, a park, an open space, a utility area or the layout boundary. A plot shown against a park or an amenity is not the same as an interior plot, and a plot shown against a road is not necessarily a plot with a formed road today. Note the difference between the paper position and the physical position.",
+        ],
+      },
+      {
+        heading: "Read Dimensions, Area and Boundaries Together",
+        body: [
+          "A plot's dimensions and its area are related but not interchangeable. A rectangular plot may show frontage and depth, while an irregular plot may show several side dimensions and a computed area. Check the units - square yards, square feet and square metres are different - and confirm that the area in the schedule matches the dimensions and shape shown on the drawing.",
+          "Read the boundaries in order. Which side touches a road, which sides touch neighbouring plots, and which side, if any, touches a park, open space or utility reservation? For a corner plot, two sides may front roads. For a plot at the layout edge, one side may be the boundary wall or a road outside the layout. The sale deed's boundary recitals should describe the same position, not a different plot or a different road.",
+          "Compare the plot's extent with the layout's total extent and the survey numbers in the approval. The total layout area is not a substitute for the individual plot area, and the plot's survey number should be traceable to the layout's survey schedule. Our guide to [verifying survey numbers and plot boundaries](/insights/verify-survey-number-plot-boundaries-telangana) explains how survey, subdivision and plot identities can drift.",
+        ],
+        caution:
+          "If the plan, the plot schedule and the sale deed give different dimensions, areas or survey numbers, do not choose the version that suits the sale. Ask for a written reconciliation and have the position surveyed.",
+      },
+      {
+        heading: "Trace the Roads, Access and Road Widths",
+        body: [
+          "Read the road network as a hierarchy, not as a set of identical lines. Identify the approach road from the public road or highway, the internal roads, the road in front of the plot and any road that ends at the layout boundary. Then ask whether each road is part of the sanctioned layout, who owns it, and whether it exists on the ground.",
+          "BuildNow's current layout FAQ states that the minimum width of internal roads should be 12 metres, or 40 feet. Read the width label on the specific road in front of the plot rather than assuming every internal road has the minimum. A road marked on the drawing is not proof that it has been formed, surfaced or dedicated to the public; the same FAQ distinguishes WBM road formation at the draft-layout stage from BT road formation before final-layout approval.",
+          "Access is the practical test. A road may be drawn to the plot boundary but stop at a private field, pass through another owner's land or be too narrow for a vehicle after rain. Check the approach on the ground and compare it with the approved plan. Our [plot site-inspection checklist](/insights/plot-site-inspection-checklist-srisailam-highway) covers approach roads, boundaries and physical access in more detail.",
+        ],
+        caution:
+          "Do not accept '40 feet road' as a description of the road you will actually use. Match the width, alignment and access to the approved drawing and inspect the route.",
+        sources: [
+          {
+            label:
+              "BuildNow layout FAQs: minimum internal road width, draft and final layout road formation, and the distinction between draft and final layout stages",
+            publisher: "Government of Telangana",
+            url: "https://buildnow.telangana.gov.in/faqs",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Read Parks, Open Spaces and Amenity Areas",
+        body: [
+          "Reserved areas are part of the layout's planning, not decorative leftover space. BuildNow's layout FAQ states that a layout should provide 7.5% for parks and playgrounds, 1% for social infrastructure, 1% for utilities such as a water reservoir, septic tank or sewage treatment plant, electric transformer and solid-waste management, and 0.5% for common parking. Those percentages are the portal's published requirements; the approved drawing and conditions for the specific layout still control what is actually reserved and where.",
+          "Locate each reservation on the drawing and check its label, position and extent. A park shown at the entrance is a different purchase from a plot facing an unbuilt utility corner. Ask whether the reservation is inside the phase being sold, whether it has been handed over or relinquished, and who is responsible for maintaining it. A label on a plan is not evidence that the park, drain or utility has been built.",
+          "The 15% mortgage mentioned in the draft-layout FAQ is not the same thing as the park or open-space reservation. It is a security interest over plotted area, released after compliance; the parks, social infrastructure and utilities are land-use reservations. A drawing can show both, and a buyer should not let a sales explanation merge them into one 'open area' promise.",
+        ],
+        caution:
+          "Ask for the approved reservation schedule and the current site position. Do not pay a park-facing premium unless the park is shown on the approved plan and its delivery status is clear.",
+        sources: [
+          {
+            label:
+              "BuildNow layout FAQs: park and playground, social infrastructure, utility and common-parking percentages; 15% plotted-area mortgage and release process",
+            publisher: "Government of Telangana",
+            url: "https://buildnow.telangana.gov.in/faqs",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Check the Approval Number, Conditions and Revisions",
+        body: [
+          "The approval number is a pointer, not a conclusion. Match the number, date and authority on the drawing with the approval letter or proceedings and with the public record. HMDA's procedure says the digitally signed proceedings and drawings are issued after payment and compliance with conditions and mortgage requirements. DTCP's layout table gives an L.P. number and year and a file number that can be used to test the identity of a DTCP layout. Authority routes differ by location; our [HMDA and DTCP plot-approval checklist](/insights/hmda-dtcp-plot-approval-checklist-hyderabad) explains the two systems.",
+          "Read the conditions as part of the plan. They may address road formation, drainage, open-space obligations, mortgage or release, development charges and the time within which works must be completed. A drawing that shows a road or park does not prove that the condition attached to it has been satisfied. Ask for the compliance documents, not only the approval stamp.",
+          "Revisions need their own paper trail. DTCP's FAQ states that a revised plan showing deviations must be submitted and that the procedure for the original approval applies to the revised plan. Ask for the revision number, date, covering approval and a copy of the current sanctioned drawing. Compare the revision with the brochure and the earlier plan; a changed road width, relocated park or renumbered plot is a material change, not a cosmetic update.",
+          "Validity also depends on the instrument. BuildNow's timeline page lists layout validity from tentative approval as two years, while DTCP's FAQ lists planning permission as valid for eight years. Those references are not interchangeable, and local rules and approvals can differ. Ask which permission, stage and validity period apply to the specific layout.",
+        ],
+        caution:
+          "An approval number without the conditions, revision history and current drawing is incomplete. A revised drawing without a revision number or covering approval should not be treated as the sanctioned plan.",
+        sources: [
+          {
+            label:
+              "HMDA development permissions procedure: approval, conditions, mortgage compliance and digitally signed proceedings and drawings",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/procedure-for-development-permissions",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "DTCP FAQs: validity of planning permission and requirement to submit a revised plan for deviations",
+            publisher:
+              "Directorate of Town and Country Planning, Government of Telangana",
+            url: "https://dtcp.telangana.gov.in/Home/FAQs",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "BuildNow timelines: tentative layout and layout validity from tentative approval",
+            publisher: "Government of Telangana",
+            url: "https://buildnow.telangana.gov.in/timelines",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Compare the Plan With the Sale Documents and the Ground",
+        body: [
+          "A layout plan becomes useful when it is read against the sale deed. Match the plot number, dimensions, area, survey number, abutting road and boundary recitals in the deed with the approved plot schedule. Our guide to [sale deeds and link documents](/insights/sale-deed-link-documents-title-chain-telangana) explains how to test the property schedule and the chain of transfers rather than reading the deed in isolation.",
+          "The Encumbrance Certificate answers a different question: which registered transactions and charges were indexed for the property and period searched. It can reveal a mortgage or a transaction that the layout plan does not show, but it does not prove title or that the layout was implemented. Read the [Encumbrance Certificate guide](/insights/encumbrance-certificates-explained-before-buying-land) before treating a clean EC as a clearance for the layout.",
+          "Land use is another separate layer. A residential layout approval does not, by itself, convert agricultural land or resolve a NALA classification issue. Check the revenue position and the conversion record alongside the layout. Our [NALA conversion guide](/insights/nala-conversion-land-use-checklist-telangana) explains the land-use question.",
+          "RERA registration is also separate. A registered project's disclosure record can help you match the project, promoter and phase, but it is not the layout sanction and does not guarantee that the roads or amenities have been delivered. Use our [TG RERA verification guide](/insights/verify-tg-rera-registration-open-plots-telangana) for the project-level check.",
+          "Finally, take the drawing to the site. Locate the corners, the road frontage, the adjoining plots, the park or utility reservation and the access route. Compare what is built with what is drawn, and record the date, photographs and any difference. A site visit does not replace the drawing, and the drawing does not replace the site.",
+          "On the Srisailam Highway corridor, including Tukkuguda, Raviryal, Thummaloor and Rachuloor, apply the same test to the exact layout and phase. If you are considering [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, ask for its exact approved layout drawing and approval packet and verify them independently; this article makes no claim about its current approval or amenity status.",
+        ],
+        caution:
+          "A plan can match the brochure and still fail the deed, the EC or the ground. Treat all four comparisons as one exercise, and pause on any difference.",
+      },
+      {
+        heading: "Warning Signs in a Layout Plan",
+        body: [
+          "A warning sign is not proof of wrongdoing, but it is a reason to stop and ask for a document. These are the inconsistencies that most often separate a usable approved drawing from a sales illustration.",
+        ],
+        drivers: [
+          "The drawing has no title block, approval number, authority, date, scale or revision.",
+          "The claimed approval number cannot be matched to the approval letter, proceedings or public record.",
+          "The plot number, dimensions, area or survey number differs between the plan, the plot schedule and the sale deed.",
+          "A road, park or open space is shown but has no width, dimension or reservation label.",
+          "The internal road in front of the plot is narrower than the approved plan or stops at a private boundary.",
+          "A park, open space or utility area has been relabelled as a residential plot without a revised approval.",
+          "The seller shows an old brochure plan while the authority record refers to a later revision.",
+          "The approach road is not part of the layout and crosses land owned by someone else.",
+          "The layout is described as approved but the seller cannot produce the conditions or the current drawing.",
+          "The plan shows amenities outside the layout boundary or outside the phase being sold.",
+        ],
+        caution:
+          "Do not accuse anyone of fraud on the basis of a drawing mismatch alone. Ask for the current approved set, compare it with the authority record and take legal and technical advice before paying.",
+      },
+      {
+        heading: "A Buyer's Layout Plan Checklist",
+        body: [
+          "Use this sequence before paying a booking amount. Each item tells you what to ask for next; a later document should not be used to excuse an earlier gap.",
+        ],
+        checklist: [
+          "Obtain the complete approved set: approval or proceedings, sanctioned drawing, conditions and current revision.",
+          "Identify whether the document is a marketing plan, draft or tentative layout, final layout or sanctioned approval packet.",
+          "Match the title block: layout name, village, mandal, district, survey numbers, total extent, authority, number, date and revision.",
+          "Confirm the approval number and authority against the approval letter, BuildNow or the DTCP layout record.",
+          "Locate the exact plot using its block, road, adjoining plots and plot number, not the number alone.",
+          "Check the plot schedule for dimensions, area, abutting road and survey number.",
+          "Read the four boundaries and confirm what the plot touches on each side.",
+          "Verify the road in front of the plot, the approach road and the road widths shown on the approved plan.",
+          "Locate parks, playgrounds, social infrastructure, utilities and common parking, and check their dimensions and status.",
+          "Read the approval conditions, including road formation, drainage, open space, mortgage and release requirements.",
+          "Ask for the revision number, date and covering approval for every revised drawing.",
+          "Match the plan with the sale deed schedule, title chain and current Encumbrance Certificate.",
+          "Check the land-use or NALA position and the RERA project record where applicable.",
+          "Inspect the site against the drawing and have a surveyor or engineer reconcile any boundary or dimension discrepancy.",
+        ],
+        caution:
+          "A completed checklist reduces uncertainty; it does not replace a title opinion, a survey or the authority's current record.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers are general and should be read with the property-specific checks above.",
+        ],
+        faqs: [
+          {
+            question: "How do I find my plot on a sanctioned layout plan?",
+            answer:
+              "Start with the title block and layout boundary, then follow the approach road and internal road network to the block or plot series. Locate the plot using its number, adjoining plots and abutting road, and confirm the plot schedule entry for dimensions, area, survey number and road frontage.",
+          },
+          {
+            question: "What is the difference between a draft and a final layout?",
+            answer:
+              "BuildNow publishes separate draft and final layout undertaking formats and refers to a tentative layout and a final layout in its process. A draft or tentative layout is an approval-stage drawing that may carry conditions and a mortgage; a final layout comes after further compliance. Ask for the current stage, conditions and final approval rather than treating either drawing as a title certificate.",
+          },
+          {
+            question: "Does an approved layout plan prove that the land is owned by the seller?",
+            answer:
+              "No. A layout approval is a planning permission. It does not certify the title chain, the seller's authority, the mortgage position or the boundaries. Verify the sale deed, link documents, Encumbrance Certificate and survey records separately.",
+          },
+          {
+            question: "What internal road width should a layout have?",
+            answer:
+              "BuildNow's current layout FAQ states that the minimum internal road width should be 12 metres or 40 feet. Read the width marked on the specific road and compare it with the approved drawing; the minimum does not prove that the road has been formed or is public.",
+          },
+          {
+            question: "How much park or open space should be shown in a layout?",
+            answer:
+              "BuildNow's layout FAQ states 7.5% for parks and playgrounds, 1% for social infrastructure, 1% for utilities and 0.5% for common parking. The approved drawing and conditions for the specific layout control the actual reservations and their location.",
+          },
+          {
+            question: "How do I check whether a layout plan has been revised?",
+            answer:
+              "Ask for the revision number, revision date, covering approval and the current sanctioned drawing. Compare the revision with earlier plans and the brochure. DTCP's FAQ states that a revised plan showing deviations must be submitted and goes through the approval procedure again.",
+          },
+          {
+            question: "What if the plot dimensions differ between the plan and the sale deed?",
+            answer:
+              "Treat the difference as an open issue. Ask for a written reconciliation, compare the plot schedule and survey records, and have the position surveyed where necessary. Do not accept a corrected number written on a brochure as proof of an approved revision.",
+          },
+          {
+            question: "Can I rely on the layout plan shown in a brochure?",
+            answer:
+              "No. A brochure is marketing material, not the authority's approved drawing. Ask for the approval, proceedings, sanctioned plan and conditions, then compare the plot, roads and reservations with the authority record and the site.",
+          },
+        ],
+      },
+      {
+        heading: "The Bottom Line",
+        body: [
+          "A layout plan is read in layers: first the document's stage, then its title block, then the plot, dimensions, roads and reservations, then the approval conditions and revisions. Only after that does it make sense to compare the drawing with the sale deed, the Encumbrance Certificate, the land-use record, the RERA record and the ground.",
+          "The plan is valuable because it fixes the paper position. It is dangerous when it is treated as a substitute for ownership, approval compliance or physical delivery. A buyer who can point to the exact plot, read the road widths and reservations, explain the approval stage and reconcile the drawing with the documents is asking the questions that a brochure is designed to avoid.",
+        ],
+        caution:
+          "This is general research, not legal, survey or planning advice. Layout records, approvals, revisions and site conditions change; verify the current official record and obtain independent professional advice before paying.",
+      },
+    ],
+  },
+  {
+    slug: "verify-tg-rera-registration-open-plots-telangana",
+    title:
+      "How to Verify TG RERA Registration Before Buying Open Plots in Telangana",
+    seoTitle: "TG RERA Check for Open Plots in Telangana",
+    metaDescription:
+      "A practical guide to searching TG RERA, matching the promoter, project and phase, and comparing disclosures with the layout, title, EC and sale documents.",
+    excerpt:
+      "A RERA number on a brochure is a lead, not a clearance. Here is how open-plot buyers in Telangana can search the official portal, match the promoter and phase, and test the disclosures against the layout, title and EC.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/verify-tg-rera-registration-open-plots-telangana.jpg",
+    imageAlt:
+      "TG RERA registration verification checklist for open-plot buyers in Telangana - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        heading: "A RERA Number Is a Lead, Not a Clearance",
+        body: [
+          "An open-plot advertisement can say 'TG RERA registered' and print a number that looks reassuring. The number may be genuine, but it may belong to another project, another promoter, an earlier phase or a record that no longer matches what is being sold. Verification means matching the exact project, promoter, phase and disclosed particulars to the plot, brochure, layout and sale documents in front of you.",
+          "RERA registration is a project-level disclosure and compliance framework. It creates a public record and obligations for the promoter. It is not a title certificate, a layout approval, an encumbrance clearance, a completion guarantee or a promise of investment returns. A registered project can still have a defective title link, an unresolved mortgage, an approval condition or a delivery dispute.",
+          "This guide focuses on the RERA check itself. It does not repeat the full HMDA and DTCP approval process or the title-chain exercise. Those are separate layers, and each has to be verified on its own terms.",
+        ],
+        caution:
+          "Do not treat a RERA number in a brochure, WhatsApp message or sales presentation as proof. Search the official portal, match the exact project and phase, and keep the printed or saved result with your due-diligence file.",
+      },
+      {
+        heading: "Does Every Plotted Development Need Registration?",
+        body: [
+          "TG RERA's promoter guidance states that promoters must register commercial and residential real estate projects, subject to specified exceptions. The guidance lists projects where the land proposed to be developed does not exceed 500 square metres, projects with up to eight apartments inclusive of all phases, projects whose building permissions were approved before 1 January 2017 by the competent authority, and certain renovation, repair or redevelopment projects that do not involve marketing, advertising, selling or new allotment.",
+          "Those categories are not a slogan that a seller can apply without legal analysis. A plotted layout's registration position is not decided simply by calling the product 'plots' or by pointing to a layout approval. The project structure, the approvals, the phase, the timing, the marketing and the applicable Act and rules all matter. The correct answer for one layout may not be the correct answer for the one next door.",
+          "If a promoter says registration is not required, ask for the legal basis and the documents that support it. If a project is registered, ask for the registration number and the exact project or phase it covers. Do not accept 'RERA is not required for plots' or 'RERA is under process' as a conclusion without checking the record and taking advice where the position is unclear.",
+        ],
+        caution:
+          "This article does not decide whether a particular project is exempt. Applicability is project-specific and can require legal advice. The portal record and the promoter's documents are evidence to examine, not a substitute for that analysis.",
+        sources: [
+          {
+            label:
+              "TG RERA promoters guidance: project registration, listed exemptions and the prohibition on advertising or selling without registration",
+            publisher: "Telangana Real Estate Regulatory Authority",
+            url: "https://rera.telangana.gov.in/54673hgsjkfdhgsfg-TG-RERA-lfkdbnklh5409u569",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Real Estate (Regulation and Development) Act, 2016: official TG RERA download page",
+            publisher: "Telangana Real Estate Regulatory Authority",
+            url: "https://rera.telangana.gov.in/8360954urgnksfjdbf-TG-RERA-48957rijgkldjghdhgfhd",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "How to Search TG RERA: The Practical Route",
+        body: [
+          "Start at the official TG RERA website, rera.telangana.gov.in, and open 'Search Registered Projects and Agents'. The public search page offers two user types: Registered Projects and Registered Agents. Choose Registered Projects for the development you are buying.",
+          "The basic search accepts a project name, a promoter name or the Telangana RERA project registration number. The advanced search adds district, taluka, village, a proposed completion date range, project type and survey number. The project type list includes Plotted Development. Enter the captcha and submit the search; the captcha is part of the official page, not a step to bypass.",
+          "Use the registration number first if the seller has given one. If the number returns nothing, search the exact project name and the promoter's legal name before concluding that the project is unregistered. If the project is marketed through an agent, search the Registered Agents tab separately and match the agent's registered name and number. An agent registration does not prove that the project is registered.",
+          "Record the date, the search filters, the result and the exact project or phase you matched. A screenshot is useful as a note, but it is not a certified extract. Use the official result or the registration documents where a formal record is needed, and keep the promoter's representations alongside it.",
+        ],
+        caution:
+          "Use the official domain and the official search page. A QR code, a PDF brochure or a broker's screenshot can be edited. Check the URL before entering any personal or payment information.",
+        sources: [
+          {
+            label:
+              "TG RERA home: registered-project search, citizen services, complaint route and public notices",
+            publisher: "Telangana Real Estate Regulatory Authority",
+            url: "https://rera.telangana.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "TG RERA public search: Registered Projects or Registered Agents; project name, promoter name, registration number, district, taluka, village, completion dates, project type and survey number",
+            publisher: "Telangana Real Estate Regulatory Authority",
+            url: "https://rerait.telangana.gov.in/SearchList/Search",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Match the Project, Promoter and Phase",
+        body: [
+          "A similar name is not a match. Compare the registered project name with the name in the brochure, the sale agreement and the payment receipt. Marketing names are often shortened or rebranded, while the registered record uses the legal project name. If the names differ, ask for the connecting explanation in writing rather than choosing the closest search result.",
+          "Compare the promoter's legal entity, registered address and contact details with the entity named in the agreement and the receipt. A well-known brand may be the marketing face, while the contracting promoter is a different company, partnership or LLP. The registered promoter is the party the RERA record identifies, so the agreement and payment chain should connect to that entity or explain the relationship.",
+          "Check the project type, district, taluka, village, survey number and phase. If the project has been registered in phases, confirm that the plot being sold falls within the registered phase and that the common areas and amenities promised for that phase are part of the record. A registration for Phase 1 does not automatically answer for a plot in Phase 2.",
+          "Look at the registration number, registration date, current status, proposed completion date and any extension, revocation or public order linked to the project. Compare those particulars with the advertisement and the agreement. A number that exists but has been revoked, extended, transferred or attached to a different phase is not a clean match.",
+        ],
+        caution:
+          "If several results look similar, do not pick the one with the closest name. Match the promoter, location, survey number, project type and phase, and ask the promoter to reconcile any remaining difference in writing.",
+      },
+      {
+        heading: "What to Compare With the Brochure and Sale Documents",
+        body: [
+          "The public record does not display every field in the same way for every project. Where a particular is shown, compare it. Where it is not shown, ask the promoter for the registered particulars and the supporting document rather than assuming that the brochure is accurate.",
+        ],
+        table: {
+          caption:
+            "Use the RERA record as a cross-check against the marketing and sale file.",
+          columns: ["RERA record", "Compare with", "What can go wrong"],
+          rows: [
+            [
+              "Promoter legal name and address",
+              "Developer brand, agreement, receipt and correspondence",
+              "The brand and the contracting entity are different, or the payment is made to an unrelated account",
+            ],
+            [
+              "Project name, phase and location",
+              "Brochure, site address, sale deed schedule and survey number",
+              "The registration covers another phase or a different parcel",
+            ],
+            [
+              "Registration number, date and status",
+              "Advertisement, agreement, certificate and portal result",
+              "The number belongs to another project, is revoked, expired or has been extended",
+            ],
+            [
+              "Sanctioned layout and approvals",
+              "Layout number, approving authority, sanctioned plan and plot schedule",
+              "The RERA record and the layout approval describe different plans or conditions",
+            ],
+            [
+              "Plot type, count, extent and common areas",
+              "Plot schedule, amenities, undivided share and possession terms",
+              "The plot, common area or amenity promised in the brochure is outside the registered project",
+            ],
+            [
+              "Proposed completion date and updates",
+              "Possession clause, grace period, construction status and quarterly reports",
+              "The brochure timeline is shorter than the registered disclosure, or the project is behind without a clear explanation",
+            ],
+            [
+              "Title and encumbrance declarations",
+              "Sale deed, title chain and current EC",
+              "The RERA registration is treated as a title clearance when the title or mortgage position is unresolved",
+            ],
+          ],
+        },
+        caution:
+          "A RERA record is a cross-check, not a warranty. If a field is missing, contradictory or cannot be matched, ask for the document that resolves it before paying.",
+      },
+      {
+        heading: "Location, Layout, Phase and Completion Timeline",
+        body: [
+          "For location, use the district, taluka, village and survey number filters, then compare the result with the sale deed schedule and the physical site. If the layout covers several survey numbers, check each one and confirm where the specific plot sits. Our guide to [verifying survey numbers and plot boundaries](/insights/verify-survey-number-plot-boundaries-telangana) explains how survey, subdivision and plot identifiers can drift.",
+          "RERA registration does not replace the layout sanction. Ask for the layout approval number, approving authority, sanctioned plan, latest revised plan and conditions, and compare them with the RERA record and the plot schedule. Our [HMDA and DTCP plot-approval checklist](/insights/hmda-dtcp-plot-approval-checklist-hyderabad) sets out the documents to match. A registered project with an unapproved layout, or a layout approval that does not cover the plot, is still a problem.",
+          "A phase is not a marketing detail. If the promoter has registered only part of a larger township, the registered phase may exclude the plot, the amenity or the access road you were shown. Ask which phase contains the plot, whether the common areas are within that phase, and whether later phases have their own registration or approval status.",
+          "For timelines, compare the proposed completion date in the RERA record with the possession date, grace period and delay terms in the agreement. The promoter guidance also refers to quarterly progress reports, which can help you see whether the disclosed schedule is being reported as on track. A registered completion date is a disclosure and a compliance benchmark, not a guarantee that possession will happen on that date.",
+        ],
+        caution:
+          "A project can be registered and still be delayed, under-litigated, under-mortgaged or built differently from the brochure. The RERA record tells you what was disclosed; it does not prove that every promise will be performed.",
+        sources: [
+          {
+            label:
+              "Hyderabad Metropolitan Development Authority: official planning and development authority portal",
+            publisher: "HMDA, Government of Telangana",
+            url: "https://www.hmda.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "HMDA procedure for development permissions, including scrutiny, approval and site-inspection stages",
+            publisher: "HMDA, Government of Telangana",
+            url: "https://www.hmda.gov.in/procedure-for-development-permissions",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "RERA, Layout Approval, Title and EC Are Different Checks",
+        body: [
+          "The most common mistake is to treat one clean document as a clearance for all the others. A RERA registration, an HMDA or DTCP layout approval, a registered sale deed, an Encumbrance Certificate and a NALA conversion order answer different questions. They can overlap in practice, but none automatically validates the rest.",
+        ],
+        table: {
+          caption:
+            "The layers of an open-plot purchase answer different questions.",
+          columns: ["Layer", "Question it answers", "What it does not establish"],
+          rows: [
+            [
+              "TG RERA registration",
+              "Is this project or phase registered, who is the promoter, and what was disclosed?",
+              "Clear title, lawful layout, mortgage release, completion or investment returns",
+            ],
+            [
+              "HMDA or DTCP layout approval",
+              "Was this subdivision or layout sanctioned, and on what conditions?",
+              "Ownership, title chain, RERA registration or every plot-level restriction",
+            ],
+            [
+              "Title and sale deed",
+              "Who holds or transferred the property, and does the chain connect to the seller?",
+              "Planning approval, RERA compliance or freedom from unregistered claims",
+            ],
+            [
+              "Encumbrance Certificate",
+              "Which registered transactions and charges were indexed for the period searched?",
+              "Title, unregistered claims, survey boundaries or a completed release",
+            ],
+            [
+              "NALA conversion",
+              "Has the land use been converted through the revenue process?",
+              "Title, layout approval, RERA registration or boundary correctness",
+            ],
+          ],
+        },
+        caution:
+          "Ask for the actual document behind each layer. A RERA number, an approval number and an EC are starting points for verification, not substitutes for one another.",
+      },
+      {
+        heading: "Read the Title, EC and Land-Use File Separately",
+        body: [
+          "For ownership, read the sale deed and the prior chain, not just the current transfer. Our guide to [sale deeds and link documents](/insights/sale-deed-link-documents-title-chain-telangana) explains how to match the parties, shares and property schedule across the chain. A RERA registration does not cure a missing link, an omitted heir or a seller who lacks authority.",
+          "For encumbrances, obtain a current EC and read it with the mortgage deeds and releases. The registration portal explains that online EC coverage begins on 1 January 1983 and that older records require the sub-registrar's office; the certificate is a record of indexed registered transactions, not a title opinion. Our [Encumbrance Certificate guide](/insights/encumbrance-certificates-explained-before-buying-land) explains the search and its limits.",
+          "For land use, check whether the land is agricultural, converted or otherwise permitted for the proposed plotted development. A layout approval is not a NALA conversion, and a RERA registration is not either. Our [NALA conversion guide](/insights/nala-conversion-land-use-checklist-telangana) separates the revenue land-use question from the planning and title questions.",
+          "These checks can confirm or contradict the RERA record. If the RERA record says the project is residential plots but the revenue record or layout shows agricultural land, or if the EC shows a live mortgage that the promoter says will be released later, treat the difference as an open issue until a document resolves it.",
+        ],
+        caution:
+          "A RERA certificate is not a title certificate and an EC is not a layout approval. Keep each document in its own lane, then ask a property lawyer to reconcile the whole file.",
+        sources: [
+          {
+            label:
+              "Registration and Stamps Department, Government of Telangana: official portal",
+            publisher: "Registration and Stamps Department, Telangana",
+            url: "https://registration.telangana.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Encumbrance Certificate search and online EC coverage from 1 January 1983",
+            publisher: "Registration and Stamps Department, Telangana",
+            url: "https://registration.telangana.gov.in/EncumbranceSearch.htm",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "When the Record Is Missing or Inconsistent",
+        body: [
+          "If the search returns nothing, first check the obvious: the exact spelling of the project and promoter, the registration number, the district and taluka, the project type and the phase. Try the promoter's legal name rather than the brand, and use the survey number filter if the brochure gives one. A missing result can be a search error, a different registered name or a genuinely unregistered project.",
+          "Ask the promoter for the registration certificate, the exact registered project and phase, the approved layout and approval references, the current quarterly reports and a written explanation of any difference from the brochure. If the response is 'registration is under process', ask for the application reference and do not treat the project as registered until the authority record shows it.",
+          "If the project is being advertised or sold without a registration that appears to be required, or if the record conflicts with the documents, get legal advice before paying. Preserve the brochure, the advertisement, the payment request and the correspondence, because a later complaint or dispute may depend on what was represented at the time. TG RERA publishes a complaint route, but a complaint is not a substitute for a title or approval check.",
+          "If the record exists but the phase, plot, promoter or layout does not match, ask for a written reconciliation and verify it against the authority's own record. Do not let a sales team use a registration number from one phase to close a question about another. A mismatch is not a formatting issue; it is the central question of what the buyer is actually purchasing.",
+        ],
+        caution:
+          "Do not pay a booking amount to 'lock' a project while a RERA or approval discrepancy is being sorted out. Make the payment conditional on a complete, matching record and independent legal review.",
+        sources: [
+          {
+            label:
+              "TG RERA citizen guidelines: online access to registered-project details and the complaint route",
+            publisher: "Telangana Real Estate Regulatory Authority",
+            url: "https://rera.telangana.gov.in/wreutifjngivbhgioqwjetiowue305-TG-RERA-5469839798jgkofdhsgbkshrig",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "A Practical RERA Verification Checklist",
+        body: [
+          "Use this checklist before paying a booking amount, signing an agreement or accepting a possession letter. The order matters because each item tells you what to ask for next.",
+        ],
+        checklist: [
+          "Get the exact project name, promoter legal name, phase, location, survey number and registration number in writing.",
+          "Search TG RERA's Registered Projects list by registration number, project name and promoter name.",
+          "Use the advanced filters for district, taluka, village, project type and survey number if the basic search is inconclusive.",
+          "Match the registered promoter entity to the seller, agreement, receipt and payment account.",
+          "Confirm the exact phase and plot are within the registered project, not merely the wider township.",
+          "Compare the registered project type, plot count, extent, common areas and amenities with the brochure.",
+          "Compare the proposed completion date and progress reports with the possession clause and sales claims.",
+          "Check the registration status, extensions, revocations, public orders and complaints where available.",
+          "Search the Registered Agents list if a broker or channel partner is involved.",
+          "Obtain the layout approval, sanctioned plan and revised plan, and compare them with the RERA record.",
+          "Obtain the sale deed, title chain and current EC, and keep them separate from the RERA check.",
+          "Check NALA conversion, revenue classification and survey identity where the plot is agricultural or recently converted.",
+          "Ask for the registration certificate, approved documents and quarterly reports in writing.",
+          "Get an independent property lawyer's opinion on the whole file before completion.",
+        ],
+      },
+      {
+        heading: "Warning Signs in a RERA Claim",
+        body: [
+          "A warning sign is not proof of wrongdoing, but it is a reason to stop and ask for a document. These are the claims that most often need a slower, written verification.",
+        ],
+        drivers: [
+          "The seller shows a RERA number but cannot name the exact project, promoter or phase.",
+          "The number belongs to a different project, a different phase or a different legal entity.",
+          "The project name in the brochure does not match any registered project or the promoter's explanation is only oral.",
+          "The promoter says RERA is not required, but cannot provide the legal basis or the approvals that support the claim.",
+          "The RERA record shows a completion date or project type that differs from the agreement and brochure.",
+          "The layout approval, survey number or plot schedule does not match the registered project record.",
+          "The project is registered but the specific plot, common area or amenity is outside the registered phase.",
+          "The registration has lapsed or been revoked, or the promoter cannot explain a pending extension.",
+          "The seller asks for payment before providing the registration certificate and matching project documents.",
+          "The sales team dismisses a mismatch as a 'technical error' without a written correction.",
+        ],
+        caution:
+          "Do not accuse a promoter of fraud on the basis of a search mismatch alone. Ask for the documents, check the authority record and take legal advice before making a decision or a complaint.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers are general and should be read with the property-specific checks above.",
+        ],
+        faqs: [
+          {
+            question: "How do I search for a project on TG RERA?",
+            answer:
+              "Open the official TG RERA website and choose Search Registered Projects and Agents. Select Registered Projects, then search by project name, promoter name or registration number. Use the advanced filters for district, taluka, village, completion date range, project type and survey number if needed, and enter the captcha.",
+          },
+          {
+            question: "What details should I match in the RERA record?",
+            answer:
+              "Match the promoter's legal name, project name, phase, location, project type, registration number and status, sanctioned layout and approvals, plot or unit particulars, common areas, proposed completion date and progress reports. Compare each item with the brochure, agreement, receipt and site documents.",
+          },
+          {
+            question: "Is RERA registration required for every plotted layout?",
+            answer:
+              "No universal answer applies. TG RERA's promoter guidance lists exemptions and conditions, but whether a specific plotted development must register depends on the project's facts, approvals, phase, timing and the applicable law. Do not rely on the phrase 'RERA is not required for plots' without checking the record and taking legal advice.",
+          },
+          {
+            question: "Does RERA registration prove that the title is clear?",
+            answer:
+              "No. RERA registration is a project disclosure and compliance framework. It does not certify the title chain, the seller's authority, the mortgage position or the boundaries. Verify the sale deed, link documents, EC and survey records separately.",
+          },
+          {
+            question: "What should I do if the project is not found on the portal?",
+            answer:
+              "Recheck the spelling, promoter legal name, registration number, phase, district, taluka and project type. Ask the promoter for the registration certificate and a written explanation. If the project is being marketed and registration appears to be required, get legal advice before paying and preserve the advertisement and correspondence.",
+          },
+          {
+            question: "Is RERA registration the same as layout approval?",
+            answer:
+              "No. RERA registration is a project-level registration and disclosure. HMDA or DTCP layout approval is a planning permission with its own sanctioned plan and conditions. A project can have one without the other being current or consistent, so both must be checked.",
+          },
+          {
+            question: "Does RERA registration guarantee completion or returns?",
+            answer:
+              "No. Registration creates disclosure, reporting and compliance obligations, but it does not guarantee that the project will be completed on time or that the plot will appreciate. Read the agreement, the completion date, the delay terms and the progress reports, and treat returns as an investment assumption rather than a RERA promise.",
+          },
+          {
+            question: "How do I check the promoter and agent?",
+            answer:
+              "Search the promoter's legal name in the Registered Projects list and compare the entity with the agreement and payment receipts. Search the Registered Agents list separately for any broker or channel partner. An agent's registration does not establish that the project is registered or that the title is clean.",
+          },
+        ],
+      },
+      {
+        heading: "The Bottom Line",
+        body: [
+          "The RERA check is a matching exercise, not a number-collection exercise. The project name, promoter entity, phase, location, layout, plot particulars and completion disclosures have to line up with the brochure and the sale documents. A number that cannot be matched to the exact project is not verification.",
+          "Keep RERA in its proper place. It adds disclosure and a regulatory route, but it does not replace the layout approval, the title chain, the EC, the land-use record or a lawyer's opinion. A buyer who checks all of them is asking better questions than one who simply asks whether the project is 'RERA approved'.",
+          "If you are evaluating a plotted community in the Srisailam Highway corridor, including Tukkuguda, Raviryal, Thummaloor and Rachuloor, apply the same RERA test to the exact project and phase. If you are considering [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, ask for its exact registration record and verify it directly on TG RERA; this article makes no claim about its current registration or approval status.",
+        ],
+        caution:
+          "This is general research, not legal or investment advice. RERA records, approvals and project statuses change; verify the current official record and obtain independent advice before paying.",
+      },
+    ],
+  },
+  {
+    slug: "sale-deed-link-documents-title-chain-telangana",
+    title:
+      "Sale Deed vs Link Documents: How to Verify a Property Title Chain in Telangana",
+    seoTitle: "Sale Deed vs Link Documents: Telangana",
+    metaDescription:
+      "Learn how a Telangana sale deed, link documents, EC and revenue records fit together, and how open-plot buyers can trace ownership before paying.",
+    excerpt:
+      "A sale deed records one transfer. A title chain shows whether that transfer connects to the one before it. Here is how Telangana plot buyers can test link documents, compare schedules and spot gaps before paying.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/sale-deed-link-documents-title-chain-telangana.jpg",
+    imageAlt:
+      "Sale deed and link document title-chain verification checklist for Telangana property buyers - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        heading: "A Sale Deed Proves a Transfer, Not a Perfect Title",
+        body: [
+          "An open-plot buyer is often handed a registered sale deed and told that the title is clear. The deed is essential, but it is one link in a longer story. It records the transfer from the seller to the buyer, the consideration, the property schedule and the promises made between them. It does not, by itself, prove that every earlier owner had a valid title, that every co-owner or heir consented, or that the land is free from an older claim that was never registered.",
+          "Registration performs a different function. It gives the transaction a public record and is the normal route for transferring immovable property of the relevant value in Telangana. The registration department's guidance describes registration as giving publicity to the document so that the public can inspect the recorded right, title and obligations. That is not the same as a state guarantee of title.",
+          "A registered sale deed can still be challenged for fraud, forgery, lack of capacity, a defective prior title, an omitted heir or a boundary that does not match the land. The practical question is not only 'is the deed registered?' but 'does this deed connect to a chain of documents that explains how the seller got the right to sell?'",
+        ],
+        table: {
+          caption:
+            "A sale deed and the other records in a property file answer different questions.",
+          columns: [
+            "Document or record",
+            "Question it answers",
+            "What it does not establish",
+          ],
+          rows: [
+            [
+              "Registered sale deed",
+              "Did the named parties execute and register a transfer of the described property?",
+              "That every earlier transfer was valid or that the seller had an unqualified title",
+            ],
+            [
+              "Prior sale, gift, partition, release or settlement deed",
+              "How did the property move from the previous holder to the next?",
+              "That the document is genuine, that all shares joined or that the schedule is correct",
+            ],
+            [
+              "Encumbrance Certificate",
+              "Which registered transactions and charges were indexed for the stated period?",
+              "Unregistered claims, surveyed boundaries or a guaranteed title",
+            ],
+            [
+              "Bhu Bharati record of rights",
+              "Who is recorded in the revenue record, and what extent and classification is shown?",
+              "The validity of the registered chain or a conclusive title",
+            ],
+            [
+              "Sanctioned layout",
+              "What subdivision and plot schedule was approved?",
+              "Ownership, land-use conversion or boundary correctness on the ground",
+            ],
+            [
+              "Mortgage release or bank NOC",
+              "Was a recorded charge released?",
+              "Title, or that every charge and every schedule has been cleared",
+            ],
+          ],
+        },
+        caution:
+          "Registration is necessary for the transfer; it is not a warranty that the title is flawless. Read the deed as one link in a chain, not as a clearance certificate.",
+        sources: [
+          {
+            label:
+              "Sale deed preparation: registration, property schedule, link documents and the effect of registration",
+            publisher:
+              "Registration and Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/saledeed.htm",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "What Link Documents and a Title Chain Actually Mean",
+        body: [
+          "Link documents is market and lender shorthand, not a single legal category. It usually means the earlier instruments that connect the current sale deed to the previous transfer and, through that, to the root of the title. Depending on the property, it can include a prior sale deed, gift deed, partition deed, release deed, settlement, government allotment, court decree, succession record or a power of attorney used in an earlier transaction.",
+          "A title chain is the chronology created when those documents are put in order and tested against each other. The seller in one link should be the buyer or beneficiary in the link before it. The property described in one link should be the same property, or a traceable part of it, in the next. A bundle of old papers is not a chain if the names, shares or schedules do not connect.",
+          "The registration department's document-preparation guidance asks parties to record the link document number, date, book or CD volume, page and SRO, and to keep names consistent with earlier documents. Those details are exactly what a buyer's lawyer uses to test continuity. An old deed with no identifiable registration particulars is harder to verify, even if the paper looks genuine.",
+          "The root of title is the starting point from which the chain can be traced. It may be a government grant, an old sale, a partition, a court decree or an inheritance record. There is no rule that the oldest document in the seller's folder is automatically the root. The right starting point depends on how the property came into the family and what happened to it since.",
+        ],
+        caution:
+          "Do not accept the label 'link documents' as proof that the links have been checked. The documents must connect the parties, the shares and the property schedule in a continuous sequence.",
+        sources: [
+          {
+            label:
+              "Document preparation: linking details, book and volume references, property schedule and party names",
+            publisher:
+              "Registration and Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/documentpreparation.htm",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Build a Chain Map Before Reading Every Deed in Detail",
+        body: [
+          "Start with the proposed sale and work backwards. For every document, write down the date, the transferor, the transferee, the document number and year, the SRO, the book and volume or page, the survey and subdivision, the plot number, the extent and the boundaries. Then draw an arrow from each transferor to the next transferee. The line should reach the current seller without a break.",
+          "A simple illustration makes the test clear. If a plot is being sold in 2026, the file might need to connect a 1996 sale, a 2004 partition, a 2011 sale, a 2018 mortgage, a 2020 release and the 2026 sale. Each document should identify the same village, survey or subdivision, plot and extent, and the seller in one document should be the buyer or beneficiary in the previous one. This is an illustration, not a prescribed search period.",
+          "At each step, ask four questions. Who had the right to transfer? What exactly was transferred? Was the transfer registered and properly stamped? And what happened to that right between this document and the next? If the answer requires an assumption, the assumption is a due-diligence item, not a fact.",
+          "A chain map also exposes missing links that a folder can hide. A deed may say the seller acquired the property through a family arrangement, but the arrangement itself may be missing. A sale deed may recite an earlier document number that does not match the certified copy. A partition may refer to a larger parent survey number without showing how the sold plot was carved out. These are the points to resolve before payment.",
+        ],
+        caution:
+          "If the chain map cannot be drawn without guessing, stop and ask for the missing instrument. A gap that is dismissed as a formality today can become the central issue in a future dispute.",
+      },
+      {
+        heading: "Compare the Same Property, Not Just the Same Family Name",
+        body: [
+          "Names are the first test, but they are not a simple spelling check. Compare the full name, father's or husband's name where recorded, the capacity in which the person signed, aliases, signatures and identification details. A name that changes after marriage or an omitted initial is not automatically fatal, but it needs a documented explanation that connects the same person across the chain.",
+          "Document numbers, dates and registration offices matter because they allow you to pull the actual record rather than rely on a recital. Compare the document number and year with the EC, the registered-document index and the certified copy. A deed that recites a prior document but cannot be matched to the register is a question for the seller and the sub-registrar, not a detail to ignore.",
+          "The property schedule is the next test. The village, mandal, district, survey number, subdivision, plot number, extent and boundaries should describe the same land across the links. Be careful with a sale of part of a larger survey number, a plot carved out of a field, or a schedule that uses a new plot number without explaining its source. Our guide to [verifying survey numbers and plot boundaries](/insights/verify-survey-number-plot-boundaries-telangana) explains how those identifiers can drift.",
+          "Finally, compare the stamp duty and registration endorsements. A deed that was executed but never presented for registration, or was registered much later without a satisfactory explanation, needs legal review. The registration endorsement, the signatures, the witnesses and the certificate of registration should be read together with the recitals, not treated as a decorative back page.",
+        ],
+        caution:
+          "A correct name is not enough if the survey number, extent or boundaries belong to a different parcel. The chain must match both the people and the land.",
+      },
+      {
+        heading: "Where to Pull the Registered Record in Telangana",
+        body: [
+          "Telangana's records are split across the revenue and registration systems. Bhu Bharati is the Revenue Department's land-records portal. Its information menu points to Registered Document Details, Encumbrance Fetch and Certified Copy services, alongside registration charges and other land-record tools. The Registered Document Details search asks for the document number and year, district and Tahsildar or Joint Registrar office. Use it to locate recorded particulars, then obtain the certified copy or inspect the deed.",
+          "A certified copy is a copy issued from the registration record. The registration department's certified-copy page describes the service for registered documents on payment of the prescribed fee, and the registration FAQ notes that certified copies can be obtained through MeeSeva kiosks in many districts. A certified copy is useful when an old link is missing, when the seller offers only a photocopy, or when you need to compare the registered text with the recital in a later deed.",
+          "Do not rely on a screenshot, a broker's PDF or a photograph of a deed as the final record. Check the document number against the register, read the certified copy, and compare the schedule and signatures. If the original is available, inspect it as well; a certified copy proves what was registered, but it does not by itself prove that the underlying transaction was honest or that the property was unencumbered.",
+          "Keep a record of what you searched and when. Registration data, revenue entries and portal interfaces change. A dated search note, with the document numbers and the source URLs, helps your lawyer and your bank understand what was checked and what remained open.",
+        ],
+        caution:
+          "An online index entry is a lead, not a title opinion. The certified copy and the underlying chain still need to be read by someone who can test their legal effect.",
+        sources: [
+          {
+            label: "Bhu Bharati land-records portal: home page and service entry points",
+            publisher:
+              "Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/homePage?lang=en",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Bhu Bharati information page: Registered Document Details, Encumbrance Fetch and Certified Copy services",
+            publisher:
+              "Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/information",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Registered Document Details search: document number and year, district and registration office",
+            publisher:
+              "Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/RegDocumentDetails",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Certified copy of a registered document: service description and fee reference",
+            publisher:
+              "Registration and Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/certifiedCopy.htm",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "EC and Revenue Records Are Corroboration, Not a Shortcut",
+        body: [
+          "An Encumbrance Certificate is a chronological statement of registered transactions and charges that the registration system has indexed for a property during the selected period. It is valuable because it can reveal a sale, mortgage, release or other registered dealing that the seller did not mention. It is not a title deed, and it does not list every right or claim that may affect the land.",
+          "The registration portal explains that online EC data covers transactions registered after 1 January 1983, while older records must be checked at the sub-registrar's office. It also warns that searches by survey number or plot number can produce multiple or probabilistic results because property descriptions change over time. The registration FAQ states that an EC cannot be taken as the sole criterion for deciding title. Our guide to [reading an Encumbrance Certificate](/insights/encumbrance-certificates-explained-before-buying-land) explains the search mechanics; use the EC to identify documents and charges, then pull the deeds and releases and test them against the chain.",
+          "Bhu Bharati's record of rights is a revenue record. It shows the recorded holder, extent, classification and other land details, and it can be updated after a mutation. Mutation changes the revenue record; it does not create, transfer or cure title. A mutation entry in the seller's name is useful corroboration, but it is not a substitute for the registered chain. Our guide to [mutation after buying a plot](/insights/land-mutation-after-buying-plot-telangana) explains why the revenue update and the title question should be kept separate.",
+          "The practical rule is corroboration, not substitution. A clean EC, a matching record of rights and a registered sale deed are stronger together than any one of them alone. A discrepancy is not automatically fatal, but it must be explained by a document or a qualified legal opinion, not by an oral assurance.",
+        ],
+        caution:
+          "A clean EC does not mean the title is clean. It means no relevant registered encumbrance was indexed for the period and search method used. Unregistered claims, defective links and boundary problems can sit outside that result.",
+        sources: [
+          {
+            label:
+              "Encumbrance Certificate: online records after 1 January 1983, SRO records for older transactions and search limitations",
+            publisher:
+              "Registration and Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/ec.htm",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Bhu Bharati Know Land Status: survey number, Pattadar Passbook, record of rights and land classification",
+            publisher:
+              "Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/knowLandStatus",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "The Chain Does Not Answer Approval, Land Use or Mortgage Questions",
+        body: [
+          "A title chain can be complete and still leave an open-plot buyer with separate approvals to check. A sanctioned layout is a planning permission; it does not prove ownership or convert the land. A layout may be approved for residential plots while the revenue classification, the conversion order or the conditions in the approval tell a different story. Our [HMDA and DTCP plot-approval checklist](/insights/hmda-dtcp-plot-approval-checklist-hyderabad) sets out the approval documents to match.",
+          "Land use is another layer. Agricultural land does not become residential merely because a layout is drawn or plots are marketed. A NALA conversion changes the revenue land use through a separate process, and it does not validate the layout, the boundaries or the title. Read the conversion order with the revenue record. Our [NALA conversion guide](/insights/nala-conversion-land-use-checklist-telangana) explains the distinction.",
+          "Mortgages and charges are also separate from the ownership chain. A mortgage may have been created by an earlier owner and released later, or it may still be live. A release deed or bank NOC should identify the same property, the same charge and the same parties. If the schedule in the release does not match the sale schedule, ask for a correction or a lawyer's opinion. Our [mortgage-release and bank NOC checklist](/insights/plot-mortgage-release-bank-noc-checklist-hyderabad) covers the documents that should connect.",
+          "Treat these as parallel files, not as replacements for the title chain. The title file explains who could transfer the land. The approval file explains what could be built or subdivided. The land-use file explains the permitted revenue use. The mortgage file explains whether a charge was cleared. A buyer needs all four to line up.",
+        ],
+        caution:
+          "A registered sale deed and a sanctioned layout can both exist while the land use, the mortgage release or the survey position remains unresolved. Do not let one clean document close the other files.",
+      },
+      {
+        heading: "Inheritance, Partition and Release Deeds Need Extra Care",
+        body: [
+          "When the seller acquired the property by inheritance, the chain is not complete with a death certificate alone. Depending on the facts and the applicable personal law, the file may need a will, legal-heir evidence, a family settlement, a partition deed, a release deed or a court order. A legal-heir certificate can help identify who the heirs are, but it does not by itself establish that a particular heir owns a particular parcel or that the share was validly transferred.",
+          "A partition deed divides a larger holding among co-owners. A release deed gives up a share in favour of another co-owner. A family settlement records an arrangement within a family. These documents can be genuine links in the chain, but they must be registered where they create or extinguish rights, and every share must be accounted for. If one heir sells the whole property while another heir has not released a share, the buyer needs legal advice before treating the seller as the sole owner.",
+          "Where a will is produced, check the death certificate, the original will, the probate or other court determination where required, and the mutation record. Do not assume that possession by one family member proves that the other heirs have given up their rights. Long possession and a revenue entry are evidence to be weighed, not a substitute for the succession documents.",
+          "The registration FAQ explains the documents normally required for inheritance, will and partition transactions. The exact set depends on the transaction and the family facts, so use the official list as a starting point and have a property lawyer identify what is missing in your case.",
+        ],
+        caution:
+          "Inherited property is one of the most common places for a hidden co-owner or an unrecorded family arrangement. If every heir and every share is not documented, do not rely on the seller's assurance that 'the family has no dispute'.",
+        sources: [
+          {
+            label:
+              "Registration FAQ: documents for inheritance, will, partition and related transactions; EC and certified-copy guidance",
+            publisher:
+              "Registration and Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/faqsRegistration.htm",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "How Far Back Should a Title Search Go?",
+        body: [
+          "There is no universal number of years that makes a title safe. A 30-year search is common market practice, and some buyers treat it as a standard, but it is not a statutory rule that guarantees an unchallengeable title. The appropriate period depends on the root of title, the property's history, whether it was inherited or partitioned, whether it was a government grant or assigned land, whether it was subdivided, and whether any lender, lawyer or title-review process imposes its own requirement.",
+          "The better approach is to identify the root and then trace every transfer, share and subdivision continuously to the current seller. A short chain with no gaps can be more useful than a long search that begins in the middle and leaves the earlier links unexplained. Conversely, a long chain that omits an heir, a release or a subdivision is still incomplete.",
+          "Online EC data starts from 1 January 1983. If the root or a material link predates that, the search has to include the sub-registrar's records and certified copies. Do not describe an EC for a shorter period as a complete title search, and do not assume that a document outside the online window does not exist.",
+          "Ask your lawyer to record the search period, the reason for it and the documents that were unavailable. A written scope is more useful than a vague assurance that 'the title is clear'.",
+        ],
+        caution:
+          "Do not treat 30 years, or any other round number, as a legal safe harbour. The period is a search decision, not a guarantee that no earlier or unregistered claim exists.",
+      },
+      {
+        heading: "When a Property Lawyer Should Lead the Review",
+        body: [
+          "A lawyer should lead the review when the chain has a gap, when the property is inherited or partitioned, when a power of attorney was used in an earlier transfer, when co-owners or heirs are not clearly accounted for, when the documents are old or illegible, when the revenue record and the deed disagree, or when there is any sign of a court dispute, government acquisition or prohibited land.",
+          "The same applies to government allotments and assigned land, to properties linked to trusts or religious institutions, to sales by companies or partnerships, and to transactions involving a person who claims to act for someone else. These are not necessarily defects, but they require authority, capacity and compliance checks that an online search cannot supply.",
+          "Ask for a written opinion that identifies the documents reviewed, the assumptions made, the gaps that remain and the steps needed to close them. The lawyer should see the originals or certified copies, not only a broker's summary. If the opinion is oral, ask for the key conclusions in writing so that the seller, the bank and the buyer are working from the same record.",
+          "A lawyer's title opinion is not a guarantee either. It is a professional assessment based on the records available. Its value lies in making the risks and the missing links visible before money changes hands.",
+        ],
+        caution:
+          "Do not use a lawyer recommended solely by the seller or the broker without checking independence. The buyer's title review should be the buyer's own exercise.",
+      },
+      {
+        heading: "A Practical Buyer Checklist",
+        body: [
+          "Use this checklist before paying a booking amount, signing a sale agreement or accepting possession. The order matters because each item tells you what to request next.",
+        ],
+        checklist: [
+          "Get the seller's full legal name, capacity, identification and authority to sell in writing.",
+          "Ask for the current sale deed, every prior link document, the root document and a complete chain map.",
+          "Record each document's number, year, date, SRO, book and volume or page, parties and property schedule.",
+          "Match the seller in each link to the buyer or beneficiary in the previous link.",
+          "Compare the village, survey number, subdivision, plot number, extent and boundaries across every document.",
+          "Obtain a recent EC for the relevant period and reconcile every registered transaction with the deeds.",
+          "Check the Bhu Bharati record of rights, land classification, prohibited status and mutation entries.",
+          "Check the sanctioned layout, plot schedule, approval conditions and land-use conversion where applicable.",
+          "Check every mortgage, charge, release deed and bank NOC against the same property schedule.",
+          "Identify whether any co-owner, heir, family member or prior buyer has an unresolved share or claim.",
+          "Read the original or certified copy of every material link; do not rely on photocopies or screenshots.",
+          "Ask a property lawyer for a written title opinion that lists the gaps and the assumptions.",
+          "Keep payments conditional on satisfactory title, approval, survey and encumbrance checks.",
+          "Keep a dated file of searches, certificates, correspondence and the final opinion.",
+        ],
+      },
+      {
+        heading: "Red Flags That Should Pause a Purchase",
+        body: [
+          "A red flag is not proof of fraud, but it is a reason to stop and ask for a document. These are the signals that most often justify a slower, lawyer-led review.",
+        ],
+        drivers: [
+          "The seller offers only the current sale deed and cannot produce the earlier links.",
+          "The chain has an unexplained gap, a missing heir or a transfer that does not connect to the next owner.",
+          "Names, signatures or family relationships change across documents without a documented explanation.",
+          "Document numbers, dates or registration offices do not match the EC or the certified copy.",
+          "The survey number, subdivision, plot number, extent or boundaries change without a connecting document.",
+          "One co-owner or heir sells the whole property without a release, partition or authority from the others.",
+          "A power of attorney is presented as if it were a title deed or the basis of the seller's ownership.",
+          "A mortgage or charge appears in the EC but the release does not match the property or the parties.",
+          "The revenue record, approved layout or land-use position conflicts with the sale deed.",
+          "The seller promises to complete a mutation, rectification, release or survey after receiving payment.",
+          "There is a court dispute, government acquisition, prohibited-land entry or unresolved boundary claim.",
+        ],
+        caution:
+          "When a red flag appears, do not try to explain it away with a verbal assurance. Ask for the missing document, a written legal opinion and, where necessary, a fresh official search.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These are the questions buyers most often ask when comparing a sale deed with link documents. The answers are general and do not replace advice on a specific property.",
+        ],
+        faqs: [
+          {
+            question: "Is a registered sale deed enough to prove ownership?",
+            answer:
+              "No. It proves that the named parties executed and registered the transfer described in the deed, but it does not by itself prove that every earlier transfer was valid, that all co-owners or heirs consented, or that the land is free from unregistered claims. It should be read with the prior chain, the EC, the revenue record and the approvals.",
+          },
+          {
+            question: "What are link documents in a property purchase?",
+            answer:
+              "Link documents are the earlier instruments that connect the current sale deed to the previous owner and, through that, to the root of the title. They can include prior sale deeds, gift deeds, partition deeds, release deeds, settlements, succession records, government allotments or court orders, depending on the property.",
+          },
+          {
+            question: "How many years of title search are required in Telangana?",
+            answer:
+              "There is no universal statutory number. A 30-year search is common market practice, but the appropriate period depends on the root of title, the property's history and the requirements of the buyer's lawyer or lender. The important test is a continuous, documented chain, not a round number.",
+          },
+          {
+            question: "Is an Encumbrance Certificate proof of title?",
+            answer:
+              "No. An EC is a record of registered transactions and charges indexed for the selected period. It can reveal registered dealings, but it does not list unregistered claims, decide the validity of a transfer or replace a title review. Online EC data in Telangana starts from 1 January 1983; older records require the SRO.",
+          },
+          {
+            question: "Does mutation or a Bhu Bharati record prove ownership?",
+            answer:
+              "Mutation updates the revenue record, and the Bhu Bharati record of rights is an important revenue record, but neither creates or conclusively proves title. They should be reconciled with the registered chain, the sale schedule, the survey position and the approved layout.",
+          },
+          {
+            question: "What if the seller inherited the property?",
+            answer:
+              "Ask for the death certificate, will or succession evidence, legal-heir records, partition or release deeds and the mutation record, as applicable. A legal-heir certificate identifies heirs but does not by itself establish title to a specific parcel. A lawyer should confirm that every relevant share is accounted for.",
+          },
+          {
+            question: "What should I do if a link document is missing?",
+            answer:
+              "Do not rely on an oral explanation. Ask the seller or the legal heirs to obtain a certified copy from the SRO or to provide a registered rectification, release or other connecting document. If the gap cannot be closed, get a written title opinion before paying and consider whether the transaction should proceed at all.",
+          },
+          {
+            question: "Can I verify the title myself online?",
+            answer:
+              "You can use official portals to locate registered-document particulars, request an EC and check revenue records. That is useful preliminary work, but it is not a legal title opinion. A property lawyer should review the chain, the original or certified documents, the approvals and any inheritance or co-ownership issues.",
+          },
+        ],
+      },
+      {
+        heading: "The Bottom Line",
+        body: [
+          "A sale deed is the document that records the transfer you are about to make. The title chain is the explanation of how the seller got the right to make it. A buyer needs both: the current deed and the sequence of documents that connects it to an identifiable root, with the parties, shares, survey numbers, extents and boundaries reconciled at every step.",
+          "Do not confuse registration, an EC, a revenue record or an approved layout with a guarantee of title. Each is a different piece of evidence. The safer purchase is the one where those pieces line up and the remaining questions are answered in writing by a qualified lawyer before payment.",
+          "If you are evaluating a plotted community in the Srisailam Highway corridor, [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor is one project to assess on these terms. Its title chain, survey position, layout approval, land use and encumbrances should be independently verified from authoritative records; this article makes no claim about its current title or approval status.",
+        ],
+        caution:
+          "This guide is general information, not a title opinion or a substitute for advice on a specific property. Title review depends on the documents, the family history, the land records and the applicable law.",
+      },
+    ],
+  },
+  {
+    slug: "verify-survey-number-plot-boundaries-telangana",
+    title:
+      "How to Verify Survey Numbers and Plot Boundaries in Telangana",
+    seoTitle: "Verify Survey Numbers & Plot Boundaries in Telangana",
+    metaDescription:
+      "A Telangana guide to matching survey numbers, subdivisions, plot numbers, extents and boundaries across Bhu Bharati, title deeds, survey maps and layouts.",
+    excerpt:
+      "A plot number in a brochure is not a survey number, and a screenshot is not a boundary check. This guide shows how to reconcile the deed, Bhu Bharati record, survey map, approved layout and the ground before buying an open plot.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/verify-survey-number-plot-boundaries-telangana.jpg",
+    imageAlt:
+      "Survey number and plot boundary verification checklist for Telangana open-plot buyers - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "An open-plot buyer is usually shown a plot number, a brochure map and a price. The paperwork underneath is more complicated: a survey number for the revenue field, a sub-division for the surveyed part, an extent in acres, guntas or square yards, a boundary description in the sale deed, and a plot number on a sanctioned layout. These are different identifiers, recorded by different systems, and they do not automatically agree.",
+          "The plot number is a layout reference. The survey number is a revenue-field reference. A subdivision identifies a surveyed part of that field, while a Bhudhaar is a separate land-parcel identifier linked to coordinates. None of them, on its own, proves ownership, approved layout status or the exact line a survey stone should follow on the ground.",
+          "This guide sets out a document-first verification process for Telangana: what to pull from Bhu Bharati, how to read Tippon and village-map records, how to compare the sale deed with the approved layout, when to order a demarcation, and when a property lawyer or licensed surveyor should be brought in. It is general research, not a title opinion or legal advice.",
+        ],
+      },
+      {
+        heading: "A Plot Number Is Not a Survey Number",
+        body: [
+          "Marketing material often collapses the whole identity of a plot into one number. That shorthand is convenient, but it makes verification harder. A layout can sell Plot 27 in a project spread over Survey Nos. 88/1 and 88/2. Plot 27 is not a government survey identifier. It exists because a layout plan places it there, and its legal meaning depends on the approval, the plot schedule, the sale deed and the underlying revenue record.",
+          "The survey number identifies the original field in the village map. A subdivision, often written as /1, /2 or a similar suffix, identifies a surveyed part of that field. The extent states the area, but not its shape. The boundary description identifies the physical limits, usually by reference to neighbouring lands, roads or survey numbers. The plot number is a planning and marketing reference that must connect back to all of these.",
+          "A mismatch between two of these identifiers is not a formatting issue. It is a question that should be answered in writing before any binding payment.",
+        ],
+        table: {
+          caption:
+            "The identifiers commonly used in an open-plot sale answer different questions.",
+          columns: ["Identifier", "What it identifies", "Where it usually appears", "What it does not prove"],
+          rows: [
+            [
+              "Survey number",
+              "A surveyed field in a revenue village",
+              "Village map, Sethwar, record of rights, sale deeds and EC",
+              "Ownership, layout approval or the exact plot sold",
+            ],
+            [
+              "Sub-division number",
+              "A surveyed part of a survey number, often shown with a suffix",
+              "Record of rights, Tippon or FMB, sale schedule and layout documents",
+              "That a developer's plot number has been legally created",
+            ],
+            [
+              "Plot number",
+              "A plot shown on a layout plan",
+              "Sanctioned layout, plot schedule, agreement and brochure",
+              "Survey identity, title or an independent boundary measurement",
+            ],
+            [
+              "Extent",
+              "The area of the parcel",
+              "Sale deed, record of rights, layout schedule and survey record",
+              "Shape, location or physical possession by itself",
+            ],
+            [
+              "Boundary description",
+              "The physical limits of the land",
+              "Sale deed schedule, layout plan and demarcation record",
+              "That the markers or fences on the ground match the description",
+            ],
+          ],
+        },
+        caution:
+          "Do not accept a plot number as a substitute for the survey and subdivision details. Ask for both, and ask how the plot number connects to the sanctioned layout and the revenue record.",
+      },
+      {
+        heading: "Match the Documents, Not Just the Numbers",
+        body: [
+          "The verification is not a single search. It is a reconciliation exercise across at least five documents: the sale deed and title chain, the current record of rights or Pattadar Passbook, the Encumbrance Certificate, the sanctioned layout and plot schedule, and the relevant survey record or map. Each answers a different question, and a clean answer in one does not cure a gap in another.",
+          "The first pass should match the district, mandal, revenue village, survey number, subdivision, extent, land classification and boundary description. The second pass should test whether the plot number in the sale agreement appears in the sanctioned plan and whether the plan's survey numbers match the revenue record. A match on the survey number alone is weak if the subdivision, extent or village is different.",
+          "Be careful with extent conversions. A deed may describe acres and guntas, a layout may sell square yards, and a revenue record may show a different unit or a rounded area. Convert them to one unit and compare. Small measurement variation may have an explanation, but a different survey number, a different subdivision or a materially different extent is not a rounding issue.",
+          "The Encumbrance Certificate is part of this set, but it is not a boundary document. The registration portal itself explains that EC searches can be made by survey number with an optional plot number, and that legacy data and changing property descriptions can produce multiple or probabilistic results. A clean EC is evidence about registered transactions, not a survey or a title certificate. Our guide to [reading an Encumbrance Certificate](/insights/encumbrance-certificates-explained-before-buying-land) explains that distinction in more detail.",
+        ],
+        caution:
+          "If the deed, revenue record and layout do not describe the same land, stop. Ask the seller and the relevant authority to reconcile the difference in writing rather than accepting an oral explanation.",
+      },
+      {
+        heading: "Read Bhu Bharati as a Record, Not a Clearance",
+        body: [
+          "Bhu Bharati is the current Telangana land-records portal. Its Land Details Search allows a search by survey number or sub-division number, or by Pattadar Passbook number, after selecting the district, mandal and village. The result is a record-of-rights view, not a title opinion or a ground survey.",
+          "Use the portal to identify the recorded holder, the survey and subdivision, the extent, the land classification and the khata. Check the prohibited-property position and any acquisition or government-land entry that affects the parcel. Note the date on which the portal says its records were updated, and keep a copy of what you saw. A screenshot is useful evidence of the search; it is not a certified extract.",
+          "Section 11 of the Telangana Bhu Bharati (Record of Rights in Land) Act, 2025 says every entry in the record of rights is presumed to be true and correct until the contrary is proved or the entry is amended under the Act. That is a significant presumption, but it is still a presumption. It does not convert an online entry into a guaranteed title, an approved layout or a surveyed boundary. Section 12 provides for certified copies and extracts on payment of the prescribed fee.",
+          "Bhu Bharati also has a GIS village-map viewer. After selecting the district, division, mandal and village, a user can inspect the village map and click a parcel for information. This is a useful visual cross-check against the survey number and the layout's location, but it is not the same as a surveyor fixing corners on the ground. Treat the map as a lead, then verify the geometry against the Tippon, the layout plan and a physical inspection.",
+        ],
+        caution:
+          "A Bhu Bharati result that shows the seller's name is not the end of due diligence. It still has to be reconciled with the title chain, the sale schedule, the approved layout and the physical boundaries.",
+      },
+      {
+        heading: "Tippon, FMB and the Village-Map Chain",
+        body: [
+          "Telangana's survey records are not limited to the online record of rights. The Survey and Land Records Department maintains survey marks on the ground, Tippon or Field Measurement Book records, village maps and settlement registers. The CCLA's published manual describes the Teepan Book as the Field Measurement Book containing field measurement sketches of individual fields; those measurements are the basis for demarcating survey numbers and settling boundary disputes.",
+          "A village map shows the layout of survey numbers in the village. A Sethwar register records survey-number details such as the extent, classification and assessment. A Wasool Baqui register correlates old and new survey numbers. These records help explain how a field was measured and how its number changed over time. They do not establish who owns the land today.",
+          "The Bhu Bharati Act recognises this survey framework. Section 13 provides that survey numbers may be divided into as many subdivisions as required and that survey maps may be updated through the record-of-rights process. The Bhu Bharati Rules, 2025 provide for a survey or sub-division map to be submitted with certain applications from a notified date, and describe a route for a recorded holder to have land surveyed by a licensed surveyor, with the map incorporated after validation by the competent government surveyor.",
+          "Bhudhaar is a separate concept. It is a unique identification number for a land parcel, linked to the parcel's geographical location and the coordinates of its corner points. A temporary Bhudhaar indicates that geo-referencing is incomplete; a permanent Bhudhaar indicates that it has been completed. Bhudhaar is not a replacement for the survey number, the subdivision or the title deed.",
+          "Ask for certified copies of the relevant Tippon, village map or Sethwar where the subdivision is old or unclear. A developer's AutoCAD drawing, a brochure map or a coloured plot layout is not a government survey record. If the seller cannot explain how the plot number relates to the survey and subdivision, the file is not ready for payment.",
+        ],
+        caution:
+          "Old survey records can be missing, illegible or inconsistent with later subdivisions. A certified copy is useful evidence, but it still has to be read with the current record of rights and the sanctioned layout.",
+      },
+      {
+        heading: "The Four-Way Test: Deed, Record, Layout and Ground",
+        body: [
+          "A practical way to test an open plot is to compare four things: the sale deed, the current revenue record, the sanctioned layout and the physical site. The same five identifiers should survive the comparison: village, survey number, subdivision, extent and boundary description. The plot number should connect the layout to the deed.",
+          "The sale deed should describe the property with enough precision to locate it: the district, mandal and village, the survey and subdivision, the extent, the plot number where applicable, and the boundaries. The record of rights should show the seller and the recorded extent. The sanctioned layout should show the plot number, dimensions, road frontage and the survey numbers covered by the layout. The ground should show a plot whose corners, access and extent are consistent with that plan.",
+          "If the deed describes the entire parent survey number but the seller is selling one plot, ask how the plot was created and where the subdivision is recorded. If the layout plan shows a plot number that does not appear in the sale schedule, ask for the connecting document. If the revenue record shows a different subdivision or extent, ask for the correction or the explanation. These are not clerical details to be fixed after registration.",
+          "The physical inspection is a separate check. Walk the boundaries, locate the corners, look for survey stones and compare the shape and access with the plan. Our [site-inspection checklist](/insights/plot-site-inspection-checklist-srisailam-highway) covers the ground-level observations in more detail. A site visit does not replace the record check, and the record check does not replace the site visit.",
+        ],
+        caution:
+          "A seller's assurance that 'the survey number is the same' is not a reconciliation. Ask for the documents that show the same village, subdivision, extent and boundaries.",
+      },
+      {
+        heading: "When to Order a Survey or Demarcation",
+        body: [
+          "A fresh survey or demarcation is worth ordering when the documents are old, the subdivision is unclear, the survey stones are missing or displaced, the site dimensions do not match the deed, the plot is being carved out of a larger field, or a neighbour disputes the boundary. It is also useful when the seller's extent appears to include a road, common area or land that belongs to someone else.",
+          "The government route starts with an application for demarcation or an F-line petition through the Mandal Revenue Office or the prescribed MeeSeva service. The Mandal Surveyor conducts the demarcation under the survey framework. A published district page lists a 30-day service norm for demarcation of a survey number, F-line petition or subdivision, and a 45-day norm for appeal demarcations and field inspections. Service norms and fees can change, so confirm the current position with the district survey office.",
+          "The licensed-surveyor route is different. A licensed surveyor can measure the plot, prepare a survey or subdivision map and fix coordinates for a Bhudhaar-related exercise, but a private map is not automatically a government demarcation. Ask for the surveyor's licence details, the method and datum used, the coordinates, the map and a clear statement of what was measured. Where the Bhu Bharati process requires validation by a government surveyor, do not treat the private map as final until that validation is recorded.",
+          "The two routes can be complementary. A licensed surveyor can give you a quick technical reading of the site, while a government demarcation creates an official record that can be appealed or challenged. Neither route decides title. If ownership is disputed, the survey is evidence in a wider legal problem, not a substitute for a title suit.",
+        ],
+        caution:
+          "Do not commission a survey after paying the full consideration. Make the survey and the reconciliation of its results a condition before the sale is completed.",
+      },
+      {
+        heading: "Boundary Disputes and the 1923 Act",
+        body: [
+          "The Telangana Survey and Boundaries Act, 1923 gives survey officers the power to determine and record an undisputed boundary and to determine and record a disputed boundary after notice to the affected holders. It provides for appeals against those decisions, for notification when demarcation is completed, and for a civil suit within three years of the notification to set aside or modify the determination.",
+          "The CCLA's published manual adds the operational detail. Every registered holder is responsible for maintaining, renewing and repairing survey stones on the boundaries of the holding. Applications for demarcation of private land are to be made to the Mandal Revenue Officer, and the Mandal Surveyor conducts the demarcation after written approval. The manual sets out an appeal hierarchy through the Revenue Divisional Officer, the Deputy Inspector of Surveys, the Inspector of Survey and the Assistant Director, and refers to an appeal within 90 days of the endorsement.",
+          "That 90-day reference comes from the CCLA's demarcation guidelines, not from a casual reading of the Act. The statutory appeal and the civil suit are separate remedies with separate timelines. If a boundary dispute is already before a court, or the record is marked as disputed or prohibited, do not buy on the assumption that a survey will make the problem disappear. Take legal advice before negotiating.",
+          "A survey decision is not a title decree. It determines a boundary for the purpose of the survey record. It does not decide who owns the land, whether a sale is valid, or whether a layout approval was lawfully obtained. Those questions belong to a different analysis and, where necessary, a different forum.",
+        ],
+        caution:
+          "A boundary dispute can survive a registration. If the seller, a neighbour or the revenue record indicates a dispute, get a lawyer's opinion before paying, not after the deed is registered.",
+      },
+      {
+        heading: "Approval and Land Use Are Separate from Survey",
+        body: [
+          "A sanctioned layout is a planning permission. It shows how the parent land may be subdivided into plots, roads, open spaces and amenities, and it identifies the plots through a sanctioned plan and plot schedule. It does not prove that the survey boundaries on the ground are correct, that the seller owns the land, or that the plot is free of a mortgage or condition.",
+          "For a DTCP layout, the department's public layout page can be filtered by district and municipality and displays the LP number and year, file number, town or gram panchayat, locality, survey numbers and site extent. Use it to test whether the layout and survey numbers exist in the record, then ask for the approval letter, the sanctioned plan and any revised plan. A row in the layout table is not a plot-level clearance.",
+          "For HMDA, GHMC and DTCP jurisdictions, BuildNow is the unified building and layout approval system. A portal record should be read with the actual approval and its conditions. Match the approval number, layout name, survey numbers, plot number, dimensions and road width across the approval, the plan and the sale documents. Our [HMDA and DTCP approval checklist](/insights/hmda-dtcp-plot-approval-checklist-hyderabad) sets out the wider approval sequence.",
+          "Land use is a third layer. A layout approval does not convert agricultural land, and a NALA conversion does not approve the layout or the boundaries. If the land is agricultural or recently converted, read the revenue record and the conversion order together. Our [NALA conversion guide](/insights/nala-conversion-land-use-checklist-telangana) explains that separation.",
+        ],
+        caution:
+          "Do not use an approval number as a substitute for the survey record. The approval, the survey, the revenue record and the title each answer a different question.",
+      },
+      {
+        heading: "A Practical Verification Sequence",
+        body: [
+          "Use this sequence before paying a booking amount, signing a sale agreement or accepting possession. The order matters because each step tells you what to ask for next.",
+        ],
+        checklist: [
+          "Get the exact district, mandal, revenue village, survey number, subdivision, plot number and extent from the seller in writing.",
+          "Obtain the sale deed, the title chain and the link documents; have a property lawyer identify the seller's authority and any gaps.",
+          "Search Bhu Bharati by survey or subdivision and by Pattadar Passbook number, and keep the current record with its update date.",
+          "Check the prohibited-property, government-land and acquisition position for the exact survey number and extent.",
+          "Obtain a fresh Encumbrance Certificate and the certified copies of the material registered transactions.",
+          "Pull the relevant village map, Tippon or FMB record where the subdivision, extent or boundary is old or unclear.",
+          "Obtain the sanctioned layout, the latest revised plan, the approval letter and the plot schedule.",
+          "Match the village, survey number, subdivision, extent, plot number, dimensions and boundaries across the deed, record, layout and EC.",
+          "Inspect the site, locate the corners and survey stones, and compare the access road and shape with the approved plan.",
+          "Order a government demarcation or a licensed surveyor's measurement where the documents or ground position do not reconcile.",
+          "Ask the planning authority or the layout file for written confirmation of the approval and any condition affecting the plot.",
+          "Keep every payment conditional on delivery of the documents and a satisfactory legal and survey review.",
+          "After registration, follow up on mutation and keep the updated record with the deed; our guide to [mutation after buying a plot](/insights/land-mutation-after-buying-plot-telangana) explains that step.",
+        ],
+        caution:
+          "A checklist is not a clearance. If an answer is oral, inconsistent or incomplete, record it as an open issue and do not treat the file as verified.",
+      },
+      {
+        heading: "Red Flags That Should Stop a Payment",
+        body: [
+          "Most survey and boundary problems surface as inconsistencies rather than as a single dramatic fraud. The seller has a plot number but no survey or subdivision. The brochure, deed and EC use different survey numbers. The layout shows the plot, but the revenue record shows a different extent. The survey stones are missing and the seller refuses a joint inspection. Each of these is a reason to slow down.",
+          "Be equally careful with phrases such as 'the subdivision will be done after sale', 'the survey number is the same, only the number changed', 'the layout map is enough', or 'the boundary will be adjusted at registration'. Some may have a lawful explanation. None should be accepted without the document or authority record that proves it.",
+        ],
+        drivers: [
+          "The seller can give a plot number but not the survey number, subdivision or extent.",
+          "The survey number differs between the brochure, sale deed, revenue record, layout or EC.",
+          "The extent differs materially after converting acres, guntas and square yards to one unit.",
+          "The seller says the subdivision will be created after the sale or after registration.",
+          "The plot is being carved out of a parent survey number with no recorded subdivision.",
+          "Survey stones are missing or displaced, and the seller refuses a joint demarcation.",
+          "The layout is unapproved, or the plot does not appear in the sanctioned plan and plot schedule.",
+          "Bhu Bharati shows government land, assigned land, a prohibited entry or an acquisition affecting the parcel.",
+          "A boundary dispute or court case is disclosed late, or the record is marked as disputed.",
+          "An agent offers to 'adjust' the survey number, extent or boundary outside the official process.",
+        ],
+        caution:
+          "A red flag is not proof of illegality, but it is a reason to pause. A discount or a deadline is not a substitute for a document that matches the land.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide and should be read with the official sources and the disclaimer below.",
+        ],
+        faqs: [
+          {
+            question: "Is a survey number the same as a plot number?",
+            answer:
+              "No. A survey number identifies a surveyed field in a revenue village. A plot number identifies a plot on a layout plan. The plot must connect to the survey number, subdivision and extent through the sale deed, revenue record and sanctioned layout.",
+          },
+          {
+            question: "What is a sub-division number?",
+            answer:
+              "It identifies a surveyed part of a survey number, often written with a suffix such as /1 or /2. A layout plot is not automatically a subdivision. Ask where the subdivision is recorded and how the plot number relates to it.",
+          },
+          {
+            question: "How can I check a survey number online in Telangana?",
+            answer:
+              "Use Bhu Bharati's Land Details Search with the district, mandal and village, then search by survey or sub-division number or by Pattadar Passbook number. Read the record with its update date, and obtain a certified extract where the decision depends on it.",
+          },
+          {
+            question: "Does Bhu Bharati show the exact boundaries?",
+            answer:
+              "It provides land-record details and a GIS village-map viewer, but it is not a ground demarcation. The map and record can help you identify the parcel; a surveyor or government demarcation is needed to fix the corners on the ground.",
+          },
+          {
+            question: "What is Tippon or FMB?",
+            answer:
+              "Tippon, also called Teepan, is the field measurement record commonly known as the Field Measurement Book. It contains field measurement sketches used to demarcate survey numbers and settle boundary disputes. It is a survey record, not a title deed.",
+          },
+          {
+            question: "Do I need a licensed surveyor or a government surveyor?",
+            answer:
+              "A licensed surveyor can measure the plot and prepare a survey or subdivision map. A government demarcation creates an official survey record through the Mandal Surveyor. The right route depends on the purpose and the current Bhu Bharati requirement; where validation by a government surveyor is required, the private map is not final until that happens.",
+          },
+          {
+            question: "What if the boundaries in the deed and on the ground differ?",
+            answer:
+              "Do not complete the purchase on an oral assurance. Compare the deed, layout, revenue record and survey map, then obtain a demarcation or licensed surveyor's measurement. If the difference affects ownership or possession, take legal advice before paying.",
+          },
+          {
+            question: "Is an Encumbrance Certificate enough to verify the survey and boundaries?",
+            answer:
+              "No. An EC records registered transactions and can be searched by survey number and optionally by plot number, but it does not measure the land, fix the corners or prove title. Use it with the title chain, revenue record, survey map and approved layout.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "The safest plot purchase is not the one with the thickest brochure. It is the one where the survey number, subdivision, plot number, extent and boundaries survive a comparison across the sale deed, Bhu Bharati record, survey map, sanctioned layout and the ground. Those are separate tests, and a clear answer in one does not cancel a gap in another.",
+          "Ask for the identifiers in writing, pull the current records, inspect the site and commission a demarcation where the position is unclear. Keep a property lawyer in the title review and a licensed surveyor in the measurement exercise. The cost of those checks is small compared with the cost of discovering a boundary problem after registration.",
+          "If you are evaluating a plotted community in the Srisailam Highway corridor, [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor is one project to assess on these terms. Its title, survey position, layout approval, land use and boundaries should be independently verified from authoritative records; this article makes no claim about its current approval or boundary status.",
+        ],
+        sources: [
+          {
+            label:
+              "Survey and Boundaries Act, 1923: survey records, demarcation of private land, appeals and boundary disputes",
+            publisher: "Chief Commissioner of Land Administration, Government of Telangana",
+            url: "https://ccla.telangana.gov.in/pdf/actsManuals/The%20Survey%20and%20Boundaries%20Act%20of%201923..pdf",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "The Telangana Survey and Boundaries Act, 1923: Sections 9 to 14 on boundary determination, appeals, notification and civil suits",
+            publisher: "India Code, Government of India",
+            url: "https://www.indiacode.nic.in/bitstream/123456789/8570/1/act_8_of_1923.pdf",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Telangana Bhu Bharati (Record of Rights in Land) Act, 2025: Sections 9, 11, 12 and 13 on Bhudhaar, record-of-rights presumption, certified copies and survey subdivisions",
+            publisher: "Law Department, Government of Telangana",
+            url: "https://law.telangana.gov.in/fileShow?fileName=%2FUploads%2FLawDepartment%2FpdfNew%2FAct%201%20of%202025.pdf",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Telangana Bhu Bharati (Record of Rights in Land) Rules, 2025: survey and sub-division maps, licensed surveyors and Bhudhaar",
+            publisher: "Bhu Bharati, Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/assets/images/userManuals/G_O_Ms_no_39_Dated_14_04_2025.pdf",
+            date: "14 April 2025",
+          },
+          {
+            label:
+              "Bhu Bharati Land Details Search: search by survey or sub-division number, Pattadar Passbook number, district, mandal and village",
+            publisher: "Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/knowLandStatus",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Bhu Bharati GIS village map: district, division, mandal and village selection, survey-number search and parcel information",
+            publisher: "Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/gis",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Survey and Land Department: Tippon, FMB, village maps, Sethwar, demarcation norms, MeeSeva fees and appeal routes",
+            publisher: "Peddapalli District, Government of Telangana",
+            url: "https://peddapalli.telangana.gov.in/survey-and-land-department",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "DTCP layout approvals: district and municipality filters with LP number, file number, locality, survey numbers and site extent",
+            publisher: "Directorate of Town and Country Planning, Government of Telangana",
+            url: "https://dtcp.telangana.gov.in/Home/Layouts",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "BuildNow: unified building and layout approval system for GHMC, HMDA and DTCP jurisdictions",
+            publisher: "Government of Telangana",
+            url: "https://buildnow.telangana.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Encumbrance Certificate search: survey-number and plot-number searches, legacy-data limitations and SRO certified copies",
+            publisher: "Registration and Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/ec.htm",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+        caution:
+          "This article is general research, not a title opinion, legal advice or a survey guarantee. Revenue records, survey maps, layouts, portal workflows and authority requirements can change. Confirm the current position for the exact survey number and plot with the competent revenue and planning authorities, an independent property lawyer and, where needed, a licensed surveyor before paying.",
+      },
+    ],
+  },
+  {
+    slug: "nala-conversion-land-use-checklist-telangana",
+    title:
+      "NALA Conversion in Telangana: What Open-Plot Buyers Must Verify",
+    seoTitle: "NALA Conversion in Telangana: Buyer Guide",
+    metaDescription:
+      "Check NALA conversion orders, revenue records, CLU, layout approval and title before buying an open plot in Telangana. A document-first buyer checklist.",
+    excerpt:
+      "NALA converted, patta land and HMDA approved are often used as if they mean the same thing. This guide separates the revenue conversion from CLU, layout approval and title, and shows the records a buyer should verify before paying.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/nala-conversion-land-use-checklist-telangana.jpg",
+    imageAlt:
+      "NALA conversion and land-use verification checklist poster for Telangana open-plot buyers - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "An open-plot listing can carry several reassuring labels at once: patta land, NALA converted, HMDA approved. They sound interchangeable. They are not. Each label answers a different question, is issued or recorded by a different authority, and can be true while another essential approval is still missing.",
+          "NALA conversion is a revenue land-use step. It concerns whether an agricultural extent has been permitted to be used for a non-agricultural purpose. It does not establish ownership, approve a subdivision into plots, permit construction or change the zoning of the land in the notified master plan.",
+          "This guide explains what the current law requires, how the Bhu Bharati application route works, what a completed conversion should leave in the records, and how a buyer can separate NALA from change of land use, layout approval and building permission. It is general research, not a title opinion or legal advice.",
+        ],
+      },
+      {
+        heading: "Four Labels, Four Different Questions",
+        body: [
+          "Before relying on any approval claim, identify which question it is supposed to answer. The same parcel can be patta land, agricultural land, part of an approved layout or the subject of a pending application. One label does not resolve the others.",
+          "Patta is a revenue tenure and record-of-rights concept. It is not a planning approval, a conversion order, a layout sanction or a building permit. A patta plot can still be agricultural, unconverted, unapproved as a layout or affected by a prohibited-land entry.",
+        ],
+        table: {
+          caption:
+            "The labels commonly used in plot advertising answer different questions. Check each one separately.",
+          columns: ["Label", "Question it answers", "Who records or approves it", "What it does not prove"],
+          rows: [
+            [
+              "NALA conversion",
+              "Has the agricultural extent been permitted for non-agricultural use and reflected in the revenue record?",
+              "Competent authority under the 2006 conversion law; revenue officials",
+              "Zoning, layout approval, building permission or ownership",
+            ],
+            [
+              "Change of land use (CLU)",
+              "Does the notified master plan or zonal plan permit the proposed use?",
+              "Planning authority and the state government",
+              "Revenue conversion, title or a sanctioned plot layout",
+            ],
+            [
+              "Layout approval",
+              "Has the subdivision into plots, roads, open spaces and amenities been sanctioned?",
+              "HMDA, DTCP or the competent local authority, depending on jurisdiction",
+              "NALA conversion, clear title or building permission",
+            ],
+            [
+              "Building permission",
+              "Can the specified building be constructed on the plot?",
+              "The competent planning or local body",
+              "Land-use conversion, layout approval or ownership",
+            ],
+          ],
+        },
+        caution:
+          "No single label proves title. A seller can hold a patta passbook, a conversion order and an approved layout for the parent land while the exact plot, extent or current record still does not match the sale.",
+      },
+      {
+        heading: "What the 2006 Act Actually Says",
+        body: [
+          "The current statute is the Telangana Agricultural Land (Conversion for Non Agricultural Purposes) Act, 2006. Its Section 15 expressly repeals the Andhra Pradesh Non-Agricultural Lands Assessment Act, 1963. The older Act is still sometimes cited in summaries and advertisements, but it is not the operative conversion statute today.",
+          "Section 3 prohibits agricultural land from being put to a non-agricultural purpose without the prior permission of the competent authority. An applicant is required to apply through the prescribed website with the conversion tax and, where the land has already been put to non-agricultural use without permission, a penalty of 50% over that tax. The applicant must attend the competent authority with a prescribed affidavit and the Pattadar Pass Book-cum-Title Deed.",
+          "The affidavit must declare that the land does not violate the Telangana Land Reforms (Ceiling on Agricultural Holdings) Act, 1973, the Telangana Assigned Lands (Prohibition of Transfers) Act, 1977 or the Telangana Scheduled Areas Land Transfer Regulation, 1959. Those are substantive eligibility checks, not paperwork formalities.",
+          "If the land matches the record of rights and the tax and penalty paid are adequate, the competent authority issues conversion permission. The Tahsildar then removes the converted extent from the agricultural record of rights. The land is to be entered in the non-agricultural record and passbook, and the local body fixes the assessment.",
+          "Section 3(5) is particularly important for plot buyers: conversion does not authorise the layout, building or other activity. Those require the separate permissions, licences and approvals prescribed by the relevant laws. The Act also contains limited exemptions and a 60-day appeal to the Collector against an order of the Tahsildar.",
+          "The Act still uses the term Dharani because of the 2020 amendments. The current Revenue Department portal is Bhu Bharati. The change of portal name does not convert an application, payment or slot receipt into a final permission.",
+        ],
+        caution:
+          "Do not treat an old reference to the 1963 NALA Act as a description of the current legal test. Ask for the conversion order and current record under the 2006 framework, and have the eligibility declarations checked against the specific land.",
+        sources: [
+          {
+            label:
+              "Telangana Agricultural Land (Conversion for Non Agricultural Purposes) Act, 2006: Sections 3, 6, 7, 8 and 15",
+            publisher: "Law Department, Government of Telangana",
+            url: "https://law.telangana.gov.in/fileShow?fileName=%2FUploads%2FLawDepartment%2Fpdf%2FAct%203%20of%202006_16012023_145911.pdf",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "How the Bhu Bharati NALA Application Works",
+        body: [
+          "Bhu Bharati's 2025 user manual sets out the citizen-side NALA workflow. After logging in, the applicant selects NALA and then Application for NALA, chooses the type of conversion, enters the passbook number and fetches the Pattadar Khata. The applicant selects the survey number and enters the extent to be converted, proceeds to payment, accepts the terms and pays through the payment gateway.",
+          "The applicant then books a slot from the citizen dashboard, provides a communication address, downloads and completes the NALA undertaking, uploads it, selects a date and time, and submits the application to the Tahsildar. The portal provides a slot receipt, e-challan and transaction summary.",
+          "The Bhu Bharati FAQ adds useful context. NALA charges are auto-calculated and displayed before slot booking when a PPB number is available. There is a route for cases where a PPB has not been issued and the land is marked non-DS for NALA. A separate Pending NALA module deals with land converted before Bhu Bharati but still shown as agricultural, and a modification route exists to correct land wrongly marked NALA back to agriculture.",
+          "These workflows are applicant-side processes. They help explain what the seller or developer should have done, but they do not prove that the exact land was approved. The buyer still needs the final conversion order and the updated revenue record, not merely a dashboard screenshot or a payment receipt.",
+        ],
+        caution:
+          "Do not pay an agent to 'manage' a NALA entry without a written application trail. Use the official Bhu Bharati route, keep the acknowledgements and verify the final order with the competent revenue authority.",
+        sources: [
+          {
+            label:
+              "Application for NALA user manual: login, application, payment, undertaking and Tahsildar slot booking",
+            publisher: "Bhu Bharati, Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/assets/images/userManuals/Application_for_NALA.pdf",
+            date: "2025",
+          },
+          {
+            label:
+              "Bhu Bharati FAQ: NALA charge calculation, applications without PPB, Pending NALA and correction from NALA to agriculture",
+            publisher: "Bhu Bharati, Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/Bhubharati_faq",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Bhu Bharati land records portal and citizen services",
+            publisher: "Revenue Department, Government of Telangana",
+            url: "https://bhubharati.telangana.gov.in/homePage?lang=en",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "What a Completed Conversion Should Leave Behind",
+        body: [
+          "A completed conversion should be traceable through more than a brochure line. Ask for the conversion permission or order, the survey number and extent it covers, the date and authority, and the current revenue record showing the non-agricultural status. Where the record still shows agricultural classification, ask why and obtain a written explanation.",
+          "Check whether the whole survey number or only part of it was converted. A seller may hold a conversion order for a smaller extent than the plot being sold, or for a different subdivision. The order, the record of rights, the sale deed and the layout schedule should describe the same land.",
+          "The local body's assessment is a separate consequence of conversion. It does not replace the conversion order, and it does not prove that the layout or building is approved. Similarly, a non-agricultural entry does not prove possession, boundaries or the seller's title.",
+          "Where a seller says the land was converted before Bhu Bharati but the portal still shows agriculture, the Pending NALA route may be relevant. That is a correction process, not a clearance certificate. A pending application should be treated as pending until the competent authority issues the order and the record is updated.",
+        ],
+        caution:
+          "A conversion order for the parent survey number is not automatically an approval for every plot carved out of it. Match the survey, subdivision, extent and plot description across the conversion order, revenue record, layout and sale deed.",
+      },
+      {
+        heading: "NALA Is Not Change of Land Use",
+        body: [
+          "NALA conversion and change of land use are frequently confused because both concern how land may be used. They operate at different levels. Conversion changes the revenue classification from agricultural to non-agricultural. CLU changes the land-use zoning in the notified master plan or zonal plan.",
+          "HMDA's published CLU checklist requires an online application through the DPMS portal. The application is scrutinised for completeness, followed by title verification and technical inspection. Recommendations move through the planning hierarchy to the Metropolitan Commissioner and then to the government. If accepted, the change is published in newspapers for objections and suggestions, conversion charges are intimated, and final proposals are sent to the government for the CLU order.",
+          "The checklist asks for site and approach-road photographs, a site plan, geo-coordinates, a location plan, an AutoCAD drawing in Pre-DCR format, Irrigation and Revenue NOCs where required, and ownership documents. Those requirements show that CLU is a planning exercise, not a revenue formality.",
+          "In some cases both NALA conversion and CLU may be relevant. One does not automatically substitute for the other, and the sequence can depend on the parcel, the applicable plan and the proposed use. Ask the planning authority and a property lawyer which approvals apply to the exact survey number before assuming that a conversion order is enough.",
+        ],
+        caution:
+          "A CLU order is not a NALA conversion order, and a NALA conversion order is not a CLU. A layout sanction is a third decision. Check all three where the project depends on them.",
+        sources: [
+          {
+            label:
+              "Change of Land Use checklist: DPMS application, title verification, inspections, newspaper objections, conversion charges and final CLU orders",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/wp-content/uploads/2020/07/Change-of-Land-Use-Checklist-HMDA.pdf",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "HMDA Master Plan page: notified master plan and zonal plan references for the HMDA area",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/planning-2/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "HMDA DPMS: online development permission system and CLU application route",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/dpms/",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Conversion Does Not Approve the Layout",
+        body: [
+          "An approved layout is a separate planning permission. It deals with how the parent land is subdivided, where roads and open spaces sit, which plots are created, what amenities are provided and what conditions or mortgages apply. NALA conversion does not create plots, approve roads or reserve open space.",
+          "For an open-plot purchase, obtain the sanctioned layout plan and the current revised plan, the approval number and the plot schedule. Match the plot number, dimensions, extent, road frontage and location to the plan and the sale deed. A brochure map or a developer's sketch is not the sanctioned layout.",
+          "Layout approval also does not prove that the exact plot is free of a layout mortgage or a condition. Our guide to [HMDA and DTCP plot approvals](/insights/hmda-dtcp-plot-approval-checklist-hyderabad) covers the approval checks, and the [plot mortgage release checklist](/insights/plot-mortgage-release-bank-noc-checklist-hyderabad) explains the separate release trail.",
+          "If a building already exists, ask for the building permission and occupancy or completion record where applicable. A conversion order and a layout approval do not cure an unauthorised building, and a building permission does not retrospectively validate an unapproved subdivision.",
+        ],
+        caution:
+          "Do not accept 'NALA converted' as a substitute for the layout sanction. The buyer needs the approved layout, the exact plot schedule and the current authority record for the plot.",
+        sources: [
+          {
+            label:
+              "BuildNow: unified building and layout approval system for GHMC, HMDA and DTCP jurisdictions",
+            publisher: "Government of Telangana",
+            url: "https://buildnow.telangana.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "The Buyer's Document Matrix",
+        body: [
+          "Use the documents together. A clean answer in one column does not cancel a gap in another. The table is a reading guide, not a substitute for a lawyer's title opinion or an authority's written confirmation.",
+        ],
+        table: {
+          caption:
+            "What each document answers, and what it does not answer, in an open-plot purchase.",
+          columns: ["Document", "Question it answers", "What it does not prove"],
+          rows: [
+            [
+              "Title deed and chain of title",
+              "Who owns the land and whether the seller can convey it",
+              "Land-use conversion, layout approval or building permission",
+            ],
+            [
+              "Pattadar Passbook and current RoR",
+              "Who is recorded and how the land is classified in revenue records",
+              "Approved subdivision, clear boundaries or planning permission",
+            ],
+            [
+              "NALA conversion order",
+              "That the stated agricultural extent was permitted for non-agricultural use",
+              "CLU, layout approval, building permission or ownership",
+            ],
+            [
+              "Non-agricultural record or passbook entry",
+              "Whether the revenue record reflects the conversion",
+              "Possession, survey accuracy or title",
+            ],
+            [
+              "Encumbrance Certificate and certified documents",
+              "Registered mortgages, releases and other registered transactions",
+              "Unregistered claims, family disputes or planning conditions",
+            ],
+            [
+              "Master plan or land-use certificate",
+              "The notified zoning and permitted use for the parcel",
+              "NALA conversion, layout sanction or building approval",
+            ],
+            [
+              "Layout approval and plot schedule",
+              "The sanctioned subdivision and the exact plot",
+              "Title, NALA conversion or building permission",
+            ],
+            [
+              "Building permission and occupancy record",
+              "Whether the specified construction was permitted and completed",
+              "Land use, layout approval or ownership",
+            ],
+            [
+              "TG RERA registration",
+              "Project registration and disclosed particulars where applicable",
+              "Title, conversion, layout or a guarantee of completion",
+            ],
+          ],
+        },
+      },
+      {
+        heading: "A Practical Verification Sequence",
+        body: [
+          "Start with the land, not the brochure. The order below keeps the revenue, planning and title checks separate so that one document is not used to fill a gap in another.",
+        ],
+        checklist: [
+          "Identify the village, survey number, subdivision, extent, plot number and physical boundaries from the sale documents and the site.",
+          "Check the seller's identity, title chain and authority to sell with an independent property lawyer.",
+          "Obtain the current Pattadar Passbook and record of rights, and search the prohibited-property record for the exact survey number.",
+          "Ask for the NALA conversion order and match its survey number, subdivision and extent to the land being sold.",
+          "Obtain the current non-agricultural revenue record or passbook entry; if it still shows agriculture, ask for the pending application or a written explanation.",
+          "Check the notified master plan, zonal plan or land-use certificate for the proposed use, and confirm whether CLU is required.",
+          "Obtain the sanctioned layout, the latest revised plan and the plot schedule, and match the exact plot and extent.",
+          "If a building exists, obtain the building permission and occupancy or completion record.",
+          "Obtain a fresh Encumbrance Certificate and the certified copies of the material transactions, then reconcile every entry.",
+          "Check TG RERA registration and the disclosed project and phase where the project is covered.",
+          "Verify the physical boundaries and extent with a surveyor where the documents are old, the subdivision is unclear or the site markings are disputed.",
+          "Keep the payment and registration conditional on delivery of the documents and completion of legal review.",
+        ],
+        caution:
+          "A portal result is a lead, not a conclusion. Where the record is ambiguous, ask the competent authority for written confirmation and have the complete set reviewed by a lawyer before paying.",
+      },
+      {
+        heading: "Red Flags That Should Stop a Payment",
+        body: [
+          "Most problems are not hidden in a single forged document. They appear as mismatches: a conversion order for another survey number, a layout plan that does not show the plot, an agricultural passbook that was never updated, or a CLU that is always 'coming next'.",
+          "Treat oral assurances and urgency with particular care. 'NALA is done', 'the layout is approved', 'the CLU will come before registration' and 'the agent will adjust it' are claims, not records. Ask for the document that answers the specific question and keep asking until the land description matches.",
+        ],
+        drivers: [
+          "The only evidence of conversion is a brochure line, a WhatsApp message or an agent's assurance.",
+          "The conversion order covers a different survey number, subdivision or extent from the plot being sold.",
+          "The seller produces an old agricultural passbook and says the non-agricultural entry will follow later.",
+          "The seller treats NALA conversion as proof that the layout or building is approved.",
+          "The layout is unapproved or the plot does not appear in the sanctioned plot schedule.",
+          "CLU is described as pending, but the project is already being sold as approved for the proposed use.",
+          "A building exists without a building permission or occupancy record.",
+          "An agent offers to 'adjust', backdate or arrange a NALA entry outside the official portal.",
+          "A news report or policy announcement is presented as a clearance for the specific plot without an order or record.",
+          "The seller refuses direct verification with the revenue or planning authority.",
+        ],
+        caution:
+          "A red flag is not proof of illegality, but it is a reason to pause. A discount or a deadline is not a substitute for a document that matches the land.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide and should be read with the official sources and the disclaimer below.",
+        ],
+        faqs: [
+          {
+            question: "What is NALA conversion in Telangana?",
+            answer:
+              "It is the revenue process for permitting an agricultural extent to be used for a non-agricultural purpose under the Telangana Agricultural Land (Conversion for Non Agricultural Purposes) Act, 2006. The Bhu Bharati portal uses the service name Application for NALA.",
+          },
+          {
+            question: "Is NALA conversion the same as CLU?",
+            answer:
+              "No. NALA conversion changes the revenue classification from agricultural to non-agricultural. CLU changes the land-use zoning in the notified master plan or zonal plan. Depending on the parcel and proposed use, both may be relevant, and one does not automatically substitute for the other.",
+          },
+          {
+            question: "Does NALA conversion make an open-plot layout legal?",
+            answer:
+              "No. The 2006 Act expressly preserves the need for separate permissions and licences. A layout needs its own sanction, and construction needs building permission. Conversion alone does not approve the subdivision, roads, open spaces or plot schedule.",
+          },
+          {
+            question: "Is patta land automatically NALA converted?",
+            answer:
+              "No. Patta describes the revenue tenure and record. Agricultural patta land still requires conversion before it is put to a non-agricultural purpose. A patta passbook is not a conversion order or a planning approval.",
+          },
+          {
+            question: "How can I check whether a plot has been converted?",
+            answer:
+              "Ask for the conversion order and check the current revenue record or passbook on Bhu Bharati. Match the survey number, subdivision and extent. A slot receipt, e-challan or dashboard status shows an application step, not necessarily a completed conversion.",
+          },
+          {
+            question: "What if the seller says the land is converted but Bhu Bharati shows agriculture?",
+            answer:
+              "Do not treat the oral claim as a clearance. Ask for the conversion order and the payment trail. Bhu Bharati provides a Pending NALA route for some pre-portal conversions, but that is a correction process and remains pending until the competent authority updates the record.",
+          },
+          {
+            question: "Is the 1963 NALA Act still in force?",
+            answer:
+              "The Andhra Pradesh Non-Agricultural Lands Assessment Act, 1963 was repealed by Section 15 of the 2006 Act. The term NALA survives in common usage and in the current portal service name, but the operative conversion framework is the 2006 Act.",
+          },
+          {
+            question: "Can I buy agricultural land and convert it after purchase?",
+            answer:
+              "Conversion is an application process with eligibility declarations, conversion tax and possible penalty, and it does not guarantee CLU, layout or building approval. Do not structure a purchase on the assumption that conversion will be granted later; obtain legal and authority advice before paying.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "The useful question is not whether a seller says the land is NALA converted. It is whether the conversion order, the current revenue record, the planning position, the layout sanction and the title all describe the same land. Those are separate checks, and each has its own document.",
+          "Ask for the conversion order and the updated revenue record. Then ask for the master-plan or land-use position, the CLU order where required, the sanctioned layout and plot schedule, the building permission where relevant, a fresh EC and the title chain. Match the survey number, subdivision, extent and plot description across all of them.",
+          "If you are evaluating a plotted community in the corridor, [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor is one project to assess on these terms. Its title, conversion status, land use, layout approval and building permissions should be independently verified from authoritative records; this article makes no claim about its current approval status.",
+        ],
+        caution:
+          "This article is general research, not a title opinion, legal advice or a guarantee that any parcel is converted or approved. Revenue records, master plans, portal workflows and authority requirements can change. Confirm the current position for the exact survey number and plot with the competent revenue and planning authorities, an independent property lawyer and, where needed, a surveyor before paying.",
+      },
+    ],
+  },
+  {
+    slug: "plot-mortgage-release-bank-noc-checklist-hyderabad",
+    title:
+      "Plot Mortgage Release and Bank NOC in Hyderabad: Buyer Checklist",
+    seoTitle: "Plot Mortgage Release & Bank NOC Checklist",
+    metaDescription:
+      "Verify layout mortgages, official release orders and bank NOCs before buying an open plot in Hyderabad. A document-first buyer checklist.",
+    excerpt:
+      "Three different documents can sit behind the phrase 'mortgage cleared'. This guide separates a layout mortgage, an authority release and a bank NOC, and sets out what a plot buyer should independently verify.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/plot-mortgage-release-bank-noc-checklist-hyderabad.jpg",
+    imageAlt:
+      "Plot mortgage release and bank NOC buyer checklist poster for Hyderabad - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "Few phrases in a resale conversation create more confusion than 'the mortgage is cleared'. In a plotted development, that sentence can describe at least three different arrangements: a layout-level mortgage held by a planning authority, the authority's later release of those plots, or a bank loan secured against an individual plot.",
+          "The documents, authorities and consequences are different. A bank's no-objection letter does not release a plot from a layout mortgage. A developer's statement that development work is complete does not prove that the planning authority has released anything. An Encumbrance Certificate may show a registered mortgage, but its silence does not establish that every layout restriction has ended.",
+          "This guide separates the three checks and sets out the paper trail a buyer should assemble before paying. It is general research, not a title opinion or legal advice. The exact requirement depends on the layout, the approval authority, the mortgage instrument and the current record for the specific plot.",
+        ],
+      },
+      {
+        heading: "One Phrase, Three Different Mortgages",
+        body: [
+          "Before asking whether a plot is 'clear', establish which kind of mortgage or restriction is being discussed. The answer determines who must release it and which document proves the release.",
+        ],
+        table: {
+          caption:
+            "The same plot can be affected by more than one arrangement. Clearing one does not automatically clear the others.",
+          columns: ["Arrangement", "Who controls the release", "What the buyer should obtain", "What it does not prove"],
+          rows: [
+            [
+              "Layout or development mortgage",
+              "The planning authority named in the layout sanction",
+              "Mortgage deed or sanction condition, list of mortgaged plots, release proceedings and the updated approved layout",
+              "That the plot secures a bank loan, or that the plot has already been released",
+            ],
+            [
+              "Official release of layout-mortgaged plots",
+              "The competent planning authority",
+              "Release order or proceedings, retransfer instrument where applicable, and a revised plan or plot schedule",
+              "Clear title, correct boundaries or a bank's consent",
+            ],
+            [
+              "Bank mortgage or lien on the plot",
+              "The lender holding the charge",
+              "Loan closure statement, release letter or NOC, registered release document where applicable, and a fresh EC",
+              "Release from a layout-level mortgage or compliance with planning conditions",
+            ],
+          ],
+        },
+        caution:
+          "Do not accept one document as evidence of another. A bank NOC is not an authority release order, and an authority release does not discharge a bank's registered charge.",
+      },
+      {
+        heading: "Layout Mortgage: Security for Development Works",
+        body: [
+          "HMDA's published FAQ describes a model in which the applicant or developer may sell 75% of the plotted area after layout approval and mortgage 25% as surety for completing the layout development works. The same answer explains that final layout approval follows completion of those works. Treat the percentages as a description of the framework, not a rule that every layout must have exactly the same mortgage proportion; the sanction conditions, mortgage deed and plot schedule for the specific layout govern.",
+          "This is not a home loan taken by the plot buyer. It is a charge designed to keep the developer accountable for roads, drainage, water lines, electricity, open spaces and other conditions attached to the permission. The authority can retain control over specified plots until it is satisfied that the obligations have been met.",
+          "The mortgage may be recorded against the parent layout or a schedule of specific plots rather than as a stand-alone entry for the plot being resold. That is why an EC for one survey number is not enough on its own. Ask for the mortgage deed or condition, the schedule of mortgaged plots, the sanctioned plan and any later release that identifies the exact plot.",
+          "The HMDA mortgage-deed proforma contemplates retransfer after the development works are completed to HMDA's satisfaction within the agreed period. It is a template, not evidence that a particular layout has complied. The executed deed and the authority's later proceedings are the documents to read.",
+        ],
+        caution:
+          "A layout mortgage can exist even when the individual seller has never taken a bank loan. Conversely, a bank loan can exist on a plot that is also affected by a layout condition. Check both layers separately.",
+        sources: [
+          {
+            label:
+              "HMDA FAQ describing the 75:25 layout model, the mortgage of plotted area as surety and final layout after development works",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/faqs/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "HMDA layout mortgage-deed proforma: development works, completion to HMDA's satisfaction and retransfer of mortgaged plots",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/wp-content/uploads/2020/07/LAYOUT-MORTGAGE-DEED-PROFORMA.pdf",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "What an Official Release Should Establish",
+        body: [
+          "The release of layout-mortgaged plots is a separate decision by the competent planning authority. It is not established by the developer's completion certificate, a photograph of new roads or a sentence in a sales email. The authority must be satisfied that the conditions attached to the permission have been met, and the release must be traceable to the right layout and the right plots.",
+          "HMDA's development-permission procedure states that digitally signed proceedings and drawings are issued after compliance with the required fee, conditions and mortgage. Its mortgage proforma describes retransfer after the works are completed to HMDA's satisfaction. Those sources show why a release order, and not merely a completion claim, is the document a buyer should ask to see.",
+          "The release document should identify the authority, the layout file or approval number, the mortgage deed or document number, the date and nature of the release, and the specific plots or area released. Ask whether the release is full or partial. Then compare the schedule with the plot number, extent, survey number and location in the sanctioned plan and the sale documents.",
+          "Ask for the updated approved layout or plot schedule as well. A release order that cannot be connected to the current plan is not enough. If a revised plan has been issued, check whether the mortgage notation has been removed for the exact plot and whether any new condition has been added.",
+          "BuildNow is the state's unified portal for building and layout approval applications under GHMC, HMDA and DTCP limits. It can help identify the application route and current record, but an application listing is not a release certificate. The authority's signed proceedings and the updated plan remain the primary evidence.",
+        ],
+        caution:
+          "Confirm the release directly with the issuing authority. Do not pay on a promise that the release will be produced after registration unless the mechanism, documents and responsibility for obtaining it are documented and reviewed by your lawyer.",
+        sources: [
+          {
+            label:
+              "HMDA procedure for development permissions: digitally signed proceedings and drawings issued after compliance with fee, conditions and mortgage",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/procedure-for-development-permissions",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "HMDA Ease of Doing Business page listing mortgage proformas and a procedure titled Occupancy Certificate and Mortgage Release",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/ease-of-doing-business-eodb/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "BuildNow: unified building and layout approval system for GHMC, HMDA and DTCP applications",
+            publisher: "Government of Telangana",
+            url: "https://buildnow.telangana.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Bank Mortgage: Closure, NOC and Registered Release",
+        body: [
+          "A bank mortgage is a different layer. If the seller pledged the plot as security for a loan, the lender's rights arise from the loan and mortgage documents. Repayment may end the debt, but the buyer still needs to establish that the charge has been discharged and that the bank has no remaining claim over the plot.",
+          "Ask for the loan account closure statement, the bank's release letter or no-objection certificate, and the registered release or discharge document where the mortgage was registered. A closure statement shows the balance position. An NOC may record the bank's consent. Neither is necessarily the same as a registered discharge, so ask the lender which document actually removes the registered charge.",
+          "Obtain a fresh Encumbrance Certificate after the release and compare it with the earlier EC. If a mortgage entry remains, ask for a written explanation and have the title reviewed before proceeding. If the release is recorded against a different survey number, document number or borrower name, reconcile the discrepancy rather than accepting an oral explanation.",
+          "A bank release and a layout release can coexist. Clearing the seller's loan does not establish that the developer has completed the layout works or that the planning authority has released the plot from a layout mortgage. Conversely, an authority release does not prove that the seller's bank loan has been closed.",
+          "Where sale proceeds are being used to close the seller's loan, use a documented repayment and release mechanism reviewed by a lawyer. Do not hand over the full price on the assumption that the bank will automatically issue a release later. If you are arranging your own plot loan, our guide to [plot loans on the Srisailam Highway](/insights/home-loan-for-plot-srisailam-highway) explains the lender's side of the transaction; it does not replace the seller-side release check.",
+        ],
+        caution:
+          "A no-objection certificate is not a universal substitute for a registered release. The correct document depends on how the mortgage was created and what the lender requires; confirm the discharge trail with the bank and your lawyer.",
+      },
+      {
+        heading: "EC and Registered Document Details Are Not the Same",
+        body: [
+          "Telangana's Registration Department states that an online Encumbrance Certificate is available for transactions after 1 January 1983, that district and Sub-Registrar Office selection is mandatory, and that older or poorly described properties may require an SRO search. The online result is a search aid; an ink-signed EC is obtained from the concerned SRO.",
+          "An EC is a chronological record of registered instruments affecting the property. A registered document detail or certified copy is the instrument itself, containing the parties, recitals, property schedule, boundaries, consideration and terms. The EC can tell you that a mortgage or release appears in the register; the certified document tells you what the parties actually agreed and which land or plot it covers.",
+          "Use both. Read the EC for the sequence of registered transactions, then obtain the certified copies of the mortgage, release and link documents that matter. Match names, survey numbers, extents, boundaries and document numbers. A release entry that does not match the mortgage entry is a question, not a clearance.",
+          "An EC does not prove clear title, lawful possession, correct boundaries, planning compliance or the absence of unregistered family claims. It also may not capture every layout-level restriction. A clean EC is useful evidence, not a certificate that the plot is mortgage-free in every sense. Our guide to [reading an Encumbrance Certificate](/insights/encumbrance-certificates-explained-before-buying-land) explains the document in more detail.",
+        ],
+        caution:
+          "Do not treat a clean EC as proof that an authority has released a layout-mortgaged plot. The EC records registered transactions; the layout release is a planning record that must be checked separately.",
+        sources: [
+          {
+            label:
+              "Online Encumbrance Certificate search: coverage after 1 January 1983, mandatory district and SRO selection, and SRO-certified copies",
+            publisher: "Registration and Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/ec.htm",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "Match the Plot, Not Just the Layout",
+        body: [
+          "Start with the approved layout plan, the approval number and the exact plot number. Compare the plot's dimensions, extent, road frontage and position with the sanctioned drawing and the current revised plan. A layout can be approved while a particular plot is shown as mortgaged, reserved, reconfigured or affected by a condition.",
+          "If the plan or mortgage schedule marks the plot as mortgaged or restricted, treat it as restricted until the competent authority's release identifies that plot. A general statement that the layout is 'approved' or that 'the mortgage is over' does not override the schedule. Ask for a clean, current plan and a release that uses the same plot description as the sale deed.",
+          "Survey and boundary checks are separate. The approved plan does not prove possession, and a physical plot marker is not a survey. Compare the survey number, sub-division, extent and boundaries with the title documents and, where needed, an independent surveyor's verification. Our [HMDA and DTCP approval checklist](/insights/hmda-dtcp-plot-approval-checklist-hyderabad) sets out the wider approval, land-use and title sequence.",
+          "Completed-looking roads, street lights or a clubhouse are not a release order. They may be relevant evidence of development, but the authority's acceptance and release must be documented. The reverse is also true: a release order does not excuse you from checking title, survey and possession.",
+        ],
+        caution:
+          "A plot number in a brochure, a receipt or a portal screenshot is not enough. Match the plot number, extent, survey number and mortgage schedule across the approval, release order, title deed and physical site.",
+      },
+      {
+        heading: "RERA Adds Disclosure, Not a Release Certificate",
+        body: [
+          "Where the project falls within the Telangana Real Estate (Regulation and Development) framework, use TG RERA's registered-project search to identify the promoter, project, phase and disclosed particulars. Compare the registered project name and location with the layout and sale documents rather than relying on a similar marketing name.",
+          "RERA registration is a disclosure and compliance framework. It is not a title certificate, a mortgage release or an assurance that the developer has completed the layout works. A registered project can still have unresolved title, mortgage or approval issues, and not every plotted project is covered by the registration requirement in the same way.",
+          "If the project is registered, review the public project record and any relevant orders where available. Ask the promoter to reconcile differences between the RERA record, the sanctioned layout, the mortgage schedule and the plot being sold. Keep the RERA check separate from the authority release and the bank release.",
+        ],
+        caution:
+          "A RERA number should be matched to the exact project and phase. It does not establish that a particular plot is free of a layout mortgage or a bank charge.",
+        sources: [
+          {
+            label:
+              "TG RERA project registration, public disclosures and regulatory information",
+            publisher: "Telangana Real Estate Regulatory Authority",
+            url: "https://rera.telangana.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "TG RERA search for registered projects and agents",
+            publisher: "Telangana Real Estate Regulatory Authority",
+            url: "https://rerait.telangana.gov.in/SearchList/Search",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+      },
+      {
+        heading: "The Buyer's Mortgage-Release Checklist",
+        body: [
+          "Use this sequence before paying a booking amount or signing a sale agreement. The order matters: a bank NOC should not be used to skip the authority release, and an authority release should not be used to skip the title and survey work.",
+        ],
+        checklist: [
+          "Identify the layout, approving authority, approval or LP number, survey number, exact plot number and extent.",
+          "Obtain the sanctioned layout plan and the latest revised plan, not only a brochure map.",
+          "Ask in writing whether the exact plot is mortgaged, restricted or reserved under the layout sanction.",
+          "Obtain the layout mortgage deed or condition and the schedule that identifies the mortgaged plots.",
+          "Ask the competent authority for the release order or proceedings, including the layout file number and released plot schedule.",
+          "Match the released plot number, extent, survey number and location to the plot being sold.",
+          "Confirm the release through the authority's official channel; do not rely only on a developer or broker copy.",
+          "If the plot secures a bank loan, obtain the loan closure statement, release letter or NOC, and the registered release document where applicable.",
+          "Obtain a fresh EC after the releases and reconcile every mortgage and release entry with the certified documents.",
+          "Review the title chain, link documents, seller identity and authority to sell with an independent property lawyer.",
+          "Verify the survey number, sub-division, extent and physical boundaries, using a surveyor where needed.",
+          "Check TG RERA registration, promoter, project and phase details where the project is covered.",
+          "Confirm that development charges, amenity obligations and other layout dues are not outstanding against the plot.",
+          "Keep the transaction conditional on delivery of the release documents and complete legal review.",
+        ],
+        caution:
+          "A checklist reduces uncertainty; it does not eliminate risk. If the release schedule does not match the plot or the authority cannot confirm the record, do not pay on the promise that the document will follow.",
+      },
+      {
+        heading: "Red Flags That Should Stop a Payment",
+        body: [
+          "Mortgage problems usually appear as gaps between documents rather than as a single dramatic warning. The seller has a bank NOC but no authority release. The release order covers a different plot. The layout plan shows a mortgage notation that nobody can explain. The EC still records a charge after the claimed release date.",
+          "Treat vague assurances with particular care. 'The mortgage will be released at registration', 'the bank has given a letter', 'the layout is complete' and 'the NOC is with the developer' are not documents. Ask for the document that answers the specific question, and keep asking until the plot number and authority match.",
+        ],
+        drivers: [
+          "Only a bank NOC is offered, with no evidence of a layout-level release.",
+          "The release order or letter does not identify the exact plot, survey number or layout file.",
+          "Development work looks complete, but the competent authority has not issued a release.",
+          "The release is a developer or broker letter rather than an authority proceeding.",
+          "The EC shows a mortgage that is not matched by a release entry or certified discharge.",
+          "The release covers another plot, another phase or another layout with a similar name.",
+          "The seller says the mortgage will be removed after registration but will not document the mechanism.",
+          "The mortgage schedule or approved plan marks the plot as restricted, but the sale proceeds as if it were unrestricted.",
+          "The seller refuses direct confirmation from the authority or the lender.",
+          "The project claims RERA registration but the exact project, promoter or phase cannot be matched.",
+        ],
+        caution:
+          "A red flag is not proof that the transaction is unlawful, but it is a reason to pause. A deadline or a discount is not a substitute for a release document that matches the plot.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide and should be read with the official sources and the disclaimer below.",
+        ],
+        faqs: [
+          {
+            question: "What is a layout mortgage on a plotted development?",
+            answer:
+              "It is a charge or security arrangement connected to the layout approval, often intended to ensure that the developer completes roads, drainage, utilities and other sanctioned works. HMDA's FAQ describes a model in which part of the plotted area is mortgaged to the authority as surety. It is different from a bank loan taken by an individual plot buyer.",
+          },
+          {
+            question: "Is 25% of every layout always mortgaged?",
+            answer:
+              "No. HMDA's published FAQ describes a 75:25 model, but the actual percentage, plot schedule and conditions can differ by sanction and authority. Read the specific approval, mortgage deed and release documents rather than applying a universal percentage.",
+          },
+          {
+            question: "Is an authority release the same as a bank NOC?",
+            answer:
+              "No. An authority release concerns the layout mortgage or planning conditions controlled by the competent authority. A bank NOC concerns the lender's charge on the plot or the seller's loan. One does not automatically discharge the other.",
+          },
+          {
+            question: "Will the EC show a layout mortgage?",
+            answer:
+              "It may show a registered mortgage if the instrument is recorded against the property described in the search. But a layout mortgage may be recorded against the parent land or a schedule of plots, and an EC for one plot may not tell the whole story. Absence of an entry is not proof that no layout restriction exists.",
+          },
+          {
+            question: "Can I buy a plot that is still shown as mortgaged?",
+            answer:
+              "Do not treat it as freely transferable until the restriction is documented and released for that plot. The authority's conditions may permit sales of some plots while others remain mortgaged. Obtain the release and have a lawyer review the title and transaction before paying.",
+          },
+          {
+            question: "How do I verify an official mortgage release?",
+            answer:
+              "Ask the competent authority for the release order or proceedings and confirm it through the authority's official channel. Match the layout file, mortgage deed, plot schedule, survey number and extent. Also obtain the updated approved plan and a fresh EC, and have the complete set reviewed by an independent lawyer.",
+          },
+          {
+            question: "Is development work completion enough to prove release?",
+            answer:
+              "No. Visible roads or utilities may be evidence of work, but they do not prove that the authority has inspected, accepted and released the mortgaged plots. Ask for the authority's release document and updated records.",
+          },
+          {
+            question: "Does RERA registration prove that the plot is mortgage-free?",
+            answer:
+              "No. RERA registration is a disclosure and compliance framework. It does not replace the layout release, the bank release, the title review or the EC. Check the exact project and phase, and verify the mortgage position separately.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "The question is not simply whether a seller says the mortgage is cleared. It is which mortgage is being discussed, who controls the release, and whether the document identifies the exact plot. A layout mortgage, an authority release and a bank discharge are three separate links in the chain.",
+          "Ask for the mortgage schedule, the authority's release proceedings, the updated approved plan, the bank's closure and release documents, a fresh EC and the title chain. Then reconcile the plot number, survey number and extent across all of them. If the documents do not connect, the assurance is not a release.",
+          "If you are evaluating a plotted community in the corridor, [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor is one project to assess on these terms. Its title, approvals, mortgage position and release status should be independently verified from authoritative project and authority records; this article makes no claim about its current mortgage or release status.",
+        ],
+        caution:
+          "This article is general research, not a title opinion, legal advice or a guarantee that any plot is mortgage-free. Mortgage records, release requirements and portal information can change. Confirm the current position for the specific layout and plot with the competent authority, the lender where relevant, an independent property lawyer and, where needed, a surveyor before paying.",
+      },
+    ],
+  },
+  {
+    slug: "hmda-dtcp-plot-approval-checklist-hyderabad",
+    title:
+      "HMDA vs DTCP Approved Plots: Buyer Due-Diligence Checklist for Hyderabad",
+    seoTitle: "HMDA vs DTCP Plots: Due-Diligence Checklist",
+    metaDescription:
+      "How to verify HMDA and DTCP plot approvals near Srisailam Highway: layout numbers, land use, title, EC, RERA and mortgage checks.",
+    excerpt:
+      "An HMDA or DTCP label is a starting point, not a title certificate. Here is how to verify the approval number, sanctioned plan, land use, ownership, mortgage status and RERA record before buying an open plot near Srisailam Highway.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/hmda-dtcp-plot-approval-checklist-hyderabad.jpg",
+    imageAlt:
+      "HMDA and DTCP plot approval due-diligence checklist poster for Hyderabad buyers - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods", "upcoming-srisailam-highway"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "Few phrases in Hyderabad plot advertising carry more weight than \"HMDA approved\" or \"DTCP approved.\" They sound conclusive. They are not. They describe a planning or layout permission granted at a point in time, subject to conditions, and they sit alongside separate questions about land use, ownership, encumbrances and RERA registration.",
+          "The distinction matters most near fast-moving corridors such as Srisailam Highway, where a parcel may sit within HMDA, DTCP, FCDA or a local-body jurisdiction depending on its revenue village and survey number. A brochure can use the strongest-sounding label without answering the question a buyer actually needs answered: which authority approved this specific layout, what exactly was approved, and does the document still stand?",
+          "This guide sets out a document-first verification process. It is not a substitute for a title opinion or legal advice, and it cannot turn a risky parcel into a safe one. Its purpose is narrower and more useful: to help you ask for the right papers, check them in the right order, and recognise the gaps that a sales presentation is designed to gloss over.",
+        ],
+      },
+      {
+        heading: "HMDA and DTCP Are Not Competing Quality Labels",
+        body: [
+          "HMDA is the metropolitan planning authority for the Hyderabad Metropolitan Region. DTCP is the Directorate of Town and Country Planning, which exercises planning functions under Telangana's Town and Country Planning framework. The authority that applies is generally determined by where the land sits, not by which name sounds more premium in an advertisement.",
+          "This guide is about verifying a layout once the authority is known. If you are still deciding which approval route fits a particular investment, our comparison of [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) explains how the three differ. Neither article treats an approval label as a substitute for title work.",
+          "BuildNow, the state's unified approval portal, states that building and layout applications under GHMC, HMDA and DTCP limits are now processed through its system. That makes the portal a useful starting point for checking the current application record. It does not make a portal listing a substitute for the approval letter, the sanctioned plan or the conditions attached to the permission.",
+          "DTCP's own FAQ makes another distinction that buyers often miss: planning permission is not the same as a building licence issued by a local body, and a developer may need both. For a plotted layout, the relevant questions are still the layout permission, the sanctioned drawing, the land-use position and the conditions - not merely whether some approval exists.",
+        ],
+        table: {
+          caption:
+            "The two labels answer a planning question, not a title question. The exact documents and current portal route should be confirmed for the specific parcel.",
+          columns: ["Question", "HMDA layout", "DTCP layout"],
+          rows: [
+            [
+              "Who approves",
+              "HMDA, within its metropolitan planning jurisdiction",
+              "DTCP or the relevant local planning authority, under the Town and Country Planning framework",
+            ],
+            [
+              "What the approval addresses",
+              "The layout plan, roads, open spaces, land use and sanction conditions",
+              "Planning permission for development, including the layout and its compliance conditions",
+            ],
+            [
+              "Where verification starts",
+              "The BuildNow application or citizen search and the approval documents",
+              "DTCP's layout records, BuildNow and the approval documents",
+            ],
+            [
+              "What it does not prove",
+              "Clear title, an unencumbered plot or a guaranteed resale",
+              "Clear title, an unencumbered plot or a guaranteed resale",
+            ],
+            [
+              "RERA status",
+              "A separate registration question where the Act applies",
+              "A separate registration question where the Act applies",
+            ],
+          ],
+        },
+        caution:
+          "Do not choose between HMDA and DTCP as though they were competing brands. Establish which authority has jurisdiction over the survey number, then verify that authority's actual permission for the layout.",
+      },
+      {
+        heading: "Four Different Checks Hidden Inside 'Approved'",
+        body: [
+          "A single word in a brochure can conceal four separate layers of due diligence. Each has its own document, its own issuing authority and its own failure mode. A clean answer at one layer does not carry over to the next.",
+        ],
+        entries: [
+          {
+            title: "Layout or planning approval",
+            status: "Planning layer",
+            tone: "approval",
+            summary:
+              "Confirms that a layout was sanctioned by the competent planning authority at a particular time, subject to the approved drawing and conditions.",
+            facts: [
+              { label: "Ask for", value: "Approval number, date and sanctioned plan" },
+              { label: "Match", value: "Layout name, survey number and plot number" },
+              { label: "Red flag", value: "A number with no approval letter" },
+            ],
+          },
+          {
+            title: "Land use and zoning",
+            status: "Land-use layer",
+            tone: "development",
+            summary:
+              "Shows whether residential development is permitted and whether the plot is affected by a road, park, conservation or other reservation.",
+            facts: [
+              { label: "Ask for", value: "Current land-use or zoning confirmation" },
+              { label: "Match", value: "Master plan and approved layout use" },
+              { label: "Red flag", value: "Reserved land sold as a residential plot" },
+            ],
+          },
+          {
+            title: "Title and ownership",
+            status: "Ownership layer",
+            tone: "operational",
+            summary:
+              "Establishes the chain of ownership, the seller's share and the encumbrances attached to the specific survey number and plot.",
+            facts: [
+              { label: "Ask for", value: "Title chain, link documents and EC" },
+              { label: "Match", value: "Names, survey numbers, extent and boundaries" },
+              { label: "Red flag", value: "Breaks, mismatches or an unreleased mortgage" },
+            ],
+          },
+          {
+            title: "Telangana RERA registration",
+            status: "Disclosure layer",
+            tone: "planned",
+            summary:
+              "Where the project falls within the Act, registration places promoter, project, phase and timeline disclosures on a public record.",
+            facts: [
+              { label: "Ask for", value: "Project registration and promoter details" },
+              { label: "Match", value: "Project name, phase, promoter and location" },
+              { label: "Red flag", value: "A number belonging to another project" },
+            ],
+          },
+        ],
+        caution:
+          "These layers can overlap in practice, but one does not automatically validate another. A layout approval is not a title certificate, and a RERA number is not a guarantee of construction quality or financial returns.",
+      },
+      {
+        heading: "How to Verify an HMDA Layout",
+        body: [
+          "Start with the exact identity of the layout: its name, the developer or owner, the revenue village and mandal, the survey numbers and the plot number being sold. Then ask for the HMDA approval letter and the sanctioned layout plan, not a coloured brochure version of it. The approval number, date, authority and subject property should all match the document set you have been given.",
+          "Use the BuildNow citizen or application search to test whether the stated application or approval is traceable. HMDA's published development-permission procedure also describes a scrutiny process that can include title examination, technical review and site inspection before a decision. That is a planning process; it is not a warranty that every later sale of a plot is valid or that the developer has fulfilled every condition.",
+          "Read the approval conditions as carefully as the approval itself. They may address development works, road formation, open-space obligations, drainage, mortgage or release requirements, and the time within which obligations must be completed. Ask for evidence that those conditions have been met, not merely a statement that the layout is \"HMDA approved.\"",
+        ],
+        caution:
+          "A status shown on a portal is a lead, not a conclusion. Obtain the actual approval and plan, confirm they relate to the plot being sold, and have the title and conditions reviewed independently.",
+      },
+      {
+        heading: "How to Verify a DTCP Layout",
+        body: [
+          "DTCP's public layout page can be filtered by district and municipality. The resulting table displays each layout's L.P. number and year, file number, town or gram panchayat, locality, survey numbers and site extent. That is useful because it tests a specific claim rather than a general marketing phrase. If the seller gives an LP number, use the district and municipality filters to narrow the table, then match the LP number and survey details in the record.",
+          "A record in the layout list does not, by itself, prove that the plot is part of the approved layout, that the approval is still valid, or that the layout was implemented as sanctioned. Ask for the approval letter, the sanctioned plan and any revised plan. Compare the plot number, dimensions, road width, open spaces and reservations against what is being sold today. The DTCP FAQ also distinguishes planning permission from a local-body building licence, so do not accept one document as proof of the other.",
+          "For a plotted development that is being marketed with villas, clubs or other promises, add the project-level questions: who is the promoter, what phase is being sold, what is registered with RERA where applicable, and which approvals cover the built components rather than only the layout.",
+        ],
+        caution:
+          "A DTCP LP number is a starting point for verification. It does not establish title, current ownership or the absence of a mortgage, and it does not guarantee that the layout on the ground matches the sanctioned plan.",
+      },
+      {
+        heading: "Title, EC and Land Records Are Separate Work",
+        body: [
+          "Telangana's Registration Department explains that an online Encumbrance Certificate is available for transactions after 1 January 1983, that district and Sub-Registrar Office selection is mandatory, and that older or poorly described properties may require an SRO search. The online result is a search aid; an ink-signed EC is obtained from the concerned SRO. It records registered transactions, not every unregistered claim or family dispute.",
+          "Build a title chain that links the current seller back through the earlier owners, and reconcile the names, survey numbers, extents and boundaries in the deeds, EC and land records. If the land is agricultural, check the Dharani record, mutation position and conversion status. A residential layout approval does not by itself convert agricultural land or cure a defective title. Our guide to [reading an Encumbrance Certificate](/insights/encumbrance-certificates-explained-before-buying-land) explains the document in more detail.",
+          "The seller should be able to explain every gap rather than dismiss it. A missing link deed, an undivided share that is not clearly transferred, a mutation that has not been updated, or a boundary that differs from the deed are all reasons to pause. A lawyer should review the complete set before any binding payment, not after the agreement is drafted.",
+        ],
+        caution:
+          "An EC is a record of registered encumbrances, not a certificate of perfect title. It does not replace the title chain, the survey, the land-record check or independent legal advice.",
+      },
+      {
+        heading: "Mortgage, Release and Layout Conditions",
+        body: [
+          "Layouts can carry obligations that are invisible in a glossy plot map. HMDA's published layout mortgage-deed proforma illustrates the kind of condition that can attach to a sanctioned layout: development works within a stated period and a release or retransfer mechanism. The exact terms vary by layout and authority, so the task is to read the documents for the parcel rather than assume a standard rule.",
+          "Ask whether the layout land, the developer's interest or any plot is mortgaged, and request the release, no-objection or retransfer document where a mortgage is disclosed. Check whether development charges, amenity obligations or road-formation conditions remain outstanding. If a plot is shown as a park, open space, road margin or community facility in the sanctioned plan, a sales label cannot convert it into a residential plot.",
+          "The physical layout is the other half of the check. Confirm the plot's boundaries, access road, width and position on the ground against the sanctioned plan. A plot may exist on paper but have no usable approach, or the developer may have shifted the plot number. An independent surveyor or engineer can help reconcile the drawing with the site.",
+        ],
+        caution:
+          "Do not rely on a developer's assurance that a mortgage has been cleared or that conditions have been fulfilled. Ask for the release document and, where the issue is material, have it verified with the authority or a lawyer.",
+      },
+      {
+        heading: "The Srisailam Highway Jurisdiction Trap",
+        body: [
+          "Srisailam Highway is a corridor, not a single approval jurisdiction. A plot near Tukkuguda, Raviryal, Thummaloor or further south can fall under different planning authorities and local bodies depending on its revenue village and survey number. Near Bharat Future City, FCDA may also be relevant. The approving authority named in the brochure should therefore be tested against the parcel's actual location.",
+          "This is where locality names can mislead. A project marketed as being \"near Future City\" may sit outside the FCDA boundary, inside a different local-body area, or within a village whose planning status is still evolving. Our guide to [Bharat Future City and Srisailam Highway connectivity](/insights/bharat-future-city-srisailam-highway-development-connectivity) explains why FCDA jurisdiction and revenue-village names need to be checked separately from sales geography.",
+          "Access deserves the same scepticism. Frontage on a highway, an internal road and a legally usable approach are different things. Check the right of way, whether the approach crosses private land, whether the road is part of the sanctioned layout, and what drainage and utilities actually exist. Then compare the asking price with the [land and construction costs on the corridor](/insights/srisailam-highway-land-values-construction-costs-2026) rather than treating an approval label as a price benchmark.",
+        ],
+        caution:
+          "Do not assume that every plot near Srisailam Highway is HMDA-approved, DTCP-approved or inside FCDA. Establish the revenue village, mandal, survey number and current planning authority first.",
+      },
+      {
+        heading: "A Buyer's Due-Diligence Checklist",
+        body: [
+          "Use this sequence before paying a booking amount. The order matters: an approval check should not be used to skip the title check, and a site visit should not be treated as a substitute for documents.",
+        ],
+        checklist: [
+          "Identify the revenue village, mandal, survey number, plot number and exact extent being sold.",
+          "Establish which authority has planning jurisdiction and obtain the layout approval number, date and sanctioned plan.",
+          "Match the layout name, survey numbers, plot number, dimensions and road width across the approval, plan and sale documents.",
+          "Verify the current application or approval record on BuildNow and, for DTCP layouts, the DTCP layout search.",
+          "Confirm the land use and check whether the plot is reserved for a road, park, open space or other public purpose.",
+          "Obtain the title chain, link documents and a current Encumbrance Certificate; reconcile names, extents and boundaries.",
+          "Check the Dharani or land-record entry, mutation position and, if relevant, agricultural land conversion.",
+          "Ask specifically whether the layout or plot is mortgaged, and obtain the release or no-objection document.",
+          "Check whether development conditions, charges and amenity obligations have been completed.",
+          "Verify Telangana RERA registration, promoter identity and phase details where the project is covered by the Act.",
+          "Inspect the site for actual access, boundaries, road formation, drainage, utilities and surrounding land use.",
+          "Compare the approved layout with what is being sold, including any shifted plot number or reduced open space.",
+          "Get a written cost sheet covering registration, development charges and other statutory or project payments.",
+          "Have a qualified lawyer review title and approvals, and an engineer or surveyor check the physical plot where needed.",
+        ],
+        caution:
+          "A completed checklist reduces uncertainty; it does not eliminate risk. If any material document is missing or inconsistent, do not pay on the promise that it will be supplied later.",
+      },
+      {
+        heading: "Red Flags That Should Stop a Payment",
+        body: [
+          "Most serious problems reveal themselves as inconsistencies rather than dramatic fraud. The seller has an approval number but not the approval letter. The layout name differs by one word from the sanctioned plan. The plot number on the receipt is not the plot number in the drawing. The EC stops at the seller's purchase and no link document is offered. Each of these is a reason to slow down.",
+          "Be especially careful with phrases such as \"approval is under process,\" \"the number is enough,\" \"RERA is not required for plots,\" or \"the mortgage will be released at registration.\" Some of those statements may be true in a particular case, but none should be accepted without the document that proves it. A proposed layout, an unapproved subdivision and an approved layout are different products.",
+          "The same caution applies to maps and portals. A pin on a map is not a survey. A portal screenshot is not a certified approval. A RERA number is not a title opinion. Use each source for the question it can actually answer, and keep the final decision with professionals who have reviewed the complete file.",
+        ],
+        drivers: [
+          "The approval number cannot be matched to an official record or a complete approval letter.",
+          "The sanctioned plan shows a different plot number, extent, road width or reservation from the sales document.",
+          "The title chain has an unexplained gap, a missing link deed or a mismatch in survey numbers or boundaries.",
+          "The EC shows a mortgage, charge or transaction that has not been explained or released.",
+          "The land is agricultural but conversion or the residential land-use position is unclear.",
+          "The approach road crosses private land or is not part of the sanctioned layout.",
+          "The RERA registration belongs to another project, another phase or another promoter.",
+          "The seller resists independent legal, technical or authority verification.",
+        ],
+        caution:
+          "A red flag is not proof that the transaction is unlawful, but it is a reason to stop and obtain a documented answer. Do not let a deadline or a token discount override the verification process.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide and should be read with the sources and disclaimer below.",
+        ],
+        faqs: [
+          {
+            question: "Is HMDA approval better than DTCP approval?",
+            answer:
+              "Not automatically. The relevant authority depends on the parcel's location and planning jurisdiction. Both can be legitimate approval routes, but the specific layout, sanctioned plan, conditions and title must be verified. A more familiar label is not a substitute for documents.",
+          },
+          {
+            question: "Does HMDA or DTCP approval guarantee clear title?",
+            answer:
+              "No. Layout or planning approval addresses land use and development compliance. It does not certify the seller's ownership, the chain of title, the absence of mortgages or the absence of private claims. Those require a separate title and encumbrance check.",
+          },
+          {
+            question: "How can I verify an HMDA or DTCP layout approval?",
+            answer:
+              "Obtain the approval number, date, authority and sanctioned plan, then match the layout name, survey numbers and plot details. Check the current record through BuildNow for HMDA, GHMC and DTCP applications, and use DTCP's layout search for DTCP records. A portal record should be read with the actual approval and conditions.",
+          },
+          {
+            question: "Is RERA registration required for an open-plot layout?",
+            answer:
+              "It depends on the project and the Act's thresholds. TG RERA's promoter guidance lists exemptions including land up to 500 square metres, projects with up to eight apartments, permissions approved before 1 January 2017, and certain renovation or repair projects. Verify the specific project and phase on the RERA portal rather than relying on a sales claim.",
+          },
+          {
+            question: "Does a RERA number prove that a plot is safe to buy?",
+            answer:
+              "No. RERA registration is a disclosure and compliance framework. Check the promoter, project, phase, sanctioned plan, construction or development status and title separately. A registration number should be matched to the exact project being sold.",
+          },
+          {
+            question: "How old should an Encumbrance Certificate be?",
+            answer:
+              "There is no single statutory period that guarantees a clean title. A long, continuous search - commonly 30 years in practice - is more useful than a short one, but it still has to be reconciled with the title chain, survey records and the specific property description. Obtain a current EC before completion.",
+          },
+          {
+            question: "Can I get a home loan on a DTCP or HMDA plot?",
+            answer:
+              "Lenders assess the title, approval, location, borrower profile and their own approved-project rules. An HMDA or DTCP approval may help, but it does not guarantee financing. Confirm eligibility and the lender's requirements before paying a booking amount.",
+          },
+          {
+            question: "What documents should the seller provide before booking?",
+            answer:
+              "Ask for the layout approval and sanctioned plan, title chain and link documents, current EC, land-record or Dharani details, mutation records, mortgage release or NOC where applicable, RERA registration where applicable, tax receipts, and a written cost sheet. The exact list depends on the property and jurisdiction.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "The useful question is not whether a plot is \"HMDA approved\" or \"DTCP approved\" in the abstract. It is whether the specific layout, survey number and plot can be matched to a current approval, a sanctioned plan, a lawful land use and an independently verified title. Those are separate tests, and the paperwork should connect them.",
+          "A buyer who asks for the approval letter, reads the conditions, pulls the EC, checks the land record, inspects the access and gets independent advice is doing more than collecting certificates. They are testing whether the story in the brochure survives contact with the documents. That is the standard worth applying before any payment near Srisailam Highway.",
+          "If you are evaluating a plotted community in the corridor, [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor is one project to assess on exactly these terms. Its approvals, title, conditions and current status should still be independently verified; no project name or approval label is a substitute for your own due diligence.",
+        ],
+        sources: [
+          {
+            label:
+              "BuildNow: unified building and layout approval system; states that GHMC, HMDA and DTCP building and layout applications are processed through the portal",
+            publisher: "Government of Telangana",
+            url: "https://buildnow.telangana.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "HMDA development permissions procedure, including scrutiny and site-inspection stages",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/procedure-for-development-permissions",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "HMDA layout mortgage-deed proforma, including development-work and release conditions",
+            publisher: "Hyderabad Metropolitan Development Authority",
+            url: "https://www.hmda.gov.in/wp-content/uploads/2020/07/LAYOUT-MORTGAGE-DEED-PROFORMA.pdf",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "DTCP layout approvals page: district and municipality filters, with table columns for LP number and year, file number, town or gram panchayat, locality, survey numbers and extent",
+            publisher: "Directorate of Town and Country Planning, Government of Telangana",
+            url: "https://dtcp.telangana.gov.in/Home/Layouts",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "DTCP FAQs: planning permission, distinction from a building licence and application documents",
+            publisher: "Directorate of Town and Country Planning, Government of Telangana",
+            url: "https://dtcp.telangana.gov.in/Home/FAQs",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "TG RERA promoters guidance: project registration, exemptions and the prohibition on advertising or selling without registration",
+            publisher: "Telangana Real Estate Regulatory Authority",
+            url: "https://rera.telangana.gov.in/54673hgsjkfdhgsfg-TG-RERA-lfkdbnklh5409u569",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label: "Telangana RERA project registration and registered-project search",
+            publisher: "Telangana Real Estate Regulatory Authority",
+            url: "https://rera.telangana.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Online Encumbrance Certificate search: coverage after 1 January 1983, mandatory district and SRO selection, and SRO-certified copies",
+            publisher: "Registration and Stamps Department, Government of Telangana",
+            url: "https://registration.telangana.gov.in/ec.htm",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Land records and Dharani services in Rangareddy district",
+            publisher: "Rangareddy District Administration, Government of Telangana",
+            url: "https://rangareddy.telangana.gov.in/service/land-records/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "FCDA jurisdiction and published revenue-village table for the Future City area",
+            publisher: "Future City Development Authority, Government of Telangana",
+            url: "https://fcda.telangana.gov.in/Home/About",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+        caution:
+          "This article is general research, not a title opinion, legal advice, valuation or investment recommendation. Approval status, land use, ownership and portal records can change. Verify the current position for the specific survey number and plot with the relevant authority, a qualified lawyer and, where needed, an engineer or surveyor before paying.",
+      },
+    ],
+  },
+  {
+    slug: "bharat-future-city-srisailam-highway-development-connectivity",
+    title:
+      "Bharat Future City Development and Srisailam Highway Connectivity",
+    seoTitle: "Bharat Future City & Srisailam Highway",
+    metaDescription:
+      "A status-checked guide to Bharat Future City, FCDA village boundaries, the Raviryal radial road and what Srisailam Highway buyers should verify.",
+    excerpt:
+      "A source-dated guide to what is operating, under construction and still proposed around Bharat Future City - and how FCDA jurisdiction, village names and road access change the due-diligence questions.",
+    category: "Market Updates",
+    categorySlug: "market-updates",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image:
+      "/images/insights/bharat-future-city-srisailam-highway-development-connectivity.jpg",
+    imageAlt:
+      "Bharat Future City and Srisailam Highway connectivity guide cover with FCDA boundary and radial road themes - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods", "upcoming-srisailam-highway"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "Bharat Future City is usually introduced with a number - 30,000 acres - and then described as if that number were the whole story. It is not. The project sits inside a larger planning jurisdiction, its village list does not match the locality names used in property advertising, and its most important new road is still under construction. Those distinctions decide whether a plot is genuinely inside the plan, merely near it, or outside it altogether.",
+          "This guide separates four things that are often mixed together: the city the state is promoting, the FCDA area that regulates land, the roads that exist today, and the projects that are announced but not built. It also explains where Tukkuguda, Raviryal, Thummaloor and Rachloor sit in that picture, using the authority's published village list rather than a marketing map.",
+          "It is a status-checked research piece, not a price forecast. Our earlier review of [what has actually changed in Future City](/insights/future-city-2026-what-has-actually-changed) covers the project announcements; this article focuses on the land-control and access questions beneath them. An announcement is not a guarantee of appreciation, approval or liquidity.",
+        ],
+      },
+      {
+        heading: "Bharat Future City and FCDA Are Different Footprints",
+        body: [
+          "The state's official summit page describes Bharat Future City as an upcoming 30,000-acre net-zero city about 30 minutes from Hyderabad airport. The Future City Development Authority publishes a much larger jurisdiction: 765.28 sq km across 56 revenue villages in seven mandals. Those are not competing claims. They describe different layers of the same project.",
+          "Thirty thousand acres is roughly 121 sq km. The FCDA area is roughly 765 sq km. The city is the development vision inside a wider regulatory area that also contains existing villages, farmland, industrial parks and other settlements. A project can therefore be in the Future City region without being inside the 30,000-acre city footprint, and a village can be inside FCDA without being part of the first phase of the city.",
+          "The authority was constituted under G.O. Ms. No. 69 dated 12 March 2025. Its published village table is the most useful public check available to a buyer, because it names revenue villages and mandals rather than sales locations.",
+        ],
+        table: {
+          caption:
+            "Two official footprints that are often conflated. Figures are as published by the Government of Telangana; the city boundary and master plan should be confirmed against the latest FCDA documents.",
+          columns: ["Layer", "What it describes", "Published figure"],
+          rows: [
+            [
+              "Bharat Future City",
+              "The state's net-zero city vision, promoted as about 30 minutes from RGIA",
+              "About 30,000 acres",
+            ],
+            [
+              "FCDA jurisdiction",
+              "Statutory planning area across seven mandals in Rangareddy district",
+              "765.28 sq km; 56 revenue villages",
+            ],
+            [
+              "Individual layout or plot",
+              "Title, land use, layout approval and access at parcel level",
+              "Verify separately - not implied by either figure",
+            ],
+          ],
+        },
+        caution:
+          "Do not treat 765.28 sq km as the size of the city, or 30,000 acres as the extent of FCDA's approval jurisdiction. The two numbers answer different questions.",
+      },
+      {
+        heading: "The Village Map Is the First Reality Check",
+        body: [
+          "FCDA's published table lists 56 revenue villages across Amangal, Ibrahimpatnam, Kadthal, Kandukur, Maheswaram, Manchal and Yacharam. Thummaloor appears under Maheswaram. Rachloor, also written Rachuloor in some listings, appears under Kandukur. Tukkuguda and Raviryal do not appear as revenue villages on that table.",
+          "That does not make Tukkuguda or Raviryal irrelevant. They are established locality names at the ORR end of the Srisailam corridor, and the radial road begins at Raviryal. It does mean that a project marketed as Future City needs a more precise address than the locality name. Ask for the revenue village, mandal, survey number and the authority that approved the layout. The table tests revenue-village names, not popular locality names, so a parcel near Tukkuguda or Raviryal could still fall within a listed village; the survey number and current notification are the decisive check.",
+          "The list can change. In June 2026 the Chief Minister gave in-principle approval for merging additional villages into Bharat Future City, with a decision on the remaining villages to follow after stakeholder consultations. Until a notification is published, the current table and the project's own approval documents are safer than an indicative map.",
+        ],
+        table: {
+          caption:
+            "Based on FCDA's published village table reviewed on 20 October 2026. Locality names are not always revenue-village names, and additional villages are under consideration.",
+          columns: [
+            "Name in the market",
+            "Published position",
+            "On FCDA's 56-village table?",
+            "What to verify",
+          ],
+          rows: [
+            [
+              "Tukkuguda",
+              "Locality at the Srisailam Highway and ORR Exit 14 junction",
+              "Not listed as a revenue village",
+              "Revenue village, approving authority, approach road and survey number",
+            ],
+            [
+              "Raviryal",
+              "Locality around ORR Exit 13 and the southern end of the radial-road alignment",
+              "Not listed as a revenue village",
+              "Whether the parcel is HMDA, DTCP or FCDA-regulated, and its access to the actual interchange",
+            ],
+            [
+              "Thummaloor",
+              "Revenue village in Maheswaram mandal",
+              "Yes",
+              "Project-level FCDA approval, title, layout conditions and access",
+            ],
+            [
+              "Rachloor (Rachuloor)",
+              "Revenue village in Kandukur mandal",
+              "Yes",
+              "Exact survey number, master-plan zoning and approval status",
+            ],
+          ],
+        },
+        caution:
+          "Being inside an FCDA village is not the same as holding an FCDA-approved layout. The village determines jurisdiction; the approval determines what can be built and sold.",
+      },
+      {
+        heading: "What Already Works on the Srisailam Highway",
+        body: [
+          "The Srisailam Highway is not a future proposition. NH-765 leaves the Outer Ring Road at Exit 14 in Tukkuguda and runs south through the airport and Future City belt. The ORR, the airport and the existing industrial clusters around Maheshwaram and Raviryal are present-day assets, which is why this end of the corridor behaves differently from a greenfield site deeper inside the plan.",
+          "That existing access is the correct starting point for any comparison. A plot with a functioning approach road, power and water is a different product from one that depends on a road still being built. For household services, our guide to [schools near the Srisailam Highway](/insights/schools-near-srisailam-highway-ib-cbse-tukkuguda) sets out the education options in the wider corridor.",
+          "Healthcare belongs in the same comparison. Our guide to [hospitals and healthcare around Tukkuguda](/insights/hospitals-near-srisailam-highway-tukkuguda-healthcare) explains what is operating nearby and what a family should check before choosing a location.",
+          "The next layer is the new radial road, which is a different alignment from NH-765. It starts at the ORR at Raviryal and heads towards the proposed RRR near Amangal. Confusing the two is common in marketing, but they serve different catchments.",
+        ],
+        caution:
+          "Existing highway frontage does not guarantee conversion, access approval or commercial use. Verify frontage, setback and access permissions for the specific parcel.",
+      },
+      {
+        heading: "The Raviryal-Amagal Radial Road: Status Check",
+        body: [
+          "The Ratan Tata Greenfield Radial Road is the connectivity project most directly associated with Future City. It is planned as a 41.5 km, six-lane (3+3) partially access-controlled road from the ORR at Raviryal to the proposed RRR near Amangal, expandable to eight lanes. The state lists it as under construction, and reporting in July 2026 described works progressing in two phases after land acquisition advanced.",
+          "In June 2026 the project received Stage-II forest clearance for diversion of 87.66 hectares, down from an earlier requirement of 95.86 hectares. That is a meaningful approval, but it is not completion. A cleared alignment, an acquired parcel, a tendered package and a road carrying traffic are four different milestones.",
+          "On 6 August 2026, the Chief Minister reviewed the HMDA road network and directed officials to complete Radial Road-1 from Kongara Kalan to Future City by 9 December 2026. That is the state's announced target for that stretch, not evidence that the full Raviryal-Amagal corridor is complete. The road remains under construction for this status check.",
+          "The design also reserves space for a future metro or rail corridor and includes cycle tracks, pedestrian paths and utility corridors, according to reporting on the clearance. Those are design provisions, not operating services. No buyer should price a plot as metro-connected on the strength of a reserved corridor.",
+        ],
+        entries: [
+          {
+            title: "Srisailam Highway (NH-765)",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "The existing national highway connects the ORR at Tukkuguda with the airport and the southern corridor. It is the access spine buyers can use today.",
+            facts: [
+              { label: "Route", value: "NH-765" },
+              { label: "City connection", value: "ORR Exit 14, Tukkuguda" },
+              { label: "Current use", value: "Operational highway" },
+            ],
+            note:
+              "Longer-term widening proposals do not change the present-day access position. A road under construction elsewhere in the corridor is not a substitute for this route.",
+          },
+          {
+            title: "ORR Exit 14 at Tukkuguda",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "The interchange where the Srisailam Highway meets Hyderabad's Outer Ring Road, connecting the corridor to the airport and the wider city.",
+            facts: [
+              { label: "Role", value: "Highway and ring-road junction" },
+              { label: "Current use", value: "Operating interchange" },
+            ],
+          },
+          {
+            title: "FCDA headquarters at Mirkhanpet",
+            status: "Operational",
+            tone: "operational",
+            summary:
+              "The authority now operates from its own office in the Future City area, which matters for planning and layout regulation even though the city itself is far from complete.",
+            facts: [
+              { label: "Location", value: "Mirkhanpet, Kandukur mandal" },
+              { label: "Opened", value: "June 2026" },
+              { label: "Role", value: "Planning and layout authority" },
+            ],
+            note:
+              "An operating authority is not an operating city. Approval capacity and infrastructure delivery are separate timelines.",
+          },
+          {
+            title: "Ratan Tata Greenfield Radial Road (Radial Road-1)",
+            status: "Under construction",
+            tone: "development",
+            summary:
+              "A new 41.5 km road intended to link the ORR at Raviryal with the proposed RRR near Amangal. In August 2026 the state set 9 December 2026 as the target for the Kongara Kalan-Future City stretch, not for the whole corridor.",
+            facts: [
+              { label: "Length", value: "41.5 km" },
+              { label: "Alignment", value: "ORR Raviryal to proposed RRR near Amangal" },
+              { label: "Announced target", value: "9 December 2026 for the Kongara Kalan-Future City stretch" },
+              { label: "Clearance", value: "Stage-II forest clearance, June 2026" },
+              { label: "Delivery", value: "Two phases; full corridor not complete" },
+            ],
+            note:
+              "An announced target is not a completed road. It does not replace NH-765 or create completed access for every plot near the alignment.",
+          },
+          {
+            title: "Regional Ring Road (southern section)",
+            status: "Proposed",
+            tone: "planned",
+            summary:
+              "The outer ring is intended to bind the radial roads and peripheral growth nodes together. It is not an operating road today.",
+            facts: [
+              { label: "Current status", value: "Proposed" },
+              { label: "Relevance", value: "Southern anchor for the radial road" },
+            ],
+            note:
+              "Do not underwrite a plot on the assumption that a proposed ring-road alignment is a delivered interchange.",
+          },
+        ],
+        caution:
+          "Status labels reflect the evidence reviewed in October 2026. The 9 December 2026 date is an announced target for the Kongara Kalan-Future City stretch, not a completion record. Construction progress and clearance conditions can change; verify the current position with HGCL and FCDA before relying on a completion date.",
+      },
+      {
+        heading: "Employment, Demand and the Timeline Problem",
+        body: [
+          "Future City's employment case is a pipeline, not a payroll. Official state material names green pharma, sports, education, healthcare, AI, data centres, GCCs and Fortune 500 companies as target sectors. Those are intentions backed by policy and land, and some may become operating campuses. They are not proof that a particular office park will be occupied on a particular date.",
+          "The present-day demand base is narrower and more tangible: the airport, the existing industrial belt, and the residential demand already served by Tukkuguda and Maheswaram. That base can support housing and services today. Future City's own employment will arrive project by project, and each announcement should be checked for land allotment, construction, commissioning and occupancy.",
+          "This is where most corridor narratives overreach. A foundation stone is not a functioning campus; an MoU is not a built factory; a master plan is not a layout approval. The useful question is not how large the announcement is, but what has been built, who is paying for it, and when it opens.",
+        ],
+        caution:
+          "Company announcements and government MoUs can change. Treat employment projections as projections, not as underwriting assumptions.",
+      },
+      {
+        heading: "What a Buyer Is Actually Underwriting",
+        body: [
+          "Once the location is pinned down, the investment case comes down to what a buyer is paying for. These are the variables that separate a defensible plot from a story.",
+          "For buyers whose end use is a villa rather than a plot, the checks move from the corridor to the community. Our guide to [villa culture around Tukkuguda](/insights/tukkuguda-villa-culture-gated-villa-communities) covers association, maintenance and construction quality; the location logic here still applies.",
+        ],
+        drivers: [
+          "Jurisdiction and approval - which authority approved the layout, and whether the village is inside the current FCDA area.",
+          "Title and land use - clear chain of title, encumbrance, conversion and master-plan zoning.",
+          "Access that exists - approach road, width, intersection, drainage and whether the road is public or internal.",
+          "Infrastructure timing - power, water, sewerage and road delivery, with a source and a date.",
+          "End use and density - what can legally be built, and whether the plot sits in an approved phase.",
+          "Liquidity - who else is buying, what resale documents exist, and how long comparable plots take to sell.",
+          "Total cost - land, registration, development charges, construction and holding costs. Our guide to [Srisailam Highway costs](/insights/srisailam-highway-land-values-construction-costs-2026) explains the budget layers.",
+          "Exit assumptions - who the likely buyer is and whether the story depends on infrastructure that is years away.",
+        ],
+        caution:
+          "Announcements can already be priced in. A plot near a proposed road may trade at a premium before delivery, which means the buyer is underwriting execution and timing, not discovering an undiscovered opportunity. This article does not offer an appreciation forecast.",
+      },
+      {
+        heading: "A Due Diligence Checklist for the Corridor",
+        body: [
+          "Use this list before paying a booking amount. Most answers should come from documents and a site visit, not a sales presentation.",
+        ],
+        checklist: [
+          "Pin the revenue village and mandal, then check it against FCDA's current published village list.",
+          "Ask which authority approved the layout and obtain the approval number and sanctioned plan.",
+          "Check the master-plan zoning and confirm whether the plot is in an approved phase.",
+          "Obtain the title chain, current encumbrance certificate and survey numbers; have them independently reviewed.",
+          "Confirm land conversion and permitted use if the land was agricultural.",
+          "Inspect the approach road, right of way, intersection and drainage in person.",
+          "Verify power, water, sewerage and street-lighting commitments in writing, with delivery dates.",
+          "Check whether the project is registered with Telangana RERA where applicable, and read the agreement.",
+          "Compare the asking price with recent transactions and add registration, development and construction costs.",
+          "Ask what infrastructure is already funded and under construction, not only announced.",
+          "Confirm the exit route: who the likely resale buyer is and what documents a resale will require.",
+          "Have a lawyer and, where relevant, an engineer review the documents and site before payment.",
+        ],
+        caution:
+          "A checklist reduces avoidable risk; it does not remove it. A clean file still needs a physical inspection and professional advice.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [
+          "These answers summarise the guide and should be read with the sources and disclaimers below.",
+        ],
+        faqs: [
+          {
+            question: "Is Tukkuguda inside Bharat Future City?",
+            answer:
+              "Tukkuguda is not listed as a revenue village on FCDA's published 56-village table. It is a locality at the Srisailam Highway and ORR Exit 14 junction. A parcel there can be in the wider corridor and still be regulated by a different authority, and a locality can fall within a listed revenue village. Check the survey number, revenue village and layout approval.",
+          },
+          {
+            question: "Is Raviryal part of FCDA?",
+            answer:
+              "Raviryal is not listed as a revenue village on the published FCDA table, although the radial road begins at the ORR interchange there. A project near Raviryal must be checked for its own revenue village, survey number and approving authority; the absence of the locality name alone does not settle jurisdiction.",
+          },
+          {
+            question: "Is Thummaloor inside FCDA?",
+            answer:
+              "Yes. Thummaloor is listed under Maheswaram mandal on FCDA's published 56-village table. That establishes village-level jurisdiction, not project-level approval. Ask for the project's own layout approval and sanctioned plan.",
+          },
+          {
+            question: "Is the Raviryal-Amagal radial road complete?",
+            answer:
+              "No. The state lists the 41.5 km road as under construction, and reporting describes work in two phases. On 6 August 2026, the government directed that Radial Road-1 from Kongara Kalan to Future City be completed by 9 December 2026. That is an announced target for that stretch, not confirmation that the full Raviryal-Amagal corridor is complete or open.",
+          },
+          {
+            question: "Is 30,000 acres the same as 765.28 sq km?",
+            answer:
+              "No. Thirty thousand acres is about 121 sq km. The FCDA jurisdiction is 765.28 sq km. The first figure describes the city vision; the second describes the authority's wider planning area.",
+          },
+          {
+            question: "Does FCDA approval guarantee returns?",
+            answer:
+              "No. Approval addresses land use and layout compliance. It does not guarantee construction, employment, liquidity or price growth. Verify title, access, infrastructure and demand separately.",
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "The honest version of the Bharat Future City story is more useful than the promotional one. The state has created a real planning authority, published a village list and started a major radial road. The summit has a date and the city has a stated scale. Those are meaningful steps.",
+          "They do not make every plot inside the narrative a good purchase. The FCDA area is not the city; a village on the list is not an approved layout; a road under construction is not access today; an announced campus is not employment tomorrow. Buyers who keep those four distinctions separate will make better decisions than those who follow the loudest headline.",
+          "If you are evaluating a specific parcel, start with the revenue village, the approving authority and the access road. Then test the price against what exists, not what is promised. The project we currently feature closest to this corridor is [JB Harmony Woods](/projects/jb-harmony-woods) at Thummaloor, an FCDA-approved semi-villa community; its approvals and current status should still be verified independently.",
+        ],
+        sources: [
+          {
+            label:
+              "About FCDA: 765.28 sq km, 56 revenue villages, seven mandals and the published village table",
+            publisher: "Future City Development Authority, Government of Telangana",
+            url: "https://fcda.telangana.gov.in/Home/About",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label: "FCDA government orders, including G.O. Ms. No. 69 dated 12 March 2025",
+            publisher: "Future City Development Authority, Government of Telangana",
+            url: "https://fcda.telangana.gov.in/Home/GOs",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "FCDA headquarters inauguration and in-principle approval for merging additional villages",
+            publisher: "Invest Telangana, Government of Telangana",
+            url: "https://invest.telangana.gov.in/honble-cm-sri-a-revanth-reddy-inaugurated-the-future-city-development-authority-office-building",
+            date: "10 June 2026",
+          },
+          {
+            label:
+              "Invest Telangana Global Summit 2026: 7-9 December at Bharat Future City",
+            publisher: "Invest Telangana, Government of Telangana",
+            url: "https://invest.telangana.gov.in/global-summit-2026",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Bharat Future City described as a 30,000-acre net-zero city about 30 minutes from the airport",
+            publisher: "Invest Telangana, Government of Telangana",
+            url: "https://invest.telangana.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "State infrastructure listing for the 41.5 km Ratan Tata Radial Road from ORR Raviryal to RRR Amangal",
+            publisher: "Invest Telangana, Government of Telangana",
+            url: "https://invest.telangana.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+          {
+            label:
+              "Bharat Future City training note: FCDA area, seven mandals, radial road alignment and project phasing",
+            publisher: "MCRHRD Institute, Government of Telangana",
+            url: "https://mcrhrdi.gov.in/2026/group1/week2/MCRHRD%2029th%20Bharat%20Future%20City.pdf",
+            date: "2026",
+          },
+          {
+            label:
+              "Chief Minister's review directing completion of Radial Road-1 from Kongara Kalan to Future City by 9 December 2026",
+            publisher: "Telangana State Portal, Government of Telangana",
+            url: "https://www.telangana.gov.in/news/press-releases/2026/08/%E0%B0%B9%E0%B1%88%E0%B0%A6%E0%B0%B0%E0%B0%BE%E0%B0%AC%E0%B0%BE%E0%B0%A6%E0%B1%8D-%E0%B0%B9%E0%B1%86%E0%B0%9A%E0%B1%8D%E0%B0%8E%E0%B0%82%E0%B0%A1%E0%B1%80%E0%B0%8F-%E0%B0%AA%E0%B0%B0%E0%B0%BF/",
+            date: "6 August 2026",
+          },
+          {
+            label:
+              "Raviryal-Amagal radial road receives Stage-II forest clearance for 87.66 hectares",
+            publisher: "The New Indian Express",
+            url: "https://www.newindianexpress.com/cities/hyderabad/2026/Jun/04/telanganas-raviryal-amangal-radial-road-gets-govt-nod",
+            date: "4 June 2026",
+          },
+          {
+            label:
+              "Reported construction progress, two-phase delivery and land acquisition for the radial road",
+            publisher: "Construction World",
+            url: "https://www.constructionworld.in/transport-infrastructure/highways-and-roads-infrastructure/greenfield-radial-road-works-accelerate-near-hyderabad/95315",
+            date: "31 July 2026",
+          },
+          {
+            label:
+              "National highway route listing for NH-765 via Maisaram, Amangal, Kalwakurthy, Achampet and Srisailam",
+            publisher: "National Highways Authority of India",
+            url: "https://nhai.gov.in/nhai/sites/default/files/StateWiseLengthNHsIndia.pdf",
+            date: "2019",
+          },
+          {
+            label:
+              "Telangana Real Estate Regulatory Authority: project registration and promoter records",
+            publisher: "Government of Telangana",
+            url: "https://rera.telangana.gov.in/",
+            date: "Accessed 20 October 2026",
+          },
+        ],
+        caution:
+          "This article is general research, not a valuation, title opinion, legal or investment advice. FCDA boundaries, project approvals, road status and prices change; verify the current position with the relevant authority, the developer and qualified professionals before acting.",
+      },
+    ],
+  },
+  {
     slug: "srisailam-highway-land-values-construction-costs-2026",
     title:
       "Land Values and Construction Costs on the Srisailam Highway: What Buyers Should Budget in 2026",
@@ -7182,7 +11388,7 @@ export const insights: Insight[] = [
           {
             question: "Does RERA apply to plotted development?",
             answer:
-              "Yes. Plotted development projects in Telangana are brought within the Real Estate (Regulation and Development) Act, 2016, which provides for project registration and disclosure. Confirm the specific project's registration.",
+              "Plotted development is within the Real Estate (Regulation and Development) Act, 2016 framework, but whether a specific project must register depends on its facts, approvals, phase, timing and the applicable exemptions. Confirm the exact project's registration rather than treating 'plotted development' as automatic proof either way.",
           },
           {
             question: "Can I build a house of my own design in a gated community?",

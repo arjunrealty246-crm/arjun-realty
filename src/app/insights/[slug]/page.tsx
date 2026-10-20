@@ -149,6 +149,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
     .filter(Boolean)
     .slice(0, 2)
     .join("");
+  const articleFaqs = insight.sections.flatMap((section) => section.faqs ?? []);
 
   return (
     <>
@@ -177,6 +178,22 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
           }),
         }}
       />
+      {articleFaqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: articleFaqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: { "@type": "Answer", text: faq.answer },
+              })),
+            }),
+          }}
+        />
+      )}
 
       {/* Hero */}
       <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
