@@ -131,6 +131,478 @@ const nagarjuna: InsightAuthor = {
 
 export const insights: Insight[] = [
   {
+    slug: "srisailam-highway-land-values-construction-costs-2026",
+    title:
+      "Land Values and Construction Costs on the Srisailam Highway: What Buyers Should Budget in 2026",
+    seoTitle: "Land & Build Costs on the Srisailam Highway",
+    metaDescription:
+      "What plots ask around Tukkuguda, Raviryal and Maheshwaram in 2026, what building really costs per sq ft, and how to keep land, build and total price separate.",
+    excerpt:
+      "A source-dated look at plot asking prices around Tukkuguda, Raviryal and Maheshwaram, what current construction benchmarks actually support, and how to keep land cost, build cost and total price from blurring into one number.",
+    category: "Market Updates",
+    categorySlug: "market-updates",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/srisailam-highway-land-values-construction-costs-2026.jpg",
+    imageAlt:
+      "Land and construction cost guide for Tukkuguda and the Srisailam Highway - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods", "upcoming-srisailam-highway"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "Two numbers decide what a home on the Srisailam Highway actually costs, and they are measured in different units. Land is quoted per square yard. Construction is quoted per square foot of built-up area. The total is land plus build plus a long list of charges that neither headline rate includes. Most budget mistakes on this corridor come from mixing the three together.",
+          "This guide separates them. It sets out what plots are asking around Tukkuguda, Raviryal and Maheshwaram, what the published construction evidence for Hyderabad supports in 2026, and what a per-square-foot rate does and does not include. A disclosure first: these are advertised asking prices and published cost benchmarks, not confirmed transaction values or quotations. They move, and they should be re-checked before any decision.",
+          "The corridor's geography matters because it drives the spread. The highway is NH-765, leaving the Outer Ring Road at Exit 14 in Tukkuguda and running south past Maheshwaram. Our [stretch-by-stretch guide to the corridor](/insights/srisailam-highway-2026-stretch-by-stretch-growth-guide) explains why Tukkuguda, Maheshwaram and the far belt are not one market.",
+        ],
+      },
+      {
+        heading: "Three Numbers, Not One",
+        body: [
+          "The first number is land: the plot's asking rate per square yard, multiplied by its size. The second is construction: the built-up area in square feet, multiplied by a rate per square foot for the specification you choose. The third is the total, which adds registration and stamp duty, approvals, professional fees, interiors, external works, amenities, and a contingency on top of the first two.",
+          "Keeping them separate is not pedantry. A plot at a higher rate per square yard can still produce a lower total than a cheaper plot that needs more site work or sits in a weaker layout. And a construction rate quoted at a tempting headline can exclude half the items that eventually appear on the bill.",
+        ],
+        drivers: [
+          "Land rate per square yard - the plot's advertised or negotiated price, before registration and development charges.",
+          "Built-up area - the total floor area across all storeys, not the plot size.",
+          "Specification - basic, standard or premium finishes, and the fittings that go with them.",
+          "Site conditions - soil, slope, access and the utility connections a particular plot needs.",
+          "Statutory and professional costs - approvals, registration, architect and structural fees.",
+          "Contingency - the allowance that stops a small overrun becoming a stalled build.",
+        ],
+        caution:
+          "Land, construction and total price are three different measurements. Comparing a land rate per square yard with a construction rate per square foot, or either with a total price, is a category error.",
+      },
+      {
+        heading: "Land: What Plots Are Asking Around Tukkuguda, Raviryal and Maheshwaram",
+        body: [
+          "Plot rates on this belt are wide, and honestly so. A portal listing for a gated, amenity-led layout near the ORR is a different product from an interior plot in a gram panchayat layout, even when both carry the same locality name. The table below collects advertised asking prices from current listings and agent compilations, plus one government auction result for contrast.",
+          "Read it as a starting range, not a valuation. The asking price is what a seller hopes to receive; the registered transaction can differ after negotiation, and it is the registration record that eventually matters.",
+        ],
+        table: {
+          caption:
+            "Advertised asking prices, not confirmed transactions, except the Raviryal row, which reports auction results. Rates vary with approval, frontage, plot size, amenities and negotiation. Dates are as published or accessed in October 2026.",
+          columns: ["Locality", "What the figure represents", "Range (₹ per sq yd)", "Source and date"],
+          rows: [
+            ["Tukkuguda (ORR Exit 14 / Srisailam Highway layouts)", "Portal asking prices", "≈ 15,000–45,000; a few larger-plot listings ≈ 60,000–72,000", "SquareYards active listings, Aug–Oct 2026"],
+            ["Maheshwaram (HMDA / DTCP plots)", "Agent-compiled asking range", "18,000–35,000", "Broker Network, 3 Jul 2026"],
+            ["Maheshwaram (gram panchayat layouts)", "Agent-compiled asking range", "9,000–16,000", "Broker Network, 3 Jul 2026"],
+            ["Maheshwaram (portal average)", "Portal asking average", "≈ 16,950 (₹1,883 per sq ft)", "Magicbricks, Sep 2026"],
+            ["Raviryal (Telangana Housing Board auction)", "Winning bids (transaction)", "62,500–83,500; upset price 26,000", "The Hindu and Deccan Chronicle, 28–29 May 2026"],
+          ],
+        },
+        caution:
+          "Asking prices are not transaction prices. A portal or agent range is a screen, not a valuation - confirm the approval, frontage, plot size and what the rate includes before treating any figure as comparable. The ₹60,000–72,000 band reflects a small sample of large-parcel listings, not typical plot values or completed transactions.",
+      },
+      {
+        heading: "The Raviryal Auction: A Clear-Title Benchmark",
+        body: [
+          "In May 2026 the Telangana Housing Board e-auctioned four land parcels in Raviryal village, in Maheshwaram mandal, near the proposed Future City entrance. The four parcels, between 1,000 and 13,500 square yards, raised about ₹140 crore, with roughly 17 firms and developers participating. The board had fixed an upset, or reserve, price of ₹26,000 per square yard.",
+          "Competitive bidding carried a 1,113-square-yard parcel to ₹83,500 per square yard, and another parcel of about 6,000 square yards to ₹62,500. Officials attributed the response to demand for government-owned land with clear title and no litigation - a premium that is easy to underestimate when comparing against an ordinary asking price.",
+        ],
+        table: {
+          caption:
+            "Telangana Housing Board e-auction, Raviryal village, Maheshwaram mandal, 28 May 2026. Reported by The Hindu and Deccan Chronicle.",
+          columns: ["Measure", "Figure"],
+          rows: [
+            ["Parcels auctioned", "4 (1,000–13,500 sq yd)"],
+            ["Total revenue", "≈ ₹140 crore"],
+            ["Participants", "≈ 17 firms and developers"],
+            ["Upset (reserve) price", "₹26,000 per sq yd"],
+            ["Highest winning bid", "₹83,500 per sq yd (1,113 sq yd parcel)"],
+            ["Another large parcel", "₹62,500 per sq yd (≈ 6,000 sq yd)"],
+          ],
+        },
+        caution:
+          "One auction is evidence of demand for clear-title land near the Future City entrance. It is not a price index for the whole corridor, and its result should not be applied to an interior plot in a weaker layout.",
+      },
+      {
+        heading: "Why Two Plots on the Same Road Differ in Price",
+        body: [
+          "The corridor's price spread is not noise. It reflects differences a buyer can inspect, and each one moves the number independently. Understanding them is more useful than memorising a single rate.",
+          "Approval status is the largest. A layout sanctioned by HMDA, DTCP or FCDA is a different product from an unapproved or gram panchayat layout, with different permissions and timelines. Our comparison of [DTCP, HMDA and FCDA approvals](/insights/dtcp-hmda-fcda-approvals-which-to-choose) sets out what each one covers.",
+        ],
+        drivers: [
+          "Approval status - HMDA, DTCP or FCDA-sanctioned layouts versus unapproved or gram panchayat land.",
+          "Frontage and road width - arterial frontage with constructed access versus an interior plot.",
+          "Plot size - larger parcels can carry a different per-square-yard rate from compact plots.",
+          "Amenities and layout quality - gated security, underground utilities and open space cost money.",
+          "Distance to the ORR junction and employment - the largest single step-down along the corridor.",
+          "Title and encumbrance - clear, litigation-free title commands a premium.",
+        ],
+        caution:
+          "A single per-square-yard number hides approval, frontage, size, amenities and title. Those variables do more to determine the real price than the headline rate does.",
+      },
+      {
+        heading: "Construction: What the 2026 Evidence Actually Supports",
+        body: [
+          "The clearest current signal is direction rather than a single number. In October 2026, The New Indian Express reported that direct construction costs in Hyderabad had risen 8% to 10%, adding an estimated ₹150–₹300 per square foot. It put TMT steel at ₹60,000–₹72,000 per tonne and cement at ₹320–₹470 per 50-kg bag, and noted that steel accounts for 12–15% of hard construction costs while RCC frames make up 40–45% of direct building costs.",
+          "Published benchmarks for Hyderabad put basic construction at roughly ₹1,500–₹2,100 per square foot, standard work at roughly ₹1,600–₹2,800, and premium or luxury villa work at roughly ₹2,400–₹4,500 or more. These are construction-only rates for built-up area, not sale prices, and they move with specification and site.",
+          "An indicative working estimate of ₹6,500–₹12,500 per square foot is sometimes used when budgeting. That range is not a verified market rate and is not supported as a construction-only rate for standard residential work in Hyderabad. A figure in that band is more consistent with an all-in villa price that already includes land, or with an unusually bespoke package of imported finishes, full interiors, landscaping and automation. Do not rely on it: obtain itemised quotes for your specific design and specification before fixing a budget.",
+        ],
+        table: {
+          caption:
+            "Published Hyderabad construction benchmarks for built-up area, 2026. They exclude land, and many exclude approvals, GST, interiors, external works and contingency. Ranges vary with specification, design and site; only a quote for your own design is reliable.",
+          columns: ["Specification", "Typical published range (₹ per sq ft)", "What it generally covers"],
+          rows: [
+            ["Basic / economy", "≈ 1,500–2,100", "RCC framed house with basic finishes and standard fittings"],
+            ["Standard", "≈ 1,600–2,800", "Standard finishes, branded materials, typical contractor packages"],
+            ["Premium / luxury villa", "≈ 2,400–4,500+", "Designer elevations, premium finishes, villa scope and services"],
+          ],
+        },
+        caution:
+          "Construction cost is not a market price and not a forecast. Get at least three itemised quotes for the same specification and compare inclusions, not just the headline rate.",
+      },
+      {
+        heading: "What a Per-Square-Foot Rate Includes - and What It Leaves Out",
+        body: [
+          "The per-square-foot rate is only meaningful when you know its scope. Two builders can quote very different numbers because one includes finishes and services that the other treats as extras. The table sets out the usual split, but the exact inclusions belong in the contract, not the brochure.",
+        ],
+        table: {
+          caption:
+            "Typical inclusions and exclusions in a residential construction rate. Packages differ; confirm the scope line by line before comparing quotes.",
+          columns: ["Usually included", "Usually excluded or separately priced"],
+          rows: [
+            ["Foundation, RCC frame, slabs and structure", "Land and land-related charges"],
+            ["Masonry, plastering and basic waterproofing", "Building permission, statutory approvals and betterment charges"],
+            ["Basic electrical, plumbing and drainage", "GST, where quoted additional"],
+            ["Flooring, doors, windows and painting at the chosen tier", "Architect, structural and supervision fees, if not bundled"],
+            ["Standard materials and labour", "Interiors, modular kitchen, wardrobes and false ceiling"],
+            ["", "Compound wall, driveway, landscaping, sump, septic and external lighting"],
+            ["", "Lifts, solar, generator, home automation and other amenities"],
+            ["", "Contingency and cost escalation"],
+          ],
+        },
+        caution:
+          "Never compare two per-square-foot rates without comparing the bill of quantities. A lower rate with thinner specifications is not cheaper; it is a different scope.",
+      },
+      {
+        heading: "Keeping Land, Build and Total Separate",
+        body: [
+          "A simple illustration shows why the separation matters. It uses a mid-range plot rate and a mid-range construction rate, and it deliberately leaves out the charges that sit outside both. The building guide on this site sets out the [permissions and construction sequence](/insights/building-a-house-on-srisailam-highway-plot) behind the build number.",
+          "The arithmetic is illustrative only. It is not a quote, a valuation or a forecast, and your own plot rate, design and specification will change every line.",
+        ],
+        table: {
+          caption:
+            "Illustrative arithmetic for a 200 sq yd plot with 2,000 sq ft of built-up area. Not a quote or valuation.",
+          columns: ["Item", "Illustrative basis", "Amount"],
+          rows: [
+            ["Land", "200 sq yd × ₹25,000 per sq yd", "₹50,00,000"],
+            ["Construction", "2,000 sq ft × ₹2,500 per sq ft", "₹50,00,000"],
+            ["Subtotal (land + build)", "", "₹1,00,00,000"],
+            ["Not included", "Registration, approvals, professional fees, interiors, external works, amenities, contingency", "Confirm separately"],
+          ],
+        },
+        caution:
+          "Total cost is land plus construction plus everything the rate excludes. Do not compare a land rate with a construction rate, or either with a total price.",
+      },
+      {
+        heading: "Why the Land Rate Is the Bigger Swing",
+        body: [
+          "In the illustration above, land is the larger single line, and it is also the line that varies most between plots. The same 200-square-yard plot can cost very different amounts depending on its asking rate, before a single brick is laid. The table below is arithmetic, not a market view.",
+        ],
+        table: {
+          caption:
+            "Land cost for a 200 sq yd plot at different asking rates. Arithmetic only; not a valuation or forecast.",
+          columns: ["Plot rate", "Land cost for 200 sq yd"],
+          rows: [
+            ["₹15,000 per sq yd", "₹30,00,000"],
+            ["₹25,000 per sq yd", "₹50,00,000"],
+            ["₹45,000 per sq yd", "₹90,00,000"],
+          ],
+        },
+        caution:
+          "A higher land rate does not automatically mean a better buy, and a lower one does not automatically mean a bargain. Approval, title, access and layout quality decide what the rate is actually buying.",
+      },
+      {
+        heading: "Apartments vs Villas: Why the Rates Are Not Comparable",
+        body: [
+          "An apartment's price per square foot and a construction rate per square foot are not the same measurement. The apartment price embeds a share of the land, the common areas, the amenities and the developer's margin. A construction rate, when you already own the plot, covers only the build. Our [villa plots vs apartments guide](/insights/villa-plots-vs-apartments-srisailam-highway) sets out the wider ownership differences.",
+        ],
+        table: {
+          caption:
+            "Different products with different inclusions. Compare like with like before treating any two per-square-foot figures as alternatives.",
+          columns: ["Aspect", "Apartment", "Self-built villa on owned land"],
+          rows: [
+            ["What the rate includes", "Land share, structure, common areas, amenities and developer margin", "Construction only, if the land is already owned"],
+            ["Land", "Included in the price", "Separate purchase"],
+            ["External works", "Part of the project", "Separate: compound wall, driveway, landscaping, sump and septic"],
+            ["Shared costs", "Pooled across owners", "Borne by the owner"],
+            ["Scope control", "Limited by the approved plan and the association", "High, but cost varies with specification"],
+            ["Statutory and professional", "Partly in the project price; check", "Separate: permissions, architect and structural fees"],
+          ],
+        },
+        caution:
+          "Villa sale prices on portals often include land; construction rates do not. They are not competing quotes for the same thing.",
+      },
+      {
+        heading: "Development and Connectivity: The Verified Context",
+        body: [
+          "The cost picture sits inside a larger infrastructure story, and it is worth keeping the verified parts separate from the marketing. The highway is NH-765, meeting the Outer Ring Road at Exit 14 in Tukkuguda. Our [corridor explainer](/insights/srisailam-highway-hyderabad-nh-765-future-growth) covers the road, the airport link and the proposed upgrades.",
+          "The Future City Development Authority (FCDA) was created in March 2025 and covers about 765 square kilometres across seven mandals and 56 revenue villages between the Srisailam Highway and the Nagarjuna Sagar road. The [Srisailam Highway Future City corridor page](/srisailam-highway-future-city) sets out the planning context.",
+          "The employment base is the part that already operates or is under construction: the E-City electronics cluster, the hardware park, and Foxconn's campus at Kongara Kalan. Our own layouts on this belt, including [JB Harmony Woods](/projects/jb-harmony-woods) and the upcoming Srisailam Highway plotted community, are documented on their project pages rather than summarised here.",
+        ],
+        caution:
+          "Infrastructure can be delayed and announcements are not delivery. None of this is a forecast of prices, and proximity to a project is not a guarantee of appreciation.",
+      },
+      {
+        heading: "A Buyer's Due-Diligence Checklist",
+        body: [
+          "Whether you are buying a plot to hold or to build on, the same checks decide whether the number you are quoted is a real budget or an opening line. Our [site-inspection checklist](/insights/plot-site-inspection-checklist-srisailam-highway) covers the physical checks in more detail.",
+        ],
+        checklist: [
+          "Confirm the layout approval - HMDA, DTCP or FCDA - and the land use before paying any advance.",
+          "Obtain a 30-year encumbrance certificate and verify the title, survey number and seller identity.",
+          "Check the current guidance value at the Sub-Registrar and budget stamp duty and registration on the applicable value.",
+          "Get the per-square-yard rate in writing, and list what it includes: development charges, amenities and corpus.",
+          "Separate land cost from construction; do not accept a single bundled per-square-foot figure without a breakup.",
+          "Obtain an itemised bill of quantities and at least three comparable quotes for the build.",
+          "Confirm what the construction rate excludes - GST, approvals, professional fees, interiors, external works and contingency.",
+          "Verify road access, utilities at the plot boundary, soil and site conditions.",
+          "Model a delayed timeline and a 10–15% cost overrun rather than a best case.",
+          "For an apartment, verify the RERA registration and the developer's title.",
+          "Keep the sale deed, approvals, encumbrance certificate, tax receipts and construction records together.",
+        ],
+        caution:
+          "This is a practical checklist, not legal, tax or engineering advice. Confirm documents and costs with the relevant authority and a qualified professional.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [],
+        faqs: [
+          { question: "What is the plot rate in Tukkuguda in 2026?", answer: "Advertised asking prices for plotted layouts around Tukkuguda mostly fall between about ₹15,000 and ₹45,000 per square yard, with premium listings quoted at ₹60,000–₹72,000. These are asking prices, not confirmed transactions, and they vary with approval, frontage, size and amenities. Confirm any figure directly." },
+          { question: "Is ₹6,500–₹12,500 per square foot a realistic construction cost?", answer: "No. ₹6,500–₹12,500 per square foot is at best an indicative working estimate, not a verified construction rate. Published 2026 benchmarks cluster between roughly ₹1,500 and ₹4,500 per square foot depending on specification. A figure in that band is more consistent with an all-in villa price that includes land, or an unusually bespoke package. Obtain itemised quotes for your design." },
+          { question: "Does a construction rate include land?", answer: "No. A construction rate per square foot covers building work, not land. Land is a separate purchase, and the total property cost adds registration, approvals, professional fees, interiors, external works and contingency on top." },
+          { question: "What is usually excluded from a per-square-foot construction rate?", answer: "Depending on the package, exclusions can include land, building permission and statutory charges, GST, architect and structural fees, interiors, compound wall and landscaping, sump and septic, amenities, and contingency. Compare bills of quantities, not headline rates." },
+          { question: "Why did land in Raviryal clear ₹83,500 per square yard at auction?", answer: "The Telangana Housing Board auction in May 2026 drew competitive bidding for clear-title, litigation-free parcels near the proposed Future City entrance. The reserve was ₹26,000 per square yard; a 1,113-square-yard parcel reached ₹83,500 and another large parcel reached ₹62,500. It is a specific auction result, not a general market rate." },
+          { question: "Is it cheaper to build a villa or buy an apartment?", answer: "The two are different products, so there is no single answer. An apartment price includes a land share, common areas, amenities and developer margin; a self-built villa separates land, construction and external works. Compare total cost and what each includes, not just a per-square-foot figure." },
+          { question: "Will land values on the Srisailam Highway rise?", answer: "There is no guarantee. Infrastructure can be delayed and asking prices can correct. Buy on verified title, approval and site conditions, and budget for a delayed timeline rather than assuming appreciation." },
+          { question: "How do I check the government guidance value?", answer: "Guidance values are published by the Telangana registration department and are usually below market asking prices. Check the current rate for the specific village and property at the Sub-Registrar's office or through the state registration portal before estimating stamp duty." },
+        ],
+      },
+      {
+        heading: "Sources and Further Reading",
+        body: [
+          "Asking prices were taken from current portal listings and agent compilations, and construction ranges from published Hyderabad benchmarks and contractor rate cards. All figures are dated and are not guarantees of transaction value. This is general market research, not legal, tax, engineering or investment advice.",
+        ],
+        sources: [
+          { label: "Telangana Housing Board earns ₹140 crore from e-auction of land parcels in Future City", publisher: "The Hindu", url: "https://www.thehindu.com/news/national/telangana/telangana-housing-board-earns-140-crore-from-e-auction-of-land-parcels-in-future-city/article71034449.ece", date: "28 May 2026" },
+          { label: "Telangana Housing Board earns ₹140 crore from Raviryal land auction (₹83,500 and ₹62,500 per sq yd; ₹26,000 upset price)", publisher: "Deccan Chronicle", url: "https://www.deccanchronicle.com/southern-states/telangana/telangana-housing-board-earns-140-crore-from-raviryal-land-auction-1959779", date: "29 May 2026" },
+          { label: "Hyderabad housing market walks a tightrope as costs rise (construction costs up 8–10%, ₹150–₹300 per sq ft)", publisher: "The New Indian Express", url: "https://www.newindianexpress.com/story/states/telangana/2026/oct/05/hyderabad-housing-market-walks-a-tightrope-as-costs-rise", date: "5 Oct 2026" },
+          { label: "Construction Cost Per Sq Ft India 2026 - city-wise benchmarks (Hyderabad basic, standard and premium)", publisher: "SiteSetu", url: "https://sitesetu.app/blog/construction-cost-per-sq-ft-india-2026-city-wise-guide", date: "27 Jun 2026" },
+          { label: "Maheshwaram, Hyderabad - plot and villa rates, investment guide 2026 (agent-compiled ranges)", publisher: "Broker Network", url: "https://brokernetwork.in/maheshwaram-hyderabad-plot-villa-rates-investment-guide-2026", date: "3 Jul 2026" },
+          { label: "Plots for sale in Tukkuguda, Hyderabad (active asking-price listings; page last updated 16 Aug 2026, accessed Oct 2026)", publisher: "SquareYards", url: "https://www.squareyards.com/sale/plots-for-sale-in-tukkuguda-hyderabad" },
+          { label: "Property for sale on Srisailam Highway, Hyderabad (active asking-price listings, accessed Oct 2026)", publisher: "SquareYards", url: "https://www.squareyards.com/sale/property-for-sale-in-srisailam-highway-hyderabad" },
+          { label: "Plots for sale in Maheshwaram, Hyderabad (portal asking average ₹1,883 per sq ft, Sep 2026)", publisher: "Magicbricks", url: "https://www.magicbricks.com/residential-plots-land-for-sale-in-maheshwaram-hyderabad-pppfs" },
+          { label: "Villa construction cost in Hyderabad 2026 - standard, premium and luxury villa rates", publisher: "Propifo", url: "https://propifo.com/villa-construction-cost-hyderabad", date: "2026" },
+          { label: "Turnkey construction packages and rates, Hyderabad (2026)", publisher: "Saveri Infra", url: "https://www.saveriinfra.com/services.html", date: "2026" },
+          { label: "House construction cost in Hyderabad 2026 - basic, standard and premium ranges", publisher: "MLA Group of Companies", url: "https://www.mlagroupofcompanies.com/blog-detail/house-construction-cost-in-hyderabad-2026-guide", date: "2026" },
+          { label: "Telangana registration portal - guidance values and registration", publisher: "Government of Telangana", url: "https://registration.telangana.gov.in/" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "hospitals-near-srisailam-highway-tukkuguda-healthcare",
+    title:
+      "Hospitals and Healthcare Near Tukkuguda: A Family Guide to the Srisailam Highway Belt",
+    seoTitle: "Hospitals Near Tukkuguda & Srisailam Highway",
+    metaDescription:
+      "Hospitals and healthcare near Tukkuguda and the Srisailam Highway - a family guide to verified local facilities, emergency access and what to check.",
+    excerpt:
+      "Healthcare is a liveability question, not a price signal. A source-checked look at the hospitals in and around Tukkuguda and the Srisailam Highway, what kind of care each publishes, and the questions families should ask before they commit to a location.",
+    category: "Buyer Guides",
+    categorySlug: "buyer-guides",
+    publishedAt: "2026-10-20",
+    author: researchDesk,
+    image: "/images/insights/hospitals-near-srisailam-highway-tukkuguda-healthcare.jpg",
+    imageAlt:
+      "Hospitals and healthcare near Tukkuguda on the Srisailam Highway - Arjun Realty Insights",
+    imageWidth: 1600,
+    imageHeight: 900,
+    featuredProjectSlugs: ["jb-harmony-woods", "upcoming-srisailam-highway"],
+    showToc: true,
+    sections: [
+      {
+        body: [
+          "For a family weighing a move to Tukkuguda, Raviryal or the wider Srisailam Highway belt, healthcare is one of those practical questions that rarely appears in a price brochure: if something goes wrong at night, where do we go, and how far is it. This guide answers that question as factually as the published record allows, and separates what can be verified from what still needs a phone call.",
+          "A disclosure first. Arjun Realty is a land and plotted-development advisory, not a medical or healthcare provider. We do not represent any hospital, and nothing here is a recommendation, a ranking or a substitute for medical advice. Where a hospital is described, it is because its details appear in the hospital's own published information; where a fact could not be verified, this guide says so instead of filling the gap.",
+          "The corridor itself is worth understanding first, because access frames every healthcare decision on it. It is the stretch of NH-765 that leaves the Outer Ring Road at Exit 14 in Tukkuguda and runs south past Maheshwaram; our [connectivity guide to the Srisailam Highway](/insights/srisailam-highway-hyderabad-nh-765-future-growth) sets out how it links to the airport, the city and the industrial belt.",
+        ],
+      },
+      {
+        heading: "Why Healthcare Access Belongs in a Location Decision",
+        body: [
+          "Healthcare sits alongside schools, the commute and daily essentials as a measure of how a place actually functions for a household. A location that is convenient for work but an hour from an emergency department asks something of a family that a brochure will never mention. That is why it belongs in the shortlisting process, not as an afterthought.",
+          "The belt has changed here. A decade ago, the practical answer for anything beyond a clinic was to drive into the city. Today Tukkuguda itself has several private hospitals, including facilities that publish 24/7 emergency and critical-care services, and Shamshabad and the city carry the larger tertiary centres. The honest position is that everyday and urgent care is now genuinely local, while highly specialised care still means a planned trip inward.",
+          "For the wider family picture - schools, commute, utilities and everyday services - our [family liveability guide](/insights/living-near-srisailam-highway-liveability-guide) sets out the same verification-first approach across all of them.",
+        ],
+        drivers: [
+          "Everyday care - a clinic or hospital you can reach for routine consultations and diagnostics.",
+          "Emergency readiness - a department that is genuinely open and staffed overnight.",
+          "Critical care - whether there is an ICU and what level of support it provides.",
+          "Specialist cover - the departments that matter to your household, and when they are available.",
+          "Maternity and child care - obstetric and paediatric capability, if relevant to your family.",
+          "Continuity - the route to a larger tertiary hospital when advanced care is needed.",
+        ],
+        caution:
+          "Healthcare access is a liveability factor, not a price signal. Nothing in this guide should be read as a claim that proximity to a hospital guarantees, or even reliably drives, property appreciation.",
+      },
+      {
+        heading: "Local Hospitals in and Around Tukkuguda",
+        body: [
+          "The hospitals below are the ones most often named for this stretch. Each entry reflects what the hospital publishes, with the caveat that services, doctors and emergency capability change and should be confirmed directly before you rely on them.",
+          "One entry, Kondeti, could not be verified against an official website at the time of writing; its location below comes from a directory listing, and its specialties and emergency services are marked as unconfirmed rather than guessed.",
+        ],
+        entries: [
+          {
+            title: "Primecare Super Speciality Hospital",
+            status: "24/7 emergency",
+            tone: "operational",
+            summary:
+              "A private super-speciality hospital next to the ORR at Tukkuguda, publishing a 24/7 emergency and critical-care service.",
+            facts: [
+              { label: "Location", value: "Next to ORR, Tukkuguda, Maheshwaram Mandal" },
+              { label: "Emergency", value: "24/7 (published)" },
+              { label: "ICU", value: "11 beds (published)" },
+              { label: "Emergency unit", value: "8 beds (published)" },
+              { label: "Focus", value: "Multi-speciality, incl. orthopaedics, cardiology, neurology, obstetrics, paediatrics, oncology" },
+            ],
+            note: "Drawn from the hospital's published information. Confirm current departments, on-call specialists and emergency capability directly.",
+          },
+          {
+            title: "Sree Visistta Multi-Speciality Hospital",
+            status: "24/7 emergency",
+            tone: "operational",
+            summary:
+              "A long-running multi-speciality hospital within Tukkuguda, publishing 24/7 emergency care and a broad specialty list.",
+            facts: [
+              { label: "Location", value: "Tukkuguda" },
+              { label: "Emergency", value: "24/7 (published)" },
+              { label: "Focus", value: "General medicine, cardiology, orthopaedics, paediatrics, neurology, ophthalmology" },
+              { label: "Support", value: "Pharmacy and diagnostic laboratory" },
+            ],
+            note: "The hospital states it has served the area since 2010. Confirm current specialties and emergency capability directly.",
+          },
+          {
+            title: "Madhavanji Hospitals",
+            status: "24/7 emergency",
+            tone: "operational",
+            summary:
+              "A multi-speciality hospital on the Srisailam Highway at Bhagavathipuram, publishing 24/7 emergency medicine.",
+            facts: [
+              { label: "Location", value: "Bhagavathipuram, Srisailam Highway" },
+              { label: "Emergency", value: "24/7 (published)" },
+              { label: "Focus", value: "Orthopaedics, cardiology, general and transplant surgery, obstetrics and gynaecology, gastroenterology, internal medicine, paediatrics" },
+            ],
+            note: "Confirm current departments and overnight emergency cover directly with the hospital.",
+          },
+          {
+            title: "Kondeti Super Speciality Hospitals",
+            status: "Details unconfirmed",
+            tone: "planned",
+            summary:
+              "A private super-speciality hospital listed in Vivekananda Colony, Tukkuguda.",
+            facts: [
+              { label: "Location", value: "Plot 132-133, opp. Jagruthi Women's College, Vivekananda Colony, Tukkuguda (directory listing)" },
+              { label: "Specialties", value: "Not independently verified" },
+              { label: "Emergency", value: "Confirm directly" },
+            ],
+            note: "An official website publishing specialties and emergency services could not be verified at the time of writing. Treat these details as unconfirmed and call the hospital directly.",
+          },
+        ],
+        caution:
+          "Hospital services change. An official website describes a hospital's intended capability, not necessarily what is staffed at 2am. Confirm the specific service you need, in person or by phone, before you rely on it.",
+      },
+      {
+        heading: "A Side-by-Side Comparison",
+        body: [
+          "Laid out together, the facilities differ mainly in published focus and scale. This is a finder's aid, not a quality ranking, and it does not compare outcomes, doctors or prices.",
+        ],
+        table: {
+          caption:
+            "Compiled from each hospital's published information, except Kondeti, which is marked as a directory listing. Confirm current services directly - availability and staffing vary over time.",
+          columns: ["Hospital", "Location", "Published focus", "Emergency"],
+          rows: [
+            ["Primecare Super Speciality Hospital", "Next to ORR, Tukkuguda", "Multi-speciality; orthopaedics, cardiology, neurology, obstetrics, paediatrics, oncology", "24/7 (published)"],
+            ["Sree Visistta Multi-Speciality Hospital", "Tukkuguda", "Multi-speciality; general medicine, cardiology, orthopaedics, paediatrics, neurology, ophthalmology", "24/7 (published)"],
+            ["Madhavanji Hospitals", "Bhagavathipuram, Srisailam Highway", "Multi-speciality; orthopaedics, cardiology, general and transplant surgery, obstetrics, gastroenterology, paediatrics", "24/7 (published)"],
+            ["Kondeti Super Speciality Hospitals", "Vivekananda Colony, Tukkuguda", "Listed locally; specialties not independently verified", "Confirm directly"],
+            ["Sunrise Hospitals", "Shamshabad", "Larger multi-speciality; neuro and spine, orthopaedics and trauma, surgical oncology, critical care", "24/7 ICU (published)"],
+          ],
+        },
+      },
+      {
+        heading: "Emergency and Tertiary Care Farther Afield",
+        body: [
+          "Local hospitals can cover a great deal, but it helps to know the next tier before you need it. For advanced or highly specialised care, families on this stretch typically look to larger hospitals in Shamshabad and the established city clusters, rather than to a single local facility.",
+          "Sunrise Hospitals in Shamshabad, which has operated since 2011, publishes a broader range of services, including neuro and spine surgery, orthopaedics and trauma, surgical oncology, critical care and 24/7 intensive care. For advanced cardiac, stroke, trauma or complex surgical care, the large tertiary centres in the city remain the reference point for many households.",
+          "The practical step is to decide, in advance and as a household, which hospital you would use for a serious event, and to know the route. That single decision removes hesitation from the worst possible moment.",
+        ],
+        caution:
+          "Do not assume a local hospital can handle every emergency. Confirm its capability directly, and identify a larger facility and route for serious events before you need them.",
+      },
+      {
+        heading: "What Emergency-Ready Actually Means: Questions to Ask",
+        body: [
+          "An emergency department that is open is not the same as one that is equipped for your situation. These questions turn a brochure claim into a practical answer.",
+        ],
+        checklist: [
+          "Call the nearest emergency department and confirm it operates and is staffed overnight.",
+          "Ask which specialists are on site at night, and which are only on call.",
+          "Confirm whether an ambulance is available and how a request is handled.",
+          "Ask whether the hospital has an ICU and what level of critical care it provides.",
+          "For maternity, confirm obstetric cover and, if relevant, neonatal (NICU) capability.",
+          "For children, confirm paediatric cover and the hours it operates.",
+          "For an ongoing condition, confirm the relevant specialist's clinic days and how follow-up works.",
+          "Ask about cashless insurance and Ayushman Bharat acceptance directly, rather than assuming.",
+          "Save the numbers of both the nearest hospital and a larger tertiary centre.",
+          "Drive the route to the larger hospital once, at a normal time, before you need it.",
+        ],
+        caution:
+          "A website describes a hospital's best case. A phone call, or a visit at an ordinary hour, tells you what is actually available when you need it.",
+      },
+      {
+        heading: "Healthcare, Family Planning and Where You Live",
+        body: [
+          "For families, healthcare rarely stands alone. It sits beside schooling in the decision about where to live, and the two often pull a household in the same direction: toward the part of the corridor where services are concentrated and the daily routine is manageable. Our guide to the [IB and CBSE schools near Tukkuguda](/insights/schools-near-srisailam-highway-ib-cbse-tukkuguda) covers the education side in the same verification-first way.",
+          "Because that is how families actually choose, our own focus on this corridor is plotted land and gated communities around Tukkuguda. [JB Harmony Woods](/projects/jb-harmony-woods) is an FCDA-approved semi-villa community off the Srisailam Highway, positioned for households that want to be within reach of the area's schools and healthcare.",
+          "Our adjacent [Srisailam Highway plotted community](/projects/upcoming-srisailam-highway) serves the same belt, and both should be assessed on documentation and site checks rather than on proximity to any single amenity.",
+          "For the wider picture of what is changing along this road - employment, infrastructure and land values - the [Srisailam Highway Future City corridor page](/srisailam-highway-future-city) sets out the context.",
+        ],
+        caution:
+          "Proximity to hospitals is a liveability consideration, not a guarantee of property appreciation. No hospital should be treated as an investment certainty, and no purchase should rest on that assumption.",
+      },
+      {
+        heading: "Frequently Asked Questions",
+        body: [],
+        faqs: [
+          { question: "Which hospitals are near Tukkuguda on the Srisailam Highway?", answer: "Locally, the facilities most often named are Primecare Super Speciality Hospital, Sree Visistta Multi-Speciality Hospital, Madhavanji Hospitals and Kondeti Super Speciality Hospitals. Larger tertiary care is available in Shamshabad and the city. Confirm current services directly with each hospital." },
+          { question: "Do these hospitals have 24/7 emergency care?", answer: "Primecare, Sree Visistta and Madhavanji publish 24/7 emergency services in their own information. Kondeti's emergency services could not be verified from an official source at the time of writing. Always call to confirm overnight staffing before relying on it." },
+          { question: "Is there a super-speciality hospital in Tukkuguda?", answer: "Primecare describes itself as a super-speciality hospital, and Sree Visistta and Madhavanji describe themselves as multi-speciality. The distinction is about published scope rather than a quality ranking; confirm the specific speciality you need." },
+          { question: "Where do residents go for advanced tertiary care?", answer: "For advanced cardiac, stroke, trauma or complex surgical care, many households travel to larger hospitals in Shamshabad and the established city clusters. Identify the facility and route you would use in advance, rather than during an emergency." },
+          { question: "Does living near a hospital increase property value?", answer: "There is no guarantee of that. Healthcare access is a liveability factor that can make a location more practical for a family, but it should not be treated as a driver of appreciation or as an investment certainty." },
+          { question: "How can I verify a hospital's emergency services?", answer: "Call the hospital and ask whether the emergency department is staffed overnight, which specialists are on site versus on call, whether there is an ICU and whether an ambulance is available. A visit at an ordinary hour is the most reliable check." },
+        ],
+      },
+      {
+        heading: "Sources and Further Reading",
+        body: [
+          "Hospital details were taken from each hospital's own published information, except Kondeti, where only a directory listing could be verified. Services, specialties and emergency capability change over time, so confirm current details directly before relying on them. This guide is general information, not medical advice.",
+        ],
+        sources: [
+          { label: "Primecare Super Speciality Hospital - official website", publisher: "Primecare Super Speciality Hospital (PCSSH)", url: "https://pcssh.com/" },
+          { label: "Madhavanji Hospitals - official website", publisher: "Madhavanji Hospitals", url: "https://madhavanjihospitals.com/" },
+          { label: "Sree Visistta Multi-Speciality Hospital - official website", publisher: "Sree Visistta Multi-Speciality Hospital", url: "https://srivisisttahospital.com" },
+          { label: "Sunrise Hospitals, Shamshabad - official website", publisher: "The Sunrise Hospitals", url: "https://thesunrisehospitals.com/" },
+          { label: "Kondeti Super Speciality Hospitals - Tukkuguda listing (location only; specialties and emergency unconfirmed)", publisher: "Latrexa directory", url: "https://latrexa.com/hospital/kondeti-super-speciality-hospitals-in-tukkuguda" },
+        ],
+      },
+    ],
+  },
+  {
     slug: "schools-near-srisailam-highway-ib-cbse-tukkuguda",
     title:
       "Education Hub of Srisailam Highway: IB and CBSE Schools Near Tukkuguda, Raviryal and Rachuloor",
@@ -4889,7 +5361,7 @@ export const insights: Insight[] = [
       {
         heading: "Healthcare: Hospitals, Clinics and Emergency Access",
         body: [
-          "Healthcare splits into everyday care and emergency care, and the belt is stronger on the first than on the second. Shamshabad, the mandal that contains the airport, has multiple private hospitals and clinics, including multi-speciality facilities such as Sunrise Hospitals, which has operated there since 2011. Maheshwaram also has private multi-speciality care, including Madhavanji Hospitals, located on the Srisailam Highway.",
+          "Healthcare splits into everyday care and emergency care, and the belt is stronger on the first than on the second. Shamshabad, the mandal that contains the airport, has multiple private hospitals and clinics, including multi-speciality facilities such as Sunrise Hospitals, which has operated there since 2011. Maheshwaram also has private multi-speciality care, including Madhavanji Hospitals, located on the Srisailam Highway. For a source-checked comparison of the hospitals along this stretch, see our [guide to hospitals near Tukkuguda and the Srisailam Highway](/insights/hospitals-near-srisailam-highway-tukkuguda-healthcare).",
           "For routine consultations, diagnostics, pharmacy and minor procedures, facilities of this kind can cover most household needs. For advanced or tertiary specialities, many residents still travel towards the city, where the established hospital clusters are located. A realistic assessment of a location therefore includes how quickly the city can be reached when care cannot wait.",
           "The verification points are simple and worth doing in person: confirm the nearest hospital's operating hours and emergency capability, whether ambulances are available, and which specialities are actually staffed rather than merely advertised. A hospital's website describes its services; a visit or a phone call establishes what is available at the hour you might need it.",
         ],
