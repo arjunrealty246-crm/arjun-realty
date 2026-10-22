@@ -4,8 +4,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Home, ArrowLeft, Phone, MessageCircle } from "lucide-react";
 import siteConfig from "@/config/site";
+import { useLocale } from "@/i18n/LocaleContext";
 
 export default function NotFound() {
+  const { dictionary, href } = useLocale();
+  const { notFound } = dictionary;
+
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
@@ -31,30 +35,30 @@ export default function NotFound() {
           </motion.div>
 
           <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
-            Page Not Found
+            {notFound.title}
           </h1>
 
           <div className="section-divider mb-6" />
 
           <p className="text-[15px] text-white/30 leading-relaxed mb-10 max-w-[420px] mx-auto">
-            The page you&apos;re looking for doesn&apos;t exist or has been moved. Let&apos;s get you back on track.
+            {notFound.description}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/"
+              href={href("/")}
               className="btn-premium group flex items-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-8 py-3.5 rounded-full text-sm font-semibold text-white"
             >
               <Home className="h-4 w-4" />
-              Back to Home
+              {dictionary.cta.backToHome}
               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             </Link>
 
             <Link
-              href="/projects"
+              href={href("/projects")}
               className="btn-glass group flex items-center gap-3 px-8 py-3.5 rounded-full text-sm font-semibold text-white/70"
             >
-              View Projects
+              {dictionary.cta.viewProjects}
             </Link>
           </div>
 

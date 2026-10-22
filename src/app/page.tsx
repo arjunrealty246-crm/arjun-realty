@@ -10,6 +10,7 @@ import { reasons as reasonsData } from "@/data/values";
 import { locationMarquee as marqueeItems } from "@/data/navigation";
 import { googleReviews } from "@/data/testimonials";
 import { homeFaqs as faqs } from "@/data/faqs";
+import type { HeroContent } from "@/i18n/content";
 
 const FeaturedBuilders = dynamic(() => import("@/components/FeaturedBuilders"));
 const WhyHyderabadSection = dynamic(() => import("@/components/WhyHyderabadSection"));
@@ -24,7 +25,7 @@ const AdvisoryProcess = dynamic(() => import("@/components/AdvisoryProcess"));
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = { Shield, Users };
 const reasons = reasonsData.map(r => ({ ...r, icon: iconMap[r.icon] || Shield }));
 
-export default function HomePage() {
+export default function HomePage({ heroContent }: { heroContent?: HeroContent } = {}) {
   return (
     <>
       <script
@@ -44,7 +45,7 @@ export default function HomePage() {
           }),
         }}
       />
-      <HeroSection />
+      <HeroSection content={heroContent} />
 
       {/* ── Trust Marquee ── */}
       <section className="py-7 border-y border-white/[0.025] overflow-hidden relative">

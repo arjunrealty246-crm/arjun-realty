@@ -6,9 +6,30 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ArrowUpRight } from "lucide-react";
 import siteConfig from "@/config/site";
-import { footerQuickLinks, headerCta } from "@/data/navigation";
+import { footerQuickLinks } from "@/data/navigation";
 import { trackEvent } from "@/lib/analytics";
+import { useLocale } from "@/i18n/LocaleContext";
+import { stripLocale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 import RequestCallback from "./RequestCallback";
+import LanguageSelector from "./LanguageSelector";
+
+// Map footer quick links to their localized dictionary keys so navigation
+// labels translate without changing the underlying hrefs.
+const navKeyByHref: Record<string, keyof Dictionary["nav"]> = {
+  "/": "home",
+  "/about": "about",
+  "/services": "services",
+  "/guides/telangana-plot-buyer-checklist": "guide",
+  "/projects": "projects",
+  "/builders": "builders",
+  "/why-hyderabad": "whyHyderabad",
+  "/nri-investment": "nri",
+  "/insights": "insights",
+  "/testimonials": "testimonials",
+  "/schedule-site-visit": "scheduleVisit",
+  "/contact": "contact",
+};
 
 const navLinks = footerQuickLinks.filter(l => l.href !== "/builders");
 
@@ -17,8 +38,15 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [callbackOpen, setCallbackOpen] = useState(false);
   const pathname = usePathname();
+  const { dictionary, href } = useLocale();
+  const { basePath } = stripLocale(pathname);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+
+  const navLabel = (linkHref: string, fallback: string) => {
+    const key = navKeyByHref[linkHref];
+    return key ? dictionary.nav[key] : fallback;
+  };
 
   const onScroll = useCallback(() => setScrolled(window.scrollY > 60), []);
 
@@ -103,20 +131,20 @@ export default function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden xl:flex items-center gap-0.5" aria-label="Main navigation">
+            <nav className="hidden xl:flex items-center gap-0.5" aria-label={dictionary.nav.mainNavigation}>
               {navLinks.map((link) => {
-                const active = pathname === link.href;
+                const active = basePath === link.href;
                 return (
                   <Link
                     key={link.href}
-                    href={link.href}
+                    href={href(link.href)}
                     className={`relative px-2.5 py-2 text-[13px] font-medium rounded-lg transition-colors duration-300 ${
                       active
                         ? "text-white"
                         : "text-white/45 hover:text-white/80"
                     }`}
                   >
-                    {link.label}
+                    {navLabel(link.href, link.label)}
                     {active && (
                       <motion.div
                         layoutId="nav-indicator"
@@ -149,7 +177,7 @@ export default function Header() {
                 }}
                 className="btn-premium bg-gradient-to-r from-primary to-primary-dark px-6 py-2.5 rounded-full text-[13px] font-semibold text-white shadow-[0_4px_20px_rgba(249,115,22,0.25)] hover:shadow-[0_4px_30px_rgba(249,115,22,0.4)] cursor-pointer"
               >
-                {headerCta.label}
+                {dictionary.cta.freeConsultation}
               </button>
             </div>
 
@@ -174,6 +202,9 @@ export default function Header() {
               </AnimatePresence>
             </button>
           </div>
+
+          {/* Language selector — centered directly below the main navigation */}
+          <LanguageSelector variant="bar" className="mt-3 hidden xl:flex" />
         </div>
       </motion.header>
 
@@ -195,9 +226,9 @@ export default function Header() {
             <div className="absolute inset-0 bg-[#0a0a14]/95 backdrop-blur-2xl" />
 
             <div className="relative flex flex-col items-center justify-center h-full px-8 overflow-y-auto">
-              <nav className="flex flex-col items-center gap-1" aria-label="Mobile navigation">
+              <nav className="flex flex-col items-center gap-1" aria-label={dictionary.nav.mobileNavigation}>
                 {navLinks.map((link, i) => {
-                  const active = pathname === link.href;
+                  const active = basePath === link.href;
                   return (
                     <motion.div
                       key={link.href}
@@ -207,14 +238,14 @@ export default function Header() {
                       transition={{ delay: 0.05 + i * 0.04, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     >
                       <Link
-                        href={link.href}
+                        href={href(link.href)}
                         className={`group flex items-center gap-3 py-3.5 px-6 text-[1.1rem] font-medium rounded-2xl transition-all duration-300 ${
                           active
                             ? "text-primary bg-primary/10"
                             : "text-white/50 hover:text-white hover:bg-white/[0.03]"
                         }`}
                       >
-                        {link.label}
+                        {navLabel(link.href, link.label)}
                         <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-50" />
                       </Link>
                     </motion.div>
@@ -228,6 +259,7 @@ export default function Header() {
                 transition={{ delay: 0.45, duration: 0.5 }}
                 className="mt-10 flex flex-col items-center gap-5"
               >
+                <LanguageSelector variant="menu" />
                 <a
                   href={siteConfig.links.tel}
                   onClick={() =>
@@ -247,7 +279,7 @@ export default function Header() {
                   }}
                   className="btn-premium bg-gradient-to-r from-primary to-primary-dark px-10 py-3.5 rounded-full text-sm font-semibold text-white shadow-lg shadow-primary/20 cursor-pointer"
                 >
-                  {headerCta.label}
+                  {dictionary.cta.freeConsultation}
                 </button>
               </motion.div>
             </div>

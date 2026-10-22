@@ -7,8 +7,25 @@ import siteConfig from "@/config/site";
 import { footerQuickLinks } from "@/data/navigation";
 import { footerContent } from "@/data/content";
 import { approvalBadges } from "@/data/statistics";
+import { useLocale } from "@/i18n/LocaleContext";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
 const quickLinks = footerQuickLinks;
+
+const quickLinkKeyByHref: Record<string, keyof Dictionary["nav"]> = {
+  "/": "home",
+  "/about": "about",
+  "/services": "services",
+  "/guides/telangana-plot-buyer-checklist": "guide",
+  "/projects": "projects",
+  "/builders": "builders",
+  "/why-hyderabad": "whyHyderabad",
+  "/nri-investment": "nri",
+  "/insights": "insights",
+  "/testimonials": "testimonials",
+  "/schedule-site-visit": "scheduleVisit",
+  "/contact": "contact",
+};
 
 const socialLinks = siteConfig.socialIcons.map((s, i) => ({
   href: Object.values(siteConfig.social)[i],
@@ -16,6 +33,11 @@ const socialLinks = siteConfig.socialIcons.map((s, i) => ({
 }));
 
 export default function Footer() {
+  const { dictionary, href } = useLocale();
+  const quickLinkLabel = (linkHref: string, fallback: string) => {
+    const key = quickLinkKeyByHref[linkHref];
+    return key ? dictionary.nav[key] : fallback;
+  };
   return (
     <footer className="relative border-t border-white/[0.04]">
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a14] to-[#080810]" />
@@ -25,7 +47,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
             {/* Brand */}
             <ScrollReveal className="lg:col-span-4" delay={0}>
-              <Link href="/" className="flex items-center gap-3 mb-6">
+              <Link href={href("/")} className="flex items-center gap-3 mb-6">
                 <div className="h-11 w-11 rounded-[0.8rem] bg-gradient-to-br from-primary via-primary-dark to-primary flex items-center justify-center">
                   <span className="text-white font-bold text-lg">A</span>
                 </div>
@@ -49,13 +71,13 @@ export default function Footer() {
 
             {/* Quick Links */}
             <ScrollReveal className="lg:col-span-3" delay={0.08}>
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/35 mb-6">Quick Links</h3>
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/35 mb-6">{dictionary.footer.quickLinks}</h3>
               <ul className="space-y-2.5">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="group flex items-center gap-2 text-[13px] text-white/50 hover:text-white transition-colors duration-300 py-0.5">
+                    <Link href={href(link.href)} className="group flex items-center gap-2 text-[13px] text-white/50 hover:text-white transition-colors duration-300 py-0.5">
                       <ArrowUpRight className="h-3 w-3 opacity-0 -translate-x-1 group-hover:opacity-60 group-hover:translate-x-0 transition-all duration-300" />
-                      {link.label}
+                      {quickLinkLabel(link.href, link.label)}
                     </Link>
                   </li>
                 ))}
@@ -64,7 +86,7 @@ export default function Footer() {
 
             {/* Contact */}
             <ScrollReveal className="lg:col-span-5" delay={0.16}>
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/35 mb-6">Contact Details</h3>
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/35 mb-6">{dictionary.footer.contactDetails}</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <MapPin className="h-4 w-4 text-primary/50 mt-0.5 shrink-0" />
@@ -104,11 +126,11 @@ export default function Footer() {
         <div className="section-divider" />
         <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[11px] text-white/20">
-            {footerContent.copyright(new Date().getFullYear())}
+            {dictionary.footer.copyright(new Date().getFullYear())}
           </p>
           <div className="flex items-center gap-6">
             {footerContent.legalLinks.map((link: { label: string; href: string }) => (
-              <Link key={link.href} href={link.href} className="text-[11px] text-white/20 hover:text-white/40 transition-colors">{link.label}</Link>
+              <Link key={link.href} href={href(link.href)} className="text-[11px] text-white/20 hover:text-white/40 transition-colors">{link.label}</Link>
             ))}
           </div>
         </div>

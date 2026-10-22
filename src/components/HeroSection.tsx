@@ -6,7 +6,8 @@ import { Calendar, MessageCircle, Shield, Award, CheckCircle, TrendingUp, ArrowR
 import CountUp from "./CountUp";
 import siteConfig from "@/config/site";
 import { heroStats, heroTrustBadges } from "@/data/statistics";
-import { hero } from "@/data/content";
+import { hero as heroEn } from "@/data/content";
+import type { HeroContent } from "@/i18n/content";
 
 const stats = heroStats;
 
@@ -16,7 +17,8 @@ const badgeIconMap: Record<string, React.ComponentType<{ className?: string }>> 
 };
 const trustBadges = heroTrustBadges.map(b => ({ icon: badgeIconMap[b.label] || Shield, label: b.label }));
 
-export default function HeroSection() {
+export default function HeroSection({ content = heroEn }: { content?: HeroContent }) {
+  const hero = content;
   const sectionRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
