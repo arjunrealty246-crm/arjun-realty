@@ -34,6 +34,7 @@ import {
   localizedContentPaths,
 } from "@/i18n/content/availability";
 import { getHomeCopy } from "@/i18n/content/home-copy";
+import { getPageContent, getEnglishPageContent } from "@/i18n/content/pages";
 import { getTranslatedLocales, getTranslationStatus } from "@/i18n/content/status";
 import {
   switchLocalePath,
@@ -335,6 +336,11 @@ async function main() {
     check(
       `/: ${locale} homepage copy is in the target script`,
       Boolean(homeCopy) && SCRIPT[locale].test(JSON.stringify(homeCopy))
+    );
+    check(
+      `/: ${locale} homepage hero is in the target script`,
+      SCRIPT[locale].test(getPageContent("home", locale).badge) &&
+        getPageContent("home", locale).subhead !== getEnglishPageContent("home").subhead
     );
   }
   check("/: te switcher keeps the homepage", switchLocalePath("/", "te") === localePath("te", "/"));
