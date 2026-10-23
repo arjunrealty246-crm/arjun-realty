@@ -5,6 +5,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, FileText, Loader2, Lock, X } from "lucide-react";
 import siteConfig from "@/config/site";
 import { submitLead } from "@/lib/lead-client";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getProjectLabels } from "@/i18n/project-labels";
 import styles from "./DocumentAccessGate.module.css";
 
 export interface DocumentAccessRequest {
@@ -204,6 +206,8 @@ export default function DocumentAccessGate({
   request,
   onClose,
 }: DocumentAccessGateProps) {
+  const { locale } = useLocale();
+  const t = getProjectLabels(locale);
   const [form, setForm] = useState({ name: "", phone: "" });
   const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
   const [error, setError] = useState("");
@@ -244,12 +248,12 @@ export default function DocumentAccessGate({
     const digits = phone.replace(/\D/g, "");
 
     if (!name) {
-      setError("Please enter your full name.");
+      setError(t.docGateErrorName);
       nameRef.current?.focus();
       return;
     }
     if (digits.length < 10 || digits.length > 15) {
-      setError("Please enter a valid phone / WhatsApp number.");
+      setError(t.docGateErrorPhone);
       phoneRef.current?.focus();
       return;
     }
@@ -288,7 +292,7 @@ export default function DocumentAccessGate({
       if (!lead.ok) {
         handoff?.close();
         setStatus("idle");
-        setError(lead.error || "We could not save your details. Please try again.");
+        setError(lead.error || t.docGateErrorSave);
         return;
       }
 
@@ -326,7 +330,7 @@ export default function DocumentAccessGate({
 
       if (!opened) {
         setStatus("idle");
-        setError("That document could not be opened automatically. Please try again.");
+        setError(t.docGateErrorOpen);
         return;
       }
 
@@ -364,7 +368,7 @@ export default function DocumentAccessGate({
               type="button"
               onClick={onClose}
               className={styles.close}
-              aria-label="Close"
+              aria-label={t.docGateClose}
             >
               <X className="h-4 w-4" />
             </button>
@@ -375,12 +379,9 @@ export default function DocumentAccessGate({
                   <CheckCircle2 className="h-7 w-7" />
                 </div>
                 <h3 id="document-access-title" className={styles.successTitle}>
-                  Document Unlocked
+                  {t.docGateSuccessTitle}
                 </h3>
-                <p className={styles.successText}>
-                  Your document is opening now. We&apos;ve also passed your
-                  details to our team on WhatsApp for any follow-up.
-                </p>
+                <p className={styles.successText}>{t.docGateSuccessText}</p>
               </div>
             ) : (
               <motion.form
@@ -390,36 +391,33 @@ export default function DocumentAccessGate({
                 noValidate
               >
                 <span className={styles.badge}>
-                  <Lock className="h-3 w-3" /> Protected Document
+                  <Lock className="h-3 w-3" /> {t.docGateProtected}
                 </span>
                 <h3 id="document-access-title" className={styles.title}>
-                  {request.title ?? "Get Access to This Document"}
+                  {request.title ?? t.docGateTitle}
                 </h3>
-                <p className={styles.sub}>
-                  {request.subtitle ??
-                    "Share your details once and the document opens instantly."}
-                </p>
+                <p className={styles.sub}>{request.subtitle ?? t.docGateSubtitle}</p>
 
                 <dl className={styles.meta}>
                   <div className={styles.metaRow}>
-                    <dt>Project</dt>
+                    <dt>{t.docGateProject}</dt>
                     <dd>{request.projectName}</dd>
                   </div>
                   <div className={styles.metaRow}>
-                    <dt>Document</dt>
+                    <dt>{t.docGateDocument}</dt>
                     <dd>{request.documentName}</dd>
                   </div>
                 </dl>
 
                 <div className={styles.field}>
-                  <label htmlFor="document-access-name">Full Name</label>
+                  <label htmlFor="document-access-name">{t.docGateNameLabel}</label>
                   <input
                     id="document-access-name"
                     ref={nameRef}
                     name="name"
                     value={form.name}
                     onChange={handleChange("name")}
-                    placeholder="Enter your full name"
+                    placeholder={t.docGateNamePlaceholder}
                     autoComplete="name"
                     className={styles.input}
                     aria-invalid={!!error && !form.name.trim()}
@@ -427,16 +425,14 @@ export default function DocumentAccessGate({
                 </div>
 
                 <div className={styles.field}>
-                  <label htmlFor="document-access-phone">
-                    Phone / WhatsApp Number
-                  </label>
+                  <label htmlFor="document-access-phone">{t.docGatePhoneLabel}</label>
                   <input
                     id="document-access-phone"
                     ref={phoneRef}
                     name="phone"
                     value={form.phone}
                     onChange={handleChange("phone")}
-                    placeholder="Enter your phone number"
+                    placeholder={t.docGatePhonePlaceholder}
                     inputMode="tel"
                     autoComplete="tel"
                     className={styles.input}
@@ -457,20 +453,17 @@ export default function DocumentAccessGate({
                 >
                   {status === "submitting" ? (
                     <>
-                      <Loader2 className="h-4 w-4 animate-spin" /> Opening…
+                      <Loader2 className="h-4 w-4 animate-spin" /> {t.docGateSubmitting}
                     </>
                   ) : (
                     <>
                       <FileText className="h-4 w-4" />{" "}
-                      {request.ctaLabel ?? "View Document"}
+                      {request.ctaLabel ?? t.docGateSubmit}
                     </>
                   )}
                 </button>
 
-                <p className={styles.consent}>
-                  By submitting you agree to be contacted by Arjun Realty. We
-                  never share your details.
-                </p>
+                <p className={styles.consent}>{t.docGateConsent}</p>
               </motion.form>
             )}
           </motion.div>

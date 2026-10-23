@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "i18n:inventory": "tsx scripts/i18n-inventory.ts",
+    "i18n:merge-check": "tsx scripts/i18n-merge-check.ts",
+    "i18n:project-check": "tsx scripts/i18n-project-check.ts",
     "migrate:uploads": "node --env-file=.env.local scripts/migrate-uploads.mjs"
   },
   "dependencies": {
@@ -32,6 +35,7 @@
     "eslint-config-next": "16.2.10",
     "mongodb-memory-server": "^11.2.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.13",
     "typescript": "^5"
   }
 }

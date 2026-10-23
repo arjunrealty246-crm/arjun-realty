@@ -6,32 +6,45 @@ import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
 import { builders } from "@/data/builders";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getHomeCopy } from "@/i18n/content/home-copy";
 
 const builderIcons = [TrendingUp, Shield, Ruler, Building2];
 
 export default function FeaturedBuilders() {
+  const { locale, href } = useLocale();
+  const copy = getHomeCopy(locale)?.featuredBuilders;
   return (
     <section className="relative py-28 sm:py-32 lg:py-40 overflow-hidden">
       <div className="ambient-orb w-[600px] h-[600px] bg-primary/[0.02] -left-48 top-1/3" />
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal className="text-center mb-16 lg:mb-20">
-          <SectionLabel>Partner Builders</SectionLabel>
+          <SectionLabel>{copy?.label ?? "Partner Builders"}</SectionLabel>
           <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
-            Projects from <span className="text-gradient">Hyderabad&apos;s Finest</span> Builders
+            {copy ? (
+              <>
+                {copy.headingA} <span className="text-gradient">{copy.headingB}</span>
+              </>
+            ) : (
+              <>
+                Projects from <span className="text-gradient">Hyderabad&apos;s Finest</span> Builders
+              </>
+            )}
           </h2>
           <p className="mt-4 text-white/30 max-w-xl mx-auto text-[0.95rem] leading-relaxed">
-            We carefully select and partner only with reputed developers who meet our rigorous standards
-            for legal compliance, infrastructure quality, and delivery track record.
+            {copy?.description ?? "We carefully select and partner only with reputed developers who meet our rigorous standards for legal compliance, infrastructure quality, and delivery track record."}
           </p>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-5xl mx-auto">
           {builders.map((builder, i) => {
             const Icon = builderIcons[i % builderIcons.length];
+            const builderDescription = copy?.descriptions[builder.id] ?? builder.description;
+            const builderHighlights = copy?.highlights[builder.id] ?? builder.highlights;
             return (
               <ScrollReveal key={builder.id} delay={i * 0.08} className="h-full">
                 <Link
-                  href={`/builders/${builder.slug}`}
+                  href={href(`/builders/${builder.slug}`)}
                   className="block h-full"
                 >
                   <motion.div
@@ -51,11 +64,11 @@ export default function FeaturedBuilders() {
                       </h3>
 
                       <p className="text-[12px] text-white/30 leading-relaxed mb-4 flex-1">
-                        {builder.description}
+                        {builderDescription}
                       </p>
 
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {builder.highlights?.map((h) => (
+                        {builderHighlights?.map((h) => (
                           <span key={h} className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/[0.06] text-[9px] text-primary/60 font-medium uppercase tracking-wider">
                             {h}
                           </span>
@@ -65,10 +78,10 @@ export default function FeaturedBuilders() {
                       <div className="flex items-center gap-3 pt-4 border-t border-white/[0.04] mt-auto">
                         <span className="flex items-center gap-1.5 text-[11px] text-white/40">
                           <Building2 className="h-3 w-3 text-primary/50" />
-                          {builder.projectCount} Projects
+                          {builder.projectCount} {copy?.projectCountSuffix ?? "Projects"}
                         </span>
                         {builder.established && (
-                          <span className="text-[11px] text-white/20">Est. {builder.established}</span>
+                          <span className="text-[11px] text-white/20">{copy?.establishedPrefix ?? "Est."} {builder.established}</span>
                         )}
                       </div>
                     </div>
@@ -80,7 +93,7 @@ export default function FeaturedBuilders() {
 
           {/* AR — curated real estate opportunities */}
           <ScrollReveal key="arjun-realty" delay={0.08} className="h-full">
-            <Link href="/arjun-realty" className="block h-full">
+            <Link href={href("/arjun-realty")} className="block h-full">
               <motion.div
                 whileHover={{ y: -4 }}
                 className="glass-card rounded-[1.25rem] p-7 sm:p-8 group relative overflow-hidden h-full flex flex-col"
@@ -94,18 +107,18 @@ export default function FeaturedBuilders() {
                   </div>
 
                   <h3 className="text-[16px] font-bold text-white tracking-[-0.01em]">
-                    Arjun Realty
+                    {copy?.arjunTitle ?? "Arjun Realty"}
                   </h3>
                   <p className="text-[10px] uppercase tracking-[0.18em] text-primary/50 font-medium mt-1 mb-2">
-                    Curated Real Estate Opportunities
+                    {copy?.arjunSubtitle ?? "Curated Real Estate Opportunities"}
                   </p>
 
                   <p className="text-[12px] text-white/30 leading-relaxed mb-4 flex-1">
-                    Selected residential opportunities in high-growth locations.
+                    {copy?.arjunDescription ?? "Selected residential opportunities in high-growth locations."}
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {["Shankarpally Focus", "Current + Upcoming"].map((h) => (
+                    {(copy?.arjunHighlights ?? ["Shankarpally Focus", "Current + Upcoming"]).map((h) => (
                       <span key={h} className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/[0.06] text-[9px] text-primary/60 font-medium uppercase tracking-wider">
                         {h}
                       </span>
@@ -115,10 +128,10 @@ export default function FeaturedBuilders() {
                   <div className="flex items-center justify-between pt-4 border-t border-white/[0.04] mt-auto">
                     <span className="flex items-center gap-1.5 text-[11px] text-white/40">
                       <Building2 className="h-3 w-3 text-primary/50" />
-                      2 Featured Opportunities
+                      {copy?.arjunFeatured ?? "2 Featured Opportunities"}
                     </span>
                     <span className="flex items-center gap-1 text-[11px] text-primary/60 font-semibold group-hover:text-primary transition-colors duration-300">
-                      Explore Opportunities <ArrowRight className="h-3 w-3" />
+                      {copy?.exploreOpportunities ?? "Explore Opportunities"} <ArrowRight className="h-3 w-3" />
                     </span>
                   </div>
                 </div>
@@ -130,10 +143,10 @@ export default function FeaturedBuilders() {
         {/* CTA */}
         <ScrollReveal className="text-center mt-10">
           <Link
-            href="/projects"
+            href={href("/projects")}
             className="btn-glass inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full text-[13px] font-semibold text-white/55 hover:text-white/80 transition-all duration-500"
           >
-            View All Projects & Partners <ArrowRight className="h-3.5 w-3.5" />
+            {copy?.viewAll ?? "View All Projects & Partners"} <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </ScrollReveal>
       </div>

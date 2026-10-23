@@ -6,36 +6,49 @@ import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
 import siteConfig from "@/config/site";
 import { advisoryProcess } from "@/data/content";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getHomeCopy } from "@/i18n/content/home-copy";
 
 const stepIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "Free Consultation": MessageCircle, "Curated Shortlist": Search,
   "Site Visit & Verification": ClipboardCheck, "Purchase & Beyond": Handshake,
 };
+const stepIcons = [MessageCircle, Search, ClipboardCheck, Handshake];
 const steps = advisoryProcess.steps.map((s, i) => ({
   num: `0${i + 1}`,
-  icon: stepIconMap[s.title] || MessageCircle,
+  icon: stepIconMap[s.title] || stepIcons[i] || MessageCircle,
   title: s.title,
   desc: s.desc,
   highlight: `Step ${i + 1}`,
 }));
 
 export default function AdvisoryProcess() {
+  const { locale } = useLocale();
+  const copy = getHomeCopy(locale)?.advisory;
+  const localizedSteps = copy
+    ? steps.map((step, i) => ({
+        ...step,
+        title: copy.steps[i]?.title ?? step.title,
+        desc: copy.steps[i]?.desc ?? step.desc,
+        highlight: `${copy.step} ${i + 1}`,
+      }))
+    : steps;
   return (
     <section className="relative py-28 sm:py-32 lg:py-40 overflow-hidden bg-section-alt">
       <div className="ambient-orb w-[500px] h-[500px] bg-gold/[0.015] -right-48 top-1/3" />
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal className="text-center mb-16 lg:mb-20">
-          <SectionLabel>{advisoryProcess.label}</SectionLabel>
+          <SectionLabel>{copy?.label ?? advisoryProcess.label}</SectionLabel>
           <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
-            {advisoryProcess.heading}
+            {copy?.heading ?? advisoryProcess.heading}
           </h2>
           <p className="mt-4 text-white/30 max-w-xl mx-auto text-[0.95rem] leading-relaxed">
-            {advisoryProcess.description}
+            {copy?.description ?? advisoryProcess.description}
           </p>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {steps.map((step, i) => (
+          {localizedSteps.map((step, i) => (
             <ScrollReveal key={step.num} delay={i * 0.08}>
               <motion.div
                 whileHover={{ y: -3 }}
@@ -53,7 +66,7 @@ export default function AdvisoryProcess() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-[11px] font-bold text-primary/40 tracking-[0.15em] uppercase">
-                        Step {step.num}
+                        {copy?.step ?? "Step"} {step.num}
                       </span>
                       <span className="h-px flex-1 bg-white/[0.04]" />
                     </div>
@@ -84,7 +97,7 @@ export default function AdvisoryProcess() {
               className="btn-premium inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-10 py-4 rounded-full text-[14px] font-semibold text-white glow-primary-strong"
             >
               <Calendar className="h-4 w-4" />
-              {advisoryProcess.cta}
+              {copy?.cta ?? advisoryProcess.cta}
               <ArrowRight className="h-4 w-4" />
             </a>
           </motion.div>

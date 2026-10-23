@@ -3,6 +3,8 @@
 import { MessageCircle, Phone, CalendarCheck } from "lucide-react";
 import siteConfig from "@/config/site";
 import { trackEvent } from "@/lib/analytics";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getProjectLabels } from "@/i18n/project-labels";
 
 interface StickyCTABarProps {
   projectName: string;
@@ -10,7 +12,9 @@ interface StickyCTABarProps {
   ctaLabel?: string;
 }
 
-export default function StickyCTABar({ projectName, onSiteVisit, ctaLabel = "Site Visit" }: StickyCTABarProps) {
+export default function StickyCTABar({ projectName, onSiteVisit, ctaLabel }: StickyCTABarProps) {
+  const { locale } = useLocale();
+  const t = getProjectLabels(locale);
   const waMessage = encodeURIComponent(
     `Hi, I'm interested in ${projectName}.\nPlease share more details.`
   );
@@ -28,7 +32,7 @@ export default function StickyCTABar({ projectName, onSiteVisit, ctaLabel = "Sit
           className="flex flex-col items-center justify-center gap-1 py-2.5 rounded-xl bg-[#25D366]/15 border border-[#25D366]/25 text-[#25D366]"
         >
           <MessageCircle className="h-4 w-4" />
-          <span className="text-[10px] font-bold uppercase tracking-wider">WhatsApp</span>
+          <span className="text-[10px] font-bold uppercase tracking-wider">{t.whatsapp}</span>
         </a>
         <a
           href={siteConfig.links.tel}
@@ -38,7 +42,7 @@ export default function StickyCTABar({ projectName, onSiteVisit, ctaLabel = "Sit
           className="flex flex-col items-center justify-center gap-1 py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.12] text-white/80"
         >
           <Phone className="h-4 w-4" />
-          <span className="text-[10px] font-bold uppercase tracking-wider">Call</span>
+          <span className="text-[10px] font-bold uppercase tracking-wider">{t.call}</span>
         </a>
         <button
           onClick={() => {
@@ -48,7 +52,7 @@ export default function StickyCTABar({ projectName, onSiteVisit, ctaLabel = "Sit
           className="flex flex-col items-center justify-center gap-1 py-2.5 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-white glow-primary-strong"
         >
           <CalendarCheck className="h-4 w-4" />
-          <span className="text-[10px] font-bold uppercase tracking-wider">{ctaLabel}</span>
+          <span className="text-[10px] font-bold uppercase tracking-wider">{ctaLabel ?? t.siteVisit}</span>
         </button>
       </div>
     </div>

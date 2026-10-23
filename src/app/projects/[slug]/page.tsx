@@ -9,6 +9,8 @@ import { connectDB } from "@/lib/mongodb";
 import { getMergedProject, isUsableMediaUrl } from "@/lib/merged-project";
 import { getProjectHref } from "@/lib/project-links";
 import TestimonialModel from "@/lib/models/Testimonial";
+import type { Locale } from "@/i18n/config";
+import { localizeProject } from "@/i18n/content/project-translations";
 
 // The project page is backed by admin-editable data in MongoDB. It is rendered
 // dynamically on every request so that it always reflects the latest saved
@@ -91,10 +93,21 @@ function normalizeTitlePart(text: string): string {
     .replace(/^\s+|\s+$/g, ""); // trim
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+  locale,
+}: {
+  params: Promise<{ slug: string }>;
+  /** Set only by the localized `/[locale]/projects/[slug]` route. */
+  locale?: Locale;
+}): Promise<Metadata> {
   const { slug } = await params;
-  const project = await getMergedProject(slug);
-  if (!project) return { robots: { index: false, follow: false } };
+  const merged = await getMergedProject(slug);
+  if (!merged) return { robots: { index: false, follow: false } };
+  // A translated page must not inherit English title/description. The hash guard
+  // applies the same stale-source rule as the page body, so stale translations
+  // fall back to the English metadata too.
+  const project = locale ? localizeProject(merged, locale).project : merged;
 
   const isUpcoming = project.status === "Upcoming";
   const isPreLaunch = project.status === "Pre-Launch";
@@ -191,17 +204,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ProjectPage({
+  params,
+  locale,
+}: {
+  params: Promise<{ slug: string }>;
+  /** Set only by the localized `/[locale]/projects/[slug]` route. */
+  locale?: Locale;
+}) {
   const { slug } = await params;
 
-  const project = await getMergedProject(slug);
+  let project = await getMergedProject(slug);
   if (!project) notFound();
 
-  const relatedProjects = getRelatedProjects(slug, 3);
+  const isLocalized = Boolean(locale && locale !== "en");
 
-  const relatedInsights: Insight[] = (project.relatedInsightSlugs ?? [])
-    .map((s) => getInsightBySlug(s))
-    .filter((i): i is Insight => Boolean(i));
+  // Related project cards embed untranslated English metadata, so they are not
+  // shown on a translated page.
+  const relatedProjects = isLocalized ? [] : getRelatedProjects(slug, 3);
+
+  // Insights only exist in English; a translated project page must not present
+  // English article cards as translated content.
+  const relatedInsights: Insight[] = isLocalized
+    ? []
+    : (project.relatedInsightSlugs ?? [])
+        .map((s) => getInsightBySlug(s))
+        .filter((i): i is Insight => Boolean(i));
 
   const usableImages = Array.isArray(project.images)
     ? project.images.filter((img) => isUsableMediaUrl(img))
@@ -248,6 +276,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   if (Array.isArray(project.gallery)) {
     project.gallery = project.gallery.filter((g) => g && g.src && isUsableMediaUrl(g.src));
+  }
+
+  // Translated prose (registered per slug) is applied AFTER the Admin/static
+  // merge, so the hash guard validates the exact English that would be shown.
+  // On a stale/missing translation the page keeps rendering English (noindex).
+  if (locale) {
+    project = localizeProject(project, locale).project;
   }
 
   let testimonials: { name: string; role?: string; location?: string; text: string; rating?: number; image?: string }[] = [];
@@ -374,12 +409,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      {parsedPrice != null && Number.isFinite(parsedPrice) && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeSchema(projectSchema) }} />
+      {/* Structured data describes the English source page only; localized
+          variants are noindex until their translations are reviewed. */}
+      {!isLocalized && (
+        <>
+          {parsedPrice != null && Number.isFinite(parsedPrice) && (
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeSchema(projectSchema) }} />
+          )}
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeSchema(placeSchema) }} />
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeSchema(breadcrumbSchema) }} />
+          {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeSchema(faqSchema) }} />}
+        </>
       )}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeSchema(placeSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeSchema(breadcrumbSchema) }} />
-      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeSchema(faqSchema) }} />}
       <PremiumProjectDetailPage project={project} relatedProjects={relatedProjects} relatedInsights={relatedInsights} testimonials={testimonials} />
     </>
   );

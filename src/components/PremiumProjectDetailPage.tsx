@@ -35,7 +35,6 @@ import {
   FileText,
   Navigation,
   CalendarDays,
-  Clock3,
 } from "lucide-react";
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
@@ -65,6 +64,8 @@ import siteConfig from "@/config/site";
 import { submitLead } from "@/lib/lead-client";
 import { trackEvent } from "@/lib/analytics";
 import { getProjectHref } from "@/lib/project-links";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getProjectLabels } from "@/i18n/project-labels";
 
 const budgetLabels: Record<string, string> = {
   "under-50": "Under ₹50 Lakh",
@@ -110,6 +111,52 @@ const amenityIconMap: Record<string, React.ReactNode> = {
   cycling: <Bike className="h-5 w-5" />,
   cricket: <CircleDot className="h-5 w-5" />,
   sports: <CircleDot className="h-5 w-5" />,
+  "క్లబ్హౌస్": <Landmark className="h-5 w-5" />,
+  "क्लबहाउस": <Landmark className="h-5 w-5" />,
+  "పూల్": <Waves className="h-5 w-5" />,
+  "पूल": <Waves className="h-5 w-5" />,
+  "జిమ్": <Dumbbell className="h-5 w-5" />,
+  "जिम": <Dumbbell className="h-5 w-5" />,
+  "భద్రత": <Lock className="h-5 w-5" />,
+  "सुरक्षा": <Lock className="h-5 w-5" />,
+  "నిఘా": <Lock className="h-5 w-5" />,
+  "निगरानी": <Lock className="h-5 w-5" />,
+  "పార్క్": <Trees className="h-5 w-5" />,
+  "पार्क": <Trees className="h-5 w-5" />,
+  "ఉద్యాన": <Trees className="h-5 w-5" />,
+  "बगीचा": <Trees className="h-5 w-5" />,
+  "నీటి": <Droplets className="h-5 w-5" />,
+  "నీరు": <Droplets className="h-5 w-5" />,
+  "जल": <Droplets className="h-5 w-5" />,
+  "पानी": <Droplets className="h-5 w-5" />,
+  "డ్రైనేజీ": <Droplets className="h-5 w-5" />,
+  "निकासी": <Droplets className="h-5 w-5" />,
+  "వర్షపు": <Droplets className="h-5 w-5" />,
+  "वर्षा": <Droplets className="h-5 w-5" />,
+  "విద్యుత్": <Zap className="h-5 w-5" />,
+  "बिजली": <Zap className="h-5 w-5" />,
+  "దీప": <Zap className="h-5 w-5" />,
+  "लाइट": <Zap className="h-5 w-5" />,
+  "సోలార్": <Zap className="h-5 w-5" />,
+  "सौर": <Zap className="h-5 w-5" />,
+  "జాగింగ్": <Footprints className="h-5 w-5" />,
+  "जॉगिंग": <Footprints className="h-5 w-5" />,
+  "వాకింగ్": <Footprints className="h-5 w-5" />,
+  "वॉकिंग": <Footprints className="h-5 w-5" />,
+  "నడక": <Footprints className="h-5 w-5" />,
+  "चलने": <Footprints className="h-5 w-5" />,
+  "సైక్లింగ్": <Bike className="h-5 w-5" />,
+  "साइक्लिंग": <Bike className="h-5 w-5" />,
+  "క్రీడ": <CircleDot className="h-5 w-5" />,
+  "खेल": <CircleDot className="h-5 w-5" />,
+  "బాస్కెట్": <CircleDot className="h-5 w-5" />,
+  "बास्केट": <CircleDot className="h-5 w-5" />,
+  "బ్యాడ్మింటన్": <CircleDot className="h-5 w-5" />,
+  "बैडमिंटन": <CircleDot className="h-5 w-5" />,
+  "పికిల్": <CircleDot className="h-5 w-5" />,
+  "पिकल": <CircleDot className="h-5 w-5" />,
+  "గుడి": <Landmark className="h-5 w-5" />,
+  "मंदिर": <Landmark className="h-5 w-5" />,
 };
 
 function getAmenityIcon(name: string): React.ReactNode {
@@ -131,6 +178,9 @@ export default function PremiumProjectDetailPage({
   relatedInsights?: Insight[];
   testimonials?: { name: string; role?: string; location?: string; text: string; rating?: number; image?: string }[];
 }) {
+  const { locale: currentLocale } = useLocale();
+  const t = getProjectLabels(currentLocale);
+  const isEnglish = currentLocale === "en";
   const [siteVisitOpen, setSiteVisitOpen] = useState(false);
   const [amenitiesExpanded, setAmenitiesExpanded] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
@@ -248,14 +298,14 @@ export default function PremiumProjectDetailPage({
                   href="/"
                   className="flex items-center gap-1 text-white/40 hover:text-primary/60 transition-colors duration-300"
                 >
-                  <Home className="h-3 w-3" /> Home
+                  <Home className="h-3 w-3" /> {t.breadcrumbHome}
                 </Link>
                 <span className="text-white/20">/</span>
                 <Link
                   href="/projects"
                   className="text-white/40 hover:text-primary/60 transition-colors duration-300"
                 >
-                  Projects
+                  {t.breadcrumbProjects}
                 </Link>
                 <span className="text-white/20">/</span>
                 <span className="text-white/60 truncate max-w-[200px]">{project.name}</span>
@@ -296,12 +346,12 @@ export default function PremiumProjectDetailPage({
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-1.5 text-sm text-white/60 mb-6">
                   <p className="flex items-center gap-2">
                     <Building2 className="h-4 w-4 text-primary/60 shrink-0" />
-                    Developed by <span className="text-white/80 font-medium">{developerName}</span>
+                    {t.developedBy} <span className="text-white/80 font-medium">{developerName}</span>
                   </p>
                   {project.marketingPartner && (
                     <p className="flex items-center gap-2">
                       <Star className="h-4 w-4 text-primary/60 shrink-0" />
-                      Marketing Partner: <span className="text-white/80 font-medium">{project.marketingPartner}</span>
+                      {t.marketingPartner} <span className="text-white/80 font-medium">{project.marketingPartner}</span>
                     </p>
                   )}
                 </div>
@@ -326,7 +376,7 @@ export default function PremiumProjectDetailPage({
                   href="#project-overview"
                   className="btn-premium inline-flex items-center gap-2.5 bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
                 >
-                  <ArrowRight className="h-4 w-4" /> Explore Project
+                  <ArrowRight className="h-4 w-4" /> {t.exploreProject}
                 </a>
                 <a
                   href={waLink}
@@ -337,7 +387,7 @@ export default function PremiumProjectDetailPage({
                   }
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white/[0.06] border border-white/[0.12] text-[13px] font-semibold text-white/80 hover:bg-white/[0.1] hover:border-primary/20 hover:text-primary transition-all duration-300"
                 >
-                  <MessageCircle className="h-4 w-4" /> Enquire Now
+                  <MessageCircle className="h-4 w-4" /> {t.enquireNow}
                 </a>
                 <a
                   href={siteConfig.links.tel}
@@ -346,13 +396,13 @@ export default function PremiumProjectDetailPage({
                   }
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white/[0.06] border border-white/[0.12] text-[13px] font-semibold text-white/80 hover:bg-white/[0.1] hover:border-primary/20 hover:text-primary transition-all duration-300"
                 >
-                  <Phone className="h-4 w-4" /> Call Now
+                  <Phone className="h-4 w-4" /> {t.callNow}
                 </a>
                 <BrochureDownload
                   project={project}
                   variant="button"
                   onRequestAccess={(grant) =>
-                    requestDocument({ documentName: "Project Brochure & Pricing Matrix", grant })
+                    requestDocument({ documentName: t.brochureDocumentName, grant })
                   }
                 />
                 <button
@@ -362,7 +412,7 @@ export default function PremiumProjectDetailPage({
                   }}
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white/[0.06] border border-white/[0.12] text-[13px] font-semibold text-white/80 hover:bg-white/[0.1] hover:border-primary/20 hover:text-primary transition-all duration-300"
                 >
-                  <CalendarCheck className="h-4 w-4" /> Book Site Visit
+                  <CalendarCheck className="h-4 w-4" /> {t.bookSiteVisit}
                 </button>
               </div>
             </ScrollReveal>
@@ -381,24 +431,26 @@ export default function PremiumProjectDetailPage({
                 {[
                   {
                     icon: <Banknote className="h-6 w-6 text-primary" />,
-                    label: "Starting Price",
+                    label: t.startingPrice,
                     value: project.startingPrice,
                   },
                   {
                     icon: <Ruler className="h-6 w-6 text-primary" />,
-                    label: "Plot Sizes",
+                    label: t.plotSizes,
                     value: plotSizeArray.length > 2
                       ? `${plotSizeArray[0]} – ${plotSizeArray[plotSizeArray.length - 1]}`
                       : project.plotSizes,
                   },
                   {
                     icon: <Building2 className="h-6 w-6 text-primary" />,
-                    label: "Project Type",
-                    value: project.projectType.split(" ").slice(0, 3).join(" "),
+                    label: t.projectType,
+                    value: isEnglish
+                      ? project.projectType.split(" ").slice(0, 3).join(" ")
+                      : project.projectType.trim(),
                   },
                   {
                     icon: <BadgeCheck className="h-6 w-6 text-primary" />,
-                    label: "Approvals",
+                    label: t.approvals,
                     value: project.approval.split("·")[0].trim(),
                   },
                 ].map((stat) => (
@@ -435,26 +487,15 @@ export default function PremiumProjectDetailPage({
                     <Shield className="h-10 w-10 text-emerald-400" />
                   </div>
                   <div className="flex-1">
-                    <SectionLabel>FCDA Approved</SectionLabel>
+                    <SectionLabel>{t.fcdaLabel}</SectionLabel>
                     <h3 className="text-2xl lg:text-3xl font-bold text-white mt-3 mb-4">
-                      {project.name} — FCDA Approved in the Future City Growth Corridor
+                      {t.fcdaHeading(project.name)}
                     </h3>
                     <p className="text-white/45 text-[0.95rem] leading-relaxed max-w-3xl">
-                      FCDA (Future City Development Authority) approval is a hallmark of
-                      regulatory compliance and long-term development certainty. {project.name} is
-                      one of the first premium villa plotting projects to receive this prestigious
-                      approval in the Future City growth corridor — giving investors complete
-                      confidence in the project's legality and future appreciation potential.
+                      {t.fcdaBody(project.name)}
                     </p>
                     <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                      {[
-                        "Full FCDA & RERA Regulatory Compliance",
-                        "Early-Stage Growth Potential",
-                        "Bank Loan Eligible with Clear Title",
-                        "Approved Layout & Master Plan",
-                        "Legal Documentation & Sale Deed Ready",
-                        "Future City Growth Corridor Advantage",
-                      ].map((benefit) => (
+                      {t.fcdaBenefits.map((benefit) => (
                         <div
                           key={benefit}
                           className="flex items-center gap-3 glass-card rounded-xl px-4 py-3.5"
@@ -480,11 +521,11 @@ export default function PremiumProjectDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Overview — 3 cols */}
             <ScrollReveal className="lg:col-span-3">
-              <SectionLabel as="h2">Project Overview</SectionLabel>
+              <SectionLabel as="h2">{t.projectOverview}</SectionLabel>
               <div className="mt-6">
               <p className="text-white/45 text-[0.95rem] leading-[1.85] mb-6">
                 {project.description || `${project.name} is a ${project.projectType} located at ${project.location}. With ${project.approval} approvals and a focus on premium infrastructure, this project offers an exceptional opportunity for both investment and future home construction.`}
-                {project.slug === "jb-harmony-woods" && (
+                {isEnglish && project.slug === "jb-harmony-woods" && (
                   <>
                     {" "}The gated community is positioned in the same corridor as{" "}
                     <Link href="/srisailam-highway-future-city" className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">
@@ -493,7 +534,7 @@ export default function PremiumProjectDetailPage({
                     {"."}
                   </>
                 )}
-                {project.slug === "upcoming-srisailam-highway" && (
+                {isEnglish && project.slug === "upcoming-srisailam-highway" && (
                   <>
                     {" "}Buyers comparing approved plots that are ready in the same corridor can review{" "}
                     <Link href={getProjectHref("jb-harmony-woods")} className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">
@@ -502,7 +543,7 @@ export default function PremiumProjectDetailPage({
                     {" — a live 53-acre FCDA approved plotted community near Future City, Thummaloor."}
                   </>
                 )}
-                {project.slug === "jb-serene-city" && (
+                {isEnglish && project.slug === "jb-serene-city" && (
                   <>
                     {" "}Looking for a smaller HMDA layout closer to the Kongarakalan–Patancheru industrial belt? Compare{" "}
                     <Link href={getProjectHref("jb-serene-county")} className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">
@@ -516,7 +557,7 @@ export default function PremiumProjectDetailPage({
                     {" covers the highway access, institutional neighbours and pricing across this part of South Hyderabad."}
                   </>
                 )}
-                {project.slug === "jb-serene-county" && (
+                {isEnglish && project.slug === "jb-serene-county" && (
                   <>
                     {" "}Looking for a larger integrated township closer to Ibrahimpatnam? Compare{" "}
                     <Link href={getProjectHref("jb-serene-city")} className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">
@@ -526,9 +567,11 @@ export default function PremiumProjectDetailPage({
                   </>
                 )}
               </p>
-                <p className="text-white/45 text-[0.95rem] leading-[1.85] mb-6">
-                  Interested in an <Link href={getProjectHref("shankarpally-45-acres")} className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">Shankarpally 45 Acres</Link> HMDA open plot in the same corridor? This certified open-plots community offers HMDA &amp; RERA approvals for secure, ready-to-invest development.
-                </p>
+                {isEnglish && (
+                  <p className="text-white/45 text-[0.95rem] leading-[1.85] mb-6">
+                    Interested in an <Link href={getProjectHref("shankarpally-45-acres")} className="text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary/60 transition-colors">Shankarpally 45 Acres</Link> HMDA open plot in the same corridor? This certified open-plots community offers HMDA &amp; RERA approvals for secure, ready-to-invest development.
+                  </p>
+                )}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {highlightItems.map((h) => (
                     <div
@@ -550,14 +593,14 @@ export default function PremiumProjectDetailPage({
               <div className="glass-card-elevated rounded-2xl p-6 lg:p-7 space-y-5 lg:sticky lg:top-28">
                 <div>
                   <p className="text-[9px] text-white/25 uppercase tracking-[0.15em] mb-1">
-                    Starting From
+                    {t.startingFrom}
                   </p>
                   <p className="text-3xl font-bold text-gradient">{project.startingPrice}</p>
                 </div>
                 <div className="h-px bg-white/[0.04]" />
                 <div>
                   <p className="text-[9px] text-white/25 uppercase tracking-[0.15em] mb-2">
-                    Approvals
+                    {t.approvals}
                   </p>
                   <div className="flex items-center gap-2 text-sm text-white/60">
                     <Shield className="h-4 w-4 text-emerald-400" />
@@ -566,20 +609,20 @@ export default function PremiumProjectDetailPage({
                 </div>
                 <div>
                   <p className="text-[9px] text-white/25 uppercase tracking-[0.15em] mb-2">
-                    Bank Loan
+                    {t.bankLoan}
                   </p>
                   <div className="flex items-center gap-2 text-sm text-white/60">
                     <CheckCircle className="h-4 w-4 text-emerald-400" />
-                    Available from Leading Banks
+                    {t.availableFromLeadingBanks}
                   </div>
                 </div>
                 <div>
                   <p className="text-[9px] text-white/25 uppercase tracking-[0.15em] mb-2">
-                    Clear Title
+                    {t.clearTitle}
                   </p>
                   <div className="flex items-center gap-2 text-sm text-white/60">
                     <CheckCircle className="h-4 w-4 text-emerald-400" />
-                    Verified Legal Documentation
+                    {t.verifiedLegalDocumentation}
                   </div>
                 </div>
                 <div className="h-px bg-white/[0.04]" />
@@ -592,7 +635,7 @@ export default function PremiumProjectDetailPage({
                   }
                   className="btn-premium flex items-center justify-center gap-2.5 w-full bg-gradient-to-r from-primary to-primary-dark py-3.5 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
                 >
-                  <MessageCircle className="h-4 w-4" /> Enquire Now
+                  <MessageCircle className="h-4 w-4" /> {t.enquireNow}
                 </a>
                 <a
                   href={siteConfig.links.tel}
@@ -627,18 +670,16 @@ export default function PremiumProjectDetailPage({
       <section className="pb-16 lg:pb-20">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel as="h2">Pricing &amp; Plot Details</SectionLabel>
+            <SectionLabel as="h2">{t.pricingDetails}</SectionLabel>
             <div className="mt-6 glass-card-elevated rounded-2xl overflow-hidden">
               {/* Header */}
               <div className="px-6 py-5 border-b border-white/[0.04] flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <h3 className="text-lg font-bold text-white">
-                    {hasNumericPlotSizes ? "Available Plot Sizes" : "Plot Sizes"}
+                    {hasNumericPlotSizes ? t.availablePlotSizes : t.plotSizes}
                   </h3>
                   <p className="text-xs text-white/30 mt-0.5">
-                    {hasNumericPlotSizes
-                      ? "All plots come with clear title and bank loan facility"
-                      : "Pricing and exact plot dimensions will be shared upon registration"}
+                    {hasNumericPlotSizes ? t.clearTitleNote : t.registrationNote}
                   </p>
                 </div>
                 <div className="px-4 py-2 rounded-xl glass">
@@ -655,16 +696,16 @@ export default function PremiumProjectDetailPage({
                     <thead>
                       <tr className="border-b border-white/[0.04]">
                         <th className="px-6 py-3.5 text-left text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold">
-                          Plot Size
+                          {t.plotSize}
                         </th>
                         <th className="px-6 py-3.5 text-left text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold hidden sm:table-cell">
-                          Type
+                          {t.type}
                         </th>
                         <th className="px-6 py-3.5 text-left text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold hidden md:table-cell">
-                          Approval
+                          {t.approval}
                         </th>
                         <th className="px-6 py-3.5 text-right text-[10px] text-white/25 uppercase tracking-[0.15em] font-semibold">
-                          Status
+                          {t.status}
                         </th>
                       </tr>
                     </thead>
@@ -687,10 +728,10 @@ export default function PremiumProjectDetailPage({
                           <td className="px-6 py-4 hidden sm:table-cell">
                             <span className="text-xs text-white/40">
                               {parseInt(size) <= 200
-                                ? "Standard"
+                                ? t.standard
                                 : parseInt(size) <= 400
-                                ? "Premium"
-                                : "Luxury"}
+                                ? t.premium
+                                : t.luxury}
                             </span>
                           </td>
                           <td className="px-6 py-4 hidden md:table-cell">
@@ -711,7 +752,7 @@ export default function PremiumProjectDetailPage({
                                   project.isUpcoming ? "bg-amber-400" : "bg-emerald-400"
                                 }`}
                               />
-                              {project.isUpcoming ? "Coming Soon" : "Available"}
+                              {project.isUpcoming ? t.comingSoon : t.available}
                             </span>
                           </td>
                         </tr>
@@ -729,8 +770,7 @@ export default function PremiumProjectDetailPage({
                     {project.plotSizes}
                   </p>
                   <p className="text-xs text-white/30 max-w-sm">
-                    Exact dimensions and pricing will be shared upon registration.
-                    Register now to receive priority updates.
+                    {t.exactDimensionsNote}
                   </p>
                 </div>
               )}
@@ -741,12 +781,12 @@ export default function PremiumProjectDetailPage({
                   {project.bankLoanAvailable !== false && (
                     <div className="flex items-center gap-2 text-xs text-white/25">
                       <Shield className="h-3.5 w-3.5 text-emerald-400/50" />
-                      Bank loan pre-approval available
+                      {t.bankLoanPreApproval}
                     </div>
                   )}
                   <div className="flex items-center gap-2 text-xs text-white/25">
                     <CheckCircle className="h-3.5 w-3.5 text-emerald-400/50" />
-                    Registration assistance included
+                    {t.registrationAssistance}
                   </div>
                 </div>
               )}
@@ -761,10 +801,9 @@ export default function PremiumProjectDetailPage({
       <section className="pb-16 lg:pb-20">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel as="h2">Premium Amenities</SectionLabel>
+            <SectionLabel as="h2">{t.premiumAmenities}</SectionLabel>
             <p className="mt-3 text-white/30 text-sm max-w-xl">
-              {project.amenities.length} world-class amenities designed for a premium
-              lifestyle
+              {t.amenitiesIntro(project.amenities.length)}
             </p>
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
@@ -794,8 +833,8 @@ export default function PremiumProjectDetailPage({
                   className="inline-flex items-center gap-2 text-sm text-primary/60 hover:text-primary transition-colors duration-300 font-medium"
                 >
                   {amenitiesExpanded
-                    ? "Show Less"
-                    : `View All ${project.amenities.length} Amenities`}
+                    ? t.showLess
+                    : t.viewAllAmenities(project.amenities.length)}
                   {amenitiesExpanded ? (
                     <ChevronUp className="h-4 w-4" />
                   ) : (
@@ -816,10 +855,10 @@ export default function PremiumProjectDetailPage({
           <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
             <ScrollReveal>
               <div className="flex flex-col items-center text-center mb-10">
-                <SectionLabel>Media</SectionLabel>
-                <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Project Videos</h2>
+                <SectionLabel>{t.media}</SectionLabel>
+                <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">{t.projectVideos}</h2>
                 <p className="mt-3 max-w-2xl text-white/40 text-sm sm:text-base">
-                  Watch the drone flythrough and latest walkthroughs of {project.name}.
+                  {t.videosIntro(project.name)}
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -856,7 +895,7 @@ export default function PremiumProjectDetailPage({
       <section className="pb-16 lg:pb-20">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel as="h2">Location &amp; Map</SectionLabel>
+            <SectionLabel as="h2">{t.locationMap}</SectionLabel>
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Map — 2 cols */}
               <div className="lg:col-span-2 glass-card-elevated rounded-2xl overflow-hidden">
@@ -877,7 +916,7 @@ export default function PremiumProjectDetailPage({
                   <div className="h-80 lg:h-[28rem] flex items-center justify-center">
                     <div className="text-center">
                       <MapPin className="h-12 w-12 text-white/5 mx-auto mb-3" />
-                      <p className="text-sm text-white/20">Map coming soon</p>
+                      <p className="text-sm text-white/20">{t.mapComingSoon}</p>
                     </div>
                   </div>
                 )}
@@ -893,7 +932,7 @@ export default function PremiumProjectDetailPage({
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-primary/[0.08] border border-primary/15 text-[11px] font-semibold text-primary hover:bg-primary/[0.15] transition-colors duration-300"
                       >
-                        <Navigation className="h-3.5 w-3.5" /> Get Directions
+                        <Navigation className="h-3.5 w-3.5" /> {t.getDirections}
                       </a>
                       <a
                         href={project.mapsUrl}
@@ -901,7 +940,7 @@ export default function PremiumProjectDetailPage({
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors duration-300"
                       >
-                        Open in Maps <ExternalLink className="h-3.5 w-3.5" />
+                        {t.openInMaps} <ExternalLink className="h-3.5 w-3.5" />
                       </a>
                     </div>
                   )}
@@ -913,7 +952,7 @@ export default function PremiumProjectDetailPage({
                 {project.locationAdvantages.length > 0 && (
                   <div className="glass-card-elevated rounded-2xl p-6">
                     <h3 className="text-base font-bold text-white mb-4">
-                      Location Advantages
+                      {t.locationAdvantages}
                     </h3>
                     <div className="space-y-3">
                       {project.locationAdvantages.map((la) => (
@@ -934,7 +973,7 @@ export default function PremiumProjectDetailPage({
                 {project.connectivity && project.connectivity.length > 0 && (
                   <div className="glass-card-elevated rounded-2xl p-6">
                     <h3 className="text-base font-bold text-white mb-4">
-                      Connectivity &amp; Access
+                      {t.connectivityAccess}
                     </h3>
                     <div className="space-y-3">
                       {project.connectivity.map((c) => (
@@ -955,7 +994,7 @@ export default function PremiumProjectDetailPage({
                 {project.nearbyLandmarks && project.nearbyLandmarks.length > 0 && (
                   <div className="glass-card-elevated rounded-2xl p-6">
                     <h3 className="text-base font-bold text-white mb-4">
-                      Nearby Landmarks
+                      {t.nearbyLandmarks}
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {project.nearbyLandmarks.map((lm) => (
@@ -1014,7 +1053,7 @@ export default function PremiumProjectDetailPage({
         <section className="pb-16 lg:pb-20">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
             <ScrollReveal>
-              <SectionLabel as="h2">Why Invest in {project.name}?</SectionLabel>
+              <SectionLabel as="h2">{t.whyInvestHeading(project.name)}</SectionLabel>
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {whyInvestItems.map((wi, i) => (
                   <div
@@ -1042,9 +1081,9 @@ export default function PremiumProjectDetailPage({
         <section className="pb-16 lg:pb-20">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
             <ScrollReveal>
-              <SectionLabel>What People Say</SectionLabel>
+              <SectionLabel>{t.whatPeopleSay}</SectionLabel>
               <h2 className="mt-5 text-2xl font-bold tracking-tight mb-8">
-                Client <span className="text-gradient">Testimonials</span>
+                {t.clientTestimonials}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {testimonials.map((t, i) => (
@@ -1089,11 +1128,10 @@ export default function PremiumProjectDetailPage({
                 {/* Form — 3 cols */}
                 <div className="lg:col-span-3 p-8 lg:p-10">
                   <h3 className="text-xl font-bold text-white mb-1">
-                    Book a Site Visit
+                    {t.bookSiteVisitHeading}
                   </h3>
                   <p className="text-sm text-white/30 mb-7">
-                    Fill in the details and our team will arrange a complimentary site
-                    visit for {project.name}.
+                    {t.siteVisitIntro(project.name)}
                   </p>
 
                   {formSubmitted ? (
@@ -1101,10 +1139,9 @@ export default function PremiumProjectDetailPage({
                       <div className="h-16 w-16 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto mb-4">
                         <CheckCircle className="h-8 w-8 text-emerald-400" />
                       </div>
-                      <p className="text-lg font-bold text-white mb-1">Thank You!</p>
+                      <p className="text-lg font-bold text-white mb-1">{t.thankYou}</p>
                       <p className="text-sm text-white/35">
-                        Our team will contact you within 30 minutes to arrange your site
-                        visit.
+                        {t.thankYouBody}
                       </p>
                     </div>
                   ) : (
@@ -1112,7 +1149,7 @@ export default function PremiumProjectDetailPage({
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label htmlFor="pd-name" className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
-                            Full Name *
+                            {t.fullName}
                           </label>
                           <div className="relative">
                             <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/15" />
@@ -1125,13 +1162,13 @@ export default function PremiumProjectDetailPage({
                                 setFormData({ ...formData, name: e.target.value })
                               }
                               className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 focus:ring-1 focus:ring-primary/10 transition-all duration-300"
-                              placeholder="Your full name"
+                              placeholder={t.fullNamePlaceholder}
                             />
                           </div>
                         </div>
                         <div>
                           <label htmlFor="pd-phone" className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
-                            Phone Number *
+                            {t.phoneNumber}
                           </label>
                           <div className="relative">
                             <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/15" />
@@ -1146,7 +1183,7 @@ export default function PremiumProjectDetailPage({
                               className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 focus:ring-1 focus:ring-primary/10 transition-all duration-300"
                               placeholder="+91 XXXXX XXXXX"
                               pattern="[\+]?[0-9\s\-\(\)]{10,15}"
-                              title="Please enter a valid phone number"
+                              title={t.validPhone}
                             />
                           </div>
                         </div>
@@ -1155,7 +1192,7 @@ export default function PremiumProjectDetailPage({
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label htmlFor="pd-email" className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
-                            Email Address
+                            {t.emailAddress}
                           </label>
                           <div className="relative">
                             <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/15" />
@@ -1173,7 +1210,7 @@ export default function PremiumProjectDetailPage({
                         </div>
                         <div>
                           <label htmlFor="pd-budget" className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
-                            Preferred Budget
+                            {t.preferredBudget}
                           </label>
                           <select
                             id="pd-budget"
@@ -1184,30 +1221,20 @@ export default function PremiumProjectDetailPage({
                             className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white/70 focus:outline-none focus:border-primary/30 focus:ring-1 focus:ring-primary/10 transition-all duration-300 appearance-none"
                           >
                             <option value="" className="bg-charcoal-dark">
-                              Select budget range
+                              {t.selectBudget}
                             </option>
-                            <option value="under-50" className="bg-charcoal-dark">
-                              Under ₹50 Lakh
-                            </option>
-                            <option value="50-1cr" className="bg-charcoal-dark">
-                              ₹50 Lakh – ₹1 Crore
-                            </option>
-                            <option value="1-2cr" className="bg-charcoal-dark">
-                              ₹1 Crore – ₹2 Crore
-                            </option>
-                            <option value="2-5cr" className="bg-charcoal-dark">
-                              ₹2 Crore – ₹5 Crore
-                            </option>
-                            <option value="above-5cr" className="bg-charcoal-dark">
-                              Above ₹5 Crore
-                            </option>
+                            {t.budgets.map((b) => (
+                              <option key={b.key} value={b.key} className="bg-charcoal-dark">
+                                {b.label}
+                              </option>
+                            ))}
                           </select>
                         </div>
                       </div>
 
                       <div>
                         <label htmlFor="pd-message" className="block text-[10px] text-white/25 uppercase tracking-[0.12em] mb-1.5 font-medium">
-                          Message
+                          {t.message}
                         </label>
                         <div className="relative">
                           <FileText className="absolute left-3.5 top-3.5 h-4 w-4 text-white/15" />
@@ -1219,7 +1246,7 @@ export default function PremiumProjectDetailPage({
                               setFormData({ ...formData, message: e.target.value })
                             }
                             className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-sm text-white placeholder-white/15 focus:outline-none focus:border-primary/30 focus:ring-1 focus:ring-primary/10 transition-all duration-300 resize-none"
-                            placeholder={`I'm interested in ${project.name}...`}
+                            placeholder={t.messagePlaceholder(project.name)}
                           />
                         </div>
                       </div>
@@ -1229,7 +1256,7 @@ export default function PremiumProjectDetailPage({
                         disabled={formSubmitting}
                         className="btn-premium w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-primary to-primary-dark py-4 rounded-full text-[13px] font-semibold text-white glow-primary-strong disabled:opacity-60"
                       >
-                        <Send className="h-4 w-4" /> Submit Enquiry
+                        <Send className="h-4 w-4" /> {t.submitEnquiry}
                       </button>
                     </form>
                   )}
@@ -1237,7 +1264,7 @@ export default function PremiumProjectDetailPage({
 
                 {/* Quick Contact Sidebar — 2 cols */}
                 <div className="lg:col-span-2 bg-white/[0.01] border-l border-white/[0.04] p-8 lg:p-10 flex flex-col justify-center">
-                  <h3 className="text-lg font-bold text-white mb-6">Quick Contact</h3>
+                  <h3 className="text-lg font-bold text-white mb-6">{t.quickContact}</h3>
                   <div className="space-y-4">
                     <a
                       href={waLink}
@@ -1253,9 +1280,9 @@ export default function PremiumProjectDetailPage({
                       </div>
                       <div className="flex-1">
                         <p className="text-sm font-bold text-white group-hover:text-[#25D366] transition-colors duration-300">
-                          WhatsApp Enquiry
+                          {t.whatsappEnquiry}
                         </p>
-                        <p className="text-[11px] text-white/25">Quick response within minutes</p>
+                        <p className="text-[11px] text-white/25">{t.quickResponse}</p>
                       </div>
                       <ArrowRight className="h-4 w-4 text-white/15 group-hover:text-[#25D366] group-hover:translate-x-1 transition-all duration-300" />
                     </a>
@@ -1272,7 +1299,7 @@ export default function PremiumProjectDetailPage({
                       </div>
                       <div className="flex-1">
                         <p className="text-sm font-bold text-white group-hover:text-primary transition-colors duration-300">
-                          Call Now
+                          {t.callNow}
                         </p>
                         <p className="text-[11px] text-white/25">{siteConfig.contact.phone}</p>
                       </div>
@@ -1283,7 +1310,7 @@ export default function PremiumProjectDetailPage({
                       project={project}
                       variant="card"
                       onRequestAccess={(grant) =>
-                        requestDocument({ documentName: "Project Brochure & Pricing Matrix", grant })
+                        requestDocument({ documentName: t.brochureDocumentName, grant })
                       }
                     />
 
@@ -1299,9 +1326,9 @@ export default function PremiumProjectDetailPage({
                       </div>
                       <div className="flex-1">
                         <p className="text-sm font-bold text-white group-hover:text-primary transition-colors duration-300">
-                          Book Site Visit
+                          {t.bookSiteVisit}
                         </p>
-                        <p className="text-[11px] text-white/25">Free guided site visit</p>
+                        <p className="text-[11px] text-white/25">{t.freeGuidedVisit}</p>
                       </div>
                       <ArrowRight className="h-4 w-4 text-white/15 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
                     </button>
@@ -1320,9 +1347,9 @@ export default function PremiumProjectDetailPage({
         <section className="pb-16 lg:pb-20">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
             <ScrollReveal>
-              <SectionLabel>Frequently Asked Questions</SectionLabel>
+              <SectionLabel>{t.faqLabel}</SectionLabel>
               <h2 className="mt-5 text-2xl font-bold tracking-tight mb-8">
-                Everything You Need to <span className="text-gradient">Know</span>
+                {t.faqHeadingPre} <span className="text-gradient">{t.faqHeadingAccent}</span>
               </h2>
               <div className="space-y-3 max-w-3xl">
                 {project.faqs.map((faq, i) => (
@@ -1379,9 +1406,9 @@ export default function PremiumProjectDetailPage({
         <section className="pb-16 lg:pb-24">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
             <ScrollReveal>
-              <SectionLabel>Explore More</SectionLabel>
+              <SectionLabel>{t.exploreMore}</SectionLabel>
               <h2 className="mt-5 text-2xl font-bold tracking-tight mb-8">
-                Related <span className="text-gradient">Projects</span>
+                {t.relatedProjects}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedProjects.map((rp) => (
@@ -1431,9 +1458,9 @@ export default function PremiumProjectDetailPage({
         <section className="pb-16 lg:pb-24">
           <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
             <ScrollReveal>
-              <SectionLabel>Market Intelligence</SectionLabel>
+              <SectionLabel>{t.marketIntelligence}</SectionLabel>
               <h2 className="mt-5 text-2xl font-bold tracking-tight mb-8">
-                Related <span className="text-gradient">Insights</span>
+                {t.relatedInsights}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedInsights.map((insight) => (
@@ -1464,7 +1491,7 @@ export default function PremiumProjectDetailPage({
 
       <FinalCTASection project={project} />
 
-      <StickyCTABar projectName={project.name} onSiteVisit={() => setSiteVisitOpen(true)} />
+      <StickyCTABar projectName={project.name} onSiteVisit={() => setSiteVisitOpen(true)} ctaLabel={t.siteVisit} />
 
       <div className="h-20 md:hidden" />
 

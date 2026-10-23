@@ -4,9 +4,10 @@ import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CalendarCheck, User, Phone, Mail, MessageSquare, Loader2, CheckCircle } from "lucide-react";
 import siteConfig from "@/config/site";
-import { siteVisitForm } from "@/data/content";
 import { submitLead } from "@/lib/lead-client";
 import { trackEvent } from "@/lib/analytics";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getProjectLabels } from "@/i18n/project-labels";
 
 interface SiteVisitModalProps {
   isOpen: boolean;
@@ -15,6 +16,8 @@ interface SiteVisitModalProps {
 }
 
 export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVisitModalProps) {
+  const { locale } = useLocale();
+  const t = getProjectLabels(locale);
   const [form, setForm] = useState({ name: "", phone: "", email: "", date: "", message: "" });
   const [status, setStatus] = useState<"idle" | "submitting" | "done">("idle");
 
@@ -94,7 +97,7 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
           >
             <button
               onClick={onClose}
-              aria-label="Close site visit form"
+              aria-label={t.siteVisitClose}
               className="absolute top-5 right-5 h-8 w-8 rounded-full glass flex items-center justify-center text-white/30 hover:text-white transition-colors"
             >
               <X className="h-4 w-4" />
@@ -104,9 +107,9 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 mb-4">
                 <CalendarCheck className="h-6 w-6 text-primary" />
               </div>
-              <h2 id="sitevisit-heading" className="text-xl font-bold text-white tracking-tight">{siteVisitForm.heading}</h2>
+              <h2 id="sitevisit-heading" className="text-xl font-bold text-white tracking-tight">{t.siteVisitHeading}</h2>
               <p className="text-sm text-white/30 mt-1">
-                {projectName ? `Schedule a visit to ${projectName}` : siteVisitForm.description}
+                {projectName ? t.siteVisitProjectDescription(projectName) : t.siteVisitDescription}
               </p>
             </div>
 
@@ -119,14 +122,14 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
                 <div className="h-16 w-16 rounded-full bg-green-500/10 flex items-center justify-center mb-4">
                   <CheckCircle className="h-8 w-8 text-green-400" />
                 </div>
-                <p className="text-white font-semibold text-lg">{siteVisitForm.successTitle}</p>
-                <p className="text-white/30 text-sm mt-1">{siteVisitForm.successMessage}</p>
+                <p className="text-white font-semibold text-lg">{t.siteVisitSuccessTitle}</p>
+                <p className="text-white/30 text-sm mt-1">{t.siteVisitSuccessMessage}</p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="sv-name" className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
-                    <User className="h-3 w-3" /> {siteVisitForm.nameLabel}
+                    <User className="h-3 w-3" /> {t.siteVisitNameLabel}
                   </label>
                   <input
                     id="sv-name"
@@ -134,7 +137,7 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
                     value={form.name}
                     onChange={handleChange}
                     required
-                    placeholder={siteVisitForm.namePlaceholder}
+                    placeholder={t.siteVisitNamePlaceholder}
                     className="input-luxury"
                   />
                 </div>
@@ -142,7 +145,7 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                       <label htmlFor="sv-phone" className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
-                        <Phone className="h-3 w-3" /> {siteVisitForm.phoneLabel}
+                        <Phone className="h-3 w-3" /> {t.siteVisitPhoneLabel}
                       </label>
                       <input
                         id="sv-phone"
@@ -150,15 +153,15 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
                         value={form.phone}
                         onChange={handleChange}
                         required
-                        placeholder={siteVisitForm.phonePlaceholder}
+                        placeholder={t.siteVisitPhonePlaceholder}
                         className="input-luxury"
                         pattern="[\+]?[0-9\s\-\(\)]{10,15}"
-                        title="Please enter a valid phone number"
+                        title={t.validPhone}
                       />
                   </div>
                   <div>
                       <label htmlFor="sv-email" className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
-                        <Mail className="h-3 w-3" /> {siteVisitForm.emailLabel}
+                        <Mail className="h-3 w-3" /> {t.siteVisitEmailLabel}
                       </label>
                       <input
                         id="sv-email"
@@ -166,7 +169,7 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
                         type="email"
                         value={form.email}
                         onChange={handleChange}
-                        placeholder={siteVisitForm.emailPlaceholder}
+                        placeholder={t.siteVisitEmailPlaceholder}
                         className="input-luxury"
                       />
                   </div>
@@ -174,7 +177,7 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
 
                 <div>
                   <label htmlFor="sv-date" className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
-                    <CalendarCheck className="h-3 w-3" /> {siteVisitForm.dateLabel}
+                    <CalendarCheck className="h-3 w-3" /> {t.siteVisitDateLabel}
                   </label>
                   <input
                     id="sv-date"
@@ -188,7 +191,7 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
 
                 <div>
                   <label htmlFor="sv-message" className="flex items-center gap-2 text-xs text-white/30 uppercase tracking-wider font-medium mb-2">
-                    <MessageSquare className="h-3 w-3" /> {siteVisitForm.messageLabel}
+                    <MessageSquare className="h-3 w-3" /> {t.siteVisitMessageLabel}
                   </label>
                   <textarea
                     id="sv-message"
@@ -196,7 +199,7 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
                     value={form.message}
                     onChange={handleChange}
                     rows={3}
-                    placeholder={siteVisitForm.messagePlaceholder}
+                    placeholder={t.siteVisitMessagePlaceholder}
                     className="input-luxury resize-none"
                   />
                 </div>
@@ -209,18 +212,18 @@ export default function SiteVisitModal({ isOpen, onClose, projectName }: SiteVis
                   {status === "submitting" ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
-                      Submitting...
+                      {t.siteVisitSubmitting}
                     </>
                   ) : (
                     <>
                       <CalendarCheck className="h-4 w-4" />
-                      {siteVisitForm.submitButton}
+                      {t.siteVisitSubmit}
                     </>
                   )}
                 </button>
 
                 <p className="text-center text-[11px] text-white/15 mt-2">
-                  {siteVisitForm.privacy}
+                  {t.siteVisitPrivacy}
                 </p>
               </form>
             )}

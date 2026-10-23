@@ -13,11 +13,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale) || locale === defaultLocale) return {};
+  const localeKey = locale as Locale;
+  const title = localeKey === "te" ? "అర్జున్ రియల్టీ | హైదరాబాద్లో ఆమోదిత ప్లాట్లు" : localeKey === "hi" ? "अर्जुन रियल्टी | हैदराबाद में स्वीकृत प्लॉट" : seo.home.title;
+  const description = localeKey === "te" ? "హైదరాబాద్ అంతటా ధృవీకరించిన HMDA, DTCP, RERA ఆమోదిత ప్రాజెక్టులను పెట్టుబడిదారులు కనుగొనడంలో స్వతంత్ర రియల్ ఎస్టేట్ సలహాదారు." : localeKey === "hi" ? "हैदराबाद भर में सत्यापित HMDA, DTCP और RERA स्वीकृत परियोजनाएं खोजने में निवेशकों की मदद करने वाला स्वतंत्र रियल एस्टेट सलाहकार।" : seo.home.description;
   return buildLocalizedMetadata({
-    locale: locale as Locale,
+    locale: localeKey,
     path: "/",
-    title: seo.home.title,
-    description: seo.home.description,
+    title,
+    description,
     keywords: seo.home.keywords,
   });
 }
@@ -29,5 +32,5 @@ export default async function LocalizedHomePage({
 }) {
   const { locale } = await params;
   if (!isLocale(locale) || locale === defaultLocale) notFound();
-  return <HomePage heroContent={getPageContent("home", locale as Locale)} />;
+  return <HomePage locale={locale as Locale} heroContent={getPageContent("home", locale as Locale)} />;
 }

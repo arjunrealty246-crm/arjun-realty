@@ -4,8 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Globe } from "lucide-react";
-import { locales, localeMeta, Locale, defaultLocale, hasLocalizedRoute, stripLocale, switchLocalePath } from "@/i18n/config";
-import { getTranslatedLocales } from "@/i18n/content/status";
+import { locales, localeMeta, Locale, stripLocale, switchLocalePath } from "@/i18n/config";
 import { useLocale } from "@/i18n/LocaleContext";
 
 interface LanguageSelectorProps {
@@ -17,37 +16,25 @@ interface LanguageSelectorProps {
 /**
  * Premium language selector rendered directly below the main navigation.
  * English keeps its existing root URLs; Telugu and Hindi use /te and /hi
- * prefixes. Switching preserves the current path and page context.
+ * prefixes.
  *
- * A locale is only offered when the current page is genuinely translated into
- * it (per THE GATE in the translation registry), so the selector never links to
- * a localized variant that still renders English content. English is always
- * offered, and the locale you are already on stays visible as long as it is a
- * self-link. With nothing to switch to, the selector renders nothing.
+ * Switching keeps the visitor on the equivalent page when translated content
+ * exists for it, and otherwise sends them to that locale's homepage — never to a
+ * localized URL that still renders English. The active locale is always a
+ * self-link so the current page is never left by clicking the current language.
+ *
+ * The availability check is data-only (see `content/availability.ts`), so this
+ * client component does not pull translated content into the shared bundle.
  */
 export default function LanguageSelector({ variant = "bar", className = "" }: LanguageSelectorProps) {
   const pathname = usePathname();
   const { dictionary } = useLocale();
-  const { locale: currentLocale, basePath } = stripLocale(pathname);
+  const { locale: currentLocale } = stripLocale(pathname);
 
-  const buildHref = (target: Locale) => switchLocalePath(pathname, target);
-
-  const isAvailable = (loc: Locale): boolean => {
-    // English always exists at its root URLs.
-    if (loc === defaultLocale) return true;
-    // Only link a localized variant that has a real route AND is genuinely
-    // translated per the registry (otherwise switchLocalePath would fall back
-    // to an untranslated homepage).
-    if (hasLocalizedRoute(basePath) && getTranslatedLocales(basePath).includes(loc)) return true;
-    // The locale you are already on stays visible, but only as a self-link —
-    // never when switching would fall back to an untranslated URL (404 page).
-    return loc === currentLocale && buildHref(loc) === pathname;
+  const buildHref = (target: Locale) => {
+    if (target === currentLocale) return pathname;
+    return switchLocalePath(pathname, target);
   };
-
-  const visibleLocales = locales.filter(isAvailable);
-
-  // Nothing to switch to (English-only page) — keep the navigation clean.
-  if (visibleLocales.length < 2) return null;
 
   if (variant === "menu") {
     return (
@@ -60,12 +47,13 @@ export default function LanguageSelector({ variant = "bar", className = "" }: La
           role="group"
           aria-label={dictionary.language.chooseLanguage}
         >
-          {visibleLocales.map((loc) => {
+          {locales.map((loc) => {
             const active = loc === currentLocale;
             return (
               <Link
                 key={loc}
                 href={buildHref(loc)}
+                hrefLang={localeMeta[loc].htmlLang}
                 aria-current={active ? "true" : undefined}
                 className={`px-4 py-2 rounded-full text-[13px] font-medium transition-colors duration-300 ${
                   active ? "bg-primary/15 text-primary" : "text-white/45 hover:text-white/80"
@@ -90,12 +78,13 @@ export default function LanguageSelector({ variant = "bar", className = "" }: La
         <span className="hidden sm:flex items-center pl-2 pr-1 text-white/25" aria-hidden="true">
           <Globe className="h-3.5 w-3.5" />
         </span>
-        {visibleLocales.map((loc) => {
+        {locales.map((loc) => {
           const active = loc === currentLocale;
           return (
             <Link
               key={loc}
               href={buildHref(loc)}
+              hrefLang={localeMeta[loc].htmlLang}
               aria-current={active ? "true" : undefined}
               className={`relative px-3 sm:px-3.5 py-1.5 rounded-full text-[12.5px] font-medium transition-colors duration-300 whitespace-nowrap ${
                 active ? "text-white" : "text-white/40 hover:text-white/75"

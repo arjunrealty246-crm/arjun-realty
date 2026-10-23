@@ -6,22 +6,38 @@ import SectionLabel from "./SectionLabel";
 import siteConfig from "@/config/site";
 import { founderMilestones as milestones, founderCredentials, founderStats } from "@/data/team";
 import { founderProfile } from "@/data/content";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getHomeCopy } from "@/i18n/content/home-copy";
 
 const credentials = founderCredentials.map(c => c.text);
 
 export default function FounderProfile() {
+  const { locale } = useLocale();
+  const copy = getHomeCopy(locale)?.founder;
+  const localizedCredentials = copy ? copy.credentials : credentials;
+  const localizedMilestones = copy
+    ? milestones.map((m, i) => ({ ...m, title: copy.milestones[i]?.title ?? m.title, desc: copy.milestones[i]?.desc ?? m.desc }))
+    : milestones;
   return (
     <section className="relative py-28 sm:py-32 lg:py-40 overflow-hidden">
       <div className="ambient-orb w-[600px] h-[600px] bg-gold/[0.02] -right-64 top-0" />
 
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal className="text-center mb-16 lg:mb-24">
-          <SectionLabel>{founderProfile.label}</SectionLabel>
+          <SectionLabel>{copy?.label ?? founderProfile.label}</SectionLabel>
           <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
-            Built on <span className="text-gradient">Integrity</span>,<br className="hidden sm:block" /> Driven by Results
+            {copy ? (
+              <>
+                {copy.headingA} <span className="text-gradient">{copy.headingB}</span>
+              </>
+            ) : (
+              <>
+                Built on <span className="text-gradient">Integrity</span>,<br className="hidden sm:block" /> Driven by Results
+              </>
+            )}
           </h2>
           <p className="mt-5 text-white/30 max-w-lg mx-auto text-[0.95rem] leading-relaxed">
-            {founderProfile.description}
+            {copy?.description ?? founderProfile.description}
           </p>
         </ScrollReveal>
 
@@ -54,12 +70,12 @@ export default function FounderProfile() {
 
               {/* Bio */}
               <p className="text-[13px] text-white/40 leading-[1.8] mb-8">
-                {founderProfile.bio}
+                {copy?.bio ?? founderProfile.bio}
               </p>
 
               {/* Quick stats */}
               <div className="grid grid-cols-3 gap-4 mb-8">
-                {founderStats.map((stat) => {
+                {founderStats.map((stat, si) => {
                   const IconMap: Record<string, React.ComponentType<{ className?: string }>> = { TrendingUp, Users, Award };
                   const StatIcon = IconMap[stat.icon] as React.ComponentType<{ className?: string }>;
                   return (
@@ -68,7 +84,7 @@ export default function FounderProfile() {
                       <StatIcon className="h-4 w-4 text-primary/60" />
                     </div>
                     <div className="text-lg font-bold text-gradient">{stat.value}</div>
-                    <p className="text-[10px] text-white/25 uppercase tracking-wider mt-0.5">{stat.label}</p>
+                    <p className="text-[10px] text-white/25 uppercase tracking-wider mt-0.5">{copy?.statsLabels[si] ?? stat.label}</p>
                   </div>
                 );
                 })}
@@ -80,7 +96,7 @@ export default function FounderProfile() {
                   href={siteConfig.links.tel}
                   className="btn-premium flex items-center justify-center gap-2.5 bg-gradient-to-r from-primary to-primary-dark px-6 py-3 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
                 >
-                  <Phone className="h-3.5 w-3.5" /> {founderProfile.cta}
+                  <Phone className="h-3.5 w-3.5" /> {copy?.cta ?? founderProfile.cta}
                 </a>
                 <a
                   href={`${siteConfig.links.wa}?text=Hi%20Mr.%20Nagarjuna%2C%20I%27d%20like%20to%20discuss%20investment%20options`}
@@ -104,10 +120,10 @@ export default function FounderProfile() {
                   <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
                     <Shield className="h-4.5 w-4.5 text-primary" />
                   </div>
-                  <h3 className="text-[15px] font-bold text-white tracking-[-0.01em]">{founderProfile.credentialsHeading}</h3>
+                  <h3 className="text-[15px] font-bold text-white tracking-[-0.01em]">{copy?.credentialsHeading ?? founderProfile.credentialsHeading}</h3>
                 </div>
                 <ul className="space-y-3.5">
-                  {credentials.map((item, i) => (
+                  {localizedCredentials.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/50 shrink-0" />
                       <span className="text-[13px] text-white/40 leading-[1.65]">{item}</span>
@@ -119,15 +135,15 @@ export default function FounderProfile() {
               {/* Journey timeline */}
               <div className="glass-card rounded-[1.25rem] p-7 sm:p-8 relative overflow-hidden flex-1">
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
-                <h3 className="text-[15px] font-bold text-white tracking-[-0.01em] mb-6">{founderProfile.journeyHeading}</h3>
+                <h3 className="text-[15px] font-bold text-white tracking-[-0.01em] mb-6">{copy?.journeyHeading ?? founderProfile.journeyHeading}</h3>
                 <div className="space-y-0">
-                  {milestones.map((m, i) => (
+                  {localizedMilestones.map((m, i) => (
                     <div key={m.year} className="flex gap-4">
                       <div className="flex flex-col items-center">
                         <div className="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                           <span className="text-[10px] font-bold text-primary">{m.year.slice(2)}</span>
                         </div>
-                        {i < milestones.length - 1 && (
+                        {i < localizedMilestones.length - 1 && (
                           <div className="w-px flex-1 bg-gradient-to-b from-primary/20 to-transparent mt-1" />
                         )}
                       </div>
@@ -148,7 +164,7 @@ export default function FounderProfile() {
         <ScrollReveal className="flex justify-center">
           <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass text-[12px] text-white/35 font-medium">
             <MapPin className="h-3.5 w-3.5 text-primary/50" />
-            Office: {siteConfig.address.short} — Open {siteConfig.address.hours}
+            {copy?.officePrefix ?? "Office:"} {siteConfig.address.short} — {copy?.openPrefix ?? "Open"} {siteConfig.address.hours}
           </div>
         </ScrollReveal>
       </div>

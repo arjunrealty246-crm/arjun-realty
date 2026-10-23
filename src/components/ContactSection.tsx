@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -9,11 +9,15 @@ import siteConfig from "@/config/site";
 import { contactSection } from "@/data/content";
 import { submitLead } from "@/lib/lead-client";
 import { trackEvent } from "@/lib/analytics";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getHomeCopy } from "@/i18n/content/home-copy";
 
 const budgetRanges = contactSection.budgetLabels;
 const countries = contactSection.countries;
 
 export default function ContactSection() {
+  const { locale, href } = useLocale();
+  const copy = getHomeCopy(locale)?.contact;
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
@@ -56,12 +60,20 @@ export default function ContactSection() {
 
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal className="text-center mb-16 lg:mb-20">
-          <SectionLabel>{contactSection.label}</SectionLabel>
+          <SectionLabel>{copy?.label ?? contactSection.label}</SectionLabel>
           <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.02em] leading-tight">
-            Start Your <span className="text-gradient">Investment</span> Journey
+            {copy ? (
+              <>
+                {copy.headingA} <span className="text-gradient">{copy.headingB}</span>
+              </>
+            ) : (
+              <>
+                Start Your <span className="text-gradient">Investment</span> Journey
+              </>
+            )}
           </h2>
           <p className="mt-4 text-white/35 max-w-lg mx-auto text-[0.9rem] leading-relaxed">
-            {contactSection.description}
+            {copy?.description ?? contactSection.description}
           </p>
         </ScrollReveal>
 
@@ -76,63 +88,63 @@ export default function ContactSection() {
                   <div className="h-16 w-16 rounded-full bg-emerald-500/10 flex items-center justify-center mb-6">
                     <CheckCircle className="h-8 w-8 text-emerald-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{contactSection.successTitle}</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">{copy?.successTitle ?? contactSection.successTitle}</h3>
                   <p className="text-sm text-white/40 max-w-sm leading-relaxed">
-                    {contactSection.successMessage}
+                    {copy?.successMessage ?? contactSection.successMessage}
                   </p>
                   <button onClick={() => { setSubmitted(false); setForm({ name: "", phone: "", whatsapp: "", country: "India", budget: "", email: "" }); }}
                     className="mt-6 text-[13px] text-primary hover:text-primary-light transition-colors font-medium">
-                    {contactSection.resetButton || "Submit Another Inquiry"}
+                    {copy?.reset ?? contactSection.resetButton ?? "Submit Another Inquiry"}
                   </button>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="cs-name" className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{contactSection.formLabels.name}</label>
+                      <label htmlFor="cs-name" className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{copy?.formLabels.name ?? contactSection.formLabels.name}</label>
                       <input id="cs-name" type="text" required value={form.name} onChange={(e) => update("name", e.target.value)}
-                        placeholder={contactSection.formPlaceholders.name} className="input-luxury" />
+                        placeholder={copy?.formPlaceholders.name ?? contactSection.formPlaceholders.name} className="input-luxury" />
                     </div>
                     <div>
-                      <label htmlFor="cs-phone" className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{contactSection.formLabels.phone}</label>
+                      <label htmlFor="cs-phone" className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{copy?.formLabels.phone ?? contactSection.formLabels.phone}</label>
                       <input id="cs-phone" type="tel" required value={form.phone} onChange={(e) => update("phone", e.target.value)}
-                        placeholder={contactSection.formPlaceholders.phone} className="input-luxury" pattern="[\+]?[0-9\s\-\(\)]{10,15}" title="Please enter a valid phone number" />
+                        placeholder={copy?.formPlaceholders.phone ?? contactSection.formPlaceholders.phone} className="input-luxury" pattern="[\+]?[0-9\s\-\(\)]{10,15}" title={copy?.validPhone ?? "Please enter a valid phone number"} />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="cs-whatsapp" className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{contactSection.formLabels.whatsapp}</label>
+                      <label htmlFor="cs-whatsapp" className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{copy?.formLabels.whatsapp ?? contactSection.formLabels.whatsapp}</label>
                       <input id="cs-whatsapp" type="tel" value={form.whatsapp} onChange={(e) => update("whatsapp", e.target.value)}
-                        placeholder={contactSection.formPlaceholders.whatsapp} className="input-luxury" pattern="[\+]?[0-9\s\-\(\)]{10,15}" title="Please enter a valid phone number" />
+                        placeholder={copy?.formPlaceholders.whatsapp ?? contactSection.formPlaceholders.whatsapp} className="input-luxury" pattern="[\+]?[0-9\s\-\(\)]{10,15}" title={copy?.validPhone ?? "Please enter a valid phone number"} />
                     </div>
                     <div>
-                      <label htmlFor="cs-email" className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{contactSection.formLabels.email}</label>
+                      <label htmlFor="cs-email" className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{copy?.formLabels.email ?? contactSection.formLabels.email}</label>
                       <input id="cs-email" type="email" value={form.email} onChange={(e) => update("email", e.target.value)}
-                        placeholder={contactSection.formPlaceholders.email} className="input-luxury" />
+                        placeholder={copy?.formPlaceholders.email ?? contactSection.formPlaceholders.email} className="input-luxury" />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="cs-country" className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{contactSection.formLabels.country || "Country"}</label>
+                      <label htmlFor="cs-country" className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{copy?.formLabels.country ?? contactSection.formLabels.country ?? "Country"}</label>
                       <select id="cs-country" value={form.country} onChange={(e) => update("country", e.target.value)} className="select-luxury">
                         {countries.map((c) => <option key={c} value={c}>{c}</option>)}
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="cs-budget" className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{contactSection.formLabels.budget}</label>
+                      <label htmlFor="cs-budget" className="block text-[11px] font-semibold text-white/40 uppercase tracking-[0.15em] mb-2.5">{copy?.formLabels.budget ?? contactSection.formLabels.budget}</label>
                       <select id="cs-budget" value={form.budget} onChange={(e) => update("budget", e.target.value)} className="select-luxury">
-                        <option value="">{contactSection.budgetPlaceholder || "Select your budget"}</option>
-                        {budgetRanges.map((b) => <option key={b} value={b}>{b}</option>)}
+                        <option value="">{copy?.budgetPlaceholder ?? contactSection.budgetPlaceholder ?? "Select your budget"}</option>
+                        {budgetRanges.map((b, bi) => <option key={b} value={b}>{copy?.budgetOptions[bi] ?? b}</option>)}
                       </select>
                     </div>
                   </div>
                   <motion.button whileHover={{ scale: 1.005 }} whileTap={{ scale: 0.995 }} type="submit" disabled={submitting}
                     className="btn-premium w-full flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-8 py-4 rounded-full text-[13px] font-semibold text-white shadow-[0_8px_32px_rgba(249,115,22,0.15)] mt-2 disabled:opacity-60 disabled:cursor-not-allowed">
                     <Send className="h-4 w-4" />
-                    {contactSection.submitButton}
+                    {copy?.submit ?? contactSection.submitButton}
                   </motion.button>
                   <p className="text-[11px] text-white/20 text-center">
-                    {contactSection.privacy}
+                    {copy?.privacy ?? contactSection.privacy}
                   </p>
                 </form>
               )}
@@ -144,11 +156,11 @@ export default function ContactSection() {
             {/* Contact Details */}
             <div className="glass-card rounded-2xl p-6 relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">Contact Details</h3>
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">{copy?.contactDetails ?? "Contact Details"}</h3>
               <div className="space-y-4">
                   {[
                     { icon: Phone, label: siteConfig.contact.phone, sub: siteConfig.address.hours, href: siteConfig.links.tel },
-                    { icon: Mail, label: siteConfig.contact.email, sub: "We reply within 24 hours", href: siteConfig.links.mailto },
+                    { icon: Mail, label: siteConfig.contact.email, sub: copy?.reply ?? "We reply within 24 hours", href: siteConfig.links.mailto },
                     { icon: MapPin, label: siteConfig.address.short, sub: `${siteConfig.address.state} ${siteConfig.address.pincode}`, href: null },
                   ].map((item) =>
                     item.href ? (
@@ -185,13 +197,13 @@ export default function ContactSection() {
             {/* Office Hours */}
             <div className="glass-card rounded-2xl p-6 relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-4">Office Hours</h3>
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-4">{copy?.officeHours ?? "Office Hours"}</h3>
               <div className="space-y-2.5">
-                {[
+                {(copy?.officeHourRows ?? [
                   { day: "Monday – Saturday", time: "9:00 AM – 7:00 PM" },
                   { day: "Sunday", time: "By Appointment Only" },
                   { day: "Public Holidays", time: "Closed" },
-                ].map((r) => (
+                ]).map((r) => (
                   <div key={r.day} className="flex items-center justify-between text-[13px]">
                     <span className="text-white/35 flex items-center gap-2"><Clock className="h-3 w-3 text-primary/40" />{r.day}</span>
                     <span className="text-white/55 font-medium">{r.time}</span>
@@ -203,7 +215,7 @@ export default function ContactSection() {
             {/* Quick Connect */}
             <div className="glass-card rounded-2xl p-6 relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-4">Quick Connect</h3>
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-4">{copy?.quickConnect ?? "Quick Connect"}</h3>
               <div className="flex gap-3">
                 <a href={siteConfig.links.wa} target="_blank" rel="noopener noreferrer"
                   onClick={() =>
@@ -218,15 +230,15 @@ export default function ContactSection() {
                     trackEvent("call_click", { event_category: "lead_generation", content_label: "Call - Quick Connect" })
                   }
                   className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-primary/[0.08] border border-primary/15 text-primary text-[12px] font-semibold hover:bg-primary/15 transition-all duration-300">
-                  <Phone className="h-4 w-4" /> Call Now
+                  <Phone className="h-4 w-4" /> {copy?.callNow ?? "Call Now"}
                 </a>
               </div>
-              <a href="/schedule-site-visit"
+              <a href={href("/schedule-site-visit")}
                 onClick={() =>
                   trackEvent("site_visit", { event_category: "lead_generation", content_label: "Site Visit - Contact" })
                 }
                 className="mt-3 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-white/[0.06] text-white/40 text-[11px] font-medium hover:text-primary hover:border-primary/20 transition-all duration-300">
-                Schedule a Site Visit
+                {copy?.scheduleVisit ?? "Schedule a Site Visit"}
               </a>
             </div>
           </ScrollReveal>
@@ -235,3 +247,5 @@ export default function ContactSection() {
     </section>
   );
 }
+
+

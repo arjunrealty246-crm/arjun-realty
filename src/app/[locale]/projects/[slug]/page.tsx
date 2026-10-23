@@ -28,7 +28,7 @@ export default async function LocalizedProjectPage({
 }) {
   const { locale } = await params;
   if (!isLocale(locale) || locale === defaultLocale) notFound();
-  return <EnglishProjectPage params={params} />;
+  return <EnglishProjectPage params={params} locale={locale} />;
 }
 
 export async function generateMetadata({
@@ -38,6 +38,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, slug } = await params;
   if (!isLocale(locale) || locale === defaultLocale) return {};
-  const base = await englishProjectMetadata({ params: Promise.resolve({ slug }) });
+  const base = await englishProjectMetadata({
+    params: Promise.resolve({ slug }),
+    locale: locale as Locale,
+  });
   return withLocaleAlternates(base, locale as Locale, `/projects/${slug}`);
 }

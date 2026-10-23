@@ -6,8 +6,12 @@ import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
 import { testimonials } from "@/data/testimonials";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getHomeCopy } from "@/i18n/content/home-copy";
 
 export default function TestimonialsSection() {
+  const { locale, href } = useLocale();
+  const copy = getHomeCopy(locale)?.testimonials;
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -25,9 +29,17 @@ export default function TestimonialsSection() {
 
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal className="text-center mb-16 lg:mb-20">
-          <SectionLabel>Testimonials</SectionLabel>
+          <SectionLabel>{copy?.label ?? "Testimonials"}</SectionLabel>
           <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.02em] leading-tight">
-            Trusted by <span className="text-gradient">1000+ Investors</span>
+            {copy ? (
+              <>
+                {copy.headingA} <span className="text-gradient">{copy.headingB}</span>
+              </>
+            ) : (
+              <>
+                Trusted by <span className="text-gradient">1000+ Investors</span>
+              </>
+            )}
           </h2>
         </ScrollReveal>
 
@@ -112,8 +124,8 @@ export default function TestimonialsSection() {
           </div>
 
           <div className="text-center mt-8">
-            <a href="/testimonials" className="inline-flex items-center gap-2 text-[13px] text-white/40 hover:text-primary transition-colors duration-300 font-medium">
-              View All Testimonials
+            <a href={href("/testimonials")} className="inline-flex items-center gap-2 text-[13px] text-white/40 hover:text-primary transition-colors duration-300 font-medium">
+              {copy?.viewAll ?? "View All Testimonials"}
               <ChevronRight className="h-3.5 w-3.5" />
             </a>
           </div>

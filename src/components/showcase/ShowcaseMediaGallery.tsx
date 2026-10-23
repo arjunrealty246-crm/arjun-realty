@@ -26,6 +26,8 @@ import {
   useGatedDocumentLink,
 } from "../DocumentAccessGate";
 import type { Project, ProjectMediaItem } from "@/data/projects";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getProjectLabels } from "@/i18n/project-labels";
 
 const BLUR =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSIjMWExYTJlIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIvPjwvc3ZnPg==";
@@ -35,22 +37,9 @@ function isVideoUrl(url: string): boolean {
   return lower.includes("/video/upload/") || /\.(mp4|webm|mov)(\?|$)/.test(lower);
 }
 
-const fallbackLabels = [
-  "Project Aerial View",
-  "Clubhouse Exterior",
-  "Landscaped Gardens",
-  "Internal Roads",
-  "Entrance Arch",
-  "Children's Play Area",
-  "Jogging Track",
-  "Security Cabin",
-];
-
-function mediaLabel(index: number): string {
-  return fallbackLabels[index] || `Media ${index + 1}`;
-}
-
 export default function ShowcaseMediaGallery({ project }: { project: Project }) {
+  const { locale } = useLocale();
+  const t = getProjectLabels(locale);
   const galleryMeta = (project.gallery || []).filter((g) => g && g.src);
   const media: ProjectMediaItem[] = galleryMeta.length
     ? galleryMeta.map((g) => ({ type: (g.type === "video" || isVideoUrl(g.src) ? "video" : "image") as "image" | "video", src: g.src, label: g.title }))
@@ -65,7 +54,7 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
   const total = media.length;
 
   function captionFor(i: number): string {
-    return galleryMeta[i]?.title || media[i]?.label || mediaLabel(i);
+    return galleryMeta[i]?.title || media[i]?.label || t.fallbackMedia[i] || `Media ${i + 1}`;
   }
 
   const nextSlide = useCallback(() => {
@@ -83,17 +72,21 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal>
           <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-            <SectionLabel>Project Gallery</SectionLabel>
+            <SectionLabel>{t.projectGallery}</SectionLabel>
             <div className="flex gap-1 glass rounded-full p-1 flex-shrink-0">
-              {(["gallery", "layout"] as const).map((t) => (
+              {(["gallery", "layout"] as const).map((tabKey) => (
                 <button
-                  key={t}
-                  onClick={() => setTab(t)}
+                  key={tabKey}
+                  onClick={() => setTab(tabKey)}
                   className={`px-4 py-1.5 rounded-full text-[11px] font-semibold uppercase tracking-wider transition-all duration-300 ${
-                    tab === t ? "bg-primary/90 text-white" : "text-white/30 hover:text-white/50"
+                    tab === tabKey ? "bg-primary/90 text-white" : "text-white/30 hover:text-white/50"
                   }`}
                 >
-                  {t === "gallery" ? (media.some((m) => m.type === "video") ? "Photos & Videos" : "Photos") : "Layout"}
+                  {tabKey === "gallery"
+                    ? media.some((m) => m.type === "video")
+                      ? t.photosAndVideos
+                      : t.photos
+                    : t.layoutTab}
                 </button>
               ))}
             </div>
@@ -113,8 +106,8 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                   <div className="col-span-full glass-card-elevated rounded-2xl h-64 flex items-center justify-center">
                     <div className="text-center">
                       <Camera className="h-12 w-12 text-white/10 mx-auto mb-3" />
-                      <p className="text-sm text-white/25 font-medium">Gallery coming soon</p>
-                      <p className="text-xs text-white/15 mt-1">Ask us for the latest site photos &amp; videos</p>
+                      <p className="text-sm text-white/25 font-medium">{t.galleryComingSoon}</p>
+                      <p className="text-xs text-white/15 mt-1">{t.galleryAsk}</p>
                     </div>
                   </div>
                 )}
@@ -215,7 +208,7 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                     </div>
                     <div className="px-6 py-4 border-t border-white/[0.04] flex flex-wrap items-center justify-between gap-3">
                       <p className="text-sm text-white/40 flex items-center gap-2">
-                        <MapIcon className="h-4 w-4 text-primary/50" /> Master Plan — {project.name}
+                        <MapIcon className="h-4 w-4 text-primary/50" /> {t.masterPlan} — {project.name}
                       </p>
                       <div className="flex items-center gap-4">
                         {project.layoutPdfUrl && (
@@ -227,7 +220,7 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                             onClick={gateLink("Layout PDF", () => downloadDocument(getDownloadUrl(project.layoutPdfUrl)))}
                             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors duration-300"
                           >
-                            <Download className="h-3.5 w-3.5" /> Download Layout
+                            <Download className="h-3.5 w-3.5" /> {t.downloadLayout}
                           </a>
                         )}
                         {project.masterPlanUrl && (
@@ -240,7 +233,7 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                             onClick={gateLink("Master Plan", () => openDocumentInNewTab(getDownloadUrl(project.masterPlanUrl)))}
                             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors duration-300"
                           >
-                            <ExternalLink className="h-3.5 w-3.5" /> View Full Size
+                            <ExternalLink className="h-3.5 w-3.5" /> {t.viewLayout}
                           </a>
                         )}
                       </div>
@@ -250,8 +243,8 @@ export default function ShowcaseMediaGallery({ project }: { project: Project }) 
                   <div className="glass-card-elevated rounded-2xl h-80 lg:h-96 flex items-center justify-center">
                     <div className="text-center">
                       <Building2 className="h-16 w-16 text-white/5 mx-auto mb-4" />
-                      <p className="text-sm text-white/25 font-medium">Project layout map coming soon</p>
-                      <p className="text-xs text-white/15 mt-1">Contact us to receive the detailed layout</p>
+                      <p className="text-sm text-white/25 font-medium">{t.layoutComingSoon}</p>
+                      <p className="text-xs text-white/15 mt-1">{t.contactForLayout}</p>
                     </div>
                   </div>
                 )}

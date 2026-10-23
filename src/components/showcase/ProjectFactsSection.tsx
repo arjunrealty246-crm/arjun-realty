@@ -14,36 +14,40 @@ import {
 import ScrollReveal from "../ScrollReveal";
 import SectionLabel from "../SectionLabel";
 import type { Project } from "@/data/projects";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getProjectLabels } from "@/i18n/project-labels";
 
 export default function ProjectFactsSection({ project }: { project: Project }) {
+  const { locale } = useLocale();
+  const t = getProjectLabels(locale);
   const facts: { icon: React.ReactNode; label: string; value: string }[] = [];
 
   const area = project.projectArea || (project.totalAcres ? `${project.totalAcres} Acres` : "");
-  if (area) facts.push({ icon: <Ruler className="h-5 w-5" />, label: "Project Area", value: area });
+  if (area) facts.push({ icon: <Ruler className="h-5 w-5" />, label: t.projectArea, value: area });
 
-  if (project.totalPlots) facts.push({ icon: <Boxes className="h-5 w-5" />, label: "Total Plots", value: project.totalPlots });
+  if (project.totalPlots) facts.push({ icon: <Boxes className="h-5 w-5" />, label: t.totalPlots, value: project.totalPlots });
 
   if (project.units && project.units.length > 0) {
     facts.push({
       icon: <Home className="h-5 w-5" />,
-      label: "Inventory",
+      label: t.inventory,
       value: project.units.map((u) => `${u.count} ${u.type}`).join(" · "),
     });
   }
 
-  if (project.plotSizes) facts.push({ icon: <Layers className="h-5 w-5" />, label: "Plot Sizes", value: project.plotSizes });
+  if (project.plotSizes) facts.push({ icon: <Layers className="h-5 w-5" />, label: t.plotSizes, value: project.plotSizes });
 
-  if (project.clubhouseDetails) facts.push({ icon: <Building2 className="h-5 w-5" />, label: "Clubhouse", value: project.clubhouseDetails });
+  if (project.clubhouseDetails) facts.push({ icon: <Building2 className="h-5 w-5" />, label: t.clubhouse, value: project.clubhouseDetails });
 
-  if (project.approval) facts.push({ icon: <Shield className="h-5 w-5" />, label: "Approvals", value: project.approval });
+  if (project.approval) facts.push({ icon: <Shield className="h-5 w-5" />, label: t.approvals, value: project.approval });
 
-  if (project.status) facts.push({ icon: <BadgeCheck className="h-5 w-5" />, label: "Status", value: project.status });
+  if (project.status) facts.push({ icon: <BadgeCheck className="h-5 w-5" />, label: t.status, value: project.status });
 
   if (project.bankLoanAvailable !== undefined) {
     facts.push({
       icon: <Banknote className="h-5 w-5" />,
-      label: "Bank Loan",
-      value: project.bankLoanAvailable ? "Available" : "Not Available",
+      label: t.bankLoan,
+      value: project.bankLoanAvailable ? t.availableFact : t.notAvailable,
     });
   }
 
@@ -53,12 +57,12 @@ export default function ProjectFactsSection({ project }: { project: Project }) {
     <section className="pb-16 lg:pb-20">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal>
-          <SectionLabel>Project Facts</SectionLabel>
+          <SectionLabel>{t.projectFacts}</SectionLabel>
           <h2 className="mt-5 text-2xl font-bold tracking-tight mb-2">
-            Key Project <span className="text-gradient">Facts</span>
+            {t.factsHeadingPre} <span className="text-gradient">{t.factsHeadingAccent}</span>
           </h2>
           <p className="text-sm text-white/30 mb-8 max-w-xl">
-            Verified project details at a glance.
+            {t.factsIntro}
           </p>
         </ScrollReveal>
 
@@ -85,9 +89,7 @@ export default function ProjectFactsSection({ project }: { project: Project }) {
           <div className="mt-6 flex items-start gap-3 glass-card-elevated rounded-2xl px-6 py-5">
             <Landmark className="h-5 w-5 text-primary shrink-0 mt-0.5" />
             <p className="text-sm text-white/35 leading-relaxed">
-              All details are verified and sourced from official approvals and project
-              documentation. For the latest availability, pricing and legal documents,
-              contact the {project.name} team directly.
+              {t.verifiedNote(project.name)}
             </p>
           </div>
         </ScrollReveal>

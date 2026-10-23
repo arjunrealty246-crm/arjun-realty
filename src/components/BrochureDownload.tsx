@@ -7,8 +7,14 @@ import type { Project } from "@/data/projects";
 import siteConfig from "@/config/site";
 import { getBuilderById } from "@/data/builders";
 import { getDownloadUrl } from "@/lib/download-url";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getProjectLabels, type ProjectLabels } from "@/i18n/project-labels";
 
-function generateBrochureHTML(project: Project): string {
+function generateBrochureHTML(
+  project: Project,
+  t: ProjectLabels,
+  locale: "en" | "te" | "hi"
+): string {
   const builder = getBuilderById(project.builder);
   const builderName = builder?.name || "a reputed builder";
   const amenitiesHTML = project.amenities
@@ -23,10 +29,10 @@ function generateBrochureHTML(project: Project): string {
     ? project.locationAdvantages
         .map((l) => `<li style="padding:4px 0;font-size:13px;color:#6b7280;">&#9679; ${l}</li>`)
         .join("")
-    : "<li style='padding:4px 0;font-size:13px;color:#9ca3af;'>Contact us for location details</li>";
+    : `<li style='padding:4px 0;font-size:13px;color:#9ca3af;'>${t.brochureContactLocation}</li>`;
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${locale}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,7 +73,7 @@ function generateBrochureHTML(project: Project): string {
 </style>
 </head>
 <body>
-<button class="print-btn no-print" onclick="window.print()">Save as PDF</button>
+<button class="print-btn no-print" onclick="window.print()">${t.brochureSavePdf}</button>
 
 <div class="cover">
   <div class="subtitle">Arjun Realty</div>
@@ -78,19 +84,19 @@ function generateBrochureHTML(project: Project): string {
 </div>
 
 <div class="section">
-  <div class="section-title">Project Overview</div>
+  <div class="section-title">${t.brochureOverview}</div>
   <div class="section-line"></div>
   <p style="font-size:15px;color:#4b5563;line-height:1.8;margin-bottom:30px;">${project.name} is a ${project.projectType} located at ${project.location}. ${project.approval}. ${project.description || `A premium development by ${builderName} offering world-class infrastructure and modern amenities.`}</p>
   <div class="grid-3">
-    <div class="card"><h4>Approval</h4><p style="font-size:16px;">${project.approval}</p></div>
-    <div class="card"><h4>Plot Sizes</h4><p style="font-size:16px;">${project.plotSizes}</p></div>
-    <div class="card"><h4>Price</h4><p style="font-size:16px;">${project.startingPrice}</p></div>
-    ${project.projectArea ? `<div class="card"><h4>Project Area</h4><p style="font-size:16px;">${project.projectArea}</p></div>` : ""}
+    <div class="card"><h4>${t.brochureApproval}</h4><p style="font-size:16px;">${project.approval}</p></div>
+    <div class="card"><h4>${t.brochurePlotSizes}</h4><p style="font-size:16px;">${project.plotSizes}</p></div>
+    <div class="card"><h4>${t.brochurePrice}</h4><p style="font-size:16px;">${project.startingPrice}</p></div>
+    ${project.projectArea ? `<div class="card"><h4>${t.brochureProjectArea}</h4><p style="font-size:16px;">${project.projectArea}</p></div>` : ""}
   </div>
 </div>
 
 <div class="section" style="background:#f9fafb;">
-  <div class="section-title">Highlights</div>
+  <div class="section-title">${t.brochureHighlights}</div>
   <div class="section-line"></div>
   <ul class="highlights-list">${highlightsHTML}</ul>
 </div>
@@ -98,12 +104,12 @@ function generateBrochureHTML(project: Project): string {
 <div class="section">
   <div class="grid-2">
     <div>
-      <div class="section-title">Amenities</div>
+      <div class="section-title">${t.brochureAmenities}</div>
       <div class="section-line"></div>
       <ul class="amenities-list">${amenitiesHTML}</ul>
     </div>
     <div>
-      <div class="section-title">Location Advantages</div>
+      <div class="section-title">${t.brochureLocationAdvantages}</div>
       <div class="section-line"></div>
       <ul class="location-list">${locationHTML}</ul>
     </div>
@@ -113,7 +119,7 @@ function generateBrochureHTML(project: Project): string {
 <div class="footer-band">
   <div class="brand">Arjun<span>Realty</span></div>
   <div class="contact">
-    Premium Real Estate Advisory<br>
+    ${t.brochureAdvisory}<br>
     ${siteConfig.contact.phone}<br>
     ${siteConfig.url.replace("https://", "")}
   </div>
@@ -135,7 +141,9 @@ interface BrochureDownloadProps {
   onRequestAccess?: (grant: () => void) => void;
 }
 
-export default function BrochureDownload({ project, variant = "button", label = "Download Brochure", onRequestAccess }: BrochureDownloadProps) {
+export default function BrochureDownload({ project, variant = "button", label, onRequestAccess }: BrochureDownloadProps) {
+  const { locale } = useLocale();
+  const t = getProjectLabels(locale);
   const [state, setState] = useState<"idle" | "generating" | "done">("idle");
   const [showModal, setShowModal] = useState(false);
 
@@ -157,7 +165,7 @@ export default function BrochureDownload({ project, variant = "button", label = 
     }
 
     setTimeout(() => {
-      const html = generateBrochureHTML(project);
+      const html = generateBrochureHTML(project, t, locale);
       const blob = new Blob([html], { type: "text/html" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -181,7 +189,7 @@ export default function BrochureDownload({ project, variant = "button", label = 
   };
 
   const handleViewInBrowser = () => {
-    const html = generateBrochureHTML(project);
+    const html = generateBrochureHTML(project, t, locale);
     const blob = new Blob([html], { type: "text/html" });
     const url = URL.createObjectURL(blob);
     window.open(url, "_blank");
@@ -206,9 +214,9 @@ export default function BrochureDownload({ project, variant = "button", label = 
             )}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-white truncate">Project Brochure</p>
+            <p className="text-sm font-semibold text-white truncate">{t.projectBrochure}</p>
             <p className="text-xs text-white/30 mt-0.5">
-              {state === "generating" ? "Generating..." : state === "done" ? "Downloaded!" : "Download PDF Brochure"}
+              {state === "generating" ? t.generating : state === "done" ? t.downloaded : t.downloadBrochure}
             </p>
           </div>
           <Download className="h-4 w-4 text-white/20 group-hover:text-primary transition-colors shrink-0" />
@@ -268,7 +276,7 @@ export default function BrochureDownload({ project, variant = "button", label = 
         ) : (
           <Download className="h-4 w-4" />
         )}
-        {state === "generating" ? "Generating..." : state === "done" ? "Downloaded!" : label}
+        {state === "generating" ? t.generating : state === "done" ? t.downloaded : label ?? t.downloadBrochure}
       </motion.button>
     </>
   );

@@ -7,11 +7,15 @@ import { CalendarDays, ChevronLeft, ChevronRight, X, Camera, Image as ImageIcon 
 import ScrollReveal from "../ScrollReveal";
 import SectionLabel from "../SectionLabel";
 import type { Project } from "@/data/projects";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getProjectLabels } from "@/i18n/project-labels";
 
 const BLUR =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSIjMWExYTJlIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIvPjwvc3ZnPg==";
 
 export default function DevelopmentUpdatesSection({ project }: { project: Project }) {
+  const { locale } = useLocale();
+  const t = getProjectLabels(locale);
   const items = (project.developmentUpdates || []).filter((u) => u && u.title);
   const [lightbox, setLightbox] = useState<{ update: number; image: number } | null>(null);
 
@@ -50,12 +54,12 @@ export default function DevelopmentUpdatesSection({ project }: { project: Projec
     <section className="pb-16 lg:pb-20">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal>
-          <SectionLabel>Project Updates</SectionLabel>
+          <SectionLabel>{t.updatesLabel}</SectionLabel>
           <h2 className="mt-5 text-2xl font-bold tracking-tight mb-2">
-            Development &amp; Community <span className="text-gradient">Updates</span>
+            {t.updatesHeadingPre} <span className="text-gradient">{t.updatesHeadingAccent}</span>
           </h2>
           <p className="text-sm text-white/30 mb-8 max-w-xl">
-            Latest milestones, site progress and community news for {project.name}.
+            {t.updatesIntro(project.name)}
           </p>
         </ScrollReveal>
 

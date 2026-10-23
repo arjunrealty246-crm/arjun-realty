@@ -6,8 +6,12 @@ import ScrollReveal from "./ScrollReveal";
 import siteConfig from "@/config/site";
 import SectionLabel from "./SectionLabel";
 import { calculator } from "@/data/content";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getHomeCopy } from "@/i18n/content/home-copy";
 
 export default function InvestmentCalculator() {
+  const { locale } = useLocale();
+  const copy = getHomeCopy(locale)?.calculator;
   const [investment, setInvestment] = useState(50);
   const [years, setYears] = useState(5);
   const [appreciation, setAppreciation] = useState(18);
@@ -32,12 +36,20 @@ export default function InvestmentCalculator() {
 
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal className="text-center mb-14 lg:mb-20">
-          <SectionLabel>{calculator.heading}</SectionLabel>
+          <SectionLabel>{copy?.label ?? calculator.heading}</SectionLabel>
           <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
-            Explore Your <span className="text-gradient">Investment Scenario</span>
+            {copy ? (
+              <>
+                {copy.headingA} <span className="text-gradient">{copy.headingB}</span>
+              </>
+            ) : (
+              <>
+                Explore Your <span className="text-gradient">Investment Scenario</span>
+              </>
+            )}
           </h2>
           <p className="mt-4 text-white/30 max-w-lg mx-auto text-[0.9rem] leading-relaxed">
-            {calculator.description}
+            {copy?.description ?? calculator.description}
           </p>
         </ScrollReveal>
 
@@ -51,13 +63,13 @@ export default function InvestmentCalculator() {
                 <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Calculator className="h-4.5 w-4.5 text-primary" />
                 </div>
-                <h3 className="text-[15px] font-bold text-white tracking-[-0.01em]">Your Investment</h3>
+                <h3 className="text-[15px] font-bold text-white tracking-[-0.01em]">{copy?.investmentHeading ?? "Your Investment"}</h3>
               </div>
 
               {/* Investment Amount */}
               <div className="mb-7">
                 <div className="flex items-center justify-between mb-3">
-                  <label className="text-[12px] text-white/40 font-medium uppercase tracking-wider">Investment Amount</label>
+                  <label className="text-[12px] text-white/40 font-medium uppercase tracking-wider">{copy?.investmentAmount ?? "Investment Amount"}</label>
                   <span className="text-[14px] font-bold text-gradient">{investment} Lakh</span>
                 </div>
                 <input
@@ -78,8 +90,8 @@ export default function InvestmentCalculator() {
               {/* Time Period */}
               <div className="mb-7">
                 <div className="flex items-center justify-between mb-3">
-                  <label className="text-[12px] text-white/40 font-medium uppercase tracking-wider">Time Horizon</label>
-                  <span className="text-[14px] font-bold text-gradient">{years} Years</span>
+                  <label className="text-[12px] text-white/40 font-medium uppercase tracking-wider">{copy?.timeHorizon ?? "Time Horizon"}</label>
+                  <span className="text-[14px] font-bold text-gradient">{years} {copy?.years ?? "Years"}</span>
                 </div>
                 <input
                   type="range"
@@ -99,7 +111,7 @@ export default function InvestmentCalculator() {
               {/* Appreciation Rate */}
               <div className="mb-2">
                 <div className="flex items-center justify-between mb-3">
-                  <label className="text-[12px] text-white/40 font-medium uppercase tracking-wider">Illustrative Annual Rate</label>
+                  <label className="text-[12px] text-white/40 font-medium uppercase tracking-wider">{copy?.annualRate ?? "Illustrative Annual Rate"}</label>
                   <span className="text-[14px] font-bold text-gradient">{appreciation}% p.a.</span>
                 </div>
                 <input
@@ -118,10 +130,10 @@ export default function InvestmentCalculator() {
               </div>
 
               <p className="text-[10px] text-white/15 mt-4 text-center">
-                Hyderabad offers multiple high-growth investment corridors, with investment potential varying by location, project quality, infrastructure and market conditions.
+                {copy?.disclaimers[0] ?? "Hyderabad offers multiple high-growth investment corridors, with investment potential varying by location, project quality, infrastructure and market conditions."}
               </p>
               <p className="text-[10px] text-white/15 mt-2 text-center">
-                For illustration only. This rate is a user-selected assumption and is not a guaranteed or expected return.
+                {copy?.disclaimers[1] ?? "For illustration only. This rate is a user-selected assumption and is not a guaranteed or expected return."}
               </p>
             </div>
           </ScrollReveal>
@@ -132,11 +144,11 @@ export default function InvestmentCalculator() {
               {/* Future Value */}
               <div className="glass-card-elevated rounded-[1.5rem] p-8 sm:p-10 relative overflow-hidden text-center">
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
-                <p className="text-[11px] text-white/35 uppercase tracking-[0.2em] font-medium mb-3">Illustrative Future Value</p>
+                <p className="text-[11px] text-white/35 uppercase tracking-[0.2em] font-medium mb-3">{copy?.futureValue ?? "Illustrative Future Value"}</p>
                 <div className="text-[clamp(2rem,5vw,3.5rem)] font-bold text-gradient tracking-tight leading-none mb-2">
                   {formatCurrency(result.futureValue)}
                 </div>
-                <p className="text-[12px] text-white/25">in {years} years at your selected {appreciation}% p.a. rate</p>
+                <p className="text-[12px] text-white/25">{copy ? copy.futureValueSub(years, appreciation) : `in ${years} years at your selected ${appreciation}% p.a. rate`}</p>
               </div>
 
               {/* Stats grid */}
@@ -145,28 +157,28 @@ export default function InvestmentCalculator() {
                   <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-3">
                     <IndianRupee className="h-4 w-4 text-emerald-400" />
                   </div>
-                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">You Invest</p>
+                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">{copy?.youInvest ?? "You Invest"}</p>
                   <p className="text-lg font-bold text-white/80">{formatCurrency(result.investedAmount)}</p>
                 </div>
                 <div className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center">
                   <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                     <TrendingUp className="h-4 w-4 text-primary" />
                   </div>
-                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Illustrative Returns</p>
+                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">{copy?.returns ?? "Illustrative Returns"}</p>
                   <p className="text-lg font-bold text-gradient">+{formatCurrency(result.returns)}</p>
                 </div>
                 <div className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center">
                   <div className="h-10 w-10 rounded-xl bg-gold/10 flex items-center justify-center mb-3">
                     <Clock className="h-4 w-4 text-gold" />
                   </div>
-                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Illustrative Multiple</p>
+                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">{copy?.multiple ?? "Illustrative Multiple"}</p>
                   <p className="text-lg font-bold text-white/80">{(result.futureValue / result.investedAmount).toFixed(1)}x</p>
                 </div>
                 <div className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center">
                   <div className="h-10 w-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-3">
                     <TrendingUp className="h-4 w-4 text-blue-400" />
                   </div>
-                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">Illustrative CAGR</p>
+                  <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">{copy?.cagr ?? "Illustrative CAGR"}</p>
                   <p className="text-lg font-bold text-white/80">{result.cagr.toFixed(1)}%</p>
                 </div>
               </div>
@@ -178,7 +190,7 @@ export default function InvestmentCalculator() {
                 rel="noopener noreferrer"
                 className="btn-premium flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-8 py-4 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
               >
-                Get a Personalized Plan <ArrowRight className="h-4 w-4" />
+                {copy?.cta ?? "Get a Personalized Plan"} <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </ScrollReveal>

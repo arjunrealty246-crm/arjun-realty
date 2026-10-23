@@ -8,16 +8,28 @@ import siteConfig from "@/config/site";
 import { heroStats, heroTrustBadges } from "@/data/statistics";
 import { hero as heroEn } from "@/data/content";
 import type { HeroContent } from "@/i18n/content";
+import { getHomeCopy } from "@/i18n/content/home-copy";
+import type { Locale } from "@/i18n/config";
 
 const stats = heroStats;
 
 const badgeIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "HMDA Approved": Shield, "DTCP Approved": Shield,
   "RERA Registered": CheckCircle, "FCDA Approved": Award,
+  "HMDA \u0C06\u0C2E\u0C4B\u0C26\u0C3F\u0C24": Shield, "DTCP \u0C06\u0C2E\u0C4B\u0C26\u0C3F\u0C24": Shield,
+  "RERA \u0C28\u0C2E\u0C4B\u0C26\u0C3F\u0C24\u0C3F\u0C24": CheckCircle, "FCDA \u0C06\u0C2E\u0C4B\u0C26\u0C3F\u0C24": Award,
+  "\u0C1C\u0C40\u0C30\u0C4B \u0C2C\u0C4D\u0C30\u0C4B\u0C15\u0C30\u0C47\u0C1C\u0C4D": Shield,
+  "HMDA \u0938\u094D\u0935\u0940\u0915\u0943\u0924": Shield, "DTCP \u0938\u094D\u0935\u0940\u0915\u0943\u0924": Shield,
+  "RERA \u092A\u0902\u091C\u0940\u0915\u0943\u0924": CheckCircle, "FCDA \u0938\u094D\u0935\u0940\u0915\u0943\u0924": Award,
+  "\u0936\u0942\u0928\u094D\u092F \u092C\u094D\u0930\u094B\u0915\u0930\u0947\u091C": Shield,
 };
-const trustBadges = heroTrustBadges.map(b => ({ icon: badgeIconMap[b.label] || Shield, label: b.label }));
-
-export default function HeroSection({ content = heroEn }: { content?: HeroContent }) {
+export default function HeroSection({ content = heroEn, locale = "en" }: { content?: HeroContent; locale?: Locale }) {
+  const hc = getHomeCopy(locale);
+  const heroStatsList = hc ? hc.heroStats : ["Years of Trust", "Happy Families", "Projects Vetted", "Partner Builders"];
+  const trustBadges = (hc ? hc.heroBadges : heroTrustBadges.map((b) => b.label)).map((label, idx) => ({
+    icon: badgeIconMap[label] || badgeIconMap[heroTrustBadges[idx]?.label] || Shield,
+    label,
+  }));
   const hero = content;
   const sectionRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -195,7 +207,7 @@ export default function HeroSection({ content = heroEn }: { content?: HeroConten
                 <CountUp end={stat.value} suffix={stat.suffix} />
               </div>
               <p className="text-[10px] sm:text-[11px] text-white/25 uppercase tracking-[0.18em] font-medium">
-                {stat.label}
+                {hc ? heroStatsList[i] || stat.label : stat.label}
               </p>
             </motion.div>
           ))}

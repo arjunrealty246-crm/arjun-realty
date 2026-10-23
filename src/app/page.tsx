@@ -11,6 +11,8 @@ import { locationMarquee as marqueeItems } from "@/data/navigation";
 import { googleReviews } from "@/data/testimonials";
 import { homeFaqs as faqs } from "@/data/faqs";
 import type { HeroContent } from "@/i18n/content";
+import type { Locale } from "@/i18n/config";
+import { getHomeCopy } from "@/i18n/content/home-copy";
 
 const FeaturedBuilders = dynamic(() => import("@/components/FeaturedBuilders"));
 const WhyHyderabadSection = dynamic(() => import("@/components/WhyHyderabadSection"));
@@ -25,7 +27,11 @@ const AdvisoryProcess = dynamic(() => import("@/components/AdvisoryProcess"));
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = { Shield, Users };
 const reasons = reasonsData.map(r => ({ ...r, icon: iconMap[r.icon] || Shield }));
 
-export default function HomePage({ heroContent }: { heroContent?: HeroContent } = {}) {
+export default function HomePage({ heroContent, locale = "en" }: { heroContent?: HeroContent; locale?: Locale } = {}) {
+  const hc = getHomeCopy(locale);
+  const pc = hc?.page;
+  const faqItems = hc?.faq.items ?? faqs;
+  const localizedReasons = hc?.reasons ?? reasons;
   return (
     <>
       <script
@@ -34,7 +40,7 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: faqs.map((faq) => ({
+            mainEntity: faqItems.map((faq) => ({
               "@type": "Question",
               name: faq.q,
               acceptedAnswer: {
@@ -45,7 +51,7 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
           }),
         }}
       />
-      <HeroSection content={heroContent} />
+      <HeroSection content={heroContent} locale={locale} />
 
       {/* ── Trust Marquee ── */}
       <section className="py-7 border-y border-white/[0.025] overflow-hidden relative">
@@ -70,12 +76,13 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
         <div className="ambient-orb w-[500px] h-[500px] bg-primary/[0.015] -left-48 top-1/3" />
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <ScrollReveal className="text-center mb-16 lg:mb-20">
-            <SectionLabel>Featured Projects</SectionLabel>
+            <SectionLabel>{pc?.featuredProjectsLabel ?? "Featured Projects"}</SectionLabel>
             <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
-              Curated Opportunities Across <span className="text-gradient">Hyderabad</span>
+              {pc?.featuredProjectsHeadingA ?? "Curated Opportunities Across"}{" "}
+              <span className="text-gradient">{pc?.featuredProjectsHeadingB ?? "Hyderabad"}</span>
             </h2>
             <p className="mt-4 text-white/30 max-w-xl mx-auto text-[0.95rem] leading-relaxed">
-              Every project handpicked for legal compliance, infrastructure quality, location advantage, and appreciation potential.
+              {pc?.featuredProjectsDescription ?? "Every project handpicked for legal compliance, infrastructure quality, location advantage, and appreciation potential."}
             </p>
           </ScrollReveal>
         </div>
@@ -83,14 +90,14 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
       <ProjectsSection />
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 -mt-4 mb-4 text-center">
         <Link href="/insights" className="inline-flex items-center gap-2 text-[13px] text-white/30 hover:text-primary transition-colors duration-300 font-medium">
-          Read our market insights <ArrowRight className="h-3.5 w-3.5" />
+          {pc?.readInsights ?? "Read our market insights"} <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </div>
 
       {/* ── Corridor page links: gives every location landing page a path in from the homepage ── */}
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 mb-2 text-center">
         <p className="text-[11px] uppercase tracking-[0.16em] text-white/25 font-semibold mb-3.5">
-          Explore plots by corridor
+          {pc?.corridorsLabel ?? "Explore plots by corridor"}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
           {[
@@ -99,13 +106,13 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
             { href: "/vikarabad", label: "Plots in Vikarabad, West Hyderabad" },
             { href: "/ibrahimpatnam", label: "Approved plots in Ibrahimpatnam" },
             { href: "/shankarpally-45-acres", label: "Shankarpally 45-acre HMDA plots" },
-          ].map((corridor) => (
+          ].map((corridor, index) => (
             <Link
               key={corridor.href}
               href={corridor.href}
               className="text-[13px] text-white/30 hover:text-primary transition-colors duration-300 font-medium"
             >
-              {corridor.label}
+              {pc?.corridorLabels[index] ?? corridor.label}
             </Link>
           ))}
         </div>
@@ -118,24 +125,32 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
         <div className="ambient-orb w-[600px] h-[600px] bg-gold/[0.02] -right-64 -top-48" />
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <ScrollReveal className="text-center mb-16 lg:mb-24">
-            <SectionLabel>Why Arjun Realty</SectionLabel>
+            <SectionLabel>{pc?.whyLabel ?? "Why Arjun Realty"}</SectionLabel>
             <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
-              Built on <span className="text-gradient">Trust</span>,<br className="hidden sm:block" /> Driven by Results
+              {hc ? (
+                <>
+                  {pc?.whyHeadingA}{" "}
+                  <span className="text-gradient">{pc?.whyHeadingB}</span>
+                </>
+              ) : (
+                <>
+                  Built on <span className="text-gradient">Trust</span>,<br className="hidden sm:block" /> Driven by Results
+                </>
+              )}
             </h2>
             <p className="mt-5 text-white/30 max-w-lg mx-auto text-[0.95rem] leading-relaxed">
-              We don&apos;t just sell plots. We build lasting wealth
-              relationships with every investor who trusts us.
+              {pc?.whyDescription ?? "We don't just sell plots. We build lasting wealth relationships with every investor who trusts us."}
             </p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {reasons.map((r, i) => (
+            {localizedReasons.map((r, i) => (
               <ScrollReveal key={r.title} delay={i * 0.06}>
                 <div className="glass-card rounded-[1.25rem] p-7 sm:p-8 group relative overflow-hidden h-full">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${r.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[1.25rem]`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${reasons[i]?.accent ?? ""} opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[1.25rem]`} />
                   <div className="relative z-10">
                     <div className="h-13 w-13 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/15 group-hover:glow-primary transition-all duration-500">
-                      <r.icon className="h-5.5 w-5.5 text-primary" />
+                      {(() => { const Icon = reasons[i]?.icon ?? Shield; return <Icon className="h-5.5 w-5.5 text-primary" />; })()}
                     </div>
                     <h3 className="text-[15px] font-bold text-white mb-2.5 tracking-[-0.01em]">{r.title}</h3>
                     <p className="text-[13px] text-white/30 leading-[1.7]">{r.desc}</p>
@@ -153,7 +168,7 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
       <AdvisoryProcess />
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 -mt-4 mb-4 text-center">
         <Link href="/services" className="inline-flex items-center gap-2 text-[13px] text-white/30 hover:text-primary transition-colors duration-300 font-medium">
-          Learn more about our process <ArrowRight className="h-3.5 w-3.5" />
+          {hc?.advisory.cta ?? "Learn more about our process"} <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </div>
 
@@ -164,19 +179,26 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
         <div className="ambient-orb w-[500px] h-[500px] bg-primary/[0.02] left-1/3 -top-48" />
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <ScrollReveal className="text-center mb-14 lg:mb-20">
-            <SectionLabel>Google Reviews</SectionLabel>
+            <SectionLabel>{pc?.reviewsLabel ?? "Google Reviews"}</SectionLabel>
             <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
-              Rated <span className="text-gradient">4.9 / 5</span> on Google
+              {pc ? (
+                <>
+                  {pc.reviewsHeadingA} <span className="text-gradient">{pc.reviewsHeadingB}</span>
+                </>
+              ) : (
+                <>
+                  Rated <span className="text-gradient">4.9 / 5</span> on Google
+                </>
+              )}
             </h2>
             <p className="mt-4 text-white/30 max-w-md mx-auto text-[0.9rem] leading-relaxed">
-              Real reviews from real investors. Our reputation is built on
-              results, not promises.
+              {pc?.reviewsDescription ?? "Real reviews from real investors. Our reputation is built on results, not promises."}
             </p>
             <div className="flex items-center justify-center gap-1.5 mt-5">
               {[1, 2, 3, 4, 5].map((s) => (
                 <Star key={s} className="h-5 w-5 fill-primary text-primary" />
               ))}
-              <span className="ml-2 text-sm text-white/40 font-medium">500+ Reviews</span>
+              <span className="ml-2 text-sm text-white/40 font-medium">{pc?.reviewsCount ?? "500+ Reviews"}</span>
             </div>
           </ScrollReveal>
 
@@ -215,7 +237,7 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
               </svg>
-              4.9 average &middot; 500+ verified reviews
+              {pc?.reviewsAverage ?? "4.9 average \u00b7 500+ verified reviews"}
             </div>
           </ScrollReveal>
         </div>
@@ -239,11 +261,10 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="text-xl font-bold text-white tracking-tight mb-3">
-                    Free 1-on-1 Consultation
+                    {pc?.ctaConsultTitle ?? "Free 1-on-1 Consultation"}
                   </h3>
                   <p className="text-[13px] text-white/35 leading-[1.7] mb-8 flex-1">
-                    Speak directly with K. Nagarjuna or a senior advisor. No pitches. No pressure.
-                    Just expert guidance on Hyderabad&apos;s best real estate opportunities matched to your goals.
+                    {pc?.ctaConsultDescription ?? "Speak directly with K. Nagarjuna or a senior advisor. No pitches. No pressure. Just expert guidance on Hyderabad's best real estate opportunities matched to your goals."}
                   </p>
                   <div className="space-y-3">
                     <a
@@ -252,7 +273,7 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
                       rel="noopener noreferrer"
                       className="btn-premium inline-flex w-full items-center justify-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-8 py-4 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
                     >
-                      <CalendarCheck className="h-4 w-4" /> Book Free Consultation
+                      <CalendarCheck className="h-4 w-4" /> {pc?.ctaConsultButton ?? "Book Free Consultation"}
                     </a>
                     <a
                       href={siteConfig.links.tel}
@@ -275,12 +296,10 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
                     <Download className="h-6 w-6 text-gold" />
                   </div>
                   <h3 className="text-xl font-bold text-white tracking-tight mb-3">
-                    Get Project Portfolio
+                    {pc?.ctaPortfolioTitle ?? "Get Project Portfolio"}
                   </h3>
                   <p className="text-[13px] text-white/35 leading-[1.7] mb-8 flex-1">
-                    Download detailed brochures with pricing, floor plans, location maps,
-                    and investment projections for all projects across our 4+ partner builders.
-                    Everything you need to compare and decide.
+                    {pc?.ctaPortfolioDescription ?? "Download detailed brochures with pricing, floor plans, location maps, and investment projections for all projects across our 4+ partner builders. Everything you need to compare and decide."}
                   </p>
                   <a
                     href={`${siteConfig.links.wa}?text=Hi%20Arjun%20Realty%2C%20I%27m%20interested%20in%20your%20projects.%20Kindly%20share%20your%20latest%20project%20portfolio%20and%20detailed%20information.%20Thank%20you.`}
@@ -288,7 +307,7 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
                     rel="noopener noreferrer"
                     className="btn-glass inline-flex w-full items-center justify-center gap-3 px-8 py-4 rounded-full text-[13px] font-semibold text-white/75 border border-white/[0.06] hover:border-primary/20 hover:text-primary transition-all duration-500"
                   >
-                    <Download className="h-4 w-4" /> Request Portfolio via WhatsApp
+                    <Download className="h-4 w-4" /> {pc?.ctaPortfolioButton ?? "Request Portfolio via WhatsApp"}
                   </a>
                 </div>
               </div>
@@ -306,7 +325,7 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
       <WhyHyderabadSection />
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 -mt-4 mb-4 text-center">
         <Link href="/why-hyderabad" className="inline-flex items-center gap-2 text-[13px] text-white/30 hover:text-primary transition-colors duration-300 font-medium">
-          Explore Hyderabad&apos;s growth <ArrowRight className="h-3.5 w-3.5" />
+          {pc?.whyHyderabadLink ?? "Explore Hyderabad's growth"} <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </div>
 
@@ -323,7 +342,7 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
       <FounderProfile />
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 -mt-4 mb-4 text-center">
         <Link href="/about" className="inline-flex items-center gap-2 text-[13px] text-white/30 hover:text-primary transition-colors duration-300 font-medium">
-          Meet our founder <ArrowRight className="h-3.5 w-3.5" />
+          {pc?.founderLink ?? "Meet our founder"} <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </div>
 
@@ -334,16 +353,24 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
         <div className="ambient-orb w-[400px] h-[400px] bg-primary/[0.02] -right-32 top-1/3" />
         <div className="mx-auto max-w-[900px] px-5 sm:px-8 lg:px-12">
           <ScrollReveal className="text-center mb-14 lg:mb-20">
-            <SectionLabel>FAQ</SectionLabel>
+            <SectionLabel>{pc?.faqLabel ?? "FAQ"}</SectionLabel>
             <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] leading-[1.1]">
-              Frequently Asked <span className="text-gradient">Questions</span>
+              {pc ? (
+                <>
+                  {pc.faqHeadingA} <span className="text-gradient">{pc.faqHeadingB}</span>
+                </>
+              ) : (
+                <>
+                  Frequently Asked <span className="text-gradient">Questions</span>
+                </>
+              )}
             </h2>
             <p className="mt-4 text-white/30 max-w-md mx-auto text-[0.9rem] leading-relaxed">
-              Everything you need to know about investing through Arjun Realty.
+              {pc?.faqDescription ?? "Everything you need to know about investing through Arjun Realty."}
             </p>
           </ScrollReveal>
 
-          <FaqAccordion items={faqs} />
+          <FaqAccordion items={faqItems} />
         </div>
       </section>
 
@@ -361,22 +388,29 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
         <ScrollReveal className="text-center relative z-10 mx-auto max-w-3xl px-5">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-[11px] text-white/30 font-medium mb-8">
             <span className="h-1.5 w-1.5 rounded-full bg-primary/50 animate-pulse" />
-            Free, no-obligation consultation — book yours today
+            {pc?.finalBadge ?? "Free, no-obligation consultation — book yours today"}
           </div>
           <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-[-0.03em] leading-[1.1] mb-6">
-            Ready to Make Your <span className="text-gradient">Best Real Estate</span> Investment?
+            {pc ? (
+              <>
+                {pc.finalHeadingA} <span className="text-gradient">{pc.finalHeadingB}</span>
+              </>
+            ) : (
+              <>
+                Ready to Make Your <span className="text-gradient">Best Real Estate</span> Investment?
+              </>
+            )}
           </h2>
           <p className="text-white/30 mb-10 text-[0.95rem] leading-relaxed max-w-lg mx-auto">
-            Join 1000+ smart investors who chose Arjun Realty Premium Advisory.
-            Speak with K. Nagarjuna directly and get a custom investment plan — free, with zero obligations.
+            {pc?.finalDescription ?? "Join 1000+ smart investors who chose Arjun Realty Premium Advisory. Speak with K. Nagarjuna directly and get a custom investment plan — free, with zero obligations."}
           </p>
 
           {/* Trust badges */}
           <div className="flex flex-wrap items-center justify-center gap-5 mb-10">
             {[
-              { icon: Shield, label: "Free Consultation" },
-              { icon: CheckCircle, label: "No Hidden Charges" },
-              { icon: Users, label: "1000+ Investors" },
+              { icon: Shield, label: pc?.finalBadges[0] ?? "Free Consultation" },
+              { icon: CheckCircle, label: pc?.finalBadges[1] ?? "No Hidden Charges" },
+              { icon: Users, label: pc?.finalBadges[2] ?? "1000+ Investors" },
             ].map((badge, i) => (
               <div key={badge.label} className="flex items-center gap-1.5 text-[11px] text-white/25 font-medium">
                 <badge.icon className="h-3.5 w-3.5 text-primary/50" />
@@ -393,7 +427,7 @@ export default function HomePage({ heroContent }: { heroContent?: HeroContent } 
               className="btn-premium inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-dark px-12 py-5 rounded-full text-[15px] font-semibold text-white glow-primary-strong"
             >
               <CalendarCheck className="h-5 w-5" />
-              Book Your Free Consultation
+              {pc?.finalButton ?? "Book Your Free Consultation"}
               <ArrowRight className="h-5 w-5" />
             </a>
             <a

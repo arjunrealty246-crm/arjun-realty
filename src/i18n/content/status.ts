@@ -1,5 +1,6 @@
 import { nonDefaultLocales, type Locale } from "@/i18n/config";
 import { getPageBundleByPath } from "./pages";
+import { getProjectBundleByPath } from "./project-translations";
 import type { LocalizedStatus } from "./types";
 
 /**
@@ -43,7 +44,7 @@ function normalizePath(path: string): string {
  */
 export function getTranslationStatus(path: string): LocalizedStatus {
   const target = normalizePath(path);
-  const bundle = getPageBundleByPath(target);
+  const bundle = getPageBundleByPath(target) ?? getProjectBundleByPath(target);
   if (bundle) return { ...bundle.status };
   const registered = pathStatusRegistry[target];
   if (registered) return { ...registered };

@@ -21,9 +21,8 @@ export interface HeroContent {
 
 /**
  * Page-level content bundles, keyed by a stable page key.
- * Only the homepage hero is registered in Phase 2A (pilot). No Telugu/Hindi
- * overrides are supplied yet, so both locales fall back to English — which is
- * the honest status ("english-only") and is reported as such by the inventory.
+ * The homepage hero is registered here; the rest of the homepage body copy
+ * lives in `home-copy.ts` and is not part of this hero bundle.
  */
 const pageBundles = {
   home: {
@@ -31,12 +30,12 @@ const pageBundles = {
     path: "/",
     en: heroEn as HeroContent,
     overrides: {
-      // te: {}, // Phase 2B
-      // hi: {}, // Phase 2B
+      // te: {}, // hero overrides (authored body copy is in home-copy.ts)
+      // hi: {},
     },
     status: {
-      te: "english-only",
-      hi: "english-only",
+      te: "needs-review",
+      hi: "needs-review",
     },
   },
 } satisfies Record<string, ContentBundle<HeroContent>>;

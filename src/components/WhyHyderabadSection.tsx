@@ -6,6 +6,8 @@ import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import SectionLabel from "./SectionLabel";
 import { whyHyderabad } from "@/data/content";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getHomeCopy } from "@/i18n/content/home-copy";
 
 const milestones = [
   {
@@ -72,25 +74,44 @@ const stats = [
 ];
 
 export default function WhyHyderabadSection() {
+  const { locale, href } = useLocale();
+  const copy = getHomeCopy(locale)?.whyHyderabad;
+  const localizedStats = copy ? stats.map((s, i) => ({ ...s, label: copy.stats[i]?.label ?? s.label, change: copy.stats[i]?.change ?? s.change })) : stats;
+  const localizedMilestones = copy
+    ? milestones.map((m, i) => ({
+        ...m,
+        title: copy.milestones[i]?.title ?? m.title,
+        description: copy.milestones[i]?.description ?? m.description,
+        stat: copy.milestones[i]?.stat ?? m.stat,
+      }))
+    : milestones;
   return (
     <section className="relative py-28 lg:py-36 overflow-hidden bg-section-alt">
       <div className="ambient-orb w-[600px] h-[600px] bg-gold/[0.03] -left-72 top-1/3" />
 
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal className="text-center mb-16 lg:mb-24">
-          <SectionLabel>{whyHyderabad.label}</SectionLabel>
+          <SectionLabel>{copy?.label ?? whyHyderabad.label}</SectionLabel>
           <h2 className="mt-5 text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.02em] leading-tight">
-            A City Writing the <span className="text-gradient">Future</span>
+            {copy ? (
+              <>
+                {copy.headingA} <span className="text-gradient">{copy.headingB}</span>
+              </>
+            ) : (
+              <>
+                A City Writing the <span className="text-gradient">Future</span>
+              </>
+            )}
           </h2>
           <p className="mt-4 text-white/35 max-w-lg mx-auto text-[0.9rem] leading-relaxed">
-            {whyHyderabad.description}
+            {copy?.description ?? whyHyderabad.description}
           </p>
         </ScrollReveal>
 
         {/* ── Stats Row ── */}
         <ScrollReveal className="mb-14">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {stats.map((s, i) => (
+            {localizedStats.map((s, i) => (
               <motion.div
                 key={s.label}
                 initial={{ opacity: 0, y: 16 }}
@@ -114,7 +135,7 @@ export default function WhyHyderabadSection() {
         <ScrollReveal className="mb-16">
           <div className="overflow-hidden py-4 border-y border-white/[0.04]">
             <div className="marquee-track whitespace-nowrap">
-              {[...milestones, ...milestones].map((m, i) => (
+              {[...localizedMilestones, ...localizedMilestones].map((m, i) => (
                 <span key={`${m.title}-${i}`} className="inline-flex items-center gap-3 mx-8 text-white/20 text-sm font-medium">
                   <Zap className="h-3 w-3 text-primary/40" />
                   {m.title}
@@ -131,7 +152,7 @@ export default function WhyHyderabadSection() {
           <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-gold/10 to-transparent" />
 
           <div className="space-y-6 lg:space-y-10">
-            {milestones.map((item, i) => {
+            {localizedMilestones.map((item, i) => {
               const Icon = item.icon;
               const isLeft = i % 2 === 0;
               return (
@@ -173,7 +194,7 @@ export default function WhyHyderabadSection() {
                               />
                             </div>
                             <span className={`text-[10px] font-semibold ${item.highlight ? "text-primary/60" : "text-white/25"}`}>
-                              {item.progress}% complete
+                              {item.progress}% {copy?.complete ?? "complete"}
                             </span>
                           </div>
                           {item.highlight && (
@@ -208,8 +229,8 @@ export default function WhyHyderabadSection() {
         </div>
 
         <ScrollReveal className="text-center mt-16">
-          <Link href="/why-hyderabad" className="btn-glass inline-flex items-center gap-3 px-10 py-4 rounded-full text-[13px] font-semibold text-white/80">
-            {whyHyderabad.cta} <ArrowRight className="h-4 w-4" />
+          <Link href={href("/why-hyderabad")} className="btn-glass inline-flex items-center gap-3 px-10 py-4 rounded-full text-[13px] font-semibold text-white/80">
+            {copy?.cta ?? whyHyderabad.cta} <ArrowRight className="h-4 w-4" />
           </Link>
         </ScrollReveal>
       </div>

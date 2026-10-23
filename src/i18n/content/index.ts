@@ -18,3 +18,17 @@ export {
   getInventorySummary,
 } from "./inventory";
 export type { InventorySummary } from "./inventory";
+export {
+  pickTranslatable,
+  hashProjectSource,
+  getProjectTranslationBundle,
+  getProjectBundleByPath,
+  localizeProject,
+  findMissingProjectTranslations,
+} from "./project-translations";
+export type { ProjectTranslatableContent, ProjectTranslationBundle } from "./project-translations";
+export {
+  hasLocalizedContent,
+  getLocalizedContentLocales,
+  localizedContentPaths,
+} from "./availability";

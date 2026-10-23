@@ -4,6 +4,8 @@ import { CheckCircle2, Loader2, Clock, TrendingUp } from "lucide-react";
 import ScrollReveal from "../ScrollReveal";
 import SectionLabel from "../SectionLabel";
 import type { Project, ProjectUpdate } from "@/data/projects";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getProjectLabels } from "@/i18n/project-labels";
 
 const statusMeta: Record<ProjectUpdate["status"], { label: string; icon: React.ReactNode; dot: string; text: string }> = {
   completed: {
@@ -26,7 +28,15 @@ const statusMeta: Record<ProjectUpdate["status"], { label: string; icon: React.R
   },
 };
 
+const statusLabelKey: Record<ProjectUpdate["status"], "completed" | "inProgress" | "planned"> = {
+  completed: "completed",
+  "in-progress": "inProgress",
+  planned: "planned",
+};
+
 export default function DevelopmentTimeline({ project }: { project: Project }) {
+  const { locale } = useLocale();
+  const t = getProjectLabels(locale);
   const updates = (project.updates || []).filter(Boolean);
   if (updates.length === 0) return null;
 
@@ -34,12 +44,12 @@ export default function DevelopmentTimeline({ project }: { project: Project }) {
     <section className="pb-16 lg:pb-20">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal>
-          <SectionLabel>Development Updates</SectionLabel>
+          <SectionLabel>{t.milestonesLabel}</SectionLabel>
           <h2 className="mt-5 text-2xl font-bold tracking-tight mb-2">
-            Project <span className="text-gradient">Milestones</span>
+            {t.milestonesHeadingPre} <span className="text-gradient">{t.milestonesHeadingAccent}</span>
           </h2>
           <p className="text-sm text-white/30 mb-8 max-w-xl">
-            Current stage of approvals, bookings and community development.
+            {t.milestonesIntro}
           </p>
         </ScrollReveal>
 
@@ -49,6 +59,7 @@ export default function DevelopmentTimeline({ project }: { project: Project }) {
           <div className="space-y-6">
             {updates.map((u, i) => {
               const meta = statusMeta[u.status] || statusMeta.planned;
+              const statusLabel = t[statusLabelKey[u.status] ?? "planned"];
               return (
                 <ScrollReveal key={`${u.title}-${i}`} delay={0.05 * i}>
                   <div className="relative pl-16">
@@ -63,7 +74,7 @@ export default function DevelopmentTimeline({ project }: { project: Project }) {
                           {u.title}
                         </h3>
                         <span className={`inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider ${meta.text}`}>
-                          <TrendingUp className="h-3 w-3" /> {meta.label}
+                          <TrendingUp className="h-3 w-3" /> {statusLabel}
                         </span>
                       </div>
                       {u.description && (

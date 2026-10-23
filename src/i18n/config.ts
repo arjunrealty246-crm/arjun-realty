@@ -1,3 +1,5 @@
+import { hasLocalizedContent } from "./content/availability";
+
 export const locales = ["en", "te", "hi"] as const;
 
 export type Locale = (typeof locales)[number];
@@ -47,14 +49,16 @@ export function localePath(locale: Locale, pathname: string): string {
 
 /**
  * Given the current pathname (which may already include a locale prefix) and a
- * target locale, produce the equivalent path in that locale. Preserves the path
- * and context, so switching language never sends visitors to the homepage.
+ * target locale, produce the equivalent path in that locale.
+ *
+ * The equivalent localized page is used only when translated content exists for
+ * it; otherwise the visitor is sent to that locale's homepage. An existing
+ * `/{locale}` route that still renders English is not a translated equivalent,
+ * so it is never linked from the switcher.
  */
 export function switchLocalePath(currentPathname: string, target: Locale): string {
   const { basePath } = stripLocale(currentPathname);
-  // If the current page has no localized equivalent, send visitors to the
-  // localized homepage rather than a non-existent translated URL.
-  if (target !== defaultLocale && !hasLocalizedRoute(basePath)) {
+  if (target !== defaultLocale && !hasLocalizedContent(basePath, target)) {
     return localePath(target, "/");
   }
   return localePath(target, basePath);

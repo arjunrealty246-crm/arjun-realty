@@ -20,6 +20,8 @@ import {
 } from "../DocumentAccessGate";
 import { getDownloadUrl } from "@/lib/download-url";
 import type { Project } from "@/data/projects";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getProjectLabels } from "@/i18n/project-labels";
 
 const BLUR =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCBmaWxsPSIjMWExYTJlIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIvPjwvc3ZnPg==";
@@ -30,6 +32,8 @@ function isImageUrl(url: string): boolean {
 }
 
 export default function ProjectLayoutSection({ project }: { project: Project }) {
+  const { locale } = useLocale();
+  const t = getProjectLabels(locale);
   const layoutUrl = project.layoutUrl || project.masterPlanUrl || project.layoutPdfUrl || "";
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -45,12 +49,12 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
       <section className="pb-16 lg:pb-20">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel>Layout &amp; Master Plan</SectionLabel>
+            <SectionLabel>{t.layoutLabel}</SectionLabel>
             <h2 className="mt-5 text-2xl font-bold tracking-tight mb-2">
-              Project <span className="text-gradient">Layout</span>
+              {t.layoutHeadingPre} <span className="text-gradient">{t.layoutHeadingAccent}</span>
             </h2>
             <p className="text-sm text-white/30 mb-8 max-w-xl">
-              View the site layout and master plan for {project.name}.
+              {t.layoutImageIntro(project.name)}
             </p>
           </ScrollReveal>
 
@@ -76,7 +80,7 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
               </div>
               <div className="px-6 py-4 border-t border-white/[0.04] flex flex-wrap items-center justify-between gap-3">
                 <p className="text-sm text-white/40 flex items-center gap-2">
-                  <LayoutDashboard className="h-4 w-4 text-primary/50" /> Layout / Master Plan — {project.name}
+                  <LayoutDashboard className="h-4 w-4 text-primary/50" /> {t.layoutCaption(project.name)}
                 </p>
                 <div className="flex flex-wrap items-center gap-3">
                   <button
@@ -84,7 +88,7 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
                     disabled={failed}
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary/[0.08] border border-primary/15 text-[11px] font-semibold text-primary hover:bg-primary/[0.15] transition-colors duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
                   >
-                    <ExternalLink className="h-3.5 w-3.5" /> View Layout
+                    <ExternalLink className="h-3.5 w-3.5" /> {t.viewLayout}
                   </button>
                   <a
                     href={api ? undefined : layoutUrl}
@@ -94,7 +98,7 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
                     onClick={gateLink("Layout / Master Plan", () => downloadDocument(layoutUrl))}
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06] text-[11px] font-semibold text-white/60 hover:border-primary/20 hover:text-primary transition-colors duration-300"
                   >
-                    <Download className="h-3.5 w-3.5" /> Download
+                    <Download className="h-3.5 w-3.5" /> {t.download}
                   </a>
                 </div>
               </div>
@@ -140,12 +144,12 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
     <section className="pb-16 lg:pb-20">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <ScrollReveal>
-          <SectionLabel>Layout &amp; Master Plan</SectionLabel>
+          <SectionLabel>{t.layoutLabel}</SectionLabel>
           <h2 className="mt-5 text-2xl font-bold tracking-tight mb-2">
-            Project <span className="text-gradient">Layout</span>
+            {t.layoutHeadingPre} <span className="text-gradient">{t.layoutHeadingAccent}</span>
           </h2>
           <p className="text-sm text-white/30 mb-8 max-w-xl">
-            Download or view the detailed site layout for {project.name}.
+            {t.layoutDocIntro(project.name)}
           </p>
         </ScrollReveal>
 
@@ -156,8 +160,8 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
                 <FileText className="h-7 w-7 text-primary" />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="text-lg font-bold text-white">Layout Plan</h3>
-                <p className="text-xs text-white/30 mt-0.5">PDF document · {project.name}</p>
+                <h3 className="text-lg font-bold text-white">{t.layoutPlan}</h3>
+                <p className="text-xs text-white/30 mt-0.5">PDF · {project.name}</p>
               </div>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -170,7 +174,7 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
                 onClick={gateLink("Layout Plan", () => openDocumentInNewTab(getDownloadUrl(layoutUrl)))}
                 className="btn-premium inline-flex items-center gap-2.5 bg-gradient-to-r from-primary to-primary-dark px-6 py-3 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
               >
-                <ExternalLink className="h-4 w-4" /> View Layout
+                <ExternalLink className="h-4 w-4" /> {t.viewLayout}
               </a>
               <a
                 href={api ? undefined : getDownloadUrl(layoutUrl)}
@@ -180,7 +184,7 @@ export default function ProjectLayoutSection({ project }: { project: Project }) 
                 onClick={gateLink("Layout Plan", () => downloadDocument(getDownloadUrl(layoutUrl)))}
                 className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/[0.04] border border-white/[0.08] text-[13px] font-semibold text-white/60 hover:bg-white/[0.07] hover:border-primary/20 hover:text-primary transition-all duration-300"
               >
-                <Download className="h-4 w-4" /> Download Layout
+                <Download className="h-4 w-4" /> {t.downloadLayout}
               </a>
             </div>
           </div>

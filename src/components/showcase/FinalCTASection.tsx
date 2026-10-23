@@ -5,8 +5,12 @@ import Link from "next/link";
 import ScrollReveal from "../ScrollReveal";
 import siteConfig from "@/config/site";
 import type { Project } from "@/data/projects";
+import { useLocale } from "@/i18n/LocaleContext";
+import { getProjectLabels } from "@/i18n/project-labels";
 
 export default function FinalCTASection({ project }: { project: Project }) {
+  const { locale } = useLocale();
+  const t = getProjectLabels(locale);
   const waMessage = encodeURIComponent(
     `Hi, I'm interested in ${project.name}.\nPlease share more details.`
   );
@@ -21,12 +25,10 @@ export default function FinalCTASection({ project }: { project: Project }) {
 
             <div className="relative z-10 text-center max-w-3xl mx-auto">
               <h2 className="text-2xl lg:text-4xl font-bold tracking-tight mb-4">
-                Looking for the <span className="text-gradient">right property</span>?
+                {t.finalCtaHeadingPre} <span className="text-gradient">{t.finalCtaHeadingAccent}</span>
               </h2>
               <p className="text-sm lg:text-base text-white/45 leading-relaxed mb-9 max-w-2xl mx-auto">
-                Talk to {siteConfig.shortName} for transparent guidance on {project.name}
-                and every verified project across Hyderabad — from price comparison to
-                documentation support and site visits.
+                {t.finalCtaIntro(project.name, siteConfig.shortName)}
               </p>
 
               <div className="flex flex-wrap items-center justify-center gap-3">
@@ -36,19 +38,19 @@ export default function FinalCTASection({ project }: { project: Project }) {
                   rel="noopener noreferrer"
                   className="btn-premium inline-flex items-center gap-2.5 bg-gradient-to-r from-primary to-primary-dark px-7 py-3.5 rounded-full text-[13px] font-semibold text-white glow-primary-strong"
                 >
-                  <MessageCircle className="h-4 w-4" /> WhatsApp Enquiry
+                  <MessageCircle className="h-4 w-4" /> {t.whatsappEnquiry}
                 </a>
                 <a
                   href="#enquiry"
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white/[0.06] border border-white/[0.12] text-[13px] font-semibold text-white/80 hover:bg-white/[0.1] hover:border-primary/20 hover:text-primary transition-all duration-300"
                 >
-                  <ArrowRight className="h-4 w-4" /> Enquire Now
+                  <ArrowRight className="h-4 w-4" /> {t.enquireNow}
                 </a>
                 <Link
                   href="/projects"
                   className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white/[0.06] border border-white/[0.12] text-[13px] font-semibold text-white/80 hover:bg-white/[0.1] hover:border-primary/20 hover:text-primary transition-all duration-300"
                 >
-                  <Compass className="h-4 w-4" /> Explore Projects
+                  <Compass className="h-4 w-4" /> {t.exploreProjects}
                 </Link>
               </div>
             </div>
