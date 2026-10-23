@@ -450,7 +450,7 @@ const projectTranslationBundles: Record<string, ProjectTranslationBundle> = {
     // (`getMergedProject`, not the static registry). Any later edit to a
     // translated field makes the hash mismatch and the page falls back to
     // English instead of showing stale translations next to changed facts.
-    sourceHash: "525eaba9",
+    sourceHash: "64f2dd55",
   },
 };
 
